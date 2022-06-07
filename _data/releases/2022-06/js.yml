@@ -283,4 +283,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_2.0.0/sdk/imagebuilder/arm-imagebuilder/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/data-tables'
+  Version: 13.1.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.1.2/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support cross tenant authentication [#21678](https://github.com/Azure/azure-sdk-for-js/pull/21678)
+
+    #### Bugs Fixed
+
+    - fix react native bundling issue by adding a `react-native` mapping to ESM
+    entry point so that dependencies can be loaded asynchronously.
 
