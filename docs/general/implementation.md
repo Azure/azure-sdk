@@ -185,7 +185,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [Tracing Conventions].
 
-{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} name per-method spans following `<client>.<method>` pattern without namespace or async suffix if applicable. Follow language-specific conventions for casing.
+{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} us `<client> <method>` as the name of the per-method span without namespace or async suffix. Follow language-specific conventions on casing or separator.
 
 {% include requirement/MUST id="general-tracing-new-span-per-method-duration" %} start per-method spans before sending the request or calling any significantly time consuming code that might fail. End the span only after all network, IO or other unreliable and time consuming operations are complete.
 
