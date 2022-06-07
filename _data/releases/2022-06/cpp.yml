@@ -14,4 +14,30 @@ entries:
     #### Features Added
 
     - Added prototypes and initial service support for Distributed Tracing.
+- Name: azure-storage-common
+  Version: 12.2.4
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.2.4/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where text of XML element cannot be empty.
+- Name: azure-storage-blobs
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.5.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2020-10-02`.
+    - Added new API: `BlockBlobClient::Query()`.
+    - Added `ContinuationToken` and `PageSizeHint` in `GetPageRangesOptions`.
+    - Added support for listing system containers.
+    - Added support for listing deleted root blob with active versions.
 
