@@ -1674,4 +1674,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/v0.6.0/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.0.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.0.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgrade `microsoft-authentication-library-for-go` requirement to v0.5.1
+    ([#18176](https://github.com/Azure/azure-sdk-for-go/issues/18176))
 
