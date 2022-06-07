@@ -599,23 +599,9 @@ Android applications commonly need to react to events from the UI or service. Th
 
 ##### Event Handlers
 
-{% include requirement/MUST id="android-event-unicast-handler" %} declare unicast event handlers as functional interfaces that use the `@FunctionalInterface` annotation.
+{% include requirement/MUST id="android-event-type %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on Azure Core's `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
 
-{% include requirement/MUST id="android-event-unicast-handler-naming" %} name event handler interfaces using the suffix `Handler`.
-> NOTE: The name `EventHandler` is reserved for use in the `azure-core` library.
-
-{% include requirement/MUST id="android-event-unicast-method-naming" %} name event handler methods in unicast handlers using the `on` prefix.
-
-```java
-@FunctionalInterface
-interface MessageHandler<E extends MessagingEvent> {
-    void onMessageReceived(E event);
-}
-```
-
-{% include requirement/MUST id="android-event-type %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on `azure-core`'s `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
-
-{% include requirement/MUST id="android-event-properties %} provide additional details about an event to a handler do by using a class that extends from `Event` in `azure-core` and passing an instance of said class to the handler in question. The name for the aforementioned class should end with the `Event` suffix. For example:
+{% include requirement/MAY id="android-event-details %} provide additional details about an event to a handler via an instance of a class extending from `Event` in Azure Core. The name for the aforementioned class should end with the `Event` suffix. For example:
 
 ```java
 class MessagingEvent extends Event<MessagingEventType> {
@@ -626,39 +612,47 @@ class MessagingEvent extends Event<MessagingEventType> {
         this.threadId = threadId;
     }
 
-    public MessagingEventType getEventType() {
-        return this.eventType;
-    }
-
     public String getThreadId() {
         return threadId;
     }
 }
 ```
 
-{% include requirement/MAY id="android-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
+{% include requirement/MAY id="android-event-handler-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
 
-{% include requirement/MUST id="android-event-multicast" %} expose multicast event handlers using the `MulticastEventCollection` type from `azure-core`. This type contains an `addEventHandler` method which accepts the event alongside an implementation of the `EventHandler` interface to handle it and returns a UUID string identifier which can be used to remove the handler via the `removeEventHandler` method. Here's an example:
+{% include requirement/MUST id="android-event-handler-registration %} register event handlers on clients via methods whose names start with the `add` prefix and end with the `Handler` suffix. Additionally, said methods must return a unique identifier for the provided handler to facilitate its removal.
+
+{% include requirement/MUST id="android-event-handler-registration-minimum-arguments %} have said methods take at least one argument that is an implementation of the `EventHandler` interface from Azure Core:
 
 ```java
-public class MessagingClient {
-    MulticastEventCollection<MessagingEventType, MessagingEvent> messagingEventCollection;
-            
-    MessagingClient() {
-        messagingEventCollection = new MulticastEventCollection<>();
-    }
-    
-    public String addMessagingEventHandler(MessagingEventType eventType, EventHandler<MessagingEvent> handler) {
-        return multicastEventCollection.addEventHandler(eventType, handler);
-    }
+public String addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
+    ...
+    return handlerId;
+}
+```
 
-    public void removeMessagingEventHandler(String handlerId) {
-      multicastEventCollection.removeEventHandler(handlerId);
-    }
+{% include requirement/MAY id="android-event-handler-registration-with-event-type %} choose to associate a specific event type to a given event handler during registration instead:
 
-    public void handleMessagingEvent(MessagingEvent event) {
-        multicastEventCollection.handle(event);
-    }
+```java
+public String addMessagingEventHandler(MessagingEventType eventType, EventHandler<MessagingEvent> handler){
+    ...
+    return handlerId;
+}
+```
+
+{% include requirement/MUST id="android-event-handler-removal %} provide at least one method for unregistering event handlers that takes a unique identifier associated with the handler in question.
+
+{% include requirement/MUST id="android-handling-events %} handle events in methods named with the `on` prefix.
+
+```java
+public void onMessageReceived(MessageReceivedEvent event) {
+    ...
+}
+```
+
+```java
+public void onMessagingEvent(MessagingEventType eventType, MessagingEvent event) {
+    ...
 }
 ```
 
