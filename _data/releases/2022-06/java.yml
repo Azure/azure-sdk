@@ -1368,4 +1368,19 @@ entries:
 
     - Fixed a bug where a custom `ObjectSerializer`'s output wasn't being respected in regard to null field values. ([#29238](https://github.com/Azure/azure-sdk-for-java/pull/29238))
   GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.2.3
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.2.3/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.29.1`
+    - Upgraded `azure-core-http-netty` dependency to `1.12.2`.
+    - Upgraded `azure-core-identity` dependency to `1.5.2`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency to `1.2.18`.
+  GroupId: com.azure
 
