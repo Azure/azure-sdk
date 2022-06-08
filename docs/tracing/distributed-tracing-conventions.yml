@@ -1,7 +1,6 @@
 # This document describes Azure SDK semantic conventions for tracing in [OpenTelemetry format](https://github.com/open-telemetry/build-tools/blob/main/semantic-conventions/syntax.md).
 # DO NOT add new conventions - use [OpenTelemetry conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/semantic_conventions), but it's ok to extend existing ones.
-# DO remove conventions when moving to OpenTelemetry one - it's not breaking.
-# Version: 0.0.0
+# Version: 0.1.0
 
 groups:
   # common
@@ -30,58 +29,43 @@ groups:
       This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
       but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
     attributes:
-      - id: http.method
-        type: string
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'HTTP request method.'
-        examples: ["GET", "POST", "HEAD"]
-      - id: http.url
-        type: string
-        requirement_level: required
-        sampling_relevant: true
-        brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
-        examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
-      - id: http.status_code
-        type: int
-        requirement_level:
-          conditionally_required: If and only if one was received/sent.
-        brief: '[HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).'
-        examples: [200]
-      - id: http.user_agent
-        type: string
-        requirement_level:
-          conditionally_required: only if present
-        brief: 'Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client.'
-        examples: ['CERN-LineMode/2.15 libwww/2.17b3']
-      - id: requestId
+      - ref: http.method
+      - ref: http.url
+      - ref: http.status_code
+      - id: az.client_request_id
         type: string
         requirement_level:
           conditionally_required: only if present
         brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
-      - id: serviceRequestId
+      - id: az.service_request_id
         type: string
         requirement_level:
           conditionally_required: if and only if one was received
         brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
+    constraints:
+      - include: http.client #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/http.yaml
 
   # messaging
   - id: azure-sdk.messaging
     brief: 'Describes Azure messaging SDKs spans.'
     extends: azure-sdk
     attributes:
-      - id: message_bus.destination
-        type: string
-        requirement_level: required
+      - ref: messaging.system
+        sampling_relevant: true
+        examples: ['eventhubs', 'servicebus']
+      - ref: messaging.url
+        sampling_relevant: true
+        brief: 'Fully qualified Azure messaging service name.'
+        examples: 'http://myEventHubNamespace.servicebus.windows.net/'
+      - ref: messaging.destination
+        sampling_relevant: true
         brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name.'
         examples: ['myqueue', 'myhub']
-      - id: peer.address
-        type: string
-        brief: 'Fully qualified messaging service name.'
-        requirement_level: required
-        examples: ['myEventHubNamespace.servicebus.windows.net']
+    constraints:
+      - include: messaging #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/messaging.yaml
+
   - id: azure-sdk.messaging.producer
     span_kind: producer
     extends: azure-sdk.messaging
@@ -90,7 +74,7 @@ groups:
   - id: azure-sdk.messaging.send
     span_kind: client
     extends: azure-sdk.messaging
-    brief: 'Describes send (transport call) span.'
+    brief: 'Describes Azure messaging SDKs producer client spans.'
     note: 'Contains links to all messages contexts being sent.'
 
   - id: azure-sdk.messaging.process
@@ -109,23 +93,32 @@ groups:
       Events with additional debug info are added for long running operations.
     extends: azure-sdk
     attributes:
-      - id: db.url
+      - ref: net.peer.name
+        requirement_level: required
+        sampling_relevant: true
+        brief: 'Fully qualified database service name.'
+        examples: ['https://my-cosmos.documents.azure.com']
+      - ref: net.peer.port
+        requirement_level: 
+        conditionally_required: if using a port other than the default port for this DBMS.
+        sampling_relevant: true
+        brief: 'Database port'
+        examples: 443
+      - ref: db.operation
         type: string
         requirement_level: required
-        brief: 'Cosmos DB URI'
-        examples: ['https://my-cosmos.documents.azure.com:443/']
-      - id: db.statement
-        type: string
-        requirement_level: required
+        sampling_relevant: true
         brief: 'Database statement'
         examples: ['createContainerIfNotExists.myContainer']
-      - id: db.instance
-        type: string
+      - ref: db.name
         requirement_level: required
+        sampling_relevant: true
         brief: 'Database name'
         examples: ['mydb']
-      - id: db.type
-        type: string
+      - ref: db.system
         requirement_level: required
+        sampling_relevant: true
         brief: 'Database type'
-        examples: ['Cosmos']
+        examples: ['cosmosdb']
+    constraints:
+      - include: db #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/database.yaml
