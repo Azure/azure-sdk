@@ -89,4 +89,15 @@ entries:
 
     - Added `ClientCertificateCredential`, and updated `EnvironmentCredential` to support client certificate authentication.
     - Added `ChainedTokenCredential`.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.1
+  DisplayName: Tracing
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-tracing-opentelemetry_1.0.0-beta.1/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
 
