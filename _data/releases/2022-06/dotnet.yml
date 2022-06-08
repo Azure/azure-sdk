@@ -186,4 +186,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue that caused `TableEntity.GetBinaryData` to return incorrectly formatted data for binary entity properties. ([#29029](https://github.com/Azure/azure-sdk-for-net/issues/29029))
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.5.1
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.5.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed race condition when starting up function app.
 
