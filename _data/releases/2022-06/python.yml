@@ -242,4 +242,24 @@ entries:
     - The `ServiceBusClient`constructor now accepts optional `connection_verify` argument
     which allows for specifying the path to the custom CA_BUNDLE file of the SSL certificate which is used to authenticate
     the identity of the connection endpoint.
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b5
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `bounding_box` to `polygon` on `BoundingRegion`, `DocumentContentElement`, `DocumentLine`, `DocumentSelectionMark`, `DocumentWord`.
+    - Renamed `language_code` to `locale` on `DocumentLanguage`.
+    - Some models that previously returned string for address related fields may now return `AddressValue`. TIP: Use `get_model()` on `DocumentModelAdministrationClient` to see updated prebuilt model schemas.
+    - Removed `entities` property on `AnalyzeResult`.
+    - Removed `DocumentEntity` model.
+
+    #### Features Added
+    - Added `paragraphs` property on `AnalyzeResult`.
+    - Added new `DocumentParagraph` model to represent document paragraphs.
+    - Added new `AddressValue` model to represent address fields found in documents.
+    - Added `kind` property on `DocumentPage`.
 
