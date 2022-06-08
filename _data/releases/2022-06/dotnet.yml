@@ -127,4 +127,28 @@ entries:
     - Added optional parameter `categoryId` to the `DocumentTranslationInput.AddTarget`.
     - Added property `Ascending` to type `DocumentFilterOrder` and `TranslationFilterOrder`.
     - `DocumentTranslationAudience` has been added to allow the user to select the Azure cloud where the resource is located.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.1.0/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Sql
+  ServiceName: Sql Database
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.0.0-beta.5/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.1.0
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.1.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
 
