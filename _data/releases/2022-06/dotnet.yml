@@ -97,4 +97,34 @@ entries:
     #### Features Added
 
     - Added `ServiceBusRuleManager` for managing rules.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - In `DocumentTranslationOperation`, `Cancel` calls won't overwrite the response from `GetRawResponse` anymore.
+
+    #### Breaking Changes
+    - Renamed type `StorageInputType` to `StorageInputUriKind`.
+    - Renamed property `StorageType` to `StorageUriKind` in `DocumentTranslationInput`.
+    - Renamed parameter `asc` to `ascending` in `TranslationFilterOrder` constructor.
+    - The following properties inside of the `DocumentTranslationOperation` class will throw an `InvalidOperationException` if they are accessed and the LRO hasn't made a request to the service:
+    - `CreatedOn`
+    - `DocumentsCanceled`
+    - `DocumentsFailed`
+    - `DocumentsInProgress`
+    - `DocumentsNotStarted`
+    - `DocumentsSucceeded`
+    - `DocumentsTotal`
+    - `LastModified`
+    - `Status`
+
+    #### Features Added
+    - Added optional parameter `categoryId` to the `DocumentTranslationInput.AddTarget`.
+    - Added property `Ascending` to type `DocumentFilterOrder` and `TranslationFilterOrder`.
+    - `DocumentTranslationAudience` has been added to allow the user to select the Azure cloud where the resource is located.
 
