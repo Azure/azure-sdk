@@ -1475,4 +1475,35 @@ entries:
     #### Bugs Fixed
     * Fixed Store Response headers case insensitivity. - See [PR 29268](https://github.com/Azure/azure-sdk-for-java/pull/29268)
   GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.3.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.3.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-core-http-netty` from `1.12.0` to version `1.12.2`.
+    - Upgraded `azure-storage-common` from `12.16.0` to version `12.16.1`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.16.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.16.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-core-http-netty` from `1.12.0` to version `1.12.2`.
+  GroupId: com.azure
 
