@@ -1627,4 +1627,19 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.0` to version `1.12.2`.
     - Upgraded `azure-storage-common` from `12.16.0` to version `12.16.1`.
   GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.3
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.3/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-core-http-netty` from `1.12.0` to version `1.12.2`.
+  GroupId: com.azure
 
