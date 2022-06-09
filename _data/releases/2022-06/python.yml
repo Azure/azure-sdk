@@ -295,4 +295,20 @@ entries:
     - A new method `EventHubProducerClient.get_buffered_event_count` which returns the number of events that are buffered and waiting to be published for a given partition.
     - A new property `EventHubProducerClient.total_buffered_event_count` which returns the total number of events that are currently buffered and waiting to be published, across all partitions.
     - A new boolean keyword argument `flush` to `EventHubProducerClient.close` which indicates whether to flush the buffer or not while closing.
+- Name: azure-mgmt-compute
+  Version: 27.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_27.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.2.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.2.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
 
