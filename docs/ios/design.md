@@ -300,7 +300,7 @@ iOS applications commonly need to react to events from the UI or service. The fo
 
 {% include requirement/MUST id="ios-event-closures-required" %} expose event handlers as closures.
 
-{% include requirement/SHOULD id="ios-event-properties %} group related events together in a `struct` whose definition is enclosed within the client. This struct should be named `Events` (if there is only one collection) or end with the `Events` suffix and should contain no other properties or methods besides the event handlers themselves. Event collections must be exposed directly on the client as a property that is either named `events` (if there is only one collection) or ends with the `Events` suffix. For example:
+{% include requirement/SHOULD id="ios-event-properties" %} group related events together in a `struct` whose definition is enclosed within the client. This struct should be named `Events` (if there is only one collection) or end with the `Events` suffix and should contain no other properties or methods besides the event handlers themselves. Event collections must be exposed directly on the client as a property that is either named `events` (if there is only one collection) or ends with the `Events` suffix. For example:
 
 {% highlight swift %}
 public class CatClient: PipelineClient {
