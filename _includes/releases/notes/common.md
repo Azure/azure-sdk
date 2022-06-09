@@ -9,5 +9,5 @@ The Azure SDK team is pleased to announce our {{ include.displayDate }} client l
 {% include releases/notes/{{ include.language }}.md %}
 
 {% else %}
-No packaged released this month yet.
+No packages released this month yet.
 {% endif %}
