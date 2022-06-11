@@ -1,0 +1,23 @@
+entries:
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b6/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Implement log exporter using experimental OT logging sdk
+    ([#23486](https://github.com/Azure/azure-sdk-for-python/pull/23486))
+    - Implement sending of exception telemetry via log exporter
+    ([#23633](https://github.com/Azure/azure-sdk-for-python/pull/23633))
+    - Implement exporting span events as message/exception telemetry
+    ([#23708](https://github.com/Azure/azure-sdk-for-python/pull/23708))
+    - Implement metrics exporter using experimental OT metrics sdk
+    ([#23960](https://github.com/Azure/azure-sdk-for-python/pull/23960))
+
+    #### Breaking Changes
+    - Update to OpenTelemetry api/sdk 1.12.0rc1
+    ([#24619](https://github.com/Azure/azure-sdk-for-python/pull/24619))
+
