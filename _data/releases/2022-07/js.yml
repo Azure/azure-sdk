@@ -7,4 +7,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 2.0.5
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.5/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in `InteractiveBrowserCredential` for Mac OS where the [app was not getting closed](https://github.com/Azure/azure-sdk-for-js/issues/21726) after the authorization succeeded.
 
