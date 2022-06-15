@@ -194,4 +194,25 @@ entries:
 
     - Fixes trace context propagation issue: links to *message* spans were not populated on *send* span. ([#28951](https://github.com/Azure/azure-sdk-for-java/pull/28951))
   GroupId: com.azure
+- Name: azure-analytics-purview-catalog
+  Version: 1.0.0-beta.4
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-catalog_1.0.0-beta.4/sdk/purview/azure-analytics-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added missing query parameter `includeTermHierarchy` for update term API.
+    - Added missing query parameter `excludeRelationshipTypes` for get term API.
+
+    #### Features Added
+
+    - Supported Atlas 2.2 APIs.
+
+    #### Breaking Changes
+
+    - Exposed required query and header parameters to method signature.
+  GroupId: com.azure
 
