@@ -599,61 +599,86 @@ Android applications commonly need to react to events from the UI or service. Th
 
 ##### Event Handlers
 
-{% include requirement/MUST id="android-event-type %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on Azure Core's `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
-
-{% include requirement/MAY id="android-event-details %} provide additional details about an event to a handler via an instance of a class extending from `Event` in Azure Core. The name for the aforementioned class should end with the `Event` suffix. For example:
-
-```java
-class MessagingEvent extends Event<MessagingEventType> {
-    private final String threadId;
-
-    MessagingEvent(MessagingEventType eventType, String threadId) {
-        super(eventType);
-        this.threadId = threadId;
-    }
-
-    public String getThreadId() {
-        return threadId;
-    }
-}
-```
-
 {% include requirement/MAY id="android-event-handler-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
 
-{% include requirement/MUST id="android-event-handler-registration %} register event handlers on clients via methods whose names start with the `add` prefix and end with the `Handler` suffix. Additionally, said methods must return a unique identifier for the provided handler to facilitate its removal.
+{% include requirement/MUST id="android-event-handler-collection" %} use Azure Core's `EventHandlerCollection` internally to keep track of registered event handlers and their associations with different event types within a client.
 
-{% include requirement/MUST id="android-event-handler-registration-minimum-arguments %} have said methods take at least one argument that is an implementation of the `EventHandler` interface from Azure Core:
+{% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package private client constants.
 
-```java
-public String addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
-    ...
-    return handlerId;
-}
-```
+{% include requirement/MUST id="android-event-handler-registration %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
 
-{% include requirement/MAY id="android-event-handler-registration-with-event-type %} choose to associate a specific event type to a given event handler during registration instead:
+{% include requirement/MUST id="android-event-handler-registration-minimum-arguments %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
 
 ```java
-public String addMessagingEventHandler(MessagingEventType eventType, EventHandler<MessagingEvent> handler){
-    ...
-    return handlerId;
-}
-```
-
-{% include requirement/MUST id="android-event-handler-removal %} provide at least one method for unregistering event handlers that takes a unique identifier associated with the handler in question.
-
-{% include requirement/MUST id="android-handling-events %} handle events in methods named with the `on` prefix.
-
-```java
-public void onMessageReceived(MessageReceivedEvent event) {
+public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
     ...
 }
 ```
 
+{% include requirement/MUST id="android-event-handler-removal %} provide at least one method for unregistering event handlers named `removeEventHandler`, which takes one argument named `handler`.
+
 ```java
-public void onMessagingEvent(MessagingEventType eventType, MessagingEvent event) {
+public void removeEventHandler(EventHandler handler) {
     ...
 }
+```
+
+{% include requirement/MAY id="android-event-handler-specific-removal %} instead provide individual methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. This method must take one argument named `handler`.
+
+```java
+public void removeOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
+    ...
+}
+```
+
+{% include requirement/SHOULD id="android-group-event-details %} bundle together event details to pass to an event handler via an instance of a class whose name ends with the `Event` suffix. For example:
+
+```java
+public static class MessageReceivedEvent {
+    private String messageId;
+    private String userId;
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public MessageReceivedEvent setMessageId(String messageId) {
+        this.messageId = messageId;
+
+        return this;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public MessageReceivedEvent setUserId(String userId) {
+        this.userId = userId;
+
+        return this;
+    }
+}
+```
+
+{% include requirement/MAY id="android-event-details-other-classes %} instead provide other types of objects to event handlers when grouping event details together is not necessary. For example:
+
+```java
+public void addOnAlertTriggeredHandler(EventHandler<String> handler) {
+    ...
+}
+
+...
+
+EventHandler<String> alertTriggeredHandler = new EventHandler<String>() {
+    @Override
+    public void handle(String timestamp) {
+        ...
+    } 
+}
+
+...
+
+client.addOnAlertTriggeredHandler(alertTriggeredHandler);
 ```
 
 #### Methods Invoking Long Running Operations
