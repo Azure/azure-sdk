@@ -605,9 +605,9 @@ Android applications commonly need to react to events from the UI or service. Th
 
 {% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package private client constants.
 
-{% include requirement/MUST id="android-event-handler-registration %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
+{% include requirement/MUST id="android-event-handler-registration" %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
 
-{% include requirement/MUST id="android-event-handler-registration-minimum-arguments %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
+{% include requirement/MUST id="android-event-handler-registration-minimum-arguments" %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
 
 ```java
 public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
@@ -615,7 +615,7 @@ public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handl
 }
 ```
 
-{% include requirement/MUST id="android-event-handler-removal %} provide at least one method for unregistering event handlers named `removeEventHandler`, which takes one argument named `handler`.
+{% include requirement/MUST id="android-event-handler-removal" %} provide at least one method for unregistering event handlers named `removeEventHandler`, which takes one argument named `handler`.
 
 ```java
 public void removeEventHandler(EventHandler handler) {
@@ -623,7 +623,7 @@ public void removeEventHandler(EventHandler handler) {
 }
 ```
 
-{% include requirement/MAY id="android-event-handler-specific-removal %} instead provide individual methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. This method must take one argument named `handler`.
+{% include requirement/MAY id="android-event-handler-specific-removal" %} instead provide individual methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. This method must take one argument named `handler`.
 
 ```java
 public void removeOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
@@ -631,7 +631,7 @@ public void removeOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> ha
 }
 ```
 
-{% include requirement/SHOULD id="android-group-event-details %} bundle together event details to pass to an event handler via an instance of a class whose name ends with the `Event` suffix. For example:
+{% include requirement/SHOULD id="android-group-event-details" %} bundle together event details to pass to an event handler via an instance of a class whose name ends with the `Event` suffix. For example:
 
 ```java
 public static class MessageReceivedEvent {
@@ -660,7 +660,7 @@ public static class MessageReceivedEvent {
 }
 ```
 
-{% include requirement/MAY id="android-event-details-other-classes %} instead provide other types of objects to event handlers when grouping event details together is not necessary. For example:
+{% include requirement/MAY id="android-event-details-other-classes" %} instead provide other types of objects to event handlers when grouping event details together is not necessary. For example:
 
 ```java
 public void addOnAlertTriggeredHandler(EventHandler<String> handler) {
