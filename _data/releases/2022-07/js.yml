@@ -18,4 +18,70 @@ entries:
     #### Bugs Fixed
 
     - Fixed a bug in `InteractiveBrowserCredential` for Mac OS where the [app was not getting closed](https://github.com/Azure/azure-sdk-for-js/issues/21726) after the authorization succeeded.
+- Name: '@azure/arm-sqlvirtualmachine'
+  Version: 5.0.0-beta.5
+  DisplayName: Resource Management - Sql Virtual Machine
+  ServiceName: SQL Virtual Machine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/purview-catalog'
+  Version: 1.0.0-beta.5
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-catalog_1.0.0-beta.5/sdk/purview/purview-catalog-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add missing query parameter `includeTermHierarchy` for update term API
+    - Add missing query parameter `excludeRelationshipTypes` for get term API
+
+    #### Features Added
+
+    - Support Atlas 2.2 APIs
+- Name: '@azure/arm-netapp'
+  Version: 16.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appconfiguration'
+  Version: 3.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iothub'
+  Version: 6.1.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.3
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.3/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix issue https://github.com/Azure/azure-sdk-for-js/issues/22134 that hub name should be case insensitive
+- Name: '@azure/arm-monitor'
+  Version: 8.0.0-beta.1
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor/CHANGELOG.md
+  ChangelogContent: ""
 
