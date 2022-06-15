@@ -30,4 +30,72 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.0-beta.9/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.10.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-08-06.'
+- Name: Azure.Storage.Queues
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.11.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.11.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-08-06.
+    - Added ability to set permission, umask, owner, group, ACL, lease, and expiry time on DataLakeFileClient.Create() and .CreateAsync(), DataLakeDirectoryClient.Create() and .CreateAsync(), and DataLakePathClient.Create() and .CreateAsync().
+    - Fixed bug where DataLakeDirectoryClient.GetPaths() and DataLakeFileSystemClient.GetPaths() called on a storage account without HNS enabled throws a FormatException when parsing the Date Time.
+- Name: Azure.Storage.Blobs
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.13.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-08-06.
+    - Added support for clientside encryption V2.0
+    - GCM support
+    - V2.0 is considered a security upgrade, and it is recommended applications switch to server-side encryption or upgrade to clientside V2.0.
+    - Fixed bug where calling AppendBlockFromUri() without AppendBlobAppendBlockFromUriOptions throws a null exception error
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.26
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.26/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-08-06.
+    - Fixed bug where BlobType == PageBlob was not being parsed correctly.
+- Name: Azure.Storage.Common
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.12.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.11.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-08-06.
+    - Added ability to set file change time with ShareFileClient.StartCopy() and .StartCopyAsync().
 
