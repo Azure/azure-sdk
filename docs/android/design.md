@@ -603,11 +603,11 @@ Android applications commonly need to react to events from the UI or service. Th
 
 {% include requirement/MUST id="android-event-handler-collection" %} use Azure Core's `EventHandlerCollection` internally to keep track of registered event handlers and their associations with different event types within a client.
 
-{% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package private client constants.
+{% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package private client constants of the type `String`.
 
 {% include requirement/MUST id="android-event-handler-registration" %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
 
-{% include requirement/MUST id="android-event-handler-registration-minimum-arguments" %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
+{% include requirement/MUST id="android-event-handler-registration-arguments" %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
 
 ```java
 public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
@@ -615,15 +615,7 @@ public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handl
 }
 ```
 
-{% include requirement/MUST id="android-event-handler-removal" %} provide at least one method for unregistering event handlers named `removeEventHandler`, which takes one argument named `handler`.
-
-```java
-public void removeEventHandler(EventHandler handler) {
-    ...
-}
-```
-
-{% include requirement/MAY id="android-event-handler-specific-removal" %} instead provide individual methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. This method must take one argument named `handler`.
+{% include requirement/MUST id="android-event-handler-removal" %} provide methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. said methods method must take one argument named `handler`.
 
 ```java
 public void removeOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
