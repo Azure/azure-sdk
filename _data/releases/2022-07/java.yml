@@ -215,4 +215,169 @@ entries:
 
     - Exposed required query and header parameters to method signature.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.2.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.2.3/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-communication-common` to 1.1.4
+    - Upgraded `azure-core` to 1.29.1
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.17.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.18.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.14.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2021-08-06 service version.
+    - Added new overload of ShareFileClient.BeginCopy() and ShareFileAsyncClient.BeginCopy(), added new parameters allowing the copying of the source file's CreatedOn, LastWrittenOn, FileAttributes and ChangedOn properties.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.11.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+    - Added ability to set permission, umask, owner, group, ACL, lease, and expiry time to the following:
+    DataLakePathClient.createWithResponse, DataLakeDirectoryClient.createFileWithResponse,
+    DataLakeDirectoryClient.createSubdirectoryWithResponse DataLakeFile.createWithResponse,
+    DataLakeFileSystemClient.createFileWithResponse, and DataLakeFileSystemClient.createDirectoryWithResponse.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.4.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.4.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.14.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.14.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.17.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for encryption protocol version 2, using AES/GCM/NoPadding.
+    - Added support for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0-beta.7
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.1.0-beta.7/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`
+    - Upgraded `azure-communication-common` from `1.1.3` to version `1.1.4`
+    - Upgraded `azure-identity` from `1.5.1` to `1.5.2`
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.3
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.3/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-communication-common` to 1.1.4
+    - Upgraded `azure-core` to 1.29.1
+    - Upgraded `azure-identity` to 1.5.2
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.9.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.9.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed the thread hopping overhead with default max-concurrent-calls; this saves allocations incurred by the parallel operator and addresses the undesired prefetching when prefetch is disabled and max-concurrent-calls is set to default. ([#29011](https://github.com/Azure/azure-sdk-for-java/pull/29011))
+    - Added default constructor For AuthRulesWrapper to cover corner case when payload returned empty
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.12
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.12/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-communication-common` from `1.1.3` to version `1.1.4`.
+  GroupId: com.azure
 
