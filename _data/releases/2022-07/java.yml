@@ -353,4 +353,31 @@ entries:
     - Upgraded `azure-core` to 1.29.1
     - Upgraded `azure-identity` to 1.5.2
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.9.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.9.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed the thread hopping overhead with default max-concurrent-calls; this saves allocations incurred by the parallel operator and addresses the undesired prefetching when prefetch is disabled and max-concurrent-calls is set to default. ([#29011](https://github.com/Azure/azure-sdk-for-java/pull/29011))
+    - Added default constructor For AuthRulesWrapper to cover corner case when payload returned empty
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.12
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.12/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-communication-common` from `1.1.3` to version `1.1.4`.
+  GroupId: com.azure
 
