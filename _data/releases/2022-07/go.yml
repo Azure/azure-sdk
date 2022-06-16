@@ -127,4 +127,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/digitaltwins/armdigitaltwins/v1.0.0/sdk/resourcemanager/digitaltwins/armdigitaltwins/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/aztables
+  Version: 1.0.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.0.1/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Accept empty `rowKey` parameter.
 
