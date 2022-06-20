@@ -11,7 +11,7 @@ function Get-android-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
   $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json"
+  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json" -MaximumRetryCount 3
 
   Write-Host "Found $($mavenQuery.response.numFound) android packages on maven packages"
 
@@ -22,7 +22,7 @@ function Get-android-Packages
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $count += $mavenQuery.response.docs.count
 
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count")
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
   }
 
   return $packages
@@ -32,7 +32,7 @@ function Get-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
   $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3
 
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
 
@@ -43,7 +43,7 @@ function Get-java-Packages
     $packages += $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
     $count += $mavenQuery.response.docs.count
 
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count")
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
   }
 
   return $packages
@@ -54,7 +54,7 @@ function Get-dotnet-Packages
   # Rest API docs
   # https://docs.microsoft.com/nuget/api/search-query-service-resource
   # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
-  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000"
+  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000" -MaximumRetryCount 3
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
   $packages = $nugetQuery.data | Foreach-Object { CreatePackage $_.id $_.version }
@@ -70,7 +70,7 @@ function Get-js-Packages
   {
     # Rest API docs https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md
     # max size returned is 250 so we have to do some basic paging.
-    $npmQuery = Invoke-RestMethod "https://registry.npmjs.com/-/v1/search?text=maintainer:azure-sdk&size=250&from=$from"
+    $npmQuery = Invoke-RestMethod "https://registry.npmjs.com/-/v1/search?text=maintainer:azure-sdk&size=250&from=$from" -MaximumRetryCount 3
 
     if ($npmQuery.objects.Count -ne 0) {
       $npmPackages += $npmQuery.objects.package
@@ -114,7 +114,7 @@ function Get-python-Packages
   $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('azure-sdk')]"
   $pythonPackagesNames = (python -c "$pythonQuery")
 
-  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info } catch { } }
+  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json" -MaximumRetryCount 3).info } catch { } }
 
   Write-Host "Found $($pythonPackages.Count) python packages"
   $packages = $pythonPackages | Foreach-Object { CreatePackage $_.name $_.version }
