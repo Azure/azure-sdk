@@ -427,4 +427,43 @@ entries:
     - Updated `azure-core` to `1.29.1`.
     - Updated `azure-mixedreality-authentication` to `1.2.3`.
   GroupId: com.azure
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.8.0-beta.1
+  DisplayName: Azure Spring Cloud Appconfiguration Config
+  ServiceName: Spring Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config_2.8.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: '- Adds support for Dynamic Features and adds support for the new Feature Management Schema, the Environment Variable AZURE_APP_CONFIGURATION_FEATURE_MANAGEMENT_SCHEMA_VERSION needs to be set to `2`, otherwise Dynamic Features will not be enabled.'
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.8.0-beta.1
+  DisplayName: Azure Spring Cloud Appconfiguration Config Web
+  ServiceName: Spring Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config-web_2.8.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md
+  ChangelogContent: '- Adds support for Dynamic Features and adds support for the new Feature Management Schema, the Environment Variable AZURE_APP_CONFIGURATION_FEATURE_MANAGEMENT_SCHEMA_VERSION needs to be set to `2`, otherwise Dynamic Features will not be enabled.'
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-mediaservices
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mediaservices_2.1.0-beta.1/sdk/mediaservices/azure-resourcemanager-mediaservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.8.0-beta.1
+  DisplayName: Azure Spring Cloud Starter Appconfiguration Config
+  ServiceName: Spring Boot
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.8.0-beta.1/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    - Adds support for Dynamic Features and adds support for the new Feature Management Schema, the Environment Variable AZURE_APP_CONFIGURATION_FEATURE_MANAGEMENT_SCHEMA_VERSION needs to be set to `2`, otherwise Dynamic Features will not be enabled.
+    - Adds Support for Dynamic Features.
+    - Updated to use both the old and new Feature Management schema.
+  GroupId: com.azure.spring
 
