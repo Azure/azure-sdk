@@ -136,4 +136,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-botservice_2.0.0b3/sdk/botservice/azure-mgmt-botservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-language-conversations
+  Version: 1.0.0
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Client now uses python dictionaries for method parameters and results instead of classes.
+
+    #### Features Added
+    * Added Azure Active Directory (AAD) authentication support
+    * Added more resolution types for entities
+    * Added support for authoring operations with `ConversationAuthoringClient` under the `azure.ai.language.conversations.authoring` namespace.
 
