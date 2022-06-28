@@ -133,4 +133,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Relay_1.0.0-beta.1/sdk/relay/Azure.ResourceManager.Relay/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations
+  Version: 1.0.0
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConversationAuthoringClient` to manage authoring projects.
+    - Added support for Azure Active Directory (AAD) authentication.
+
+    #### Breaking Changes
+
+    - `ConversationAnalysisClient.AnalyzeConversation` and `AnalyzeConversationAsync` now take a `RequestContent` and `RequestContext` for more control and flexibility.
+    - Removed all models. See README.md for samples to use this client library.
+    - Renamed `ConversationAnalysisClientOptions` to `ConversationsClientOptions`.
 
