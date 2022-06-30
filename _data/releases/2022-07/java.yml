@@ -1005,4 +1005,194 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-stream-binder-eventhubs-core_4.3.0/sdk/spring/spring-cloud-azure-stream-binder-eventhubs-core/CHANGELOG.md
   ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/5715c1bf3d88941760ed5aa3ebce216eee8fa50a/sdk/spring/CHANGELOG.md#430-2022-06-29) for more details.
   GroupId: com.azure.spring
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.26
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.26/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.29.1` to `1.30.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.26
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.26/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.29.1` to `1.30.0`.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.30.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.30.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug where `BinaryData.fromFile(path).toFluxByteBuffer()` and `BinaryData.fromFile(path).toBytes()`
+    could block file deletion on Windows.
+    - Fixed bug where `Context.getData("key")` throws if the `null` value has been set by calling `Context.addData("key", null)`.
+
+    #### Features Added
+
+    - Added `BinaryData.isReplayable()` to indicate if multiple consumptions of the content are safe.
+    - Added `BinaryData.toReplayableBinaryData` and `BinaryData.toReplayableBinaryDataAsync` to allow
+    transforming `BinaryData` instances into replayable `BinaryData` for all content types.
+    - Added support for sending synchronous requests using `sendSync` in `HttpPipeline`:
+    - Added `HttpPipelinePolicy.processSync(HttpPipelineCallContext context, HttpPipelineNextSyncPolicy next)` to allow processing policies synchronously.
+    - Added `HttpPipelineSyncPolicy` to represent synchronous `HttpPipelinePolicy`.
+    - Added `HttpPipelineNextSyncPolicy` to invoke the next synchronous policy in pipeline. to process synchronous policy pipeline.
+    - Added `HttpPipelineCallState` to maintain request specific pipeline and contextual data.
+    - Added `ProgressReporter` and `ProgressListener` to provide ability to track progress of I/O operations.
+    - Added `Contexts` utility to manipulate known cross-cutting key-value pairs.
+    - Added ability to get and set `ProgressReporter` on `Context`.
+    - Added `HttpPipelineCallContext.getContext()`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.11.0
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.0/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to track progress by passing `ProgressReporter` in the `Context`. For example:
+    ```java
+    HttpClient httpClient = new OkHttpAsyncHttpClientBuilder().build();
+    ProgressReporter progressReporter = ProgressReporter.withProgressListener(progress -> System.out.println(progress));
+    Context context = Contexts.empty().setHttpRequestProgressReporter(progressReporter).getContext();
+    HttpRequest request = new HttpRequest(
+    HttpMethod.PUT, new URL("http://example.com"), new HttpHeaders(), BinaryData.fromString("sample body"))
+    httpClient.send(request, context).subscribe();
+    ```
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.18
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.18/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.29.1` to `1.30.0`.
+    - Upgraded GSON from `2.8.9` to `2.9.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.19
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.2.19/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.29.1` to `1.30.0`.
+    - Upgraded Jackson from `2.13.2` to `2.13.3`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.7.0
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.7.0/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.10.0
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.10.0/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ThreadDumper` which will dump thread data if testing is assumed to be deadlocked.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.32.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.32.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a fix for `CloneNotSupportedException` when trying to instantiate a `Cosmos(Async)Client` and using a MAC provider which would not support cloning. Instead, this should be handled gracefully (less ideal perf is expected - but functionally it should work.) - See [PR 29719](https://github.com/Azure/azure-sdk-for-java/pull/29719)
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.6.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.6.0/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Ensure ReactorReceiver EndpointStates terminates if there is no remote-close acknowledgment ([#29212](https://github.com/Azure/azure-sdk-for-java/issues/29212))
+    - Fixed issue that when connection is closed, the `AmqpChannelProcessor` repeatedly requests and closes `RequestResponseChannel`. ([#24582](https://github.com/Azure/azure-sdk-for-java/issues/24582))
+
+    #### Features Added
+
+    - Added `AmqpMessageConstant` `MESSAGE_STATE_ANNOTATION_NAME("x-opt-message-state")`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.12.3
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.12.3/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to track progress by passing `ProgressReporter` in the `Context`. For example:
+    ```java
+    HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+    ProgressReporter progressReporter = ProgressReporter.withProgressListener(progress -> System.out.println(progress));
+    Context context = Contexts.empty().setHttpRequestProgressReporter(progressReporter).getContext();
+    HttpRequest request = new HttpRequest(
+    HttpMethod.PUT, new URL("http://example.com"), new HttpHeaders(), BinaryData.fromString("sample body"))
+    httpClient.send(request, context).subscribe();
+    ```
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.30
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.30/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.29.0` to `1.29.1`.
+  GroupId: com.azure
 
