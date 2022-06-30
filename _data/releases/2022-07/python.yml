@@ -167,4 +167,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_27.2.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.24.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.24.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug that azure-core could not be imported under Python 3.11.0b3  #24928
+    - `ContentDecodePolicy` can now correctly deserialize more JSON bodies with different mime types #22410
 
