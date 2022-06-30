@@ -544,7 +544,7 @@ Distributed traces for network calls are sent automatically by the `HttpPipeline
 
 {% include requirement/MUST id="dotnet-tracing-suppress-client-spans-for-inner-methods" %} enable inner client scope suppression when creating `ClientDiagnostics` by setting corresponding suppression flag to `true`. Client libraries that currently don't suppress inner client scopes must keep the flag value default (`null`) for backward compatibility reasons.
 
-{% include requirement/MUSTNOT id="dotnet-tracing-activity" %} use `Activity`, `DiagnosticSource`, or `ActivitySource` API directly from client libraries.
+{% include requirement/MUSTNOT id="dotnet-tracing-sources" %} use `DiagnosticSource`, or `ActivitySource` API directly from client libraries. `Activity` can be used directly when `DiagnosticScope` does not expose corresponding APIs.
 
 ### Telemetry
 
