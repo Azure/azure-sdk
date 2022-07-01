@@ -21,4 +21,15 @@ entries:
     #### Features Added
 
     - Added Azure App Service API version `2019-08-01` support for `ManagedIdentityCredential`.
+- Name: azure-core
+  Version: 1.7.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.7.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added prototypes and initial service support for Distributed Tracing.
 
