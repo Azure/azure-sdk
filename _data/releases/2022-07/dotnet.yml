@@ -261,4 +261,28 @@ entries:
     #### Features Added
 
     - The event processor error handler will now raise warning when an unhandled exception propagated from the event processing handler causing partition processing to fault and restart.
+- Name: Azure.Monitor.Ingestion
+  Version: 1.0.0-beta.1
+  DisplayName: Monitor Ingestion
+  ServiceName: Ingestion
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.0.0-beta.1/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    Version 1.0.0-beta.1 is a preview for the Azure Monitor service to ingest logs and designed to be developer-friendly, idiomatic to the .NET ecosystem, and as consistent across different languages and platforms as
+    possible. The principles that guide our efforts can be found in the
+    [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+
+    ### Features Added
+    - Initial release. See the README for information on using the new library.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.8/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where `SearchOptions.SessionId` property was not passed to the service ([#27549](https://github.com/Azure/azure-sdk-for-net/issues/27549))
 
