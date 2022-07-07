@@ -236,4 +236,29 @@ entries:
     #### Features Added
 
     - The event processor error handler will now raise warning when an unhandled exception propagated from the event processing handler causing partition processing to fault and restart.
+- Name: Azure.Data.Tables
+  Version: 12.6.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.6.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a formatting issue with string based filter queries for Binary properties created via `CreateQueryFilter(System.FormattableString filter)`. ([#29256](https://github.com/Azure/azure-sdk-for-net/issues/29256))
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with event processor startup validation where an invalid consumer group was not properly detected.
+
+    #### Features Added
+
+    - The event processor error handler will now raise warning when an unhandled exception propagated from the event processing handler causing partition processing to fault and restart.
 
