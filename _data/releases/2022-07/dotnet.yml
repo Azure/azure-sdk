@@ -219,4 +219,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DesktopVirtualization_1.0.0-beta.1/sdk/desktopvirtualization/Azure.ResourceManager.DesktopVirtualization/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with the `EventHubBufferedProducerClient` where it was not properly identifying when buffers were empty and should enter an idle state; this caused the background task that manages publishing to spin and consume an unreasonable amount of resources.
+
+    - Fixed an issue with event processor startup validation where an invalid consumer group was not properly detected.
+
+    #### Features Added
+
+    - The event processor error handler will now raise warning when an unhandled exception propagated from the event processing handler causing partition processing to fault and restart.
 
