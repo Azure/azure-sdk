@@ -302,4 +302,23 @@ entries:
     Most method signatures and types have changed. See the
     [module documentation](https://aka.ms/azsdk/go/keyvault-certificates/docs)
     for updated code examples and more details.
+- Name: sdk/messaging/azservicebus
+  Version: 1.0.2-beta.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.0.2-beta.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Full access to send and receive all AMQP message properties. (#18413)
+    - Send AMQP messages using the new `AMQPAnnotatedMessage` type and `Sender.SendAMQPAnnotatedMessage()`.
+    - AMQP messages can be added to MessageBatch's as well using `MessageBatch.AddAMQPAnnotatedMessage()`.
+    - AMQP messages can be scheduled using `Sender.ScheduleAMQPAnnotatedMessages`.
+    - Access the full set of AMQP message properties when receiving using the `ReceivedMessage.RawAMQPMessage` property.
+
+    #### Bugs Fixed
+
+    - Settlement of a message could hang if the link had been detached/closed. (#18532)
 
