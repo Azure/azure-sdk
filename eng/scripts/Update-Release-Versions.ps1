@@ -239,7 +239,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
     }
 
-    if ($pkg.VersionGA -and $pkg.Type -eq "client") {
+    if ($pkg.VersionGA) {
       if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
         $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
       }
