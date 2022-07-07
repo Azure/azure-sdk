@@ -288,4 +288,47 @@ entries:
     - Added ability to delete device class
     - Added device class subgroups to groups
     - Added new method to retrieve devices health information
+- Name: azure-storage-queue
+  Version: 12.4.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.4.0b1.
+- Name: azure-storage-file-share
+  Version: 12.9.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.9.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.9.0b1.
+    - Added support for progress tracking to `upload_file()` and `download_file()` via a new optional callback, `progress_hook`.
+- Name: azure-storage-blob
+  Version: 12.13.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.13.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Stable release of features from 12.13.0b1.
+    - Added support for deleting versions in `delete_blobs` by supplying `version_id`.
+- Name: azure-storage-file-datalake
+  Version: 12.8.0
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.8.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.8.0b1.
+    - Removed support for `expiry_options` from file `create` APIs. With this change, `expires_on` now covers all functionality `expiry_options` offered.
 
