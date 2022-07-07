@@ -1389,4 +1389,94 @@ entries:
     - Upgraded `azure-core` to version `1.30.0`.
     - Upgraded `azure-core-http-netty` to version `1.12.3`.
   GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.14.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.14.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.17.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.17.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.17.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.17.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+    - GA release for encryption protocol version 2.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.11.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.11.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.14.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.14.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.18.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.18.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - BlobOutputStream.close() will now attempt to close the stream at first attempt. Subsequent calls to close have no effect.
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.4.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.4.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release for 2021-08-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.14.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.14.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - 2021-08-06 service version.
+  GroupId: com.azure
 
