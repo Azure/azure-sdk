@@ -179,7 +179,17 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard)) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
-{% include requirement/MUST id="general-tracing-new-span-per-method" %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+{% include requirement/MUST id="general-tracing-new-span-per-method" %} create only one span for client method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+
+{% include requirement/MUST id="general-tracing-suppress-client-spans-for-inner-methods" %} When client method creates a new span and internally calls into other public client methods of the same or different Azure SDK, spans created for inner client methods MUST be suppressed, their attributes and events ignored.  Nested spans created for REST calls MUST be the children of the outer client call span.  Suppression is generally done by Azure Core.
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [Tracing Conventions].
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} us `<client> <method>` as the name of the per-method span without namespace or async suffix. Follow language-specific conventions on casing or separator.
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-duration" %} start per-method spans before sending the request or calling any significantly time consuming code that might fail. End the span only after all network, IO or other unreliable and time consuming operations are complete.
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-failure" %} If method throws exception, record exception on span. Do not record exception if exception is handled within service method.
 
 {% include requirement/MUST id="general-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
@@ -271,3 +281,4 @@ As outlined above, writing tests that we can run constantly is critical for conf
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 [2]: https://martinfowler.com/bliki/TestCoverage.html
+[Tracing Conventions]: {{ site.baseurl }}{% link docs/tracing/distributed-tracing-conventions.md %}

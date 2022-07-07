@@ -532,9 +532,19 @@ internal sealed class AzureCoreEventSource : AzureEventSource
 
 ### Distributed Tracing {#dotnet-distributedtracing}
 
-{% include draft.html content="Guidance coming soon ..." %}
+Distributed tracing allows customers to observe public API methods that are called and network calls that are made from Azure SDK libraries.  With these traces, customers can view the timing of these calls and any errors that occurred.
 
-TODO: Add guidance for distributed tracing implementation
+Distributed traces for network calls are sent automatically by the `HttpPipeline` in Azure.Core.  Library authors must trace public service methods using `ClientDiagnostics.CreateScope`.  The .NET `Activity` types are used for this internally by the `ClientDiagnostics` via .NET [`DiagnosticSource`](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) or [`ActivitySource`](https://docs.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
+
+{% include requirement/MUST id="dotnet-tracing" %} follow [General Distributed Tracing Guidance]({{ site.baseurl }}/general_implementation.html#distributed-tracing).
+
+{% include requirement/MUST id="dotnet-tracing-opentelemetry" %} support distributed tracing by using `ClientDiagnostics` and `DiagnosticScope`
+
+{% include requirement/MUST id="dotnet-tracing-new-span-per-method-failure" %} If method throws exception, record exception on scope using `scope.Failed(ex)`. Do not record exception if exception is handled within service method.
+
+{% include requirement/MUST id="dotnet-tracing-suppress-client-spans-for-inner-methods" %} enable inner client scope suppression when creating `ClientDiagnostics` by setting corresponding suppression flag to `true`. Client libraries that currently don't suppress inner client scopes must keep the flag value default (`null`) for backward compatibility reasons.
+
+{% include requirement/MUSTNOT id="dotnet-tracing-sources" %} use `DiagnosticSource`, or `ActivitySource` API directly from client libraries. `Activity` can be used directly when `DiagnosticScope` does not expose corresponding APIs.
 
 ### Telemetry
 
