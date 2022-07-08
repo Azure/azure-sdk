@@ -433,4 +433,15 @@ entries:
     - Added Azure Monitor OpenTelemetry Metrics Exporter.
     - Export Span events as Exception and Message Telemetry.
     - Updated OpenTelemetry dependencies to their latest available versions.
+- Name: '@azure/keyvault-admin'
+  Version: 4.2.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The scope of the token used for authentication now reflects the scope required by the service in the WWW-Authenticate header.
 
