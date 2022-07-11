@@ -16,4 +16,65 @@ entries:
     #### Fixes and improvements
 
     - Updated samples to illustrate usage of `SourceTime`, `LastUpdatedOn` at digital twin and component metadata level, and use of `DigitalTwinComponentMetadata`.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.2.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.2.0/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.2.0
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.2.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.0.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.0.0
+  DisplayName: Resource Management - Cdn
+  ServiceName: Cdn
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.0.0/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.0.0/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.0.0-beta.4
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.0.0-beta.4/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added RelatedFiles and DownloadHandler to Update
+    - Updated various model that reference update to include not only UpdateId but also update Description and FriendlyName
+    - Removed device tag concept
+    - Allow to filter by deployment status in the GetDevicesAsync method
+    - Added ability to update device class friendly name
+    - Added ability to delete device class
+    - Added device class subgroups to groups
+    - Added new method to retrieve devices health information
+
+    #### Breaking Changes
+    - DeviceUpdateClient models updated
+    - DeviceManagementClient models updated
 
