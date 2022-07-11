@@ -85,4 +85,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.9.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.9.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Stable release of `ServiceBusRuleManager`.
+    - `EntityPath` and `FullyQualifiedNamespace` are now included on the various processor event args.
 
