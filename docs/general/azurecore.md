@@ -126,7 +126,7 @@ The response downloader is required for most (but not all) operations to change 
 
 ### Distributed tracing policy
 
-Distributed tracing allows the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans (units of unique work) to facilitate tracing.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  Spans must follow [Tracing Conventions].  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
+Distributed tracing allows the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans (units of unique work) to facilitate tracing.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.   To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
 The Distributed Tracing policy is responsible for:
 
@@ -142,6 +142,8 @@ The Distributed Tracing policy is responsible for:
 {% include requirement/MUST id="azurecore-http-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard) to support [Azure Monitor].
 
 {% include requirement/MUST id="azurecore-http-tracing-create-span" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.
+
+{% include requirement/MUST id="azurecore-http-tracing-opentelemetry-conventions" %} populate span properties according to [Tracing Conventions].
 
 ### Logging policy
 

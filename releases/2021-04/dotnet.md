@@ -431,7 +431,7 @@ Minor changes since the public preview release:
 Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
 
 - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
-- Mikael Kolkinn _([GitHub](https://github.com/mikaelkolkinn))_
+- Mikael Kolkinn
 
 #### Added
 - Updated dependency on Azure.Core.Amqp to support Value/Sequence AMQP message bodies.
@@ -442,7 +442,7 @@ Thank you to our developer community members who helped to make the Service Bus 
 
 #### Fixed
 - Multiple enhancements were made to the transport paths for publishing and reading events to reduce memory allocations and increase performance. (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
-- Fixed an issue where constructing a new `CreateRuleOption` from a `RuleProperties` would fail if the `CorrelationId` was null. (A community contribution, courtesy of _[mikaelkolkinn](https://github.com/mikaelkolkinn))_
+- Fixed an issue where constructing a new `CreateRuleOption` from a `RuleProperties` would fail if the `CorrelationId` was null. (A community contribution, courtesy of _mikaelkolkinn)_
 
 ### WebJobs Extensions - Service Bus 5.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.2/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta2-2021-04-07)
 #### Added

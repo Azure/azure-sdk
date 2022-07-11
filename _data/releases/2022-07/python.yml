@@ -1,0 +1,345 @@
+entries:
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b6/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Implement log exporter using experimental OT logging sdk
+    ([#23486](https://github.com/Azure/azure-sdk-for-python/pull/23486))
+    - Implement sending of exception telemetry via log exporter
+    ([#23633](https://github.com/Azure/azure-sdk-for-python/pull/23633))
+    - Implement exporting span events as message/exception telemetry
+    ([#23708](https://github.com/Azure/azure-sdk-for-python/pull/23708))
+    - Implement metrics exporter using experimental OT metrics sdk
+    ([#23960](https://github.com/Azure/azure-sdk-for-python/pull/23960))
+
+    #### Breaking Changes
+    - Update to OpenTelemetry api/sdk 1.12.0rc1
+    ([#24619](https://github.com/Azure/azure-sdk-for-python/pull/24619))
+- Name: azure-purview-catalog
+  Version: 1.0.0b4
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-catalog_1.0.0b4/sdk/purview/azure-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Support Atlas 2.2 APIs
+
+    **Bugs Fixed**
+
+    - Add missing query parameter `includeTermHierarchy` for update term API
+    - Add missing query parameter `excludeRelationshipTypes` for get term API
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0b4
+  DisplayName: Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob-changefeed_12.0.0b4/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `max_single_get_size` and `max_chunk_get_size` to `ChangeFeedClient` to enable control over the initial size and chunk size when downloading ChangeFeed blobs.
+- Name: azure-storage-file-datalake
+  Version: 12.8.0b1
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.8.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-08-06.
+    - Added support for `owner`, `group`, `acl`, `lease_id`, `lease_duration` to both file and directory `create` APIs.
+    - Added support for `expiry_options`, `expires_on` to file `create` APIs.
+- Name: azure-storage-blob
+  Version: 12.13.0b1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.13.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-08-06.
+    - Added a new version of client-side encryption for blobs (version 2.0) which utilizes AES-GCM-256 encryption.
+    If you are currently using client-side encryption, it is **highly recommended** to switch to a form of server-side
+    encryption (Customer-Provided Key, Encryption Scope, etc.) or version 2.0 of client-side encryption. The encryption
+    version can be specified on any client constructor via the `encryption_version` keyword (`encryption_version='2.0'`).
+- Name: azure-storage-file-share
+  Version: 12.9.0b1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.9.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `file_change_time` to `start_copy_from_url` API
+- Name: azure-storage-queue
+  Version: 12.4.0b1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.4.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced version 2.0 of client-side encryption for Queue messages which utilizes AES-GCM-256 encryption.
+    Version 1.0 is now deprecated and no longer considered secure. If you are using client-side encryption, it is
+    **highly recommended** that you update to version 2.0.
+    The encryption version can be specified on any client constructor via the `encryption_version`
+    keyword (i.e. `encryption_version='2.0'`).
+- Name: azure-mgmt-datafactory
+  Version: 2.7.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.7.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 8.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_8.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-orbital
+  Version: 1.0.0
+  DisplayName: Resource Management - Orbital
+  ServiceName: Orbital
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-orbital_1.0.0/sdk/orbital/azure-mgmt-orbital/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventhub
+  Version: 10.1.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_10.1.0/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-botservice
+  Version: 2.0.0b3
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-botservice_2.0.0b3/sdk/botservice/azure-mgmt-botservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-language-conversations
+  Version: 1.0.0
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Client now uses python dictionaries for method parameters and results instead of classes.
+
+    #### Features Added
+    * Added Azure Active Directory (AAD) authentication support
+    * Added more resolution types for entities
+    * Added support for authoring operations with `ConversationAuthoringClient` under the `azure.ai.language.conversations.authoring` namespace.
+- Name: azure-mgmt-chaos
+  Version: 1.0.0b4
+  DisplayName: Resource Management -  Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-chaos_1.0.0b4/sdk/chaos/azure-mgmt-chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 27.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_27.2.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.24.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.24.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug that azure-core could not be imported under Python 3.11.0b3  #24928
+    - `ContentDecodePolicy` can now correctly deserialize more JSON bodies with different mime types #22410
+- Name: azure-mgmt-resourceconnector
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Resource Connector
+  ServiceName: Resource Connector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourceconnector_1.0.0b2/sdk/resourceconnector/azure-mgmt-resourceconnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-media
+  Version: 10.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_10.0.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-language-conversations
+  Version: 1.1.0b2
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added Azure Active Directory (AAD) authentication support
+    * Added support for authoring operations with `ConversationAuthoringClient` under the `azure.ai.language.conversations.authoring` namespace.
+- Name: azure-mgmt-web
+  Version: 7.0.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_7.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.11.0b2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.11.0b2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `EnvironmentCredential` added `AZURE_CLIENT_CERTIFICATE_PASSWORD` support for the cert password    ([#24652](https://github.com/Azure/azure-sdk-for-python/issues/24652))
+
+    #### Bugs Fixed
+
+    - Fixed the issue that failed to parse PEM certificate if it does not start with "-----"    ([#24643](https://github.com/Azure/azure-sdk-for-python/issues/24643))
+- Name: azure-eventgrid
+  Version: 4.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.9.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for publishing events to a channel.
+- Name: azure-mgmt-loganalytics
+  Version: 13.0.0b5
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.0.0b5/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b3
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b3/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.8.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.8.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - In `ServiceBusClient`, `get_queue_receiver`, `get_subscription_receiver`, `get_queue_sender`, and `get_topic_sender` now accept
+    an optional `client_identifier` argument which allows for specifying a custom identifier for the respective sender or receiver. It can
+    be useful during debugging as Service Bus associates the id with errors and helps with easier correlation.
+    - `ServiceBusReceiver` and `ServiceBusSender` have an added property `client_identifier` which returns the `client_identifier` for the current instance.
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0b3
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0b3/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `relatedFiles` and `downloadHandler` to `Update`
+    - Updated various model that reference update to include not only `updateId` but also update `description` and `friendlyName`
+    - Removed device tag concept
+    - Allow to filter by deployment status in the `list_devices` method
+    - Added ability to update device class friendly name
+    - Added ability to delete device class
+    - Added device class subgroups to groups
+    - Added new method to retrieve devices health information
+- Name: azure-storage-queue
+  Version: 12.4.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.4.0b1.
+- Name: azure-storage-file-share
+  Version: 12.9.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.9.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.9.0b1.
+    - Added support for progress tracking to `upload_file()` and `download_file()` via a new optional callback, `progress_hook`.
+- Name: azure-storage-blob
+  Version: 12.13.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.13.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Stable release of features from 12.13.0b1.
+    - Added support for deleting versions in `delete_blobs` by supplying `version_id`.
+- Name: azure-storage-file-datalake
+  Version: 12.8.0
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.8.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.8.0b1.
+    - Removed support for `expiry_options` from file `create` APIs. With this change, `expires_on` now covers all functionality `expiry_options` offered.
+- Name: azure-monitor-query
+  Version: 1.0.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.3/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `query_resource` in metrics client is throwing an error with unexpected `metric_namespace` argument.
+
