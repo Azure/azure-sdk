@@ -113,4 +113,34 @@ entries:
     - Upgraded `azure-core` from `1.29.1` to version `1.30.0`.
     - Upgraded `azure-core-http-netty` from `1.12.2` to version `1.12.3`.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.14.0
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.14.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.12.2`.
+    - Update `azure-storage-blob` dependency to `12.18.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.12.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.12.2/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` to `1.30.0`.
+    - Upgraded `azure-core-amqp` to `2.6.0`.
+  GroupId: com.azure
 
