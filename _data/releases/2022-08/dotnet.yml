@@ -97,4 +97,15 @@ entries:
 
     - Stable release of `ServiceBusRuleManager`.
     - `EntityPath` and `FullyQualifiedNamespace` are now included on the various processor event args.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.11.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for sending events to partner channels.
 
