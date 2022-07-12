@@ -195,4 +195,39 @@ entries:
     - Added `sourceTime` to `DigitalTwinPropertyMetadata`.
     - Added support for `lastUpdatedOn` for digital twins and components.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.10.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.10.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Exposing `ServiceBusClientBuilder.customEndpointAddress` to support connecting to an intermediary before Azure ServiceBus.
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0-beta.3
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.0-beta.3/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `DeviceManagementClientBuilder` to create `DeviceManagementClient` instance via `DeviceManagementClientBuilder.buildClient()`.
+    - Modified `DeviceUpdateClientBuilder` to create `DeviceUpdateClient` instance via `DeviceUpdateClientBuilder.buildClient()`.
+
+    #### Features Added
+
+    - Added `relatedFiles` and `downloadHandler` to `Update`
+    - Updated various model that reference update to include not only `updateId` but also update `description` and `friendlyName`
+    - Removed device tag concept
+    - Allow to filter by deployment status in the `listDevices` method
+    - Added ability to update device class friendly name
+    - Added ability to delete device class
+    - Added device class subgroups to groups
+    - Added new method to retrieve devices health information
+  GroupId: com.azure
 
