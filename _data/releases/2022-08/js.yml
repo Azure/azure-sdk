@@ -1,0 +1,206 @@
+entries:
+- Name: '@azure/identity'
+  Version: 2.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for new credential `ClientAssertionCredential`, which accepts a callback function for the signed JWT assertion for a client certificate. See [MSAL Client Assertion for more information](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md).
+
+    #### Bugs Fixed
+
+    - Fixed a bug that would break the AzureCliCredential if the Azure CLI reported a warning. See: [21075](https://github.com/Azure/azure-sdk-for-js/issues/21075).
+    - Fixed a bug in `AuthorizationCodeCredential` where the tenant id was not being used. The `common` tenant was the only tenant being used by this credential.
+    - Fixed a bug in `AuthorizationCodeCredential` where the public client was not being used. Due to this bug, without passing in the client secret, this credential would fail.
+    - Fixed a bug in `DefaultAzureCredential` and `AzureCLICredential` where the errors thrown by the latter credential were not of type `CredentialUnavailableError`. This caused only the error of `AzureCLICredential` being thrown and the other chained errors of `DefaultAzureCredential` were not thrown. See: [22066](https://github.com/Azure/azure-sdk-for-js/issues/22066)
+- Name: '@azure/arm-dynatrace'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0-beta.2/sdk/dynatrace/arm-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-secrets'
+  Version: 4.5.0-beta.1
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.0-beta.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - As a result of the migration to Core v2:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `SecretClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+- Name: '@azure/storage-queue'
+  Version: 12.10.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.10.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-08-06.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.5.0-beta.1
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.5.0-beta.1/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - As a result of the migration to Core v2:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+- Name: '@azure/arm-containerinstance'
+  Version: 8.2.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-marketplaceordering'
+  Version: 3.1.0
+  DisplayName: Resource Management - Market Place Ordering
+  ServiceName: Marketplace Ordering
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/marketplaceordering/arm-marketplaceordering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.10.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `generateSharedAccessSignature` would generate an invalid signature if the experation time was between 12:00pm and 1:00pm.  Thank you to @donut87 for discovering the issue and providing the fix.
+- Name: '@azure/arm-orbital'
+  Version: 1.1.0
+  DisplayName: Resource Management - Orbital
+  ServiceName: Orbital
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_1.1.0/sdk/orbital/arm-orbital/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-datalake'
+  Version: 12.10.0
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.10.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.10.0-beta.1.
+- Name: '@azure/storage-blob'
+  Version: 12.11.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.11.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.11.0-beta.1.
+- Name: '@azure/arm-securityinsight'
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Securityinsight
+  ServiceName: Securityinsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.4/sdk/securityinsight/arm-securityinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relay'
+  Version: 3.1.0
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/relay/arm-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-portal'
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Portal
+  ServiceName: Portal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portal_1.0.0-beta.4/sdk/portal/arm-portal/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-admin'
+  Version: 4.2.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The scope of the token used for authentication now reflects the scope required by the service in the WWW-Authenticate header.
+- Name: '@azure/arm-powerbidedicated'
+  Version: 4.0.0
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: PowerBI Embedded
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.11.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.11.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-08-06.
+- Name: '@azure/keyvault-keys'
+  Version: 4.5.0-beta.1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.5.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - As a result of the migration to Core v2:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+
