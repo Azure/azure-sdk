@@ -516,4 +516,15 @@ entries:
     });
     ```
     - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+- Name: '@azure/eventgrid'
+  Version: 4.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.10.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `generateSharedAccessSignature` would generate an invalid signature if the experation time was between 12:00pm and 1:00pm.  Thank you to @donut87 for discovering the issue and providing the fix.
 
