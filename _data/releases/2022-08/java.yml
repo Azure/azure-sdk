@@ -259,4 +259,15 @@ entries:
     - Update `azure-core` dependency to `1.30.0`.
     - Update `azure-core-http-netty` dependency to `1.12.3`.
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.9
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.9/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    - Updated `azure-core` to `1.30.0`.
+    - Updated `azure-mixedreality-authentication` to `1.2.4`.
+  GroupId: com.azure
 
