@@ -230,4 +230,33 @@ entries:
     - Added device class subgroups to groups
     - Added new method to retrieve devices health information
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.2
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.2/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-data-schemaregistry` dependency to `1.2.2`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.2.2
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.2.2/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.30.0`.
+    - Update `azure-core-http-netty` dependency to `1.12.3`.
+  GroupId: com.azure
 
