@@ -238,4 +238,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceupdate_1.0.0-beta.2/sdk/deviceupdate/arm-deviceupdate/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.16.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixes issues with "id" encoding when using special characters that should be allowed in the "id" property of a document.  [#22548](https://github.com/Azure/azure-sdk-for-js/pull/22548)
 
