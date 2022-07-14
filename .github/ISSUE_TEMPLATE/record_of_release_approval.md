@@ -3,7 +3,7 @@ name: Record of Architecture Board Approval for Release
 about: Record of approval by the Architecture Board for releasing an Azure client library
 title: 'Release Approval: <client library name>'
 labels: architecture, board-review
-assignees: kyle-patterson, lilyjma, czubair
+assignees: kyle-patterson, czubair
 ---
 
 The purpose of this issue is to show that the library to be released has gone through the required reviews with the Architecture Board and that it has been approved.
