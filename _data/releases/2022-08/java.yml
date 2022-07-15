@@ -283,4 +283,38 @@ entries:
     - Upgraded `azure-communication-common` to 1.1.5
     - Upgraded `azure-core` to 1.30.0
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.33.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.33.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated netty library version to `4.1.78.Final`.
+    * Updated `reactor-core` version to `3.4.19`.
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.24.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.24.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.33.0`.
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.4.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.4.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.33.0`.
+  GroupId: com.azure
 
