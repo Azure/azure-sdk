@@ -302,4 +302,15 @@ entries:
     #### Features Added
 
     - First beta release for the @azure/monitor-ingestion library.
+- Name: '@azure/digital-twins-core'
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: Digital Twins
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for twin and component metadata property `$lastUpdateTime`, signifying the date and time a twin or component was last updated.
 
