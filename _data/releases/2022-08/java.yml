@@ -361,4 +361,18 @@ entries:
     - Upgraded `azure-communication-common` to 1.1.5
     - Upgraded `azure-core` to 1.30.0
   GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.0
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.0/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    - GA ("Generally Available") release for 2022-05-13 service version.
+    #### New Features
+    - Pageable collections and consortium endpoints
+    - Renaming ledgerUri to ledgerEndpoint
+    - postLedgerEntry changed to createLedgerEntry
+  GroupId: com.azure
 
