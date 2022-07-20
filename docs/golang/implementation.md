@@ -84,13 +84,9 @@ const (
 	WidgetColorRed   WidgetColor = "red"
 )
 
-// WidgetColorValues returns a slice of possible values for WidgetColor.
-func WidgetColorValues() []WidgetColor {
+// PossibleWidgetColorValues returns a slice of possible values for WidgetColor.
+func PossibleWidgetColorValues() []WidgetColor {
 	// ...
-}
-
-func (c WidgetColor) ToPtr() *WidgetColor {
-	return &c
 }
 
 ```
