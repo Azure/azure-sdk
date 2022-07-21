@@ -66,10 +66,6 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 {% include requirement/MUST id="python-general-version-support" %} support Python 3.7+.
 
-{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.
-
-For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
-
 ## Azure SDK API Design
 
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
