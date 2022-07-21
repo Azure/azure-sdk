@@ -402,4 +402,29 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservices_1.0.0-beta.2/sdk/recoveryservices/azure-resourcemanager-recoveryservices/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-communication-identity
+  Version: 1.2.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.2.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to integrate communication as Teams user with Azure Communication Services:
+    - Added `getTokenForTeamsUser(GetTokenForTeamsUserOptions options)` method that provides the ability to exchange an Azure AD access token of a Teams user for a Communication Identity access token to `CommunicationIdentityClient`.
+    - Removed `CommunicationIdentityServiceVersion.V2021_10_31_PREVIEW`.
+    - Added a new API version `CommunicationIdentityServiceVersion.V2022_06_01` that is now the default API version.
+    - Added interfaces from `com.azure.core.client.traits` to `CommunicationIdentityClientBuilder`.
+    - Added `retryOptions` to `CommunicationIdentityClientBuilder`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-netapp
+  Version: 1.0.0-beta.10
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.0.0-beta.10/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
