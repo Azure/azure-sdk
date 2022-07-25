@@ -611,8 +611,8 @@ BlobBaseClient client = ...
 
 // automatic polling
 {
-    Response<long> response = await client.CopyFromUri(WaitUntil.Completed, ...);
-    Console.WriteLine(response.Value);
+    Operation<long> operation = await client.CopyFromUri(WaitUntil.Completed, ...);
+    Console.WriteLine(operation.Value);
 }
 
 // manual polling
