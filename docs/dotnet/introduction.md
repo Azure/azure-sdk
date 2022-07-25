@@ -561,7 +561,7 @@ Azure.Core library exposes an abstract type called ```Operation<T>```, which rep
 
 ```csharp
 // the following type is located in Azure.Core
-public abstract class Operation<T> {
+public abstract class Operation<T> : Operation {
 
     public abstract bool HasCompleted { get; }
     public abstract bool HasValue { get; }
@@ -574,8 +574,16 @@ public abstract class Operation<T> {
     public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
     public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
 
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
+    public virtual Response<T> WaitForCompletion(CancellationToken cancellationToken = default);
+    public virtual Response<T> WaitForCompletion(TimeSpan pollingInterval, CancellationToken cancellationToken);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
+
+    // inherited. return untyped responses
+    public virtual Response WaitForCompletionResponse(CancellationToken cancellationToken = default);	
+    public virtual Response WaitForCompletionResponse(TimeSpan pollingInterval, CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
 }
 ```
 
@@ -589,8 +597,8 @@ public class CopyFromUriOperation : Operation<long> {
 
 public class BlobBaseClient {
 
-    public virtual CopyFromUriOperation StartCopyFromUri(..., CancellationToken cancellationToken = default);
-    public virtual Task<CopyFromUriOperation> StartCopyFromUriAsync(..., CancellationToken cancellationToken = default);
+    public virtual CopyFromUriOperation CopyFromUri(WaitUntil wait, ..., CancellationToken cancellationToken = default);
+    public virtual Task<CopyFromUriOperation> CopyFromUriAsync(WaitUntil wait, ..., CancellationToken cancellationToken = default);
 }
 ```
 
@@ -601,13 +609,13 @@ BlobBaseClient client = ...
 
 // automatic polling
 {
-    Response<long> response = await client.StartCopyFromUri(...).WaitForCompletionAsync();
+    Response<long> response = await client.CopyFromUri(WaitUntil.Completed, ...);
     Console.WriteLine(response.Value);
 }
 
 // manual polling
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     while (true)
     {
         await client.UpdateStatusAsync();
@@ -619,7 +627,7 @@ BlobBaseClient client = ...
 
 // saving operation ID
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     string operationId = operation.Id;
 
     // two days later
@@ -628,9 +636,9 @@ BlobBaseClient client = ...
 }
 ```
 
-{% include requirement/MUST id="dotnet-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
-
 {% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
+
+{% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
