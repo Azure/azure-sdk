@@ -559,6 +559,8 @@ Some service operations, known as _Long Running Operations_ or _LROs_ take a lon
 
 Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
+Note that some older libraries use a slightly different, older LRO pattern. In the the old LRO pattern, LRO methods started with the prefix 'Start' and did not take the  ```WaitUntil``` parameter. Such libraries are free to continue using this older pattern, or they can transition to the new pattern.
+
 ```csharp
 // the following type is located in Azure.Core
 public abstract class Operation<T> : Operation {
