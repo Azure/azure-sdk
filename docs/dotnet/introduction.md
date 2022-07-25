@@ -581,7 +581,7 @@ public abstract class Operation<T> : Operation {
     public virtual ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);	
     public virtual ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
 
-    // inherited. return untyped responses
+    // inherited  members returning untyped responses
     public virtual Response WaitForCompletionResponse(CancellationToken cancellationToken = default);	
     public virtual Response WaitForCompletionResponse(TimeSpan pollingInterval, CancellationToken cancellationToken = default);	
     public virtual ValueTask<Response> WaitForCompletionResponseAsync(CancellationToken cancellationToken = default);	
