@@ -260,7 +260,7 @@ Global configuration refers to configuration settings that are applied to all ap
 
 ## Authentication and credentials
 
-OAuth token authentication, obtained via Managed Security Identities (MSI) or Azure Identity is the preferred mechanism for authenticating service requests, and the only authentication credentials supported by the Azure Core library.
+OAuth token authentication, obtained via Managed Identities or Azure Identity, is the preferred mechanism for authenticating service requests, and the only authentication credentials supported by the Azure Core library.
 
 {% include requirement/MUST id="azurecore-auth-token-credential" %} provide a token credential type that can fetch an OAuth-compatible token needed to authenticate a request to the service in a non-blocking atomic manner.
 
