@@ -41,7 +41,7 @@ The Azure SDK libraries depend on Azure Service REST API, programming language r
 
 Below is a list of supported Azure SDK platforms and runtimes for your reference:
 
-**Operating Systems:** Windows 10, macOS-10.15 , Linux (tested on Ubuntu 18.04)
+**Operating Systems:** Windows, MacOS, Linux (tested on Ubuntu)
 For Mobile development, please check the [IOS supported platforms](https://azure.github.io/azure-sdk/ios_design.html#ios-library-support), and the [Android supported platforms](https://azure.github.io/azure-sdk/android_design.html)
 
 **Runtime:**
