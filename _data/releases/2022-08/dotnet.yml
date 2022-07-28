@@ -588,4 +588,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.2.1/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.6.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.6.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to register a callback for ` SessionInitializingAsync` and `SessionClosingAsync` to the `ServiceBusOptions`. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    #### Bugs Fixed
+
+    - `SessionIdleTimeout` now will be applied for batch functions in addition to single-message
+    functions.
 
