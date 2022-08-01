@@ -146,4 +146,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b2/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-identity
+  Version: 1.1.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.1.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to integrate communication as Teams user with Azure Communication Services:
+    - Added `get_token_for_teams_user(aad_token, client_id, user_object_id)` method that provides the ability to exchange an Azure AD access token of a Teams user for a Communication Identity access token to `CommunicationIdentityClient`.
+    - Removed `ApiVersion.V2021_10_31_preview` from API versions.
+    - Added a new API version `ApiVersion.V2022_06_01` that is now the default API version
 
