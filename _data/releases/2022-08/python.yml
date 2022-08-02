@@ -160,4 +160,28 @@ entries:
     - Added `get_token_for_teams_user(aad_token, client_id, user_object_id)` method that provides the ability to exchange an Azure AD access token of a Teams user for a Communication Identity access token to `CommunicationIdentityClient`.
     - Removed `ApiVersion.V2021_10_31_preview` from API versions.
     - Added a new API version `ApiVersion.V2022_06_01` that is now the default API version
+- Name: azure-mgmt-netapp
+  Version: 8.1.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_8.1.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 4.0.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_4.0.0/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-automanage
+  Version: 1.0.0
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-automanage_1.0.0/sdk/automanage/azure-mgmt-automanage/CHANGELOG.md
+  ChangelogContent: ""
 
