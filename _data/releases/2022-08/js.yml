@@ -413,4 +413,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_1.0.0-beta.3/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.1.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.1.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Made internal `CommunicationIdentifierSerializer` resilient to unknown additional response properties.
+
+    #### Features Added
+
+    - Added `getIdentifierRawId` and `createIdentifierFromRawId` to translate between a `CommunicationIdentifier` and its underlying canonical rawId representation. Developers can now use the rawId as an encoded format for identifiers to store in their databases or as stable keys in general.
+    - Always include `rawId` when serializing identifiers to wire format.
 
