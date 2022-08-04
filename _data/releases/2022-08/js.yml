@@ -429,4 +429,12 @@ entries:
 
     - Added `getIdentifierRawId` and `createIdentifierFromRawId` to translate between a `CommunicationIdentifier` and its underlying canonical rawId representation. Developers can now use the rawId as an encoded format for identifiers to store in their databases or as stable keys in general.
     - Always include `rawId` when serializing identifiers to wire format.
+- Name: '@azure/arm-hdinsight'
+  Version: 1.2.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
 
