@@ -219,4 +219,14 @@ entries:
     #### Features Added
 
     - Added `CaseInsensitiveDict` implementation in `azure.core.utils` removing dependency on `requests` and `aiohttp`
+- Name: azure-storage-blob
+  Version: 12.13.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.13.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed two rare issues with ranged blob download when using client-side encryption V1 or V2.
 
