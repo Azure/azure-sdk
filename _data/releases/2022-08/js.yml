@@ -494,4 +494,19 @@ entries:
     #### Features Added
 
     - Added `claims` optional property to the `GetTokenOptions` interface. If `claims` is set, it indicates that we are in challenge process and force to refresh the token.
+- Name: '@azure/service-bus'
+  Version: 7.7.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an invalid date issue when converting a `ServiceBusMessage` with `timeToLive` property set to a `RheaMessage`.
+
+    #### Features Added
+
+    - Add Client Identifier support [tracking issue: #21902](https://github.com/Azure/azure-sdk-for-js/issues/21902)
 
