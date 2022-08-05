@@ -509,4 +509,38 @@ entries:
     #### Features Added
 
     - Add Client Identifier support [tracking issue: #21902](https://github.com/Azure/azure-sdk-for-js/issues/21902)
+- Name: '@azure/cosmos'
+  Version: 3.16.4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.4/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Reverts changes of [PR 22548](https://github.com/Azure/azure-sdk-for-js/pull/22548) to avoid possible regression when customers use id with special characters and their account is on ComputeGateway already. - See [PR 22818](https://github.com/Azure/azure-sdk-for-js/pull/22818)
+- Name: '@azure/arm-automanage'
+  Version: 1.0.0
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-automanage_1.0.0/sdk/automanage/arm-automanage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mediaservices'
+  Version: 12.1.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mediaservices/arm-mediaservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 29.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
 
