@@ -556,4 +556,15 @@ entries:
     #### Fixes
 
     - Fix the duplicate `api-version` issue in apiVersionPolicy
+- Name: '@azure/core-lro'
+  Version: 2.2.5
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.5/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `LroEngine` no longer throws an error when it receives a 204 polling response.
 
