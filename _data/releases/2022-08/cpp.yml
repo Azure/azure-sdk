@@ -22,4 +22,15 @@ entries:
 
     - [[#3794]](https://github.com/Azure/azure-sdk-for-cpp/issues/3794) Fix memory leak in `CurlTransport`.
     - [[#3692]](https://github.com/Azure/azure-sdk-for-cpp/issues/3692) Interrupted poll calls cause spurious HTTP request failures. (A community contribution, courtesy of _[johnwheffner](https://github.com/johnwheffner)_)
+- Name: azure-storage-blobs
+  Version: 12.5.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.5.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.5.0.beta1` and `12.5.0.beta2` are now generally available.
 
