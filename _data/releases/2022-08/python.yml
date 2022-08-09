@@ -268,4 +268,32 @@ entries:
     #### Breaking Changes
 
     - Removed `VisualStudioCodeCredential` from `DefaultAzureCredential` token chain. ([#23249](https://github.com/Azure/azure-sdk-for-python/issues/23249))
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b6
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `source` argument to `blob_container_url` on `begin_build_model()` and made it a required keyword-only argument.
+    - Changed argument order on `begin_build_model()`. `build_mode` is the first expected argument, followed by `blob_container_url`.
+    - Renamed `begin_create_composed_model()` on `DocumentModelAdministrationClient` to `begin_compose_model()`.
+    - Renamed `get_account_info()` on `DocumentModelAdministrationClient` to `get_resource_details()`.
+    - Renamed `DocumentBuildMode` to `ModelBuildMode`.
+    - Renamed `AccountInfo` model to `ResourceDetails`.
+    - Renamed `DocTypeInfo` model to `DocumentTypeDetails`.
+    - Renamed `DocumentModelInfo` model to `DocumentModelSummary`.
+    - Renamed `DocumentModel` to `DocumentModelDetails`.
+    - Renamed `ModelOperation` to `DocumentModelOperationDetails`.
+    - Renamed `ModelOperationInfo` to `DocumentModelOperationSummary`.
+    - Renamed `model` parameter to `model_id` on `begin_analyze_document()` and `begin_analyze_document_from_url()`.
+    - Removed `continuation_token` keyword from `begin_analyze_document()` and `begin_analyze_document_from_url()` on `DocumentAnalysisClient` and from `begin_build_model()`, `begin_compose_model()` and `begin_copy_model_to()` on `DocumentModelAdministrationClient`.
+    - Changed return type of `get_copy_authorization()` from `dict[str, str]` to `TargetAuthorization`.
+    - Changed expected `target` parameter in `begin_copy_to()` from `dict[str, str]` to `TargetAuthorization`.
+    - Long-running operation metadata is now accessible through the `details` property on the returned `DocumentModelAdministrationLROPoller` and `AsyncDocumentModelAdministrationLROPoller` instances.
+
+    #### Features Added
+    - Added `TargetAuthorization` of type `dict[str, str]`.
 
