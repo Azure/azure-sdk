@@ -895,4 +895,17 @@ entries:
     #### Features Added
     * GA of `DedicatedGatewayRequestOptions` API. See [PR 30142](https://github.com/Azure/azure-sdk-for-java/pull/30142)
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.5.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.5.4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes IntelliJCredential [21150](https://github.com/Azure/azure-sdk-for-java/issues/21150)
+    - Fixes AzureCliCredential to properly respect tenant IDs.
+  GroupId: com.azure
 
