@@ -670,4 +670,88 @@ entries:
     #### Bugs Fixed
 
     - Fixed a regression with the `EventHubProducerClient` overloads of `SendAsync` which accept an enumerable of events.  When specifying a partition key, it was ignored when sending.  As a result, the Event Hub applied round-robin partition assignment, spreading events across partitions rather than grouping them in a single partition.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.2
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.2/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+
+    #### Other Changes
+
+    - Miscellaneous performance improvements by reducing memory allocations. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+- Name: Azure.ResourceManager.Resources
+  Version: 1.3.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.3.0/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.FormRecognizer
+  Version: 4.0.0-beta.5
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.5/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Updated all long-running operation client methods to a new pattern. This affects `StartAnalyzeDocument`, `StartAnalyzeDocumentFromUri`, `StartBuildModel`, `StartCopyModelTo`, and `StartCreateComposedModel` methods. Changes are:
+    - Removed the "Start" prefix. For example, `StartAnalyzeDocument` was renamed to `AnalyzeDocument`.
+    - Added a new required parameter: `waitUntil`. It specifies whether the operation should run to completion before returning or not, removing the need to call `WaitForCompletion` in most scenarios.
+    - Updated `DocumentModelInfo` and `DocumentModel`:
+    - Renamed them to `DocumentModelSummary` and `DocumentModelDetails`, respectively.
+    - Removed the inheritance between them.
+    - Updated `ModelOperationInfo` and `ModelOperation`:
+    - Renamed them to `DocumentModelOperationSummary` and `DocumentModelOperationDetails`, respectively.
+    - Removed the inheritance between them.
+    - Updated `ResourceLocation` to be a `Uri` in both.
+    - Renamed `AccountProperties` to `ResourceDetails`.
+    - Renamed method `GetAccountProperties` to `GetResourceDetails`.
+    - Renamed method `StartCreateComposedModel` to `ComposeModel`.
+    - Renamed `BuildModelOptions.ModelDescription` to `Description`.
+    - Renamed `modelDescription` parameters to `description` in methods `GetCopyAuthorization` and `StartCreateComposedModel` (now called `ComposeModel`).
+    - Renamed `CopyAuthorization.ExpirationDateTime` to `ExpiresOn`.
+    - Removed `DocumentCaption` and `DocumentFootnote` features.
+    - Updated the return type of `StartCreateComposedModel` (now called `ComposeModel`) to a `ComposeModelOperation`.
+    - Renamed class `CopyModelOperation` to `CopyModelToOperation`.
+    - Renamed parameter `analyzeDocumentOptions` to `options` in the `StartAnalyzeDocument` and `StartAnalyzeDocumentFromUri` methods (now called `AnalyzeDocument` and `AnalyzeDocumentFromUri`).
+    - Renamed parameter `buildModelOptions` to `options` in the `StartBuildModel` method (now called `BuildModel`).
+    - `FormRecognizerClientOptions.Audience` and `DocumentAnalysisClientOptions.Audience` now default to `null`.
+    - In the `DocumentAnalysis` namespace, `CopyModelOperation.PercentCompleted` and `BuildModelOperation.PercentCompleted` now throw an `InvalidOperationException` if called before a call to `UpdateStatus`.
+    - Updated `CopyAuthorization.TargetModelLocation` to be a `Uri` instead of `string`.
+    - Removed method `DocumentAnalysisModelFactory.CopyAuthorization`.
+
+    #### Features Added
+    - Added `Length` property to `BoundingPolygon`.
+    - Added a public constructor to `CopyAuthorization`.
+    - Added properties `AccessToken` and `TargetResourceId` to `CopyAuthorization`.
+- Name: Azure.Identity.BrokeredAuthentication
+  Version: 1.0.0-beta.3
+  DisplayName: Azure.Identity.BrokeredAuthentication
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.BrokeredAuthentication_1.0.0-beta.3/sdk/identity/Azure.Identity.BrokeredAuthentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Added required constructor parameter `parentWindowHandle` to `InteractiveBrowserCredentialBrokerOptions`, to require setting the parent window for the authentication broker.
+- Name: Azure.Identity
+  Version: 1.7.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.7.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `ManagedIdentityCredential` will now internally cache tokens, so applications can call `GetToken` and `GetTokenAsync` directly without needing to cache to avoid throttleling.
 
