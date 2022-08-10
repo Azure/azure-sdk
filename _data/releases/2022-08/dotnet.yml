@@ -754,4 +754,26 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - `ManagedIdentityCredential` will now internally cache tokens, so applications can call `GetToken` and `GetTokenAsync` directly without needing to cache to avoid throttleling.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.1.2
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.1.2/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in the runtime scale controller that could result in a null reference exception when encountering a null checkpoint. Also, correct the assumption that the beginning sequence number for a partition is always 0.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.1.0-beta.1
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.1.0-beta.1/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `CertificateEndpoint` property to `ConfidentialLedgerClientOptions` to allow configuration of a custom certificate endpoint. When not configured, the current default is used.
 
