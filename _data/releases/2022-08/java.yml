@@ -1073,4 +1073,32 @@ entries:
     - Upgraded `azure-core` from `1.30.0` to version `1.31.0`.
     - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.4`.
   GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.6
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.6/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.31.0`.
+    - Updated `azure-core-http-netty` to `1.12.4`.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.14
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.14/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` to `1.31.0`.
+    - Upgraded `azure-core-http-netty` to `1.12.4`.
+  GroupId: com.azure
 
