@@ -784,4 +784,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Rooms_1.0.0-beta.1/sdk/communication/Azure.Communication.Rooms/CHANGELOG.md
   ChangelogContent: '- Initial version of Azure Communication Services Rooms .NET SDK.'
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.1.0-beta.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.1.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue that when `expiresAfter` is less than 1 minute it requests a token with 0 ttl
 
