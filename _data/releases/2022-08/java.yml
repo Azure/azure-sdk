@@ -954,4 +954,64 @@ entries:
     - Upgraded `azure-core` from `1.30.0` to version `1.31.0`.
     - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.4`.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.0-beta.6
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `beginCreateComposedModel` method to `beginComposeModel` on DocumentModelAdministrationClient and DocumentModelAdministrationAsyncClient.
+    - Renamed `CreateComposedModelOptions` model to `ComposeModelOptions`
+    - Renamed `DocumentModelInfo` model to `DocumentModelDetails`
+    - Renamed `ModelOperation` model to `ModelOperationDetails`
+    - Renamed `ModelOperationInfo` model to `ModelOperationSummary`
+    - Renamed `getAccountProperties` method to `getResourceDetails`
+    - Renamed `AccountProperties` model to `ResourceDetails`
+    - Renamed `state` property on model `DocumentSelectionMark` to `selectionMarkState`
+    - Renamed `getValue*` accessor methods on `DocumentField` to `getValueAs*`
+    - Renamed `DocTypeInfo` model to `DocumentTypeDetails`
+    - Renamed `docTypes` property on `DocumentModelDetails` model to `documentTypes`
+    - Removed models `DocumentModelOperationException`, `DocumentModelOperationError` and `DocumentModelOperationInnerError`.
+    - Renamed `trainingFilesUrl` to `blobContainerUrl` in `beginBuildModel` method
+    - Changed method `beginBuildModel(String, DocumentModelBuildMode, BuildModelOptions)` to `beginBuildModel(String, DocumentModelBuildMode, String, BuildModelOptions)`
+    - Removed `prefix` property on model `BuildModelOptions`
+
+    #### Features Added
+    - Add a constructor to create an instance of `CopyAuthorization` model.
+    - Added BinaryData support to document analysis client using `beginAnalyzeDocument(String modelId, BinaryData document, long length)`
+    - Added support for V2.1 & V2.0 APIs by adding FormRecognizerClient and FormTrainingClient.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.2.3
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.2.3/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.31.0`.
+    - Update `azure-core-http-netty` dependency to `1.12.4`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.3
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.3/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.31.0`.
+    - Update `azure-data-schemaregistry` dependency to `1.2.3`.
+  GroupId: com.azure
 
