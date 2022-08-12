@@ -412,4 +412,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0b2/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-keyvault-keys
+  Version: 4.7.0b1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.7.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - An attempt will be made to generate an IV if one isn't provided for local encryption
+    ([#25380](https://github.com/Azure/azure-sdk-for-python/pull/25380))
 
