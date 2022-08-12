@@ -619,4 +619,61 @@ entries:
     #### Other Changes
 
     - Improvements to documentation.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.5.0
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Migrated to the Core v2 HTTP pipeline. As a result of this migration:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `SecretClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.5.0
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.5.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Migrated to the Core v2 HTTP pipeline. As a result of this migration:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
+- Name: '@azure/keyvault-keys'
+  Version: 4.5.0
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.5.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Migrated to the Core v2 HTTP pipeline. As a result of this migration:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
 
