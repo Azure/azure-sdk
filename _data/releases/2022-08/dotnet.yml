@@ -814,4 +814,31 @@ entries:
     - Fixed issue where the AMQP footer would not be populated on received messages.
     - Fixed issue where the client timeout was not respected when establishing the AMQP connection and the AMQP session.
     - Fixed issue where closing the rule manager link could result in the AMQP session being closed even when `EnableCrossEntityTransactions` is set to `true` in the `ServiceBusClientOptions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.7.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.7.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added distributed tracing span when for functions that process a batch of messages.
+
+    #### Bugs Fixed
+
+    - Fixed issue related to function apps that are bound to multiple namespaces using the same entity names, which caused messages to not be processed from the second namespace.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.4.0
+  DisplayName: Extensions - Azure
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.4.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `AddAzureClientsCore` method overload that has a parameter to allow enabling log
+    forwarding to `ILogger`.
 
