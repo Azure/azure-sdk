@@ -754,4 +754,99 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - `ManagedIdentityCredential` will now internally cache tokens, so applications can call `GetToken` and `GetTokenAsync` directly without needing to cache to avoid throttleling.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.1.2
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.1.2/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in the runtime scale controller that could result in a null reference exception when encountering a null checkpoint. Also, correct the assumption that the beginning sequence number for a partition is always 0.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.1.0-beta.1
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.1.0-beta.1/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `CertificateEndpoint` property to `ConfidentialLedgerClientOptions` to allow configuration of a custom certificate endpoint. When not configured, the current default is used.
+- Name: Azure.Communication.Rooms
+  Version: 1.0.0-beta.1
+  DisplayName: Communication Rooms
+  ServiceName: Rooms
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Rooms_1.0.0-beta.1/sdk/communication/Azure.Communication.Rooms/CHANGELOG.md
+  ChangelogContent: '- Initial version of Azure Communication Services Rooms .NET SDK.'
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.1.0-beta.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.1.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue that when `expiresAfter` is less than 1 minute it requests a token with 0 ttl
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.10.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.10.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to set the a custom Identifier on the various client options types.
+    - The processor Identifier will now be included in the underlying receiver logs when using the `ServiceBusProcessor` or `ServiceBusSessionProcessor`.
+    - Added the ability to set a custom endpoint that will be used when connecting to the service, via the `ServiceBusClientOptions.CustomEndpointAddress` property.
+    - Added the `ReleaseSession` and `RenewSessionLockAsync` methods to the `ProcessSessionEventArgs` class to allow the user to manage the session in the `SessionInitializingAsync` and the `SessionClosingAsync` event handlers.
+
+    #### Bugs Fixed
+
+    - Fixed issue where the AMQP footer would not be populated on received messages.
+    - Fixed issue where the client timeout was not respected when establishing the AMQP connection and the AMQP session.
+    - Fixed issue where closing the rule manager link could result in the AMQP session being closed even when `EnableCrossEntityTransactions` is set to `true` in the `ServiceBusClientOptions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.7.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.7.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added distributed tracing span when for functions that process a batch of messages.
+
+    #### Bugs Fixed
+
+    - Fixed issue related to function apps that are bound to multiple namespaces using the same entity names, which caused messages to not be processed from the second namespace.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.4.0
+  DisplayName: Extensions - Azure
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.4.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `AddAzureClientsCore` method overload that has a parameter to allow enabling log
+    forwarding to `ILogger`.
+- Name: Azure.ResourceManager.ContainerRegistry
+  Version: 1.0.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.0.0/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: ""
 
