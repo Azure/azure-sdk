@@ -18,4 +18,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedvmware_1.0.0b2/sdk/connectedvmware/azure-mgmt-connectedvmware/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b7
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b7/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Moved OpenTelemetry `entry_points` to setup.py
+    ([#25674](https://github.com/Azure/azure-sdk-for-python/pull/25674))
+    - Added storage configuration options
+    ([#25633](https://github.com/Azure/azure-sdk-for-python/pull/25633))
+
+    #### Breaking Changes
+
+    - Update to OpenTelemetry api/sdk v1.12.0
+    ([#25659](https://github.com/Azure/azure-sdk-for-python/pull/25659))
+
+    #### Bugs Fixed
+
+    - Opentelemetry span events have wrong ParentId in Azure Monitor logs
+    ([#25369](https://github.com/Azure/azure-sdk-for-python/pull/25369))
 
