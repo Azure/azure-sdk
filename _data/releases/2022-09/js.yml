@@ -1,0 +1,13 @@
+entries:
+- Name: '@azure/keyvault-secrets'
+  Version: 4.5.1
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `listPropertiesOfSecretVersions` would fail on the second page when using pagination.
+
