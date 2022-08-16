@@ -55,7 +55,7 @@ function CreatePackage(
     PlannedVersions = ""
     FirstGADate = ""
     Support = ""
-    DeprecatedDate = ""
+    EOLDate = ""
     Hide = ""
     Replace = ""
     ReplaceGuide = ""
@@ -81,7 +81,7 @@ function ClonePackage($pkg)
     PlannedVersions = $pkg.PlannedVersions
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
-    DeprecatedDate = $pkg.DeprecatedDate
+    EOLDate = $pkg.EOLDate
     Hide = $pkg.Hide
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
