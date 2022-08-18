@@ -378,4 +378,18 @@ entries:
     - Added multi-cloud support via `SearchAudience` to allow users to select the Azure cloud where the resource is located. ([#30331](https://github.com/Azure/azure-sdk-for-java/pull/30331))
     - Added new languages to `ImageAnalysisSkillLanguage` and `OcrSkillLanguage`. ([#30363](https://github.com/Azure/azure-sdk-for-java/pull/30363))
   GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.1/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.31.0`.
+    - Upgraded `azure-core-http-netty` dependency to `1.12.4`.
+  GroupId: com.azure
 
