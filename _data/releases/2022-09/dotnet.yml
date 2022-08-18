@@ -51,4 +51,20 @@ entries:
 
     - Added the `AddAzureClientsCore` method overload that has a parameter to allow enabling log
     forwarding to `ILogger`.
+- Name: Azure.ResourceManager
+  Version: 1.3.1
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.3.1/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0-beta.12
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.12/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
 
