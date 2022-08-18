@@ -426,4 +426,18 @@ entries:
     #### Bugs Fixed
     - Fixed an issue where requests sent by sync clients that should include a body could have an empty body instead. ([#30512](https://github.com/Azure/azure-sdk-for-java/pull/30512))
   GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.0.0-beta.2
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.0-beta.2/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-core` to version `1.31.0`.
+    - Upgraded `azure-core-http-netty` to version `1.12.4`.
+  GroupId: com.azure
 
