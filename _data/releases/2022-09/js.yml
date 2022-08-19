@@ -58,4 +58,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.17.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - ParallelQueryExecutionContextBase breaks use of abortSignal [#18544](https://github.com/Azure/azure-sdk-for-js/pull/18544)
+    - Fixes id encoding issues when using special characters fo RoutingGateway
+
+    #### Features Added
+
+    ##### GA: Azure Cosmos DB Integrated Cache
+
+    - Support DedicatedGatewayRequestOptions and MaxIntegratedCacheStaleness [#21240](https://github.com/Azure/azure-sdk-for-js/pull/21240)
+    - Upgrade cosmos with azure core tracing [#22284](https://github.com/Azure/azure-sdk-for-js/pull/22284)
+    - Removed old logging and implement Azure core logging coverage [#18723](https://github.com/Azure/azure-sdk-for-js/pull/18723?)
 
