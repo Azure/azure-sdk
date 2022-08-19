@@ -440,4 +440,49 @@ entries:
     - Upgraded `azure-core` to version `1.31.0`.
     - Upgraded `azure-core-http-netty` to version `1.12.4`.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.15.0
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.15.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.12.3`.
+    - Update `azure-storage-blob` dependency to `12.19.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.13.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.13.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added identifier to client. ([#22981](https://github.com/Azure/azure-sdk-for-java/issues/22981))
+  GroupId: com.azure
+- Name: azure-resourcemanager-dashboard
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Dashboard
+  ServiceName: Dashboard
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dashboard_1.0.0-beta.2/sdk/dashboard/azure-resourcemanager-dashboard/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-deviceupdate
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-deviceupdate_1.0.0-beta.2/sdk/deviceupdate/azure-resourcemanager-deviceupdate/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
