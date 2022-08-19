@@ -485,4 +485,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-deviceupdate_1.0.0-beta.2/sdk/deviceupdate/azure-resourcemanager-deviceupdate/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.4.13
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.4.13/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.30.0` to version `1.31.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.4`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.2.19` to version `1.2.20`.
+  GroupId: com.azure
 
