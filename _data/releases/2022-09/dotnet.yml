@@ -83,4 +83,72 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.11.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
   ChangelogContent: '- Added support for receiving queue messages with bugged client-side encryption metadata from previous library versions.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.11.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-10-04.'
+- Name: Azure.Storage.Queues
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.12.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.14.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-10-04.
+    - Added support for SDK-calculated transactional checksums on data transfer.
+- Name: Azure.Storage.Common
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.13.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Fixed bug where Account SAS with the resources type value not in the order "sco" would get reordered to that order, which would invalidate the Account SAS signature from the string to sign'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.28
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.28/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-10-04.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.12.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-10-04.
+    - Added support for SDK-calculated transactional checksums on data transfer.
+    - Added support for flush parameter to DataLakeFileClient.Append() and .AppendAsync().
+    - Added support for encryption scopes.
+    - Added support for encryption scope SAS.
+    - Fixed bug where DataLakeFileSystemClient.GetParentServiceClient() persisted the filesystem name in the URL of the returned DataLakeServiceClient
+    - Fixed bug where PathItem.ETag was not being deserialized correctly.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.12.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-10-04.
+    - Added support for SDK-calculated transactional checksums on data transfer.
+    - Fixed bug where ShareClient.GetParentServiceClient() persisted the filesystem name in the URL of the returned ShareServiceClient
 
