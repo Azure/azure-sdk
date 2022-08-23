@@ -67,4 +67,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.12/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Blobs
+  Version: 12.13.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.13.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Added support for downloading blobs with bugged client-side encryption metadata from previous library versions.'
+- Name: Azure.Storage.Queues
+  Version: 12.11.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.11.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Added support for receiving queue messages with bugged client-side encryption metadata from previous library versions.'
 
