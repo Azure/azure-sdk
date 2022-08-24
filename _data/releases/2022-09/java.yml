@@ -559,4 +559,105 @@ entries:
     ##### Other Changes
     * Updated `azure-cosmos` to version `4.35.0`.
   GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.19.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.20.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `BlobItem.isPrefix()` now returns false if it is not a virtual directory instead of null.
+
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+    - Added new overload for `BlobClient.upload()` that takes in `InputStream` without specifying length.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.5.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.15.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.13.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+    - Added support for flush parameter to `DataLakeFileClient.appendWithResponse()`
+    - Added support for encryption scopes.
+    - Added support for encryption scope SAS.
+    - Added new method `DataLakeFileSystemClient.exists()` to determine whether file system exists.
+    - Added `DataLakeServiceClientBuilder.connectionString()` to allow connection string to be set on the client builder.
+    - Added `DataLakeFileClient.uploadFromFileWithResponse()` which returns a response of `PathItem` upon completion.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.19.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.16.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.16.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug that would cause auth failures when trying to rename a file share/directory share while authenticating with a sas.
+
+    #### Features Added
+    - Added support for 2021-10-04 service version.
+  GroupId: com.azure
 
