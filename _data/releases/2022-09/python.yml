@@ -108,4 +108,18 @@ entries:
     - Updated exception catching of `azure.storage.blob.StorageStreamDownloader`'s retry mechanism.
     - Adjusted type hints for `upload_blob` and `StorageStreamDownloader.readall`.
     - Fixed a bug where uploading an empty blob via `upload_blob` would fail with `validate_content=True`.
+- Name: azure-storage-file-datalake
+  Version: 12.9.0b1
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.9.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `AzureNamedKeyCredential` as a valid `credential` type.
+    - Added support for `flush` to `append_data` API, allowing for append and flush in one operation.
+    - Encryption Scope is now supported for both `create_file_system` APIs (`FileSystemClient`, `DataLakeServiceClient`).
+    - Encryption Scope is now supported as a SAS permission.
+    - Added standard `read` method to `StorageStreamDownloader`.
 
