@@ -149,4 +149,39 @@ entries:
     - Added samples for supporting AAD authentication in Azure Redis Cache
     #### Breaking Changes
     - Removed `VisualStudioCodeCredential` from `DefaultAzureCredential` token chain. [Issue 20500](https://github.com/Azure/azure-sdk-for-js/issues/20500) tracks this.
+- Name: '@azure/storage-blob'
+  Version: 12.12.0-beta.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.12.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-10-04.
+
+    #### Bugs Fixed
+
+    - Fixed a hang issue in BlobClient.downloadToBuffer when encountering transient network failure.
+    - Refined URL parsing method to let it be able to correctly parse URLs with account name in path.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.11.0-beta.1
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.11.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-10-04.
+    - Added support for flush parameter to DataLakeFileClient.append().
+    - Added support for encryption scopes.
+    - Added support for encryption scope SAS.
+
+    #### Bugs Fixed
+
+    - Correted permission string parsing in DataLakePathClient.setPermissions() and DataLakePathClient.getAccessControl().
+    - Refined URL parsing method to let it be able to correctly parse URLs with account name in path.
 
