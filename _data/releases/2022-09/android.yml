@@ -126,4 +126,36 @@ entries:
 
     #### Bugs Fixed
   GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 2.0.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_2.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Introduced the use of WorkManager, which now requires additional configuration in apps that were already using the push notification feature. Check the [push notifications documentation](https://docs.microsoft.com/azure/communication-services/tutorials/chat-android-push-notification) for more information.
+    - Increase minSDKVersion from 21 to 23.
+
+    #### Bugs Fixed
+    - Push notification registration renewal is now guaranteed to happen when an app is idle or closed.
+
+    #### Features Added
+    - Create new `startPushNotifications` API without errorHandler as a parameter.
+  GroupId: com.azure.android
+- Name: azure-communication-common
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.1.0-beta.1/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    #### Bugs Fixed
+
+    #### Features Added
+  GroupId: com.azure.android
 
