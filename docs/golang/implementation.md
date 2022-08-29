@@ -66,26 +66,24 @@ TODO
 
 {% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
 
-{% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name.
+{% include requirement/MUST id="golang-enum-value-naming" %} add the suffix `Type` to the enumeration's type name, and name all values with a prefix of the type's name.
 
 {% include requirement/MUST id="golang-enum-value-grouping" %} place all values for an enumerated type within their own `const` block, which is to immediately follow the type's declaration.
 
 {% include requirement/MUST id="golang-enum-type-values" %} define a function named `<EnumTypeName>Values()` that returns a slice containing all possible values for the enumeration.
 
-{% include requirement/MUST id="golang-enum-type-values" %} define a method named `ToPtr()` on the enumerated type that returns a pointer to the enum value.
-
 ```go
-// WidgetColor specifies a Widget's color from the list of possible values.
-type WidgetColor string
+// WidgetColorType specifies a Widget's color from the list of possible values.
+type WidgetColorType string
 
 const (
-	WidgetColorBlue  WidgetColor = "blue"
-	WidgetColorGreen WidgetColor = "green"
-	WidgetColorRed   WidgetColor = "red"
+	WidgetColorTypeBlue  WidgetColorType = "blue"
+	WidgetColorTypeGreen WidgetColorType = "green"
+	WidgetColorTypeRed   WidgetColorType = "red"
 )
 
-// PossibleWidgetColorValues returns a slice of possible values for WidgetColor.
-func PossibleWidgetColorValues() []WidgetColor {
+// PossibleWidgetColorTypeValues returns a slice of possible values for WidgetColorType.
+func PossibleWidgetColorTypeValues() []WidgetColorType {
 	// ...
 }
 
