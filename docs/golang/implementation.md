@@ -72,8 +72,6 @@ TODO
 
 {% include requirement/MUST id="golang-enum-type-values" %} define a function named `<EnumTypeName>Values()` that returns a slice containing all possible values for the enumeration.
 
-{% include requirement/MUST id="golang-enum-type-values" %} define a method named `ToPtr()` on the enumerated type that returns a pointer to the enum value.
-
 ```go
 // WidgetColor specifies a Widget's color from the list of possible values.
 type WidgetColor string
