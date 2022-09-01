@@ -87,4 +87,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/nginx/armnginx/v1.0.0/sdk/resourcemanager/nginx/armnginx/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.1.3
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.1.3/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Adjusted the initial retry delay to 800ms per the Azure SDK guidelines.
 
