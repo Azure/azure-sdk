@@ -407,4 +407,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceUpdate_1.0.0-beta.7/sdk/deviceupdate/Azure.ResourceManager.DeviceUpdate/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.Ingestion
+  Version: 1.0.0-beta.2
+  DisplayName: Monitor Ingestion
+  ServiceName: Ingestion
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.0.0-beta.2/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Added Batching and GZip capabilities to Upload methods
+    - Added Model `UploadLogsResult` containing the result of a logs upload operation
+    - Added Model `UploadLogsError` representing the error and the associated logs that failed when uploading a subset of logs to Azure Monitor.
+    - Added Model `UploadLogsStatus` indicating the status of a logs upload operation.
+    - Added Upload overload that takes a List<T> of logs
 
