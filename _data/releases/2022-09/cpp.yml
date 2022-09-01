@@ -1,0 +1,13 @@
+entries:
+- Name: azure-core
+  Version: 1.7.2
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.7.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WinHTTP Transport Adapter: Fixed missing reason phrase handling for HTTP/2 responses.
+
