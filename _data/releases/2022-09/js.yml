@@ -252,4 +252,16 @@ entries:
     #### Other Changes
 
     - Move `defaultLogPolicy` to after `Sign` phase in `createPipelineFromOptions`. [#22930](https://github.com/Azure/azure-sdk-for-js/pull/22930)
+- Name: '@azure/core-lro'
+  Version: 2.3.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Provides `createHttpPoller` which creates a simple poller that can work out of the box for most Azure long-running operations.
+    - Deprecates `cancelOperation` in `PollerLike` because not every operation supports cancellation.
 
