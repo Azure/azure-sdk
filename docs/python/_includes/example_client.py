@@ -47,7 +47,7 @@ class ExampleClient:
         :param credential: Credentials to use when connecting to the service.
         :type credential: ~azure.core.credentials.TokenCredential
         :keyword api_version: API version to use when talking to the service. Default is '2020-12-31'
-        :paramtype apiversion: str
+        :paramtype api_version: str
         :keyword transport: HttpTransport to use. Default is ~transports.RequestsHttpTransport.
         :paramtype transport: ~azure.core.pipeline.transport.HttpTransport
         """
