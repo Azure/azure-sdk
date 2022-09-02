@@ -27,7 +27,7 @@ class Thing:
         self.size = size
 
     @classmethod
-    def from_response(self, response: "azure.core.pipeline.HttpResponse") -> "Thing":
+    def from_response(self, response: "azure.core.rest.HttpResponse") -> "Thing":
         """Factory method to, given a response, construct a ~Thing
         """
         return Thing(**response.context['deserialized_data'])
