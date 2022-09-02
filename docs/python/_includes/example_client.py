@@ -86,7 +86,7 @@ class ExampleClient:
         response = self._pipeline.send(request, **kwargs) 
         return model_factory(response)
 
-    def list_things(self, **kwargs) -> "azure.core.ItemPaged[Thing]":
+    def list_things(self, **kwargs) -> "azure.core.paging.ItemPaged[Thing]":
         """List all things.
         
         :rtype: ~azure.core.ItemPaged[~Thing]
