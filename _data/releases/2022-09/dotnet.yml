@@ -421,4 +421,16 @@ entries:
     - Added Model `UploadLogsError` representing the error and the associated logs that failed when uploading a subset of logs to Azure Monitor.
     - Added Model `UploadLogsStatus` indicating the status of a logs upload operation.
     - Added Upload overload that takes a List<T> of logs
+- Name: Azure.Communication.Common
+  Version: 1.2.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.2.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `string RawID { get; }` and `static CommunicationIdentifier FromRawId(string rawId)` to `CommunicationIdentifier` to translate between a `CommunicationIdentifier` and its underlying canonical rawId representation. Developers can now use the rawId as an encoded format for identifiers to store in their databases or as stable keys in general.
+    - Always include `rawId` when serializing identifiers to wire format.
 
