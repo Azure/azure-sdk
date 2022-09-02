@@ -39,7 +39,7 @@ class Thing:
 
 class ExampleClient:
 
-    def __init__(self, endpoint: str, credential: "azure.core.credential.TokenCredential", **kwargs) -> None:
+    def __init__(self, endpoint: str, credential: "azure.core.credentials.TokenCredential", **kwargs) -> None:
         """Create a new example client instance
 
         :param endpoint: Endpoint to connect to.
