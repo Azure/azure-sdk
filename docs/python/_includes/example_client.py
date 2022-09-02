@@ -49,7 +49,7 @@ class ExampleClient:
         :keyword apiversion: API version to use when talking to the service. Default is '2020-12-31'
         :paramtype apiversion: str
         :keyword transport: HttpTransport to use. Default is ~transports.RequestsHttpTransport.
-        :paramtype transport: ~transports.HttpTransport
+        :paramtype transport: ~azure.core.pipeline.transport.HttpTransport
         """
         self._api_version = kwargs.pop('api_version', '2020-12-31')
         transport = kwargs.pop('transport', None) or transports.RequestsTransport(**kwargs)
