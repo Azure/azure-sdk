@@ -515,7 +515,7 @@ class ConfigurationSetting:
     :vartype value: object
     """
 
-    def __init__(self, name: str, value: Any):
+    def __init__(self, name: str, value: object):
         self.name = name
         self.value = value
 
