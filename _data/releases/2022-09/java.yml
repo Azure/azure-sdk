@@ -1071,4 +1071,18 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.4` to version `1.12.5`.
     - Upgraded `msal4j` from `1.12.0` to version `1.13.0`.
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.6/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Add metrics exporter.
+    - Add logs exporter.
+    - Add disk persistence and retries for ingestion failures.
+    - Add heartbeat telemetry.
+  GroupId: com.azure
 
