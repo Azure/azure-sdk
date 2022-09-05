@@ -433,4 +433,68 @@ entries:
 
     - Added `string RawID { get; }` and `static CommunicationIdentifier FromRawId(string rawId)` to `CommunicationIdentifier` to translate between a `CommunicationIdentifier` and its underlying canonical rawId representation. Developers can now use the rawId as an encoded format for identifiers to store in their databases or as stable keys in general.
     - Always include `rawId` when serializing identifiers to wire format.
+- Name: Azure.ResourceManager.Reservations
+  Version: 1.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Reservations_1.0.0/sdk/reservations/Azure.ResourceManager.Reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NotificationHubs
+  Version: 1.0.0
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NotificationHubs_1.0.0/sdk/notificationhubs/Azure.ResourceManager.NotificationHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Authorization
+  Version: 1.0.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Authorization_1.0.0/sdk/authorization/Azure.ResourceManager.Authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceFabric
+  Version: 1.0.0
+  DisplayName: Resource Management - ServiceFabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabric_1.0.0/sdk/servicefabric/Azure.ResourceManager.ServiceFabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Logic
+  Version: 1.0.0
+  DisplayName: Resource Management - Logic
+  ServiceName: Logic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Logic_1.0.0/sdk/logic/Azure.ResourceManager.Logic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StreamAnalytics
+  Version: 1.0.0
+  DisplayName: Resource Management - Stream Analytics
+  ServiceName: Stream Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StreamAnalytics_1.0.0/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MySql
+  Version: 1.0.0
+  DisplayName: Resource Management - MySql
+  ServiceName: MySql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.0.0/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.PostgreSql
+  Version: 1.0.0
+  DisplayName: Resource Management - PostgreSql
+  ServiceName: PostgreSql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PostgreSql_1.0.0/sdk/postgresql/Azure.ResourceManager.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
 
