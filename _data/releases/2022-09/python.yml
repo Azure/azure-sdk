@@ -247,4 +247,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-subscription_3.1.1/sdk/subscription/azure-mgmt-subscription/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.3.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for other national clouds.
+    - Added support for TokenCredential
+
+    #### Bugs Fixed
+    - Fixed issue where async `search` call would fail with a 403 error when retrieving large number of documents.
 
