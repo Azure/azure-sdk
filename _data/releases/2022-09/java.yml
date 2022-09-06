@@ -1099,4 +1099,15 @@ entries:
     - Added interfaces from `com.azure.core.client.traits` to `SearchIndexerClientBuilder`, `SearchIndexClientBuilder`
     and `SearchClientBuilder`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.3.7
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.3.7/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the issue of sharing the same default http pipeline instance between App Configuration clients.
+  GroupId: com.azure
 
