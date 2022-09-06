@@ -1085,4 +1085,18 @@ entries:
     - Add disk persistence and retries for ingestion failures.
     - Add heartbeat telemetry.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added multi-cloud support via `SearchAudience` to allow users to select the Azure cloud where the resource is located. ([#30331](https://github.com/Azure/azure-sdk-for-java/pull/30331))
+    - Added interfaces from `com.azure.core.client.traits` to `SearchIndexerClientBuilder`, `SearchIndexClientBuilder`
+    and `SearchClientBuilder`.
+  GroupId: com.azure
 
