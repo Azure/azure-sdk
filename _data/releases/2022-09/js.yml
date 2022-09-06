@@ -304,4 +304,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.8/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    - Added `core-http-compat` dependency
+    - Enabled national cloud support for Azure Search SDK. Please refer [#22887](https://github.com/Azure/azure-sdk-for-js/pull/22887) for further details.
 
