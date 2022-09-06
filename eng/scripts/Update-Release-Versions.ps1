@@ -194,6 +194,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 
     if ($null -eq $pkgVersion) {
       Write-Verbose "Skipping update for $($pkg.Package) as we don't have version info for it. "
+      CheckOptionalLinks $langLinkTemplates $pkg
       continue;
     }
 
