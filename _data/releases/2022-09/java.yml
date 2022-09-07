@@ -1137,4 +1137,19 @@ entries:
     - Upgraded `azure-core-identity` dependency to `1.5.5`.
     - Upgraded `azure-core-serializer-json-jackson` dependency to `1.2.21`.
   GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.0.8
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.0.8/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.31.0` to version `1.32.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.4` to version `1.12.5`.
+  GroupId: com.azure
 
