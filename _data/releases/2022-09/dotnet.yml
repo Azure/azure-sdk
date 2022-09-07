@@ -834,4 +834,29 @@ entries:
     #### Bugs Fixed
     - `TableClient.CreateIfNotExists` and `TableServiceClient.CreateTableIfNotExists` no longer log an error or exception to telemetry when the table already exists (response status 409). ([#28084](https://github.com/Azure/azure-sdk-for-net/issues/28084))
     - `TableClient.CreateIfNotExists` and `TableServiceClient.CreateTableIfNotExists` no longer return null when the table already exists. ([#27821](https://github.com/Azure/azure-sdk-for-net/issues/27821))
+- Name: Azure.Search.Documents
+  Version: 11.5.0-beta.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.5.0-beta.1/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - All features from the 11.4.x betas that weren't included in [11.4.0](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#1140-2022-09-06).
+- Name: Azure.Search.Documents
+  Version: 11.4.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `SearchClient`, `SearchIndexClient` or a `SearchIndexerClient`. For example, you can get started with `new SearchClient(endpoint, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). For more details see [how to use role-based authentication in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-rbac?tabs=config-svc-portal%2Crbac-portal).
+    - Added multi-cloud support via `SearchClientOptions.Audience` to allow users to select the Azure cloud where the resource is located ([#30306](https://github.com/Azure/azure-sdk-for-net/issues/30306)).
+
+    #### Bugs Fixed
+    - Enhanced the documentation of some `SearchOptions` properties by adding links to REST docs - https://github.com/Azure/azure-sdk-for-net/issues/22808
+    - Fixed issue where `SearchOptions.SessionId` property was not passed to the service ([#27549](https://github.com/Azure/azure-sdk-for-net/issues/27549))
 
