@@ -332,4 +332,15 @@ entries:
 
     - Enabled national cloud support for Azure Search SDK. Please refer [#22887](https://github.com/Azure/azure-sdk-for-js/pull/22887) for further details.
     - Support for TokenCredential has been added. With this addition, the Search SDK supports authentication via AAD.
+- Name: '@azure/service-bus'
+  Version: 7.7.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updating the `sendMessages` API to not batch the messages when it is just a single message. This allows users to send individual large message (>1MB) using the `sendMessages` API. [#23014](https://github.com/Azure/azure-sdk-for-js/pull/23014)
 
