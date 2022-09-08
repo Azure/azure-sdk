@@ -904,4 +904,15 @@ entries:
     #### Features Added
     - Added filter to DeviceManagement.ListDeviceClasses method
     - Updated description for some methods to be more descriptive and less ambiguous
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.2.1
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.2.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - EventGrid Trigger execution failed in azure portal.
 
