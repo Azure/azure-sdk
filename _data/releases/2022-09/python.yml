@@ -269,4 +269,47 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-search_1.0.0b1/sdk/maps/azure-maps-search/CHANGELOG.md
   ChangelogContent: '* Initial Release'
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Content type `image/heif` is supported for document analysis and building models.
+    - Added `custom_document_models` property on `ResourceDetails`.
+    - Added new `CustomDocumentModelsDetails` model to represent the details of the custom document models in a given Form Recognizer resource.
+
+    #### Bugs Fixed
+    - Added `DocumentParagraph` to `__all__`.
+
+    #### Breaking Changes
+    - This library will default to service API version `2022-08-31` going forward.
+    - Removed `kind` property on `DocumentPage`.
+    - Renamed `begin_build_model()` to `begin_build_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `begin_compose_model()` to `begin_compose_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `begin_copy_model_to()` to `begin_copy_document_model_to()` on the `DocumentModelAdministrationClient`.
+    - Renamed `list_models()` to `list_document_models()` on the `DocumentModelAdministrationClient`.
+    - Renamed `get_model()` to `get_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `delete_model()` to `delete_document_model()` on the `DocumentModelAdministrationClient`.
+    - Removed `document_model_count` and `document_model_limit` properties on `ResourceDetails`.
+    - Renamed `DocumentModelOperationDetails` to `OperationDetails`.
+    - Renamed `DocumentModelOperationSummary` to `OperationSummary`.
+    - Removed `DocumentContentElement`.
+    - Removed `kind` and `content` properties from `DocumentSelectionMark`.
+    - Removed `kind` from `DocumentWord`.
+- Name: azure-ai-textanalytics
+  Version: 5.2.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    This version of the client library marks a stable release and defaults to the service API version `2022-05-01`.
+    Includes all changes from `5.2.0b1` to `5.2.0b5`.
 
