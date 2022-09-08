@@ -889,4 +889,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.0.0/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed filter from DeviceManagement.ListBestUpdatesForGroup method
+    - DeploymentDeviceStatesFilter.DeviceState property type changed from DeviceState to DeviceDeploymentState
+
+    #### Features Added
+    - Added filter to DeviceManagement.ListDeviceClasses method
+    - Updated description for some methods to be more descriptive and less ambiguous
 
