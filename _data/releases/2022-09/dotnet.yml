@@ -881,4 +881,12 @@ entries:
     - Fixed performance issues in the `ServiceBusSessionProcessor` that could lead to thread starvation when using a high number of concurrent sessions.
     - Fixed diagnostic tracing of the `ServiceBusReceiver.Receive` operation to correctly include links to the `Message` operation for the received messages.
     - Fixed issue where the TryTimeout was not respected for times over 1 minute and 5 seconds when attempting to accept the next available session.
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
 
