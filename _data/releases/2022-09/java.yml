@@ -1218,4 +1218,32 @@ entries:
     - `ClassifyDocumentOperationDetail` from `MultiLabelClassifyOptions` and `SingleLabelClassifyOptions`
     - `RecognizeCustomEntitiesOperationDetail` from `RecognizeCustomEntitiesOptions`
   GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.7
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.7/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.32.0`.
+    - Updated `azure-core-http-netty` to `1.12.5`.
+  GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.6
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.6/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.31.0` to version `1.32.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.4` to version `1.12.5`.
+  GroupId: com.azure
 
