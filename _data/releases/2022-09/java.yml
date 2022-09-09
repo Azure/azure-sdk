@@ -1335,4 +1335,31 @@ entries:
     - Upgraded `azure-core` from `1.30.0` to version `1.32.0`.
     - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.5`.
   GroupId: com.azure
+- Name: azure-maps-search
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-search_1.0.0-beta.1/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Search client library for Java. This package contains the Azure Maps SDK Search library. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Search SDK](https://docs.microsoft.com/rest/api/maps/search).'
+  GroupId: com.azure
+- Name: azure-maps-route
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Route
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-route_1.0.0-beta.1/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Route client library for Java. This package contains Microsoft Azure SDK for Route Management SDK. Azure Maps Route REST APIs. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Route SDK](https://docs.microsoft.com/rest/api/maps/route).'
+  GroupId: com.azure
+- Name: azure-maps-render
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Render
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.1/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Render client library for Java. This package contains Microsoft Azure SDK for Render Management SDK. Azure Maps Render REST APIs. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Render SDK](https://docs.microsoft.com/rest/api/maps/render).'
+  GroupId: com.azure
 
