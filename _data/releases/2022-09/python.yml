@@ -330,4 +330,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed filter from DeviceManagementOperations.list_best_updates_for_group method
+
+    #### Features Added
+    - Added filter to DeviceManagementOperations.list_device_classes method
+    - Updated description for some methods to be more descriptive and less ambiguous
 
