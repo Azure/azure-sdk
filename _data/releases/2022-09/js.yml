@@ -379,4 +379,31 @@ entries:
     - FHIR has been removed from healthcare actions because it is still in beta. Use @azure/ai-language-text@1.0.0-beta.1 to access this feature.
     - `apiVersion` option in the client class constructor options bag has been renamed to `serviceVersion`.
     - `apiVersion` option in the method options bags has been removed.
+- Name: '@azure/ai-form-recognizer'
+  Version: 4.0.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated the SDK to use the latest Generally Available (GA) version of the Form Recognizer REST API: `2022-08-01`.
+
+    #### Breaking Changes
+
+    - Renamed `DocumentModelAdministrationClient` methods to have the word `Document` in them, for example `getModel` and `listModels` are updated to `getDocumentModel` and `listDocumentModels` respectively.
+    - Renamed all fields named `createdDateTime` and `lastUpdateDateTime` to `createdOn` and `lastUpdatedOn` respectively.
+- Name: '@azure/core-lro'
+  Version: 2.3.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add missing support for fetching resources linked to in the body of the final polling response.
 
