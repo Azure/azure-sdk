@@ -1,0 +1,13 @@
+entries:
+- Name: '@azure/core-lro'
+  Version: 2.3.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add missing support for fetching resources linked to in the body of the final polling response.
+
