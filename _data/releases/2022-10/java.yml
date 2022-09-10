@@ -1,0 +1,69 @@
+entries:
+- Name: azure-ai-formrecognizer
+  Version: 4.0.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed property `kind` from model `DocumentPage`
+    - Removed model `DocumentPageKind`, `DocumentEntity`, `DocumentFootnote`, and `DocumentCaption`.
+    - Renamed models:
+    - `ModelOperationDetails` to `OperationDetails`
+    - `ModelOperationSummary` to `OperationSummary`
+    - `ModelOperationKind` to `OperationKind`
+    - `ModelOperationStatus` to `OperationStatus`
+    - `DocumentOperationKind` to `OperationKind`
+    - `BuildModelOptions` to `BuildDocumentModelOptions`
+    - `ComposeModelOptions` to `ComposeDocumentModelOptions`
+    - `DocumentOperationResult` to `OperationResult`
+    - `CopyAuthorization` to `DocumentModelCopyAuthorization`
+    - `LengthUnit` to `DocumentPageLengthUnit`
+    - `SelectionMarkState` to `DocumentSelectionMarkState`
+    - Renamed properties `documentModelCount` and `documentModelLimit` to `customDocumentModelCount`
+    and `customDocumentModelLimit` on model `ResourceDetails`.
+    - Renamed clients methods:
+    - `getModel` to `getDocumentModel`
+    - `listModels` to `listDocumentModels`
+    - `deleteModel` to `deleteDocumentModel`
+    - `beginBuildModel` to `beginBuildDocumentModel`
+    - `beginComposeModel` to `beginComposeDocumentModel`
+    - Renamed property `DocumentFieldType.INTEGER` to `DocumentFieldType.LONG`
+    - Renamed method `getValueInteger` to `getValueLong` and `getValueFloat` to `getValueLong` on `DocumentField` model
+    - Renamed properties on model `DocumentAnalysisAudience`
+
+    #### Features Added
+    - Added a method `getWords()` on model `DocumentLine`.
+    - Added `TypedDocumentField<T>` model for strongly typed representation of `Fields` on analyzed documents.
+    `DocumentField` extends from `TypedDocumentField<T>`.
+    - Added interfaces from `com.azure.core.client.traits` to `FormRecognizerClientBuilder` and `FormTrainingClientBuilder`
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    This is the first stable release for the Device Update for IoT Hub client library.
+
+    #### Changes since 1.0.0-beta.3
+
+    ##### Features Added
+    - Added filter to `listDeviceClasses` device management method.
+    - Updated description for some methods to be more descriptive and less ambiguous.
+
+    ##### Breaking Changes
+    - Removed filter from `listBestUpdatesForGroup` device management method.
+
+    ##### Other Changes
+
+    ###### Dependency Updates
+
+    - Upgraded `azure-core` from `1.30.0` to version `1.32.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.5`.
+  GroupId: com.azure
+
