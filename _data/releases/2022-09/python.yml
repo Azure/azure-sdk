@@ -312,4 +312,36 @@ entries:
 
     This version of the client library marks a stable release and defaults to the service API version `2022-05-01`.
     Includes all changes from `5.2.0b1` to `5.2.0b5`.
+- Name: azure-search-documents
+  Version: 11.4.0b1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to create, update and delete aliases via the `SearchIndexClient`.
+- Name: azure-mgmt-cosmosdb
+  Version: 8.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed filter from DeviceManagementOperations.list_best_updates_for_group method
+
+    #### Features Added
+    - Added filter to DeviceManagementOperations.list_device_classes method
+    - Updated description for some methods to be more descriptive and less ambiguous
 
