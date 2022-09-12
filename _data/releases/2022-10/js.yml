@@ -1,0 +1,24 @@
+entries:
+- Name: '@azure/core-lro'
+  Version: 2.3.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add missing support for fetching resources linked to in the body of the final polling response.
+- Name: '@azure/cosmos'
+  Version: 3.17.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue with unwanted runtime dependency on `@azure/identity` [#22968](https://github.com/Azure/azure-sdk-for-js/issues/22968)
+
