@@ -1246,4 +1246,120 @@ entries:
     - Upgraded `azure-core` from `1.31.0` to version `1.32.0`.
     - Upgraded `azure-core-http-netty` from `1.12.4` to version `1.12.5`.
   GroupId: com.azure
+- Name: azure-ai-personalizer
+  Version: 1.0.0-beta.1
+  DisplayName: Personalizer
+  ServiceName: Personalizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-personalizer_1.0.0-beta.1/sdk/personalizer/azure-ai-personalizer/CHANGELOG.md
+  ChangelogContent: |-
+    - Initial beta release for Personalizer client library.
+
+    Version 1.0.0-beta.1 is a preview of our efforts in creating a client library for Azure Personalizer service that is developer-friendly
+    and idiomatic to the Java ecosystem. The principles that guide
+    our efforts can be found in the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html).
+
+    For more information about this, and preview releases of other Azure SDK libraries, please visit
+    https://azure.github.io/azure-sdk/releases/latest/java.html.
+
+    - It uses the Personalizer service `v1.1-preview.3` API.
+    - There are two clients:
+    - `PersonalizerClient/PersonalizerAsyncClient` to rank, activate and reward the events. The data sent using this is used to score and train the model.
+    - `PersonalizerAdministrationClient/PersonalizerAdministrationAsyncClient` manage configuration and run counterfactual evaluations.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a method `getWords()` on model `DocumentLine`.
+    - Added `TypedDocumentField<T>` model for strongly typed representation of `Fields` on analyzed documents.
+    `DocumentField` extends from `TypedDocumentField<T>`.
+    - Added interfaces from `com.azure.core.client.traits` to `FormRecognizerClientBuilder` and `FormTrainingClientBuilder`
+
+    #### Breaking Changes
+    - Removed property `kind` from model `DocumentPage`
+    - Removed model `DocumentPageKind`, `DocumentEntity`, `DocumentFootnote`, and `DocumentCaption`.
+    - Renamed models:
+    - `ModelOperationDetails` to `OperationDetails`
+    - `ModelOperationSummary` to `OperationSummary`
+    - `ModelOperationKind` to `OperationKind`
+    - `ModelOperationStatus` to `OperationStatus`
+    - `DocumentOperationKind` to `OperationKind`
+    - `BuildModelOptions` to `BuildDocumentModelOptions`
+    - `ComposeModelOptions` to `ComposeDocumentModelOptions`
+    - `DocumentOperationResult` to `OperationResult`
+    - `CopyAuthorization` to `DocumentModelCopyAuthorization`
+    - `LengthUnit` to `DocumentPageLengthUnit`
+    - `SelectionMarkState` to `DocumentSelectionMarkState`
+    - Renamed properties `documentModelCount` and `documentModelLimit` to `customDocumentModelCount`
+    and `customDocumentModelLimit` on model `ResourceDetails`.
+    - Renamed clients methods:
+    - `getModel` to `getDocumentModel`
+    - `listModels` to `listDocumentModels`
+    - `deleteModel` to `deleteDocumentModel`
+    - `beginBuildModel` to `beginBuildDocumentModel`
+    - `beginComposeModel` to `beginComposeDocumentModel`
+    - Renamed property `DocumentFieldType.INTEGER` to `DocumentFieldType.LONG`
+    - Renamed method `getValueInteger` to `getValueLong` and `getValueFloat` to `getValueLong` on `DocumentField` model
+    - Renamed properties on model `DocumentAnalysisAudience`
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    This is the first stable release for the Device Update for IoT Hub client library.
+
+    #### Changes since 1.0.0-beta.3
+
+    ##### Features Added
+    - Added filter to `listDeviceClasses` device management method.
+    - Updated description for some methods to be more descriptive and less ambiguous.
+
+    ##### Breaking Changes
+    - Removed filter from `listBestUpdatesForGroup` device management method.
+
+    ##### Other Changes
+
+    ###### Dependency Updates
+
+    - Upgraded `azure-core` from `1.30.0` to version `1.32.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.3` to version `1.12.5`.
+  GroupId: com.azure
+- Name: azure-maps-search
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-search_1.0.0-beta.1/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Search client library for Java. This package contains the Azure Maps SDK Search library. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Search SDK](https://docs.microsoft.com/rest/api/maps/search).'
+  GroupId: com.azure
+- Name: azure-maps-route
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Route
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-route_1.0.0-beta.1/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Route client library for Java. This package contains Microsoft Azure SDK for Route Management SDK. Azure Maps Route REST APIs. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Route SDK](https://docs.microsoft.com/rest/api/maps/route).'
+  GroupId: com.azure
+- Name: azure-maps-render
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Render
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.1/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Render client library for Java. This package contains Microsoft Azure SDK for Render Management SDK. Azure Maps Render REST APIs. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Render SDK](https://docs.microsoft.com/rest/api/maps/render).'
+  GroupId: com.azure
 
