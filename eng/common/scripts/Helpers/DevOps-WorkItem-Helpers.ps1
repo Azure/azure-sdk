@@ -108,8 +108,8 @@ function LoginToAzureDevops([string]$devops_pat)
   if (!$devops_pat) {
     return
   }
-  $azCmdStr = "'$devops_pat' | az devops login $($ReleaseDevOpsOrgParameters -join ' ')"
-  Invoke-Expression $azCmdStr
+  # based on the docs at https://aka.ms/azure-devops-cli-auth the recommendation is to set this env variable to login
+  $env:AZURE_DEVOPS_EXT_PAT = $devops_pat
 }
 
 function BuildHashKeyNoNull()
