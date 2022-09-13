@@ -266,4 +266,18 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.4` to version `1.12.5`.
     - Upgraded `azure-storage-blob` from `12.19.0` to version `12.20.0-beta.2`.
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.4
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.4/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.32.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.12.5`
+  GroupId: com.azure
 
