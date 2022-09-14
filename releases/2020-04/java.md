@@ -209,7 +209,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity
 
-#### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
+#### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
 
 - Update azure-core dependency to version 1.4.0.
 
