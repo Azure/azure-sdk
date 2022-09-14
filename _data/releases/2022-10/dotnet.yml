@@ -197,4 +197,36 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FluidRelay_1.0.0/sdk/fluidrelay/Azure.ResourceManager.FluidRelay/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.Media
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Media
+  ServiceName: Media
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Media_1.0.0-beta.3/sdk/mediaservices/Azure.ResourceManager.Media/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.16
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.16/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Updated LinkConnection for Synapse Link
+    - Added TargetSparkConfiguration property for SparkJobDefinition and Notebook
+    - Added GoogleSheets connector
+    - Added SAP ODP connector
+    - Added support OAuth2ClientCredential auth in RestSevice
+    - Added support rejected data linked service in dataflow sink
+    - Added Dataworld, AppFigures, Asana, Twilio connectors
+    - Added Fail Activity
+- Name: Azure.ResourceManager.ContainerRegistry
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.1.0-beta.2/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: ""
 
