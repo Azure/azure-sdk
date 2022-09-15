@@ -897,9 +897,9 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
       {
         $fieldUpdates += @'
 {
-"op": "replace",
-"path": "/fields/State",
-"value": "Next Release Unknown"
+  "op": "replace",
+  "path": "/fields/State",
+  "value": "Next Release Unknown"
 }
 '@
       }
