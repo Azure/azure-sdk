@@ -341,4 +341,18 @@ entries:
     - Update `azure-core` dependency to `1.32.0`.
     - Update `azure-core-http-netty` dependency to `1.12.5`.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.12.2
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.12.2/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.32.0`.
+    - Updated `azure-core-http-netty` to `1.12.5`.
+  GroupId: com.azure
 
