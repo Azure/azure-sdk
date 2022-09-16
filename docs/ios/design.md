@@ -790,30 +790,63 @@ public struct FeatureFlagGroup {
     
 {% include requirement/MUST id="ios-naming-enum-camelcase" %} use camel casing names for enum values. `EnumType.foo` and `EnumType.twoWords` are valid, whereas `EnumType.Foo` and `EnumType.TWO_WORDS` are not.
 
-{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. The customized value that accepts a string SHOULD be called `custom`. An example expandable enum is shown below:
+{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum is shown below:
 
 ```swift
-public enum ShapeEnum: RequestStringConvertible {
-    case custom(String)
-    case square
-    case circle
-    
-    var requestString: String {
-        switch self {
-        case let .custom(val):
-            return val
-        case .square:
-            return "square"
-        case .circle:
-            return "circle"
+public struct Shape: Equatable, RequestStringConvertible {
+
+    // the internal enum is a normal Swift enum
+    internal enum ShapeKV {
+        case circle
+        case square
+        case unknown(String)
+
+        var rawValue: String {
+            switch self {
+            case .circle:
+                return "circle"
+            case .square:
+                return "square"
+            case .unknown(let value):
+                return value
+            }
+        }
+
+        init(rawValue: String) {
+            switch rawValue.lowercased() {
+            case "circle":
+                self = .circle
+            case "square":
+                self = .square
+            default:
+                self = .unknown(rawValue.lowercase())
+            }
         }
     }
+
+    private let value: ShapeKV
+
+    public var requestString: String {
+        return value.rawValue
+    }
+
+    private init(rawValue: String) {
+        self.value = ShapeKV(rawValue: rawValue)
+    }
+
+    public static func == (lhs: Shape, rhs: Shape) -> Bool {
+        return lhs.requestString == rhs.requestString
+    }
+
+    // declare public static constants using the internal enum of known values
+    public static let circle: Shape = .init(value: .circle)
+    public static let square: Shape = .init(value: .square)
 }
 ```
 
-{% include requirement/MUST id="ios-enums-no-future-growth" %} use an regular `enum` only if the enum values are known to not change like days of a week, months in a year etc. 
+{% include requirement/MUST id="ios-enums-no-future-growth" %} use an regular `enum` ONLY if the enum values are known to not change like days of a week, months in a year etc. 
 
-{% include requirement/MUST id="ios-enums-future-growth" %} define an expandable enum for enumerations if the values could expand in the future.
+{% include requirement/MUST id="ios-enums-future-growth" %} define an expandable enum for enumerations if the values could expand in the future. An expandable enum forces customers who `switch` on the value to declare a `default` case, preventing the addition of a known case from causing a breaking change.
 
 #### Using Azure Core Types
 
