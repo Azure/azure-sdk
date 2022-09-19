@@ -403,4 +403,50 @@ entries:
     #### Features Added
     * Exposed `maxBufferedItemCount` feature from `CosmosQueryRequestOptions` through `application.properties` flag - See [PR 30921](https://github.com/Azure/azure-sdk-for-java/pull/30921)
   GroupId: com.azure
+- Name: azure-resourcemanager-dynatrace
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dynatrace_1.0.0-beta.2/sdk/dynatrace/azure-resourcemanager-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-analytics-synapse-artifacts
+  Version: 1.0.0-beta.11
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-artifacts_1.0.0-beta.11/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated LinkConnection for Synapse Link.
+    - Added TargetSparkConfiguration property for SparkJobDefinition and Notebook.
+    - Added GoogleSheets connector.
+    - Added SAP ODP connector.
+    - Added support OAuth2ClientCredential auth in RestSevice.
+    - Added support rejected data linked service in dataflow sink.
+    - Added Dataworld, AppFigures, Asana, Twilio connectors.
+    - Added Fail Activity.
+  GroupId: com.azure
+- Name: azure-resourcemanager-kusto
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kusto_1.0.0-beta.5/sdk/kusto/azure-resourcemanager-kusto/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-netapp
+  Version: 1.0.0-beta.11
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.0.0-beta.11/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
