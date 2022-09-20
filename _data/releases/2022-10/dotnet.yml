@@ -372,4 +372,56 @@ entries:
     #### Breaking Changes
     - Credential types supporting multi-tenant authentication will now throw `AuthenticationFailedException` if the requested tenant ID doesn't match the credential's tenant ID, and is not included in the `AdditionallyAllowedTenants` option. Applications must now explicitly add additional tenants to the `AdditionallyAllowedTenants` list, or add '*' to list, to enable acquiring tokens from tenants other than the originally specified tenant ID. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#170).
     - `ManagedIdentityCredential` token caching added in 1.7.0-beta.1 has been removed from this release and will be added back in 1.8.0-beta.1
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.4.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.4.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `SecretClientOptions.DisableChallengeResourceVerification` to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.4.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.4.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `CertificateClientOptions.DisableChallengeResourceVerification` to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.4.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.4.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `KeyClientOptions.DisableChallengeResourceVerification` or `CryptographyClientOptions.DisableChallengeResourceVerification` to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.2.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.2.0/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `KeyVaultAdministrationClientOptions.DisableChallengeResourceVerification` to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
 
