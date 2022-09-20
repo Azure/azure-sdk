@@ -112,4 +112,56 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0/sdk/dynatrace/arm-dynatrace/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/keyvault-admin'
+  Version: 4.3.0
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.3.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `disableChallengeResourceVerification` in the options bag to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: '@azure/keyvault-keys'
+  Version: 4.6.0
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.6.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `disableChallengeResourceVerification` in the options bag to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.6.0
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.6.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `disableChallengeResourceVerification` in the options bag to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.6.0
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.6.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Verify the challenge resource matches the vault domain.
+    This should affect few customers who can set `disableChallengeResourceVerification` in the options bag to `true` to disable.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
 
