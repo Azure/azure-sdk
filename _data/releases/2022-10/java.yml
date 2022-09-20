@@ -460,4 +460,34 @@ entries:
     #### Features Added
     - Added identifier to client. ([#28904](https://github.com/Azure/azure-sdk-for-java/issues/28904))
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.15.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.15.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.13.1`.
+    - Update `azure-storage-blob` dependency to `12.19.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.13.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.13.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` to `1.32.0`.
+    - Upgraded `azure-core-amqp` to `2.7.1`.
+  GroupId: com.azure
 
