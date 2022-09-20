@@ -164,4 +164,15 @@ entries:
     - Verify the challenge resource matches the vault domain.
     This should affect few customers who can set `disableChallengeResourceVerification` in the options bag to `true` to disable.
     See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: '@azure-rest/iot-device-update'
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added filter to `listDeviceClasses` method
+    - Updated description for some methods to be more descriptive and less ambiguous
 
