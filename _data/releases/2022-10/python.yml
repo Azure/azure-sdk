@@ -180,4 +180,20 @@ entries:
     - Clients verify the challenge resource matches the vault domain. This should affect few customers,
     who can provide `verify_challenge_resource=False` to client constructors to disable.
     See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: azure-mgmt-compute
+  Version: 28.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_28.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-nginx
+  Version: 1.1.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-nginx_1.1.0/sdk/nginx/azure-mgmt-nginx/CHANGELOG.md
+  ChangelogContent: ""
 
