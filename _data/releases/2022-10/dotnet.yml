@@ -424,4 +424,12 @@ entries:
     - Verify the challenge resource matches the vault domain.
     This should affect few customers who can set `KeyVaultAdministrationClientOptions.DisableChallengeResourceVerification` to `true` to disable.
     See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: Azure.ResourceManager.DnsResolver
+  Version: 1.0.0
+  DisplayName: Resource Management - Dns Resolver
+  ServiceName: Dns Resolver
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DnsResolver_1.0.0/sdk/dnsresolver/Azure.ResourceManager.DnsResolver/CHANGELOG.md
+  ChangelogContent: ""
 
