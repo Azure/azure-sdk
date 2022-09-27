@@ -250,4 +250,32 @@ entries:
     #### Other Changes
 
     - Added the `uamqp_transport` optional parameter to the clients, to allow switching to the `uamqp` library as the transport.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b8
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b8/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implement success count network statsbeat
+    ([#25752](https://github.com/Azure/azure-sdk-for-python/pull/25752))
+    - Implement all network statsbeat
+    ([#25845](https://github.com/Azure/azure-sdk-for-python/pull/25845))
+    - Implement attach statsbeat
+    ([#25956](https://github.com/Azure/azure-sdk-for-python/pull/25956))
+    - Implement feature statsbeat
+    ([#26009](https://github.com/Azure/azure-sdk-for-python/pull/26009))
+    - Implement instrumentation statsbeat
+    ([#26023](https://github.com/Azure/azure-sdk-for-python/pull/26023))
+    - Implement statsbeat shutdown
+    ([#26077](https://github.com/Azure/azure-sdk-for-python/pull/26077))
+    - Add ApplicationInsightsSampler
+    ([#26224](https://github.com/Azure/azure-sdk-for-python/pull/26224))
+    - Implement truncation logic for telemetry payload
+    ([#26257](https://github.com/Azure/azure-sdk-for-python/pull/26257))
+    - Populate metric namespace with meter instrumentation scope name
+    ([#26257](https://github.com/Azure/azure-sdk-for-python/pull/26257))
 
