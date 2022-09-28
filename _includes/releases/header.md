@@ -16,10 +16,11 @@ This page provides an inventory of all Azure SDK library packages, code, and doc
 
 **On 30 September 2023, we will be deprecating Azure SDK libraries for .NET/Golang.**
 
+**To get more deprecation information of the packages you are using, search for that package name in this page and check the end of life date. You can also find the migration guidance and replacement package in the details package entry**
+
 The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Please transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates before deprecation date.
 
-Although the older libraries can still be used after deprecation, they will no longer receive official support and updates from Microsoft. If you prefer not to transition to the new Azure SDK libraries, source code for the current Azure SDKs libraries will still be available on GitHub as open source. You can continue to use the code and apply your own fixes, as required. 
-
+Although the older libraries can still be used after deprecation, they will no longer receive official support and updates from Microsoft. If you prefer not to transition to the new Azure SDK libraries, source code for the current Azure SDKs libraries will still be available on GitHub as open source. You can continue to use the code and apply your own fixes, as required.
 
 **Recommended action**
 
