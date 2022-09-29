@@ -259,4 +259,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.4.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.4.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Precisely detect when an operation failed without relying on exceptions raised by the underlying core library.
+    - Handle bad status fields.
+
+    #### Features Added
+
+    - Add `resolveOnUnsuccessful` to `CreateHttpPollerOptions` and `LroEngineOptions` to control whether to throw an error if the operation failed or was canceled.
 
