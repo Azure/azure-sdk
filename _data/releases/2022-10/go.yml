@@ -187,4 +187,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/securityinsights/armsecurityinsights/v2.0.0-beta.2/sdk/resourcemanager/securityinsights/armsecurityinsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.1.4
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.1.4/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Don't retry a request if the `Retry-After` delay is greater than the configured `RetryOptions.MaxRetryDelay`.
+    * `runtime.JoinPaths`: do not unconditionally add a forward slash before the query string
 
