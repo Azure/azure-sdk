@@ -430,4 +430,15 @@ entries:
     #### Bugs Fixed
 
     - #23349 Fixed endpoint resolution to allow endpoints from sovereign clouds
+- Name: '@azure/core-util'
+  Version: 1.1.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update `delay` method to handle `abortSignal` functionality
 
