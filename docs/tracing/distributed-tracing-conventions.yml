@@ -55,7 +55,7 @@ groups:
       - ref: messaging.system
         sampling_relevant: true
         examples: ['eventhubs', 'servicebus']
-      - ref: messaging.url
+      - ref: net.peer.name
         sampling_relevant: true
         brief: 'Fully qualified Azure messaging service name.'
         examples: 'http://myEventHubNamespace.servicebus.windows.net/'
