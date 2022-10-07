@@ -50,7 +50,7 @@
     {% if item.Support != "" and include.version == "VersionGA" %}
         <div>Support: <a href="https://aka.ms/azsdk/policies/support">{{ item.Support | capitalize }}</a></div>
         {% if item.Support == "deprecated" and item.EOLDate != "" %}
-        <div>End of life on {{ item.EOLDate }}</div>
+        <div>Support ends on {{ item.EOLDate }}</div>
         {% endif %}
     {% endif %}
 {% endif %}

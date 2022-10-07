@@ -10,9 +10,9 @@ This page provides an inventory of all Azure SDK library packages, code, and doc
 
 *This page contains the list of packages that have been deprecated. Please see [support policy](https://aka.ms/azsdk/policies/support) for more information.*
 
-**The Azure SDK team is deprecating SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html) in multiple phases.  End of life dates begin in 2023.**
+**The Azure SDK team is deprecating SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html) in multiple phases.  Support end dates begin in 2023.**
 
-**To get specific deprecation information for the libraries you are using, search for the package name in this page and check the end of life date. You can also find  migration guidance and replacement package information in the entry on the package manager.**
+**To get specific deprecation information for the libraries you are using, search for the package name in this page and check the support end date. You can also find  migration guidance and replacement package information in the entry on the package manager.**
 
 The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Please transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates before the deprecation date.
 
@@ -21,7 +21,7 @@ Although the older libraries can still be used after deprecation, they will no l
 **Recommended action**
 
 <ul>
-    <li>Upgrade to the <a href="https://aka.ms/azsdk">new Azure SDK libraries</a> before the end of life date so that your applications continue receiving regular security and performance updates.</li>
+    <li>Upgrade to the <a href="https://aka.ms/azsdk">new Azure SDK libraries</a> before the support end date so that your applications continue receiving regular security and performance updates.</li>
     <li>Learn more about the deprecation and replacement of older Azure SDK libraries in this <a href="https://azure.microsoft.com/blog/previewing-azure-sdks-following-new-azure-sdk-api-standards/" target="_blank">blog post</a>.</li>
 </ul>
 
