@@ -409,4 +409,41 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-policyinsights_1.1.0b3/sdk/policyinsights/azure-mgmt-policyinsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-schemaregistry
+  Version: 1.2.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.2.0/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `group_name`, `name`, and `version` have been added as optional parameters to the `get_schema` method on the sync and async `SchemaRegistryClient`.
+    - `version` has been added to `SchemaProperties`.
+- Name: azure-ai-ml
+  Version: 1.0.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.0.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    - GA release
+    - Dropped support for Python 3.6. The Python versions supported for this release are 3.7-3.10.
+
+    #### Features Added
+
+    #### Breaking Changes
+    - OnlineDeploymentOperations.delete has been renamed to begin_delete.
+    - Datastore credentials are switched to use unified credential configuration classes.
+    - UserAssignedIdentity is replaced by ManagedIdentityConfiguration
+    - Endpoint and Job use unified identity classes.
+    - Workspace ManagedServiceIdentity has been replaced by IdentityConfiguration.
+
+    #### Bugs Fixed
+
+    #### Other Changes
+    - Switched Compute operations to use Oct preview API version.
+    - Updated batch deployment/endpoint invoke and list-jobs function signatures with curated BatchJob class.
 
