@@ -305,4 +305,18 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     * Changed format of logs `ErrorInfo` struct to custom error type
+- Name: sdk/messaging/azservicebus
+  Version: 1.1.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.1.1/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - AcceptNextSessionForQueue and AcceptNextSessionForSubscription now return an azservicebus.Error with
+    Code set to CodeTimeout when they fail due to no sessions being available. Examples for this have
+    been added for `AcceptNextSessionForQueue`. PR#19113.
+    - Retries now respect cancellation when they're in the "delay before next try" phase.
 
