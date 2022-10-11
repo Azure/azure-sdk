@@ -295,4 +295,14 @@ entries:
 
     * `GetSASURL()`: for container and blob clients, don't add a forward slash before the query string
     * Fixed issue [#19249](https://github.com/Azure/azure-sdk-for-go/issues/19249) by increasing service version to '2020-02-10'.
+- Name: sdk/monitor/azquery
+  Version: 0.2.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v0.2.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed format of logs `ErrorInfo` struct to custom error type
 
