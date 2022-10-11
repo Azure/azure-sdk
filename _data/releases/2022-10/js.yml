@@ -597,4 +597,16 @@ entries:
 
     - An overload of `getSchema` is added that queries schemas by their version.
     - `version` property is added to `SchemaProperties`.
+- Name: '@azure/service-bus'
+  Version: 7.7.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.2/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Pass timeout to server when accepting next session [PR #23210](https://github.com/Azure/azure-sdk-for-js/pull/23210)
+    - Enable tracing for more operations. [PR #23334](https://github.com/Azure/azure-sdk-for-js/pull/23334)
 
