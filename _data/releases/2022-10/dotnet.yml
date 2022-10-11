@@ -714,4 +714,79 @@ entries:
 
     #### Features Added
     - Added DPG methods to `ConfigurationClient` based on [this](https://github.com/Azure/azure-rest-api-specs/blob/e01d8afe9be7633ed36db014af16d47fec01f737/specification/appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0/appconfiguration.json) swagger definition.
+- Name: Azure.ResourceManager.SecurityDevOps
+  Version: 1.0.0-beta.1
+  DisplayName: Security DevOps
+  ServiceName: Security DevOps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityDevOps_1.0.0-beta.1/sdk/securitydevops/Azure.ResourceManager.SecurityDevOps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.Identity
+  Version: 1.2.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Identity_1.2.0/sdk/communication/Azure.Communication.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to customize the Communication Identity access token’s validity period:
+    - Added method overloads that provide the ability to create a Communication Identity access token with custom expiration:
+    - `CreateUserAndToken(IEnumerable<CommunicationTokenScope> scopes, TimeSpan tokenExpiresIn, CancellationToken cancellationToken = default)`
+    - `CreateUserAndTokenAsync(IEnumerable<CommunicationTokenScope> scopes, TimeSpan tokenExpiresIn, CancellationToken cancellationToken = default)`
+    - `GetToken(CommunicationUserIdentifier communicationUser, IEnumerable<CommunicationTokenScope> scopes, TimeSpan tokenExpiresIn, CancellationToken cancellationToken = default)`
+    - `GetTokenAsync(CommunicationUserIdentifier communicationUser, IEnumerable<CommunicationTokenScope> scopes, TimeSpan tokenExpiresIn, CancellationToken cancellationToken = default)`
+    - Added a new API version `ServiceVersion.V2022_10_01` that is now the default API version.
+- Name: Azure.ResourceManager.Reservations
+  Version: 1.1.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Reservations_1.1.0/sdk/reservations/Azure.ResourceManager.Reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added additional heuristics for the `EventProcessorClient` configuration to help discover issues that can impact processor performance and stability; these validations will produce warnings at processor start-up should potential concerns be found.
+
+    - Exception messages have been updated to include a link to the Event Hubs troubleshooting guide.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.3/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+    - Anshul Mathur _([GitHub](https://github.com/anshmathur))_
+
+    #### Other Changes
+
+    - Added additional heuristics for the `EventProcessor<T>` configuration to help discover issues that can impact processor performance and stability; these validations will produce warnings at processor start-up should potential concerns be found.
+
+    - Exception messages have been updated to include a link to the Event Hubs troubleshooting guide.
+
+    - Miscellaneous performance improvements by reducing memory allocations. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.0.0-beta.1
+  DisplayName: Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.0.0-beta.1/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
 
