@@ -836,4 +836,21 @@ entries:
     ### Features Added
     - Added Upload method that takes in RequestContent and has GZip capability for efficiency
     - Added client registration extension methods
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.8.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.8.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support binding to `PartitionKey` and `TransactionPartitionKey`.
+    - Add `PeekMessagesAsync` method to `ServiceBusReceiveActions`.
+    - Add `DeadletterMessageAsync` overload to `ServiceBusMessageActions` that allows passing the properties dictionary in addition to the deadletter error reason and description.
+
+    #### Bugs Fixed
+
+    - Fixed resource string usage to prevent `MissingManifestResourceException` when throwing exceptions from the extension.
 
