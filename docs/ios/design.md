@@ -953,7 +953,7 @@ iOS developers need to concern themselves with the runtime environment they are 
 
 {% include requirement/MUST id="ios-arch-support" %} support all architectures in $ARCH_STANDARD.
 
-{% include requirement/MUST id="ios-bitcode-enabled" %} support bitcode enabled.
+{% include requirement/MUSTNOT id="ios-bitcode-enabled" %} support bitcode enabled. Apple has marked this [deprecated](https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-14-release-notes) from XCode 14 onwards.
 
 {% include requirement/MUST id="ios-platform-support" %} support iPhone and iPad form factors.
 
