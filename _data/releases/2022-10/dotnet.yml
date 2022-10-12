@@ -1141,4 +1141,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ProviderHub_1.0.0-beta.1/sdk/providerhub/Azure.ResourceManager.ProviderHub/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Extensions.Azure
+  Version: 1.6.0
+  DisplayName: Extensions - Azure
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.6.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The `tenantId`, `clientId`, `managedIdentityResourceId`, and the newly added `additionallyAllowedTenants` will be passed onto the created `DefaultAzureCredential` if no `clientSecret` or `clientCertificate` is provided. Previously, these values would be ignored when falling back to the `DefaultAzureCredential` or the user-provided credential specified via  `AzureClientFactoryBuilder.UseCredential`.
+
+    #### Features Added
+
+    - Support passing a semi-colon delimited list of additional tenants via the `additionallyAllowedTenants` config. See the [Azure.Identity Breaking Changes log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#170) for more information about this setting.
 
