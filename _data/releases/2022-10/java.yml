@@ -2575,4 +2575,43 @@ entries:
     - Updated `azure-core` to `1.33.0`.
     - Updated `azure-core-http-netty` to `1.12.6`.
   GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.8
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.8/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.33.0`.
+    - Updated `azure-core-http-netty` to `1.12.6`.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.1
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug when deserializing properties on DocumentField.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.0.9
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.0.9/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.32.0` to version `1.33.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.5` to version `1.12.6`.
+  GroupId: com.azure
 
