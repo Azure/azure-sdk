@@ -319,4 +319,36 @@ entries:
     Code set to CodeTimeout when they fail due to no sessions being available. Examples for this have
     been added for `AcceptNextSessionForQueue`. PR#19113.
     - Retries now respect cancellation when they're in the "delay before next try" phase.
+- Name: sdk/resourcemanager/devhub/armdevhub
+  Version: 0.1.1
+  DisplayName: Resource Management - Devhub
+  ServiceName: Devhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devhub/armdevhub/v0.1.1/sdk/resourcemanager/devhub/armdevhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsans/armelasticsans
+  Version: 0.1.1
+  DisplayName: Resource Management - Elasticsans
+  ServiceName: Elasticsans
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsans/armelasticsans/v0.1.1/sdk/resourcemanager/elasticsans/armelasticsans/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice
+  Version: 0.1.1
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/v0.1.1/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/nginx/armnginx
+  Version: 1.0.1
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/nginx/armnginx/v1.0.1/sdk/resourcemanager/nginx/armnginx/CHANGELOG.md
+  ChangelogContent: ""
 
