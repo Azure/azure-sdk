@@ -114,4 +114,18 @@ entries:
     #### Features Added
 
     - Keyvault 7.3 support added for Keys.
+- Name: azure-security-attestation
+  Version: 1.1.0-beta.1
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.1.0-beta.1/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `AttestationClient::AttestTpm` to match `AttestOpenEnclave` and `AttestSgxEnclave`:
+    - Added `std::vector<uint8_t>` dataToAttest parameter to the `AttestTpm()` client method.
+    - Removed `Payload` in `TpmAttestationOptions`.
+    - Changed `TpmResult` in `TpmAttestationResult` to type `std::vector<uint8_t>`.
 
