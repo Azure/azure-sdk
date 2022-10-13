@@ -586,4 +586,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_22.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-language-questionanswering
+  Version: 1.1.0
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.1.0/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * `QuestionAnsweringProjectsClient` was renamed to `AuthoringClient`.
+    * The `azure.ai.language.questionanswering.projects` namespace was renamed to `azure.ai.language.questionanswering.authoring`
+    * Authoring client methods: `begin_deploy_project`, `begin_import_assets`, `begin_update_sources`
+    and `begin_update_qnas` now return a response upon completion of the long-running operation.
+    * Keyword argument `format` renamed to `file_format` for `begin_export` and `begin_import_assets`.
+
+    #### Bugs Fixed
+    * Fixed a bug where the client-level keyword argument `default_language` was not being honored for `get_answers_from_text`.
 
