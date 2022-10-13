@@ -650,4 +650,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securitydevops_1.0.0-beta.1/sdk/securitydevops/arm-securitydevops/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-ingestion'
+  Version: 1.0.0-beta.3
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0-beta.3/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the following types:
+    - `UploadOptions` to `UploadLogsOptions`
+    - `UploadResult` to `UploadLogsResult`
+    - `UploadStatus` to `UploadLogsStatus`
+    - The `uploadStatus` property on the previous `UploadResult` type (now `UploadLogsResult`) has been renamed to `status`.
+    - The `responseError` property on `UploadLogsError` has been renamed to `cause`.
+- Name: '@azure/identity'
+  Version: 3.1.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Token Caching support to Managed Identity Credential
 
