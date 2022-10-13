@@ -617,4 +617,37 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_2.0.0-beta.1/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-identity'
+  Version: 1.2.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.2.0/sdk/communication/communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to customize the Communication Identity access token's validity period:
+    - `createUserAndToken` and `getToken` methods now accept `CreateUserAndTokenOptions` and `GetTokenOptions` that provide the ability to create a Communication Identity access token with custom expiration via optional `tokenExpiresInMinutes` property:
+    - `createUserAndToken(scopes: TokenScope[], options: CreateUserAndTokenOptions = {})`
+    - `getToken(user: CommunicationUserIdentifier, scopes: TokenScope[], options: GetTokenOptions = {})`
+    - `interface CreateUserAndTokenOptions extends OperationOptions { tokenExpiresInMinutes?: number; }`
+    - `interface GetTokenOptions extends OperationOptions { tokenExpiresInMinutes?: number; }`
+    - Added a new API version `2022-10-01` that is now the default API version.
+- Name: '@azure/arm-devcenter'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Devcenter
+  ServiceName: Devcenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devcenter_1.0.0-beta.2/sdk/devcenter/arm-devcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-securitydevops'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Securitydevops
+  ServiceName: Securitydevops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securitydevops_1.0.0-beta.1/sdk/securitydevops/arm-securitydevops/CHANGELOG.md
+  ChangelogContent: ""
 
