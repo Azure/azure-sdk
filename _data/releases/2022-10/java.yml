@@ -2680,4 +2680,47 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-nginx_1.0.0-beta.2/sdk/nginx/azure-resourcemanager-nginx/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-data-tables
+  Version: 12.3.5
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.5/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` dependency to `1.33.0`.
+    - Upgraded `azure-core-http-netty` dependency to `1.12.6`.
+    - Utilizes `jackson-dataformat-xml` version `2.13.4`
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.12.3
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.12.3/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.33.0`.
+    - Updated `azure-core-http-netty` to `1.12.6`.
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.6.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.6.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [Bug fix for incorrect JSON property names](https://github.com/Azure/azure-sdk-for-java/pull/31388)
+    -
+  GroupId: com.azure
 
