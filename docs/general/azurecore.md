@@ -113,6 +113,8 @@ The HTTP Pipeline provides this functionality.
 
 {% include requirement/MUST id="azurecore-http-retry-defaults-overrides" %} allow the customer to override the default retry policy delay and timeouts.
 
+{% include requirement/SHOULD id="azurecore-http-retry-defaults-options" %} allow the customer to cancel the operation either via explicit cancellation or by setting an overall maximum operation time.
+
 ### Authentication policy
 
 Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data.
