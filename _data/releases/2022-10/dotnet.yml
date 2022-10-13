@@ -1252,4 +1252,68 @@ entries:
     - `AzurePowerShellCredential` and `AzurePowerShellCredentialOptions.PowerShellProcessTimeout`
     - `VisualStudioCredential` and `VisualStudioCredentialOptions.VisualStudioProcessTimeout`
     - `DefaultAzureCredential` and `DefaultAzureCredentialOptions.DeveloperCredentialTimeout`  Note: this option applies to all developer credentials above when using `DefaultAzureCredential`.
+- Name: Azure.Maps.Rendering
+  Version: 1.0.0-beta.1
+  DisplayName: Maps Render
+  ServiceName: Maps Render
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Rendering_1.0.0-beta.1/sdk/maps/Azure.Maps.Rendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
+- Name: Azure.Maps.Search
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Search_1.0.0-beta.2/sdk/maps/Azure.Maps.Search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Use nullable for some optional arguments
+
+    #### Features Added
+
+    - Add `SearchLanguage`
+
+    #### Breaking Changes
+
+    - Use new LRO pattern
+    - Update some method name
+- Name: Azure.Maps.Geolocation
+  Version: 1.0.0-beta.1
+  DisplayName: Maps Geolocation
+  ServiceName: Maps Geolocation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Geolocation_1.0.0-beta.1/sdk/maps/Azure.Maps.Geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
+- Name: Azure.Maps.Routing
+  Version: 1.0.0-beta.1
+  DisplayName: Maps Route
+  ServiceName: Maps Route
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.1/sdk/maps/Azure.Maps.Routing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release.
+- Name: Azure.Maps.Common
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Common
+  ServiceName: Maps Common
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Common_1.0.0-beta.2/sdk/maps/Azure.Maps.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Update `LocalizedMapView` enum variable naming
 
