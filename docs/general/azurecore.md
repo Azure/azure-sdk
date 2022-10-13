@@ -109,7 +109,11 @@ The HTTP Pipeline provides this functionality.
 
 {% include requirement/MUSTNOT id="azurecore-http-retry-requestid" %} change any client-side generated request-id when retrying the request. Th request ID represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request ID show each retry
 
-{% include requirement/SHOULD id="azurecore-http-retry-defaults" %} implement a default policy that starts at 3 retries with a 0.8s delay with exponential (plus jitter) backoff.
+{% include requirement/SHOULD id="azurecore-http-retry-defaults" %} implement a default retry policy of 3 retries with a 0.8s exponential (plus jitter) delay between attempts with a maximum delay of 60s between attempts.
+
+{% include requirement/MUST id="azurecore-http-retry-defaults-overrides" %} allow the customer to override the default retry policy delay and timeouts.
+
+{% include requirement/SHOULD id="azurecore-http-retry-defaults-options" %} allow the customer to cancel the operation either via explicit cancellation or by setting an overall maximum operation time.
 
 ### Authentication policy
 
