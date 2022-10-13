@@ -1156,4 +1156,64 @@ entries:
     #### Features Added
 
     - Support passing a semi-colon delimited list of additional tenants via the `additionallyAllowedTenants` config. See the [Azure.Identity Breaking Changes log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#170) for more information about this setting.
+- Name: Azure.Storage.Blobs
+  Version: 12.14.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.14.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.14.0-beta.1.
+    - Added support for leading and trailing '/' characters in blob names when constructing URIs via builder.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.12.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.12.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.12.0-beta.1.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.29
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.29/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Queues
+  Version: 12.12.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.12.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.12.0-beta.1.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.11.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.11.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.11.0-beta.1.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.12.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.12.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.12.0-beta.1.
+    - Added support for StorageTransferOptions on ShareFile upload (concurrency not supported).
+- Name: Azure.Storage.Common
+  Version: 12.13.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.13.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.13.0-beta.1.'
 
