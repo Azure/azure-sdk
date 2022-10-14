@@ -104,14 +104,14 @@ Public service methods should follow the below parameter presence and ordering g
 4. Body: This is typically found in PUT or POST methods and is object passed as the content of the HTTP request.
     * For PUT this {% include requirement/MUST id="dotnet-parameter-body-required-for-put" %} be a required parameter.
 
-5. Optional Query / Header: These are simple options that can be set as headers or query params in the request.  Typically primitive types or lists that can be transformed into delimited strings.
+5. ContentType: Defines the content type.
+    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-type" %} be the type defined in `Azure.Core` [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/ContentType.cs).
+    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-optional" %} be an optional parameter.
+
+6. Optional Query / Header: These are simple options that can be set as headers or query params in the request.  Typically primitive types or lists that can be transformed into delimited strings.
     * {% include requirement/SHOULD id="dotnet-parameter-query-header-property-bag" %} combine these into a property bag when there are more than 2 total including the required ones in item 3 of this list.
         * The property bag {% include requirement/MUST id="dotnet-parameter-query-header-property-bag-required" %} be required if it includes required query or header parameters from item 3 of this list.  In this case the property bag will replace the parameter at position 3 and position 5 will no longer be present.
         * If a method grew exceeded the threshold over time then an overload with the property bag {% include requirement/SHOULD id="dotnet-parameter-property-bag-overload" %} be provided leaving the old methods in place.
-
-6. ContentType: Defines the content type.
-    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-type" %} be the type defined in `Azure.Core` [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/ContentType.cs).
-    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-optional" %} be an optional parameter.
 
 7. Request Context: This is normally a `CancellationToken` and is defined as the last parameter.
     * When more context is needed than just a `CancellationToken` such as DPG you {% include requirement/MAY id="dotnet-parameter-request-context" %} use the [RequestContext](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/RequestContext.cs) defined in `Azure.Core`.
