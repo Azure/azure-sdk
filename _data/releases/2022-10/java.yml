@@ -2723,4 +2723,52 @@ entries:
     - [Bug fix for incorrect JSON property names](https://github.com/Azure/azure-sdk-for-java/pull/31388)
     -
   GroupId: com.azure
+- Name: azure-maps-geolocation
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Geolocation
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-geolocation_1.0.0-beta.1/sdk/maps/azure-maps-geolocation/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK GeoLocation client library for Java. This package contains the Azure Maps SDK GeoLocation library. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for GeoLocation SDK](https://docs.microsoft.com/rest/api/maps/geolocation).'
+  GroupId: com.azure
+- Name: azure-resourcemanager-policyinsights
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-policyinsights_1.0.0-beta.3/sdk/policyinsights/azure-resourcemanager-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.18
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.18/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.7.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.7.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `GetTokenSync` method implementation/support in Token Credentials.
+    - Read `AZURE_REGIONAL_AUTHORITY_NAME` from the environment to specify region for client credential types.
+  GroupId: com.azure
+- Name: azure-maps-elevation
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Elevation
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-elevation_1.0.0-beta.1/sdk/maps/azure-maps-elevation/CHANGELOG.md
+  ChangelogContent: '- This package contains the Azure Maps SDK Elevation client library for Java. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Elevation SDK](https://docs.microsoft.com/rest/api/maps/elevation).'
+  GroupId: com.azure
 
