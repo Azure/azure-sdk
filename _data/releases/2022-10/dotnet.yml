@@ -1316,4 +1316,18 @@ entries:
     #### Breaking Changes
 
     - Update `LocalizedMapView` enum variable naming
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.1.0
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.1.0/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the `QuestionAnsweringProjectsClient` to `QuestionAnsweringAuthoringClient` and moved it to the `Azure.AI.Language.QuestionAnswering.Authoring` namespace.
+    - Changed method return types of `QuestionAnsweringAuthoringClient.UpdateQnas` and `UpdateQnasAsync` to return an `Operation<Pageable<BinaryData>>` and `Operation<AsyncPageable<BinaryData>>` respectively.
+    - Changed method return types of `QuestionAnsweringAuthoringClient.UpdateSources` and `UpdateSourcesAsync` to return an `Operation<Pageable<BinaryData>>` and `Operation<AsyncPageable<BinaryData>>` respectively.
+    - Changed return type of `QuestionAnsweringAuthoringClient.DeleteProject` and `DeleteProjectAsync` from `Operation<BinaryData>` to just `Operation`.
 
