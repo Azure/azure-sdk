@@ -693,4 +693,12 @@ entries:
     - Added support to customize the Communication Identity access token's validity period:
     - `create_user_and_token` and `get_token` methods in both sync and async clients can now accept keyword argument `token_expires_in: ~datetime.timedelta` that provides the ability to create a Communication Identity access token with custom expiration.
     - Added a new API version `ApiVersion.V2022_10_01` that is now the default API version.
+- Name: azure-maps-route
+  Version: 1.0.0b1
+  DisplayName: Maps Route
+  ServiceName: Maps Route
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-route_1.0.0b1/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: '* Initial Release'
 
