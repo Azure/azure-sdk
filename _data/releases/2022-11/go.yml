@@ -43,4 +43,28 @@ entries:
     - Raw AMQP message support, including full support for encoding Body (Value, Sequence and also multiple byte slices for Data). See ExampleEventDataBatch_AddEventData_rawAMQPMessages for some concrete examples. (PR#19156)
     - Prefetch is now enabled by default. Prefetch allows the Event Hubs client to maintain a continuously full cache of events, controlled by PartitionClientOptions.Prefetch. (PR#19281)
     - ConsumerClient.ID() returns a unique ID representing each instance of ConsumerClient.
+- Name: sdk/resourcemanager/securitydevops/armsecuritydevops
+  Version: 0.1.0
+  DisplayName: Resource Management - Securitydevops
+  ServiceName: Securitydevops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/securitydevops/armsecuritydevops/v0.1.0/sdk/resourcemanager/securitydevops/armsecuritydevops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/monitor/armmonitor
+  Version: 0.8.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/monitor/armmonitor/v0.8.0/sdk/resourcemanager/monitor/armmonitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/policyinsights/armpolicyinsights
+  Version: 0.6.0
+  DisplayName: Resource Management - Policyinsights
+  ServiceName: Policyinsights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/policyinsights/armpolicyinsights/v0.6.0/sdk/resourcemanager/policyinsights/armpolicyinsights/CHANGELOG.md
+  ChangelogContent: ""
 
