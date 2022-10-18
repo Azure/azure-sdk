@@ -53,6 +53,7 @@ function CreatePackage(
     Type = ""
     New = "false"
     PlannedVersions = ""
+    LastUpdated = ""
     FirstGADate = ""
     Support = ""
     EOLDate = ""
@@ -60,6 +61,7 @@ function CreatePackage(
     Replace = ""
     ReplaceGuide = ""
     MSDocService = ""
+    ServiceId = ""
     Notes = ""
   };
 }
@@ -79,6 +81,7 @@ function ClonePackage($pkg)
     Type = $pkg.Type
     New = $pkg.New
     PlannedVersions = $pkg.PlannedVersions
+    LastUpdated = $pkg.LastUpdated
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
     EOLDate = $pkg.EOLDate
@@ -86,6 +89,7 @@ function ClonePackage($pkg)
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
     MSDocService = $pkg.MSDocService
+    ServiceId = $pkg.ServiceId
     Notes = $pkg.Notes
   };
 }
