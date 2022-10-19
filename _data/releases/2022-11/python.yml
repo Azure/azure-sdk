@@ -60,4 +60,34 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-nginx_2.0.0/sdk/nginx/azure-mgmt-nginx/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.9.1
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.9.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed possible `ValueError` for invalid content range that gets raised when downloading empty files through Azurite.
+- Name: azure-storage-blob
+  Version: 12.14.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.14.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed possible `ValueError` for invalid content range that gets raised when downloading empty blobs through Azurite.
+- Name: azure-storage-file-share
+  Version: 12.10.1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.10.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed possible `ValueError` for invalid content range that gets raised when downloading empty files through Azurite.
 
