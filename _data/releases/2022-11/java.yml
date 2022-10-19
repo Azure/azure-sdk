@@ -234,4 +234,16 @@ entries:
     - Upgraded `azure-core` from `1.32.0` to version `1.33.0`.
     - Upgraded `azure-core-http-netty` from `1.12.5` to version `1.12.6`.
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.16
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.16/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added SIP routing clients for handling Direct routing numbers.
+  GroupId: com.azure
 
