@@ -150,4 +150,32 @@ entries:
     - Upgraded `azure-communication-common` to 1.2.2
     - Upgraded `azure-core` to 1.33.0
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.0.11
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.0.11/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.32.0` to version `1.33.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.5` to version `1.12.6`.
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.7
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.7/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` dependency to `1.33.0`.
+  GroupId: com.azure
 
