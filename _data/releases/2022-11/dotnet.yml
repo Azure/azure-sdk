@@ -7,4 +7,12 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Avs_1.1.0/sdk/avs/Azure.ResourceManager.Avs/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Blobs
+  Version: 12.14.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.14.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Fixed bug were BlobBaseClient constructor taking a URI and BlobClientOptions would ignore BlobClientOptions.TrimBlobNameSlashes.'
 
