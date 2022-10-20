@@ -90,4 +90,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed possible `ValueError` for invalid content range that gets raised when downloading empty files through Azurite.
+- Name: azure-mgmt-resource
+  Version: 21.2.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_21.2.1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
 
