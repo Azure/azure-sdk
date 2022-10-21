@@ -213,6 +213,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     if ($gaVersions.Count -ne 0)
     {
       $latestGA = $gaVersions[0].RawVersion
+      $latestGADate = Get-DateFromSemVer $gaVersions[0]
       if ($latestGA -eq $latestPreview) {
         $latestPreview = ""
       }
@@ -241,9 +242,10 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
 
     if ($pkg.VersionGA) {
-      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
+      if (!$pkg.FirstGADate) {
         $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
       }
+      $pkg.LatestGADate = $latestGADate
     }
 
     $version = $latestPreview
