@@ -24,7 +24,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
   - `spring` - This is a special classification only for Java that represents the spring libraries.
 - `New` - This field is set to true for any of our newer libraries that now following the guidelines outlined in this repo.
 - `PlannedVersions` - This field will list a set of versions combined with estimated dates in the format of `[version1],[date1]|[version2],[date2]|[version3],[date3]` with version in the format of `X.Y.Z[bN|-beta.N]` and date in the format of `MM/dd/yyyy`. These dates are intended to be displayed on a roadmap page.
-- `LastUpdated` - The date the last stable/GA package release was updated.
+- `LatestGADate` - Thi field is used to identify the date of when the latest GA package released.
 - `FirstGADate` - This field is used to identify the date of when a new package shipped its first stable release.
 - `Support` - This field is used to identify the level of support for the given package. See the [support guidelines](https://azure.github.io/azure-sdk/policies_support.html#package-lifecycle) for more details but this field should contain `beta`, `active`, `deprecated` or `community`, if the value is empty it generally implies unknown or `beta` support level.
 - `EOLDate` - If a package has a Support value of `deprecated` this field provides the date at which the package is end of life (i.e. no longer supported).

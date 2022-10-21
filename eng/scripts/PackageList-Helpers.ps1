@@ -53,7 +53,7 @@ function CreatePackage(
     Type = ""
     New = "false"
     PlannedVersions = ""
-    LastUpdated = ""
+    LastestGADate = ""
     FirstGADate = ""
     Support = ""
     EOLDate = ""
@@ -81,7 +81,7 @@ function ClonePackage($pkg)
     Type = $pkg.Type
     New = $pkg.New
     PlannedVersions = $pkg.PlannedVersions
-    LastUpdated = $pkg.LastUpdated
+    LatestGADate = $pkg.LatestGADate
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
     EOLDate = $pkg.EOLDate

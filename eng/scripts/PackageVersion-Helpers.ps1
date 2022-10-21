@@ -117,6 +117,15 @@ function ToSemVer($version, $tagDate = "Unknown")
   return $sv
 }
 
+function Get-DateFromSemVer($semVer)
+{
+  $d = $semVer.Date -as [DateTime]
+  if ($d) {
+    return $d.ToString("MM/dd/yyyy")
+  }
+  return ""
+}
+
 function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-1), $tagSplit = "_")
 {
   $repoName = "azure-sdk-for-$lang"
