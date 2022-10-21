@@ -1,0 +1,104 @@
+entries:
+- Name: '@azure/arm-datafactory'
+  Version: 10.9.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.12.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.12.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-10-04.
+
+    #### Bugs Fixed
+
+    - Fixed a hang issue in ShareFileClient.downloadToBuffer when encountering transient network failure.
+    - Refined URL parsing method to let it be able to correctly parse URLs with account name in path.
+    - Fixed an issue of escaping slashes in file or directory path unnecessarily.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.11.0
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.11.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.11.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Fixed an issue of escaping slashes in file or directory path unnecessarily.
+- Name: '@azure/arm-devhub'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Devhub
+  ServiceName: Devhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devhub_1.0.0-beta.1/sdk/devhub/arm-devhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.11.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.11.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Refined URL parsing method to let it be able to correctly parse URLs with account name in path.
+- Name: '@azure/storage-blob'
+  Version: 12.12.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.12.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.12.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Fixed an issue of escaping slashes in blob name unnecessarily.
+- Name: '@azure/arm-policyinsights'
+  Version: 6.0.0-beta.2
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-chaos'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-chaos_1.0.0-beta.2/sdk/chaos/arm-chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/opentelemetry-instrumentation-azure-sdk'
+  Version: 1.0.0-beta.2
+  DisplayName: OpenTelemetry Instrumentation
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.2/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to disable Azure SDK Spans from being recorded by setting the `AZURE_TRACING_DISABLED` environment variable to true.
+    - Added support for `AZURE_HTTP_TRACING_CHILDREN_DISABLED` environment variable which allows disabling all children of our core HTTP spans from being recorded.
+
