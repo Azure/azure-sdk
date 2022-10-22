@@ -255,4 +255,39 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-elasticsan_1.0.0-beta.1/sdk/elasticsan/azure-resourcemanager-elasticsan/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-encryption
+  Version: 1.8.1
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.8.1/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated test dependency of apache commons-text to version 1.10.0 - CVE-2022-42889 - See [PR 31674](https://github.com/Azure/azure-sdk-for-java/pull/31674)
+    * Updated `azure-cosmos` to version `4.38.1`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.38.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.38.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated test dependency of apache `commons-text` to version 1.10.0 - CVE-2022-42889 - See [PR 31674](https://github.com/Azure/azure-sdk-for-java/pull/31674)
+    * Updated `jackson-databind` dependency to 2.13.4.2 - CVE-2022-42003 - See [PR 31559](https://github.com/Azure/azure-sdk-for-java/pull/31559)
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.29.1
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.29.1/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed serialization and persistence issues for UUID for JDK 16 and above - See [PR 31417](https://github.com/Azure/azure-sdk-for-java/pull/31417)
+  GroupId: com.azure
 
