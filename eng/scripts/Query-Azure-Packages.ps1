@@ -59,7 +59,7 @@ function Get-java-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"]
+      $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -90,7 +90,7 @@ function Get-dotnet-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"]
+      $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -138,7 +138,7 @@ function Get-js-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"]
+      $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -169,7 +169,7 @@ function Get-python-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"]
+      $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -229,7 +229,7 @@ function Get-go-Packages
       }
 
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
-      $package.RepoPath = $serviceDir
+      $package.RepoPath = $serviceDir.ToLower()
 
       $packages += $package
     }
