@@ -183,4 +183,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_9.0.1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.2.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Returns a more helpful message in the document error when all documents fail for an action in the `begin_analyze_actions` API.
 
