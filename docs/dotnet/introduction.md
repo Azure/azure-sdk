@@ -441,13 +441,13 @@ Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-m
 
 {% include requirement/MUST id="dotnet-service-methods-response-sync" %} return `Response<T>`, `NullableResponse<T>`, or `Response` from synchronous methods.
 
-NOTE: `NullableResponse<T>` is intended for scenarios where the Response may or may not contain a value. Common examples include:
-- Get*IfExists methods in which the value will be returned only if it exists
-- Conditional response APIs such as Get APIs which return no content if the requested resource's `ETag` matches the `If-Match` header
-
 `T` represents the content of the response, as described below.
 
-{% include requirement/MUST id="dotnet-service-methods-response-async" %} return `Task<Response<T>>` or `Task<Response>` from asynchronous methods that make network requests.
+{% include requirement/MUST id="dotnet-service-methods-response-async" %} return `Task<Response<T>>`, `Task<NullableResponse<T>>` or `Task<Response>` from asynchronous methods that make network requests.
+
+NOTE: `NullableResponse<T>` and `Task<NullableResponse<T>>` are intended for scenarios where the Response may or may not contain a value. Common examples include:
+- Get*IfExists methods in which the value will be returned only if it exists
+- Conditional response APIs such as Get APIs which return no content if the requested resource's `ETag` matches the `If-Match` header
 
 There are two possible return types from asynchronous methods: `Task` and `ValueTask`. Your code will be doing a network request in the majority of cases.  The `Task` variant is more appropriate for this use case. For more information, see [this blog post](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/#user-content-should-every-new-asynchronous-api-return-valuetask--valuetasktresult).
 
