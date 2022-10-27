@@ -439,7 +439,11 @@ Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-m
 
 ##### Return Types
 
-{% include requirement/MUST id="dotnet-service-methods-response-sync" %} return `Response<T>` or `Response` from synchronous methods.
+{% include requirement/MUST id="dotnet-service-methods-response-sync" %} return `Response<T>`, `NullableResponse<T>`, or `Response` from synchronous methods.
+
+NOTE: `NullableResponse<T>` is intended for scenarios where the Response may or may not contain a value. Common examples include:
+- Get*IfExists methods in which the value will be returned only if it exists
+- Conditional response APIs such as Get APIs which return no content if the requested resource's `ETag` matches the `If-Match` header
 
 `T` represents the content of the response, as described below.
 
