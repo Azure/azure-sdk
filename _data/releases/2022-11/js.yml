@@ -133,4 +133,28 @@ entries:
     - Added retriable behavior for 502, 503 and 504 status codes.
     - Export Metric attributes and Histogram Min/Max values.
     - Added new config options disableOfflineStorage, storageDirectory and exposed ApplicationInsightsClientOptionalParams for HTTP client extra configuration.
+- Name: '@azure/arm-nginx'
+  Version: 2.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_2.0.0/sdk/nginx/arm-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 7.1.0
+  DisplayName: Resource Management - Redis Cache
+  ServiceName: Redis Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-avs'
+  Version: 3.2.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
 
