@@ -446,7 +446,7 @@ Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-m
 {% include requirement/MUST id="dotnet-service-methods-response-async" %} return `Task<Response<T>>`, `Task<NullableResponse<T>>` or `Task<Response>` from asynchronous methods that make network requests.
 
 NOTE: `NullableResponse<T>` and `Task<NullableResponse<T>>` are intended for scenarios where the Response may or may not contain a value. Common examples include:
-- Get*IfExists methods in which the value will be returned only if it exists
+- Get*IfExists methods in which the value will be returned only if it exists. See [Naming](#naming) for additional naming guidelines.
 - Conditional response APIs such as Get APIs which return no content if the requested resource's `ETag` matches the `If-Match` header
 
 There are two possible return types from asynchronous methods: `Task` and `ValueTask`. Your code will be doing a network request in the majority of cases.  The `Task` variant is more appropriate for this use case. For more information, see [this blog post](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/#user-content-should-every-new-asynchronous-api-return-valuetask--valuetasktresult).
@@ -669,13 +669,15 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurrency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
 {% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
-TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
+{% include requirement/MUST id="dotnet-conditional-nullableresponse" %} return ```NullableResponse<T>``` when the service could return a 304 response with no content.
+
+TODO: more guidelines coming. see https://github.com/Azure/azure-sdk/issues/2154
 
 ### Supporting Types
 
