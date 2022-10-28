@@ -445,7 +445,7 @@ Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-m
 
 {% include requirement/MUST id="dotnet-service-methods-response-async" %} return `Task<Response<T>>`, `Task<NullableResponse<T>>` or `Task<Response>` from asynchronous methods that make network requests.
 
-{% include note.html content="`NullableResponse<T>` and `Task<NullableResponse<T>>` are intended for scenarios where the Response may or may not contain a value. Common examples include:
+{% include note.html content="`Response<T>` and `Task<Response<T>>` are intended for scenarios in which the response is guaranteed to have a `Value`. In contrast, `NullableResponse<T>` and `Task<NullableResponse<T>>` are intended for scenarios in which the `Response` may or may not contain a value. Common examples include:
 - Get*IfExists methods in which the value will be returned only if it exists
 - Conditional response APIs such as Get APIs which return no content if the requested resource's `ETag` matches the `If-Match` header" %}
 
