@@ -115,4 +115,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/avs/armavs/v1.1.0/sdk/resourcemanager/avs/armavs/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/azappconfig
+  Version: 0.4.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v0.4.3/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed missing host URL when iterating over pages.
+- Name: sdk/data/azappconfig
+  Version: 0.4.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v0.4.2/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug in `syncTokenPolicy` that could cause a panic in some conditions.
 
