@@ -107,4 +107,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Initial preview release features added for Azure Loadtesting SDK
+- Name: Azure.Communication.Common
+  Version: 1.2.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.2.1/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the logic of `PhoneNumberIdentifier` to always maintain the original phone number string whether it included the leading + sign or not.
 
