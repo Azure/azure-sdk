@@ -9,6 +9,7 @@ sidebar: general_sidebar
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
 * `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][README-EXAMPLE])
+* `TROUBLESHOOTING.md` - Resides in the root of your library's directory within the SDK repository. Includes troubleshooting guidance used by customers and the Customer Service & Support (CSS) group.
 * `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com. 
 * `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. 
 * `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. 
