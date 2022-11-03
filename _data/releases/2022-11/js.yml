@@ -168,4 +168,19 @@ entries:
     #### Features Added
 
     Initial release of the Azure LoadTesting package
+- Name: '@azure/communication-common'
+  Version: 2.2.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.2.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the logic of `getIdentifierRawId` and `createIdentifierFromRawId` for `PhoneNumberIdentifier` to always maintain the original phone number string whether it included the leading `+` sign or not.
+
+    #### Features Added
+
+    - Optimized the logic for deserializing types derived from the `CommunicationIdentifier`.
 
