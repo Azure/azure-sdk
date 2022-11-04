@@ -183,4 +183,37 @@ entries:
     #### Features Added
 
     - Optimized the logic for deserializing types derived from the `CommunicationIdentifier`.
+- Name: '@azure/core-amqp'
+  Version: 3.2.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.2.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix React-Native bundling issue by adding a `react-native` mapping to ESM entrypoint file. (PR #23524)[https://github.com/Azure/azure-sdk-for-js/pull/23524]
+- Name: '@azure/core-paging'
+  Version: 1.4.0
+  DisplayName: Core - Paging
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.4.0/sdk/core/core-paging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `toElements` function to convert a page to a list of elements
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.10.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.10.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where policies added to a cloned Pipeline would also be added to the original (and vice versa) until policies were removed from either. [#23316](https://github.com/Azure/azure-sdk-for-js/pull/23316)
 
