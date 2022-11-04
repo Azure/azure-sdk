@@ -1,0 +1,15 @@
+entries:
+- Name: azure-core
+  Version: 1.8.0-beta.2
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.8.0-beta.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added the ability to consume version 1.1.1n of OpenSSL.
+    - Added support for Identity token caching, and for configuring token refresh offset in `BearerTokenAuthenticationPolicy`.
+    - Improved cancellation support for WinHTTP transport.
+
