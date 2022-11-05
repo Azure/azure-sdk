@@ -164,4 +164,103 @@ entries:
     conversion. The detected scale unit will be used by default. To disable this behavior, you can set the new
     `DisableDetectScaleUnits` option in `AssetConversionOptions` to `true`. The `DisableDetectScaleUnits` option is
     ignored in previous API versions.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.0.0-beta.1
+  DisplayName: Call Automation
+  ServiceName: Call Automation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.0.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Create outbound calls to an Azure Communication Service user or a phone number.
+    - Answer/Redirect/Reject incoming call from an Azure Communication Service user or a phone number.
+    - Transfer the call to another participant.
+    - List, add or remove participants from the call.
+    - Hangup or terminate the call.
+    - Play audio files to one or more participants in the call.
+    - Recognize incoming DTMF in the call.
+    - Record calls with option to start/resume/stop.
+    - Record mixed and unmixed audio recordings.
+    - Download recordings.
+    - Parse various events happening in the call, such as CallConnected and PlayCompleted event.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.CallAutomation/README.md
+    [Overview]: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/call-automation
+    [Demo Video]: https://ignite.microsoft.com/sessions/14a36f87-d1a2-4882-92a7-70f2c16a306a
+    [Incoming Call Concept]: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/incoming-call-notification
+    [Build a customer interaction workflow using Call Automation]: https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions
+- Name: Azure.ResourceManager.DevTestLabs
+  Version: 1.0.0
+  DisplayName: Resource Management - Dev Test Labs
+  ServiceName: DevTestLabs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevTestLabs_1.0.0/sdk/devtestlabs/Azure.ResourceManager.DevTestLabs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Billing
+  Version: 1.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Billing_1.0.0/sdk/billing/Azure.ResourceManager.Billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.0.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: EventGrid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.0.0/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridData
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybriddata
+  ServiceName: Hybriddata
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridData_1.0.0/sdk/hybriddatamanager/Azure.ResourceManager.HybridData/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.0.0
+  DisplayName: Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.0.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Automation
+  Version: 1.0.0
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Automation_1.0.0/sdk/automation/Azure.ResourceManager.Automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Consumption
+  Version: 1.0.0
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Consumption_1.0.0/sdk/consumption/Azure.ResourceManager.Consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SecurityCenter
+  Version: 1.0.0
+  DisplayName: Resource Management - Security Center
+  ServiceName: SecurityCenter
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityCenter_1.0.0/sdk/securitycenter/Azure.ResourceManager.SecurityCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Dynatrace
+  Version: 1.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dynatrace_1.0.0/sdk/dynatrace/Azure.ResourceManager.Dynatrace/CHANGELOG.md
+  ChangelogContent: ""
 
