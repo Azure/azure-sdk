@@ -1,0 +1,13 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.2.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.2.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+    - Fix calling `call.hangup()` with `HangUpOptions` for everybody.
+    - Fix bug that allowed create several CallAgents for same identity.
+
