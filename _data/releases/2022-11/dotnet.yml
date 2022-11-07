@@ -263,4 +263,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dynatrace_1.0.0/sdk/dynatrace/Azure.ResourceManager.Dynatrace/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.2.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.2.0/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix the issue that the token lifetime is 0 when `expiresAfter` is not given.
 
