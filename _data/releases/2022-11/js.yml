@@ -216,4 +216,26 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where policies added to a cloned Pipeline would also be added to the original (and vice versa) until policies were removed from either. [#23316](https://github.com/Azure/azure-sdk-for-js/pull/23316)
+- Name: '@azure/core-http'
+  Version: 2.3.0
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.3.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for `x-ms-text` [PR# 23631](https://github.com/Azure/azure-sdk-for-js/pull/23631)
+- Name: '@azure/identity'
+  Version: 3.0.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.0.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug to enable `additionallyAllowedTenants` to pass through to MSAL Flow.
 
