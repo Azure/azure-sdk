@@ -566,4 +566,38 @@ entries:
 
     - `AzureCliCredential` now works even when `az` prints warnings to stderr. ([#26857](https://github.com/Azure/azure-sdk-for-python/issues/26857)) (thanks to @micromaomao for the contribution)
     - Fixed issue where user-supplied `TokenCachePersistenceOptions` weren't propagated when using `SharedTokenCacheCredential` ([#26982](https://github.com/Azure/azure-sdk-for-python/issues/26982))
+- Name: azure-ai-ml
+  Version: 1.1.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.1.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Registry list operation now accepts scope value to allow subscription-only based requests.
+    - Most configuration classes from the entity package now implement the standard mapping protocol.
+    - Add registry delete operation.
+    - The values of JobService.job_service_type are now using the snake case. e.g jupyter_lab, ssh, tensor_board, vs_code.
+    - Command function now accepts services param of type Dict[str, JobService] instead of dict.
+
+    #### Bugs Fixed
+    - MLClient.from_config can now find the default config.json on Compute Instance when running sample notebooks.
+    - Registries now assign managed tags to match registry's tags.
+    - Adjust registry experimental tags and imports to avoid warning printouts for unrelated operations.
+    - Make registry delete operation return an LROPoller, and change name to begin_delete.
+    - Prevent registering an already existing environment that references conda file.
+
+    #### Breaking Changes
+- Name: azure-search-documents
+  Version: 11.4.0b2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enabled `OcrSkill` and `ImageAnalysisSkill`
 
