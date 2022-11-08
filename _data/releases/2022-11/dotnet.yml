@@ -274,4 +274,47 @@ entries:
     #### Bugs Fixed
 
     - Fix the issue that the token lifetime is 0 when `expiresAfter` is not given.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.4
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.4/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Telemetry will now use a parent activity instead of links when the event processor is configured to use a `CacheEventCount` of 1.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.5.12. This resolves a rare race condition encountered when creating an AMQP link that could cause the link to hang.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.4/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Telemetry will now use a parent activity instead of links when the event processor is configured to use a `eventBatchMaximumCount` of 1.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.5.12.  This resolves a rare race condition encountered when creating an AMQP link that could cause the link to hang.
+- Name: Azure.Core
+  Version: 1.26.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.26.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced a new `NullableResponse<T>` type for scenarios where a service method may or may not return a value. One common example is `Get*IfExists` methods. `Response<T>` also now inherits from `NullableResponse<T>`.
+    - Added `TryParse` method to the `ResourceIdentifier` type.
+    - Added `AppendQuery` and `AppendPath` overloads to `RequestUriBuilder`.
+
+    #### Bugs Fixed
+
+    - Fixed issue where fixed delay was applied when the `RetryMode` was set to `Exponential` when retrying a request that resulted in an exception.
 
