@@ -99,7 +99,7 @@ Only the minimal information needed to connect and interact with the service sho
 
 ##### Client configuration
 
-{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
+{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
 
 {% include requirement/MUSTNOT id="python-client-options-naming" %} use an "options bag" object to group optional parameters. Instead, pass as individual keyword-only arguments.
 
@@ -485,7 +485,7 @@ Data within the model type can generally be split into two parts - data used to 
 
 {% include requirement/MAY id="python-models-generated" %} expose models from the generated layer by adding to the root `__init__.py` (and `__all__`) if they otherwise meet the guidelines.
 
-{% include requirement/MUSTNOT id="python-models-async" %} duplicate models between the root and `aio` namespace. This means models should not use any syntax incompatible with Python 2.7 (e.g. type hint syntax).
+{% include requirement/MUSTNOT id="python-models-async" %} duplicate models between the root and `aio` namespace.
 
 In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows), output model types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
@@ -765,8 +765,6 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 {% include requirement/MUST id="python-native-plat-support" %} support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), and MacOS.  Support the earliest possible manylinux to maximize your reach.
 
 {% include requirement/MUST id="python-native-arch-support" %} support both x86 and x64 architectures.
-
-{% include requirement/MUST id="python-native-charset-support" %} support both Unicode and ASCII versions of CPython 2.7.
 
 ### Docstrings
 
