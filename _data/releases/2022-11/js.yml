@@ -260,4 +260,40 @@ entries:
     #### Bugs Fixed
 
     - Correct the path of type declation files.
+- Name: '@azure/eventgrid'
+  Version: 4.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.11.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.HealthcareApis.DicomImageCreated`
+    - `Microsoft.HealthcareApis.DicomImageDeleted`
+- Name: '@azure/service-bus'
+  Version: 7.7.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix React-Native bundling issue by adding a `react-native` mapping to ESM entrypoint file. (PR #23524)[https://github.com/Azure/azure-sdk-for-js/pull/23524]
+- Name: '@azure/identity'
+  Version: 3.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Docs improvements for cross-language alignment
 
