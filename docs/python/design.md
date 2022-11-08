@@ -64,11 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 3.6 and later versions.
-
-{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate packages.
-
-For example, if you depend on different external packages for different versions of Python, and neither external dependency is available for both Python versions.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.7+.
 
 ## Azure SDK API Design
 
@@ -86,13 +82,13 @@ The service client is the primary entry point for users of the library. A servic
 
 ```python
 # Yes
-class CosmosClient(object) ...
+class CosmosClient: ...
 
 # No
-class CosmosProxy(object) ...
+class CosmosProxy: ...
 
 # No
-class CosmosUrl(object) ...
+class CosmosUrl: ...
 ```
 
 {% include requirement/MUST id="python-client-immutable" %} make the service client immutable. See the [Client Immutability](#client-immutability) section for more information.
@@ -124,7 +120,7 @@ client = ExampleClient('https://contoso.com/xmpl',
 The method **should** parse the connection string and pass the values along with any additional keyword-only arguments except `credential` to the constructor.  Only provide a `from_connection_string` factory method if the Azure portal exposes a connection string for your service.
 
 ```python
-class ExampleClientWithConnectionString(object):
+class ExampleClientWithConnectionString:
 
     @classmethod
     def _parse_connection_string(cls, connection_string): ...
@@ -297,7 +293,7 @@ The service client will have several methods that send requests to the service. 
 
 ```python
 # No:
-def get_thing(name: "str") -> "str":
+def get_thing(name: str) -> str:
     url = f'https://<host>/things/{name}'
     return requests.get(url).json()
 
@@ -307,7 +303,7 @@ except ValueError:
     print('We called with some invalid parameters. We should fix that.')
 
 # Yes:
-def get_thing(name: "str") -> "str":
+def get_thing(name: str) -> str:
     if not name:
         raise ValueError('name must be a non-empty string')
     url = f'https://<host>/things/{name}'
@@ -338,7 +334,7 @@ except ValueError:
 
 ```python
 # Yes:
-class Thing(object):
+class Thing:
 
     def __init__(self, name, size):
         self.name = name
@@ -354,7 +350,7 @@ do_something({'name': 'a', 'size', '17'}) # Does the same thing...
 {% include requirement/MUST id="python-client-flatten-args" %} use "flattened" named arguments for `update_` methods. **May** additionally take the whole model instance as a named parameter. If the caller passes both a model instance and individual key=value parameters, the explicit key=value parameters override whatever was specified in the model instance.
 
 ```python
-class Thing(object):
+class Thing:
 
     def __init__(self, name, size, description):
         self.name = name
@@ -366,7 +362,7 @@ class Thing(object):
             "name": self.name, "size": self.size, "description": self.description
         })[:1024]
 
-class Client(object):
+class Client:
 
     def update_thing(self, name=None, size=None, thing=None): ...
 
@@ -436,7 +432,7 @@ In cases where a service API is not explicitly implemented as a long-running ope
 {% include requirement/MUST id="python-method-conditional-request-etag" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
 ```python
-class Thing(object):
+class Thing:
 
     def __init__(self, name, etag):
         self.name = name
@@ -510,7 +506,7 @@ The following table enumerates the various models you might create:
 
 ```python
 # An example of a model type.
-class ConfigurationSetting(object):
+class ConfigurationSetting:
     """Model type representing a configuration setting
 
     :ivar name: The name of the setting
@@ -519,13 +515,11 @@ class ConfigurationSetting(object):
     :vartype value: object
     """
 
-    def __init__(self, name, value):
-        # type: (str, object) -> None
+    def __init__(self, name: str, value: object):
         self.name = name
         self.value = value
 
-    def __repr__(self):
-        # type: () -> str
+    def __repr__(self) -> str:
         return json.dumps(self.__dict__)[:1024]
 ```
 
@@ -630,7 +624,7 @@ The `asyncio` library has been available since Python 3.4, and the `async`/`awai
 ```python
 # Yes
 # In module azure.example
-class ExampleClient(object):
+class ExampleClient:
     def some_service_operation(self, name, size) ...
 
 # In module azure.example.aio
@@ -640,7 +634,7 @@ class ExampleClient:
 
 # No
 # In module azure.example
-class ExampleClient(object):
+class ExampleClient:
     def some_service_operation(self, name, size) ...
 
 class AsyncExampleClient: # No async/async pre/postfix.
@@ -648,7 +642,7 @@ class AsyncExampleClient: # No async/async pre/postfix.
 
 # No
 # In module azure.example
-class ExampleClient(object): # Don't mix'n match with different method names
+class ExampleClient: # Don't mix'n match with different method names
     def some_service_operation(self, name, size) ...
     async def some_service_operation_async(self, name, size) ...
 
@@ -838,7 +832,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} use Python 3 conventions when creating samples. Do not include Python 2 compatibility code (e.g. using [`six`](https://six.readthedocs.io)) since that will distract from what you are trying to present. Avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.6.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.7.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 

@@ -1,0 +1,347 @@
+entries:
+- Name: azure-keyvault-keys
+  Version: 4.7.0b1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.7.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - An attempt will be made to generate an IV if one isn't provided for local encryption
+    ([#25380](https://github.com/Azure/azure-sdk-for-python/pull/25380))
+- Name: azure-mgmt-connectedvmware
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Connected VMWare
+  ServiceName: Connected VMWare
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedvmware_1.0.0b2/sdk/connectedvmware/azure-mgmt-connectedvmware/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b7
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b7/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Moved OpenTelemetry `entry_points` to setup.py
+    ([#25674](https://github.com/Azure/azure-sdk-for-python/pull/25674))
+    - Added storage configuration options
+    ([#25633](https://github.com/Azure/azure-sdk-for-python/pull/25633))
+
+    #### Breaking Changes
+
+    - Update to OpenTelemetry api/sdk v1.12.0
+    ([#25659](https://github.com/Azure/azure-sdk-for-python/pull/25659))
+
+    #### Bugs Fixed
+
+    - Opentelemetry span events have wrong ParentId in Azure Monitor logs
+    ([#25369](https://github.com/Azure/azure-sdk-for-python/pull/25369))
+- Name: azure-mgmt-dashboard
+  Version: 1.0.0
+  DisplayName: Resource Management - Dashboard
+  ServiceName: Dashboard
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dashboard_1.0.0/sdk/dashboard/azure-mgmt-dashboard/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 21.0.1
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_21.0.1/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-eventhub
+  Version: 5.10.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.10.1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in async `BufferedProducer` that would block when flushing the queue causing the client to freeze up (issue #23510).
+    - Fixed a bug in the async `EventHubProducerClient` and `EventHubConsumerClient` that set the default value of the `transport_type` parameter in the `from_connection_string` methods to `None` rather than `TransportType.Amqp`.
+- Name: azure-storage-file-share
+  Version: 12.10.0b1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.10.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `AzureNamedKeyCredential` as a valid `credential` type.
+- Name: azure-storage-queue
+  Version: 12.5.0b1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.5.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `AzureNamedKeyCredential` as a valid `credential` type.
+- Name: azure-storage-blob
+  Version: 12.14.0b1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.14.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `AzureNamedKeyCredential` as a valid `credential` type.
+    - Added standard `read` method to `StorageStreamDownloader`.
+    - Added support for async streams (classes with an async `read` method) to async `upload_blob`.
+
+    #### Bugs Fixed
+    - Removed dead retry meachism from async `azure.storage.blob.aio.StorageStreamDownloader`.
+    - Updated exception catching of `azure.storage.blob.StorageStreamDownloader`'s retry mechanism.
+    - Adjusted type hints for `upload_blob` and `StorageStreamDownloader.readall`.
+    - Fixed a bug where uploading an empty blob via `upload_blob` would fail with `validate_content=True`.
+- Name: azure-storage-file-datalake
+  Version: 12.9.0b1
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.9.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `AzureNamedKeyCredential` as a valid `credential` type.
+    - Added support for `flush` to `append_data` API, allowing for append and flush in one operation.
+    - Encryption Scope is now supported for both `create_file_system` APIs (`FileSystemClient`, `DataLakeServiceClient`).
+    - Encryption Scope is now supported as a SAS permission.
+    - Added standard `read` method to `StorageStreamDownloader`.
+- Name: azure-communication-identity
+  Version: 1.2.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.2.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exported types `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, `UnknownIdentifier` for non Azure Communication Services `CommunicationIdentifier` identities. Exported related types: `MicrosoftTeamsUserProperties` and `PhoneNumberProperties`.
+    - Added `identifier_from_raw_id` and ensured that `CommunicationIdentifier.raw_id` is populated on creation. Together, these can be used to translate between a `CommunicationIdentifier` and its underlying canonical raw ID representation. Developers can now use the raw ID as an encoded format for identifiers to store in their databases or as stable keys in general.
+- Name: azure-mgmt-containerservice
+  Version: 20.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_20.3.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-deviceupdate
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deviceupdate_1.0.0/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-nginx
+  Version: 1.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-nginx_1.0.0/sdk/nginx/azure-mgmt-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appconfiguration
+  Version: 2.2.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.2.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerinstance
+  Version: 10.0.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_10.0.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-subscription
+  Version: 3.1.0
+  DisplayName: Resource Management - Subscription
+  ServiceName: Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-subscription_3.1.0/sdk/subscription/azure-mgmt-subscription/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.14.0b2
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.14.0b2/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a new API, `list_blob_names`, to `ContainerClient` that lists only the names of the blobs in the respective
+    container. This API is significantly faster than the traditional `list_blobs` and can be used if only the blob names
+    are desired. It does not return any additional properties or metadata for the blobs.
+- Name: azure-core
+  Version: 1.25.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.25.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added @runtime_checkable to `TokenCredential` protocol definitions  #25187
+- Name: azure-communication-rooms
+  Version: 1.0.0b2
+  DisplayName: Communication Rooms
+  ServiceName: Rooms
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.0.0b2/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Invalid datestrings for `valid_from` and `valid_until` raises exception
+- Name: azure-mgmt-iothub
+  Version: 2.3.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.3.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-agrifood
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Agrifood
+  ServiceName: AgriFood
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-agrifood_1.0.0b2/sdk/agrifood/azure-mgmt-agrifood/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redis
+  Version: 14.0.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Cache for Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redis_14.0.0/sdk/redis/azure-mgmt-redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-subscription
+  Version: 3.1.1
+  DisplayName: Resource Management - Subscription
+  ServiceName: Subscriptions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-subscription_3.1.1/sdk/subscription/azure-mgmt-subscription/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.3.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for other national clouds.
+    - Added support for TokenCredential
+
+    #### Bugs Fixed
+    - Fixed issue where async `search` call would fail with a 403 error when retrieving large number of documents.
+- Name: azure-maps-search
+  Version: 1.0.0b1
+  DisplayName: Maps Search
+  ServiceName: Maps Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-search_1.0.0b1/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: '* Initial Release'
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Content type `image/heif` is supported for document analysis and building models.
+    - Added `custom_document_models` property on `ResourceDetails`.
+    - Added new `CustomDocumentModelsDetails` model to represent the details of the custom document models in a given Form Recognizer resource.
+
+    #### Bugs Fixed
+    - Added `DocumentParagraph` to `__all__`.
+
+    #### Breaking Changes
+    - This library will default to service API version `2022-08-31` going forward.
+    - Removed `kind` property on `DocumentPage`.
+    - Renamed `begin_build_model()` to `begin_build_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `begin_compose_model()` to `begin_compose_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `begin_copy_model_to()` to `begin_copy_document_model_to()` on the `DocumentModelAdministrationClient`.
+    - Renamed `list_models()` to `list_document_models()` on the `DocumentModelAdministrationClient`.
+    - Renamed `get_model()` to `get_document_model()` on the `DocumentModelAdministrationClient`.
+    - Renamed `delete_model()` to `delete_document_model()` on the `DocumentModelAdministrationClient`.
+    - Removed `document_model_count` and `document_model_limit` properties on `ResourceDetails`.
+    - Renamed `DocumentModelOperationDetails` to `OperationDetails`.
+    - Renamed `DocumentModelOperationSummary` to `OperationSummary`.
+    - Removed `DocumentContentElement`.
+    - Removed `kind` and `content` properties from `DocumentSelectionMark`.
+    - Removed `kind` from `DocumentWord`.
+- Name: azure-ai-textanalytics
+  Version: 5.2.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    This version of the client library marks a stable release and defaults to the service API version `2022-05-01`.
+    Includes all changes from `5.2.0b1` to `5.2.0b5`.
+- Name: azure-search-documents
+  Version: 11.4.0b1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to create, update and delete aliases via the `SearchIndexClient`.
+- Name: azure-mgmt-cosmosdb
+  Version: 8.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed filter from DeviceManagementOperations.list_best_updates_for_group method
+
+    #### Features Added
+    - Added filter to DeviceManagementOperations.list_device_classes method
+    - Updated description for some methods to be more descriptive and less ambiguous
+

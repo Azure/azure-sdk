@@ -46,6 +46,26 @@ function Get-java-Packages
     $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
   }
 
+  $repoTags = GetPackageVersions "java"
+
+  foreach ($package in $packages)
+  {
+    # If package is in com.azure.resourcemanager groupid and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.GroupId -eq "com.azure.resourcemanager" `
+        -and $package.Package -match "^azure-resourcemanager-(?<serviceName>.*?)$" `
+        -and $repoTags.ContainsKey($package.Package))
+    {
+      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
+      $package.Type = "mgmt"
+      $package.New = "true"
+      $package.RepoPath = $matches["serviceName"].ToLower()
+      $package.ServiceName = $serviceName
+      $package.DisplayName = "Resource Management - $serviceName"
+      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+    }
+  }
+
   return $packages
 }
 
@@ -58,6 +78,25 @@ function Get-dotnet-Packages
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
   $packages = $nugetQuery.data | Foreach-Object { CreatePackage $_.id $_.version }
+
+  $repoTags = GetPackageVersions "dotnet"
+
+  foreach ($package in $packages)
+  {
+    # If package starts with Azure.ResourceManager. and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.Package -match "^Azure.ResourceManager.(?<serviceName>.*?)$" -and $repoTags.ContainsKey($package.Package))
+    {
+      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
+      $package.Type = "mgmt"
+      $package.New = "true"
+      $package.RepoPath = $matches["serviceName"].ToLower()
+      $package.ServiceName = $serviceName
+      $package.DisplayName = "Resource Management - $serviceName"
+      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+    }
+  }
+
   return $packages
 }
 
@@ -99,7 +138,7 @@ function Get-js-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"]
+      $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -118,6 +157,25 @@ function Get-python-Packages
 
   Write-Host "Found $($pythonPackages.Count) python packages"
   $packages = $pythonPackages | Foreach-Object { CreatePackage $_.name $_.version }
+
+  $repoTags = GetPackageVersions "python"
+
+  foreach ($package in $packages)
+  {
+    # If package starts with azure-mgmt- and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.Package -match "^azure-mgmt-(?<serviceName>.*?)?$" -and $repoTags.ContainsKey($package.Package))
+    {
+      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
+      $package.Type = "mgmt"
+      $package.New = "true"
+      $package.RepoPath = $matches["serviceName"].ToLower()
+      $package.ServiceName = $serviceName
+      $package.DisplayName = "Resource Management - $serviceName"
+      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+    }
+  }
+
   return $packages
 }
 
@@ -171,7 +229,7 @@ function Get-go-Packages
       }
 
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
-      $package.RepoPath = $serviceDir
+      $package.RepoPath = $serviceDir.ToLower()
 
       $packages += $package
     }

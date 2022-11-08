@@ -53,13 +53,15 @@ function CreatePackage(
     Type = ""
     New = "false"
     PlannedVersions = ""
+    LastestGADate = ""
     FirstGADate = ""
     Support = ""
-    DeprecatedDate = ""
+    EOLDate = ""
     Hide = ""
     Replace = ""
     ReplaceGuide = ""
     MSDocService = ""
+    ServiceId = ""
     Notes = ""
   };
 }
@@ -79,13 +81,15 @@ function ClonePackage($pkg)
     Type = $pkg.Type
     New = $pkg.New
     PlannedVersions = $pkg.PlannedVersions
+    LatestGADate = $pkg.LatestGADate
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
-    DeprecatedDate = $pkg.DeprecatedDate
+    EOLDate = $pkg.EOLDate
     Hide = $pkg.Hide
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
     MSDocService = $pkg.MSDocService
+    ServiceId = $pkg.ServiceId
     Notes = $pkg.Notes
   };
 }
