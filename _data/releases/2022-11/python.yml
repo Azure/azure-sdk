@@ -600,4 +600,15 @@ entries:
     #### Features Added
 
     - Enabled `OcrSkill` and `ImageAnalysisSkill`
+- Name: azure-eventgrid
+  Version: 4.9.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.9.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to health care APIs.
 
