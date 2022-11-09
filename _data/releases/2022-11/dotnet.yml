@@ -379,4 +379,15 @@ entries:
     <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableEscapeSingleQuotesOnDeleteEntity" Value="true" />
     </ItemGroup>
     ```
+- Name: Azure.Identity
+  Version: 1.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.8.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed error message parsing in `AzureCliCredential` which would misinterpret AAD errors with the need to login with `az login`. [#26894](https://github.com/Azure/azure-sdk-for-net/issues/26894), [#29109](https://github.com/Azure/azure-sdk-for-net/issues/29109)
+    - `ManagedIdentityCredential` will no longer fail when a response received from the endpoint is invalid JSON. It now treats this scenario as if the credential is unavailable. [#30467](https://github.com/Azure/azure-sdk-for-net/issues/30467), [#32061](https://github.com/Azure/azure-sdk-for-net/issues/32061)
 
