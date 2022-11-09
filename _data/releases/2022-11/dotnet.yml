@@ -345,4 +345,38 @@ entries:
 
     - Added extension builder method that can be used to inject an `EventGridPublisherClient` instance using a `TokenCredential` for authentication.
     - Added new Dicom Healthcare events.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.1.0
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.1.0/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `CertificateEndpoint` property to `ConfidentialLedgerClientOptions` to allow configuration of a custom certificate endpoint. When not configured, the current default is used.
+- Name: Azure.Data.Tables
+  Version: 12.7.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.7.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `TableClient.GetEntityIfExists` now returns `NullableResponse<T>` which has a `HasValue` property which returns false when the entity did not exist. Accessing the `Value` property in this case will throw an exception.
+
+    #### Features Added
+    - Added a `Uri` property to `TableClient` and `TableServiceClient`
+
+    #### Bugs Fixed
+    - Fixed a OData filter issue with implicit boolean comparisons (for example expressions such as `ent => ent.BooleanProperty`) when calling `TableClient.QueryAsync(Expression<Func<T, bool>> filter, ...)`. ([#30185](https://github.com/Azure/azure-sdk-for-net/issues/30185))
+    - Fixed an issue where `PartitionKey` and `RowKey` parameter values containing single quote characters are not automatically escaped on `DeleteEntity` calls. The new behavior can be overridden by either setting an AppContext switch named "Azure.Data.Tables.DisableEscapeSingleQuotesOnDeleteEntity" to `true` or by setting the environment variable "AZURE_DATA_TABLES_DISABLE_ESCAPESINGLEQUOTESONDELETEENTITY" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableEscapeSingleQuotesOnDeleteEntity" Value="true" />
+    </ItemGroup>
+    ```
 
