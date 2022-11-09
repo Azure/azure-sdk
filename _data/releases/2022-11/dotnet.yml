@@ -390,4 +390,45 @@ entries:
     #### Bugs Fixed
     - Fixed error message parsing in `AzureCliCredential` which would misinterpret AAD errors with the need to login with `az login`. [#26894](https://github.com/Azure/azure-sdk-for-net/issues/26894), [#29109](https://github.com/Azure/azure-sdk-for-net/issues/29109)
     - `ManagedIdentityCredential` will no longer fail when a response received from the endpoint is invalid JSON. It now treats this scenario as if the credential is unavailable. [#30467](https://github.com/Azure/azure-sdk-for-net/issues/30467), [#32061](https://github.com/Azure/azure-sdk-for-net/issues/32061)
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.5.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.5.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CreateOkpKeyOptions` to pass key options when creating an Octet Key Pair (OKP) on Managed HSM.
+    - Added `KeyClient.CreateOkpKey` and `CreateOkpKeyAsync` to create an Octet Key Pair (OKP) on Managed HSM.
+    - Added `KeyType.Okp` and `KeyType.OkpHsm` for `JsonWebKey`.
+    - Added `KeyCurveName.Ed25519` to create an Octet Key Pair (OKP) using the Ed25519 curve.
+    - Added `SignatureAlgorithm.EdDsa` to support signing and verifying using an Edwards Curve Digital Signature Algorithm (EdDSA) on Managed HSM.
+
+    #### Bugs Fixed
+
+    - Fixed possible "ObjectIsBeingRecovered" error immediately after restoring certificates, keys, or secrets. ([#31581](https://github.com/Azure/azure-sdk-for-net/issues/31581))
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.5.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.5.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed possible "ObjectIsBeingRecovered" error immediately after restoring certificates, keys, or secrets. ([#31581](https://github.com/Azure/azure-sdk-for-net/issues/31581))
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.3.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
 
