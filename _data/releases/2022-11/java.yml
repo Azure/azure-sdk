@@ -1286,4 +1286,17 @@ entries:
     - Upgraded `azure-core-identity` dependency to `1.7.0`.
     - Upgraded `azure-core-serializer-json-jackson` dependency to `1.2.23`.
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.13
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.13/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.34.0`.
+    - Updated `azure-mixedreality-authentication` to `1.2.8`.
+  GroupId: com.azure
 
