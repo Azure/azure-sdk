@@ -15,10 +15,10 @@
     {% if item.RepoPath == "NA" or item.RepoPath contains "http" %}
         {% assign source_url = item.RepoPath %}
     {% else %}
-        {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
+        {% assign source_url = source_url_template  | replace: 'item.RepoPath', item.RepoPath %}
     {% endif %}
 
-    {% assign code_url = source_url | replace: 'item.Version', version %}
+    {% assign code_url = source_url | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.Version', version %}
     {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
 
     {% if include.version == "VersionGA" %}
