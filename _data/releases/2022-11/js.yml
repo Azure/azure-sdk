@@ -349,4 +349,16 @@ entries:
     #### Bugs Fixed
 
     - Undo PR #23660 so that released listing blobs works again in storage-blob.
+- Name: '@azure/keyvault-admin'
+  Version: 4.4.0-beta.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
+    - Added support for service version `7.4-preview.1`.
 
