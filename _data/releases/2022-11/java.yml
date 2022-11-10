@@ -1342,4 +1342,19 @@ entries:
     - Upgraded `azure-core` dependency to `1.34.0`.
     - Upgraded `azure-core-http-netty` dependency to `1.12.7`.
   GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.1.8
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.1.8/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+  GroupId: com.azure
 
