@@ -260,4 +260,105 @@ entries:
     #### Bugs Fixed
 
     - Correct the path of type declation files.
+- Name: '@azure/eventgrid'
+  Version: 4.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.11.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.HealthcareApis.DicomImageCreated`
+    - `Microsoft.HealthcareApis.DicomImageDeleted`
+- Name: '@azure/service-bus'
+  Version: 7.7.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix React-Native bundling issue by adding a `react-native` mapping to ESM entrypoint file. (PR #23524)[https://github.com/Azure/azure-sdk-for-js/pull/23524]
+- Name: '@azure/identity'
+  Version: 3.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Docs improvements for cross-language alignment
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.1
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.1/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial Release
+- Name: '@azure/keyvault-common'
+  Version: 1.0.0-beta.1
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0-beta.1/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the keyvault-common package. The package is intended for internal consumption only and only exposes
+    helpers and other common code used by the Key Vault SDKs.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.10
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.10/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add network Statsbeat Metrics.
+- Name: '@azure/arm-hybridcontainerservice'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcontainerservice_1.0.0-beta.1/sdk/hybridcontainerservice/arm-hybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-http'
+  Version: 2.3.1
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.3.1/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Undo PR #23660 so that released listing blobs works again in storage-blob.
+- Name: '@azure/keyvault-admin'
+  Version: 4.4.0-beta.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
+    - Added support for service version `7.4-preview.1`.
 
