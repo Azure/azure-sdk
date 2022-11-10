@@ -130,6 +130,23 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   }
 }
 
+function CheckRepoPaths($linkTemplates, $pkg)
+{
+  # @azure-rest packages have unique repo path formatting so we need create a custom template for them
+  if ($pkg.Package.StartsWith("@azure-rest") -and !$pkg.RepoPath.StartsWith("https")) {
+    # https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/item.RepoPath/item.TrimmedPackage/
+    $repoPath = $linkTemplates["source_url_template"]
+
+    # this assumes that the previous RepoPath was the service directory which is generally the case when first created
+    $repoPath = $repoPath -replace "item.RepoPath", $pkg.RepoPath
+
+    # this assumes that the item.TrimmedPackage parameter in the template needs to be remove the scope and add "-rest" to end
+      $repoPath = $repoPath -replace "item.TrimmedPackage", ($pkg.Package -replace "@azure-rest/(.*)", "`$1-rest")
+
+      $pkg.RepoPath = $repoPath
+  }
+}
+
 function CheckRequiredLinks($linkTemplates, $pkg, $version)
 {
   $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
@@ -268,6 +285,8 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
+
+    CheckRepoPaths $langLinkTemplates $pkg
     CheckOptionalLinks $langLinkTemplates $pkg
   }
 }
