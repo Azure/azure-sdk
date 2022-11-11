@@ -33,6 +33,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Features Added
 
 - [[#2329](https://github.com/Azure/azure-sdk-for-c/pull/2329)] Add Base64 URL decoder.
+- [[#2375](https://github.com/Azure/azure-sdk-for-c/pull/2375)] Add Azure Device Update for IoT Hub, enabling Over-the-Air (OTA) updates for embedded devices.
 - Added support in `az_json.h` to unescape JSON string tokens within an `az_span` using the `az_json_string_unescape()` API.
 
 #### Bugs Fixed
