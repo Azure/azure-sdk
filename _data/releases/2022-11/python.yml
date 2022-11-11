@@ -702,4 +702,18 @@ entries:
     - `list_assigned_resource_deployments`
     - `list_deployment_resources`
     - Added optional `trained_model_label` keyword argument to `begin_export_project`.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b10
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b10/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix missing local storage attribute
+    ([#27405](https://github.com/Azure/azure-sdk-for-python/pull/27405))
+    - Fix offline storage rename
+    ([#27414](https://github.com/Azure/azure-sdk-for-python/pull/27414))
 
