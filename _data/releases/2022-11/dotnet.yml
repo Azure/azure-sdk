@@ -274,4 +274,289 @@ entries:
     #### Bugs Fixed
 
     - Fix the issue that the token lifetime is 0 when `expiresAfter` is not given.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.4
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.4/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Telemetry will now use a parent activity instead of links when the event processor is configured to use a `CacheEventCount` of 1.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.5.12. This resolves a rare race condition encountered when creating an AMQP link that could cause the link to hang.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.4/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Telemetry will now use a parent activity instead of links when the event processor is configured to use a `eventBatchMaximumCount` of 1.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.5.12.  This resolves a rare race condition encountered when creating an AMQP link that could cause the link to hang.
+- Name: Azure.Core
+  Version: 1.26.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.26.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced a new `NullableResponse<T>` type for scenarios where a service method may or may not return a value. One common example is `Get*IfExists` methods. `Response<T>` also now inherits from `NullableResponse<T>`.
+    - Added `TryParse` method to the `ResourceIdentifier` type.
+    - Added `AppendQuery` and `AppendPath` overloads to `RequestUriBuilder`.
+
+    #### Bugs Fixed
+
+    - Fixed issue where fixed delay was applied when the `RetryMode` was set to `Exponential` when retrying a request that resulted in an exception.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.11.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.11.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Telemetry will now use a parent activity instead of links when using the `ServiceBusProcessor` or `ServiceBusSessionProcessor`.
+    - Attempt to drain the receiver when closing if there are outstanding credits.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.12.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.12.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Fixed bug where the CloudEvents Distributed Tracing extensions were populated even when distributed tracing was disabled.
+
+    #### Features Added
+
+    - Added extension builder method that can be used to inject an `EventGridPublisherClient` instance using a `TokenCredential` for authentication.
+    - Added new Dicom Healthcare events.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.1.0
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.1.0/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `CertificateEndpoint` property to `ConfidentialLedgerClientOptions` to allow configuration of a custom certificate endpoint. When not configured, the current default is used.
+- Name: Azure.Data.Tables
+  Version: 12.7.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.7.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `TableClient.GetEntityIfExists` now returns `NullableResponse<T>` which has a `HasValue` property which returns false when the entity did not exist. Accessing the `Value` property in this case will throw an exception.
+
+    #### Features Added
+    - Added a `Uri` property to `TableClient` and `TableServiceClient`
+
+    #### Bugs Fixed
+    - Fixed a OData filter issue with implicit boolean comparisons (for example expressions such as `ent => ent.BooleanProperty`) when calling `TableClient.QueryAsync(Expression<Func<T, bool>> filter, ...)`. ([#30185](https://github.com/Azure/azure-sdk-for-net/issues/30185))
+    - Fixed an issue where `PartitionKey` and `RowKey` parameter values containing single quote characters are not automatically escaped on `DeleteEntity` calls. The new behavior can be overridden by either setting an AppContext switch named "Azure.Data.Tables.DisableEscapeSingleQuotesOnDeleteEntity" to `true` or by setting the environment variable "AZURE_DATA_TABLES_DISABLE_ESCAPESINGLEQUOTESONDELETEENTITY" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableEscapeSingleQuotesOnDeleteEntity" Value="true" />
+    </ItemGroup>
+    ```
+- Name: Azure.Identity
+  Version: 1.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.8.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed error message parsing in `AzureCliCredential` which would misinterpret AAD errors with the need to login with `az login`. [#26894](https://github.com/Azure/azure-sdk-for-net/issues/26894), [#29109](https://github.com/Azure/azure-sdk-for-net/issues/29109)
+    - `ManagedIdentityCredential` will no longer fail when a response received from the endpoint is invalid JSON. It now treats this scenario as if the credential is unavailable. [#30467](https://github.com/Azure/azure-sdk-for-net/issues/30467), [#32061](https://github.com/Azure/azure-sdk-for-net/issues/32061)
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.5.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.5.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CreateOkpKeyOptions` to pass key options when creating an Octet Key Pair (OKP) on Managed HSM.
+    - Added `KeyClient.CreateOkpKey` and `CreateOkpKeyAsync` to create an Octet Key Pair (OKP) on Managed HSM.
+    - Added `KeyType.Okp` and `KeyType.OkpHsm` for `JsonWebKey`.
+    - Added `KeyCurveName.Ed25519` to create an Octet Key Pair (OKP) using the Ed25519 curve.
+    - Added `SignatureAlgorithm.EdDsa` to support signing and verifying using an Edwards Curve Digital Signature Algorithm (EdDSA) on Managed HSM.
+
+    #### Bugs Fixed
+
+    - Fixed possible "ObjectIsBeingRecovered" error immediately after restoring certificates, keys, or secrets. ([#31581](https://github.com/Azure/azure-sdk-for-net/issues/31581))
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.5.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.5.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed possible "ObjectIsBeingRecovered" error immediately after restoring certificates, keys, or secrets. ([#31581](https://github.com/Azure/azure-sdk-for-net/issues/31581))
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.3.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.5.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.5.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed possible "ObjectIsBeingRecovered" error immediately after restoring certificates, keys, or secrets. ([#31581](https://github.com/Azure/azure-sdk-for-net/issues/31581))
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.8.1
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.8.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where custom `MessagingProvider` could be replaced by the library `MessagingProvider`.
+- Name: Azure.ResourceManager.Redis
+  Version: 1.1.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Redis_1.1.0/sdk/redis/Azure.ResourceManager.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Developer.DevCenter
+  Version: 1.0.0-beta.1
+  DisplayName: DevCenter
+  ServiceName: DevCenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.DevCenter_1.0.0-beta.1/sdk/devcenter/Azure.Developer.DevCenter/CHANGELOG.md
+  ChangelogContent: This is the initial release of the Azure DevCenter library.
+- Name: Azure.ResourceManager.Batch
+  Version: 1.1.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.1.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.3.2
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.3.2/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Resources
+  Version: 1.3.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.3.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.1.0
+  DisplayName: Resource Management - Sql
+  ServiceName: Sql Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.1.0/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations
+  Version: 1.1.0-beta.2
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConversationsClientOptions.Audience` to set the audience to use for authentication with Azure Active Directory (AAD).
+    - Added methods to the `ConversationAuthoringClient` to manage deployment resources:
+    - `AssignDeploymentResources` and `AssignDeploymentResourcesAsync`
+    - `DeleteDeploymentFromResources` and `DeleteDeploymentFromResourcesAsync`
+    - `GetAssignDeploymentResourcesStatus` and `GetAssignDeploymentResourcesStatusAsync`
+    - `GetAssignedResourceDeployments` and `GetAssignedResourceDeploymentsAsync`
+    - `GetDeploymentDeleteFromResourcesStatus` and `GetDeploymentDeleteFromResourcesStatusAsync`
+    - `GetDeploymentResources` and `GetDeploymentResourcesAsync`
+    - `GetLoadSnapshotStatus` and `GetLoadSnapshotStatusAsync`
+    - `GetUnassignDeploymentResourcesStatus` and `GetUnassignDeploymentResourcesStatusAsync`
+    - `LoadSnapshot` and `LoadSnapshotAsync`
+    - `UnassignDeploymentResources` and `UnassignDeploymentResourcesAsync`
+    - Added an overload to `ConversationAuthoringClient.ExportProject` and `ExportProjectAsync` to add the `trainedModelLabel` parameter.
+- Name: Azure.Maps.Common
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Common
+  ServiceName: Maps Common
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Common_1.0.0-beta.3/sdk/maps/Azure.Maps.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump version
+- Name: Azure.Maps.Search
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Search_1.0.0-beta.3/sdk/maps/Azure.Maps.Search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add setter for `FuzzySearchOptions.IndexFilter` Property
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.3.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.3.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue about `expiresAfter` with corner values.
+
+    #### Features Added
+    - Support `Headers` field in `ConnectEventRequest` to carry over client headers.
 
