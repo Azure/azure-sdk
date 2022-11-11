@@ -243,4 +243,20 @@ entries:
 
     #### Breaking Changes
     * Changed type of `OnlyIfChanged` and `OnlyIfUnchanged` option fields from `bool` to `*azcore.ETag`.
+- Name: sdk/messaging/azeventhubs
+  Version: 0.3.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.3.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - $cbs link is properly closed, even on cancellation (#19492)
+
+    #### Breaking Changes
+
+    - ProducerClient.SendEventBatch renamed to ProducerClient.SendEventDataBatch, to align with
+    the name of the type.
 
