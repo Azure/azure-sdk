@@ -18,6 +18,7 @@ To install any of our packages, copy and paste the following commands into a ter
 
 ```bash
 git clone https://github.com/Azure/azure-sdk-for-c
+cd azure-sdk-for-c
 git checkout <tag_name>
 ```
 
