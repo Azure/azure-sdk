@@ -248,8 +248,27 @@ function RefreshItems()
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
 
-          if ($pkgWI.fields["Custom.PackageRepoPath"] -and ($null -eq $csvEntry.RepoPath -or "NA" -eq $csvEntry.RepoPath)) {
-            $csvEntry.RepoPath = $pkgWI.fields["Custom.PackageRepoPath"]
+          if ($pkgWI.fields["Custom.PackageRepoPath"] -and ($null -eq $csvEntry.RepoPath -or "NA" -eq $csvEntry.RepoPath))
+          {
+            # @azure-rest packages have unique repo path formatting so we need create a custom template for them
+            if ($csvEntry.Package.StartsWith("@azure-rest"))
+            {
+              $jsLinkTemplates = GetLinkTemplates "js"
+
+              $repoPath = $jsLinkTemplates["source_url_template"]
+
+              # this assumes that the previous PackageRepoPath is the service directory which is generally the case when first created
+              $repoPath = $repoPath -replace "item.RepoPath", $pkgWI.fields["Custom.PackageRepoPath"]
+
+              # this assumes that the item.TrimmedPackage parameter in the template needs to be remove the scope and add "-rest" to end
+              $repoPath = $repoPath -replace "item.TrimmedPackage", ($csvEntry.Package -replace "@azure-rest/(.*)", "`$1-rest")
+
+              $csvEntry.RepoPath = $repoPath
+            }
+            else
+            {
+              $csvEntry.RepoPath = $pkgWI.fields["Custom.PackageRepoPath"]
+            }
           }
 
           if (!$csvEntry.RepoPath) {
