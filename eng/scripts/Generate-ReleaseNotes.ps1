@@ -30,8 +30,8 @@ function GetReleaseNoteContent($packageName, $packageVersion, $changelogBlobLink
   {
     # Skip if the changelog Url is invalid
     LogWarning "Failed to get content from ${changelogRawLink}"
-    LogWarning "ReleaseNotes will not be collected for $packageName : $packageVersion. Please add entry manually."
-    return $null
+    LogWarning "Changelog content will not be collected automatically for $packageName : $packageVersion."
+    return ""
   }
 
   $changeLogEntries = Get-ChangeLogEntriesFromContent -changeLogContent $changelogContent
@@ -41,8 +41,8 @@ function GetReleaseNoteContent($packageName, $packageVersion, $changelogBlobLink
   {
     # Skip if the changelog Url is invalid
     LogWarning "Failed to find matching change log entry from from ${changelogRawLink}"
-    LogWarning "ReleaseNotes will not be collected for $packageName : $packageVersion. Please add entry manually."
-    return $null
+    LogWarning "Changelog content will not be collected automatically for $packageName : $packageVersion."
+    return ""
   }
 
   $releaseEntryContent = @()
