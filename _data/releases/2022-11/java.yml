@@ -1886,4 +1886,27 @@ entries:
     - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
     - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
   GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.4
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.4/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+  GroupId: com.azure
+- Name: azure-maps-weather
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Maps Weather
+  ServiceName: maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-weather_1.0.0-beta.1/sdk/maps/azure-maps-weather/CHANGELOG.md
+  ChangelogContent: '- Azure Maps SDK Weather client library for Java. This package contains the Azure Maps SDK Weather library. Package tag 1.0.0-beta.1. For documentation on how to use this package, please see [Microsoft Azure SDK for Weather SDK](https://docs.microsoft.com/rest/api/maps/weather).'
+  GroupId: com.azure
 
