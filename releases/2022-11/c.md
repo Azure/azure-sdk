@@ -10,22 +10,15 @@ The Azure SDK team is pleased to make available the November 2022 client library
 
 #### Stable
 
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
-#### Beta
-
-- _Add packages_
+- Azure Core and Azure IoT
 
 ## Installation Instructions
 
 To install any of our packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> 
+git clone https://github.com/Azure/azure-sdk-for-c
+git checkout <tag_name>
 ```
 
 ## Feedback
@@ -34,9 +27,16 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### azure-sdk-for-c [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/1.4.0/CHANGELOG.md#140-2022-11-11)
 
-- Major changes only!
+#### Features Added
+
+- [[#2329](https://github.com/Azure/azure-sdk-for-c/pull/2329)] Add Base64 URL decoder.
+- Added support in `az_json.h` to unescape JSON string tokens within an `az_span` using the `az_json_string_unescape()` API.
+
+#### Bugs Fixed
+
+- [[#2372](https://github.com/Azure/azure-sdk-for-c/pull/2372)] Incorrect minimum buffer size calculation when logging an HTTP request.
 
 ## Latest Releases
 
