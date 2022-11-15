@@ -89,4 +89,14 @@ entries:
     - `LoadSnapshot` and `LoadSnapshotAsync`
     - `UnassignDeploymentResources` and `UnassignDeploymentResourcesAsync`
     - Added an overload to `ConversationAuthoringClient.ExportProject` and `ExportProjectAsync` to add the `trainedModelLabel` parameter.
+- Name: Azure.Data.Tables
+  Version: 12.7.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.7.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed client side validation which prevented `GetEntity` and `GetEntityAsync` from getting an entity with an empty string as its RowKey or PartitionKey value. ([#32447](https://github.com/Azure/azure-sdk-for-net/issues/32447))
 
