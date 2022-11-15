@@ -103,4 +103,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcomplianceautomation_1.0.0b1/sdk/appcomplianceautomation/azure-mgmt-appcomplianceautomation/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.1.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.1.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Renamed idle_time_before_shutdown to idle_time_before_shutdown_minutes and changed input type to int.
 
