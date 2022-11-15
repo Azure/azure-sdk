@@ -600,4 +600,223 @@ entries:
     #### Features Added
 
     - Enabled `OcrSkill` and `ImageAnalysisSkill`
+- Name: azure-eventgrid
+  Version: 4.9.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.9.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
 
+    - Added new enum values to `SystemEventNames` related to health care APIs.
+- Name: azure-mgmt-containerservice
+  Version: 20.7.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_20.7.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabric
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_2.1.0b1/sdk/servicefabric/azure-mgmt-servicefabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-relay
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relay_2.0.0b1/sdk/relay/azure-mgmt-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-elastic
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-elastic_1.1.0b1/sdk/elastic/azure-mgmt-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b9
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b9/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Rename local storage configuration, change default path
+    ([#26891](https://github.com/Azure/azure-sdk-for-python/pull/26891))
+    - Change default storage retention period to 48 hours
+    ([#26960](https://github.com/Azure/azure-sdk-for-python/pull/26960))
+
+    #### Features Added
+
+    - Add Sampler factory and entry point
+    ([#27236](https://github.com/Azure/azure-sdk-for-python/pull/27236))
+    - Add validation logic to ApplicationInsightsSampler
+    ([#26546](https://github.com/Azure/azure-sdk-for-python/pull/26546))
+    - Change default temporality of metrics to follow OTLP
+    ([#26924](https://github.com/Azure/azure-sdk-for-python/pull/26924))
+
+    #### Bugs Fixed
+
+    - Fixed sampleRate field in ApplicationInsightsSampler, changed attribute to `_MS.sampleRate`
+    ([#26771](https://github.com/Azure/azure-sdk-for-python/pull/26771))
+- Name: azure-developer-devcenter
+  Version: 1.0.0b1
+  DisplayName: DevCenter
+  ServiceName: DevCenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-devcenter_1.0.0b1/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: '- Initial version for the DevCenter service'
+- Name: azure-ai-language-conversations
+  Version: 1.1.0b3
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b3/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the "ConversationalSentimentTask" kind with `begin_conversation_analysis`.
+    - Added support for "chapterTitle" and "narrative" `summaryAspects` options for ConversationalSummarizationTasks.
+    - Added methods to the `ConversationAuthoringClient` to manage deployment resources:
+    - `begin_assign_deployment_resources`
+    - `get_assign_deployment_resources_status`
+    - `begin_unassign_deployment_resources`
+    - `get_unassign_deployment_resources_status`
+    - `begin_delete_deployment_from_resources`
+    - `get_deployment_delete_from_resources_status`
+    - `begin_load_snapshot`
+    - `get_load_snapshot_status`
+    - `list_assigned_resource_deployments`
+    - `list_deployment_resources`
+    - Added optional `trained_model_label` keyword argument to `begin_export_project`.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b10
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b10/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix missing local storage attribute
+    ([#27405](https://github.com/Azure/azure-sdk-for-python/pull/27405))
+    - Fix offline storage rename
+    ([#27414](https://github.com/Azure/azure-sdk-for-python/pull/27414))
+- Name: azure-mgmt-quota
+  Version: 1.1.0b3
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quota_1.1.0b3/sdk/quota/azure-mgmt-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-logic
+  Version: 10.1.0b1
+  DisplayName: Resource Management - Logic Apps
+  ServiceName: Logic Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-logic_10.1.0b1/sdk/logic/azure-mgmt-logic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-serialconsole
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Serial Console
+  ServiceName: Serial Console
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-serialconsole_1.1.0b1/sdk/serialconsole/azure-mgmt-serialconsole/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b5
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b5/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managementgroups
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managementgroups_1.1.0b1/sdk/managementgroups/azure-mgmt-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_1.2.0b1/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-baremetalinfrastructure
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Bare Metal Infrastructure
+  ServiceName: Bare Metal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.1.0b1/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-marketplaceordering
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Marketplace Ordering
+  ServiceName: Marketplace Ordering
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-marketplaceordering_1.2.0b1/sdk/marketplaceordering/azure-mgmt-marketplaceordering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-maps
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maps_2.1.0b1/sdk/maps/azure-mgmt-maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-machinelearningcompute
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Machine Learning Compute
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-machinelearningcompute_1.0.0b2/sdk/machinelearning/azure-mgmt-machinelearningcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-privatedns
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-privatedns_1.1.0b1/sdk/network/azure-mgmt-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-desktopvirtualization
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-desktopvirtualization_1.0.0b2/sdk/desktopvirtualization/azure-mgmt-desktopvirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagepool
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Storage Pool
+  ServiceName: Storage Pool
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagepool_1.1.0b1/sdk/storagepool/azure-mgmt-storagepool/CHANGELOG.md
+  ChangelogContent: ""
