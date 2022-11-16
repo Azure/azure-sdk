@@ -113,4 +113,30 @@ entries:
   ChangelogContent: |-
     ### Features Added
     - Renamed idle_time_before_shutdown to idle_time_before_shutdown_minutes and changed input type to int.
+- Name: azure-keyvault-administration
+  Version: 4.3.0b1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.3.0b1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added sync and async `KeyVaultSettingsClient`s for getting and updating Managed HSM settings.
+    - Added support for service API version `7.4-preview.1`
+- Name: azure-keyvault-keys
+  Version: 4.8.0b2
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.8.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.4-preview.1`
+    - `KeyClient` has a `create_okp_key` method to create an octet key pair (OKP) on Managed HSM
+    - Added `eddsa` to `SignatureAlgorithm` enum to support signing and verifying using an
+    Edwards-Curve Digital Signature Algorithm (EdDSA) on Managed HSM
+    - Added `okp` and `okp_hsm` to `KeyType` enum for octet key pairs
+    - Added `ed25519` to `KeyCurveName` enum to support use of the Ed25519 Edwards curve
 
