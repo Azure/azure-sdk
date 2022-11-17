@@ -12,8 +12,6 @@
 
 View all the latest versions of go packages [here][go-latest-releases].
 
-{% include refs.md %}
-
 ## Installation Instructions
 
 To use the latest GA and beta libraries use the `go get` command to add the package to a go.mod file. If your project does not use Go modules, refer to the Go documentation for information about specifying dependencies.
@@ -37,3 +35,5 @@ To use the latest GA and beta libraries use the `go get` command to add the pack
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-go/issues).
+
+{% include refs.md %}
