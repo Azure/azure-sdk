@@ -6,8 +6,6 @@
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include refs.md %}
-
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
@@ -29,3 +27,5 @@ To install the packages, copy and paste the below into a terminal.
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
+
+{% include refs.md %}
