@@ -14,8 +14,6 @@
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include refs.md %}
-
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -43,3 +41,5 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
+
+{% include refs.md %}
