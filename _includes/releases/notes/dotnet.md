@@ -6,8 +6,6 @@
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include refs.md %}
-
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
@@ -29,3 +27,5 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
+
+{% include refs.md %}
