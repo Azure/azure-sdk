@@ -14,8 +14,6 @@
 
 View all the latest versions of Android packages [here][android-latest-releases].
 
-{% include refs.md %}
-
 ## Installation Instructions
 
 To use the latest GA and beta libraries, refer to the dependency information below, which may be copied into your projects Gradle `build.gradle` or Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -82,3 +80,5 @@ dependencies {
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-android/issues).
+
+{% include refs.md %}
