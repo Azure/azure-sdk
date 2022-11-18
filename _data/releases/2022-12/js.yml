@@ -176,4 +176,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 11.3.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.1/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue where `similarity` settings on indexes wouldn't populate correctly. See [#23811](https://github.com/Azure/azure-sdk-for-js/issues/23811)
 
