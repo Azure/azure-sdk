@@ -19,19 +19,27 @@ function GetChangelogBlobLink($packageName, $packageVersion, $packageMetadata)
   return $changelogBlobLink
 }
 
-function GetReleaseNoteContent($packageName, $packageVersion, $changelogBlobLink)
+function GetChangeLogContent($changelogBlobLink)
 {
   $changelogRawLink = $changelogBlobLink -replace "https://github.com/(.*)/(tree|blob)", "https://raw.githubusercontent.com/`$1"
   try
   {
-    $changelogContent = Invoke-RestMethod -Method GET -Uri $changelogRawLink -MaximumRetryCount 2
+    return Invoke-RestMethod -Method GET -Uri $changelogRawLink -MaximumRetryCount 2
   }
   catch
   {
     # Skip if the changelog Url is invalid
     LogWarning "Failed to get content from ${changelogRawLink}"
     LogWarning "Changelog content will not be collected automatically for $packageName : $packageVersion."
-    return ""
+    return $null
+  }
+}
+
+function GetReleaseNoteContent($packageName, $packageVersion, $changelogBlobLink)
+{
+  $changelogContent = GetChangeLogContent $changelogBlobLink
+  if (!$changelogContent) {
+    return $null
   }
 
   $changeLogEntries = Get-ChangeLogEntriesFromContent -changeLogContent $changelogContent
@@ -81,15 +89,24 @@ function GetReleaseNotesData($packageName, $packageVersion, $packageMetadata)
   {
     $releaseEntryContent = ""
   }
-  elseif ($packageMetadata.Type -eq "spring")
+  elseif ($packageMetadata.Type -eq "spring" -and $packageMetadata.RepoPath -eq "spring")
   {
     $releaseEntryContent = ""
     $changelogBlobLink = $changelogBlobLink -replace "$packageName/CHANGELOG.md", "CHANGELOG.md"
-    Write-Host $changelogBlobLink
+    $changelogRawContent = GetChangeLogContent $changelogBlobLink
+    # If raw content doesn't exist then don't provide a changelog link
+    if ($null -eq $changeLogRawContent) {
+      $changelogBlobLink = ""
+    }
   }
   else
   {
     $releaseEntryContent = GetReleaseNoteContent $packageName $packageVersion $changelogBlobLink
+    # If raw content doesn't exist then don't provide a changelog link
+    if ($null -eq $releaseEntryContent) {
+      $changelogBlobLink = ""
+      $releaseEntryContent = ""
+    }
   }
 
   $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($packageVersion)
