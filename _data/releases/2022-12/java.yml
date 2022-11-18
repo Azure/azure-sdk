@@ -415,4 +415,16 @@ entries:
     - `Microsoft.HealthcareApis.DicomImageCreated`
     - `Microsoft.HealthcareApis.DicomImageDeleted`
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.7.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.7.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added user-agent header to Identity requests
+  GroupId: com.azure
 
