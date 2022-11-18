@@ -210,4 +210,12 @@ entries:
     `ClassifyDocumentResult`, `ExtractSummaryResult`, and `AbstractSummaryResult` to indicate the language detected by automatic language detection.
     - Added property `script` to `DetectedLanguage` to indicate the script of the input document.
     - Added the `dynamic_classification` client method to perform dynamic classification on documents without needing to train a model.
+- Name: azure-mgmt-networkfunction
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Networkfunction
+  ServiceName: Networkfunction
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkfunction_1.0.0b1/sdk/networkfunction/azure-mgmt-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
 
