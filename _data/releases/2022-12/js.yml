@@ -187,4 +187,15 @@ entries:
     #### Bugs Fixed
 
     - Addressed an issue where `similarity` settings on indexes wouldn't populate correctly. See [#23811](https://github.com/Azure/azure-sdk-for-js/issues/23811)
+- Name: '@azure/identity'
+  Version: 3.1.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug to update "expiresOnTimestamp" field in Managed Identity to be in seconds and not milliseconds.
 
