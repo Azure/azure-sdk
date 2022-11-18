@@ -78,4 +78,177 @@ entries:
     - Upgraded `azure-communication-common` to 1.2.3
     - Upgraded `azure-core` to 1.34.0
   GroupId: com.azure
+- Name: azure-resourcemanager-appcomplianceautomation
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Appcomplianceautomation
+  ServiceName: Appcomplianceautomation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcomplianceautomation_1.0.0-beta.1/sdk/appcomplianceautomation/azure-resourcemanager-appcomplianceautomation/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-security-keyvault-administration
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.3.0-beta.1/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `KeyVaultSettingsClient` and `KeyVaultSettingsAsyncClient` to get and update Managed HSM settings.
+    - Added support for service version `7.4-preview.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.6.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.6.0-beta.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `CreateOkpKeyOptions` to pass key options when creating an Octet Key Pair (OKP) on Managed HSM.
+    - Added `createOkpKey()` and `createOkpKeyWithResponse()` to `KeyClient` and `KeyAsyncClient` to create an Octet Key Pair (OKP) on Managed HSM.
+    - Added `OKP` and `OKP_HSM` to `KeyType`.
+    - Added `Ed25519` to `KeyCurveName` to create an Octet Key Pair (OKP) using the Ed25519 curve.
+    - Added `EDDSA` to `SignatureAlgorithm` to support signing and verifying using an Edwards Curve Digital Signature Algorithm (EdDSA) on Managed HSM.
+    - Added support for service version `7.4-preview.1`.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.0.12
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.0.12/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.15.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.15.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-common` from `12.19.0` to version `12.19.1`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.5.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.5.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-common` from `12.19.0` to version `12.19.1`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.19.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.19.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.20.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.20.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-common` from `12.19.0` to version `12.19.1`.
+    - Upgraded `azure-storage-internal-avro` from `12.5.0` to version `12.5.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.13.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.13.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-blob` from `12.20.0` to version `12.20.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.19.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.19.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-blob` from `12.20.0` to version `12.20.1`.
+    -
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.16.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.16.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-common` from `12.19.0` to version `12.19.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.16.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.16.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
+    - Upgraded `azure-storage-blob` from `12.20.0` to version `12.20.1`.
+  GroupId: com.azure
 

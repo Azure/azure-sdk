@@ -1,3 +1,19 @@
+## Release highlights
+
+{% include releases/notes/release_highlights.md %}
+
+## Need help
+
+- For reference documentation visit the [Azure SDK for iOS documentation](https://azure.github.io/azure-sdk-for-ios/).
+- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for iOS repository](https://github.com/azure/azure-sdk-for-ios/).
+- File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-ios/issues/new/choose).
+- Check [previous questions](https://stackoverflow.com/questions/tagged/azure+ios) or ask new ones on
+ StackOverflow using the `azure` and `ios` tags.
+
+## Latest Releases
+
+View all the latest versions of iOS packages [here][ios-latest-releases].
+
 ## Installation Instructions
 
 To install the latest GA and beta libraries, we recommend you use the [Swift Package Manager](https://swift.org/package-manager/). As an alternative, you may also integrate the libraries using [CocoaPods](https://cocoapods.org/).
@@ -98,21 +114,5 @@ $ pod install
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-ios/issues).
-
-## Release highlights
-
-{% include releases/notes/release_highlights.md %}
-
-## Need help
-
-- For reference documentation visit the [Azure SDK for iOS documentation](https://azure.github.io/azure-sdk-for-ios/).
-- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for iOS repository](https://github.com/azure/azure-sdk-for-ios/).
-- File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-ios/issues/new/choose).
-- Check [previous questions](https://stackoverflow.com/questions/tagged/azure+ios) or ask new ones on
- StackOverflow using the `azure` and `ios` tags.
-
-## Latest Releases
-
-View all the latest versions of iOS packages [here][ios-latest-releases].
 
 {% include refs.md %}
