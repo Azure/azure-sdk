@@ -1136,7 +1136,7 @@ Each client library should have a quickstart guide with code samples.  Developer
 
 {% include requirement/MUST id="dotnet-samples-location" %} have usage samples in `samples` subdirectory of main library directory.
 
-For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
+For a complete example, see the [App Configuration samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
 
 {% include requirement/MUST id="dotnet-samples-readme" %} have a `README.md` file with the following front matter:
 
@@ -1153,9 +1153,9 @@ description: Samples for the Azure.Data.AppConfiguration client library
 ---
 ```
 
-The `README.md` file should be written as a getting started guide. See [the ServiceBus README](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
+The `README.md` file should be written as a getting started guide. See [the App Configuration README](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.ResourceManager.AppConfiguration) for a good example.
 
-{% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the samples files using a brief description as the link text.
+{% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the sample markdown files using a brief description as the link text.
 
 {% include requirement/MUST id="dotnet-samples-naming" %} have a sample file called `Sample1_HelloWorld.md`. All other samples are ordered from simplest to most complex using the `Sample<number>_` prefix.
 
@@ -1163,7 +1163,17 @@ The `README.md` file should be written as a getting started guide. See [the Serv
 
 {% include requirement/MUST id="dotnet-samples-source-snippets" %} use `#region`s in source with a unique identifier starting with "Snippet:" like `Snippet:AzConfigSample1_CreateConfigurationClient`. This must be unique within the entire repo.
 
-{% include requirement/MUST id="dotnet-samples-snippets" %} C# code fences with the corresponding `#region` name like so:
+If you need to write code so that sample tests run properly, you can use the `SNIPPET` symbol in a conditional like:
+
+```C#
+#if SNIPPET
+string connectionString = "<connection-string>";
+#else
+string connectionString = TestEnvironment.ConnectionString;
+#endif
+```
+
+{% include requirement/MUST id="dotnet-samples-snippets" %} C# code fences in sample markdown files with the corresponding `#region` name like:
 
 ````markdown
 ```C# Snippet:AzConfigSample1_CreateConfigurationClient
@@ -1173,7 +1183,11 @@ var client = new ConfigurationClient(connectionString);
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
 
-TODO: Update guidance on samples to reflect what we do in most places.
+{% include requirement/MUST id="dotnet-samples-source-readme" %} add a `README.md` to your `{package}/tests/samples` directory directing people to the markdown samples directory.
+
+{% include requirement/MUSTNOT id="dotnet-samples-source-link" %} link from sample markdown files under `{package}/samples` to source files under `{package}/tests/samples`.
+
+See our [Samples, Snippets, and How-To Guides](https://github.com/Azure/azure-sdk-for-net/blob/main/samples/README.MD) for detailed instructions.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
