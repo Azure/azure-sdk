@@ -491,4 +491,13 @@ entries:
     `ClassifyDocumentResult`, `ExtractSummaryResult`, and `AbstractSummaryResult` to indicate the language detected by automatic language detection.
     - Added property `script` to `DetectedLanguage` to indicate the script of the input document, and new enum model `ScriptKind`.
   GroupId: com.azure
+- Name: azure-resourcemanager-signalr
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-signalr_1.0.0-beta.5/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
