@@ -137,4 +137,26 @@ entries:
     - Added a `groups` option in `serviceClient.GetClientAccessUri`, to enable connections join initial groups once it is connected.
     - Added a `filter` parameter when sending messages to connections in a hub/group/user to filter out the connections recieving message, details about `filter` syntax please see [OData filter syntax for Azure Web PubSub](https://aka.ms/awps/filter-syntax).
     - Provided a utility class `ClientConnectionFilter` to generate the `filter` parameter, e.g. `ClientConnectionFilter.Create($"{group1} in groups and not({group2} in groups)"))`
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.5/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected an indexing issue with the log event source, causing an exception to surface when the buffered producer completed its idle state.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.5
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.5/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected an indexing issue with the log event source, causing an exception to surface in some publishing scenarios.
 
