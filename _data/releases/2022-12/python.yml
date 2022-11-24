@@ -103,4 +103,223 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcomplianceautomation_1.0.0b1/sdk/appcomplianceautomation/azure-mgmt-appcomplianceautomation/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.1.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.1.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Renamed idle_time_before_shutdown to idle_time_before_shutdown_minutes and changed input type to int.
+- Name: azure-keyvault-administration
+  Version: 4.3.0b1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.3.0b1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added sync and async `KeyVaultSettingsClient`s for getting and updating Managed HSM settings.
+    - Added support for service API version `7.4-preview.1`
+- Name: azure-keyvault-keys
+  Version: 4.8.0b2
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.8.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.4-preview.1`
+    - `KeyClient` has a `create_okp_key` method to create an octet key pair (OKP) on Managed HSM
+    - Added `eddsa` to `SignatureAlgorithm` enum to support signing and verifying using an
+    Edwards-Curve Digital Signature Algorithm (EdDSA) on Managed HSM
+    - Added `okp` and `okp_hsm` to `KeyType` enum for octet key pairs
+    - Added `ed25519` to `KeyCurveName` enum to support use of the Ed25519 Edwards curve
+- Name: azure-mgmt-signalr
+  Version: 1.2.0b1
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-signalr_1.2.0b1/sdk/signalr/azure-mgmt-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 21.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.0.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-oep
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Oep
+  ServiceName: Oep
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oep_1.0.0b2/sdk/oep/azure-mgmt-oep/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothubprovisioningservices
+  Version: 1.2.0b1
+  DisplayName: Resource Management - IoT Hub Provisioning Services
+  ServiceName: IoT Hub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothubprovisioningservices_0.2.0/azure-mgmt-iothubprovisioningservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-security
+  Version: 3.0.0
+  DisplayName: Resource Management - Security
+  ServiceName: Security Center
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_3.0.0/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.3.0b1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.3.0b1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the Extractive Summarization feature and related models: `ExtractSummaryAction`, `ExtractSummaryResult`, and `SummarySentence`.
+    Access the feature through the `begin_analyze_actions` API.
+    - Added keyword arguments `fhir_version` and `document_type` to `begin_analyze_healthcare_entities` and `AnalyzeHealthcareEntitiesAction`.
+    - Added property `fhir_bundle` to `AnalyzeHealthcareEntitiesResult`.
+    - Added property `confidence_score` to `HealthcareRelation`.
+    - Added enum `HealthcareDocumentType`.
+    - Added property `resolutions` to `CategorizedEntity`.
+    - Added models and enums related to resolutions: `BaseResolution`, `ResolutionKind`, `AgeResolution`, `AreaResolution`,
+    `BooleanResolution`, `CurrencyResolution`, `DateTimeResolution`, `InformationResolution`, `LengthResolution`,
+    `NumberResolution`, `NumericRangeResolution`, `OrdinalResolution`, `SpeedResolution`, `TemperatureResolution`,
+    `TemporalSpanResolution`, `VolumeResolution`, `WeightResolution`, `AgeUnit`, `AreaUnit`, `TemporalModifier`,
+    `InformationUnit`, `LengthUnit`, `NumberKind`, `RangeKind`, `RelativeTo`, `SpeedUnit`, `TemperatureUnit`,
+    `VolumeUnit`, `DateTimeSubKind`, and `WeightUnit`.
+    - Added the Abstractive Summarization feature and related models: `AbstractSummaryAction`, `AbstractSummaryResult`, `AbstractiveSummary`,
+    and `SummaryContext`. Access the feature through the `begin_analyze_actions` API.
+    - Added automatic language detection to long-running operation APIs. Pass `auto` into the document `language` hint to use this feature.
+    - Added `autodetect_default_language` to long-running operation APIs. Pass as the default/fallback language for automatic language detection.
+    - Added property `detected_language` to `RecognizeEntitiesResult`, `RecognizePiiEntitiesResult`, `AnalyzeHealthcareEntitiesResult`,
+    `ExtractKeyPhrasesResult`, `RecognizeLinkedEntitiesResult`, `AnalyzeSentimentResult`, `RecognizeCustomEntitiesResult`,
+    `ClassifyDocumentResult`, `ExtractSummaryResult`, and `AbstractSummaryResult` to indicate the language detected by automatic language detection.
+    - Added property `script` to `DetectedLanguage` to indicate the script of the input document.
+    - Added the `dynamic_classification` client method to perform dynamic classification on documents without needing to train a model.
+- Name: azure-mgmt-networkfunction
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Networkfunction
+  ServiceName: Networkfunction
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkfunction_1.0.0b1/sdk/networkfunction/azure-mgmt-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-azurearcdata
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Azure Arc Data
+  ServiceName: Azure Arc Data
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurearcdata_2.0.0b1/sdk/azurearcdata/azure-mgmt-azurearcdata/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datamigration
+  Version: 10.1.0b1
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datamigration_10.1.0b1/sdk/datamigration/azure-mgmt-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridcompute
+  Version: 8.0.0b1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_8.0.0b1/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-machinelearningservices
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Machine Learning Services
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-machinelearningservices_2.0.0b1/sdk/machinelearning/azure-mgmt-machinelearningservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-databricks
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Databricks
+  ServiceName: Databricks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databricks_1.1.0b2/sdk/databricks/azure-mgmt-databricks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hdinsight
+  Version: 9.0.0b1
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_9.0.0b1/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicessiterecovery
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services Site Recovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicessiterecovery_1.0.0b2/sdk/recoveryservices/azure-mgmt-recoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridnetwork
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Hybrid Network
+  ServiceName: Hybrid Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridnetwork_2.0.0b1/sdk/hybridnetwork/azure-mgmt-hybridnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-azurestack
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Stack
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestack_2.0.0b1/sdk/azurestack/azure-mgmt-azurestack/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datafactory
+  Version: 2.10.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.10.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redisenterprise
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis Enterprise
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_2.1.0b1/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-healthcareapis
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: API for FHIR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthcareapis_1.2.0b1/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-frontdoor
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Frontdoor
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-frontdoor_1.1.0b1/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
 
