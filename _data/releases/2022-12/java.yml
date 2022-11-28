@@ -251,4 +251,273 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.6` to version `1.12.7`.
     - Upgraded `azure-storage-blob` from `12.20.0` to version `12.20.1`.
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0-beta.12
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.1.0-beta.12/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
 
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.33.0` to version `1.34.0`
+    - Upgraded `azure-communication-common` from `1.2.2` to version `1.2.3`
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.8
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.8/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-communication-common` to 1.2.3
+    - Upgraded `azure-core` to 1.34.0
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.13.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.13.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added rule manager client to manage rules for ServiceBus subscription with listen claims. ([#27711](https://github.com/Azure/azure-sdk-for-java/issues/27711))
+    - Added ability to create a subscription with default rule. ([#29885](https://github.com/Azure/azure-sdk-for-java/issues/29885))
+    - `ServiceBusAdministrationClientBuilder` now supports using `AzureSasCredential`. ([#30255](https://github.com/Azure/azure-sdk-for-java/issues/30255))
+    - `EntityPath` and `FullyQualifiedNamespace` properties are now readable from `ServiceBusReceivedMessageContext`. ([#29089](https://github.com/Azure/azure-sdk-for-java/issues/29089))
+    #### Bugs Fixed
+    - Fixed `ServiceBusReceiverClient` release messages if the prefetch is disabled and there is no active receive call in `RECEIVE_AND_DELETE` mode. ([#30861](https://github.com/Azure/azure-sdk-for-java/issues/30861))
+    - Fixed incorrect proxy configuration using environment variables. ([#24230](https://github.com/Azure/azure-sdk-for-java/issues/24230))
+    - Changed the `sizeInBytes` type in `QueueDescription` and `TopicDescription`  from Integer to Long. ([#32064](https://github.com/Azure/azure-sdk-for-java/issues/32064))
+  GroupId: com.azure
+- Name: azure-resourcemanager-hdinsight
+  Version: 1.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hdinsight_1.0.0/sdk/hdinsight/azure-resourcemanager-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs
+  Version: 5.15.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.15.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed incorrect proxy configuration using environment variables. ([#24230](https://github.com/Azure/azure-sdk-for-java/issues/24230))
+
+    #### Features Added
+
+    - Added `EventHubBufferedProducerBuilder.fullyQualifiedNamespace(String)`
+    - Added `EventHubBufferedProducerBuilder.eventHubName(String)`
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.3.1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.3.1/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.34.0`.
+    - Update `azure-core-http-netty` dependency to `1.12.7`.
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.9.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.9.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.39.0`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.39.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.39.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a rare race condition for `query plan` cache exceeding the allowed size limit - See [PR 31859](https://github.com/Azure/azure-sdk-for-java/pull/31859)
+    * Added improvement in `RntbdClientChannelHealthChecker` for detecting continuous transit timeout. - See [PR 31544](https://github.com/Azure/azure-sdk-for-java/pull/31544)
+    * Fixed an issue in replica validation where addresses may have not sorted properly when replica validation is enabled. - See [PR 32022](https://github.com/Azure/azure-sdk-for-java/pull/32022)
+    * Fixed unicode char handling in Uris in Cosmos Http Client. - See [PR 32058](https://github.com/Azure/azure-sdk-for-java/pull/32058)
+    * Fixed an eager prefetch issue to lazily prefetch pages on a query - See [PR 32122](https://github.com/Azure/azure-sdk-for-java/pull/32122)
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.16.1
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.16.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reverted behavior changes of `claimOwnership` back to return empty when error occurred, to avoid throw out 412 status code error. ([#31672](https://github.com/Azure/azure-sdk-for-java/issues/31672))
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.30.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.30.0/sdk/cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.1.1
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.1/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.34.0`.
+    - Update `azure-data-schemaregistry` dependency to `1.3.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.13.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.HealthcareApis.DicomImageCreated`
+    - `Microsoft.HealthcareApis.DicomImageDeleted`
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.7.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.7.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added user-agent header to Identity requests
+  GroupId: com.azure
+- Name: azure-resourcemanager-devcenter
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-devcenter_1.0.0-beta.3/sdk/devcenter/azure-resourcemanager-devcenter/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-webpubsub
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-webpubsub_1.0.0-beta.3/sdk/webpubsub/azure-resourcemanager-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-security
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Security Center
+  ServiceName: Security Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-security_1.0.0-beta.3/sdk/security/azure-resourcemanager-security/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-ai-textanalytics
+  Version: 5.3.0-beta.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.3.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This version of the client library marks a beta release and defaults to the service API version `2022-10-01-preview`.
+    - Added properties `fhirVersion` and `documentType` to `AnalyzeHealthcareEntitiesOptions` and `AnalyzeHealthcareEntitiesAction`.
+    - Added property `fhirBundle` to `AnalyzeHealthcareEntitiesResult`.
+    - Added property `confidenceScore` to `HealthcareEntityRelation`.
+    - Added enum `HealthcareDocumentType` and `FhirVersion`.
+    - Added property `resolutions` to `CategorizedEntity`.
+    - Added models and enums related to resolutions: `BaseResolution`, `ResolutionKind`, `AgeResolution`, `AreaResolution`,
+    `BooleanResolution`, `CurrencyResolution`, `DateTimeResolution`, `InformationResolution`, `LengthResolution`,
+    `NumberResolution`, `NumericRangeResolution`, `OrdinalResolution`, `SpeedResolution`, `TemperatureResolution`,
+    `TemporalSpanResolution`, `VolumeResolution`, `WeightResolution`, `AgeUnit`, `AreaUnit`, `TemporalModifier`,
+    `InformationUnit`, `LengthUnit`, `NumberKind`, `RangeKind`, `RelativeTo`, `SpeedUnit`, `TemperatureUnit`,
+    `VolumeUnit`, and `WeightUnit`.
+    - Added the Extractive Summarization feature and related models: `ExtractSummaryAction`, `ExtractSummaryActionResult`,
+    `ExtractSummaryResultCollection`, `ExtractSummaryResult`, `SummarySentence` and `SummarySentencesOrder`.
+    Access the feature through the `beginAnalyzeActions` API.
+    - Added the Abstractive Summarization feature and related models: `AbstractSummaryAction`, `AbstractSummaryActionResult`,
+    `AbstractSummaryResultCollection`, `AbstractSummaryResult`, `AbstractiveSummary`, and `SummaryContext`.
+    Access the feature through the `beginAnalyzeActions` API.
+    - Added the dynamic text classification on documents without needing to train a model. The feature can be used by calling:
+    - Synchronous API: `Response<DynamicClassifyDocumentResultCollection> dynamicClassificationBatchWithResponse(Iterable<TextDocumentInput> documents, DynamicClassificationOptions options, Context context)`
+    - Asynchronous API: `Mono<Response<DynamicClassifyDocumentResultCollection>> dynamicClassificationBatchWithResponse(Iterable<TextDocumentInput> documents, DynamicClassificationOptions options)`.
+    - Added new models: `ClassificationType`, `DynamicClassificationOptions` and `DynamicClassifyDocumentResultCollection`.
+    - Added automatic language detection to long-running operation APIs. Pass `auto` into the document `language` hint to use this feature.
+    - Added property `detectedLanguage` to `RecognizeEntitiesResult`, `RecognizePiiEntitiesResult`, `AnalyzeHealthcareEntitiesResult`,
+    `ExtractKeyPhrasesResult`, `RecognizeLinkedEntitiesResult`, `AnalyzeSentimentResult`, `RecognizeCustomEntitiesResult`,
+    `ClassifyDocumentResult`, `ExtractSummaryResult`, and `AbstractSummaryResult` to indicate the language detected by automatic language detection.
+    - Added property `script` to `DetectedLanguage` to indicate the script of the input document, and new enum model `ScriptKind`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-signalr
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-signalr_1.0.0-beta.5/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-sdk-bom
+  Version: 1.2.8
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.8/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
+- Name: azure-resourcemanager-cognitiveservices
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cognitiveservices_1.0.0-beta.6/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
