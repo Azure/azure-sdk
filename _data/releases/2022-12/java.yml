@@ -782,4 +782,61 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appplatform_2.21.0/sdk/resourcemanager/azure-resourcemanager-appplatform/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config Web
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config-web_2.10.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix CVEs.
+    - Fixed an issue where Feature Flags didn't NormalizeNull on refresh checks, causing `(No Label)`/empty label feature flags to not cause refreshes when their value changed.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management-web
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Feature Management Web
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management-web_2.9.0/sdk/appconfiguration/azure-spring-cloud-feature-management-web/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.14, 2.6.0-2.6.13, 2.7.0-2.7.5. (Note: 2.5.x (x>14), 2.6.y (y>13) and 2.7.z (z>5) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.6, 2021.0.0-2021.0.5. (Note: 2020.0.x (x>6) and 2021.0.y (y>5) should be supported, but they aren't tested with this release.)
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Appconfiguration Config
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.10.0/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix CVEs.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config_2.10.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix CVEs.
+    - Fixed an issue where Feature Flags didn't NormalizeNull on refresh checks, causing `(No Label)`/empty label feature flags to not cause refreshes when their value changed.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Feature Management
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management_2.9.0/sdk/appconfiguration/azure-spring-cloud-feature-management/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.14, 2.6.0-2.6.13, 2.7.0-2.7.5. (Note: 2.5.x (x>14), 2.6.y (y>13) and 2.7.z (z>5) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.6, 2021.0.0-2021.0.5. (Note: 2020.0.x (x>6) and 2021.0.y (y>5) should be supported, but they aren't tested with this release.)
+  GroupId: com.azure.spring
 
