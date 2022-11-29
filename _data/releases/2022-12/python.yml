@@ -386,4 +386,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.0.0b1/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.1.2
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.1.2/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed idle_time_before_shutdown appearing as None for Compute Instances returned by `show` or `list`.
+    - Fixed idle_time_before_shutdown_minutes preventing creation of Compute Instances when set to None.
+
+    #### Features Added
+    - Restored idle_time_before_shutdown property for Compute Instances.
+    - Deprecated idle_time_before_shutdown property in favor of idle_time_before_shutdown_minutes.
 
