@@ -35,14 +35,14 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 
 {% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header]
 
-{% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies. Sorting them from outermost to innermost
+{% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies, sorting them from outermost to innermost.
 
-{% include requirement/SHOULD id="azurecore-http-telemetry-useragent-stacking-core" %} also include core dependencies in the user agent.
+{% include requirement/SHOULD id="azurecore-http-telemetry-useragent-stacking-core" %} include core dependencies in the user agent.
 
 
 #### User Agent Format
 ```
-[<application_id> ]{azsdk-<sdk_language>-<package_name>/<package_version>}+ <platform_info>
+[<application_id> ]{azsdk-<sdk_language>-<package_name>/<package_version> }+<platform_info>
 ```
 
 
