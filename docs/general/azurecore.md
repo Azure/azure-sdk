@@ -52,7 +52,7 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 - `<package_version>`: the version of the package. Note: this is not the version of the service
 - `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
 
-For example, if we re-wrote `AzCopy` in each language using the Azure Datalake client library (which in turn uses Azure Blob client library), we may end up with the following user-agent strings:
+For example, if we re-wrote `AzCopy` in each language using the Azure Datalake client library (which depends on Azure Blob client library), we may end up with the following user-agent strings:
 
 - (.NET) `AzCopy/10.0.4-Preview azsdk-net-Storage.DataLake/12.0.0  azsdk-net-Storage.Blobs/12.0.0 azsdk-net-Core/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)`
 - (JavaScript) `AzCopy/10.0.4-Preview azsdk-js-storage-datalake/12.0.0 azsdk-js-storage-blob/12.0.0 azsdk-js-core-client/1.0.0 azsdk-js-core-rest-pipeline/11.0.0 (Node 18.12.1; Ubuntu; Linux x86_64; rv:34.0)`
