@@ -54,4 +54,3 @@ Language specific guidelines are first published in DRAFT.  This means that they
 ## Changing this policy
 
 Changes to this policy can only be made by the [SDK architectural board](mailto:adparch@microsoft.com).
-

@@ -11,4 +11,3 @@ There are PackageCount total Azure SDK library packages published to NuGet from 
 
 {% include releases/dotnet.md type="all" %}
 {% include refs.md %}
-

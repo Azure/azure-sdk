@@ -107,9 +107,3 @@ class ExampleClient:
 
         # TODO: show how to construct the poller instance
         return azure.core.polling.LROPoller(...)
-
-
-
-
-
-

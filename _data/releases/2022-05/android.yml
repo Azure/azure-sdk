@@ -30,4 +30,3 @@ entries:
     #### Other Changes
     - Deprecated `startRealtimeNotifications(String skypeUserToken, Context context)` in `ChatAsyncClient` and `ChatClient`. Users should utilize `startRealtimeNotifications(Context context, Consumer<Throwable> errorHandler)` instead.
   GroupId: com.azure.android
-

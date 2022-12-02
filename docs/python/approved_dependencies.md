@@ -1,4 +1,3 @@
-
 | Package        | Usage                                |
 |----------------|--------------------------------------|
 | `six`          | Python version compatibility         |

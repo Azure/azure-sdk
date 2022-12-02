@@ -676,4 +676,3 @@ entries:
     });
     ```
     - The re-export of the `PipelineOptions` type from `@azure/core-http` has been removed. If you previously relied on this export, consider either using the more specific `CertificateClientOptions` type or importing `PipelineOptions` from `@azure/core-http` directly.
-

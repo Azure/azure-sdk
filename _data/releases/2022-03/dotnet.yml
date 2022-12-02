@@ -332,4 +332,3 @@ entries:
     - Changed the internal batch `AsEnumerable<T>` to `AsList<T>` in order to avoid casting costs and have `Count` available to right-size transform collections. _(Based on a community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
 
     - Moved to using the two item overload when creating a linked token source to avoid allocating an unnecessary array.  _(Based on a community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
-

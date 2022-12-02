@@ -14,4 +14,3 @@ entries:
 
     #### Key Bug Fixes
     - Previously `rawId` was an optional property in `PhoneNumberIdentifier`. Updated the `rawId` to be required, and always corresponds with the phone number. This will cause compilation errors.
-
