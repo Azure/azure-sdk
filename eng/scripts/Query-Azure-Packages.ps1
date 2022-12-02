@@ -160,12 +160,13 @@ function Get-python-Packages
   foreach ($package in $pythonPackages)
   {
     $packageVersion = $package.info.Version
+    $packageReleases = @($package.releases.PSObject.Properties.Name)
 
     # Python info.Version only takes last stable version so we need to sort the releases.
     # Only use the sorted releases if they are all valid sem versions otherwise we might have
     # and incorrect sort. We determine that if the list of sorted versions match the count of the versions
-    $versions = [AzureEngSemanticVersion]::SortVersionStrings($package.releases.PSObject.Properties.Name)
-    if ($versions.Count -eq $package.releases.PSObject.Properties.Name.Count)
+    $versions = [AzureEngSemanticVersion]::SortVersionStrings($packageReleases)
+    if ($versions.Count -eq $packageReleases.Count)
     {
       $packageVersion = $versions[0]
     }
