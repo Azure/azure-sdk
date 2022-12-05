@@ -155,4 +155,3 @@ switch($language)
     exit 1
   }
 }
-

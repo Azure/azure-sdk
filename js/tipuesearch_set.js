@@ -1,4 +1,3 @@
-
 /*
 Tipue Search 6.1
 Copyright (c) 2017 Tipue
@@ -77,4 +76,3 @@ var tipuesearch_string_15 = 'Searches related to';
 // Timer for showTime
 
 var startTimer = new Date().getTime();
-

@@ -831,4 +831,3 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | gcc                      | `-Wall -Wextra`  |
 | cpp and XCode            | `-Wall -Wextra`  |
 | MSVC                     | `/W4`            |
-

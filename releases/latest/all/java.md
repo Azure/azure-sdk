@@ -11,4 +11,3 @@ There are PackageCount total Azure SDK library packages published to maven centr
 
 {% include releases/java.md type="all" %}
 {% include refs.md %}
-

@@ -7,4 +7,3 @@ header: true
 ---
 {% include releases/java.md type="deprecated" %}
 {% include refs.md %}
-

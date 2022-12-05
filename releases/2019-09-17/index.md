@@ -13,4 +13,3 @@ permalink: /releases/2019-09-17/index.html
 * [Java]({{ site.baseurl }}{% link releases/2019-09-17/2019-09-17-java-preview3.md %})
 * [JavaScript]({{ site.baseurl }}{% link releases/2019-09-17/2019-09-17-js-preview3.md %})
 * [Python]({{ site.baseurl }}{% link releases/2019-09-17/2019-09-17-python-preview3.md %})
-

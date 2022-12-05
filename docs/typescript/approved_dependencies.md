@@ -1,4 +1,3 @@
-
 | Package             | Usage  |
 |---------------------|--------|
 | `axios`             | HTTP client abstraction with browser and node support |

@@ -1,4 +1,3 @@
-
 title: Azure SDK for Java (October 2020)
 layout: post
 tags: java azure
