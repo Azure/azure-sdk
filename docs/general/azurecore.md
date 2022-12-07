@@ -33,7 +33,7 @@ In general, the client library will only need to configure these policies.  Howe
 
 Client library usage telemetry is used by service teams (not consumers) to monitor what SDK language, client library version, and language/platform info a client is using to call into their service. Clients can prepend additional information indicating the name and version of the client application.
 
-{% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header]
+{% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header].
 
 {% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies, sorting them from outermost to innermost.
 
@@ -56,7 +56,7 @@ For example, if we re-wrote `AzCopy` in each language using the Azure Datalake c
 
 - (.NET) `AzCopy/10.0.4-Preview azsdk-net-Storage.DataLake/12.0.0  azsdk-net-Storage.Blobs/12.0.0 azsdk-net-Core/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)`
 - (JavaScript) `AzCopy/10.0.4-Preview azsdk-js-storage-datalake/12.0.0 azsdk-js-storage-blob/12.0.0 azsdk-js-core-client/1.0.0 azsdk-js-core-rest-pipeline/11.0.0 (Node 18.12.1; Ubuntu; Linux x86_64; rv:34.0)`
-- (Java) `AzCopy/10.0.4-Preview azsdk-java-storage.datalake/12.0.0 azsdk-java-storage.blobs/12.0.0 azsdk-java-core/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
+- (Java) `AzCopy/10.0.4-Preview azsdk-java-storage-datalake/12.0.0 azsdk-java-storage-blobs/12.0.0 azsdk-java-core/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
 - (Python) `AzCopy/10.0.4-Preview azsdk-python-storage-datalake/12.0.0 azsdk-python-storage-blob/12.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
 
 {% include requirement/MUST id="azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID.  This allows the consumer to obtain cross-service telemetry for their app.  The application ID should be settable in the relevant `ClientOptions` object.
