@@ -153,10 +153,25 @@ function Get-python-Packages
   $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('azure-sdk')]"
   $pythonPackagesNames = (python -c "$pythonQuery")
 
-  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json" -MaximumRetryCount 3).info } catch { } }
-
+  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json" -MaximumRetryCount 3) } catch { } }
   Write-Host "Found $($pythonPackages.Count) python packages"
-  $packages = $pythonPackages | Foreach-Object { CreatePackage $_.name $_.version }
+
+  $packages = @()
+  foreach ($package in $pythonPackages)
+  {
+    $packageVersion = $package.info.Version
+    $packageReleases = @($package.releases.PSObject.Properties.Name)
+
+    # Python info.Version only takes last stable version so we need to sort the releases.
+    # Only use the sorted releases if they are all valid sem versions otherwise we might have
+    # and incorrect sort. We determine that if the list of sorted versions match the count of the versions
+    $versions = [AzureEngSemanticVersion]::SortVersionStrings($packageReleases)
+    if ($versions.Count -eq $packageReleases.Count)
+    {
+      $packageVersion = $versions[0]
+    }
+    $packages += CreatePackage $package.info.name $packageVersion
+  }
 
   $repoTags = GetPackageVersions "python"
 
