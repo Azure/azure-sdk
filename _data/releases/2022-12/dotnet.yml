@@ -250,4 +250,100 @@ entries:
     - Added support for script detection.
     - Added the `DetectedLanguage.Script` property.
     - Added the `ScriptKind` enum.
+- Name: Azure.ResourceManager.PrivateDns
+  Version: 1.0.0
+  DisplayName: Resource Management - PrivateDns
+  ServiceName: PrivateDns
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PrivateDns_1.0.0/sdk/privatedns/Azure.ResourceManager.PrivateDns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Dns
+  Version: 1.0.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dns_1.0.0/sdk/dns/Azure.ResourceManager.Dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Analysis
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Analysis
+  ServiceName: Analysis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Analysis_1.0.0-beta.1/sdk/analysisservices/Azure.ResourceManager.Analysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.1.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeAnalytics
+  Version: 1.0.0
+  DisplayName: DataLake Analytics
+  ServiceName: DataLake Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeAnalytics_1.0.0/sdk/datalake-analytics/Azure.ResourceManager.DataLakeAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeStore
+  Version: 1.0.0
+  DisplayName: DataLake Store
+  ServiceName: DataLake Store
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeStore_1.0.0/sdk/datalake-store/Azure.ResourceManager.DataLakeStore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AnomalyDetector
+  Version: 3.0.0-preview.6
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.6/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+    - Added `OneTable` and `MultiTable` two data schemas.
+    - Added Azure Managed Identity data reader access for Azure Blob Storage.
+    - Added `topContributorCount` in the request body for `DetectMultivariateBatchAnomaly` and `DetectMultivariateLastAnomaly`.
+
+    **Breaking Changes**
+    - Renamed `Model` to `AnomalyDetectionModel`.
+    - Renamed `DetectionRequest` to `MultivariateBatchDetectionOptions`.
+    - Renamed `DetectionResult` to `MultivariateDetectionResult`.
+    - Renamed `DetectionStatus` to `MultivariateBatchDetectionStatus`.
+    - Renamed `DetectionResultSummary` to `MultivariateBatchDetectionResultSummary`.
+    - Renamed `FillNaMethod` to `FillNAMethod`.
+    - Renamed `LastDetectionRequest` to `MultivariateLastDetectionOptions`.
+    - Renamed `LastDetectionResult` to `MultivariateLastDetectionResult`.
+    - Replaced `ModelSnapshot` with `AnomalyDetectionModel` in `listMultivariateModel`.
+    - Renamed `listMultivariateModel` to `GetMultivariateModelValues`.
+    - Renamed `DetectAnomaly` to `DetectMultivariateBatchAnomaly`
+    - Renamed `GetDetectionResult` to `GetMultivariateBatchDetectionResultValue`.
+    - Renamed `GetMultivariateModel`to `GetMultivariateModelValue`
+    - Renamed `LastDetectAnomaly` to `DetectMultivariateLastAnomaly`.
+    - Renamed `DetectRequest` to `UnivariateDetectionOptions`.
+    - Renamed `EntireDetectResponse` to `UnivariateEntireDetectionResult`.
+    - Renamed `LastDetectResponse` to `UnivariateLastDetectionResult`.
+    - Renamed `ChangePointDetectRequest` to `UnivariateChangePointDetectionOptions`.
+    - Renamed `ChangePointDetectResponse` to `UnivariateChangePointDetectionResult`.
+    - Renamed `DetectEntireSeries` to `DetectUnivariateEntireSeries`.
+    - Renamed `DetectLastPoint` to `DetectUnivariateLastPoint`.
+    - Renamed `DetectChangePoint` to `DetectUnivariateChangePoint`.
+    - Renamed `ApiVersion` to `ServiceVersion` in `AnomalyDetectorClientOptions`
+    - Removed `ExportModel`.
+    - Removed `AnomalyDetectorModelFactory`
+    - Added `DataSchema` to `ModelInfo`
+- Name: Azure.ResourceManager.DigitalTwins
+  Version: 1.1.0
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: DigitalTwins
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DigitalTwins_1.1.0/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins/CHANGELOG.md
+  ChangelogContent: ""
 
