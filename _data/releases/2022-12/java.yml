@@ -1523,4 +1523,64 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-integration-eventhubs_4.5.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-resourcemanager-resourcehealth
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resourcehealth_1.0.0/sdk/resourcehealth/azure-resourcemanager-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-ai-anomalydetector
+  Version: 3.0.0-beta.5
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-anomalydetector_3.0.0-beta.5/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `OneTable` and `MultiTable` two data schemas.
+    - Added Azure Managed Identity data reader access for Azure Blob Storage.
+    - Added `topContributorCount` in the request body for `getMultivariateBatchDetectionResult`, `detectMultivariateBatchAnomaly` and `detectMultivariateLastAnomaly`.
+
+    #### Breaking Changes
+
+    - Renamed `Model` to `AnomalyDetectionModel`.
+    - Renamed `DetectionRequest` to `MultivariateBatchDetectionOptions`.
+    - Renamed `DetectionResult` to `MultivariateDetectionResult`.
+    - Renamed `DetectionStatus` to `MultivariateBatchDetectionStatus`.
+    - Renamed `DetectionResultSummary` to `MultivariateBatchDetectionResultSummary`.
+    - Renamed `FillNaMethod` to `FillNAMethod`.
+    - Renamed `LastDetectionRequest` to `MultivariateLastDetectionOptions`.
+    - Renamed `LastDetectionResult` to `MultivariateLastDetectionResult`.
+    - Replaced `ModelSnapshot` with `AnomalyDetectionModel` in `listMultivariateModel`.
+    - Renamed `trainMultivariateModelWithResponse` to `trainMultivariateModel`.
+    - Renamed `detectAnomalyWithResponse` to `detectMultivariateBatchAnomaly`.
+    - Renamed `getDetectionResult` to `getMultivariateBatchDetectionResult`.
+    - Renamed `listMultivariateModel` to `listMultivariateModels`.
+    - Renamed `lastDetectAnomalyWithResponse` to `detectMultivariateLastAnomaly`.
+    - Renamed `DetectRequest` to `UnivariateDetectionOptions`.
+    - Renamed `EntireDetectResponse` to `UnivariateEntireDetectionResult`.
+    - Renamed `LastDetectResponse` to `UnivariateLastDetectionResult`.
+    - Renamed `ChangePointDetectRequest` to `UnivariateChangePointDetectionOptions`.
+    - Renamed `ChangePointDetectResponse` to `UnivariateChangePointDetectionResult`.
+    - Renamed `detectEntireSeries` to `detectUnivariateEntireSeries`.
+    - Renamed `detectLastPoint` to `detectUnivariateLastPoint`.
+    - Renamed `detectChangePoint` to `detectUnivariateChangePoint`.
+    - Added `DataSchema` to `ModelInfo`
+    - Removed `AnomalyDetectorError`.
+    - Removed `AnomalyDetectorErrorCodes`.
+    - Removed `AnomalyDetectorErrorException`.
+    - Removed `ErrorResponseException`.
+    - Removed `TrainMultivariateModelHeaders` in `trainMultivariateModelWithResponse`.
+    - Removed `TrainMultivariateModelResponse` in `trainMultivariateModelWithResponse`.
+    - Removed `DetectAnomalyHeader` in `detectAnomalyWithResponse`.
+    - Removed `DetectAnomalyResponse` in `detectAnomalyWithResponse`.
+    - Removed `exportModelWithResponse`.
+    - Removed `changedvalue` in the inference response body.
+    - Removed `detectingPoints` in the sync inference request body.
+  GroupId: com.azure
 
