@@ -620,8 +620,8 @@ BlobBaseClient client = ...
     CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     while (true)
     {
-        await client.UpdateStatusAsync();
-        if (client.HasCompleted) break;
+        await operation.UpdateStatusAsync();
+        if (operation.HasCompleted) break;
         await Task.Delay(1000); // play some elevator music
     }
     if (operation.HasValue) Console.WriteLine(operation.Value);
