@@ -10,10 +10,10 @@ Set-StrictMode -Version 3
 $releaseFolder = Resolve-Path $releaseFolder
 $outputFolder = Resolve-Path $outputFolder
 
-function MSDocLink($pkg, $linkTemplates) 
+function MSDocLink($pkg, $linkTemplates)
 {
   if ($pkg.MSDocs -eq "NA") { return "" }
-  if ($pkg.MSDocs -ne "") { 
+  if ($pkg.MSDocs -ne "") {
     $msdoclink = $pkg.MSDocs
   }
   else {
@@ -31,7 +31,7 @@ function MSDocLink($pkg, $linkTemplates)
 
 function Get-Heading()
 {
- return  "| Name | Package | Docs | Source |" + [System.Environment]::NewLine + 
+ return  "| Name | Package | Docs | Source |" + [System.Environment]::NewLine +
          "| ---- | ------- | ---- | ------ |" + [System.Environment]::NewLine
 }
 
@@ -96,7 +96,7 @@ function Write-Markdown($lang)
   $packageList = $packageList | Where-Object { $_.Hide -ne "true" }
 
   $clientPackageList = $packageList | Where-Object { $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { !$_.New -ne "true" }
+  $otherPackages = $packageList | Where-Object { !($_.New -eq "true") }
 
   $fileContent = Get-Heading
   foreach($pkg in $clientPackageList)
@@ -104,8 +104,8 @@ function Write-Markdown($lang)
     $fileContent += Get-Row $pkg $langLinkTemplates
   }
   $fileLang = $lang
-  if ($lang -eq "js") { 
-    $fileLang = "javascript" 
+  if ($lang -eq "js") {
+    $fileLang = "javascript"
   }
 
   $mdfile = Join-Path $outputFolder "$fileLang-new.md"

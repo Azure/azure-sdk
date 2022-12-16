@@ -1,0 +1,97 @@
+entries:
+- Name: azure-ai-anomalydetector
+  Version: 3.0.0b6
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-anomalydetector_3.0.0b6/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+    - Added `OneTable` and `MultiTable` two data schemas.
+    - Added `DataSchema` to `ModelInfo`.
+    - Added Azure Managed Identity data reader access for Azure Blob Storage.
+    - Added `topContributorCount` in the request body for `get_multivariate_batch_detection_result`, `detect_multivariate_batch_anomaly` and `detect_multivariate_last_anomaly`.
+
+    **Breaking Changes**
+    - Renamed `Model` to `AnomalyDetectionModel`.
+    - Renamed `DetectionRequest` to `MultivariateBatchDetectionOptions`.
+    - Renamed `DetectionResult` to `MultivariateDetectionResult`.
+    - Renamed `DetectionStatus` to `MultivariateBatchDetectionStatus`.
+    - Renamed `DetectionResultSummary` to `MultivariateBatchDetectionResultSummary`.
+    - Renamed `FillNaMethod` to `FillNAMethod`.
+    - Renamed `LastDetectionRequest` to `MultivariateLastDetectionOptions`.
+    - Renamed `LastDetectionResult` to `MultivariateLastDetectionResult`.
+    - Replaced `ModelSnapshot` with `AnomalyDetectionModel` in `list_multivariate_model`.
+    - Renamed `train_multivariate_model_with_response` to `train_multivariate_model`.
+    - Renamed `detect_anomaly_with_response` to `detect_multivariate_batch_anomaly`.
+    - Renamed `get_detection_result` to `get_multivariate_batch_detection_result`.
+    - Renamed `list_multivariate_model` to `list_multivariate_models`.
+    - Renamed `last_detect_anomaly_with_response` to `detect_multivariate_last_anomaly`.
+    - Renamed `DetectRequest` to `UnivariateDetectionOptions`.
+    - Renamed `EntireDetectResponse` to `UnivariateEntireDetectionResult`.
+    - Renamed `LastDetectResponse` to `UnivariateLastDetectionResult`.
+    - Renamed `ChangePointDetectRequest` to `UnivariateChangePointDetectionOptions`.
+    - Renamed `ChangePointDetectResponse` to `UnivariateChangePointDetectionResult`.
+    - Renamed `detect_entire_series` to `detect_univariate_entire_series`.
+    - Renamed `detect_last_point` to `detect_univariate_last_point`.
+    - Renamed `detect_change_point` to `detect_univariate_change_point`.
+    - Removed `AnomalyDetectorErrorException`.
+    - Removed `export_model_with_response`.
+    - Removed `changedvalue` in the inference response body.
+    - Removed `detecting_points` in the sync inference request body.
+- Name: azure-mgmt-resourceconnector
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Resource Connector
+  ServiceName: Resource Connector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourceconnector_1.0.0b3/sdk/resourceconnector/azure-mgmt-resourceconnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-messaging-webpubsubservice
+  Version: 1.1.0b1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.1.0b1/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Operation `send_to_all` has a new optional parameter `filter`
+    - Operation `send_to_user` has a new optional parameter `filter`
+    - Operation `send_to_group` has a new optional parameter `filter`
+    - Operation `get_client_access_token` has a new optional parameter `group`
+    - Added operation `remove_connection_from_all_groups`
+- Name: azure-mgmt-loganalytics
+  Version: 13.0.0b6
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.0.0b6/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-education
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Education
+  ServiceName: Education
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-education_1.0.0b2/sdk/education/azure-mgmt-education/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-automation
+  Version: 1.1.0b3
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-automation_1.1.0b3/sdk/automation/azure-mgmt-automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 1.4.0b1
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_1.4.0b1/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+
