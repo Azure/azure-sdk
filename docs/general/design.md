@@ -61,6 +61,12 @@ Here are some namespaces that do not meet the guidelines:
 
 The API surface will consist of one of more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
+The number of service clients in a client library should be minimized to provide consumers a clear starting point for using the library. However, multiple service clients are appropriate in the following situations:
+
+- The service supports two distinct use cases, such as "authoring" and "inference", or "administration" and "runtime", that are unlikely to be used together.
+- The service has a small subset of methods that are needed for its hero scenarios.
+- A subset of service requests require special/different permissions.
+
 {% include requirement/MUST id="general-client-naming" %} name service client types with the `client` suffix.
 
 There are times when operations require the addition of optional data, provided in what is colloquially known as an "options bag".  Libraries should strive for consistent naming.
