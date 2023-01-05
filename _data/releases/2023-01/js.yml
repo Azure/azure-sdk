@@ -414,4 +414,32 @@ entries:
 
     - Fix an issue in `RequestResponseLink` where sender error is not rejected [PR #23646](https://github.com/Azure/azure-sdk-for-js/pull/23646).
     - Fix an memory leak in `CancellableAsyncLockImpl` where elements are never removed from the map [PR# 24133](https://github.com/Azure/azure-sdk-for-js/pull/24133).
+- Name: '@azure-rest/core-client'
+  Version: 1.0.1
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.1/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixes
+
+    - Fix the `api-version` precedence issue in apiVersionPolicy. [23990](https://github.com/Azure/azure-sdk-for-js/pull/23990)
+- Name: '@azure/core-http-compat'
+  Version: 2.0.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.0.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - renamed property `disbaleKeepAlivePolicyName` to `disableKeepAlivePolicyName`
+
+    #### Features Added
+
+    - Added support for `clone` on `WebResourceLike`s.
+    - Added support for using a `core-http` style HttpClient as a `core-rest-pipeline` HttpClient called `convertHttpClient`.
+    - Expose helper for converting `HttpHeaders` from `core-rest-pipeline` into the same shape as `core-http`.
 
