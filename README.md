@@ -17,7 +17,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 Service teams should schedule reviews of their client libraries with the Azure SDK Architecture Board.  See the [Review Process][revproc] for more information.
 
-## Terminology
+## I am testing
 
 - **SDK**: Software Development Kit. This refers to the entire Azure SDK for a single language, itself broken up into numerous Azure SDK _Client Libraries_ (as defined below).
 
