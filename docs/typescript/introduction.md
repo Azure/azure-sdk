@@ -62,7 +62,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/SHOULD id="ts-azure-scope-for-others" %} follow these guidelines even if you're not publishing an Azure library under the `@azure` scope.
 
-## Terminology
+## I am testing
 
 AMD Module
 : A module format often used in the browser, for example as implemented by [RequireJS].
