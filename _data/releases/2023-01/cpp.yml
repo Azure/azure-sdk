@@ -1,0 +1,18 @@
+entries:
+- Name: azure-core
+  Version: 1.8.0-beta.3
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.8.0-beta.3/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for parsing space character in place of 'T' in RFC3339 DateTimes.
+
+    #### Breaking Changes
+
+    - Bearer token authentication will not work for endpoint URL protocol schemes other than `"https"`. This ensures token security and is consistent with the Azure SDKs for other languages.
+    - Removed `noexcept` specification from `Azure::DateTime::clock::now()`.
+
