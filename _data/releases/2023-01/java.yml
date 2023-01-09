@@ -331,4 +331,164 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.22.0/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core-management
+  Version: 1.10.0
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.10.0/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.12.8
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.12.8/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where an exception would be logged during the first attempt to connect to an authenticated
+    proxy without using credentials (done to prevent any potential credential leaking). ([#30274](https://github.com/Azure/azure-sdk-for-java/pull/30274))
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.35.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.35.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where cancellation would result in an application stall by using `doFinally` instead of `doOnTermination` ([#32727](https://github.com/Azure/azure-sdk-for-java/pull/32727)).
+
+    #### Features Added
+
+    - Added corresponding `HttpHeaderName` APIs to `HttpRequest` and `HttpResponse`.
+    - Enhanced exception based retrying by inspecting the causal exceptions in addition to the thrown exception.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.35
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.35/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.31
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.31/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.24
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.2.24/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.14.0
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.14.0/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `TestUtils` containing utility methods for testing.
+    - Changed how the `session-records` folder would be searched for, enhancing the exception message when not found.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.11.5
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.5/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.8.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.1/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removing inactive session when it has timed out, so `ReactorConnection.getSession(String)` does not return the same session.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.31
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.31/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.23
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.23/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to `1.35.0`.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.7.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.7.3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - No longer statically accessing environment variables. [#32781](https://github.com/Azure/azure-sdk-for-java/issues/32781)
+    - Use `ThreadLocalRandom` instead of `Random` to better enable static compilation. [#32744](https://github.com/Azure/azure-sdk-for-java/issues/32744)
+  GroupId: com.azure
 
