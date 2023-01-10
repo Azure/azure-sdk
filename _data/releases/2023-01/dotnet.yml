@@ -232,4 +232,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.2.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.27.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.27.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made `RedirectPolicy` public to provide `SetAllowAutoRedirect()` method to library authors.
+    - Added `RetryPolicy` property to `ClientOptions` to allow library authors to set a custom retry policy.
+    - Added `MessageProcessingContext` type and `ProcessingContext` property to `HttpMessage` which contains information about the message as it traverses through the pipeline.
+    - Added `SetProperty` and `TryGetProperty` overloads to `HttpMessage` to allow setting property values using a `Type` as the key.
 
