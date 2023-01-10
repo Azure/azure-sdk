@@ -15,4 +15,12 @@ entries:
 
     - Bearer token authentication will not work for endpoint URL protocol schemes other than `"https"`. This ensures token security and is consistent with the Azure SDKs for other languages.
     - Removed `noexcept` specification from `Azure::DateTime::clock::now()`.
+- Name: azure-storage-files-datalake
+  Version: 12.5.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.5.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: '- New features in `12.5.0-beta.1` are now generally available.'
 
