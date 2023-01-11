@@ -33,11 +33,19 @@ In general, the client library will only need to configure these policies.  Howe
 
 Client library usage telemetry is used by service teams (not consumers) to monitor what SDK language, client library version, and language/platform info a client is using to call into their service. Clients can prepend additional information indicating the name and version of the client application.
 
-{% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header] using the following format:
+{% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header].
 
+{% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies, sorting them from outermost to innermost. For example, `Azure Storage Datalake` depends on `Azure Storage Blobs` client library. It uses Azure Blobs client internally to perform operations, this is a client wrapping dependency.
+
+In the example above the user agent will display them in this order Azure Datalake -> Azure Blobs -> Azure Core
+
+{% include requirement/SHOULD id="azurecore-http-telemetry-useragent-stacking-core" %} include Azure Core library information in the user agent.
+
+#### User Agent Format
 ```
-[<application_id> ]azsdk-<sdk_language>-<package_name>/<package_version> <platform_info>
+[<application_id> ]{azsdk-<sdk_language>-<package_name>/<package_version> }+<platform_info>
 ```
+
 
 - `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", or "js"
@@ -45,12 +53,12 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 - `<package_version>`: the version of the package. Note: this is not the version of the service
 - `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
 
-For example, if we re-wrote `AzCopy` in each language using the Azure Blob Storage client library, we may end up with the following user-agent strings:
+For example, if we re-wrote `AzCopy` in each language using the Azure Datalake client library (which depends on Azure Blob client library), we may end up with the following user-agent strings:
 
-- (.NET) `AzCopy/10.0.4-Preview azsdk-net-Storage.Blobs/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)`
-- (JavaScript) `AzCopy/10.0.4-Preview azsdk-js-storage-blob/11.0.0 (Node 10.16.0; Ubuntu; Linux x86_64; rv:34.0)`
-- (Java) `AzCopy/10.0.4-Preview azsdk-java-storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
-- (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
+- (.NET) `AzCopy/10.0.4-Preview azsdk-net-Storage.DataLake/12.0.0  azsdk-net-Storage.Blobs/12.0.0 azsdk-net-Core/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)`
+- (JavaScript) `AzCopy/10.0.4-Preview azsdk-js-storage-datalake/12.0.0 azsdk-js-storage-blob/12.0.0 azsdk-js-core-client/1.0.0 azsdk-js-core-rest-pipeline/11.0.0 (Node 18.12.1; Ubuntu; Linux x86_64; rv:34.0)`
+- (Java) `AzCopy/10.0.4-Preview azsdk-java-storage-datalake/12.0.0 azsdk-java-storage-blobs/12.0.0 azsdk-java-core/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
+- (Python) `AzCopy/10.0.4-Preview azsdk-python-storage-datalake/12.0.0 azsdk-python-storage-blob/12.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
 
 {% include requirement/MUST id="azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID.  This allows the consumer to obtain cross-service telemetry for their app.  The application ID should be settable in the relevant `ClientOptions` object.
 
