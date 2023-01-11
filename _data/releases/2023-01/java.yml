@@ -625,4 +625,92 @@ entries:
     - Upgraded `azure-core` from `1.34.0` to version `1.35.0`.
     - Upgraded `azure-core-http-netty` from `1.12.7` to version `1.12.8`.
   GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.4.2
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.4.2/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.34.0` to version `1.35.0`.
+    - Upgraded `azure-communication-common` from `1.2.3` to version `1.2.4`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-attestation
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-attestation_1.0.0-beta.2/sdk/attestation/azure-resourcemanager-attestation/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-machinelearning
+  Version: 1.0.0
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-machinelearning_1.0.0/sdk/machinelearning/azure-resourcemanager-machinelearning/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-webpubsub
+  Version: 1.2.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.2.0/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed incorrect "audience" from `getClientAccessToken` method in `WebPubSubServiceAsyncClient`. ([#24741](https://github.com/Azure/azure-sdk-for-java/issues/24741))
+    - Fixed bug of getting incorrect token in `getClientAccessToken` method from Azure token credential.
+
+    #### Features Added
+
+    - Added method `removeConnectionFromAllGroupsWithResponse` in `WebPubSubServiceClient` and `WebPubSubServiceAsyncClient` to remove the connection from all the groups it is in.
+    - Added a `webpubsub.group` option in `GetClientAccessTokenOptions`, to enable connections join initial groups once it is connected.
+    - Added a `filter` parameter when sending messages to connections in a hub/group/user to filter out the connections recieving message, details about `filter` syntax please see [OData filter syntax for Azure Web PubSub](https://aka.ms/awps/filter-syntax).
+  GroupId: com.azure
+- Name: azure-resourcemanager-advisor
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-advisor_1.0.0-beta.2/sdk/advisor/azure-resourcemanager-advisor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurearcdata
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Azure Arc Data
+  ServiceName: Azure Arc Data
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurearcdata_1.0.0-beta.3/sdk/azurearcdata/azure-resourcemanager-azurearcdata/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-postgresqlflexibleserver
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.5/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-recoveryservicessiterecovery
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Recoveryservicessiterecovery
+  ServiceName: Recoveryservicessiterecovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicessiterecovery_1.0.0-beta.1/sdk/recoveryservicessiterecovery/azure-resourcemanager-recoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
