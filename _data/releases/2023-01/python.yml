@@ -467,4 +467,20 @@ entries:
     #### Features Added
 
     - Added Windows Web Account Manager (WAM) Brokered Authentication support. ([#23687](https://github.com/Azure/azure-sdk-for-python/issues/23687))
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0b3
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.1.0b3/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for API version `2022-12-01`, giving users the ability to:
+    - Get all supported countries
+    - Get all supported localities given a country code.
+    - Get all area codes from a given country code / locality.
+    - Get all offerings from a given country code.
+    - Added new SIP routing client for handling Direct routing numbers.
+    - Added the ability specify the API version by an optional `api_version` keyword parameter.
 
