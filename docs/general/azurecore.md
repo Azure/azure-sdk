@@ -35,10 +35,9 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 
 {% include requirement/MUST id="azurecore-http-telemetry-useragent" %} send telemetry information in the [User-Agent header].
 
-{% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies, sorting them from outermost to innermost.
+{% include requirement/MUST id="azurecore-http-telemetry-useragent-stacking" %} extend the user agent to list all `client wrapping` dependencies, sorting them from outermost to innermost. For example, `Azure Storage Datalake` depends on `Azure Storage Blobs` client library. It uses Azure Blobs client internally to perform operations, this is a client wrapping dependency.
 
-{% include requirement/SHOULD id="azurecore-http-telemetry-useragent-stacking-core" %} include core dependencies in the user agent.
-
+{% include requirement/SHOULD id="azurecore-http-telemetry-useragent-stacking-core" %} include Azure Core library information in the user agent.
 
 #### User Agent Format
 ```
