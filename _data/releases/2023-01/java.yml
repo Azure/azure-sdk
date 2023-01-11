@@ -729,4 +729,18 @@ entries:
     - Upgraded `azure-core` from `1.27.0` to version `1.35.0`.
     - Upgraded `azure-core-http-netty` from `1.11.9` to version `1.12.8`.
   GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.2.3
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.2.3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.35.0`.
+    - Updated `azure-core-http-netty` to `1.12.8`.
+  GroupId: com.azure
 
