@@ -579,4 +579,35 @@ entries:
     - Upgraded `azure-core` from `1.34.0` to version `1.35.0`.
     - Upgraded `azure-core-http-netty` from `1.12.7` to version `1.12.8`.
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0-beta.13
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.1.0-beta.13/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for API version `2022-12-01`, giving users the ability to:
+    - Get all supported countries
+    - Get all supported localities given a country code.
+    - Get all Toll-Free area codes from a given country code.
+    - Get all Geographic area codes from a given country code / locality.
+    - Get all offerings from a given country code.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.3.5
+  DisplayName: Digital Twins - Core
+  ServiceName: Digital Twins
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.5/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.35.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.12.8`.
+    - Upgraded `azure-core-identity` dependency to `1.7.3`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency to `1.2.24`.
+  GroupId: com.azure
 
