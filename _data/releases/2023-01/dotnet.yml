@@ -285,4 +285,20 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Initial beta release
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.5
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.5/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ContainerRegistryBlobClient.UploadBlob()` method now uploads a blob using multiple requests if it exceeds the maximum chunk size.  Chunk size defaults to 4MB and can be modified by passing `UploadBlobOptions`.
+    - Added `Pipeline` property to `ContainerRegistryClient` and `ContainerRegistryBlobClient` to enable advanced message processing scenarios.
+
+    #### Breaking Changes
+
+    - Changed type of `Manifest` property on `DownloadManifestResult` from `OciManifest` to `ArtifactManfest` to accommodate non-OCI manifest types in the future.  Callers must now downcast `Manifest` to the appropriate type.
 
