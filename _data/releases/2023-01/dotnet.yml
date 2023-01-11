@@ -213,4 +213,76 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.LoadTesting_1.0.0-beta.2/sdk/loadtestservice/Azure.ResourceManager.LoadTesting/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.6
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.6/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * AAD Support ([#32986](https://github.com/Azure/azure-sdk-for-net/pull/32986))
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.2.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.2.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.27.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.27.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made `RedirectPolicy` public to provide `SetAllowAutoRedirect()` method to library authors.
+    - Added `RetryPolicy` property to `ClientOptions` to allow library authors to set a custom retry policy.
+    - Added `MessageProcessingContext` type and `ProcessingContext` property to `HttpMessage` which contains information about the message as it traverses through the pipeline.
+    - Added `SetProperty` and `TryGetProperty` overloads to `HttpMessage` to allow setting property values using a `Type` as the key.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.1.0-beta.3
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.1.0-beta.3/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for API version `2022-12-01`, giving users the ability to:
+    - Get all supported countries
+    - Get all supported localities given a country code.
+    - Get all Toll-Free area codes from a given country code.
+    - Get all Geographic area codes from a given country code / locality.
+    - Get all offerings from a given country code.
+    - Added new SIP routing client for handling Direct routing numbers.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.17
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.17/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Added `workspaceResourceId` to AzureSynapseArtifactsLinkedServiceTypeProperties
+    - Added `pythonCodeReference`, `filesV2`, `scanFolder`, `configurationType`, `targetSparkConfiguration` and `sparkConfig` properties to SparkJobActivity
+    - Added `authHeaders` proprety to RestServiceLinkedService
+    - Added new apis of Pause/Resume for Synapse Link
+    - Added PowerBIWorkspaceLinkedService
+- Name: Azure.Messaging.WebPubSub.Client
+  Version: 1.0.0-beta.1
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub Client
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Client_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial beta release
 
