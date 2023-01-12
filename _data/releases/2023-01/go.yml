@@ -157,4 +157,12 @@ entries:
     - User-Agent was incorrectly formatted in our AMQP-based clients. (PR#19712)
     - Connection recovery has been improved, removing some unnecessasry retries as well as adding a bound around
     some operations (Close) that could potentially block recovery for a long time. (PR#19683)
+- Name: sdk/resourcemanager/servicenetworking/armservicenetworking
+  Version: 0.1.0
+  DisplayName: Resource Management - Servicenetworking
+  ServiceName: Servicenetworking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicenetworking/armservicenetworking/v0.1.0/sdk/resourcemanager/servicenetworking/armservicenetworking/CHANGELOG.md
+  ChangelogContent: ""
 
