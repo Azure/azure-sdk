@@ -743,4 +743,15 @@ entries:
     - Updated `azure-core` to `1.35.0`.
     - Updated `azure-core-http-netty` to `1.12.8`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.4.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.4.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `getEnpoint()` method to both App Configuration synchronous and asynchronous clients.
+  GroupId: com.azure
 
