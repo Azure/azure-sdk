@@ -520,4 +520,21 @@ entries:
     - Renamed operation LinkConnectionOperations.delete_link_connection to LinkConnectionOperations.delete
     - Renamed operation LinkConnectionOperations.get_link_connection to LinkConnectionOperations.get
     - Renamed operation LinkConnectionOperations.list_link_connections_by_workspace to LinkConnectionOperations.list_by_workspace
+- Name: azure-schemaregistry
+  Version: 1.3.0b1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.3.0b1/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in sync/async `register_schema` and `get_schema_properties` that did not accept case insensitive strings as an argument to the `format` parameter.
+
+    #### Features Added
+
+    - `V2022_10` has been added to `ApiVersion` and set as the default api version.
+    - `Json` and `Custom` have been added to supported formats in `SchemaFormat`.
+    - At the time of this release, only Draft 3 of JSON schemas is currently supported by the service.
 
