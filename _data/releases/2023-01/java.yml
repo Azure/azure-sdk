@@ -894,4 +894,102 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.7` to version `1.12.8`.
     - Upgraded `azure-storage-blob` from `12.20.1` to version `12.20.2`.
   GroupId: com.azure
+- Name: azure-resourcemanager-baremetalinfrastructure
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - BareMetal Infrastructure
+  ServiceName: BareMetal Infrastructure
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-baremetalinfrastructure_1.0.0-beta.2/sdk/baremetalinfrastructure/azure-resourcemanager-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-monitor-query
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.1.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implemented builder traits in `LogsQueryClientBuilder` and `MetricsQueryClientBuilder`
+  GroupId: com.azure
+- Name: azure-resourcemanager-billing
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-billing_1.0.0-beta.3/sdk/billing/azure-resourcemanager-billing/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-analytics-synapse-artifacts
+  Version: 1.0.0-beta.12
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-artifacts_1.0.0-beta.12/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed API `createOrUpdateLinkConnection` to `createOrUpdate` in `LinkConnectionClient`.
+    - Renamed API `deleteLinkConnection` to `delete` in `LinkConnectionClient`.
+    - Renamed API `getLinkConnection` to `get` in `LinkConnectionClient`.
+    - Renamed API `listLinkConnectionsByWorkspace` to `listByWorkspace` in `LinkConnectionClient`.
+
+    #### Features Added
+
+    - Added `workspaceResourceId` to `AzureSynapseArtifactsLinkedService`.
+    - Added `pythonCodeReference`, `filesV2`, `scanFolder`, `configurationType`, `targetSparkConfiguration` and `sparkConfig` properties to `SynapseSparkJobDefinitionActivity`.
+    - Added `authHeaders` property to `RestServiceLinkedService`.
+    - Added new APIs of Pause/Resume for Synapse Link in `LinkConnectionClient`.
+    - Added `PowerBIWorkspaceLinkedService`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-billingbenefits
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Billingbenefits
+  ServiceName: Billingbenefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-billingbenefits_1.0.0-beta.1/sdk/billingbenefits/azure-resourcemanager-billingbenefits/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-changeanalysis
+  Version: 1.0.1
+  DisplayName: Resource Management - Change Analysis
+  ServiceName: Change Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-changeanalysis_1.0.1/sdk/changeanalysis/azure-resourcemanager-changeanalysis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurestack
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Azure Stack
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurestack_1.0.0-beta.2/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-hybridkubernetes
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Connected Cluster
+  ServiceName: Connected Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hybridkubernetes_1.0.0-beta.3/sdk/hybridkubernetes/azure-resourcemanager-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-commerce
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-commerce_1.0.0-beta.2/sdk/commerce/azure-resourcemanager-commerce/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
