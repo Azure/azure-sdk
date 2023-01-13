@@ -332,13 +332,19 @@ function Write-Latest-Versions($lang)
 switch($language)
 {
   "all" {
-    #Write-Latest-Versions "java"
     Write-Latest-Versions "js"
     Write-Latest-Versions "dotnet"
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
-    #Write-Latest-Versions "android"
+    
+    # Currently ignoring errors for maven search site until incident is fixed
+    # see https://github.com/Azure/azure-sdk/issues/5368
+    try {
+      Write-Latest-Versions "java"
+      Write-Latest-Versions "android"
+    }
+    catch { }
     break
   }
   "java" {
