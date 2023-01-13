@@ -65,7 +65,14 @@ steps:
     PushArgs: -f
     WorkingDirectory: $(AzureSDKClonePath)
     ScriptDirectory: $(AzureSDKToolsScriptsPath)
-    PRLabels: 'auto-merge'
+
+- pwsh: |
+    . ./eng/scripts/Github-Helpers.ps1
+    EnableAutoMergeForPullRequest -pullRequestNumber $(Submitted.PullRequest.Number)
+  displayName: Apply AutoMerge to Pull Request
+  workingDirectory: $(AzureSDKClonePath)
+  env:
+    GH_TOKEN: $(azuresdk-github-pat)
 
 - template: template/steps/generate-releasenotes.yml
 
