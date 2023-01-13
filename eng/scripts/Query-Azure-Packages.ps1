@@ -332,13 +332,13 @@ function Write-Latest-Versions($lang)
 switch($language)
 {
   "all" {
-    Write-Latest-Versions "java"
+    #Write-Latest-Versions "java"
     Write-Latest-Versions "js"
     Write-Latest-Versions "dotnet"
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
-    Write-Latest-Versions "android"
+    #Write-Latest-Versions "android"
     break
   }
   "java" {
