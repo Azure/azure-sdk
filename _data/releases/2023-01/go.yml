@@ -165,4 +165,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicenetworking/armservicenetworking/v0.1.0/sdk/resourcemanager/servicenetworking/armservicenetworking/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/monitor/azquery
+  Version: 0.4.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v0.4.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed type of `Body.Timespan`, `MetricsClientQueryResourceOptions.Timespan`, `Response.Timespan` from *string to *TimeInterval
+    * Remove `ColumnIndexLookup` field from Table struct
+    * Renamed `Body.Workspaces` to `Body.AdditionalWorkspaces`
+    * Renamed `Results.Render` and `BatchResponse.Render` to `Results.Visualization` and `BatchResponse.Visualization`
+
+    #### Features Added
+    * Added `TimeInterval` type with constructor to aid with timespan creation
+    * Added `NewBatchQueryRequest` constructor to aid with logs batch requests
+    * Added `LogsQueryOptions` model for easier setting of logs options
 
