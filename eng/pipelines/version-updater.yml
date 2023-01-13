@@ -72,7 +72,7 @@ steps:
   displayName: Apply AutoMerge to Pull Request
   workingDirectory: $(AzureSDKClonePath)
   env:
-    GH_TOKEN: $(System.AccessToken)
+    GH_TOKEN: $(azuresdk-github-pat)
 
 - template: template/steps/generate-releasenotes.yml
 
