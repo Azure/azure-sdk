@@ -71,6 +71,8 @@ steps:
     EnableAutoMergeForPullRequest -pullRequestNumber $(Submitted.PullRequest.Number)
   displayName: Apply AutoMerge to Pull Request
   workingDirectory: $(AzureSDKClonePath)
+  env:
+    GH_TOKEN: $(System.AccessToken)
 
 - template: template/steps/generate-releasenotes.yml
 
