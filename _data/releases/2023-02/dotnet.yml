@@ -9,4 +9,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue when using `ManagedIdentityCredential` in combination with authorities other than Azure public cloud that resulted in a incorrect instance metadata validation error. [#32498](https://github.com/Azure/azure-sdk-for-net/issues/32498)
+- Name: Azure.ResourceManager.Sql
+  Version: 1.2.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.2.0/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
 
