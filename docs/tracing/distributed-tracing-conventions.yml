@@ -26,9 +26,29 @@ groups:
     brief: 'Describes Azure SDK API calls spans.'
     note: 'Represents public surface API calls that wrap an Azure service call.'
 
+  # network calls
+  - id: azure-sdk.network
+    extends: azure-sdk
+    brief: 'Describes Azure SDK client spans.'
+    note: 'Represents calls that include network attributes'
+    attributes:
+      - ref: net.peer.name
+        requirement_level: required
+        sampling_relevant: true
+        brief: brief: 'Fully qualified Azure service endpoint (host name component).'
+        examples: 'http://my-account.servicebus.windows.net/'
+      - ref: net.peer.port
+        requirement_level: 
+          conditionally_required: if not 80 or 443.
+        sampling_relevant: true
+        brief: brief: 'Port of Azure service endpoint.'
+        examples: [8080]
+    constraints:
+      - include: network #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/general.yaml
+      
   # http
   - id: azure-sdk.http
-    extends: azure-sdk
+    extends: azure-sdk.network
     span_kind: client
     brief: 'Describes HTTP client spans created per HTTP request (try).'
     note: >
@@ -43,17 +63,6 @@ groups:
         sampling_relevant: true
       - ref: http.status_code
         requirement_level: required      
-      - ref: net.peer.name
-        requirement_level: required
-        sampling_relevant: true
-        brief: brief: 'Fully qualified Azure service endpoint (host name component).'
-        examples: 'http://my-account.servicebus.windows.net/'
-      - ref: net.peer.port
-        requirement_level: 
-          conditionally_required: if not 80 or 443.
-        sampling_relevant: true
-        brief: brief: 'Port of Azure service endpoint.'
-        examples: 'http://my-account.servicebus.windows.net/'
       - id: az.client_request_id
         type: string
         requirement_level:
@@ -72,22 +81,19 @@ groups:
   # messaging
   - id: azure-sdk.messaging
     brief: 'Describes Azure messaging SDKs spans.'
-    extends: azure-sdk
+    extends: azure-sdk.network
     attributes:
       - ref: messaging.system
         requirement_level: required      
         sampling_relevant: true
         examples: ['eventhubs', 'servicebus']
-      - ref: net.peer.name
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'Fully qualified Azure messaging service endpoint (host name only).'
-        examples: 'http://myEventHubNamespace.servicebus.windows.net/'
       - ref: messaging.destination.name
         requirement_level: required
         sampling_relevant: true
         brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name. Must not include partition or subscription'
-        examples: ['myqueue', 'myhub']       
+        examples: ['myqueue', 'myhub']
+      - ref: messaging.operation
+      - ref: messaging.batch.message_count
     constraints:
       - include: messaging #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/messaging.yaml
 
