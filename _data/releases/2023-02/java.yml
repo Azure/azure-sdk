@@ -630,4 +630,15 @@ entries:
     - Updated `azure-core` to `1.35.0`.
     - Updated `azure-core-http-netty` to `1.12.8`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.4.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.4.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed shared `SyncTokenToken` and `RetryPolicy` policies across Configuration clients.
+  GroupId: com.azure
 
