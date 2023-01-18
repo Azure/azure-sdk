@@ -8,10 +8,16 @@ groups:
     brief: 'Describes Azure SDK spans.'
     attributes:
       - id: az.namespace
-        required: always
+        requirement_level: required
         type: string
         brief: '[Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against.'
         examples: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.ServiceBus']
+      - id: az.schema_url
+        requirement_level:
+          conditionally_required: if and only if OpenTelemetry in given language does not provide standard way to set schema_url (i.e. .NET) # https://opentelemetry.io/docs/reference/specification/schemas/#schema-url
+        type: string
+        brief: 'OpenTelemetry Schema URL including schema version. Only 1.17.0 is supported.'
+        examples: ['https://opentelemetry.io/schemas/1.17.0']
 
   # public API
   - id: azure-sdk.api
@@ -30,8 +36,24 @@ groups:
       but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
     attributes:
       - ref: http.method
+        requirement_level: required    
+        sampling_relevant: true  
       - ref: http.url
+        requirement_level: required      
+        sampling_relevant: true
       - ref: http.status_code
+        requirement_level: required      
+      - ref: net.peer.name
+        requirement_level: required
+        sampling_relevant: true
+        brief: brief: 'Fully qualified Azure service endpoint (host name component).'
+        examples: 'http://my-account.servicebus.windows.net/'
+      - ref: net.peer.port
+        requirement_level: 
+          conditionally_required: if not 80 or 443.
+        sampling_relevant: true
+        brief: brief: 'Port of Azure service endpoint.'
+        examples: 'http://my-account.servicebus.windows.net/'
       - id: az.client_request_id
         type: string
         requirement_level:
@@ -53,16 +75,19 @@ groups:
     extends: azure-sdk
     attributes:
       - ref: messaging.system
+        requirement_level: required      
         sampling_relevant: true
         examples: ['eventhubs', 'servicebus']
       - ref: net.peer.name
+        requirement_level: required
         sampling_relevant: true
-        brief: 'Fully qualified Azure messaging service name.'
+        brief: 'Fully qualified Azure messaging service endpoint (host name only).'
         examples: 'http://myEventHubNamespace.servicebus.windows.net/'
-      - ref: messaging.destination
+      - ref: messaging.destination.name
+        requirement_level: required
         sampling_relevant: true
-        brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name.'
-        examples: ['myqueue', 'myhub']
+        brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name. Must not include partition or subscription'
+        examples: ['myqueue', 'myhub']       
     constraints:
       - include: messaging #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/messaging.yaml
 
@@ -86,39 +111,5 @@ groups:
       attribute with unix epoch time with milliseconds precision representing when message was enqueued.
 
   # db
-  - id: azure-sdk.cosmos
-    span_kind: client
-    brief: 'Describes Azure CosmosDB spans.'
-    note: >
-      Events with additional debug info are added for long running operations.
-    extends: azure-sdk
-    attributes:
-      - ref: net.peer.name
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'Fully qualified database service name.'
-        examples: ['https://my-cosmos.documents.azure.com']
-      - ref: net.peer.port
-        requirement_level: 
-        conditionally_required: if using a port other than the default port for this DBMS.
-        sampling_relevant: true
-        brief: 'Database port'
-        examples: 443
-      - ref: db.operation
-        type: string
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'Database statement'
-        examples: ['createContainerIfNotExists.myContainer']
-      - ref: db.name
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'Database name'
-        examples: ['mydb']
-      - ref: db.system
-        requirement_level: required
-        sampling_relevant: true
-        brief: 'Database type'
-        examples: ['cosmosdb']
-    constraints:
-      - include: db #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/database.yaml
+  # is being moved here: https://github.com/open-telemetry/opentelemetry-specification/pull/3097
+
