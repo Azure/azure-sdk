@@ -630,4 +630,337 @@ entries:
     - Updated `azure-core` to `1.35.0`.
     - Updated `azure-core-http-netty` to `1.12.8`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.4.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.4.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed shared `SyncTokenToken` and `RetryPolicy` policies across Configuration clients.
+  GroupId: com.azure
+- Name: azure-resourcemanager-maintenance
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-maintenance_1.0.0-beta.3/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-mixedreality
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Mixed Reality
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mixedreality_1.0.0-beta.2/sdk/mixedreality/azure-resourcemanager-mixedreality/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-managedapplications
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-managedapplications_1.0.0-beta.2/sdk/managedapplications/azure-resourcemanager-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-maps
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-maps_1.0.0-beta.2/sdk/maps/azure-resourcemanager-maps/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-cloud-feature-management
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Feature Management
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management_2.10.0/sdk/appconfiguration/azure-spring-cloud-feature-management/CHANGELOG.md
+  ChangelogContent: Upgrade Spring Boot dependencies version to 2.7.7 and Spring Cloud dependencies version to 2021.0.5
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-peering
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-peering_1.0.0-beta.2/sdk/peering/azure-resourcemanager-peering/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-operationsmanagement
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Operations Management
+  ServiceName: Operations Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-operationsmanagement_1.0.0-beta.2/sdk/operationsmanagement/azure-resourcemanager-operationsmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-powerbidedicated
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-powerbidedicated_1.0.0-beta.2/sdk/powerbidedicated/azure-resourcemanager-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-dataprotection
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dataprotection_1.0.0-beta.2/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-cloud-feature-management-web
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Feature Management Web
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management-web_2.10.0/sdk/appconfiguration/azure-spring-cloud-feature-management-web/CHANGELOG.md
+  ChangelogContent: Upgrade Spring Boot dependencies version to 2.7.7 and Spring Cloud dependencies version to 2021.0.5
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.11.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config_2.11.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updating to SDK 1.4.1 to fix sync token issue.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.11.0
+  DisplayName: Azure Spring Cloud Starter Appconfiguration Config
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.11.0/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updating to SDK 1.4.1 to fix sync token issue.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.11.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config Web
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config-web_2.11.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updating to SDK 1.4.1 to fix sync token issue.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-mariadb
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - MariaDB
+  ServiceName: MariaDB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mariadb_1.0.0-beta.2/sdk/mariadb/azure-resourcemanager-mariadb/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-purview
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-purview_1.0.0-beta.2/sdk/purview/azure-resourcemanager-purview/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.20
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.20/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-data-schemaregistry
+  Version: 1.3.2
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.3.2/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.35.0`.
+    - Update `azure-core-http-netty` dependency to `1.12.8`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.1.2
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.2/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.35.0`.
+    - Update `azure-data-schemaregistry` dependency to `1.3.2`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-subscription
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Subscriptions
+  ServiceName: Subscriptions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-subscription_1.0.0-beta.2/sdk/subscription/azure-resourcemanager-subscription/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resourcemover
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resourcemover_1.0.0-beta.2/sdk/resourcemover/azure-resourcemanager-resourcemover/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storageimportexport
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Storage Import/Export
+  ServiceName: Storage Import/Export
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storageimportexport_1.0.0-beta.2/sdk/storageimportexport/azure-resourcemanager-storageimportexport/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-servicefabric
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicefabric_1.0.0-beta.3/sdk/servicefabric/azure-resourcemanager-servicefabric/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-vmwarecloudsimple
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - VMware Solution by CloudSimple
+  ServiceName: VMware Solution by CloudSimple
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-vmwarecloudsimple_1.0.0-beta.2/sdk/vmwarecloudsimple/azure-resourcemanager-vmwarecloudsimple/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-recoveryservicesbackup
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - Backup
+  ServiceName: Backup
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicesbackup_1.0.0-beta.7/sdk/recoveryservicesbackup/azure-resourcemanager-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-support
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Support
+  ServiceName: Support
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-support_1.0.0-beta.2/sdk/support/azure-resourcemanager-support/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storagepool
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Storage Pool
+  ServiceName: Storage Pool
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storagepool_1.0.0-beta.2/sdk/storagepool/azure-resourcemanager-storagepool/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs
+  Version: 5.15.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.15.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed ability to pass in namespace connection string in EventHubClientBuilder. ([#29536](https://github.com/Azure/azure-sdk-for-java/issues/29536))
+    - Added retry for createBatch API as this API also makes network calls similar to its companion send API.
+
+    #### Features Added
+
+    - Added support for setting different value types in `EventData.getProperties()`. [32518](https://github.com/Azure/azure-sdk-for-java/issues/32518)
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.16.2
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.16.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove `messaging.eventhubs.checkpoints` counter and replace it with `messaging.eventhubs.checkpoint.duration`
+    histogram that can be used to count checkpoint calls.
+  GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.3.4
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.3.4/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-communication-common` to 1.2.4
+    - Upgraded `azure-core` to 1.35.0
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.14.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.14.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ApiManagement.GatewayAPIAdded`
+    - `Microsoft.ApiManagement.GatewayAPIRemoved`
+    - `Microsoft.ApiManagement.GatewayCertificateAuthorityCreated`
+    - `Microsoft.ApiManagement.GatewayCertificateAuthorityDeleted`
+    - `Microsoft.ApiManagement.GatewayCertificateAuthorityUpdated`
+    - `Microsoft.ApiManagement.GatewayCreated`
+    - `Microsoft.ApiManagement.GatewayDeleted`
+    - `Microsoft.ApiManagement.GatewayHostnameConfigurationCreated`
+    - `Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted`
+    - `Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated`
+    - `Microsoft.ApiManagement.GatewayUpdated`
+    - `Microsoft.DataBox.CopyCompleted`
+    - `Microsoft.DataBox.CopyStarted`
+    - `Microsoft.DataBox.OrderCompleted`
+  GroupId: com.azure
 
