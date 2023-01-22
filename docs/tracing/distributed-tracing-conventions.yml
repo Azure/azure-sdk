@@ -35,13 +35,15 @@ groups:
       - ref: net.peer.name
         requirement_level: required
         sampling_relevant: true
-        brief: brief: 'Fully qualified Azure service endpoint (host name component).'
+        type: string
+        brief: 'Fully qualified Azure service endpoint (host name component).'
         examples: 'http://my-account.servicebus.windows.net/'
       - ref: net.peer.port
         requirement_level: 
           conditionally_required: if not 80 or 443.
         sampling_relevant: true
-        brief: brief: 'Port of Azure service endpoint.'
+        brief: Port of Azure service endpoint.'
+        type: int        
         examples: [8080]
     constraints:
       - include: network #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/general.yaml
@@ -63,6 +65,9 @@ groups:
         sampling_relevant: true
       - ref: http.status_code
         requirement_level: required      
+      - ref: http.user_agent
+        type: string
+        brief: 'Value of the HTTP User-Agent or x-ms-user-agent header'
       - id: az.client_request_id
         type: string
         requirement_level:
