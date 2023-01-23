@@ -1,6 +1,3 @@
-import * as dotenv from "dotenv";
-import { Octokit } from "@octokit/rest";
-import fetch from "node-fetch";
 import csvToJSON from "csvtojson";
 import { Language } from "./types";
 import path from "path";
