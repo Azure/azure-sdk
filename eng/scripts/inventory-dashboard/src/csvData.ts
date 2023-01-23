@@ -3,45 +3,31 @@ import { Octokit } from "@octokit/rest";
 import fetch from "node-fetch";
 import csvToJSON from "csvtojson";
 import { Language } from "./types";
+import path from "path";
+import fs from 'fs';
+import { Logger } from './logger';
+const log = Logger.getInstance();
+const csvDirPath = path.join(__dirname, `../../../../_data/releases/latest`);
+
 /**
- * Queries GitHub for the list of CSV files in Azure/azure-sdk/_data/releases/latest.
- * Then retrieves the CSV contents, concatenates them, and converts them to a JSON Object
+ * Reads CSVs files. 
+ * Converts CSV File to JSON Array and adds Language Property for each package. 
+ * @returns Promise<any[]> all pkg objects from all languages in one array 
  */
 export default async function collectCSVData(): Promise<any[]> {
-  // Make properties in .env environment variables
-  dotenv.config();
-  // Create Octokit instance
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_AUTH_TOKEN,
-  });
-  // Retrieve list of files in latest release dir
-  const { data: csvFiles } = await octokit.rest.repos.getContent({
-    owner: "Azure",
-    repo: "azure-sdk",
-    path: "_data/releases/latest",
-    ref: "main"
-  });
-  // Retrieve CSV contents for each CSV File and convert to JSON
-  let packagesJSONArr: any[] = []; // Array to contain all CSV Contents
-  if (Array.isArray(csvFiles)) {
-    for (let csv of csvFiles) {
-      if (csv.download_url) {
-        // Get CSV Content
-        const csvContent = await fetch(csv.download_url).then((response) =>
-          response.text()
-        );
-        // Convert CSV to JSON
-        let csvJSONArr = await csvToJSON().fromString(csvContent);
-        // Add language and push to main arr
-        for (let i = 0; i < csvJSONArr.length; i++) {
-          packagesJSONArr.push({
-            ...csvJSONArr[i],
-            Language: csvNameToLanguage(csv.name),
-          });
-        }
-      } else {
-        throw Error(`No download_url on item: ${csv.name}`);
-      }
+  // Retrieve CSV files from latest release dir
+  const csvFiles = fs.readdirSync(csvDirPath);
+  // Get CSV contents from all files and convert to JSON
+  const packagesJSONArr: any[] = []; // Array to contain all CSV contents
+  for (let csv of csvFiles) {
+    // Convert csv file to json arr
+    const jsonContent = await csvToJSON().fromFile(path.join(csvDirPath, csv));
+    // Add Language property to each pkg object 
+    for (let pkg of jsonContent) {
+      packagesJSONArr.push({
+        ...pkg,
+        Language: csvNameToLanguage(csv)
+      });
     }
   }
   return packagesJSONArr;
