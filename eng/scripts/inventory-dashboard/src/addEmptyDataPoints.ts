@@ -3,21 +3,15 @@ import {
   PackageList,
   TrackSpecificsDefault,
   Plane,
-  Package,
-  Language,
 } from "./types";
 import { Logger } from './logger';
-import { Octokit } from "@octokit/rest";
-import * as dotenv from 'dotenv';
-import fetch from "node-fetch";
 import _serviceNameMap from "../data-and-rules/serviceNameMap.json";
+import path from "path";
+import fs from 'fs';
 const log = Logger.getInstance();
-// create octokit instances 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_AUTH_TOKEN
-});
+const specsDirPath = path.join(__dirname, '../../../../../../Code/azure-rest-api-specs/specification');
 const serviceNameMap: any = _serviceNameMap;
-dotenv.config();
+
 
 /**
  * Adds empty package entries to the package list based on if the package exists for another language. 
@@ -25,27 +19,6 @@ dotenv.config();
  * @returns a map of packages with empty entries added
  */
 export default async function addEmptyDataPoints(packages: PackageList): Promise<PackageList> {
-  // REMOVED AS BEHAVIOR WAS NO LONGER DESIRED. LEAVING CODE INCASE WE WANT TO TURN IT BACK ON
-  // Add missing data plane sdks when a mgmt plane sdk is found
-  // const additionalPackages: PackageList = {};
-  // for (let key in packages) {
-  //   if (packages[key].Plane === 'mgmt') {
-  //     const dataKey = packages[key].Service + packages[key].SDK?.replace('Resource Management - ', '') + 'data' + packages[key].Language;
-  //     if (packages[dataKey] === undefined) {
-  //       additionalPackages[dataKey] = {
-  //         Service: packages[key].Service,
-  //         SDK: packages[key].SDK?.replace('Resource Management - ', ''),
-  //         Plane: "data",
-  //         Language: packages[key].Language,
-  //         Track1: TrackSpecificsDefault,
-  //         Track2: TrackSpecificsDefault,
-  //         PercentComplete: undefined
-  //       };
-  //     }
-  //   }
-  // }
-  // packages = { ...packages, ...additionalPackages };
-
   // Add missing sdks when sdks for other languages are found
   const additionalPackages: PackageList = {};
   for (let key in packages) {
@@ -96,74 +69,60 @@ export default async function addEmptyDataPoints(packages: PackageList): Promise
 
 /**
  * Determines if there are azure apis without SDKs of the Tier 1 Languages and creates a Package List of empty packages for said apis. 
- * The method queries the Azure/azure-rest-api-specs repo for the list of Azure APIs
+ * The function scans through a local copy of the Azure/azure-rest-api-specs repo to determine if SDKs are missing. 
  * @param packages a Package List of already existing packages, used to stop the function from creating duplicate packages
  * @returns a Package List of empty packages for apis that exist but don't already have a package. 
  */
 async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageList> {
-  // black package list to be added to and returned 
-  let additionalPackages: PackageList = {};
-  // get services from specs repo
-  const { data: serviceList } = await octokit.rest.repos.getContent({
-    owner: "Azure",
-    repo: "azure-rest-api-specs",
-    path: "specification"
-  });
-  // Check service list is array, if not log error and return empty package list
-  if (!Array.isArray(serviceList)) {
-    log.err(`Specs repo did not return an array of services. Specs repo returned: ${JSON.stringify(serviceList)}`);
-    return additionalPackages;
-  }
+  const additionalPackages: PackageList = {}; // empty pkgs collected from specs repo to add
+  // get list of service dirs from specs dir
+  const serviceSpecDirs = fs.readdirSync(specsDirPath);
+  for (let serviceSpecDir of serviceSpecDirs) {
+    // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
+    const planeSpecDirs = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
+    for (let planeSpecDir of planeSpecDirs) {
+      // determine service name, plane and SDK name
+      const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+      let plane: Plane = "UNABLE TO BE DETERMINED";
+      let sdkName: string = serviceName;
+      if (planeSpecDir === 'data-plane') { plane = "data"; sdkName = serviceName; }
+      else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${serviceName}`; }
+      // check if stable spec exists
+      const planeSpecDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir));
+      const filteredPlaneSpecDirContents = planeSpecDirContents.filter(s => s.startsWith('Microsoft.'));
+      if (filteredPlaneSpecDirContents.length <= 0) { log.warn(`${serviceSpecDir}/${planeSpecDir} has now dir that starts with "Microsoft."`); }
+      else {
+        const microsoftDir = filteredPlaneSpecDirContents[0];
+        const microsoftDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir, microsoftDir));
+        const filteredMicrosoftDirContents = microsoftDirContents.filter(s => s === "stable");
+        if (filteredMicrosoftDirContents.length <= 0) { log.info(`No stable API Spec found for ${serviceSpecDir}/${planeSpecDir}`); }
+        else {
+          // stable spec does exist
+          const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+          // check if package exists for each language, if not add empty entry 
+          for (let language of Tier1Languages) {
+            // create pkg key
+            const key = serviceName + sdkName + plane + language;
+            // If package doesn't exist in list already, add it. 
+            if (packages[key] === undefined && additionalPackages[key] === undefined) {
+              additionalPackages[key] = {
+                Service: serviceName,
+                ServiceId: 0,
+                SDK: sdkName,
+                Plane: plane,
+                Language: language,
+                Track1: TrackSpecificsDefault,
+                Track2: { ...TrackSpecificsDefault, Package: `Missing: Created from API in specs repo: ${specsDirPath}` },
+                PercentComplete: undefined,
+                LatestRelease: ''
+              };
+              log.info(`Adding Empty Package from Specs Repo.\n\tEmpty Package: ${JSON.stringify(additionalPackages[key])}\n\tREST Spec Dir: ${specsDirPath}`);
+            }
+          }
+        }
+      }
+    }
 
-  // Go through list of services and check if they have a data-plane or resource-management dir
-  for (let service of serviceList) {
-    // check if data or mgmt plane exists and add packages 
-    let foundData = (await (await fetch("https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/" + service.path + "/data-plane/readme.md")).text()) !== "404: Not Found";
-    let foundMgmt = (await (await fetch("https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/" + service.path + "/resource-manager/readme.md")).text()) !== "404: Not Found";
-    // check if service name has a replacement in serviceNameMap.json, if so, use replacement as service name
-    let serviceName = serviceNameMap[service.name] === undefined ? service.name : serviceNameMap[service.name];
-    if (foundData) {
-      for (let language of Tier1Languages) {
-        // create keys for data plane sdks
-        let dataKey = (serviceName + serviceName + "data" + language).toLowerCase();
-        // add package if it doesn't exist already
-        if (packages[dataKey] === undefined && additionalPackages[dataKey] === undefined) {
-          additionalPackages[dataKey] = {
-            Service: serviceName,
-            ServiceId: 0,
-            SDK: serviceName,
-            Plane: 'data',
-            Language: language,
-            Track1: TrackSpecificsDefault,
-            Track2: { ...TrackSpecificsDefault, Package: `Missing: Created from API in specs repo: ${service.name}` },
-            PercentComplete: undefined,
-            LatestRelease: ''
-          };
-          log.info(`Adding Empty Package from Specs Repo.\n\tEmpty Package: ${JSON.stringify(additionalPackages[dataKey])}\n\tREST Spec Dir: ${service.name}`);
-        }
-      }
-    }
-    if (foundMgmt) {
-      for (let language of Tier1Languages) {
-        // create keys for data plane sdks
-        let mgmtKey = (serviceName + "Resource Management - " + serviceName + "mgmt" + language).toLowerCase();
-        // add package if it doesn't exist already
-        if (packages[mgmtKey] === undefined && additionalPackages[mgmtKey] === undefined) {
-          additionalPackages[mgmtKey] = {
-            Service: serviceName,
-            ServiceId: 0,
-            SDK: "Resource Management - " + serviceName,
-            Plane: 'mgmt',
-            Language: language,
-            Track1: TrackSpecificsDefault,
-            Track2: { ...TrackSpecificsDefault, Package: `Missing: Created from API in specs repo: ${service.name}` },
-            PercentComplete: undefined,
-            LatestRelease: ''
-          };
-          log.info(`Adding Empty Package from Specs Repo.\n\tEmpty Package: ${JSON.stringify(additionalPackages[mgmtKey])}\n\tREST Spec Dir: ${service.name}`);
-        }
-      }
-    }
   }
   return additionalPackages;
 }
