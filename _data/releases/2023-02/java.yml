@@ -985,4 +985,36 @@ entries:
     #### Features Added
     - Added support to configure `clientOptions`, `httpLogOptions`, `retryPolicy`, `retryOptions` and `addPolicy` on Identity credentials.
   GroupId: com.azure
+- Name: azure-developer-loadtesting
+  Version: 1.0.0-beta.2
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.0-beta.2/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added sync and async versions of `LoadTestRunClient.listMetricNamespacesWithResponse`
+    - Added sync and async versions of `LoadTestRunClient.listMetricDefinitionsWithResponse`
+    - Added sync and async versions of `LoadTestRunClient.listMetrics`
+    - Added sync and async versions of `LoadTestRunClient.listMetricDimensionValues`
+    - Added sync and async versions of `LoadTestRunClient.createOrUpdateAppComponentWithResponse`
+    - Added sync and async versions of `LoadTestRunClient.getAppComponentsWithResponse`
+    - Added sync and async versions of `LoadTestRunClient.createOrUpdateServerMetricsConfigWithResponse`
+    - Added sync and async versions of `LoadTestRunClient.getServerMetricsConfigWithResponse`
+    - Added sync and async versions of `LoadTestAdministrationClient.beginUploadTestFile` and `LoadTestRunClient.beginTestRun` Long-Running operation
+
+    #### Breaking Changes
+
+    - There is a single builder which builds `LoadTestAdministration` and `LoadTestRun` clients, rather than a client which provides them via accessor methods previously
+    - Added metric namespaces and metric dimensions
+    - File upload now uses `application/octet-stream` instead of `multipart/form-data`
+    - File upload now uses file name as primary identifier instead of `fileId`
+    - Removed sync and async versions of `LoadTestAdministrationClient.ListSupportedResourceType`
+    - Removed sync and async versions of `LoadTestAdministrationClient.DeleteAppComponent` and `LoadTestAdministrationClient.DeleteAppComponentByName`
+    - Removed sync and async versions of `LoadTestAdministrationClient.DeleteServerMetrics` and `LoadTestAdministrationClient.DeleteServerMetricsByName`
+    - Removed sync and async versions of `TestRunClient.GetTestRunClientMetrics` and `TestRunClient.GetTestRunClientMetricsFilters`
+    - Removed sync and async versions of `TestRunClient.GetServerDefaultMetrics`
+  GroupId: com.azure
 
