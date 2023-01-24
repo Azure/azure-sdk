@@ -6,6 +6,7 @@ groups:
   # common
   - id: azure-sdk
     brief: 'Describes Azure SDK spans.'
+    type: attribute_group
     attributes:
       - id: az.namespace
         requirement_level: required
@@ -21,13 +22,21 @@ groups:
 
   # public API
   - id: azure-sdk.api
+    type: span
     span_kind: internal
     extends: azure-sdk
     brief: 'Describes Azure SDK API calls spans.'
-    note: 'Represents public surface API calls that wrap an Azure service call.'
+    note: > 
+      Represents public surface API calls that wrap an Azure service call.
+
+      Span name SHOULD match `<short-class-name.method>` pattern. Class and method name SHOULD match API user called close enough for users
+      to understand which method span matches to.
+      For example, `BlobClient.Download` could be used for different overloads of download method, it can also coexist with `BlobClient.DownloadToFile` or
+      `BlobClient.DownloadAsync`.  
 
   # network calls
   - id: azure-sdk.network
+    type: attribute_group
     extends: azure-sdk
     brief: 'Describes Azure SDK client spans.'
     note: 'Represents calls that include network attributes'
@@ -50,12 +59,15 @@ groups:
       
   # http
   - id: azure-sdk.http
-    extends: azure-sdk.network
+    type: span
     span_kind: client
+    extends: azure-sdk.network
     brief: 'Describes HTTP client spans created per HTTP request (try).'
     note: >
       This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
       but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
+
+      Span name MUST NOT include dynamic parts and SHOULD follow `HTTP <method>` pattern. E.g. `HTTP GET`.
     attributes:
       - ref: http.method
         requirement_level: required    
@@ -85,6 +97,7 @@ groups:
 
   # messaging
   - id: azure-sdk.messaging
+    type: span
     brief: 'Describes Azure messaging SDKs spans.'
     extends: azure-sdk.network
     attributes:
@@ -104,14 +117,18 @@ groups:
 
   - id: azure-sdk.messaging.producer
     span_kind: producer
-    extends: azure-sdk.messaging
+    extends: azure-sdk
     brief: 'Describes producer span created per message.'
+    note: Span name SHOULD match `<queue/topic_name> message`. E.g. `orders message`. 
 
   - id: azure-sdk.messaging.send
     span_kind: client
     extends: azure-sdk.messaging
     brief: 'Describes Azure messaging SDKs producer client spans.'
-    note: 'Contains links to all messages contexts being sent.'
+    note: >
+      Contains links to all messages contexts being sent.
+      Span name SHOULD match `<queue/topic_name> publish`. E.g. `orders publish`. 
+      
 
   - id: azure-sdk.messaging.process
     span_kind: consumer
@@ -120,6 +137,7 @@ groups:
     note: >
       Contains links to all messages contexts being consumed. Each link has attribute `enqueuedTime` (with `long` type)
       attribute with unix epoch time with milliseconds precision representing when message was enqueued.
+      Span name SHOULD match `<queue/topic_name> process`. E.g. `orders process`. 
 
   # db
   # is being moved here: https://github.com/open-telemetry/opentelemetry-specification/pull/3097
