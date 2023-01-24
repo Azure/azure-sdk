@@ -33,7 +33,7 @@ async function main() {
       log.err(`Error Writing to CSV. Error: ${err}`);
     } else if (csv) {
       fs.writeFileSync(
-        path.join(__dirname, "../FormattedPackagesFromCSVs.csv"),
+        path.join(__dirname, "../../../../_data/releases/inventory/inventory.csv"),
         csv
       );
     } else {
