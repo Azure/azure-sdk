@@ -9,7 +9,7 @@ import _serviceNameMap from "../data-and-rules/serviceNameMap.json";
 import path from "path";
 import fs from 'fs';
 const log = Logger.getInstance();
-const specsDirPath = path.join(__dirname, '../../../../../../Code/azure-rest-api-specs/specification');
+const specsDirPath = path.join(__dirname, '../../../../../azure-rest-api-specs/specification');
 const serviceNameMap: any = _serviceNameMap;
 
 
