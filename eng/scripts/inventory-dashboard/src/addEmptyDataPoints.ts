@@ -112,7 +112,7 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
                 Plane: plane,
                 Language: language,
                 Track1: TrackSpecificsDefault,
-                Track2: { ...TrackSpecificsDefault, Package: `Missing: Created from API in specs repo: ${specsDirPath}` },
+                Track2: { ...TrackSpecificsDefault, Package: `Missing: Created from API in specs repo: ${serviceSpecDir}` },
                 PercentComplete: undefined,
                 LatestRelease: ''
               };
