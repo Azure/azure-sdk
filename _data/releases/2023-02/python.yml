@@ -143,4 +143,15 @@ entries:
     - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.LoadTestingClient.administration.list_test_files`
     - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.aio.LoadTestingClient.administration.list_tests`
     - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.LoadTestingClient.administration.list_tests`
+- Name: azure-eventhub
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where, when `websocket-client` was not installed, the error was not caught/raised properly (issue #28453).
 
