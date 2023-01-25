@@ -18,6 +18,11 @@ When writing instrumentation in Azure SDK or Core:
 
 {% include requirement/MUST id="general-tracing-convention-describe-attributes" %} update [distributed-tracing-conventions.yml](./distributed-tracing-conventions.yml) when adding new attributed.
 
+{% include requirement/MUST id="general-tracing-convention-set-schema-version" %} set OpenTelemetry [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/schemas/README.md?plain=1) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer).
+
+{% include requirement/SHOULD id="general-tracing-convention-set-library" %} set Azure Client Library name and version [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer).
+
+
 {% include requirement/SHOULD id="general-tracing-convention-new-otel" %} contribute new conventions (or patch existing ones) to OpenTelemetry when there is no suitable one or some scenarios are missing.
 
 {% include requirement/MAY id="general-tracing-convention-add-attributes" %} extend list of attributes on top of OpenTelemetry contentions with Azure-specific ones.
