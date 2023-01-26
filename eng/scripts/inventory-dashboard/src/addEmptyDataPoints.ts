@@ -102,7 +102,7 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
           // check if package exists for each language, if not add empty entry 
           for (let language of Tier1Languages) {
             // create pkg key
-            const key = serviceName + sdkName + plane + language;
+            const key = (serviceName + sdkName + plane + language).toLowerCase();
             // If package doesn't exist in list already, add it. 
             if (packages[key] === undefined && additionalPackages[key] === undefined) {
               additionalPackages[key] = {
