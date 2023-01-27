@@ -45,3 +45,8 @@ Explanation of rule files:
 
 - Used to map directories from the Azure/azure-rest-api-specs repo, `specification` directory to service names.
 - The primary key for this file should be the directory name and the value should be the service name.
+
+`servicesToHide.json`:
+
+- Used to hide certain services and the SDKs for them from the Inventory Dashboard.
+- The primary key for this file should be the name of the Service as it shows in the Inventory Dashboard and the value should always  be true.
