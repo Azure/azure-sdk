@@ -1271,4 +1271,18 @@ entries:
     - Added new service version, `SchemaRegistryVersion.V2022_10`.
     - Updated the latest service version to `SchemaRegistryVersion.V2022_10`.
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.2.0-beta.1
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.2.0-beta.1/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-data-schemaregistry` dependency to `1.4.0-beta.1`.
+  GroupId: com.azure
 
