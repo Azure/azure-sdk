@@ -1257,4 +1257,18 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.23.0/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-data-schemaregistry
+  Version: 1.4.0-beta.1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.4.0-beta.1/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added additional `SchemaFormat`s, `SchemaFormat.JSON`, and `SchemaFormat.CUSTOM`.
+    - Added new service version, `SchemaRegistryVersion.V2022_10`.
+    - Updated the latest service version to `SchemaRegistryVersion.V2022_10`.
+  GroupId: com.azure
 
