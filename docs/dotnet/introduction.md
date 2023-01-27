@@ -1037,14 +1037,12 @@ For example, if the component is in the `Azure.Storage.Blobs` namespace, the com
 Use the following target setting in the `.csproj` file:
 
 ```xml
-<TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
+<TargetFramework>netstandard2.0</TargetFramework>
 ```
 
-The `RequiredTargetFrameworks` property is managed centrally and is currently defined as `netstandard2.0`.
+{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
 
-{% include requirement/MAY id="dotnet-build-multi-targeting" %} target additional [target framework monikers (TFMs)][.NET Target Framework Monikers] for runtime-specific implementations.
-
-{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers]. That is, any parameter or return types, and any public interfaces or base classes must be available in all TFMs.
+You may multi-target client libraries to different [TFMs][.NET Target Framework Monikers] but the public API must be the same for all targets including class, interface, parameter, and return types.
 
 #### Common Libraries
 
