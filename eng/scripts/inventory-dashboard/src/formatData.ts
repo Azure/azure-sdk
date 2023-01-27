@@ -9,7 +9,9 @@ import {
   isPlaneType,
 } from "./types";
 import { Logger } from "./logger";
+import _servicesToHide from "../data-and-rules/servicesToHide.json";
 const log = Logger.getInstance();
+const servicesToHide: any = _servicesToHide;
 
 /**
  * Takes the data from the CSV files and returns it in the format needed for the dashboard. 
@@ -52,6 +54,11 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
     log.info(`Package from CSV: ${JSON.stringify(formattedPackage)}`);
 
     // Logic for Ignoring certain packages post-formatting
+    // Ignore Services that are specified in servicesToHide.json
+    if (servicesToHide[formattedPackage.Service] !== undefined) {
+      continue;
+    }
+
     //Ignore Java Spring SDKs
     if (
       formattedPackage.Service?.toLowerCase().indexOf("spring") !== -1 ||
