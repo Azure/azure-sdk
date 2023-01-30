@@ -356,7 +356,16 @@ function CheckAll($langs)
   $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
-  $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+  foreach ($service in $serviceGroups)
+  {
+    $languages = $service.Group.Lang | Sort-Object -Unique
+    $pkgGroups = $service.Group.PkgInfo | Group-Object DisplayName
+    Write-Host "$($service.Name) [$($languages -join ', ')]"
+    foreach ($pg in $pkgGroups)
+    {
+      Write-Host "        $($pg.Name) [$($pg.Group.Package -join ', ')]"
+    }
+  }
 
   if ($foundIssues) {
     Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."

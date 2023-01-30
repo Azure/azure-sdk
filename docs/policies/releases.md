@@ -480,7 +480,7 @@ Initial Go package releases will be versioned will use `v0` versioning with `v0.
 
 ## Beta Releases and Stable Graduation
 
-The Azure SDK team may choose to create a beta release for several reasons:
+The Azure SDK team may choose to create a beta release for several reasons (beyond what is required for APEX Launch Requirements):
 
 - Service itself has features in preview and client library must be updated accordingly
 - Testing and receiving feedback on new API designs
