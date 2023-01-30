@@ -75,9 +75,9 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
       continue;
     }
 
-    // Ignore Core Internal Packages 
-    if (formattedPackage.Plane === "core" || formattedPackage.Plane === 'tool' || formattedPackage.Service.toLowerCase() === "core" || formattedPackage.Service.toLowerCase() === "other") {
-      log.info(`Ignoring Core or Internal Tool Package: ${JSON.stringify(formattedPackage)}`);
+    // Ignore Core, Internal, and Compatibility Packages 
+    if (formattedPackage.Plane === "core" || formattedPackage.Plane === 'tool' || formattedPackage.Service.toLowerCase() === "core" || formattedPackage.Service.toLowerCase() === "other" || formattedPackage.Plane === "compat") {
+      log.info(`Ignoring Core, Internal, Tool, or Compatibility Package: ${JSON.stringify(formattedPackage)}`);
       continue;
     }
 
