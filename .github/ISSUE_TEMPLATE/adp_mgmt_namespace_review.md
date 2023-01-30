@@ -33,24 +33,4 @@ To ensure consistency, all language library names will generally be reviewed tog
 **Please follow the language specific format for each namespace.**
 **The examples show the format for each language.**
 
-### .NET
-
-* Azure.ResourceManager.ExampleService
-
-### Java
-
-* azure-resourcemanager-exampleservice
-
-### Go/Golang
-
-* sdk/resourcemanager/exampleservice/armexampleservice
-
-### Python
-
-* azure-mgmt-exampleservice
-  
-### TypeScript
-
-* @azure/arm-exampleservice
-
 ## Thank you!
