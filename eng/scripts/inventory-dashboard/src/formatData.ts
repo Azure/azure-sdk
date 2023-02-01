@@ -7,6 +7,8 @@ import {
   TrackSpecifics,
   TrackSpecificsDefault,
   isPlaneType,
+  FormattingPackage,
+  FormattingPackageList,
 } from "./types";
 import { Logger } from "./logger";
 import _servicesToHide from "../data-and-rules/servicesToHide.json";
@@ -20,7 +22,7 @@ const servicesToHide: any = _servicesToHide;
  */
 export function formatReleaseCSVData(csvData: any[]): PackageList {
   // Create empty object of packages
-  const formattedPackageList: PackageList = {};
+  const formattedPackageList: FormattingPackageList = {};
   // loop through data from the CSV creating objects in desired format
   for (let pkg of csvData) {
     // Logic for Ignoring certain packages pre-formatting
@@ -40,7 +42,7 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
     }
 
     // create package object in new format
-    let formattedPackage: Package = {
+    let formattedPackage: FormattingPackage = {
       Service: getService(pkg),
       ServiceId: 0,   // TODO: use Service ID Column in the CSV for this field. 
       SDK: getSDK(pkg),
@@ -49,7 +51,9 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
       Track1: getTrackInfo(pkg, 1),
       Track2: getTrackInfo(pkg, 2),
       PercentComplete: undefined,
-      LatestRelease: getLatestRelease(pkg)
+      LatestRelease: getLatestReleaseTrack(pkg, 2),
+      LatestReleaseTrack1: getLatestReleaseTrack(pkg, 1),
+      LatestReleaseTrack2: getLatestReleaseTrack(pkg, 2)
     };
     log.info(`Package from CSV: ${JSON.stringify(formattedPackage)}`);
 
@@ -130,11 +134,57 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
             formattedPackageList[packageListKey]
           )}\n\tPackage2: ${JSON.stringify(formattedPackage)}`
         );
+        // Determine latest GA'ed package and use that package. 
+        // Figure out the track of the new package so we can only replace that Track prop
+        if (pkg.hasOwnProperty("New") && typeof pkg.New === "string") {
+          if (pkg.New.toLowerCase() === "true") {
+            if (pkgInList.LatestReleaseTrack2 === undefined || formattedPackage.LatestReleaseTrack2 === undefined) log.err("Latest GA = Undefined");
+            else {
+              if (pkgInList.LatestReleaseTrack2 === "" && formattedPackage.LatestReleaseTrack2 !== "") { // if new pkg has latest release date and old pkg doesn't
+                log.info(`Package Replaced with more recent package.\n\tNew Package: ${JSON.stringify(formattedPackage)}\n\tOld Package: ${JSON.stringify(pkgInList)}`);
+                formattedPackageList[packageListKey] = { ...pkgInList, Track2: formattedPackage.Track2, LatestRelease: formattedPackage.LatestRelease };
+              } else if (pkgInList.LatestReleaseTrack2 !== "" && formattedPackage.LatestReleaseTrack2 !== "") { // if both old and new pkg have latest release day
+                if (new Date(formattedPackage.LatestReleaseTrack2) > new Date(pkgInList.LatestReleaseTrack2)) {
+                  log.info(`Package Replaced with more recent package.\n\tNew Package: ${JSON.stringify(formattedPackage)}\n\tOld Package: ${JSON.stringify(pkgInList)}`);
+                  formattedPackageList[packageListKey] = { ...pkgInList, Track2: formattedPackage.Track2, LatestRelease: formattedPackage.LatestRelease };
+                }
+              }
+            }
+          } else if (pkg.New.toLowerCase() === "false") {
+            if (pkgInList.LatestReleaseTrack1 === undefined || formattedPackage.LatestReleaseTrack1 === undefined) log.err("Latest GA = Undefined");
+            else {
+              if (pkgInList.LatestReleaseTrack1 === "" && formattedPackage.LatestReleaseTrack1 !== "") { // if new pkg has latest release date and old pkg doesn't
+                log.info(`Package Replaced with more recent package.\n\tNew Package: ${JSON.stringify(formattedPackage)}\n\tOld Package: ${JSON.stringify(pkgInList)}`);
+                formattedPackageList[packageListKey] = { ...pkgInList, Track1: formattedPackage.Track1 };
+              } else if (pkgInList.LatestReleaseTrack1 !== "" && formattedPackage.LatestReleaseTrack1 !== "") { // if both old and new pkg have latest release day
+                if (new Date(formattedPackage.LatestReleaseTrack1) > new Date(pkgInList.LatestReleaseTrack1)) {
+                  log.info(`Package Replaced with more recent package.\n\tNew Package: ${JSON.stringify(formattedPackage)}\n\tOld Package: ${JSON.stringify(pkgInList)}`);
+                  formattedPackageList[packageListKey] = { ...pkgInList, Track1: formattedPackage.Track1 };
+                }
+              }
+            }
+          }
+        }
+
       }
     }
   }
-
-  return formattedPackageList;
+  const packageList: PackageList = {};
+  //remove unnecessary package props
+  for (let key of Object.keys(formattedPackageList)) {
+    packageList[key] = {
+      "Service": formattedPackageList[key].Service,
+      "ServiceId": formattedPackageList[key].ServiceId,
+      "SDK": formattedPackageList[key].SDK,
+      "Plane": formattedPackageList[key].Plane,
+      "Language": formattedPackageList[key].Language,
+      "Track1": formattedPackageList[key].Track1,
+      "Track2": formattedPackageList[key].Track2,
+      "PercentComplete": formattedPackageList[key].PercentComplete,
+      "LatestRelease": formattedPackageList[key].LatestRelease,
+    };
+  }
+  return packageList;
 }
 
 /**
@@ -363,6 +413,25 @@ function getLatestRelease(pkg: any): string {
   //prop and prop type check
   if (pkg.LatestGADate && typeof pkg.LatestGADate === 'string') {
     return pkg.LatestGADate;
+  }
+  return "";
+}
+
+/**
+ * Determines the latest package release date of package and returns it only if the package matches the track parameter. 
+ * @param pkg Package object directly from the CSV
+ * @returns the latests release date as a string in MM/DD/YYYY format, or a blank string if now date could be determined
+ */
+function getLatestReleaseTrack(pkg: any, track: number): string {
+  // property and property type check 
+  if (pkg.hasOwnProperty('New') && typeof pkg.New === "string") {
+    // if New prop and track param match, return track specific details
+    if (
+      (pkg.New.toLowerCase() === "true" && track === 2) ||
+      (pkg.New.toLowerCase() === "false" && track === 1)
+    ) {
+      return getLatestRelease(pkg);
+    }
   }
   return "";
 }
