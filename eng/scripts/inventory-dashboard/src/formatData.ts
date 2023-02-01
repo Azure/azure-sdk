@@ -225,7 +225,7 @@ function getLanguage(pkg: any): Language {
  */
 function getTrackInfo(pkg: any, track: 1 | 2): TrackSpecifics {
   // property and property type check 
-  if (pkg.New && typeof pkg.New === "string") {
+  if (pkg.hasOwnProperty('New') && typeof pkg.New === "string") {
     // if New prop and track param match, return track specific details
     if (
       (pkg.New.toLowerCase() === "true" && track === 2) ||
@@ -253,7 +253,7 @@ function getTrackInfo(pkg: any, track: 1 | 2): TrackSpecifics {
       }
     }
     // If package is a track 1 package and we're determining Track 2 contents look to see if track 1 package has a reference in it's Replace column
-    else if (pkg.New === "false" && track === 2 && pkg.Replace && typeof pkg.Replace === 'string') {
+    else if (pkg.New.toLowerCase() === "false" && track === 2 && pkg.Replace && typeof pkg.Replace === 'string') {
       return {
         Package: `Replaced by: ${pkg.Replace}`,
         RepoLink: "",
