@@ -58,6 +58,19 @@ export const TrackSpecificsDefault: TrackSpecifics = {
 export const StringTrackSpecificsDefault = JSON.stringify(
   TrackSpecificsDefault
 );
+export type FormattingPackage = {
+  Service: string;
+  ServiceId: number;
+  SDK: string;
+  Plane: Plane | undefined;
+  Language: Language;
+  Track1: TrackSpecifics;
+  Track2: TrackSpecifics;
+  PercentComplete: number | undefined;
+  LatestRelease: string;
+  LatestReleaseTrack1: undefined | string;
+  LatestReleaseTrack2: undefined | string;
+};
 export type Package = {
   Service: string;
   ServiceId: number;
@@ -68,7 +81,9 @@ export type Package = {
   Track2: TrackSpecifics;
   PercentComplete: number | undefined;
   LatestRelease: string;
-
+};
+export type FormattingPackageList = {
+  [key: string]: FormattingPackage;
 };
 export type PackageList = {
   [key: string]: Package;
