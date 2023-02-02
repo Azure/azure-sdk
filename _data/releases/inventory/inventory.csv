@@ -202,7 +202,7 @@ Marketplace,0,Resource Management - Marketplace,mgmt,.NET,Microsoft.Azure.Manage
 Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,.NET,Microsoft.Azure.Management.MarketplaceOrdering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/marketplaceordering/Microsoft.Azure.Management.MarketplaceOrdering,1,false,Azure.ResourceManager.MarketplaceOrdering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/marketplaceordering,10,false,0.5,09/29/2022
 Media,0,Resource Management - Media,mgmt,.NET,,,11,false,Azure.ResourceManager.Media,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mediaservices,10,false,1,01/27/2023
 Mixed Reality,0,Resource Management - MixedReality,mgmt,.NET,,,11,false,Azure.ResourceManager.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,12/29/2022
-Monitor,0,Resource Management - Monitor,mgmt,.NET,Microsoft.Azure.Management.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,1,false,Azure.ResourceManager.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,0.5,09/26/2022
+Monitor,0,Resource Management - Monitor,mgmt,.NET,Microsoft.Azure.Management.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,true,Azure.ResourceManager.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,09/26/2022
 MySQL,0,Resource Management - MySQL,mgmt,.NET,Microsoft.Azure.Management.MySQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,10,false,1,09/05/2022
 NetApp,0,Resource Management - Net App,mgmt,.NET,,,11,false,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,09/28/2022
 Network,0,Resource Management - Network,mgmt,.NET,,,11,false,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,11/02/2022
@@ -259,6 +259,7 @@ Unable to determine Service Name,0,Azure.Communication.CallingServer,UNABLE TO B
 Unable to determine Service Name,0,Azure.Communication.Email,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,Azure.Core.Expressions.DataFactory,UNABLE TO BE DETERMINED,.NET,Azure.Core.Expressions.DataFactory,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,Azure.FX,UNABLE TO BE DETERMINED,.NET,Azure.FX,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Unable to determine Service Name,0,Azure.FX.Templates,UNABLE TO BE DETERMINED,.NET,Azure.FX.Templates,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,Azure.IoT.TimeSeriesInsights,UNABLE TO BE DETERMINED,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,Azure.Quantum.Jobs,UNABLE TO BE DETERMINED,.NET,Azure.Quantum.Jobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,Azure.Storage.DataMovement.Blobs,UNABLE TO BE DETERMINED,.NET,Azure.Storage.DataMovement.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -428,6 +429,7 @@ Kinect Developer Kit,0,Kinect Developer Kit,data,.NET,Microsoft.Azure.Kinect.Bod
 Kusto,0,Kusto Data,data,.NET,Microsoft.Azure.Kusto.Data,https://github.com/Azure/azure-kusto-dotnet,10,false,,,1,false,0,
 Kusto,0,Kusto Ingest,data,.NET,Microsoft.Azure.Kusto.Ingest,https://github.com/Azure/azure-kusto-dotnet,10,false,,,1,false,0,
 Local Search,0,Local Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.LocalSearch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Log Analytics,0,Log Analytics - Query,data,.NET,Microsoft.Azure.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights/Microsoft.Azure.OperationalInsights,10,true,Replaced by: Azure.Monitor.Query,,4,false,0,
 Language Understanding,0,LUIS Authoring,data,.NET,Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring_3.2.0-preview.3/sdk/cognitiveservices/Language.LUIS.Authoring,10,false,,,1,false,0,
 Language Understanding,0,LUIS Runtime,data,.NET,Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime_3.1.0-preview.1/sdk/cognitiveservices/Language.LUIS.Runtime,3,false,,,1,false,0,
 Media Services,0,Media Live Video Analytics Edge,data,.NET,Microsoft.Azure.Media.LiveVideoAnalytics.Edge,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Media.LiveVideoAnalytics.Edge_1.0.4-preview.1/sdk/mediaservices/Microsoft.Azure.Media.LiveVideoAnalytics.Edge,3,false,,,1,false,0,
@@ -455,7 +457,6 @@ App Service,0,Mobile Server - Cross Domain,data,.NET,Microsoft.Azure.Mobile.Serv
 App Service,0,Mobile Service - Resource Broker,data,.NET,Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 News Search,0,News Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.NewsSearch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Notification Hubs,0,Notification Hubs,data,.NET,Microsoft.Azure.NotificationHubs,https://github.com/Azure/azure-notificationhubs-dotnet,10,false,,,1,false,0,
-Monitor,0,Operational Insights,data,.NET,Microsoft.Azure.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights/Microsoft.Azure.OperationalInsights,10,true,Replaced by: Azure.Monitor.Query,,4,false,0,
 Power BI,0,Power BI,data,.NET,Microsoft.PowerBI.Api,https://github.com/Microsoft/PowerBI-CSharp,10,false,,,1,false,0,
 QnA Maker,0,QnA Maker,data,.NET,Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker_2.0.1/sdk/cognitiveservices/Knowledge.QnAMaker,10,false,,,1,false,0,
 Relay,0,Relay,data,.NET,Microsoft.Azure.Relay,https://github.com/Azure/azure-relay-dotnet/tree/2.0.1,10,false,,,1,false,0,
@@ -1168,9 +1169,11 @@ Storage,0,azure-toolkit-storage-lib,UNABLE TO BE DETERMINED,Java,azure-toolkit-s
 Unable to determine Service Name,0,azure-xml,UNABLE TO BE DETERMINED,Java,azure-xml,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Confidential Ledger,0,Confidential Ledger,UNABLE TO BE DETERMINED,Java,azure-data-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,IoT Models Repository,UNABLE TO BE DETERMINED,Java,azure-iot-modelsrepository,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Unable to determine Service Name,0,javamsalruntime,UNABLE TO BE DETERMINED,Java,javamsalruntime,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,kusto-log4j-appender,UNABLE TO BE DETERMINED,Java,kusto-log4j-appender,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Digital Twins,0,Resource Management - Digital Twins,UNABLE TO BE DETERMINED,Java,azure-mgmt-digitaltwins,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-digitaltwins,,4,false,0,
 Stream Analytics,0,Resource Management - Stream Analytics,UNABLE TO BE DETERMINED,Java,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-streamanalytics,,4,false,0,
+Unable to determine Service Name,0,msal4j-brokers,UNABLE TO BE DETERMINED,Java,msal4j-brokers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,onnx-protobuf_2.12,UNABLE TO BE DETERMINED,Java,onnx-protobuf_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Purview,0,Purview Administration,UNABLE TO BE DETERMINED,Java,azure-analytics-purview-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,spark-mssql-connector_2.11_2.4,UNABLE TO BE DETERMINED,Java,spark-mssql-connector_2.11_2.4,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -1283,7 +1286,7 @@ IoT,0,IoT Service Client,data,Java,iot-service-client,https://github.com/Azure/a
 Data Explorer,0,Kusto Data,data,Java,kusto-data,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Data Explorer,0,Kusto Ingest,data,Java,kusto-ingest,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Data Explorer,0,Kusto Spark,data,Java,kusto-spark_3.0_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Log Analytics,0,Log Analytics,data,Java,azure-loganalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loganalytics/microsoft-azure-loganalytics,3,true,Replaced by: com.azure/azure-monitor-query,,4,false,0,
+Log Analytics,0,Log Analytics - Query,data,Java,azure-loganalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loganalytics/microsoft-azure-loganalytics,3,true,Replaced by: com.azure/azure-monitor-query,,4,false,0,
 Language Understanding,0,LUIS,data,Java,azure-cognitiveservices-language,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Language Understanding,0,LUIS Authoring,data,Java,azure-cognitiveservices-luis-authoring,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring,3,false,,,1,false,0,
 Language Understanding,0,LUIS Runtime,data,Java,azure-cognitiveservices-luis-runtime,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime,3,false,,,1,false,0,
@@ -1646,12 +1649,10 @@ Unable to determine Service Name,0,@azure/video-analyzer-widgets,UNABLE TO BE DE
 Unable to determine Service Name,0,@azure/video-indexer-widgets,UNABLE TO BE DETERMINED,JavaScript,@azure/video-indexer-widgets,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,@cadl-lang/migrate,UNABLE TO BE DETERMINED,JavaScript,@cadl-lang/migrate,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,adl-vscode,UNABLE TO BE DETERMINED,JavaScript,adl-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
-Application Insights,0,Application Insight Query,UNABLE TO BE DETERMINED,JavaScript,azure-applicationinsights-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/monitor-query,,4,false,0,
 Unable to determine Service Name,0,azure-arm-scheduler,UNABLE TO BE DETERMINED,JavaScript,azure-arm-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,0,
 Unable to determine Service Name,0,azure-common,UNABLE TO BE DETERMINED,JavaScript,azure-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-graph,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @microsoft/microsoft-graph-client,,4,false,0,
-Log Analytics,0,azure-loganalytics,UNABLE TO BE DETERMINED,JavaScript,azure-loganalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/monitor-query,,4,false,0,
-Monitor,0,azure-monitoring,UNABLE TO BE DETERMINED,JavaScript,azure-monitoring,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,0,
+Resource Management - Monitor,0,azure-monitoring,UNABLE TO BE DETERMINED,JavaScript,azure-monitoring,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,0,
 Unable to determine Service Name,0,azure-scheduler,UNABLE TO BE DETERMINED,JavaScript,azure-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,0,
 Unable to determine Service Name,0,azure-servicefabric,UNABLE TO BE DETERMINED,JavaScript,azure-servicefabric,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/servicefabric,,4,false,0,
 Unable to determine Service Name,0,cadl-msbuild-target,UNABLE TO BE DETERMINED,JavaScript,cadl-msbuild-target,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -2014,12 +2015,12 @@ IoT Hub,0,IoT Hub,data,Python,azure-iot-hub,https://github.com/Azure/azure-sdk-f
 Key Vault,0,Key Vault,data,Python,azure-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,,,1,false,0,
 Data Explorer,0,Kusto Data,data,Python,azure-kusto-data,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Language Understanding (LUIS),data,Python,azure-cognitiveservices-language-luis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,,,1,false,0,
-Log Analytics,0,Log Analytics,data,Python,azure-loganalytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-loganalytics_0.1.0/azure-loganalytics/,3,true,Replaced by: azure-monitor-query,,4,false,0,
-Monitor,0,Monitor,data,Python,azure-monitor,https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor_0.3.1/azure-monitor/,3,false,,,1,false,0,
+Log Analytics,0,Log Analytics - Query,data,Python,azure-loganalytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-loganalytics_0.1.0/azure-loganalytics/,3,true,Replaced by: azure-monitor-query,,4,false,0,
 MsRest,0,MsRest,data,Python,msrest,https://github.com/Azure/msrest-for-python/tree/v0.6.18/msrest,3,false,,,1,false,0,
 MsRest,0,MsRest Azure,data,Python,msrestazure,https://github.com/Azure/msrestazure-for-python/tree/v0.6.4/msrestazure,3,false,,,1,false,0,
 News Search,0,News Search,data,Python,azure-cognitiveservices-search-newssearch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,10,false,,,1,false,0,
 QnA Maker,0,QnA Maker,data,Python,azure-cognitiveservices-knowledge-qnamaker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,,,1,false,0,
+Monitor,0,Resource Management - Monitor,data,Python,azure-monitor,https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor_0.3.1/azure-monitor/,3,true,Replaced by: azure-mgmt-monitor,,4,false,0,
 Service Fabric,0,Service Fabric,data,Python,azure-servicefabric,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicefabric,10,false,,,1,false,0,
 Speech,0,Speech,data,Python,azure-cognitiveservices-speech,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Spell Check,0,Spell Check,data,Python,azure-cognitiveservices-language-spellcheck,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,10,false,,,1,false,0,
