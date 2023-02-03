@@ -10,6 +10,10 @@
             "Azure Blob Storage Checkpoint Store AIO":{
                 "Plane": "data",
                 "Languages":[".NET","Go", "Java", "JavaScript"]
+            },
+            "Event Hubs - Event Processor":{
+                "Plane": "data",
+                "Languages":["Python","Go", "Java", "JavaScript"]
             }
         }
     },
@@ -20,6 +24,22 @@
             "Event Hubs - Service Fabric Processor":{
                 "Plane": "data",
                 "Languages": [".NET"]
+            },
+            "Event Hubs - Extensions":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Reactive":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Databricks":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Spark":{
+                "Plane": "data",
+                "Languages": ["Java"]
             }
         }
     },
@@ -38,13 +58,23 @@
         }
     },
     {
-      "Exception":"API Spec does not map to one set of Libraries",
-      "Service":"Key Vault",
-      "SDKs":{
-          "Key Vault":{
-              "Plane": "data",
-              "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
-          }
-      }
-  }
+        "Exception":"API Spec does not map to one set of Libraries",
+        "Service":"Key Vault",
+        "SDKs":{
+            "Key Vault":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Service Bus",
+        "SDKs":{
+            "Service Bus - Message ID plugin":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            }
+        }
+    }
 ]
