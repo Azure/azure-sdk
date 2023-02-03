@@ -197,4 +197,48 @@ entries:
     #### Bugs Fixed
 
     - Fixed deflate decompression for aiohttp   #28483
+- Name: azure-storage-file-share
+  Version: 12.11.0b1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.11.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where keyword `name_starts_with` was not being passed to the service properly for the `list_shares` async API
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added support for file and directory paths that contain invalid XML characters. When listing or fetching properties,
+    the service will encode illegal characters and the SDK will now automatically decode them.
+    - Added support for `AsyncIterable` as data type for async file upload.
+- Name: azure-storage-queue
+  Version: 12.6.0b1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.6.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Removed `msrest` dependency.
+    - Added `typing-extensions>=4.0.1` as a dependency.
+    - Added `isodate>=0.6.1` as a dependency.
+    - Added extra dependency `aio` for installing optional async dependencies. Use `pip install azure-storage-queue[aio]` to install.
+- Name: azure-storage-blob
+  Version: 12.15.0b1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.15.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed how async streams are detected on async `upload_blob` to increase compatiblity with different types.
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added support for new blob tier, `Cold`.
+    - Added support for `AsyncIterable` as data type for async blob upload.
 
