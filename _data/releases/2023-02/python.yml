@@ -186,4 +186,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-msi_7.0.0/sdk/resources/azure-mgmt-msi/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.26.3
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.26.3/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed deflate decompression for aiohttp   #28483
 
