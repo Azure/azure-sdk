@@ -276,4 +276,15 @@ entries:
     #### Features Added
 
     - Add basic types from cadl azure core.
+- Name: '@azure/core-client'
+  Version: 1.7.1
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.7.1/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Only deserialize headers that are mapped in OperationSpec when using a header mapper. Previously core-client would include all header values when deserializing, leading to result objects having unintended extra metadata.
 
