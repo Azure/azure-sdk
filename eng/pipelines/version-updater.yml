@@ -1,5 +1,5 @@
 pool:
-  vmImage: 'windows-2022'
+  vmImage: "windows-2022"
 
 resources:
   repositories:
@@ -55,6 +55,20 @@ steps:
   displayName: Setup default branch
   workingDirectory: $(AzureSDKClonePath)
 
+- pwsh: |
+    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
+  displayName: Clone azure-rest-api-specs repo
+
+- bash: |
+    npm install
+  workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
+  displayName: Installing Inventory Dashboard Data Scripts Dependencies
+
+- bash: |
+    npm run start
+  workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
+  displayName: Run Inventory Dashboard Data Scripts
+
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
     BaseBranchName: $(DefaultBranch)
@@ -65,7 +79,15 @@ steps:
     PushArgs: -f
     WorkingDirectory: $(AzureSDKClonePath)
     ScriptDirectory: $(AzureSDKToolsScriptsPath)
-    PRLabels: 'auto-merge'
+
+- pwsh: |
+    . ./eng/scripts/Github-Helpers.ps1
+    EnableAutoMergeForPullRequest -pullRequestNumber $(Submitted.PullRequest.Number)
+  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+  displayName: Apply AutoMerge to Pull Request
+  workingDirectory: $(AzureSDKClonePath)
+  env:
+    GH_TOKEN: $(azuresdk-github-pat)
 
 - template: template/steps/generate-releasenotes.yml
 
