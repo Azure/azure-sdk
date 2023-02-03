@@ -357,7 +357,7 @@ function RefreshItems()
         $today = [DateTime](Get-Date -Format "MM/dd/yyyy")
         foreach ($pkgVersionValue in $pkgVersionValues) {
           $ver, $date = $pkgVersionValue.Split(",")
-          if (($date -as [DateTime]) -gt $today) {
+          if (($date -as [DateTime]) -ge $today) {
             $pkgPlannedVersions[$ver] = New-Object PSObject -Property @{
               Version = $ver
               Date = ([DateTime]$date).Tostring("MM/dd/yyyy")
