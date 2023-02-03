@@ -1,0 +1,40 @@
+[
+    {
+        "Exception":"Library not needed in language",
+        "Service":"Event Hubs",
+        "SDKs":{
+            "Azure Blob Storage Checkpoint Store":{
+                "Plane": "data",
+                "Languages":["Go", ".NET"]
+            },
+            "Azure Blob Storage Checkpoint Store AIO":{
+                "Plane": "data",
+                "Languages":[".NET","Go", "Java", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Event Hubs",
+        "SDKs":{
+            "Event Hubs - Service Fabric Processor":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"Identity",
+        "SDKs":{
+            "Token Cache Persistence Plugin":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python"]
+            },
+            "VS Code Authentication Plugin":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python"]
+            }
+        }
+    }
+]
