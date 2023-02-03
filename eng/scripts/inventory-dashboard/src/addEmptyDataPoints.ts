@@ -90,7 +90,7 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       // check if stable spec exists
       const planeSpecDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir));
       const filteredPlaneSpecDirContents = planeSpecDirContents.filter(s => s.startsWith('Microsoft.'));
-      if (filteredPlaneSpecDirContents.length <= 0) { log.warn(`${serviceSpecDir}/${planeSpecDir} has now dir that starts with "Microsoft."`); }
+      if (filteredPlaneSpecDirContents.length <= 0) { log.warn(`${serviceSpecDir}/${planeSpecDir} has no dir that starts with "Microsoft."`); }
       else {
         const microsoftDir = filteredPlaneSpecDirContents[0];
         const microsoftDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir, microsoftDir));
