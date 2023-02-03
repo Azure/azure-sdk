@@ -241,4 +241,20 @@ entries:
     - Added support for service version 2021-12-02.
     - Added support for new blob tier, `Cold`.
     - Added support for `AsyncIterable` as data type for async blob upload.
+- Name: azure-storage-file-datalake
+  Version: 12.10.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.10.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `rename_file` and `rename_directory` would not work correctly if the new file/directory name
+    contained a `?` character.
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added ability to perform leasing actions on file append and flush. See new keyword `lease_action` for details.
+    - Added support for `AsyncIterable` as data type for async file upload.
 
