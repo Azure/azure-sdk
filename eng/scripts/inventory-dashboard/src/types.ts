@@ -12,7 +12,7 @@ export type Item = {
   _links: any;
 };
 export type Language =
-  | ".NET"
+  ".NET"
   | "Java"
   | "JavaScript"
   | "Python"
@@ -22,6 +22,18 @@ export type Language =
   | "C++"
   | "iOS"
   | "UNABLE TO DETERMINE LANGUAGE";
+export function isLanguage(str: string): str is Language {
+  return (str === ".NET"
+    || str === "Java"
+    || str === "JavaScript"
+    || str === "Python"
+    || str === "Go"
+    || str === "Android"
+    || str === "C"
+    || str === "C++"
+    || str === "iOS"
+    || str === "UNABLE TO DETERMINE LANGUAGE");
+}
 export const Tier1Languages: Language[] = [
   ".NET",
   "Java",

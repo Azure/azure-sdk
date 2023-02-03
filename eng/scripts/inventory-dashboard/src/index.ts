@@ -18,10 +18,10 @@ async function main() {
   let formattedCSVData = formatReleaseCSVData(csvData);
   // Add empty data points, ex: if data plane SDK is missing.
   formattedCSVData = await addEmptyDataPoints(formattedCSVData);
-  // Add exception handling
-  formattedCSVData = exceptionHandler(formattedCSVData);
   // Add color code and completeness percent
   formattedCSVData = addDashboardMetaData(formattedCSVData);
+  // Add exception handling
+  formattedCSVData = exceptionHandler(formattedCSVData);
   // Turn package map into a package array
   const formattedPackageArr = [];
   for (let pkgKey in formattedCSVData) {
