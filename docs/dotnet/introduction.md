@@ -1091,7 +1091,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 * `Microsoft.BCL.AsyncInterfaces`.
 * packages produced by your own team.
 
-In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
+In the past, [JSON.NET](https://www.newtonsoft.com/json), aka Newtonsoft.Json, was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
 package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
