@@ -9,7 +9,7 @@ Core Jackson,0,Core Jackson,data,Android,,,11,false,azure-core-jackson,https://g
 Core Logging,0,Core Logging,data,Android,,,11,false,azure-core-logging,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core,3,false,0,
 Core REST,0,Core REST,data,Android,,,11,false,azure-core-rest,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core,3,false,0,
 Core Test,0,Core Test,data,Android,,,11,false,azure-core-test,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core,3,false,0,
-Unable to determine Service Name,0,applicationinsights-android,UNABLE TO BE DETERMINED,Android,applicationinsights-android,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/NA,3,false,,,1,false,0,
+Application Insights,0,applicationinsights-android,UNABLE TO BE DETERMINED,Android,applicationinsights-android,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-communication-ui,UNABLE TO BE DETERMINED,Android,azure-communication-ui,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-communication-ui-calling,UNABLE TO BE DETERMINED,Android,azure-communication-ui-calling,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,azure-communication-ui-chat,UNABLE TO BE DETERMINED,Android,azure-communication-ui-chat,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -114,7 +114,7 @@ App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt
 App Configuration,0,Resource Management - App Configuration,mgmt,.NET,,,11,false,Azure.ResourceManager.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,08/29/2022
 App Platform,0,Resource Management - App Platform,mgmt,.NET,,,11,false,Azure.ResourceManager.AppPlatform,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appplatform,10,false,1,12/24/2022
 App Service,0,Resource Management - App Service,mgmt,.NET,,,11,false,Azure.ResourceManager.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/websites,10,false,1,09/30/2022
-Application Insights,0,Resource Management - Application Insights,mgmt,.NET,,,11,false,Azure.ResourceManager.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,false,0,
+Application Insights,0,Resource Management - Application Insights,mgmt,.NET,Microsoft.Azure.Management.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,true,Azure.ResourceManager.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,false,0,
 Arc ScVmm,0,Resource Management - Arc ScVmm,mgmt,.NET,,,11,false,Azure.ResourceManager.ArcScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/arc-scvmm,3,false,0,
 Attestation,0,Resource Management - Attestation,mgmt,.NET,Microsoft.Azure.Management.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,1,false,Azure.ResourceManager.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,3,false,0,
 Authorization,0,Resource Management - Authorization,mgmt,.NET,Microsoft.Azure.Management.Authorization,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/authorization,3,true,Azure.ResourceManager.Authorization,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/authorization,10,false,1,09/05/2022
@@ -210,7 +210,7 @@ Network,0,Resource Management - Network,mgmt,.NET,,,11,false,Azure.ResourceManag
 Network Function,0,Resource Management - Network Function,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkFunction,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkfunction,3,false,0,
 Nginx,0,Resource Management - Nginx,mgmt,.NET,,,11,false,Azure.ResourceManager.Nginx,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/nginx,3,false,0,
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs/Microsoft.Azure.Management.NotificationHubs,3,true,Azure.ResourceManager.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs,10,false,1,09/05/2022
-Operational Insights,0,Resource Management - Operational Insights,mgmt,.NET,,,11,false,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,11/29/2022
+Log Analytics,0,Resource Management - Operational Insights,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,true,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,11/29/2022
 Orbital,0,Resource Management - Orbital,mgmt,.NET,,,11,false,Azure.ResourceManager.Orbital,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/orbital,10,false,1,09/29/2022
 Peering,0,Resource Management - Peering,mgmt,.NET,,,11,false,Azure.ResourceManager.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,false,1,12/14/2022
 Policy Insights,0,Resource Management - Policy Insights,mgmt,.NET,Microsoft.Azure.Management.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,1,false,Azure.ResourceManager.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,false,0.5,09/30/2022
@@ -379,7 +379,7 @@ Cosmos DB,0,Document DB,data,.NET,Microsoft.Azure.DocumentDB,https://github.com/
 Cosmos DB,0,Document DB - Change Feed Processor,data,.NET,Microsoft.Azure.DocumentDB.ChangeFeedProcessor,https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet/tree/master,10,true,Replaced by: Microsoft.Azure.Cosmos,,4,false,0,
 Cosmos DB,0,Document DB - Core,data,.NET,Microsoft.Azure.DocumentDB.Core,https://github.com/Azure/azure-cosmos-dotnet-v2,10,true,Replaced by: Microsoft.Azure.Cosmos,,4,false,0,
 Entity Search,0,Entity Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.EntitySearch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Event Hubs,0,Event Hubs - Service Fabric Processor,data,.NET,Microsoft.Azure.EventHubs.ServiceFabricProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,1,false,Exception: Track 2 Replacement Not Needed,,10,false,0.5,
+Event Hubs,0,Event Hubs - Service Fabric Processor,data,.NET,Microsoft.Azure.EventHubs.ServiceFabricProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,3,false,Exception: Track 2 library not needed,,10,false,0,
 Cosmos DB,0,Extensions - Caching Cosmos,data,.NET,Microsoft.Extensions.Caching.Cosmos,https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/tree/v1.0.0-preview4,10,false,,,1,false,0,
 Face,0,Face,data,.NET,Microsoft.Azure.CognitiveServices.Vision.Face,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.Face_2.6.0-preview.1/sdk/cognitiveservices/Vision.Face,3,false,,,1,false,0,
 Functions,0,Functions - Extensions,data,.NET,Microsoft.Azure.Functions.Extensions,https://github.com/Azure/azure-functions-dotnet-extensions,10,false,,,1,false,0,
@@ -420,8 +420,8 @@ Insights,0,Insights,data,.NET,Microsoft.Azure.Insights,https://github.com/Azure/
 Functions,0,Jobs,data,.NET,Microsoft.Azure.Jobs,https://github.com/Azure/azure-webjobs-sdk,3,true,Replaced by: Microsoft.Azure.WebJobs,,4,false,0,
 Functions,0,Jobs - Core,data,.NET,Microsoft.Azure.Jobs.Core,https://github.com/Azure/azure-webjobs-sdk,3,true,Replaced by: Microsoft.Azure.WebJobs.Core,,4,false,0,
 Functions,0,Jobs - Service Bus,data,.NET,Microsoft.Azure.Jobs.ServiceBus,https://github.com/Azure/azure-webjobs-sdk,3,true,Replaced by: Microsoft.Azure.WebJobs.Extensions.ServiceBus,,4,false,0,
-Key Vault,0,Key Vault,data,.NET,Microsoft.Azure.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,"Replaced by: Azure.Security.KeyVault.Certificates,Azure.Security.KeyVault.Keys,Azure.Security.KeyVault.Secrets",,4,false,0,
-Key Vault,0,Key Vault - Core,data,.NET,Microsoft.Azure.KeyVault.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,1,false,"Replaced by: Azure.Security.KeyVault.Keys, Azure.Security.KeyVault.Secrets, Azure.Security.KeyVault.Certificates",,4,false,0,
+Key Vault,0,Key Vault,data,.NET,Microsoft.Azure.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Exception: API Spec does not map to one set of Libraries,,10,false,0,
+Key Vault,0,Key Vault - Core,data,.NET,Microsoft.Azure.KeyVault.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,"Replaced by: Azure.Security.KeyVault.Keys, Azure.Security.KeyVault.Secrets, Azure.Security.KeyVault.Certificates",,4,false,0,
 Key Vault,0,Key Vault - Cryptography,data,.NET,Microsoft.Azure.KeyVault.Cryptography,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Replaced by: Azure.Security.KeyVault.Keys,,4,false,0,
 Key Vault,0,Key Vault - Extensions,data,.NET,Microsoft.Azure.KeyVault.Extensions,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,"Replaced by: Azure.Security.KeyVault.Certificates,Azure.Security.KeyVault.Keys,Azure.Security.KeyVault.Secrets",,4,false,0,
 Key Vault,0,Key Vault - WebKey,data,.NET,Microsoft.Azure.KeyVault.WebKey,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Replaced by: Azure.Security.KeyVault.Keys,,4,false,0,
@@ -536,7 +536,6 @@ Stack,0,AzureStack Management - Update Admin,mgmt,.NET,Microsoft.AzureStack.Mana
 Analysis Services,0,Resource Management - Analysis Services,mgmt,.NET,Microsoft.Azure.Management.Analysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Analysis Services,0,Resource Management - Analysis Services Fluent,mgmt,.NET,Microsoft.Azure.Management.AnalysisServices.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,Resource Management - App Service Fluent,mgmt,.NET,Microsoft.Azure.Management.AppService.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Monitor,0,Resource Management - Application Insights,mgmt,.NET,Microsoft.Azure.Management.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,false,,,1,false,0,
 Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,.NET,Microsoft.Azure.Management.AzureStackHCI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestackhci,1,false,Replaced by: Azure.ResourceManager.Hci,,4,false,0,
 VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,.NET,Microsoft.Azure.Management.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,true,Replaced by: Azure.ResourceManager.Avs,,4,false,0,
 Backup,0,Resource Management - Backup Services,mgmt,.NET,Microsoft.Azure.Management.BackupServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -582,12 +581,11 @@ Management Groups,0,Resource Management - Management Groups,mgmt,.NET,Microsoft.
 Media Services,0,Resource Management - Media Services,mgmt,.NET,Microsoft.Azure.Management.Media,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mediaservices,10,true,Replaced by: Azure.ResourceManager.Media,,4,false,0,
 Resource Mover,0,Resource Management - Migrate Resource Mover,mgmt,.NET,Microsoft.Azure.Management.Migrate.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,.NET,Microsoft.Azure.Management.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,,,1,false,0,
-Monitor,0,Resource Management - Monitor Fluent,mgmt,.NET,Microsoft.Azure.Management.Monitor.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
+Monitor,0,Resource Management - Monitor Fluent,mgmt,.NET,Microsoft.Azure.Management.Monitor.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
 NetApp Files,0,Resource Management - NetApp,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,,,1,false,0,
 Virtual Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Replaced by: Azure.ResourceManager.Network,,4,false,0,
 Virtual Network,0,Resource Management - Network Fluent,mgmt,.NET,Microsoft.Azure.Management.Network.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Notification Hubs,0,Resource Management - Notification Hubs Fluent,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.NotificationHubs,,4,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,false,,,1,false,0,
 Peering Service,0,Resource Management - Peering,mgmt,.NET,Microsoft.Azure.Management.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,false,,,1,false,0,
 Power BI Embedded,0,Resource Management - Power BI Embedded,mgmt,.NET,Microsoft.Azure.Management.PowerBIEmbedded,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Private DNS,0,Resource Management - Private DNS Fluent,mgmt,.NET,Microsoft.Azure.Management.PrivateDns.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -626,7 +624,7 @@ ExpressRoute,0,WindowsAzure Management - ExpressRoute,mgmt,.NET,Microsoft.Window
 HDInsight,0,WindowsAzure Management - HDInsight,mgmt,.NET,Microsoft.WindowsAzure.Management.HDInsight,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Azure.ResourceManager.HDInsight,,4,false,0,
 Libraries,0,WindowsAzure Management - Libraries,mgmt,.NET,Microsoft.WindowsAzure.Management.Libraries,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
 Media Services,0,WindowsAzure Management - Media Services,mgmt,.NET,Microsoft.WindowsAzure.Management.MediaServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
-Monitor,0,WindowsAzure Management - Monitoring,mgmt,.NET,Microsoft.WindowsAzure.Management.Monitoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
+Monitor,0,WindowsAzure Management - Monitoring,mgmt,.NET,Microsoft.WindowsAzure.Management.Monitoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Azure.ResourceManager.Monitor,,4,false,0,
 Virtual Network,0,WindowsAzure Management - Network,mgmt,.NET,Microsoft.WindowsAzure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Azure.ResourceManager.Network,,4,false,0,
 RemoteApp,0,WindowsAzure Management - Remote App,mgmt,.NET,Microsoft.WindowsAzure.Management.RemoteApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
 Scheduler,0,WindowsAzure Management - Scheduler,mgmt,.NET,Microsoft.WindowsAzure.Management.Scheduler,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,,,1,false,0,
@@ -871,6 +869,10 @@ AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,09/13/2022
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/21/2022
+Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,0,
+Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,0,
+Identity,0,Token-as-password Authentication Core Library,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,0,
+Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,01/11/2023
 Anomaly Detector,0,Anomaly Detector,data,Java,,,11,false,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/anomalydetector,3,false,0,
 App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,01/17/2023
 Attestation,0,Attestation,data,Java,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/attestation,10,false,1,01/09/2023
@@ -904,7 +906,7 @@ Event Grid,0,Event Grid,data,Java,azure-eventgrid,https://github.com/Azure/azure
 Event Hubs,0,Event Hubs,data,Java,azure-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs,1,false,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,0.5,01/19/2023
 FarmBeats,0,FarmBeats,data,Java,,,11,false,azure-verticals-agrifood-farming,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/farmbeats,3,false,0,
 Form Recognizer,0,Form Recognizer,data,Java,,,11,false,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer,10,false,1,01/09/2023
-Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,01/06/2023
+Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,02/03/2023
 IoT Device Update,0,IoT Device Update,data,Java,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/deviceupdate,10,false,1,01/18/2023
 Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,01/09/2023
 Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,1,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,0.5,01/09/2023
@@ -1119,10 +1121,6 @@ Functions,0,azure-functions-java-core-library,UNABLE TO BE DETERMINED,Java,azure
 Functions,0,azure-functions-java-library-sql,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Functions,0,azure-functions-java-spi,UNABLE TO BE DETERMINED,Java,azure-functions-java-spi,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,azure-gradle-plugins-common,UNABLE TO BE DETERMINED,Java,azure-gradle-plugins-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Identity,0,azure-identity-extensions,UNABLE TO BE DETERMINED,Java,azure-identity-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Identity,0,azure-identity-providers-core,UNABLE TO BE DETERMINED,Java,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Identity,0,azure-identity-providers-jdbc-mysql,UNABLE TO BE DETERMINED,Java,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Identity,0,azure-identity-providers-jdbc-postgresql,UNABLE TO BE DETERMINED,Java,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-json,UNABLE TO BE DETERMINED,Java,azure-json,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-json-gson,UNABLE TO BE DETERMINED,Java,azure-json-gson,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-json-reflect,UNABLE TO BE DETERMINED,Java,azure-json-reflect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1374,7 +1372,6 @@ Redis,0,Session Management - Datastore Azure Cache For Redis,mgmt,Java,sessionma
 Tomcat,0,Session Management - Tomcat,mgmt,Java,sessionmanager-tomcat,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 SVC Management,0,SVC Management,mgmt,Java,azure-svc-mgmt,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Synapse Analytics,0,AccessControl,data,JavaScript,,,11,false,@azure/synapse-access-control,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,0,
-Key Vault,0,Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
 Anomaly Detector,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-anomalydetector,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,false,0,
 App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,12/14/2021
 Synapse Analytics,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,0,
@@ -1384,7 +1381,6 @@ Mixed Reality,0,Azure Mixed Reality Authentication,data,JavaScript,,,11,false,@a
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,0,
 Storage,0,Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,10/14/2022
 Storage,0,Blobs ChangeFeed,data,JavaScript,,,11,false,@azure/storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,3,false,0,
-Key Vault,0,Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,09/19/2022
 Search,0,Cognitive Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,11/18/2022
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,3,false,0,
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,10/13/2022
@@ -1409,7 +1405,9 @@ Storage,0,Files Shares,data,JavaScript,@azure/storage-file,https://github.com/Az
 Form Recognizer,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-formrecognizer,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,09/08/2022
 Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,01/13/2023
 IoT Device Update,0,IoT Device Update,data,JavaScript,,,11,false,@azure-rest/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/deviceupdate/iot-device-update-rest/,10,false,1,09/09/2022
-Key Vault,0,Keys,data,JavaScript,,,11,false,@azure/keyvault-keys,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
+Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
+Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,09/19/2022
+Key Vault,0,Key Vault - Keys,data,JavaScript,,,11,false,@azure/keyvault-keys,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
 Cognitive Service For Language,0,Language Text,data,JavaScript,,,11,false,@azure/ai-language-text,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage,10,false,1,
 Load Testing,0,Load Testing,data,JavaScript,,,11,false,@azure-rest/load-testing,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/loadtestservice/load-testing-rest/,3,false,0,
 Synapse Analytics,0,Managed Private Endpoints,data,JavaScript,,,11,false,@azure/synapse-managed-private-endpoints,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,0,
@@ -1653,7 +1651,6 @@ Unable to determine Service Name,0,adl-vscode,UNABLE TO BE DETERMINED,JavaScript
 Unable to determine Service Name,0,azure-arm-scheduler,UNABLE TO BE DETERMINED,JavaScript,azure-arm-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,0,
 Unable to determine Service Name,0,azure-common,UNABLE TO BE DETERMINED,JavaScript,azure-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,azure-graph,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @microsoft/microsoft-graph-client,,4,false,0,
-Resource Management - Monitor,0,azure-monitoring,UNABLE TO BE DETERMINED,JavaScript,azure-monitoring,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,0,
 Unable to determine Service Name,0,azure-scheduler,UNABLE TO BE DETERMINED,JavaScript,azure-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,0,
 Unable to determine Service Name,0,azure-servicefabric,UNABLE TO BE DETERMINED,JavaScript,azure-servicefabric,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/servicefabric,,4,false,0,
 Unable to determine Service Name,0,cadl-msbuild-target,UNABLE TO BE DETERMINED,JavaScript,cadl-msbuild-target,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1709,7 +1706,7 @@ IoT Hub Device Provisioning,0,IoT Provisioning Service,data,JavaScript,azure-iot
 IoT,0,IoT Security Symmetric Key,data,JavaScript,azure-iot-security-symmetric-key,https://github.com/Azure/azure-iot-sdk-node/tree/master/security/symmetric,10,false,,,1,false,0,
 IoT,0,IoT Security TPM,data,JavaScript,azure-iot-security-tpm,https://github.com/Azure/azure-iot-sdk-node/tree/master/security/tpm,10,false,,,1,false,0,
 IoT,0,IoT Security X509,data,JavaScript,azure-iot-security-x509,https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509,10,false,,,1,false,0,
-Key Vault,0,Key Vault,data,JavaScript,azure-keyvault,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/keyvault-keys,,4,false,0,
+Key Vault,0,Key Vault,data,JavaScript,azure-keyvault,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Exception: API Spec does not map to one set of Libraries,,10,false,0,
 Local Search,0,Local Search,data,JavaScript,@azure/cognitiveservices-localsearch,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-localsearch,10,false,,,1,false,0,
 Log Analytics,0,Log Analytics - Query,data,JavaScript,@azure/loganalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/loganalytics,3,true,Replaced by: @azure/monitor-query,,4,false,0,
 Logger,0,Logger JS,data,JavaScript,@azure/logger-js,https://github.com/Azure/logger-js,10,false,,,1,false,0,
@@ -1740,6 +1737,7 @@ Video Search,0,Video Search,data,JavaScript,@azure/cognitiveservices-videosearch
 Visual Search,0,Visual Search,data,JavaScript,@azure/cognitiveservices-visualsearch,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-visualsearch,1,false,Replaced by: @azure/cognitiveservices-visualsearch,,4,false,0,
 Web Search,0,Web Search,data,JavaScript,@azure/cognitiveservices-websearch,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-websearch,1,false,Replaced by: @azure/cognitiveservices-websearch,,4,false,0,
 Web PubSub,0,Web PubSub CloudEvents Handlers for Express,UNABLE TO BE DETERMINED,JavaScript,azure-web-pubsub-express,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
+Resource Management - Monitor,0,azure-monitoring,mgmt,JavaScript,azure-monitoring,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,0,
 Data Lake Storage Gen1,0,Data Lake Storage,mgmt,JavaScript,azure-arm-datalake-store,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 SQL,0,Resource Managament - SQL,mgmt,JavaScript,azure-arm-sql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/arm-sql,,4,false,0,
 App Service,0,Resource Management - App Services,mgmt,JavaScript,azure-arm-website,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/arm-appservice,,4,false,0,
@@ -1747,7 +1745,7 @@ Billing,0,Resource Management - Billing,mgmt,JavaScript,azure-arm-billing,https:
 Cosmos DB,0,Resource Management - Document DB,mgmt,JavaScript,azure-arm-documentdb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: azure-arm-cosmosdb,,4,false,0,
 Stack Edge,0,Resource Management - Edge Gateway,mgmt,JavaScript,@azure/arm-edgegateway,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
 HDInsight,0,Resource Management - HDInsight Job,mgmt,JavaScript,azure-arm-hdinsight-jobs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
-Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
+Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,0,
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,,,1,false,0,
 Virtual Network,0,Resource Management - Network,mgmt,JavaScript,azure-arm-network,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/arm-network,,4,false,0,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,0,
@@ -1755,7 +1753,6 @@ Redis,0,Resource Management - Redis,mgmt,JavaScript,azure-arm-rediscache,https:/
 Scheduler,0,Resource Management - Scheduler,mgmt,JavaScript,azure-arm-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Server Management,0,Resource Management - Service Management,mgmt,JavaScript,azure-arm-servermanagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
 Virtual Network,0,Resource Management - Virtual Network,mgmt,JavaScript,azure-asm-network,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @azure/arm-network,,4,false,0,
-Key Vault,0,Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Anomaly Detector,0,Anomaly Detector,data,Python,azure-cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector,3,false,0,
 App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,11/10/2021
 App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,3,false,0,
@@ -1767,7 +1764,6 @@ Mixed Reality,0,Azure Mixed Reality Authentication,data,Python,,,11,false,azure-
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,0,
 Storage,0,Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
 Storage,0,Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,0,
-Key Vault,0,Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,09/19/2022
 Search,0,Cognitive Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/14/2021
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,3,false,0,
@@ -1790,7 +1786,9 @@ Storage,0,Files Shares,data,Python,azure-storage-file,https://github.com/Azure/a
 Form Recognizer,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,09/08/2022
 Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,
 IoT Device Update,0,IoT Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
-Key Vault,0,Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
+Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
+Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,09/19/2022
+Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Load Testing,0,Load Testing,data,Python,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/loadtestservice,3,false,0,
 Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,0.5,01/19/2023
 Synapse Analytics,0,Managed Private Endpoints,data,Python,,,11,false,azure-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,0,
@@ -2015,7 +2013,7 @@ Image Search,0,Image Search,data,Python,azure-cognitiveservices-search-imagesear
 Ink Recognizer,0,Ink Recognizer,data,Python,azure-cognitiveservices-inkrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,,,1,false,0,
 IoT Plug and Play,0,IoT Device,data,Python,azure-iot-device,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT Hub,0,IoT Hub,data,Python,azure-iot-hub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
-Key Vault,0,Key Vault,data,Python,azure-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,,,1,false,0,
+Key Vault,0,Key Vault,data,Python,azure-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,Exception: API Spec does not map to one set of Libraries,,10,false,0,
 Data Explorer,0,Kusto Data,data,Python,azure-kusto-data,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Language Understanding (LUIS),data,Python,azure-cognitiveservices-language-luis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,,,1,false,0,
 Log Analytics,0,Log Analytics - Query,data,Python,azure-loganalytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-loganalytics_0.1.0/azure-loganalytics/,3,true,Replaced by: azure-monitor-query,,4,false,0,
@@ -2094,13 +2092,7 @@ Extensions,0,Key Encryptor for .NET Data Protection,data,Java,,,11,false,Missing
 Extensions,0,Key Encryptor for .NET Data Protection,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Extensions.AspNetCore.DataProtection.Keys,,2,false,0,
 Extensions,0,Key Encryptor for .NET Data Protection,data,Python,,,11,false,Missing: Created from existing package: Azure.Extensions.AspNetCore.DataProtection.Keys,,2,false,0,
 Extensions,0,Key Encryptor for .NET Data Protection,data,Go,,,11,false,Missing: Created from existing package: Azure.Extensions.AspNetCore.DataProtection.Keys,,2,false,0,
-Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Administration,,2,false,0,
-Key Vault,0,Key Vault - Administration,data,Python,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Administration,,2,false,0,
 Key Vault,0,Key Vault - Administration,data,Go,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Administration,,2,false,0,
-Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Certificates,,2,false,0,
-Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Certificates,,2,false,0,
-Key Vault,0,Key Vault - Keys,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Keys,,2,false,0,
-Key Vault,0,Key Vault - Keys,data,Python,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Keys,,2,false,0,
 Key Vault,0,Key Vault - Secrets,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Secrets,,2,false,0,
 Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Secrets,,2,false,0,
 Metrics Advisor,0,Metrics Advisor,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.MetricsAdvisor,,2,false,0,
@@ -2187,8 +2179,10 @@ NetApp,0,Resource Management - Net App,mgmt,Python,,,11,false,Missing: Created f
 NetApp,0,Resource Management - Net App,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.NetApp,,2,false,0,
 Network,0,Resource Management - Network,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Network,,2,false,0,
 Network,0,Resource Management - Network,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Network,,2,false,0,
-Operational Insights,0,Resource Management - Operational Insights,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
-Operational Insights,0,Resource Management - Operational Insights,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
+Log Analytics,0,Resource Management - Operational Insights,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
+Log Analytics,0,Resource Management - Operational Insights,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
+Log Analytics,0,Resource Management - Operational Insights,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
+Log Analytics,0,Resource Management - Operational Insights,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.PostgreSql,,2,false,0,
 Redis Enterprise,0,Resource Management - Redis Enterprise,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.RedisEnterprise,,2,false,0,
 Reservations,0,Resource Management - Reservations,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Reservations,,2,false,0,
@@ -2217,8 +2211,12 @@ Synapse,0,Resource Management - Synapse,mgmt,Java,,,11,false,Missing: Created fr
 Synapse,0,Resource Management - Synapse,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Synapse,,2,false,0,
 Synapse,0,Resource Management - Synapse,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Synapse,,2,false,0,
 Synapse,0,Resource Management - Synapse,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Synapse,,2,false,0,
-Event Hubs,0,Azure Blob Storage Checkpoint Store,data,.NET,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Go,,,11,false,Exception: Not Needed for Language,,10,false,1,
+Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,.NET,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
+Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,JavaScript,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
+Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
+Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Go,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
+Event Hubs,0,Azure Blob Storage Checkpoint Store,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,0,
+Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Go,,,11,false,Exception: Library not needed in language,,10,false,0,
 Cosmos DB,0,Cosmos DB Encryption,data,.NET,,,11,false,Missing: Created from existing package: azure-cosmos-encryption,,2,false,0,
 Cosmos DB,0,Cosmos DB Encryption,data,JavaScript,,,11,false,Missing: Created from existing package: azure-cosmos-encryption,,2,false,0,
 Cosmos DB,0,Cosmos DB Encryption,data,Python,,,11,false,Missing: Created from existing package: azure-cosmos-encryption,,2,false,0,
@@ -2268,18 +2266,9 @@ Device Provisioning Services,0,Resource Management - Device Provisioning Service
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
 Virtual Network,0,Resource Management - Network,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-network,,2,false,0,
 Resource Health,0,Resource Management - Resource Health,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-resourcehealth,,2,false,0,
-Key Vault,0,Administration,data,.NET,,,11,false,Missing: Created from existing package: @azure/keyvault-admin,,2,false,0,
-Key Vault,0,Administration,data,Java,,,11,false,Missing: Created from existing package: @azure/keyvault-admin,,2,false,0,
-Key Vault,0,Administration,data,Go,,,11,false,Missing: Created from existing package: @azure/keyvault-admin,,2,false,0,
-Key Vault,0,Certificates,data,.NET,,,11,false,Missing: Created from existing package: @azure/keyvault-certificates,,2,false,0,
-Key Vault,0,Certificates,data,Java,,,11,false,Missing: Created from existing package: @azure/keyvault-certificates,,2,false,0,
-Key Vault,0,Certificates,data,Go,,,11,false,Missing: Created from existing package: @azure/keyvault-certificates,,2,false,0,
 Storage,0,Files Shares,data,.NET,,,11,false,Missing: Created from existing package: @azure/storage-file-share,,2,false,0,
 Storage,0,Files Shares,data,Java,,,11,false,Missing: Created from existing package: @azure/storage-file-share,,2,false,0,
 Storage,0,Files Shares,data,Go,,,11,false,Missing: Created from existing package: @azure/storage-file-share,,2,false,0,
-Key Vault,0,Keys,data,.NET,,,11,false,Missing: Created from existing package: @azure/keyvault-keys,,2,false,0,
-Key Vault,0,Keys,data,Java,,,11,false,Missing: Created from existing package: @azure/keyvault-keys,,2,false,0,
-Key Vault,0,Keys,data,Go,,,11,false,Missing: Created from existing package: @azure/keyvault-keys,,2,false,0,
 Cognitive Service For Language,0,Language Text,data,.NET,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Service For Language,0,Language Text,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Service For Language,0,Language Text,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
@@ -2289,14 +2278,14 @@ Microsoft Authentication Library,0,MSAL,data,Go,,,11,false,Missing: Created from
 Key Vault,0,Secrets,data,.NET,,,11,false,Missing: Created from existing package: @azure/keyvault-secrets,,2,false,0,
 Key Vault,0,Secrets,data,Java,,,11,false,Missing: Created from existing package: @azure/keyvault-secrets,,2,false,0,
 Key Vault,0,Secrets,data,Go,,,11,false,Missing: Created from existing package: @azure/keyvault-secrets,,2,false,0,
-Identity,0,Token Cache Persistence Plugin,data,.NET,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,Token Cache Persistence Plugin,data,Java,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,Token Cache Persistence Plugin,data,Python,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,Token Cache Persistence Plugin,data,Go,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,VS Code Authentication Plugin,data,.NET,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,VS Code Authentication Plugin,data,Java,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,VS Code Authentication Plugin,data,Python,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Identity,0,VS Code Authentication Plugin,data,Go,,,11,false,Exception: Not Needed for Language,,10,false,1,
+Identity,0,Token Cache Persistence Plugin,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,Token Cache Persistence Plugin,data,Java,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,Token Cache Persistence Plugin,data,Python,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,Token Cache Persistence Plugin,data,Go,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,VS Code Authentication Plugin,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,VS Code Authentication Plugin,data,Java,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,VS Code Authentication Plugin,data,Python,,,11,false,Exception: Library not needed in language,,10,false,0,
+Identity,0,VS Code Authentication Plugin,data,Go,,,11,false,Exception: Library not needed in language,,10,false,0,
 Web PubSub,0,Web PubSub CloudEvents Handlers for Express,data,.NET,,,11,false,Missing: Created from existing package: @azure/web-pubsub-express,,2,false,0,
 Web PubSub,0,Web PubSub CloudEvents Handlers for Express,data,Java,,,11,false,Missing: Created from existing package: @azure/web-pubsub-express,,2,false,0,
 Web PubSub,0,Web PubSub CloudEvents Handlers for Express,data,Python,,,11,false,Missing: Created from existing package: @azure/web-pubsub-express,,2,false,0,
@@ -2383,6 +2372,9 @@ Mobile Network,0,Resource Management - Mobile Network,mgmt,.NET,,,11,false,Missi
 NetApp Files,0,Resource Management - NetApp,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-netapp,,2,false,0,
 NetApp Files,0,Resource Management - NetApp,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-netapp,,2,false,0,
 Network Function,0,Resource Management - Network Function,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-networkfunction,,2,false,0,
+Operational Insights,0,Resource Management - Operational Insights,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-operationalinsights,,2,false,0,
+Operational Insights,0,Resource Management - Operational Insights,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-operationalinsights,,2,false,0,
+Operational Insights,0,Resource Management - Operational Insights,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-operationalinsights,,2,false,0,
 Operations Management,0,Resource Management - Operations Management,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-operations,,2,false,0,
 Policy,0,Resource Management - Policy,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-policy,,2,false,0,
 Policy,0,Resource Management - Policy,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-policy,,2,false,0,
@@ -2432,10 +2424,10 @@ Machine Learning,0,Resource Management - Workspaces,mgmt,.NET,,,11,false,Missing
 Machine Learning,0,Resource Management - Workspaces,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
 Machine Learning,0,Resource Management - Workspaces,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
 Machine Learning,0,Resource Management - Workspaces,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
-Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,.NET,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Java,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,JavaScript,,,11,false,Exception: Not Needed for Language,,10,false,1,
-Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Go,,,11,false,Exception: Not Needed for Language,,10,false,1,
+Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,0,
+Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Java,,,11,false,Exception: Library not needed in language,,10,false,0,
+Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,0,
+Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Go,,,11,false,Exception: Library not needed in language,,10,false,0,
 Machine Learning,0,Machine Learning,data,.NET,,,11,false,Missing: Created from existing package: azure-ai-ml,,2,false,0,
 Machine Learning,0,Machine Learning,data,Java,,,11,false,Missing: Created from existing package: azure-ai-ml,,2,false,0,
 Machine Learning,0,Machine Learning,data,JavaScript,,,11,false,Missing: Created from existing package: azure-ai-ml,,2,false,0,
@@ -2581,8 +2573,8 @@ IoT Central,0,IoT Central,data,Java,,,11,false,Missing: Created from API in spec
 IoT Central,0,IoT Central,data,JavaScript,,,11,false,Missing: Created from API in specs repo: iotcentral,,2,false,0,
 IoT Central,0,IoT Central,data,Python,,,11,false,Missing: Created from API in specs repo: iotcentral,,2,false,0,
 IoT Central,0,IoT Central,data,Go,,,11,false,Missing: Created from API in specs repo: iotcentral,,2,false,0,
-Key Vault,0,Key Vault,data,Java,,,11,false,Missing: Created from API in specs repo: keyvault,,2,false,0,
-Key Vault,0,Key Vault,data,Go,,,11,false,Missing: Created from API in specs repo: keyvault,,2,false,0,
+Key Vault,0,Key Vault,data,Java,,,11,false,Exception: API Spec does not map to one set of Libraries,,10,false,0,
+Key Vault,0,Key Vault,data,Go,,,11,false,Exception: API Spec does not map to one set of Libraries,,10,false,0,
 Load Test,0,Load Test,data,.NET,,,11,false,Missing: Created from API in specs repo: loadtestservice,,2,false,0,
 Load Test,0,Load Test,data,Java,,,11,false,Missing: Created from API in specs repo: loadtestservice,,2,false,0,
 Load Test,0,Load Test,data,JavaScript,,,11,false,Missing: Created from API in specs repo: loadtestservice,,2,false,0,
