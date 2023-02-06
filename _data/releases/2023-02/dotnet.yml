@@ -163,4 +163,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.1.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub.Client
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub Client
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Client_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix AutoRejoinGroups doesn't work issue
+- Name: Azure.Core
+  Version: 1.28.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.28.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue with `AzureSasCredential` which resulted in messages to fail authentication if the SAS signature was updated while a message was in a retry cycle.
 
