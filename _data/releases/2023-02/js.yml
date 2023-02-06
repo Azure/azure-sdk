@@ -506,4 +506,17 @@ entries:
     #### Features Added
 
     - Add support for `x-ms-text` [PR# 23631](https://github.com/Azure/azure-sdk-for-js/pull/23631)
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.0-beta.2/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - To keep the naming consistency, change interface name `OnRestoreGroupFailedArgs` to `OnRejoinGroupFailedArgs`, and change config name `WebPubSubClientOptions.autoRestoreGroups` to `WebPubSubClientOptions.autoRejoinGroups`
+
+    #### Bugs Fixed
+    - Fix AutoRejoinGroups doesn't work issue
 
