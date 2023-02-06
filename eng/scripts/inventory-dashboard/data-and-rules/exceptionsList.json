@@ -1,5 +1,55 @@
 [
     {
+        "Exception":"Track 2 library not needed",
+        "Service":"App Service",
+        "SDKs":{
+            "Mobile Service - Resource Broker":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend Entity":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend Mongo":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend Security":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend SignalR":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend Storage":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - Backend Tables":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - SQLiteStore":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "WindowsAzure Mobile Services - WinJS":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            }
+        }
+    },
+    {
         "Exception":"Library not needed in language",
         "Service":"Event Hubs",
         "SDKs":{
@@ -10,6 +60,10 @@
             "Azure Blob Storage Checkpoint Store AIO":{
                 "Plane": "data",
                 "Languages":[".NET","Go", "Java", "JavaScript"]
+            },
+            "Event Hubs - Event Processor":{
+                "Plane": "data",
+                "Languages":["Python","Go", "Java", "JavaScript"]
             }
         }
     },
@@ -20,6 +74,22 @@
             "Event Hubs - Service Fabric Processor":{
                 "Plane": "data",
                 "Languages": [".NET"]
+            },
+            "Event Hubs - Extensions":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Reactive":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Databricks":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Event Hubs - Spark":{
+                "Plane": "data",
+                "Languages": ["Java"]
             }
         }
     },
@@ -38,13 +108,23 @@
         }
     },
     {
-      "Exception":"API Spec does not map to one set of Libraries",
-      "Service":"Key Vault",
-      "SDKs":{
-          "Key Vault":{
-              "Plane": "data",
-              "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
-          }
-      }
-  }
+        "Exception":"API Spec does not map to one set of Libraries",
+        "Service":"Key Vault",
+        "SDKs":{
+            "Key Vault":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Service Bus",
+        "SDKs":{
+            "Service Bus - Message ID plugin":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            }
+        }
+    }
 ]
