@@ -59,4 +59,19 @@ entries:
     #### Features Added
 
     - Initial preview of Settings API.
+- Name: azure-identity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.4.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added token caching. To benefit from it, share the `shared_ptr` to the same credential instance between multiple client instances.
+    - Added Azure CLI Credential.
+    - Added authority host overriding support for `ClientCertificateCredential`.
+    - Added Azure Stack support for `ClientCertificateCredential`.
+    - Added Azure App Service API version `2019-08-01` support for `ManagedIdentityCredential`.
 
