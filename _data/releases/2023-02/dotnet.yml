@@ -211,4 +211,24 @@ entries:
     #### Features Added
 
     - This is the initial preview release for Azure OpenAI inference capabilities, including completions and embeddings.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.6
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.6/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed signatures of `DownloadManifest()` and `UploadManifest()` methods on `ContainerRegistryBlobClient`.
+    - Removed `DownloadManifestOptions` and `UploadManifestOptions` types.
+    - Removed `ArtifactManifest` type.
+    - Removed `Manifest` and `ManifestStream` properties from `DownloadManifestResult`.
+
+    #### Features Added
+
+    - Added method `DownloadBlobTo()` to `ContainerRegistryBlobClient`.  This method downloads a blob to a provided Stream, using multiple requests if the blob size exceeds the maximum chunk size.
+    - Added an optional `ManifestMediaType` parameter to `UploadManifest()` to enable uploading image manifests of any type.
+    - Added `MediaType` property to `DownloadManifestResult` to enable checking the media type prior to deserializing returned manifest.
 
