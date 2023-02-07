@@ -538,4 +538,19 @@ entries:
     #### Bugs Fixed
 
     - Correct the path of the type declaration file.
+- Name: '@azure/service-bus'
+  Version: 7.8.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.8.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Ensure unique `replyTo` when new link is needed in ManagementClient. (PR #24509)[https://github.com/Azure/azure-sdk-for-js/pull/24509]
+
+    #### Features Added
+
+    - Add an option to skip converting Date type into UNIX epoch number for properties in message annotations or application properties. (PR #24539)[https://github.com/Azure/azure-sdk-for-js/pull/24539]
 
