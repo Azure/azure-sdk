@@ -330,4 +330,14 @@ entries:
     - Changed the default async transport from `AsyncioRequestsTransport` to the one used in current `azure-core` (`AioHttpTransport`). ([#26427](https://github.com/Azure/azure-sdk-for-python/issues/26427))
     - Dropped `msrest` requirement.
     - Added dependency `isodate` with version range `>=0.6.0`.
+- Name: azure-data-tables
+  Version: 12.4.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.2/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug when deleting an entity with partition key or row key in empty string.([#24480](https://github.com/Azure/azure-sdk-for-python/issues/24480))
 
