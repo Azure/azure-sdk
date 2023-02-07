@@ -1539,4 +1539,33 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
     - Upgraded `msal4j` from `1.13.3` to version `1.13.4`.
   GroupId: com.azure
+- Name: azure-identity-extensions
+  Version: 1.2.0-beta.1
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.2.0-beta.1/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    #### Features Added
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.3.6
+  DisplayName: Digital Twins - Core
+  ServiceName: Digital Twins
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.6/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.36.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.13.0`.
+    - Upgraded `azure-core-identity` dependency to `1.8.0`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency to `1.2.25`.
+  GroupId: com.azure
 
