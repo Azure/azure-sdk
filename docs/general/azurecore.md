@@ -113,9 +113,9 @@ The HTTP Pipeline provides this functionality.
 
 {% include requirement/MUST id="azurecore-http-retry-throttling" %} retry if the service successfully responds indicating that it is throttling requests (for example, with an "x-ms-delay-until" header or similar metadata).
 
-{% include requirement/MUSTNOT id="azurecore-http-retry-after" %} retry if the service responds with a 400-level response code unless a retry-after header is also returned.
+{% include requirement/MUSTNOT id="azurecore-http-retry-after" %} retry if the service responds with a 4xx-level response code (except 408 - Request Timeout) unless a retry-after header is also returned.
 
-{% include requirement/MUSTNOT id="azurecore-http-retry-requestid" %} change any client-side generated request-id when retrying the request. Th request ID represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request ID show each retry
+{% include requirement/MUSTNOT id="azurecore-http-retry-requestid" %} change any client-side generated request-id when retrying the request. The request ID represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request ID show each retry
 
 {% include requirement/SHOULD id="azurecore-http-retry-defaults" %} implement a default retry policy of 3 retries with a 0.8s exponential (plus jitter) delay between attempts with a maximum delay of 60s between attempts.
 
