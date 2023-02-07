@@ -1539,4 +1539,18 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
     - Upgraded `msal4j` from `1.13.3` to version `1.13.4`.
   GroupId: com.azure
+- Name: azure-identity-extensions
+  Version: 1.2.0-beta.1
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.2.0-beta.1/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    #### Features Added
+  GroupId: com.azure
 
