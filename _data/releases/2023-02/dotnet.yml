@@ -45,4 +45,170 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Synapse_1.1.0/sdk/synapse/Azure.ResourceManager.Synapse/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.13.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new API Management events.
+    - Added new DataBox events.
+- Name: Azure.Developer.LoadTesting
+  Version: 1.0.0-beta.2
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.0.0-beta.2/sdk/loadtestservice/Azure.Developer.LoadTesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricNamespaces`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricDefinitions`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetrics`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.CreateOrUpdateAppComponents`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListAppComponents`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.CreateOrUpdateServerMetricsConfig`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.GetServerMetricsConfig`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestAdministrationClient.
+    `
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestAdministrationClient.BeginTestRun`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricNamespacesAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricDefinitionsAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricsAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.CreateOrUpdateAppComponentsAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListAppComponentsAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.CreateOrUpdateServerMetricsConfigAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.GetServerMetricsConfigAsync`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestAdministrationClient.BeginUploadTestFile`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestAdministrationClient.BeginTestRun`
+    - Method Addded `Azure.Developer.LoadTesting.LoadTestingClient.LoadTestRunClient.ListMetricDimensionValues`
+
+    #### Breaking Changes
+    - Changed from single client and 2 subclients pattern to two clients pattern
+- Name: Azure.ResourceManager.Media
+  Version: 1.1.0
+  DisplayName: Resource Management - Media
+  ServiceName: Media
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Media_1.1.0/sdk/mediaservices/Azure.ResourceManager.Media/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.1.0-beta.1/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.2.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.2.0/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.LoadTesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.LoadTesting_1.0.0/sdk/loadtestservice/Azure.ResourceManager.LoadTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.1.0-beta.2/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.4.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.4.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix setting generic converters in JsonSerializerSettings.
+- Name: Azure.ResourceManager.MobileNetwork
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Mobilenetwork
+  ServiceName: Mobilenetwork
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MobileNetwork_1.0.0-beta.1/sdk/mobilenetwork/Azure.ResourceManager.MobileNetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.PostgreSql
+  Version: 1.1.0
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PostgreSql_1.1.0/sdk/postgresql/Azure.ResourceManager.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.1.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.1.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub.Client
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub Client
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Client_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix AutoRejoinGroups doesn't work issue
+- Name: Azure.Core
+  Version: 1.28.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.28.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue with `AzureSasCredential` which resulted in messages to fail authentication if the SAS signature was updated while a message was in a retry cycle.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.7
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.7/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * 4xx errors on Request telemetry will now be reported as failures ([#33617](https://github.com/Azure/azure-sdk-for-net/pull/33617))
+
+    #### Features Added
+
+    * Added support for parsing AADAudience from ConnectionString ([#33593](https://github.com/Azure/azure-sdk-for-net/pull/33593))
+    * Activity Events (SpanEvents), except those representing Exception, will be exported to TraceTelemetry table([#32980](https://github.com/Azure/azure-sdk-for-net/pull/32980))
+    Exceptions reported via ActivityEvents will continue to be exported to ExceptionTelemetry table
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This is the initial preview release for Azure OpenAI inference capabilities, including completions and embeddings.
 
