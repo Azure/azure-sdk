@@ -79,6 +79,7 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
   const additionalPackages: PackageList = {}; // empty pkgs collected from specs repo to add
   // get list of service dirs from specs dir
   const serviceSpecDirs = fs.readdirSync(specsDirPath);
+  log.info(`List of Service Dirs in Spec Repo: ${JSON.stringify(serviceSpecDirs)}`);
   for (let serviceSpecDir of serviceSpecDirs) {
     // determine service name
     const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
