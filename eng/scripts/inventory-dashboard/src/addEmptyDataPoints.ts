@@ -6,11 +6,13 @@ import {
 } from "./types";
 import { Logger } from './logger';
 import _serviceNameMap from "../data-and-rules/serviceNameMap.json";
+import _servicesToHide from "../data-and-rules/servicesToHide.json";
 import path from "path";
 import fs from 'fs';
 const log = Logger.getInstance();
 const specsDirPath = path.join(__dirname, '../../../../../azure-rest-api-specs/specification');
 const serviceNameMap: any = _serviceNameMap;
+const servicesToHide: any = _servicesToHide;
 
 
 /**
@@ -78,11 +80,14 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
   // get list of service dirs from specs dir
   const serviceSpecDirs = fs.readdirSync(specsDirPath);
   for (let serviceSpecDir of serviceSpecDirs) {
+    // determine service name
+    const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+    // skip service api spec if it's in the list of services to hide
+    if (servicesToHide[serviceName]) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
     const planeSpecDirs = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
     for (let planeSpecDir of planeSpecDirs) {
-      // determine service name, plane and SDK name
-      const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+      // determine plane and SDK name
       let plane: Plane = "UNABLE TO BE DETERMINED";
       let sdkName: string = serviceName;
       if (planeSpecDir === 'data-plane') { plane = "data"; sdkName = serviceName; }
