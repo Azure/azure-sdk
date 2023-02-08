@@ -206,4 +206,22 @@ entries:
 
     * Add support to log calculated block size and count during uploads
     * Added MissingSharedKeyCredential error type for cleaner UX. Related to [#19864](https://github.com/Azure/azure-sdk-for-go/issues/19864).
+- Name: sdk/messaging/azeventhubs
+  Version: 0.5.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.5.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - ProcessorOptions.OwnerLevel has been removed. The Processor uses 0 as the owner level.
+    - Uses the public release of `github.com/Azure/azure-sdk-for-go/sdk/storage/azblob` package rather than using an internal copy.
+    For an example, see [example_processor_test.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azeventhubs/example_processor_test.go).
+
+    #### Features Added
+
+    - Adds ProcessorOptions.Prefetch field, allowing configuration of Prefetch values for PartitionClients created using the Processor. (PR#19786)
+    - Added new function to parse connection string into values using `ParseConnectionString` and `ConnectionStringProperties`. (PR#19855)
 
