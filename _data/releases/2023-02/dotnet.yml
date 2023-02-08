@@ -339,4 +339,14 @@ entries:
     #### Bugs Fixed
     - Fixed error message parsing in `AzurePowerShellCredential` which would misinterpret AAD errors with the need to install PowerShell. [#31998](https://github.com/Azure/azure-sdk-for-net/issues/31998)
     - Fix regional endpoint validation error when using `ManagedIdentityCredential`. [#32498])(https://github.com/Azure/azure-sdk-for-net/issues/32498)
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Adjusted bad name `finishReason` to `finish_reason` in deserializer class
 
