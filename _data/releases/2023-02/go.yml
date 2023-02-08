@@ -224,4 +224,12 @@ entries:
 
     - Adds ProcessorOptions.Prefetch field, allowing configuration of Prefetch values for PartitionClients created using the Processor. (PR#19786)
     - Added new function to parse connection string into values using `ParseConnectionString` and `ConnectionStringProperties`. (PR#19855)
+- Name: sdk/containers/azcontainerregistry
+  Version: 0.1.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containers/azcontainerregistry/v0.1.0/sdk/containers/azcontainerregistry/CHANGELOG.md
+  ChangelogContent: '* This is the initial release of the `azcontainerregistry` library'
 
