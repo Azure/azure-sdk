@@ -2072,4 +2072,29 @@ entries:
     - Added support for 2021-12-02 service version.
     - Added support for invalid XML characters in file and directory names for `ShareDirectoryClient.listFilesAndDirectories()`, `ShareDirectoryClient.listHandles()`, and `ShareFileClient.listHandles()`.
   GroupId: com.azure
+- Name: azure-developer-devcenter
+  Version: 1.0.0-beta.2
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-devcenter_1.0.0-beta.2/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added upcoming actions APIs to dev boxes.
+    - `delayUpcomingActionWithResponse`
+    - `getUpcomingActionWithResponse`
+    - `listUpcomingActions`
+    - `skipUpcomingActionWithResponse`
+
+    #### Bugs Fixed
+
+    - Invalid `beginDeleteEnvironmentAction` API removed from `EnvironmentsClient`.
+    - Unimplemented artifacts APIs removed from `EnvironmentsClient`.
+
+    #### Breaking Changes
+
+    - `DevBoxClientBuilder`, `DevCenterClientBuilder`, and `EnvironmentsClientBuilder` now accept an endpoint URI on construction rather than tenant ID + dev center name.
+  GroupId: com.azure
 
