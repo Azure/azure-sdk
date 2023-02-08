@@ -50,8 +50,8 @@ entries:
     - Aligned OpenTelemetry tracing infrastructure with OpenTelemetry 1.17.0 conventions for use with Azure Monitor.
 - Name: azure-security-keyvault-administration
   Version: 4.0.0-beta.1
-  DisplayName: Azure Sercurity Keyvault Administration
-  ServiceName: Keyvault Administration
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
   VersionType: Beta
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-administration_4.0.0-beta.1/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
@@ -74,4 +74,18 @@ entries:
     - Added authority host overriding support for `ClientCertificateCredential`.
     - Added Azure Stack support for `ClientCertificateCredential`.
     - Added Azure App Service API version `2019-08-01` support for `ManagedIdentityCredential`.
+- Name: azure-security-attestation
+  Version: 1.1.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.1.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `AttestationClient::AttestTpm` to match `AttestOpenEnclave` and `AttestSgxEnclave`:
+    - Added `std::vector<uint8_t>` dataToAttest parameter to the `AttestTpm()` client method.
+    - Removed `Payload` in `TpmAttestationOptions`.
+    - Changed `TpmResult` in `TpmAttestationResult` to type `std::vector<uint8_t>`.
 
