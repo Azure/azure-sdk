@@ -85,7 +85,13 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
     // skip service api spec if it's in the list of services to hide
     if (servicesToHide[serviceName]) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
-    const planeSpecDirs = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
+    let planeSpecDirs: string[] = [];
+    try {
+      planeSpecDirs = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
+    } catch (error) {
+      log.err(`Couldn't read dir for Service Spec Dir: ${serviceSpecDir} - path: ${path.join(specsDirPath, serviceSpecDir)}`);
+    }
+    if (planeSpecDirs.length <= 0) continue;
     for (let planeSpecDir of planeSpecDirs) {
       // determine plane and SDK name
       let plane: Plane = "UNABLE TO BE DETERMINED";
