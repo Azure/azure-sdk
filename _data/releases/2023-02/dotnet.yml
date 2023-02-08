@@ -211,4 +211,111 @@ entries:
     #### Features Added
 
     - This is the initial preview release for Azure OpenAI inference capabilities, including completions and embeddings.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.6
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.6/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed signatures of `DownloadManifest()` and `UploadManifest()` methods on `ContainerRegistryBlobClient`.
+    - Removed `DownloadManifestOptions` and `UploadManifestOptions` types.
+    - Removed `ArtifactManifest` type.
+    - Removed `Manifest` and `ManifestStream` properties from `DownloadManifestResult`.
+
+    #### Features Added
+
+    - Added method `DownloadBlobTo()` to `ContainerRegistryBlobClient`.  This method downloads a blob to a provided Stream, using multiple requests if the blob size exceeds the maximum chunk size.
+    - Added an optional `ManifestMediaType` parameter to `UploadManifest()` to enable uploading image manifests of any type.
+    - Added `MediaType` property to `DownloadManifestResult` to enable checking the media type prior to deserializing returned manifest.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.2.0
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.2.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an overload when configuring data protection which allows token credentials to be created by a factory on-demand.  _(A community contribution, courtesy of [thomhurst](https://github.com/thomhurst))_
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.3.0
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.3.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an overload when configuring data protection which allows token credentials to be created by a factory on-demand.  _(A community contribution, courtesy of [thomhurst](https://github.com/thomhurst))_
+- Name: Azure.Storage.Queues
+  Version: 12.13.0-beta.1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.13.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.13.0-beta.1
+  DisplayName: File Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.13.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-12-02.
+    - Added support for invalid XML characters in file and directory names for ShareDirectoryClient.GetfilesAndDirectories(), .GetHandles(), and ShareFileClient.GetHandles().
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.12.0-beta.1
+  DisplayName: Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.12.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-12-02.'
+- Name: Azure.Storage.Blobs
+  Version: 12.15.0-beta.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.15.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-12-02.
+    - Added support for Blob Cold Tier.
+    - Fixed bug where BlobErrorCode.IncrementalCopyOfEarlierVersionSnapshotNotAllowed was spelled incorrectly.
+    - Fixed bug / regression where BlobContainerClient.GetProperties would return null instead of PublicAccessType.None for the BlobContainerProperties.PublicAccess
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.13.0-beta.1
+  DisplayName: Data Lake Storage (Gen 2)
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.13.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-12-02.
+    - Added support for leasing operations on DataLakeFileClient.Append(), .AppendAsync(), .Flush(), and .FlushAsync().
+    - Added support for sticky bit and execution bit to both be set on permissions of a path.
+- Name: Azure.Storage.Common
+  Version: 12.14.0-beta.1
+  DisplayName: Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.14.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.30
+  DisplayName: Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.30/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-12-02.'
 
