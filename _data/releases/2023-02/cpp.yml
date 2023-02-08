@@ -74,4 +74,18 @@ entries:
     - Added authority host overriding support for `ClientCertificateCredential`.
     - Added Azure Stack support for `ClientCertificateCredential`.
     - Added Azure App Service API version `2019-08-01` support for `ManagedIdentityCredential`.
+- Name: azure-security-attestation
+  Version: 1.1.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.1.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `AttestationClient::AttestTpm` to match `AttestOpenEnclave` and `AttestSgxEnclave`:
+    - Added `std::vector<uint8_t>` dataToAttest parameter to the `AttestTpm()` client method.
+    - Removed `Payload` in `TpmAttestationOptions`.
+    - Changed `TpmResult` in `TpmAttestationResult` to type `std::vector<uint8_t>`.
 
