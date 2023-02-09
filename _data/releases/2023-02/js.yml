@@ -561,4 +561,43 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_1.0.0-beta.1/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0-beta.2
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.2/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Invalid response types removed from `DeleteDevBox`, `StartDevBox`, and `StopDevBox` APIs.
+    - Invalid `DeleteEnvironmentAction` API removed from `EnvironmentsClient`.
+    - Unimplemented artifacts APIs removed from `EnvironmentsClient`.
+
+    #### Breaking Changes
+
+    - `createClient` now accepts an endpoint URI on construction rather than tenant ID + dev center name.
+
+    #### Features Added
+
+    - Added upcoming actions APIs to dev boxes.
+    - `/projects/{projectName}/users/{userId}/devboxes/{devBoxName}/upcomingActions`
+    - `/projects/{projectName}/users/{userId}/devboxes/{devBoxName}/upcomingActions/{upcomingActionId}`
+    - `/projects/{projectName}/users/{userId}/devboxes/{devBoxName}/upcomingActions/{upcomingActionId}:skip`
+    - `/projects/{projectName}/users/{userId}/devboxes/{devBoxName}/upcomingActions/{upcomingActionId}:delay`
+- Name: '@azure/container-registry'
+  Version: 1.1.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0-beta.2/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed resettable stream overload for `ContainerRegistryBlobClient.uploadBlob`.
+
+    #### Features Added
+
+    - `ContainerRegistryBlobClient.uploadBlob` now uploads a blob using multiple requests if the size of the blob is greater than 4MB.
 
