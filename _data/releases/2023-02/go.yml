@@ -232,4 +232,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containers/azcontainerregistry/v0.1.0/sdk/containers/azcontainerregistry/CHANGELOG.md
   ChangelogContent: '* This is the initial release of the `azcontainerregistry` library'
+- Name: sdk/monitor/azquery
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v1.0.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Removed `LogsQueryOptions.String()`
+    * Fix casing on some metrics fields
 
