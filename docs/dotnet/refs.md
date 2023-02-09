@@ -6,3 +6,4 @@
 [adparch]: https://github.com/azure/azure-sdk/issues
 [.NET Standard 2.0]: https://docs.microsoft.com/dotnet/standard/net-standard
 [azure/azure-sdk-for-net]: https://github.com/azure/azure-sdk-for-net
+[.NET Target Framework Monikers]: https://learn.microsoft.com/dotnet/standard/frameworks

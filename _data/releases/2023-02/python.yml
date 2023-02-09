@@ -351,4 +351,29 @@ entries:
     #### Bugs Fixed
 
     * Error details are now propagated inside the `LogsQueryError` object. ([#25137](https://github.com/Azure/azure-sdk-for-python/issues/25137))
+- Name: azure-developer-devcenter
+  Version: 1.0.0b2
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-devcenter_1.0.0b2/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added upcoming actions APIs to dev boxes.
+    - `delay_upcoming_action`
+    - `get_upcoming_action`
+    - `list_upcoming_actions`
+    - `skip_upcoming_action`
+
+    #### Bugs Fixed
+
+    - Invalid response types removed from `begin_delete_dev_box`, `begin_start_dev_box`, and `begin_stop_dev_box` APIs.
+    - Invalid `begin_delete_environment_action` API removed from `DevCenterClient`.
+    - Unimplemented artifacts APIs removed from `DevCenterClient`.
+
+    #### Breaking Changes
+
+    - `DevCenterClient` now accepts an endpoint URI on construction rather than tenant ID + dev center name.
 

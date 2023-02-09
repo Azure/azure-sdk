@@ -80,18 +80,27 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
   // get list of service dirs from specs dir
   const serviceSpecDirs = fs.readdirSync(specsDirPath);
   for (let serviceSpecDir of serviceSpecDirs) {
-    // determine service name
-    const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+    // determine service name and SDK name
+    let serviceName: string = "";
+    let sdkName: string = "";
+    if (typeof serviceNameMap[serviceSpecDir] === 'string' && serviceNameMap[serviceSpecDir].split("|").length > 1) {
+      [serviceName, sdkName] = serviceNameMap[serviceSpecDir].split("|");
+    } else {
+      serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
+      sdkName = serviceName;
+    }
     // skip service api spec if it's in the list of services to hide
     if (servicesToHide[serviceName]) continue;
+    // test if service spec dir is a dir, if not move on. 
+    if (!fs.lstatSync(path.join(specsDirPath, serviceSpecDir)).isDirectory()) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
-    const planeSpecDirs = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
+    let planeSpecDirs: string[] = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
+    // loop through plane dirs in the service spec dir
     for (let planeSpecDir of planeSpecDirs) {
       // determine plane and SDK name
       let plane: Plane = "UNABLE TO BE DETERMINED";
-      let sdkName: string = serviceName;
-      if (planeSpecDir === 'data-plane') { plane = "data"; sdkName = serviceName; }
-      else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${serviceName}`; }
+      if (planeSpecDir === 'data-plane') { plane = "data"; }
+      else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
       // check if stable spec exists
       const planeSpecDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir));
       const filteredPlaneSpecDirContents = planeSpecDirContents.filter(s => s.startsWith('Microsoft.'));
@@ -103,7 +112,6 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
         if (filteredMicrosoftDirContents.length <= 0) { log.info(`No stable API Spec found for ${serviceSpecDir}/${planeSpecDir}`); }
         else {
           // stable spec does exist
-          const serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
           // check if package exists for each language, if not add empty entry 
           for (let language of Tier1Languages) {
             // create pkg key
