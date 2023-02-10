@@ -624,4 +624,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-liftrqumulo_1.0.0-beta.1/sdk/liftrqumulo/arm-liftrqumulo/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.13.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-12-02.
+    - Added support for invalid XML characters in file and directory names for ShareDirectoryClient.listFilesAndDirectories(), .listHandles(), and ShareFileClient.listHandles().
+- Name: '@azure/storage-blob'
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.13.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug where IncrementalCopyOfEarlierVersionSnapshotNotAllowed was spelled incorrectly.
+
+    #### Features Added
+
+    - Added support for service version 2021-12-02.
+    - Added support for Blob Cold Tier.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.12.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-12-02.
+    - Add support for acquiring, renewing and releasing lease in methods DataLakeFileClient.append() and flush().
 
