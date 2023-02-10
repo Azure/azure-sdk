@@ -2171,4 +2171,68 @@ entries:
     - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
     - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
   GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.16.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.16.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
+    - Upgraded `azure-storage-blob` from `12.20.2` to version `12.20.3`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.16.3
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.16.3/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
+    - Upgraded `azure-storage-common` from `12.19.2` to version `12.19.3`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.15.3
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.15.3/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
+    - Upgraded `azure-storage-common` from `12.19.2` to version `12.19.3`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.19.3
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.19.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
+    - Upgraded `azure-storage-blob` from `12.20.2` to version `12.20.3`.
+  GroupId: com.azure
 
