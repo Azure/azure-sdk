@@ -2296,4 +2296,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.7/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-ai-formrecognizer
+  Version: 4.0.4
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Method `beginAnalyzeDocument` requires the document length to be specified and not null when
+    analyzing a document.
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` to version `1.13.0`.
+  GroupId: com.azure
 
