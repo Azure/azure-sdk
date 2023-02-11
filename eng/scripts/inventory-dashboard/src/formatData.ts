@@ -58,9 +58,11 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
     log.info(`Package from CSV: ${JSON.stringify(formattedPackage)}`);
 
     // Logic for Ignoring certain packages post-formatting
-    // Ignore Services that are specified in servicesToHide.json
+    // Ignore Services Plane pairs that are specified in servicesToHide.json
     if (servicesToHide[formattedPackage.Service] !== undefined) {
-      continue;
+      if (Array.isArray(servicesToHide[formattedPackage.Service]) && servicesToHide[formattedPackage.Service].includes(formattedPackage.Plane)) {
+        continue;
+      }
     }
 
     //Ignore Java Spring SDKs

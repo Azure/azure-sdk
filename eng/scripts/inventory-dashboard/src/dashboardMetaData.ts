@@ -43,9 +43,12 @@ export default function addDashboardMetaData(packages: PackageList): PackageList
         }
         // set percent complete, if Both track 1 and 2 have OKAY codes, percent complete should be 1
         let percentComplete = 0;
-        if (packages[key].Track1.ColorCode === 11) percentComplete = packages[key].Track2.ColorCode === 10 ? 1 : 0;
-        else if (packages[key].Track2.ColorCode === 10 && packages[key].Track1.ColorCode === 1) percentComplete = 0.5;
-        else if (packages[key].Track2.ColorCode === 10) percentComplete = 1;
+        if ([3, 4, 10, 11].includes(packages[key].Track2.ColorCode)) {
+            percentComplete = 1;
+        }
+        // if (packages[key].Track1.ColorCode === 11) percentComplete = packages[key].Track2.ColorCode === 10 ? 1 : 0;
+        // else if (packages[key].Track2.ColorCode === 10 && packages[key].Track1.ColorCode === 1) percentComplete = 0.5;
+        // else if (packages[key].Track2.ColorCode === 10) percentComplete = 1;
         // if (packages[key].Track2.ColorCode === 10) percentComplete += 0.5;
         // if (packages[key].Track1.ColorCode === 10) percentComplete += 0.5;
         packages[key] = { ...packages[key], PercentComplete: percentComplete };

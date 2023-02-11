@@ -89,8 +89,6 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
       sdkName = serviceName;
     }
-    // skip service api spec if it's in the list of services to hide
-    if (servicesToHide[serviceName]) continue;
     // test if service spec dir is a dir, if not move on. 
     if (!fs.lstatSync(path.join(specsDirPath, serviceSpecDir)).isDirectory()) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
@@ -101,6 +99,13 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       let plane: Plane = "UNABLE TO BE DETERMINED";
       if (planeSpecDir === 'data-plane') { plane = "data"; }
       else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
+      // skip service api spec if it's in the list of services to hide
+      if (servicesToHide[serviceName]) continue;
+      if (servicesToHide[serviceName] !== undefined) {
+        if (Array.isArray(servicesToHide[serviceName]) && servicesToHide[serviceName].includes(plane)) {
+          continue;
+        }
+      }
       // check if stable spec exists
       const planeSpecDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir));
       const filteredPlaneSpecDirContents = planeSpecDirContents.filter(s => s.startsWith('Microsoft.'));
