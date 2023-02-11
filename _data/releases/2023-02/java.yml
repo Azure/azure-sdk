@@ -2278,4 +2278,38 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
     - Upgraded `azure-storage-common` from `12.19.2` to version `12.19.3`.
   GroupId: com.azure
+- Name: azure-resourcemanager-costmanagement
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-costmanagement_1.0.0-beta.5/sdk/costmanagement/azure-resourcemanager-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-synapse
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - Synapse Analytics
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.7/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-ai-formrecognizer
+  Version: 4.0.4
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Method `beginAnalyzeDocument` requires the document length to be specified and not null when
+    analyzing a document.
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` to version `1.13.0`.
+  GroupId: com.azure
 
