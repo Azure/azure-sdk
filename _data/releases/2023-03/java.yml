@@ -26,4 +26,22 @@ entries:
     - Upgraded `azure-core` to version `1.36.0`.
     - Upgraded `azure-core-http-netty` to version `1.13.0`.
   GroupId: com.azure
+- Name: azure-resourcemanager-costmanagement
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-costmanagement_1.0.0-beta.5/sdk/costmanagement/azure-resourcemanager-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-synapse
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - Synapse Analytics
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.7/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
