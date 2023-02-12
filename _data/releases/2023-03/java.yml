@@ -44,4 +44,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.7/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-mixedreality-authentication
+  Version: 1.2.10
+  DisplayName: Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.10/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.35.0` to version `1.36.0`.
+    - Upgraded `azure-core-http-netty` from `1.12.8` to version `1.13.0`.
+  GroupId: com.azure
 
