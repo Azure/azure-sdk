@@ -64,6 +64,12 @@ export function formatReleaseCSVData(csvData: any[]): PackageList {
         continue;
       }
     }
+    // Ignore Service|SDK Plane pairs that are specified in servicesToHide.json
+    if (servicesToHide[`${formattedPackage.Service}|${formattedPackage.SDK}`] !== undefined) {
+      if (Array.isArray(servicesToHide[`${formattedPackage.Service}|${formattedPackage.SDK}`]) && servicesToHide[`${formattedPackage.Service}|${formattedPackage.SDK}`].includes(formattedPackage.Plane)) {
+        continue;
+      }
+    }
 
     //Ignore Java Spring SDKs
     if (

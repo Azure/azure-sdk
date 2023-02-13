@@ -102,9 +102,15 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       if (planeSpecDir === 'data-plane') { plane = "data"; }
       else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
       // skip service api spec if it's in the list of services to hide
-      if (servicesToHide[serviceName]) continue;
+      // Ignore Services Plane pairs that are specified in servicesToHide.json
       if (servicesToHide[serviceName] !== undefined) {
         if (Array.isArray(servicesToHide[serviceName]) && servicesToHide[serviceName].includes(plane)) {
+          continue;
+        }
+      }
+      // Ignore Service|SDK Plane pairs that are specified in servicesToHide.json
+      if (servicesToHide[`${serviceName}|${sdkName}`] !== undefined) {
+        if (Array.isArray(servicesToHide[`${serviceName}|${sdkName}`]) && servicesToHide[`${serviceName}|${sdkName}`].includes(plane)) {
           continue;
         }
       }
