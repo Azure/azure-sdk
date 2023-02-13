@@ -36,6 +36,8 @@ export default async function addEmptyDataPoints(packages: PackageList): Promise
     if (packages[key].Track2.ColorCode === 3) continue;
     // Don't create missing empty packages if track 2 object is just for a package reference 
     if (packages[key].Track2.ColorCode === 4) continue;
+    // Don't create missing empty packages if package is a RLC JS package. ex: @azure-rest/...
+    if (packages[key].Track2.Package.startsWith('@azure-rest/')) continue;
     // Loop through languages adding empty packages
     for (let language of Tier1Languages) {
       const { Service, SDK, Plane, ServiceId } = packages[key];
