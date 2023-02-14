@@ -170,4 +170,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dataprotection_1.0.0-beta.3/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.16.3
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.16.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.15.2`.
+    - Update `azure-storage-blob` dependency to `12.20.3`.
+  GroupId: com.azure
 
