@@ -122,4 +122,52 @@ entries:
     - Update `azure-core` dependency to `1.36.0`.
     - Update `azure-core-http-netty` dependency to `1.13.0`.
   GroupId: com.azure
+- Name: azure-identity-extensions
+  Version: 1.1.1
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.1.1/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgrade Azure Identity to 1.8.0.
+
+    #### Others
+
+    - Improve the performance of DefaultTokenCredentialProvider's `get()` method.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.15.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.15.2/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed NullPointerException when deserializing AMQP message with null body. ([#32939](https://github.com/Azure/azure-sdk-for-java/issues/32939))
+    - Added filter to filter out the closed `AmqpReceiveLink` before passing to `AmqpReceiveLinkProcessor`. ([#32919](https://github.com/Azure/azure-sdk-for-java/issues/32919))
+    - Fixed usage of static AmqpAnnotatedMessage when creating empty EventData. ([#33327](https://github.com/Azure/azure-sdk-for-java/issues/33327))
+  GroupId: com.azure
+- Name: azure-resourcemanager-recoveryservices
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservices_1.0.0-beta.5/sdk/recoveryservices/azure-resourcemanager-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-dataprotection
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dataprotection_1.0.0-beta.3/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
