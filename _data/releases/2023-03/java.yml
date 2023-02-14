@@ -185,4 +185,16 @@ entries:
     - Update `azure-messaging-eventhubs` dependency to `5.15.2`.
     - Update `azure-storage-blob` dependency to `12.20.3`.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-jedis
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Redis Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-jedis_1.0.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-jedis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added implementation of `CheckpointStore` with `redis.clients.Jedis`
+  GroupId: com.azure
 
