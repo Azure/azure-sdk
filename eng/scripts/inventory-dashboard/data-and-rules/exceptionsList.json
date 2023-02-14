@@ -1,15 +1,5 @@
 [
     {
-        "Exception": "Track 2 library not needed",
-        "Service":"Annotations",
-        "SDKs":{
-            "Annotations":{
-                "Plane":"data",
-                "Languages":["Java"]
-            }
-        }
-    },
-    {
         "Exception":"Track 2 library not needed",
         "Service":"App Service",
         "SDKs":{
@@ -54,6 +44,32 @@
                 "Languages":[".NET"]
             },
             "WindowsAzure Mobile Services - WinJS":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Cognitive Services",
+        "SDKs":{
+            "Ink Recognizer":{
+                "Plane": "data",
+                "Languages":["Python"]
+            },
+            "Speech":{
+                "Plane": "data",
+                "Languages":[".NET", "Java", "JavaScript", "Python"]
+            },
+            "Speech Remote Conversation":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "Speech Xamarin iOS":{
+                "Plane": "data",
+                "Languages":[".NET"]
+            },
+            "Vision Content Moderator":{
                 "Plane": "data",
                 "Languages":[".NET"]
             }
@@ -124,16 +140,6 @@
             "Key Vault":{
                 "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
-            }
-        }
-    },
-    {
-        "Exception":"Track 2 library not needed",
-        "Service":"Service Bus",
-        "SDKs":{
-            "Service Bus - Message ID plugin":{
-                "Plane": "data",
-                "Languages": [".NET"]
             }
         }
     }
