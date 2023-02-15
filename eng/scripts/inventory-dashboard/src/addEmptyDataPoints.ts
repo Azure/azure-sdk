@@ -36,6 +36,8 @@ export default async function addEmptyDataPoints(packages: PackageList): Promise
     if (packages[key].Track2.ColorCode === 3) continue;
     // Don't create missing empty packages if track 2 object is just for a package reference 
     if (packages[key].Track2.ColorCode === 4) continue;
+    // Don't create missing empty packages if package is a RLC JS package. ex: @azure-rest/...
+    if (packages[key].Track2.Package.startsWith('@azure-rest/')) continue;
     // Loop through languages adding empty packages
     for (let language of Tier1Languages) {
       const { Service, SDK, Plane, ServiceId } = packages[key];
@@ -89,8 +91,6 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
       sdkName = serviceName;
     }
-    // skip service api spec if it's in the list of services to hide
-    if (servicesToHide[serviceName]) continue;
     // test if service spec dir is a dir, if not move on. 
     if (!fs.lstatSync(path.join(specsDirPath, serviceSpecDir)).isDirectory()) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
@@ -101,6 +101,19 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       let plane: Plane = "UNABLE TO BE DETERMINED";
       if (planeSpecDir === 'data-plane') { plane = "data"; }
       else if (planeSpecDir === 'resource-manager') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
+      // skip service api spec if it's in the list of services to hide
+      // Ignore Services Plane pairs that are specified in servicesToHide.json
+      if (servicesToHide[serviceName] !== undefined) {
+        if (Array.isArray(servicesToHide[serviceName]) && servicesToHide[serviceName].includes(plane)) {
+          continue;
+        }
+      }
+      // Ignore Service|SDK Plane pairs that are specified in servicesToHide.json
+      if (servicesToHide[`${serviceName}|${sdkName}`] !== undefined) {
+        if (Array.isArray(servicesToHide[`${serviceName}|${sdkName}`]) && servicesToHide[`${serviceName}|${sdkName}`].includes(plane)) {
+          continue;
+        }
+      }
       // check if stable spec exists
       const planeSpecDirContents = fs.readdirSync(path.join(specsDirPath, serviceSpecDir, planeSpecDir));
       const filteredPlaneSpecDirContents = planeSpecDirContents.filter(s => s.startsWith('Microsoft.'));
