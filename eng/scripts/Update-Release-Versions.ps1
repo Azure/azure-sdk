@@ -168,9 +168,9 @@ function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
     }
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
-    $committeDate = $gaVersion.Date
+    $committeDate = $gaVersion.Date -as [DateTime]
 
-    if ($committeDate -is [DateTime]) {
+    if ($committeDate) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
       Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
       return $committeDate
@@ -233,7 +233,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionGA -ne $version) {
       if (CheckRequiredLinks $langLinkTemplates $pkg $version){
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        Write-Host "Updating VersionGA for '$($pkg.Package)' from '$($pkg.VersionGA)' to '$version'"
         $pkg.VersionGA = $version;
       }
       else {
@@ -261,7 +261,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionPreview -ne $version) {
       if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        Write-Host "Updating VersionPreview for '$($pkg.Package)' from '$($pkg.VersionPreview)' to '$version'"
         $pkg.VersionPreview = $version;
       }
       else {
