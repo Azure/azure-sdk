@@ -218,7 +218,8 @@ function RefreshItems()
     $pkg = $null
     $versions = $null
 
-    if ($pkgInfo) {
+    # If the csv entry is marked as "Needs Review" we want to prefer the data in the workitem over the data in csv
+    if ($pkgInfo -and $pkgInfo.PackageInfo.Notes -ne "Needs Review") {
       if ($pkgInfo.VersionGroups.ContainsKey($verMajorMinor)) {
         $versions = $pkgInfo.VersionGroups[$verMajorMinor].Versions
       }
@@ -317,7 +318,7 @@ function RefreshItems()
     $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackagePatchVersions"]) + "|"
   }
 
-  ## Loop over all packages in csv
+  ## Loop over all packages in marked as New in CSV files
   foreach ($pkgLang in $allVersions.Keys)
   {
     foreach ($pkgName in $allVersions[$pkgLang].Keys)
