@@ -69,7 +69,7 @@ This purely informational/educational to let the board get up to speed with the 
 ### 2. API Review
 During API reviews, we look at sample code and detailed API listings. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/main/docs/dotnet/APIListingExample.md).
 
-If you have a prototype of your APIs, you can generate the API listing in the [ApiView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually).
+If you have a pull request for your changes, then you can use the automatically generated API reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [ApiView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually).
 
 For all other languages, send a request to the Architecture Board to discuss the best format on individual basis.
 
