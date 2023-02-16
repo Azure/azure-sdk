@@ -272,4 +272,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.3.0b1/sdk/redhatopenshift/azure-mgmt-redhatopenshift/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 1.0.0b2
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.0.0b2/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added Async Support
+    * Added missing methods for Mapping API
+    * Made load method properties unordered.
+
+    #### Bugs Fixed
+    * Fixed Issue where Key Vault Clients couldn't be set in some situations
+
+    #### Breaking Changes
+    * Changes how load works. Moves if from AzureAppConfigurationProvider.load to load_provider.
+    * Removed custom Key Vault Error
+    * Removed unneeded __repr__ and copy methods.
+    * All Feature Flags are added to there own key and have there prefix removed
 
