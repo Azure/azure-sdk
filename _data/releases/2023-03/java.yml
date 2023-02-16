@@ -290,4 +290,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.24.0-beta.1/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-monitor-ingestion
+  Version: 1.0.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.0/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `logsUploadErrorConsumer` to `LogsUploadOptions` that is called when there's any service error while uploading logs.
+    - `upload` methods on `LogsIngestionClient` now take an `Iterable` of logs instead of `List`.
+
+    #### Breaking Changes
+    - Removed `UploadLogsResult` from the response of `upload` methods in `LogsIngestionClient`
+  GroupId: com.azure
 
