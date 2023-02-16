@@ -187,7 +187,7 @@ function Get-python-Packages
       $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
-      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+      Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
 
@@ -226,7 +226,7 @@ function Get-go-Packages
     # We should keep this regex in sync with what is in the go repo at https://github.com/Azure/azure-sdk-for-go/blob/main/eng/scripts/Language-Settings.ps1#L40
     if ($package.Package -match "(?<modPath>sdk/(?<serviceDir>(.*?(?<serviceName>[^/]+)/)?(?<modName>[^/]+$)))")
     {
-      $modPath = $matches["modPath"]
+      #$modPath = $matches["modPath"] Not using modPath currently here but keeping the capture group to be consistent with the go repo
       $modName = $matches["modName"]
       $serviceDir = $matches["serviceDir"]
       $serviceName = $matches["serviceName"]
@@ -240,7 +240,14 @@ function Get-go-Packages
         $package.New = "true"
         $modName = $modName.Substring(3); # Remove arm from front
         $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($modName))"
-        Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+        Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+      }
+      elseif ($modName.StartsWith("az"))
+      {
+        $package.Type = "client"
+        $package.New = "true"
+        $modName = $modName.Substring(2); # Remove az from front
+        $package.DisplayName = $((Get-Culture).TextInfo.ToTitleCase($modName))
       }
 
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
@@ -260,37 +267,29 @@ function Write-Latest-Versions($lang)
   if ($null -eq $packageList) { $packageList = @() }
 
   $LangFunction = "Get-$lang-Packages"
-  $packages = &$LangFunction
+  $queriedPackages = &$LangFunction
 
   $packageLookup = GetPackageLookup $packageList
 
-  foreach ($pkg in $packages)
+  foreach ($queriedPkg in $queriedPackages)
   {
-    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
+    $pkgEntry = LookupMatchingPackage $queriedPkg $packageLookup
 
     if (!$pkgEntry) {
       # alpha packages are not yet fully supported versions so skip adding them to the list yet.
-      if ($pkg.VersionPreview -notmatch "-alpha") {
+      if ($queriedPkg.VersionPreview -notmatch "-alpha") {
         # Add new package
-        $packageList += $pkg
-        Write-Host "Adding new package $($pkg.Package)"
+        $packageList += $queriedPkg
+        Write-Host "Adding new package $($queriedPkg.Package)"
       }
     }
     else {
-      if ($pkg.Type -and $pkg.Type -ne $pkgEntry.Type) {
-        $pkgEntry.Type = $pkg.Type
+      if ($queriedPkg.Type -and $queriedPkg.Type -ne $pkgEntry.Type) {
+        $pkgEntry.Type = $queriedPkg.Type
       }
 
-      if ($pkg.New -ne "false" -and $pkg.New -ne $pkgEntry.New) {
-        $pkgEntry.New = $pkg.New
-      }
-
-      if (!$pkgEntry.RepoPath -or $pkgEntry.RepoPath -eq "NA" -and $pkg.RepoPath) {
-        $pkgEntry.RepoPath = $pkg.RepoPath
-      }
-
-      if (!$pkgEntry.ServiceName -and $pkg.ServiceName) {
-        $pkgEntry.ServiceName = $pkg.ServiceName
+      if ($queriedPkg.New -ne "false" -and $queriedPkg.New -ne $pkgEntry.New) {
+        $pkgEntry.New = $queriedPkg.New
       }
 
       if ($pkgEntry.VersionGA.StartsWith("0")) {
@@ -298,8 +297,8 @@ function Write-Latest-Versions($lang)
       }
 
       # Update version of package
-      if ($pkg.VersionGA) {
-        $pkgEntry.VersionGA = $pkg.VersionGA
+      if ($queriedPkg.VersionGA) {
+        $pkgEntry.VersionGA = $queriedPkg.VersionGA
 
         $gaSemVer = ToSemVer $pkgEntry.VersionGA
         $previewSemVer = ToSemVer $pkgEntry.VersionPreview
@@ -308,21 +307,21 @@ function Write-Latest-Versions($lang)
         }
       }
       else {
-        $pkgEntry.VersionPreview = $pkg.VersionPreview
+        $pkgEntry.VersionPreview = $queriedPkg.VersionPreview
       }
     }
   }
 
   # Clean out packages that are no longer in the query we use for the package manager
-  foreach ($pkg in $packageList)
+  foreach ($existingPkg in $packageList)
   {
     # Skip the package entries that don't have a Package value as they are just placeholders
-    if ($pkg.Package -eq "") { continue }
+    if ($existingPkg.Package -eq "") { continue }
 
-    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
+    $pkgEntry = LookupMatchingPackage $existingPkg $packageLookup
 
     if (!$pkgEntry) {
-      Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"
+      Write-Verbose "Found package $($existingPkg.Package) in the CSV which could be removed"
     }
   }
 
@@ -337,7 +336,7 @@ switch($language)
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
-    
+
     # Currently ignoring errors for maven search site until incident is fixed
     # see https://github.com/Azure/azure-sdk/issues/5368
     try {

@@ -45,8 +45,8 @@ function CreatePackage(
     GroupId = $groupId
     VersionGA = $versionGA
     VersionPreview = $versionPreview
-    DisplayName = $package
-    ServiceName = ""
+    DisplayName = "Unknown Display Name"
+    ServiceName = "Unknown Service"
     RepoPath = "NA"
     MSDocs = "NA"
     GHDocs = "NA"
@@ -62,7 +62,7 @@ function CreatePackage(
     ReplaceGuide = ""
     MSDocService = ""
     ServiceId = ""
-    Notes = ""
+    Notes = "Needs Review"
   };
 }
 
