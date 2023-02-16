@@ -305,4 +305,17 @@ entries:
     #### Breaking Changes
     - Removed `UploadLogsResult` from the response of `upload` methods in `LogsIngestionClient`
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.15
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.15/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.36.0`.
+    - Updated `azure-mixedreality-authentication` to `1.2.10`.
+  GroupId: com.azure
 
