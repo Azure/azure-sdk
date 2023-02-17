@@ -1,0 +1,18 @@
+entries:
+- Name: '@azure/monitor-ingestion'
+  Version: 1.0.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The `upload` API throws an `AggregateLogsUploadError` in case of an error and returns `void` when operation succeeds.
+    - Renamed `LogsUploadError` to `LogsUploadFailure`.
+
+    #### Features Added
+
+    - Added an error callback functionality for inspecting individual log uploads via `LogsUploadOptions`.
+
