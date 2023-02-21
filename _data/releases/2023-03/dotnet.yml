@@ -1128,4 +1128,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceHealth_1.0.0-beta.1/sdk/resourcehealth/Azure.ResourceManager.ResourceHealth/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.Ingestion
+  Version: 1.0.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.0.0/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed UploadLogsOptions to LogsUploadOptions
+    - Renamed UploadLogsFailedEventArgs to LogsUploadFailedEventArgs
+
+    #### Features Added
+    - Added EventHandler to LogsUploadOptions for error handling.
+    - Added Upload method in LogsIngestionClient that takes RequestContent.
+    - Added LogsUploadOptions type which includes setting concurrency for multi-threading support and the serializer type of the input.
 
