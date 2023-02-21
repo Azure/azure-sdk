@@ -543,4 +543,113 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cdn_2.24.0/sdk/resourcemanager/azure-resourcemanager-cdn/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-spring-data-cosmos
+  Version: 3.32.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.32.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for multi-tenancy at the Container level via `CosmosFactory` - See [PR 33400](https://github.com/Azure/azure-sdk-for-java/pull/33400)
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.41.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.41.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added ability to configure proactive connection management via `CosmosClientBuilder.openConnectionsAndInitCaches(CosmosContainerProactiveInitConfig)`. - See [PR 33267](https://github.com/Azure/azure-sdk-for-java/pull/33267)
+    * Added internal merge handling - See [PR 31428](https://github.com/Azure/azure-sdk-for-java/pull/31428). See [PR 32097](https://github.com/Azure/azure-sdk-for-java/pull/32097). See [PR 32078](https://github.com/Azure/azure-sdk-for-java/pull/32078). See [PR 32165](https://github.com/Azure/azure-sdk-for-java/pull/32165). See [32259](https://github.com/Azure/azure-sdk-for-java/pull/32259). See [32496](https://github.com/Azure/azure-sdk-for-java/pull/32496)
+    * Added more granular control of which Cosmos client-side metrics to emit, whether to collect histograms and percentiles (and which) and also which tags/dimensions to associate with individual metrics.  - See [PR 33436](https://github.com/Azure/azure-sdk-for-java/pull/33436)
+
+    #### Bugs Fixed
+    * Change feed pull API is using an incorrect key value for collection lookup, which can result in using the old collection in collection recreate scenarios. - See [PR 33178](https://github.com/Azure/azure-sdk-for-java/pull/33178)
+
+    #### Breaking Changes
+    * NOTE: the PR to provide more granular control over metrics - See [PR 33436](https://github.com/Azure/azure-sdk-for-java/pull/33436) - includes two technically breaking changes. We don't expect any customers to be impacted by this, but the PR description as well as information below provides some context and options on how to revert the behavior to previous version.
+    * The API `CosmosClientTelemetryConfig.metricTagNames` has been marked deprecated in favor of `CosmosMicrometerMetricsOptions.defaultTagNames` or `CosmosMicrometerMeterOptions.suppressTagNames` - the `CosmosClientTelemetryConfig.metricTagNames` API can still be used as long as none of the new configuration APIs is used - but we recommend starting to switch over to the new APIs.
+    * Capturing metrics - especially `Timer` and `DistributionSummary` with percentiles/histograms has some performance overhead. We got feedback that initially we were emitting some metrics with relatively high cardinality on tags with percentiles/histograms of questionable value (only useful in certain scenarios). So, we decided to disable collecting these metrics by default - but still allow them to be collected when enabled manually via the APIs described in [PR 33436](https://github.com/Azure/azure-sdk-for-java/pull/33436).
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.11.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.11.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.41.0`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-providerhub
+  Version: 1.0.0
+  DisplayName: Resource Management - Provider Hub
+  ServiceName: Provider Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-providerhub_1.0.0/sdk/providerhub/azure-resourcemanager-providerhub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.21
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.21/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-voiceservices
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Voiceservices
+  ServiceName: Voiceservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-voiceservices_1.0.0-beta.1/sdk/voiceservices/azure-resourcemanager-voiceservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-mysqlflexibleserver
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - MySQL Flexible Server
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mysqlflexibleserver_1.0.0-beta.3/sdk/mysqlflexibleserver/azure-resourcemanager-mysqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cognitiveservices
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cognitiveservices_1.0.0-beta.7/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-kusto
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kusto_1.0.0-beta.6/sdk/kusto/azure-resourcemanager-kusto/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-servicebus
+  Version: 7.13.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.13.2/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added filter to filter out the closed `ServiceBusReceiveLink` before passing to `ServiceBusReceiveLinkProcessor`. ([#32919](https://github.com/Azure/azure-sdk-for-java/issues/32919))
+    - Enabled session processor recovery when broker detaches the link that is waiting to be ACTIVE without an error condition. ([#33313](https://github.com/Azure/azure-sdk-for-java/issues/33313))
+  GroupId: com.azure
 
