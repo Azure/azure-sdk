@@ -870,4 +870,101 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storagecache_1.0.0-beta.7/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-common
+  Version: 12.20.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.20.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.14.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.14.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `FileReadHeaders.getCreationTime()` and `FileReadHeaders.setCreationTime(OffsetDateTime)` to access the x-ms-creation-time property.
+    - Added support for 2021-12-02 service version.
+    - Added support for leasing operations on `DataLakeFileClient.appendWithResponse()` and `DataLakeFileClient.flushWithResponse()`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.17.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.17.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.16.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.16.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.6.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.6.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.20.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.20.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.17.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.17.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-12-02 service version.
+    - Added support for invalid XML characters in file and directory names for `ShareDirectoryClient.listFilesAndDirectories()`, `ShareDirectoryClient.listHandles()`, and `ShareFileClient.listHandles()`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.21.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.21.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `BlobDownloadHeaders.getCreationTime()` and `BlobDownloadHeaders.setCreationTime(OffsetDateTime)` to access the x-ms-creation-time property.
+    - Added support for 2021-12-02 service version.
+    - Added support for Blob Cold Tier `AccessTier.COLD`.
+    - Added new overload `AppendBlobClient.getBlobOutputStream(boolean)` that takes in a boolean for overwrite and appends to existing data if overwrite is specified `false`, or deletes and recreates a blob if overwrite is specified `true`.
+
+    #### Bugs Fixed
+    - Fixed bug where `BlobErrorCode.IncrementalCopyOfEarlierVersionSnapshotNotAllowed` was spelled incorrectly.
+  GroupId: com.azure
 
