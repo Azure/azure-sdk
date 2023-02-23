@@ -1450,11 +1450,11 @@ Schema Registry,0,Schema Registry,data,Python,,,11,false,azure-schemaregistry,ht
 Schema Registry,0,Schema Registry - Avro,data,Python,,,11,false,azure-schemaregistry-avroencoder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
 Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,01/11/2023
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
-Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,02/22/2023
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Files Share,data,Python,azure-storage-file,https://github.com/Azure/azure-storage-python/tree/v2.1.0-file/azure-storage-file,1,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,02/22/2023
+Storage,0,Storage - Files Share,data,Python,azure-storage-file,https://github.com/Azure/azure-storage-python/tree/v2.1.0-file/azure-storage-file,1,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,02/22/2023
+Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,02/22/2023
 Synapse,0,Synapse - AccessControl,data,Python,,,11,false,azure-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Python,,,11,false,azure-synapse-monitoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Tables,0,Tables,data,Python,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables,10,false,1,02/07/2023
@@ -1623,6 +1623,7 @@ Test Base,0,Resource Management - Test Base,mgmt,Python,,,11,false,azure-mgmt-te
 Time Series Insights,0,Resource Management - Time Series Insights,mgmt,Python,,,11,false,azure-mgmt-timeseriesinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/timeseriesinsights,10,false,1,
 Traffic Manager,0,Resource Management - Traffic Manager,mgmt,Python,,,11,false,azure-mgmt-trafficmanager,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/trafficmanager,10,false,1,
 VMware Solution by CloudSimple,0,Resource Management - VMware Solution by CloudSimple,mgmt,Python,,,11,false,azure-mgmt-vmwarecloudsimple,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,3,false,1,
+Voiceservices,0,Resource Management - Voiceservices,mgmt,Python,,,11,false,azure-mgmt-voiceservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/voiceservices,3,false,1,
 Web PubSub,0,Resource Management - Web PubSub,mgmt,Python,,,11,false,azure-mgmt-webpubsub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,Python,,,11,false,azure-mgmt-workloadmonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloadmonitor,3,true,1,
 Workloads,0,Resource Management - Workloads,mgmt,Python,,,11,false,azure-mgmt-workloads,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloads,3,false,1,
@@ -2156,7 +2157,6 @@ VMWare Cloud Simple,0,Resource Management - VMWare Cloud Simple,mgmt,JavaScript,
 VMWare Cloud Simple,0,Resource Management - VMWare Cloud Simple,mgmt,Python,,,11,false,Missing: Created from API in specs repo: vmwarecloudsimple,,2,false,0,
 VMWare Cloud Simple,0,Resource Management - VMWare Cloud Simple,mgmt,Go,,,11,false,Missing: Created from API in specs repo: vmwarecloudsimple,,2,false,0,
 voiceservices,0,Resource Management - voiceservices,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: voiceservices,,2,false,0,
-voiceservices,0,Resource Management - voiceservices,mgmt,Python,,,11,false,Missing: Created from API in specs repo: voiceservices,,2,false,0,
 voiceservices,0,Resource Management - voiceservices,mgmt,Go,,,11,false,Missing: Created from API in specs repo: voiceservices,,2,false,0,
 Web,0,Resource Management - Web,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: web,,2,false,0,
 Web,0,Resource Management - Web,mgmt,Java,,,11,false,Missing: Created from API in specs repo: web,,2,false,0,
