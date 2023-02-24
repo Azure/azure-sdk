@@ -466,4 +466,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-voiceservices_1.0.0b1/sdk/voiceservices/azure-mgmt-voiceservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `correlated_activity_id` for query operations
+    - Added cross regional retries for Service Unavailable/Request Timeouts for read/Query Plan operations
+    - GA release of CosmosHttpLoggingPolicy and autoscale feature
+
+    #### Bugs Fixed
+    - Bug fix to address queries with VALUE MAX (or any other aggregate) that run into an issue if the query is executed on a container with at least one "empty" partition.
 
