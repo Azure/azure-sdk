@@ -309,7 +309,30 @@ function CheckAll($langs)
   {
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
     $csvFile = Get-LangCsvFilePath $lang
-
+    $allClientPackages = Get-PackageListForLanguage $lang
+ 
+    foreach ($pkg in $allClientPackages){
+      if(($pkg.Support -eq "deprecated")) {
+        if (!$pkg.EOLDate -or $pkg.EOLDate -eq "NA")
+        {
+          Write-Warning "No EOLDate specified for deprecated package '$($pkg.Package)' in $csvFile."
+          $foundIssues = $true
+        }
+        if (!$pkg.Replace)
+        {
+          Write-Warning "No replacement package specified for deprecated package '$($pkg.Package)' in $csvFile."
+          Write-Warning "If the package name hasn't changed, copy the package name to the replacement library field."
+          $foundIssues = $true
+        }
+        if (!$pkg.ReplaceGuide)
+        {
+          Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
+          Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
+          $foundIssues = $true
+        }        
+      }
+    }
+    
     foreach ($pkg in $clientPackages)
     {
       $serviceNames += [PSCustomObject][ordered]@{
