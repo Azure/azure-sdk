@@ -599,15 +599,11 @@ Android applications commonly need to react to events from the UI or service. Th
 
 ##### Event Handlers
 
-{% include requirement/MAY id="android-event-handler-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
-
-{% include requirement/MUST id="android-event-handler-collection" %} use Azure Core's `EventHandlerCollection` internally to keep track of registered event handlers and their associations with different event types within a client.
-
-{% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package private client constants of the type `String`.
+{% include requirement/MAY id="android-event-handler-mutable" %} allow users to add and remove individual event handlers after client instantiation through the `add` and `remove` methods detailed below. This is not considered to be mutating the state of the client.
 
 {% include requirement/MUST id="android-event-handler-registration" %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
 
-{% include requirement/MUST id="android-event-handler-registration-arguments" %} have said methods take one argument that is an implementation of the `EventHandler` interface from Azure Core. This argument must be named `handler`.
+{% include requirement/MUST id="android-event-handler-registration-arguments" %} define event handler methods as taking a single argument of type `EventHandler` (from Azure Core). This argument must be named `handler`.
 
 ```java
 public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
