@@ -324,12 +324,17 @@ function CheckAll($langs)
           Write-Warning "If the package name hasn't changed, copy the package name to the replacement library field."
           $foundIssues = $true
         }
-        if (!$pkg.ReplaceGuide)
+        # If a replacement package exists, check if the replacement name matches the deprecated name.
+        # Skip the migration guide check if the names are the same.
+        elseif ($pkg.Replace -ne $pkg.Package)
         {
-          Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
-          Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
-          $foundIssues = $true
-        }        
+          if (!$pkg.ReplaceGuide)
+          {
+            Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
+            Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
+            $foundIssues = $true
+          }
+        }
       }
     }
     
