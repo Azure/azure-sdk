@@ -258,4 +258,23 @@ entries:
     - Added support to disable instance discovery on AAD credentials.
     - Added `AzureDeveloperCliCredential` [#24180](https://github.com/Azure/azure-sdk-for-js/pull/24180) and added it to the `DefaultAzureCredential` [#24826](https://github.com/Azure/azure-sdk-for-js/pull/24826) auth flow
     - Added support for `WokloadIdentityCredential`[#24830](https://github.com/Azure/azure-sdk-for-js/pull/24830), added it to `DefaultAzureCredential` auth flow and replaced the in-house implementation of `Token Exchange MSI` in `ManagedIdentity` with `WorkloadIdentityCredential`.
+- Name: '@azure/cosmos'
+  Version: 3.17.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changes in bulk api to honour size restictions (i.e 2Mb) while creating individual batches.[#23923](https://github.com/Azure/azure-sdk-for-js/issues/23923)
+    - Enriched Timeout error response. We had defined Timeout error as custom error in our sdk but we were not sending up any message along with it, now we are throwing the specific Error. [#23025](https://github.com/Azure/azure-sdk-for-js/issues/23025)
+    - Added functionality to delete entire data for a partition id. [#22091](https://github.com/Azure/azure-sdk-for-js/issues/22091)
+    - SDK now defines all possible error types, namely Export RestError, AbortError, TimeoutError, and ErrorResponse. [22789](https://github.com/Azure/azure-sdk-for-js/issues/22789)
+    #### Bugs Fixed
+
+    - Removed excessive log warnings during bulk operations on a container with no partitionkey set.
+    - Fix issue with GlobalEndpointManager never making endpoints available after they fall-back [#22726](https://github.com/Azure/azure-sdk-for-js/issues/22726)
+    - Fix issue that caused parallel queries to break when returning a result of 0 or false. [#24493](https://github.com/Azure/azure-sdk-for-js/issues/24493)
 
