@@ -60,7 +60,7 @@ export default function exceptionHandler(packages: PackageList): PackageList {
                             else {
                                 // write over missing package entry with exception entry
                                 packages[key] = {
-                                    ...packages[key], Track2: { ...TrackSpecificsDefault, Package: `Exception: ${exceptionStr}` }
+                                    ...packages[key], Track2: { ...TrackSpecificsDefault, Package: `Exception: ${exceptionStr}` }, PercentComplete: 1
                                 };
                             }
                         }
