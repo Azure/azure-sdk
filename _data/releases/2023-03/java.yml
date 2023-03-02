@@ -1082,4 +1082,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-workflow_1.0.0-beta.1/sdk/purview/azure-analytics-purview-workflow/CHANGELOG.md
   ChangelogContent: '- Azure PurviewWorkflow client library for Java. This package contains Microsoft Azure PurviewWorkflow client library.'
   GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.7.1
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.7.1/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `httpclient` from `4.5.13` to version `4.5.14`.
+    - Upgraded `jackson-databind` from `2.13.2.2` to version `2.13.5`.
+  GroupId: com.azure
 
