@@ -224,7 +224,7 @@ function Get-go-Packages
     $package = CreatePackage $tag $versions[0]
 
     # We should keep this regex in sync with what is in the go repo at https://github.com/Azure/azure-sdk-for-go/blob/main/eng/scripts/Language-Settings.ps1#L40
-    if ($package.Package -match "(?<modPath>sdk/(?<serviceDir>(.*?(?<serviceName>[^/]+)/)?(?<modName>[^/]+$)))")
+    if ($package.Package -match "(?<modPath>(sdk|profile)/(?<serviceDir>(.*?(?<serviceName>[^/]+)/)?(?<modName>[^/]+$)))")
     {
       #$modPath = $matches["modPath"] Not using modPath currently here but keeping the capture group to be consistent with the go repo
       $modName = $matches["modName"]
