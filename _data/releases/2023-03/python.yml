@@ -519,4 +519,12 @@ entries:
     - The `contentBytesBase64` property under `attachments` has been changed to `contentInBase64`
     - Custom headers in the email message are now key/value pairs.
     - The importance property was removed. Email importance can now be specified through either the `x-priority` or `x-msmail-priority` custom headers.
+- Name: azure-mgmt-security
+  Version: 4.0.0b2
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_4.0.0b2/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
 
