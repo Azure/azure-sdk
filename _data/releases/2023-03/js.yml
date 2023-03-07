@@ -389,4 +389,21 @@ entries:
     #### Bugs Fixed
 
     - Pass `skipParsingBodyAsJson` and `skipConvertingDate` options to peek operations. (PR #24950)[https://github.com/Azure/azure-sdk-for-js/pull/24950]
+- Name: '@azure/ai-language-text'
+  Version: 1.1.0-beta.2
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0-beta.2/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove `defaultLanguage` from the `BeginAnalyzeBatchOptions` interface.
+
+    #### Features Added
+
+    - Add support for logging API warnings that are part of warn-text response headers.
+    - Add support for `partiallySucceeded` status and parse action error pointers.
+    - Change `AbstractiveSummarizationAction` property from `maxSentenceCount` to `sentenceCount`.
 
