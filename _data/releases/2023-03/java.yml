@@ -1312,4 +1312,33 @@ entries:
     - Upgraded `azure-core` from `1.36.0` to version `1.37.0`.
     - Upgraded `azure-core-http-netty` from `1.13.0` to version `1.13.1`.
   GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.7
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.7/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.36.0` to version `1.37.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.0` to version `1.13.1`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.3.7
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.7/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.37.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.13.1`.
+    - Upgraded `azure-core-identity` dependency to `1.8.1`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency to `1.3.0`.
+  GroupId: com.azure
 
