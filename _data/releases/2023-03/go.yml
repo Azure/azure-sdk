@@ -165,4 +165,50 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagemover/armstoragemover/v1.0.0/sdk/resourcemanager/storagemover/armstoragemover/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/messaging/azservicebus
+  Version: 1.2.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.2.1/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Prevent over-requesting credit (#19965) or requesting negative/zero credits (#19743), both of
+    which could cause issues with go-amqp. (PR#19992)
+    - Recover the connection when the $cbs Receiver/Sender is not closed properly. This would cause
+    clients to return an error saying "$cbs node has already been opened." (PR#20334)
+- Name: sdk/azidentity
+  Version: 1.2.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.2.2/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/messaging/azeventhubs
+  Version: 0.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.6.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `ConsumerClientOptions.InstanceID` field. This optional field can enhance error messages from
+    Event Hubs. For example, error messages related to ownership changes for a partition will contain the
+    name of the link that has taken ownership, which can help with traceability.
+
+    #### Bugs Fixed
+
+    - Recover the connection when the $cbs Receiver/Sender is not closed properly. This would cause
+    clients to return an error saying "$cbs node has already been opened." (PR#20334)
+
+    #### Breaking Changes
+
+    - `ConsumerClient.ID()` renamed to `ConsumerClient.InstanceID()`.
 
