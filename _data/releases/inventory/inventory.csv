@@ -287,7 +287,7 @@ Service Fabric,0,Resource Management - Service Fabric Managed Clusters,UNABLE TO
 Video Analyzer,0,Resource Management - Video Analyzer,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Management.VideoAnalyzer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Service Bus,0,Service Bus Event Processor Host,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.ServiceBus.EventProcessorHost,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,Time Series Insights,UNABLE TO BE DETERMINED,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.Extensions.CosmosDb.ChangeProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.AI.Vision.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Configuration,0,App Configuration Provider,data,.NET,Microsoft.Extensions.Configuration.AzureAppConfiguration,https://github.com/Azure/AppConfiguration-DotnetProvider,10,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service - API Apps Common,data,.NET,Microsoft.Azure.AppService.ApiApps.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -751,7 +751,7 @@ Event Grid,0,Event Grid,data,Java,azure-eventgrid,https://github.com/Azure/azure
 Event Hubs,0,Event Hubs,data,Java,azure-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs,1,false,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,02/14/2023
 FarmBeats,0,FarmBeats,data,Java,,,11,false,azure-verticals-agrifood-farming,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,Java,,,11,false,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer,10,false,1,02/10/2023
-Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,02/03/2023
+Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,03/06/2023
 Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,02/21/2023
 Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,1,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,02/21/2023
 Key Vault,0,Key Vault - Keys,data,Java,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,1,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,02/21/2023
@@ -1333,6 +1333,7 @@ Graph RBAC,0,Graph RBAC,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://g
 Logic Apps,0,Logic Apps,UNABLE TO BE DETERMINED,JavaScript,azure-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,1,
 Logic Apps,0,Resource Management - Logic Apps,UNABLE TO BE DETERMINED,JavaScript,azure-arm-scheduler,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-logic,,4,false,1,
 Unable to determine Service Name,0,tmlanguage-generator,UNABLE TO BE DETERMINED,JavaScript,tmlanguage-generator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,JavaScript,@azure-tools/typespec-autorest,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Cognitive Services,0,microsoft-speech-browser-sdk,data,JavaScript,microsoft-speech-browser-sdk,UNABLE TO DETERMINE REPO LINK,10,false,,,1,false,0,
 API Management,0,@azure/api-management-custom-widgets-scaffolder,data,JavaScript,@azure/api-management-custom-widgets-scaffolder,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 API Management,0,@azure/api-management-custom-widgets-tools,data,JavaScript,@azure/api-management-custom-widgets-tools,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1414,6 +1415,7 @@ Confidential Ledger,0,Confidential Ledger,data,Python,,,11,false,azure-confident
 Container Registry,0,Container Registry,data,Python,,,11,false,azure-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,01/25/2022
 Cognitive Services,0,Conversational Language Understanding,data,Python,,,11,false,azure-ai-language-conversations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,10,false,1,
 Cosmos DB,0,Cosmos DB,data,Python,pydocumentdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,true,azure-cosmos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,02/23/2023
+Defender Easm,0,Defender EASM,data,Python,,,11,false,azure-defender-easm,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devcenter,3,false,1,
 IoT,0,Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
 IoT,0,Digital Twins - Core,data,Python,,,11,false,azure-digitaltwins-core,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,07/12/2022
@@ -1636,6 +1638,7 @@ IoT,0,iotedgehubdev,UNABLE TO BE DETERMINED,Python,iotedgehubdev,https://github.
 Machine Learning,0,Machine Learning - Table,UNABLE TO BE DETERMINED,Python,mltable,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Purview,0,Purview Administration,UNABLE TO BE DETERMINED,Python,azure-purview-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,3,false,,,1,false,0,
 Cognitive Services,0,Text Analytics,UNABLE TO BE DETERMINED,Python,text-analytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Batch,0,Batch,data,Python,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,,,1,false,0,
 Cognitive Services,0,Content Moderator,data,Python,azure-cognitiveservices-vision-contentmoderator,https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-vision-contentmoderator_1.0.0/azure-cognitiveservices-vision-contentmoderator/,10,false,,,1,false,0,
 Cognitive Services,0,Ink Recognizer,data,Python,azure-cognitiveservices-inkrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,Exception: Track 2 library not needed,,10,false,1,
