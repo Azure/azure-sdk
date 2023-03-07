@@ -378,4 +378,15 @@ entries:
     #### Bugs Fixed
 
     - Fixing a bug where events were not always received in order [[#23993]](https://github.com/Azure/azure-sdk-for-js/issues/23993).
+- Name: '@azure/service-bus'
+  Version: 7.8.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.8.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Pass `skipParsingBodyAsJson` and `skipConvertingDate` options to peek operations. (PR #24950)[https://github.com/Azure/azure-sdk-for-js/pull/24950]
 
