@@ -567,4 +567,38 @@ entries:
 
     - Added `begin_extract_summary` client method to perform extractive summarization on documents.
     - Added `begin_abstractive_summary` client method to perform abstractive summarization on documents.
+- Name: azure-developer-loadtesting
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-loadtesting_1.0.0/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.test_run` to `azure.developer.loadtesting.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.administration` to `azure.developer.loadtesting.LoadTestAdministrationClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.test_run` to `azure.developer.loadtesting.aio.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.administration` to `azure.developer.loadtesting.aio.LoadTestAdministrationClient`
+    - removed `azure.developer.loadtesting.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_namespaces` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_namespaces`
+- Name: azure-ai-formrecognizer
+  Version: 3.2.1
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Corrected typing for `invoice` argument in `begin_recognize_invoices()` on async `FormRecognizerClient`.
+    - Fixed issue when calling `to_dict()` on `DocumentField` where `value` is not returned for address and currency fields.
+    - Corrected typing for `form_type_confidence` property on `RecognizedForm`.
+    - Corrected typing for `appearance` property on `FormLine`.
 
