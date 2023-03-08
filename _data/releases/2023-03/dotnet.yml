@@ -1535,4 +1535,15 @@ entries:
     - Removed the `MultiLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
     - Removed the `RecognizeCustomEntitiesOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
     - Removed the `SingleLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.14.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.14.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new Communication events, `AcsEmailDeliveryReportReceivedEventData` and `AcsEmailEngagementTrackingReportReceivedEventData`.
 
