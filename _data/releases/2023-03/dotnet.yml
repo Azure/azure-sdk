@@ -1457,4 +1457,46 @@ entries:
 
     - Added support for clients to be disposed via `IDisposable` or `IAsyncDisposable` when the service factory is disposed.
     - Changed tracking for client initialization to ensure that behavior is correct for value types registered as clients.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.8
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.8/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * AAD can now be configured via `AzureMonitorExporterOptions`
+    ([#34555](https://github.com/Azure/azure-sdk-for-net/pull/34555))
+
+    * Connection String can now be provided via
+    `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable
+    ([#34275](https://github.com/Azure/azure-sdk-for-net/pull/34275))
+
+    * `dependencies\duration` and `requests\duration` standard metrics will now be
+    exported by default when trace exporter is used alongside metric exporter
+    ([#34010](https://github.com/Azure/azure-sdk-for-net/pull/34010))
+    ([#33955](https://github.com/Azure/azure-sdk-for-net/pull/33955))
+
+    * Added support for named options ([#33803](https://github.com/Azure/azure-sdk-for-net/pull/33803))
+
+    #### Bugs Fixed
+
+    * Fixed an issue of missing logs due to unhandled exception. ([#34423](https://github.com/Azure/azure-sdk-for-net/pull/34423))
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.8.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.8.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ActivitySource` activities that are used when using the [experimental OpenTelemetry support](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) will include the `az.schema_url` tag indicating the OpenTelemetry schema version. They will also include the messaging attribute specified [here](https://github.com/Azure/azure-sdk/blob/main/docs/tracing/distributed-tracing-conventions.yml#L98).
+
+    #### Bugs Fixed
+
+    - Corrected log message issue causing formatting to fail when developer code for processing events leaks an exception.  This obscured the warning that was intended to be emitted to the error handler.
 
