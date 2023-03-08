@@ -1354,4 +1354,185 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Workloads_1.0.0-beta.3/sdk/workloads/Azure.ResourceManager.Workloads/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.1.1
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.1.1/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.0.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.0.0/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.BotService
+  Version: 1.0.0
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BotService_1.0.0/sdk/botservice/Azure.ResourceManager.BotService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Developer.LoadTesting
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.0.0/sdk/loadtestservice/Azure.Developer.LoadTesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Made `Azure.Developer.LoadTesting.LoadTestAdministrationClient.UploadTestFileAsync` internal
+    - Made `Azure.Developer.LoadTesting.LoadTestRunClient.CreateOrUpdateTestRunAsync` internal
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.7
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.7/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added overloads to `ContainerRegistryBlobClient.DownloadManifest()` method that allow caller to specify multiple manifest media types in a collection.
+    - Added overloads to `ContainerRegistryBlobClient` methods `UploadBlob()` and `UploadManifest()` that take the content to upload as a `BinaryData`.
+
+    #### Breaking Changes
+
+    - Removed `UploadBlobOptions` type and moved chunk size configuration into ClientOptions.
+    - Reordered parameters in `ContainerRegistryBlobClient` constructor for consistency with other SDK clients.
+    - Renamed `OciAnnotations.Size` to `OciAnnotations.SizeInBytes` and removed `Size` parameter from `UploadBlobResult` type.
+    - Changed the name of `OciManifest` to `OciImageManifest`.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.3.1
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.3.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updating additional dependencies to mitigate [CVE-2021-24112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-24112).  Note that the vulnerability only exists in a dependency referenced by the `netcoreapp3.0` target, which reach end-of-life in December, 2019.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.2.1
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updating additional dependencies to mitigate [CVE-2021-24112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-24112).  Note that the vulnerability only exists in a dependency referenced by the `netcoreapp3.0` target, which reach end-of-life in December, 2019.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.8.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.8.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected log message issue causing formatting to fail when developer code for processing events leaks an exception.  This obscured the warning that was intended to be emitted to the error handler.
+
+    #### Features Added
+
+    - `ActivitySource` activities that are used when using the [experimental OpenTelemetry support](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) will include the `az.schema_url` tag indicating the OpenTelemetry schema version. They will also include the messaging attribute specified [here](https://github.com/Azure/azure-sdk/blob/main/docs/tracing/distributed-tracing-conventions.yml#L98).
+- Name: Microsoft.Extensions.Azure
+  Version: 1.6.2
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.6.2/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added support for clients to be disposed via `IDisposable` or `IAsyncDisposable` when the service factory is disposed.
+    - Changed tracking for client initialization to ensure that behavior is correct for value types registered as clients.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.8
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.8/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * AAD can now be configured via `AzureMonitorExporterOptions`
+    ([#34555](https://github.com/Azure/azure-sdk-for-net/pull/34555))
+
+    * Connection String can now be provided via
+    `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable
+    ([#34275](https://github.com/Azure/azure-sdk-for-net/pull/34275))
+
+    * `dependencies\duration` and `requests\duration` standard metrics will now be
+    exported by default when trace exporter is used alongside metric exporter
+    ([#34010](https://github.com/Azure/azure-sdk-for-net/pull/34010))
+    ([#33955](https://github.com/Azure/azure-sdk-for-net/pull/33955))
+
+    * Added support for named options ([#33803](https://github.com/Azure/azure-sdk-for-net/pull/33803))
+
+    #### Bugs Fixed
+
+    * Fixed an issue of missing logs due to unhandled exception. ([#34423](https://github.com/Azure/azure-sdk-for-net/pull/34423))
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.8.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.8.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ActivitySource` activities that are used when using the [experimental OpenTelemetry support](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) will include the `az.schema_url` tag indicating the OpenTelemetry schema version. They will also include the messaging attribute specified [here](https://github.com/Azure/azure-sdk/blob/main/docs/tracing/distributed-tracing-conventions.yml#L98).
+
+    #### Bugs Fixed
+
+    - Corrected log message issue causing formatting to fail when developer code for processing events leaks an exception.  This obscured the warning that was intended to be emitted to the error handler.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.3.0-beta.2
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.3.0-beta.2/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for logging the "warn-text" response header.
+
+    #### Breaking Changes
+
+    > Note: The following breaking changes only apply when upgrading from the previous beta version (5.3.0-beta.1) and do not impact stable versions.
+
+    - Changes to dynamic classification:
+    - Added the `classificationType` parameter to the following methods: `TextAnalyticsClient.DynamicClassify`, `TextAnalyticsClient.DynamicClassifyAsync`, `TextAnalyticsClient.DynamicClassifyBatch` and `TextAnalyticsClient.DynamicClassifyBatchAsync`.
+    - Removed the `options` parameter from the following methods for consistency: `TextAnalyticsClient.DynamicClassify` and `TextAnalyticsClient.DynamicClassifyAsync`.
+    - Removed the `DynamicClassifyOptions` class for consistency.
+    - Changes to abstractive summarization:
+    - Renamed `AbstractSummaryAction.MaxSentenceCount` to `AbstractSummaryAction.SentenceCount`.
+    - Renamed `AbstractSummaryOptions.MaxSentenceCount` to `AbstractSummaryOptions.SentenceCount`.
+    - Changes to Fast Healthcare Interoperability Resources (FHIR) bundles as part of healthcare text analysis.
+    - Renamed the `WellKnownFhirVersion` enum to `FhirVersion`.
+    - Changed the type of the `AnalyzeHealthcareEntitiesResult.FhirBundle` property from `IReadOnlyDictionary<string, object>` to `BinaryData`.
+    - Changes to named entity recognition (NER) resolutions:
+    - Removed the `BooleanResolution` class; boolean resolutions are not supported by the service.
+    - Changes to automatic language detection:
+    - Removed the `AbstractSummaryOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `AnalyzeActionsOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `AnalyzeHealthcareEntitiesOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `ExtractSummaryOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `MultiLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `RecognizeCustomEntitiesOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+    - Removed the `SingleLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
 
