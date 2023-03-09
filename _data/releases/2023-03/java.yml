@@ -1390,4 +1390,20 @@ entries:
     - Rename `LoadTestRunClient.listMetricDefinitionsWithResponse` to `LoadTestRunClient.getMetricDefinitionsWithResponse`
     - Rename `LoadTestRunClient.listMetricNamespacesWithResponse` to `LoadTestRunClient.getMetricNamespacesWithResponse`
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.9
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.9/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Removed Reactor from synchronous clients
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.36.0` to version `1.37.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.0` to version `1.13.1`.
+  GroupId: com.azure
 
