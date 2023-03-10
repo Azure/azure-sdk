@@ -1546,4 +1546,15 @@ entries:
     #### Features Added
 
     - Added new Communication events, `AcsEmailDeliveryReportReceivedEventData` and `AcsEmailEngagementTrackingReportReceivedEventData`.
+- Name: Azure.Core
+  Version: 1.30.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.30.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue with empty header names and values, caused by `ArrayBackedPropertyBag` keeping reference to the array after returning it to array pool [in (https://github.com/Azure/azure-sdk-for-net/pull/34800)  `Dispose` method].
 
