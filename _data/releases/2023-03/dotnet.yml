@@ -1557,4 +1557,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed the issue with empty header names and values, caused by `ArrayBackedPropertyBag` keeping reference to the array after returning it to array pool [in (https://github.com/Azure/azure-sdk-for-net/pull/34800)  `Dispose` method].
+- Name: Azure.Messaging.EventHubs
+  Version: 5.8.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.8.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrading dependency on `Azure.Core` library.
 
