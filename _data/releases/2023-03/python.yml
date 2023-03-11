@@ -621,4 +621,40 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed "duplicate type signatures" MyPy error.
+- Name: azure-appconfiguration-provider
+  Version: 1.0.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.0.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Renamed `load_provider` to `load`
+    * Added `AzureAppConfigurationKeyVaultOptions` to take in a `client_configs` a Mapping of endpoints to client kwargs instead of taking in the whole client.
+    * Removed `AzureAppConfigurationKeyVaultOptions` `secret_clients`, `client_configs` should be used instead.
+    * Made key_filter and label_filter kwargs for Setting Selector
+    * Renamed `trimmed_key_prefixes` to `trim_prefixes`
+- Name: azure-servicebus
+  Version: 7.8.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.8.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where asynchronous method to add distributed tracing attributes was not being awaited (Issue #28738).
+- Name: azure-servicebus
+  Version: 7.9.0b1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.9.0b1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Iterator receiving from Service Bus entities has been added back in.
 
