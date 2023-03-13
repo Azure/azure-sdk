@@ -55,8 +55,8 @@ IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.c
 IoT,0,Digital Twins - Core,data,.NET,,,11,false,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
 Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,03/08/2023
-Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,03/07/2023
-Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,1,false,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,03/07/2023
+Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,03/10/2023
+Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,1,false,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,03/13/2023
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,.NET,Microsoft.Azure.CognitiveServices.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices/FormRecognizer,3,true,Azure.AI.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer,10,false,1,09/08/2022
 Identity,0,Identity,data,.NET,,,11,false,Azure.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity,10,false,1,
@@ -920,7 +920,7 @@ Quota,0,Resource Management - Quota,mgmt,Java,,,11,false,azure-resourcemanager-q
 Recovery Services,0,Resource Management - Recovery Services,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservices,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/recoveryservices,10,false,1,02/27/2023
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/recoveryservicessiterecovery,3,false,1,
 Redis,0,Resource Management - Redis,mgmt,Java,azure-mgmt-redis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-redis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,02/17/2023
-Redis,0,Resource Management - Redis Enterprise,mgmt,Java,,,11,false,azure-resourcemanager-redisenterprise,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/redisenterprise,10,false,1,04/20/2021
+Redis,0,Resource Management - Redis Enterprise,mgmt,Java,,,11,false,azure-resourcemanager-redisenterprise,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/redisenterprise,10,false,1,
 Relay,0,Resource Management - Relay,mgmt,Java,azure-mgmt-relay,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/relay/mgmt-v2017_04_01,3,true,azure-resourcemanager-relay,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/relay,3,false,1,
 Reservations,0,Resource Management - Reservations,mgmt,Java,,,11,false,azure-resourcemanager-reservations,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/reservations,3,false,1,
 Resource Connector,0,Resource Management - Resource Connector,mgmt,Java,,,11,false,azure-resourcemanager-resourceconnector,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourceconnector,3,false,1,
@@ -1082,7 +1082,7 @@ Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,07/31/2020
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,1,
 Search,0,Cognitive Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,11/18/2022
-Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,3,false,1,
+Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/10/2023
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,02/28/2023
 Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communication-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,11/03/2022
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
@@ -1197,7 +1197,7 @@ Data Catalog,0,Resource Management - Data Catalog,mgmt,JavaScript,,,11,false,@az
 Data Factory,0,Resource Management - Data Factory,mgmt,JavaScript,azure-arm-datafactory,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-datafactory,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory,10,false,1,02/17/2023
 Storage,0,Resource Management - Data Lake Analytics,mgmt,JavaScript,azure-arm-datalake-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/arm-datalake-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datalake-analytics/arm-datalake-analytics,10,false,1,
 Database Migration Service,0,Resource Management - Data Migration,mgmt,JavaScript,,,11,false,@azure/arm-datamigration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration,10,false,1,
-Data Protection,0,Resource Management - Data Protection,mgmt,JavaScript,,,11,false,@azure/arm-dataprotection,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dataprotection,3,false,1,
+Data Protection,0,Resource Management - Data Protection,mgmt,JavaScript,,,11,false,@azure/arm-dataprotection,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dataprotection,10,false,1,03/13/2023
 Databricks,0,Resource Management - Databricks,mgmt,JavaScript,,,11,false,@azure/arm-databricks,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks,10,false,1,
 Datadog,0,Resource Management - Datadog,mgmt,JavaScript,,,11,false,@azure/arm-datadog,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datadog,10,false,1,11/29/2022
 Deployment Manager,0,Resource Management - Deployment Manager,mgmt,JavaScript,,,11,false,@azure/arm-deploymentmanager,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deploymentmanager/arm-deploymentmanager,10,false,1,
@@ -1286,7 +1286,7 @@ Resource Connector,0,Resource Management - Resource Connector,mgmt,JavaScript,,,
 Resource Graph,0,Resource Management - Resource Graph,mgmt,JavaScript,,,11,false,@azure/arm-resourcegraph,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph,10,false,1,
 Resource Health,0,Resource Management - Resource Health,mgmt,JavaScript,azure-arm-resourcehealth,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-resourcehealth,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth,10,false,1,02/03/2023
 Resource Mover,0,Resource Management - Resource Mover,mgmt,JavaScript,,,11,false,@azure/arm-resourcemover,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcemover,10,false,1,12/13/2022
-Resources,0,Resource Management - Resources,mgmt,JavaScript,azure-arm-resource,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-resources,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources,10,false,1,11/12/2022
+Resources,0,Resource Management - Resources,mgmt,JavaScript,azure-arm-resource,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-resources,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources,10,false,1,03/13/2023
 Scvmm,0,Resource Management - Scvmm,mgmt,JavaScript,,,11,false,@azure/arm-scvmm,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/scvmm,3,false,1,
 Security,0,Resource Management - Security,mgmt,JavaScript,,,11,false,@azure/arm-security,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security,10,false,1,
 Security DevOps,0,Resource Management - Security DevOps,mgmt,JavaScript,,,11,false,@azure/arm-securitydevops,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/securitydevops,3,false,1,
@@ -1800,6 +1800,10 @@ VMware Solution,0,Resource Management - VMware Solution,mgmt,.NET,,,11,false,Mis
 VMware Solution,0,Resource Management - VMware Solution,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-avs,,2,false,0,
 VMware Solution,0,Resource Management - VMware Solution,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-avs,,2,false,0,
 VMware Solution,0,Resource Management - VMware Solution,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-avs,,2,false,0,
+Key Vault,0,Common,data,.NET,,,11,false,Missing: Created from existing package: @azure/keyvault-common,,2,false,0,
+Key Vault,0,Common,data,Java,,,11,false,Missing: Created from existing package: @azure/keyvault-common,,2,false,0,
+Key Vault,0,Common,data,Python,,,11,false,Missing: Created from existing package: @azure/keyvault-common,,2,false,0,
+Key Vault,0,Common,data,Go,,,11,false,Missing: Created from existing package: @azure/keyvault-common,,2,false,0,
 Cognitive Services,0,Language Text,data,.NET,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
