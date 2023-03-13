@@ -1535,4 +1535,37 @@ entries:
     - Removed the `MultiLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
     - Removed the `RecognizeCustomEntitiesOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
     - Removed the `SingleLabelClassifyOptions.AutoDetectionDefaultLanguage` property; the property is not supported by the service.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.14.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.14.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new Communication events, `AcsEmailDeliveryReportReceivedEventData` and `AcsEmailEngagementTrackingReportReceivedEventData`.
+- Name: Azure.Core
+  Version: 1.30.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.30.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue with empty header names and values, caused by `ArrayBackedPropertyBag` keeping reference to the array after returning it to array pool [in (https://github.com/Azure/azure-sdk-for-net/pull/34800)  `Dispose` method].
+- Name: Azure.Messaging.EventHubs
+  Version: 5.8.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.8.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrading dependency on `Azure.Core` library.
 
