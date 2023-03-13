@@ -32,4 +32,37 @@ entries:
     #### Bugs Fixed
 
     - Fix null reference exception when using the `EventProcessorClient`.
+- Name: Azure.Developer.LoadTesting
+  Version: 1.0.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.0.1/sdk/loadtestservice/Azure.Developer.LoadTesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded dependent `Azure.Core` to `1.30.0`.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.13.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.13.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ActivitySource` activities that are used when using the [experimental OpenTelemetry support](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) will include the `az.schema_url` tag indicating the OpenTelemetry schema version. They will also include the messaging attribute specified [here](https://github.com/Azure/azure-sdk/blob/main/docs/tracing/distributed-tracing-conventions.yml#L98).
+
+    #### Bugs Fixed
+
+    - Fixed deserialization of the lock token to take into account endianness. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.0.1
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.0.1/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
 
