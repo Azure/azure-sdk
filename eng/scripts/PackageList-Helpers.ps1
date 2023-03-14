@@ -53,7 +53,7 @@ function CreatePackage(
     Type = ""
     New = "false"
     PlannedVersions = ""
-    LastestGADate = ""
+    LatestGADate = ""
     FirstGADate = ""
     Support = ""
     EOLDate = ""
