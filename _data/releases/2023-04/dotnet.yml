@@ -176,4 +176,58 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BotService_1.0.1/sdk/botservice/Azure.ResourceManager.BotService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.5.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.5.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    The following changes are only breaking from the previous beta. They are not breaking since version 4.4.0 when those types and members did not exist.
+
+    - Service version "7.4-preview.1" is not supported.
+    - Removed `CreateOkpKeyOptions`.
+    - Removed `KeyClient.CreateOkpKey` and `CreateOkpKeyAsync`.
+    - Removed `KeyType.Okp` and `KeyType.OkpHsm` from `JsonWebKey`.
+    - Removed `KeyCurveName.Ed25519`.
+    - Removed `SignatureAlgorithm.EdDsa`.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.5.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.5.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Service version "7.4-preview.1" is not supported.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.3.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.3.0/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    The following changes are only breaking from the previous beta. They are not breaking since version 4.4.0 when those types and members did not exist.
+
+    - Service version "7.4-preview.1" is not supported.
+    - Removed `KeyVaultSetting.AsBoolean` and `AsString`, and added `AsBoolean` to new `KeyVaultSetting.Value` property type, `KeyVaultSettingValue`.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.5.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.5.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Service version "7.4-preview.1" is not supported.
 
