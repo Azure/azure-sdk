@@ -62,7 +62,7 @@ function Get-java-Packages
       $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
-      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+      Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
 
@@ -93,7 +93,7 @@ function Get-dotnet-Packages
       $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
-      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+      Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
 
@@ -141,7 +141,7 @@ function Get-js-Packages
       $package.RepoPath = $matches["serviceName"].ToLower()
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
-      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+      Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
 
