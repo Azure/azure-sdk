@@ -62,4 +62,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.0.0-beta.12/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.9.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.9.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed detection logic for az/azd.
+
+    #### Features Added
+    - Added CAE support to service principal authentication.
+    - Pass more detailed refresh policy for managed identity tokens to MSAL.
+  GroupId: com.azure
 
