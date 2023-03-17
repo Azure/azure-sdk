@@ -77,4 +77,43 @@ entries:
     - Added CAE support to service principal authentication.
     - Pass more detailed refresh policy for managed identity tokens to MSAL.
   GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.33.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.33.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Bug fixed in `ReactiveCosmosTemplate` where returning a Flux<JsonNode> was causing an error - See [PR 33730](https://github.com/Azure/azure-sdk-for-java/pull/33730)
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.12.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.12.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.42.0`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.42.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.42.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Move operation - See [PR 31078](https://github.com/Azure/azure-sdk-for-java/pull/31078)
+    * GA of `subpartition` functionality in SDK - See [32501](https://github.com/Azure/azure-sdk-for-java/pull/32501)
+    * Added ability for SDK to use partial partition keys for queries in subpartitioned containers - See [32501](https://github.com/Azure/azure-sdk-for-java/pull/32501)
+    * Enable `handleLatestVersionChanges` in ChangeFeedProcessor - See [33972](https://github.com/Azure/azure-sdk-for-java/pull/33972)
+    #### Bugs Fixed
+    * Fixed `readMany` API to take in hierarchical partition keys - See [32501](https://github.com/Azure/azure-sdk-for-java/pull/32501)
+    * Fixed an issue in the Direct Transport metrics for acquired/closed channels which would be triggered when endpoint get closed/evicted due to exceeding idle timeouts. This would surface as stale metrics for these endpoints. - See [33969](https://github.com/Azure/azure-sdk-for-java/pull/33969)
+  GroupId: com.azure
 
