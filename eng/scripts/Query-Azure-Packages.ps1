@@ -373,7 +373,7 @@ function Write-Latest-Versions($lang)
         }
         catch {
           $statusCode = $_.Exception.Response.StatusCode.value__
-          Write-Host "Nuget package index query - Exception: $statusCode"
+          Write-Host "NuGet package index query - Exception: $statusCode"
           Write-Host $_
           Write-Host "URI: $packageIndex"
           Write-Host "=================================="
