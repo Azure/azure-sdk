@@ -365,7 +365,7 @@ function Write-Latest-Versions($lang)
         $packageName = $package.ToLowerInvariant()
 
         # 2) Use the package status query service to get the package index
-        $packageIndex = "$registrationUrl/$packageName/index.json".ToLowerInvariant()
+        $packageIndex = "$registrationUrl/$packageName/index.json"
         $packageId = "$registrationUrl/$packageName/$version.json"
         try {
           $response = Invoke-WebRequest -Uri $packageIndex -Method Get -ErrorAction SilentlyContinue
