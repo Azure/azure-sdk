@@ -9,3 +9,5 @@
 {% assign nuget_service_index_url = "https://api.nuget.org/v3/index.json" %}
 {% assign nuget_registration_service = "RegistrationsBaseUrl/3.6.0" %}
 {% assign nuget_deprecation_service = "PackagePublish/2.0.0" %}
+{% assign nuget_package_content_service = "PackageBaseAddress/3.0.0" %}
+
