@@ -215,4 +215,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_4.0.0/sdk/security/azure-mgmt-security/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-eventhub
+  Version: 5.11.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that would prevent reconnect after a long idle period, network drop (issue #28996)
 
