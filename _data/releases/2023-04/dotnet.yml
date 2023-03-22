@@ -266,4 +266,29 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Upgraded dependent `Azure.Core` to `1.30.0` due to an [issue in `ArrayBackedPropertyBag`](https://github.com/Azure/azure-sdk-for-net/pull/34800) in `Azure.Core` version `1.29.0`
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.5
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.5/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    A number of Completions request properties have been renamed and further documented for clarity.
+    - `CompletionsOptions` (REST request payload):
+    - `CacheLevel` and `CompletionConfig` are removed.
+    - `LogitBias` (REST: `logit_bias`), previously a `<string, int>` Dictionary, is now an `<int, int>` Dictionary named `TokenSelectionBiases`.
+    - `LogProbability` (REST: `logprobs`) is renamed to `LogProbabilityCount`.
+    - `Model` is removed (in favor of the method-level parameter for deployment or model name)
+    - `Prompt` is renamed to `Prompts`
+    - `SnippetCount` (REST: `n`) is renamed to `ChoicesPerPrompt`.
+    - `Stop` is renamed to `StopSequences`.
+    - Method and property documentation are broadly updated, with renames from REST schema (like `n` becoming `ChoicesPerPrompt`) specifically noted in `<remarks>`.
+
+    #### Features Added
+    - GPT-4 models are now supported via new `GetChatCompletions` and `GetChatCompletionsStreaming` methods on `OpenAIClient`. These use the `/chat/completions` REST endpoint and represent the [OpenAI Chat messages format](https://platform.openai.com/docs/guides/chat).
+    - The `gpt-3.5-model` can also be used with Chat completions; prior models like text-davinci-003 cannot be used with Chat completions and should still use the `GetCompletions` methods.
+    - Support for using OpenAI's endpoint via valid API keys obtained from https://platform.openai.com has been added. `OpenAIClient` has new constructors that accept an OpenAI API key instead of an Azure endpoint URI and credential; once configured, Completions, Chat Completions, and Embeddings can be used with identical calling patterns.
 
