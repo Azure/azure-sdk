@@ -5,6 +5,8 @@ title: 'Board Review: Introducing <client library name>'
 labels: architecture, board-review
 assignees: kyle-patterson, ronniegeraghty
 ---
+# Attention
+**For internal teams, our process for scheduling review sessions with the Azure SDK Architecture team has changed. The Azure SDK Architecture team has moved to using a [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) for the scheduling of both Introduction and SDK Review meetings.**
 
 Thank you for starting the process for approval of the client library for your Azure service.  Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 
 
