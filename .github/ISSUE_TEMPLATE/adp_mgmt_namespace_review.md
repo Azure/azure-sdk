@@ -29,12 +29,12 @@ To ensure consistency, all language library names will generally be reviewed tog
 
 ## Namespace Proposals (required per language)
 
-**In the examples below please replace every occurrence of "RPName" with your the service resource provider name. Be sure to keep the casing shown with "RPName" when replacing it with the service resource provider name.**
+**In the examples below please replace every occurrence of [ResourceProviderName] with your the service resource provider name. Be sure to keep the casing shown with [ResourceProviderName] when replacing it with the service resource provider name.**
 
-- **.NET:** `Azure.ResourceManager."RPName"`
-- **Java:** `azure-resourcemanager-"rpname" (com.azure.resourcemanager."rpname")`
-- **Go/Golang:** `sdk/resourcemanager/"rpname"/arm"rpname"`
-- **JavaScript:** `@azure/arm-"rpname"`
-- **Python:** `azure-mgmt-"rpname"`
+- **.NET:** `Azure.ResourceManager.[ResourceProviderName]`
+- **Java:** `azure-resourcemanager-[resourceprovidername] (com.azure.resourcemanager.[resourceprovidername])`
+- **Go/Golang:** `sdk/resourcemanager/[resourceprovidername]/arm[resourceprovidername]`
+- **JavaScript:** `@azure/arm-[resourcecprovidername]`
+- **Python:** `azure-mgmt-[resourceprovidername]`
 
 ## Thank you!
