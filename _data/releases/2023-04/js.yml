@@ -250,4 +250,43 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-newrelicobservability_1.0.0-beta.1/sdk/newrelicobservability/arm-newrelicobservability/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/web-pubsub-client-protobuf'
+  Version: 1.0.0-beta.1
+  DisplayName: WebPubSub Client SDK Protobuf
+  ServiceName: WebPubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client-protobuf_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-client-protobuf/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial beta release
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.2.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed public methods `getTrunks` to `listTrunks` and `getRoutes` to `listRoutes`.
+
+    #### Features Added
+    - Added support for SIP routing API version `2023-03-01`, releasing SIP routing functionality from public preview to GA.
+    - Added environment variable `AZURE_TEST_DOMAIN` for SIP routing tests to support domain verification.
+- Name: '@azure/communication-common'
+  Version: 3.0.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Introduction of `MicrosoftBotIdentifier` is a breaking change. It will affect code that relied on using `UnknownIdentifier` with a rawID starting with `28:`
+
+    #### Features Added
+
+    - Added support for a new communication identifier `MicrosoftBotIdentifier`.
 
