@@ -369,4 +369,12 @@ entries:
     - Added support for service version 2022-11-02.
     - Added support for `encryption_context`, a string value that can be passed when creating a file that will not be
     encrypted with the file. This value is returned on `download_file`, `get_file_properties` and `get_paths`.
+- Name: azure-mgmt-appconfiguration
+  Version: 3.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_3.0.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
 
