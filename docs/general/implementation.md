@@ -221,7 +221,7 @@ The following are considerations that will be discussed in any petition to inclu
 
 {% include requirement/MUSTNOT id="general-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
-Note that, in some rare cases, the Azure SDK Architecture Board may opt to take a hard dependency on the third party library if, after substantial vetting, the board believes that there is minimal risk to supporting our customers in a sustained manner by doing so.  Language specific guidelines will maintain a list of approved dependencies.
+The above considerations may differ in degree between languages, and so it's important to check the approved dependencies and guidelines for any given language early in the design phase.  (Also note that, in some rare cases, the Azure SDK Architecture Board may opt to take a hard dependency on an additional third party library if, after substantial vetting, the board believes that there is minimal risk to supporting our customers in a sustained manner by doing so.)
 
 ## Service-specific common library code
 
