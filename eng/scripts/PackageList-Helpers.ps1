@@ -40,9 +40,15 @@ function CreatePackage(
     $versionPreview = $version
   }
 
-  return [PSCustomObject][ordered]@{
+  $pkg = [PSCustomObject][ordered]@{
     Package = $package
-    GroupId = $groupId
+  }
+
+  if ($groupId) {
+    $pkg | Add-Member -NotePropertyName "GroupId" -NotePropertyValue $groupId
+  }
+
+  $otherProps = [ordered]@{
     VersionGA = $versionGA
     VersionPreview = $versionPreview
     DisplayName = "Unknown Display Name"
@@ -53,7 +59,7 @@ function CreatePackage(
     Type = ""
     New = "false"
     PlannedVersions = ""
-    LastestGADate = ""
+    LatestGADate = ""
     FirstGADate = ""
     Support = ""
     EOLDate = ""
@@ -63,7 +69,11 @@ function CreatePackage(
     MSDocService = ""
     ServiceId = ""
     Notes = "Needs Review"
-  };
+  }
+
+  $pkg | Add-Member -NotePropertyMembers $otherProps
+
+  return $pkg
 }
 
 function ClonePackage($pkg)

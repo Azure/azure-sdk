@@ -103,16 +103,6 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_1.0.0-beta.1/sdk/storagemover/arm-storagemover/CHANGELOG.md
   ChangelogContent: ""
-- Name: '@azure/communication-phone-numbers'
-  Version: 1.2.0-alpha.20230221.1
-  DisplayName: Communication Phone Numbers
-  ServiceName: Communication
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0-alpha.20230221.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
-  ChangelogContent: |-
-    - Added support for the API version 2023-01-01-preview.
-    - Added ability to retrieve SIP trunk health properties.
 - Name: '@azure/arm-storagecache'
   Version: 6.0.0
   DisplayName: Resource Management - Storage Cache
@@ -340,4 +330,105 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloads_1.0.0-beta.3/sdk/workloads/arm-workloads/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-email'
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.0-beta.2/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Reworked the SDK to follow the LRO (long running operation) approach. The 'beginSend' method returns a poller that can be used to check for the status of sending the email and retrieve the result. The return object has been adjusted to fit this approach.
+    - The `getSendStatus` method has been removed.
+    - The `sender` property has been changed to `senderAddress`.
+    - The `email` property under the recipient object has been changed to `address`.
+    - The `attachmentType` property under `attachments` has been changed to 'contentType'. This now accepts the attachment mime type.
+    - The EmailRecipients "cC" and "bCC" properties have been changed to "cc" and "bcc"
+    - The `contentBytesBase64` property under `attachments` has been changed to `contentInBase64`
+    - Custom headers in the email message are now key/value pairs.
+    - The importance property was removed. Email importance can now be specified through either the `x-priority` or `x-msmail-priority` custom headers.
+- Name: '@azure/arm-storagemover'
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_1.0.0/sdk/storagemover/arm-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.9.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixing a bug where events were not always received in order [[#23993]](https://github.com/Azure/azure-sdk-for-js/issues/23993).
+- Name: '@azure/service-bus'
+  Version: 7.8.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.8.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Pass `skipParsingBodyAsJson` and `skipConvertingDate` options to peek operations. (PR #24950)[https://github.com/Azure/azure-sdk-for-js/pull/24950]
+- Name: '@azure/ai-language-text'
+  Version: 1.1.0-beta.2
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0-beta.2/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove `defaultLanguage` from the `BeginAnalyzeBatchOptions` interface.
+
+    #### Features Added
+
+    - Add support for logging API warnings that are part of warn-text response headers.
+    - Add support for `partiallySucceeded` status and parse action error pointers.
+    - Change `AbstractiveSummarizationAction` property from `maxSentenceCount` to `sentenceCount`.
+- Name: '@azure-rest/load-testing'
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0/sdk/loadtesting/load-testing-rest/CHANGELOG.md
+  ChangelogContent: First stable release of Azure Load Testing client library for Javascript.
+- Name: '@azure/arm-containerservice'
+  Version: 17.4.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-voiceservices'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Voiceservices
+  ServiceName: Voiceservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-voiceservices_1.0.0-beta.1/sdk/voiceservices/arm-voiceservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/purview-workflow'
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Workflow
+  ServiceName: Purview Workflow
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-workflow_1.0.0-beta.1/sdk/purview/purview-workflow-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the Purview Workflow client library for JavaScript.
 
