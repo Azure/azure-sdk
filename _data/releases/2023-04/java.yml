@@ -1135,4 +1135,19 @@ entries:
 
     - Added new ACS Email events
   GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.0.0
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.0/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    The public release of the Azure Communication Services SDK for Email has the following features:
+
+    - send emails with a variety of options (multiple recipients, attachments, etc.)
+    - poll for the status of the email that was sent to track its progress
+  GroupId: com.azure
 
