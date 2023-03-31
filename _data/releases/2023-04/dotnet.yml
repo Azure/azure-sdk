@@ -470,4 +470,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.0.3/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.5.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.5.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Correctly serialize `CertificateIssuer.OrganizationId` property ([#35245](https://github.com/Azure/azure-sdk-for-net/issues/35245))
 
