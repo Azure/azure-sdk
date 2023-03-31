@@ -481,4 +481,15 @@ entries:
     #### Bugs Fixed
 
     - Correctly serialize `CertificateIssuer.OrganizationId` property ([#35245](https://github.com/Azure/azure-sdk-for-net/issues/35245))
+- Name: Azure.Communication.Email
+  Version: 1.0.0
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Email_1.0.0/sdk/communication/Azure.Communication.Email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed: Renamed parameter names in EmailMessage constructor
+    - Removed: Removed public methods for GetSendResult and GetSendResultAsync since the same functionality is available through EmailSendOperation.UpdateStatus method
 
