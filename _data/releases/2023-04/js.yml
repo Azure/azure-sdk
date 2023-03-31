@@ -1,0 +1,292 @@
+entries:
+- Name: '@azure/keyvault-common'
+  Version: 1.0.0
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the keyvault-common package. The package is intended for internal consumption only and only exposes
+    helpers and other common code used by the Key Vault SDKs.
+- Name: '@azure/arm-dataprotection'
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_1.0.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 5.2.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-certificates'
+  Version: 4.7.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.7.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `CertificateClient` to support service version 7.4 by default.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.7.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `SecretClient` to support service version 7.4 by default.
+- Name: '@azure/keyvault-admin'
+  Version: 4.4.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
+- Name: '@azure/keyvault-keys'
+  Version: 4.7.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.7.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed support for OKP key types as introduced in 4.7.0-beta.1. These changes are only breaking for customers consuming the 4.7.0-beta.1 API, and do not affect those consuming a stable release such as 4.6.0.
+    - Removed `OKP` and `OKP-HSM` from `KnownKeyTypes`.
+    - Removed `EdDSA` from `KnownSignatureAlgorithms`.
+    - Removed `Ed25519` from `KnownKeyCurveNames`.
+- Name: '@azure/arm-webpubsub'
+  Version: 1.1.0
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_1.1.0/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 30.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridcontainerservice'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Hybrid Container Service
+  ServiceName: Hybrid Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcontainerservice_1.0.0-beta.2/sdk/hybridcontainerservice/arm-hybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-monitor'
+  Version: 8.0.0-beta.4
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-signalr'
+  Version: 5.2.0
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/signalr/arm-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 11.1.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 17.4.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-digitaltwins'
+  Version: 3.3.0
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-graphservices'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Graphservices
+  ServiceName: Graphservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-graphservices_1.0.0-beta.1/sdk/graphservices/arm-graphservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 18.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-desktopvirtualization'
+  Version: 1.0.0
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-desktopvirtualization_1.0.0/sdk/desktopvirtualization/arm-desktopvirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-orbital'
+  Version: 2.0.0
+  DisplayName: Resource Management - Orbital
+  ServiceName: Orbital
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_2.0.0/sdk/orbital/arm-orbital/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 10.1.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appservice'
+  Version: 14.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagecache'
+  Version: 7.0.0-beta.1
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesbackup'
+  Version: 10.1.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Backup
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicesbackup/arm-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-security'
+  Version: 6.0.0-beta.3
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.4.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-reservations'
+  Version: 9.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-communication'
+  Version: 4.0.0-beta.4
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.0.0-beta.4/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 10.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-newrelicobservability'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Newrelicobservability
+  ServiceName: Newrelicobservability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-newrelicobservability_1.0.0-beta.1/sdk/newrelicobservability/arm-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-client-protobuf'
+  Version: 1.0.0-beta.1
+  DisplayName: WebPubSub Client SDK Protobuf
+  ServiceName: WebPubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client-protobuf_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-client-protobuf/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial beta release
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.2.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed public methods `getTrunks` to `listTrunks` and `getRoutes` to `listRoutes`.
+
+    #### Features Added
+    - Added support for SIP routing API version `2023-03-01`, releasing SIP routing functionality from public preview to GA.
+    - Added environment variable `AZURE_TEST_DOMAIN` for SIP routing tests to support domain verification.
+- Name: '@azure/communication-common'
+  Version: 3.0.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Introduction of `MicrosoftBotIdentifier` is a breaking change. It will affect code that relied on using `UnknownIdentifier` with a rawID starting with `28:`
+
+    #### Features Added
+
+    - Added support for a new communication identifier `MicrosoftBotIdentifier`.
+

@@ -489,4 +489,172 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-workflow_1.0.0b1/sdk/purview/azure-purview-workflow/CHANGELOG.md
   ChangelogContent: '- Initial release of the Purview Workflow client library for Python'
+- Name: azure-defender-easm
+  Version: 1.0.0b1
+  DisplayName: Defender EASM
+  ServiceName: Defender Easm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-defender-easm_1.0.0b1/sdk/easm/azure-defender-easm/CHANGELOG.md
+  ChangelogContent: '- Initial Release'
+- Name: azure-communication-email
+  Version: 1.0.0b2
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-email_1.0.0b2/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adding support for AAD token authentication
+    - Added the ability to specify the API version by an optional `api_version` keyword parameter.
+
+    #### Breaking Changes
+    - Made the SDK Model-less. Objects are now constructed using a dictionary instead of a model.
+    - Reworked the SDK to follow the LRO (long running operation) approach. The 'begin_send' method returns a poller that can be used to check for the status of sending the email and retrieve the result. The return object has been adjusted to fit this approach.
+    - The `get_send_status` method has been removed.
+    - The `sender` property has been changed to `senderAddress`.
+    - The `email` property under the recipient object has been changed to `address`.
+    - The `attachmentType` property under `attachments` has been changed to 'contentType'. This now accepts the attachment mime type.
+    - The `contentBytesBase64` property under `attachments` has been changed to `contentInBase64`
+    - Custom headers in the email message are now key/value pairs.
+    - The importance property was removed. Email importance can now be specified through either the `x-priority` or `x-msmail-priority` custom headers.
+- Name: azure-mgmt-security
+  Version: 4.0.0b2
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_4.0.0b2/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.13.0b3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.13.0b3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed parameter from `instance_discovery` to `disable_instance_discovery` to make it more explicit.
+    - Service principal credentials now enable support for [Continuous Access Evaluation (CAE)](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation-workload). This indicates to Azure Active Directory that your application can handle CAE claims challenges.
+- Name: azure-mgmt-storagemover
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_1.0.0/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.3.0b2
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.3.0b2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed models `BaseResolution` and `BooleanResolution`.
+    - Removed enum value `BooleanResolution` from `ResolutionKind`.
+    - Renamed model `AbstractSummaryAction` to `AbstractiveSummaryAction`.
+    - Renamed model `AbstractSummaryResult` to `AbstractiveSummaryResult`.
+    - Removed keyword argument `autodetect_default_language` from long-running operation APIs.
+
+    #### Features Added
+
+    - Added `begin_extract_summary` client method to perform extractive summarization on documents.
+    - Added `begin_abstractive_summary` client method to perform abstractive summarization on documents.
+- Name: azure-developer-loadtesting
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-loadtesting_1.0.0/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.test_run` to `azure.developer.loadtesting.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.administration` to `azure.developer.loadtesting.LoadTestAdministrationClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.test_run` to `azure.developer.loadtesting.aio.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.administration` to `azure.developer.loadtesting.aio.LoadTestAdministrationClient`
+    - removed `azure.developer.loadtesting.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_namespaces` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_namespaces`
+- Name: azure-ai-formrecognizer
+  Version: 3.2.1
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Corrected typing for `invoice` argument in `begin_recognize_invoices()` on async `FormRecognizerClient`.
+    - Fixed issue when calling `to_dict()` on `DocumentField` where `value` is not returned for address and currency fields.
+    - Corrected typing for `form_type_confidence` property on `RecognizedForm`.
+    - Corrected typing for `appearance` property on `FormLine`.
+- Name: azure-storage-file-datalake
+  Version: 12.10.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.10.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed "duplicate type signatures" MyPy error.
+- Name: azure-storage-file-share
+  Version: 12.11.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.11.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed "duplicate type signatures" MyPy error.
+- Name: azure-appconfiguration-provider
+  Version: 1.0.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.0.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Renamed `load_provider` to `load`
+    * Added `AzureAppConfigurationKeyVaultOptions` to take in a `client_configs` a Mapping of endpoints to client kwargs instead of taking in the whole client.
+    * Removed `AzureAppConfigurationKeyVaultOptions` `secret_clients`, `client_configs` should be used instead.
+    * Made key_filter and label_filter kwargs for Setting Selector
+    * Renamed `trimmed_key_prefixes` to `trim_prefixes`
+- Name: azure-servicebus
+  Version: 7.8.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.8.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where asynchronous method to add distributed tracing attributes was not being awaited (Issue #28738).
+- Name: azure-servicebus
+  Version: 7.9.0b1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.9.0b1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Iterator receiving from Service Bus entities has been added back in.
 
