@@ -82,8 +82,7 @@ steps:
     ScriptDirectory: $(AzureSDKToolsScriptsPath)
 
 - pwsh: |
-    . ./eng/scripts/Github-Helpers.ps1
-    EnableAutoMergeForPullRequest -pullRequestNumber $(Submitted.PullRequest.Number)
+    gh pr merge $(Submitted.PullRequest.Number) --auto
   condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
   displayName: Apply AutoMerge to Pull Request
   workingDirectory: $(AzureSDKClonePath)
