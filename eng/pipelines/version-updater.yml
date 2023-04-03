@@ -82,7 +82,7 @@ steps:
     ScriptDirectory: $(AzureSDKToolsScriptsPath)
 
 - pwsh: |
-    gh pr merge $(Submitted.PullRequest.Number) --auto
+    gh pr merge $(Submitted.PullRequest.Number) --auto --squash
   condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
   displayName: Apply AutoMerge to Pull Request
   workingDirectory: $(AzureSDKClonePath)
