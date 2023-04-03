@@ -1,5 +1,19 @@
 [
     {
+        "Exception":"Library not needed in language",
+        "Service":"API Management",
+        "SDKs":{
+            "@azure/api-management-custom-widgets-scaffolder":{
+                "Plane":"data",
+                "Languages":[".NET", "Go", "Java", "Python"]
+            },
+            "@azure/api-management-custom-widgets-tools":{
+                "Plane":"data",
+                "Languages":[".NET", "Go", "Java", "Python"]
+            }
+        }
+    },
+    {
         "Exception":"Track 2 library not needed",
         "Service":"App Service",
         "SDKs":{
@@ -150,6 +164,20 @@
             "Machine Learning":{
                 "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Video Analyzer",
+        "SDKs":{
+            "@azure/video-analyzer-widgets":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "@azure/video-indexer-widgets":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
             }
         }
     }
