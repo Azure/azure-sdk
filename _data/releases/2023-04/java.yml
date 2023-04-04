@@ -1150,4 +1150,13 @@ entries:
     - send emails with a variety of options (multiple recipients, attachments, etc.)
     - poll for the status of the email that was sent to track its progress
   GroupId: com.azure
+- Name: azure-resourcemanager-communication
+  Version: 2.0.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-communication_2.0.0/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
