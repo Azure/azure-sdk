@@ -169,6 +169,16 @@
     },
     {
         "Exception":"Track 2 library not needed",
+        "Service":"Schema Registry",
+        "SDKs":{
+            "azure-schemaregistry-spark-avro":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
         "Service":"Video Analyzer",
         "SDKs":{
             "@azure/video-analyzer-widgets":{
