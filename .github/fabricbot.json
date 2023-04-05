@@ -559,5 +559,53 @@
         }
       ]
     }
+  },
+  {
+    "taskType": "trigger",
+    "capabilityId": "IssueResponder",
+    "subCapability": "IssuesOnlyResponder",
+    "version": "1.0",
+    "config": {
+      "conditions": {
+        "operator": "and",
+        "operands": [
+          {
+            "name": "labelAdded",
+            "parameters": {
+              "label": "SDK Deprecation"
+            }
+          }
+        ]
+      },
+      "eventType": "issue",
+      "eventNames": [
+        "issues",
+        "project_card"
+      ],
+      "taskName": "Assign issue on use of SDK Deprecation label",
+      "actions": [
+        {
+          "name": "assignToUser",
+          "parameters": {
+            "groupId": "",
+            "user": "mario-guerra"
+          }
+        },
+        {
+          "name": "assignToUser",
+          "parameters": {
+            "groupId": "",
+            "user": "ronniegeraghty"
+          }
+        },
+        {
+          "name": "assignToUser",
+          "parameters": {
+            "groupId": "",
+            "user": "scottaddie"
+          }
+        }
+      ]
+    }
   }
 ]
