@@ -414,4 +414,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.2.1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-containerregistry
+  Version: 1.1.0b3
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.1.0b3/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Suppress the response error with status code `404` in `delete_blob()`.
+    - Added to return blob size in bytes in `upload_blob()`.
+    - Changed `download_blob()` return type from `DownloadBlobResult` to `DownloadBlobStream` and `AsyncDownloadBlobStream`.
+
+    #### Features Added
+    - Supported uploading and downding large OCI artifact blobs in synchronous and asynchronous `ContainerRegistryClient`.
+    - Published model `DownloadManifestResult`, `DownloadBlobStream` and `AsyncDownloadBlobStream`.
 
