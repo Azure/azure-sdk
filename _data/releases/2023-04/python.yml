@@ -430,4 +430,14 @@ entries:
     #### Features Added
     - Supported uploading and downding large OCI artifact blobs in synchronous and asynchronous `ContainerRegistryClient`.
     - Published model `DownloadManifestResult`, `DownloadBlobStream` and `AsyncDownloadBlobStream`.
+- Name: azure-communication-identity
+  Version: 1.4.0b1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.4.0b1/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for a new communication identifier `MicrosoftBotIdentifier`.
 
