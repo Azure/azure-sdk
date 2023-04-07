@@ -77,7 +77,7 @@ Depending on the situation and service, more than one SDK API review may be need
 | REST API Spec | Good to have | Link to the reviewed REST API spec definition in [azure/azure-rest-api-specs-pr](https://github.com/azure/azure-rest-api-specs-pr) or [azure/azure-rest-api-specs](https://github.com/azure/azure-rest-api-specs) repo. | [Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01/attestation.json) |
 | Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
 
-### 3. SDK API sign ff
+### 3. SDK API sign off
 
 The goal of the SDK API sign-off meeting is to resolve any controversial/unsettled questions about the SDK API. These questions can come from language architects or service teams.
 
