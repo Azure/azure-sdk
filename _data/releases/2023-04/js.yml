@@ -430,4 +430,15 @@ entries:
     #### Features Added
 
     - Add `randomUUID` to generate a random UUID. [PR #25408](https://github.com/Azure/azure-sdk-for-js/pull/25408)
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.4
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.4/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Address issue with `query` property from CloudEvent https://github.com/Azure/azure-sdk-for-js/issues/24515
 
