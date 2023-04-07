@@ -46,7 +46,7 @@ If you are unsure which path applies to the work you are doing, you should consu
 
 For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) to schedule review sessions with the Azure SDK Architecture.
 
-There are two types of meetings that may be scheduled through the app: Informational and Follow-Up. Please select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction or previous meeting ("Follow-Up"). Requirements for each type of meeting are detailed below.
+There are two types of meetings that may be scheduled through the app: Introduction and Follow-Up. Please select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction or previous meeting ("Follow-Up"). Requirements for each type of meeting are detailed below.
 
 ### 1. Introductory Session
 
