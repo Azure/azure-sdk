@@ -1704,4 +1704,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/communication/armcommunication/v2.0.0/sdk/resourcemanager/communication/armcommunication/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.5.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.5.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `ShouldRetry` to `policy.RetryOptions` for finer-grained control over when to retry.
+
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.5.0-beta.1
+    > These features will return in v1.6.0-beta.1.
+    * Removed `TokenRequestOptions.Claims` and `.TenantID`
+    * Removed ARM client support for CAE and cross-tenant auth.
+
+    #### Bugs Fixed
+    * Added non-conformant LRO terminal states `Cancelled` and `Completed`.
 
