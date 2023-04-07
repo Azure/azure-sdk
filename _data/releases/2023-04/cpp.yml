@@ -25,4 +25,19 @@ entries:
 
     - [[#4213]](https://github.com/Azure/azure-sdk-for-cpp/issues/4213) Fixed a bug where `Host` request header is not set for non-default port (80, 443).
     - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
+- Name: azure-identity
+  Version: 1.5.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.5.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
+
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
 
