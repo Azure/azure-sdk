@@ -441,4 +441,15 @@ entries:
     #### Bugs Fixed
 
     - Address issue with `query` property from CloudEvent https://github.com/Azure/azure-sdk-for-js/issues/24515
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.0-beta.3
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.0-beta.3/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix the bug that `isDuplicated` is always `true`
 
