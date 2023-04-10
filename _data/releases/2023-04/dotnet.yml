@@ -579,4 +579,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridContainerService_1.0.0-beta.1/sdk/hybridaks/Azure.ResourceManager.HybridContainerService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.31.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.31.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `RetryPolicy` type which can be used to create a custom retry policy.
+    - Added the `DelayStrategy` type which can be used to customize delays.
+
+    #### Bugs Fixed
+
+    - Set the Activity status to `Error` on failed activity source activities.
+    - Mark the `Azure.Core.Http.Request` span as failed if the request fails with an exception thrown in the pipeline.
+    - Fixed equality comparison when comparing a `string` to a `ContentType` instance.
+    - Jitter is added when using a `RetryMode` of `Fixed`.
 
