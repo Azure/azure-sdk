@@ -1690,4 +1690,16 @@ entries:
 
     - Addressing IllegalStateException due to double free of Connection reference by the Transport.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.8.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.8.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug in managed identity not properly URLEncoding a value. [#34375](https://github.com/Azure/azure-sdk-for-java/pull/34375)
+  GroupId: com.azure
 
