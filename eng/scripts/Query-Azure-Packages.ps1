@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param (
   [string] $language = "all",
-  [string] $github_pat = $env:GITHUB_PAT
+  [string] $github_pat = $env:GITHUB_PAT,
+  [string] $nuget_pat = $env:NUGET_PAT
 )
 Set-StrictMode -Version 3
 
@@ -312,6 +313,14 @@ function Write-Latest-Versions($lang)
     }
   }
 
+  # Keep package managers up to date with package deprecations
+  # TODO: Commenting out till we can figure out how to run this
+  # function on an infrequent basis so it doesn't slow things down.
+  #if($lang -eq 'dotnet')
+  #{
+  #  Write-Nuget-Deprecated-Packages($packageList)
+  #}
+
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($existingPkg in $packageList)
   {
@@ -326,6 +335,164 @@ function Write-Latest-Versions($lang)
   }
 
   Set-PackageListForLanguage $lang $packageList
+}
+
+function Write-Nuget-Deprecated-Packages($packageList)
+{
+# Automatically update nuget.org with deprecation messages for
+# packages that have been marked as deprecated in our CSV files.
+# To do this we have to:
+#    1) Get the nuget service index
+#    2) Use the package status query service to get the package index
+#    3) Use the package index to get the package metadata
+#    4) Parse the metadata to see if the package has already been deprecated
+#    5) If not, update the package to reflect deprecation status
+#    5b) Requires querying the package content service to get package version list
+  $linkTemplates = GetLinkTemplates "dotnet"
+  $nugetServiceIndex = $linkTemplates["nuget_service_index_url"]
+  $nugetRegistrationServiceName = $linkTemplates["nuget_registration_service"]
+  $nugetDeprecationServiceName = $linkTemplates["nuget_deprecation_service"]
+  $nugetPackaceContentServiceName = $linkTemplates["nuget_package_content_service"]
+
+  # 1) Get the nuget service index
+  try {
+    $response = Invoke-WebRequest -Uri $nugetServiceIndex -Method Get -ErrorAction SilentlyContinue
+    $responseContent = ConvertFrom-Json $response.Content
+    $statusCode = $response.StatusCode
+  }
+  catch {
+    $statusCode = $_.Exception.Response.StatusCode.value__
+    Write-Host "Nuget service index query - Exception: $statusCode"
+    Write-Host $_
+    Write-Host "URI: $nugetServiceIndex"
+    Write-Host "=================================="
+  }
+
+  $nugetRegistrationService = $responseContent.resources | Where-Object { $_.'@type' -eq "$nugetRegistrationServiceName" }
+  $registrationUrl = $nugetRegistrationService.'@id'
+  $registrationUrl = $registrationUrl.TrimEnd('/')
+  $nugetDeprecationService = $responseContent.resources | Where-Object { $_.'@type' -eq "$nugetDeprecationServiceName" }
+  $deprecationUrl = $nugetDeprecationService.'@id'
+  $deprecationUrl = $deprecationUrl.TrimEnd('/')
+  $nugetPackageContentService = $responseContent.resources | Where-Object { $_.'@type' -eq "$nugetPackaceContentServiceName" }
+  $contentUrl = $nugetPackageContentService.'@id'
+  $contentUrl = $contentUrl.TrimEnd('/')
+
+  foreach ($pkg in $packageList){
+    if(($pkg.Support -eq "deprecated"))
+    {
+      # Is it safe to assume there will always be either a
+      # VersionGA or VersionPreview value?
+      if($pkg.VersionGA)
+      {
+        $version = $pkg.VersionGA
+      }
+      else {
+        $version = $pkg.VersionPreview
+      }
+      $package = $pkg.Package
+      $packageName = $package.ToLowerInvariant()
+
+      # 2) Use the package status query service to get the package index
+      $packageIndex = "$registrationUrl/$packageName/index.json"
+      $packageId = "$registrationUrl/$packageName/$($version.ToLowerInvariant()).json"
+      try {
+        $response = Invoke-WebRequest -Uri $packageIndex -Method Get -ErrorAction SilentlyContinue
+        $responseContent = ConvertFrom-Json $response.Content
+      }
+      catch {
+        $statusCode = $_.Exception.Response.StatusCode.value__
+        Write-Host "NuGet package index query - Exception: $statusCode"
+        Write-Host "URI: $packageIndex"
+        Write-Host "=================================="
+      }
+      # 3) Use the package index to get the package metadata
+      $metadata = $responseContent.items.items | Where-Object { $_.'@id' -eq "$packageId"}
+      # 4) Parse the metadata to see if the package has already been deprecated
+      if ( -not ($metadata.catalogEntry | Select-Object -ExpandProperty deprecation -First 1 -ErrorAction SilentlyContinue))
+      {
+        #  5) If not, update the package to reflect deprecation status
+        # Set variables
+        if ($pkg.EOLDate) {
+          $EOLDate = $pkg.EOLDate
+        } else {
+          $EOLDate = "NA"
+        }
+        if ($pkg.Replace){
+          $replacementPackage = $pkg.Replace
+        } else {
+          $replacementPackage = "NA"
+        }
+        if ($pkg.ReplaceGuide)
+        {
+          $migrationGuide = $pkg.ReplaceGuide
+        } else {
+          $migrationGuide = "NA"
+        }
+        # 5b) Query the package content service to get package version list
+        $packageContent = "$contentUrl/$packageName/index.json"
+        try {
+          $response = Invoke-WebRequest -Uri $packageContent -Method Get -ErrorAction SilentlyContinue
+          $responseContent = $response.Content
+        }
+        catch {
+          $statusCode = $_.Exception.Response.StatusCode.value__
+          Write-Host "NuGet package content query - Exception: $statusCode"
+          Write-Host "URI: $packageContent"
+          Write-Host "=================================="
+        }
+        $versions = (ConvertFrom-Json $responseContent).versions
+
+        # Construct the deprecation message
+        $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
+        if ($EOLDate -and ($EOLDate -ne "NA"))
+        {
+          $deprecationMsg += " after $EOLDate."
+        } else {
+          $deprecationMsg += "."
+        }
+        if ($replacementPackage -and ($replacementPackage -ne "NA")) {
+          if ($replacementPackage -ne $package) {
+            $deprecationMsg += " We encourage you to upgrade to the replacement package, $replacementPackage, to continue receiving updates."
+            $deprecationReplacement = $replacementPackage
+          } else { # package name hasn't changed
+            $deprecationMsg += " We encourage you to upgrade to the latest version to continue receiving updates."
+            $deprecationReplacement = ""
+          }
+        }
+        if ($migrationGuide -and ($migrationGuide -ne "NA")) {
+            $deprecationMsg += " Refer to the migration guide ($migrationGuide) for guidance on upgrading."
+        }
+        $deprecationMsg += " Refer to our deprecation policy (https://aka.ms/azsdk/support-policies) for more details."
+        $headers = @{
+          "X-NuGet-ApiKey" = "$nuget_pat"
+          "User-Agent" = "Query-Azure-Packages.ps1 (Azure SDK GH repo)"
+          "alternatePackageId" = "$deprecationReplacement"
+        }
+        $body = @{
+          'versions'= @($versions)
+          'isLegacy' = ""
+          'isOther' = "true"
+          'message' = "$deprecationMsg"
+        } | ConvertTo-Json
+        try {
+          Write-Host "============================"
+          Write-Host "Deprecating NuGet package:"
+          Write-Host $packageName
+          Write-Host "============================"
+          Invoke-WebRequest -Uri $deprecationUrl/$packageName/deprecations -Method Put -Headers $headers -Body $body -ContentType "application/json"
+        }
+        catch {
+          $statusCode = $_.Exception.Response.StatusCode.value__
+          Write-Host "Nuget package deprecation - Exception: $statusCode"
+          Write-Host "URI: $deprecationUrl/$package/deprecations"
+          Write-Host "=================================="
+        }
+        # The nuget deprecation API is rate-limited to one request per minute
+        Start-Sleep -Seconds 60
+      }
+    }
+  }  
 }
 
 switch($language)

@@ -1,5 +1,15 @@
 [
     {
+        "Exception":"Library not needed. API Spec retired.",
+        "Service":"AD Hybrid Health Services",
+        "SDKs":{
+            "Resource Management - AD Hybrid Health Services":{
+                "Plane":"mgmt",
+                "Languages":[".NET", "Go", "Java", "JavaScript","Python"]
+            }
+        }
+    },
+    {
         "Exception":"Library not needed in language",
         "Service":"API Management",
         "SDKs":{
@@ -10,6 +20,16 @@
             "@azure/api-management-custom-widgets-tools":{
                 "Plane":"data",
                 "Languages":[".NET", "Go", "Java", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"App Configuration",
+        "SDKs":{
+            "App Configuration Provider":{
+                "Plane":"data",
+                "Languages":[".NET", "JavaScript", "Java"]
             }
         }
     },
@@ -144,6 +164,16 @@
             "VS Code Authentication Plugin":{
                 "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed. API Spec retired.",
+        "Service":"IoT",
+        "SDKs":{
+            "Resource Management - Windows IoT":{
+                "Plane": "mgmt",
+                "Languages": ["Go", ".NET", "Java", "JavaScript", "Python"]
             }
         }
     },
