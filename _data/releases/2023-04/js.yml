@@ -452,4 +452,15 @@ entries:
     #### Bugs Fixed
 
     - Fix the bug that `isDuplicated` is always `true`
+- Name: '@azure/data-tables'
+  Version: 13.2.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.2.2/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue [#25252](https://github.com/Azure/azure-sdk-for-js/issues/25252) where SAS was signed using srk, spk, erk and epk but the query parameters were not included in the result causing all requests with scoped partition and row keys to fail with `AuthorizationFailure`. [25293](https://github.com/Azure/azure-sdk-for-js/pull/25293)
 
