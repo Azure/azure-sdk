@@ -9,7 +9,7 @@ sidebar: general_sidebar
 
 The Azure SDK Architecture Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Android, and iOS.
 
-**The Architecture Board reviews Track 2 libraries only**. By definition, a Track 2 library is one that follows our [Track 2 library design guidelines and specific language guidelines](https://azure.github.io/azure-sdk/general_introduction.html). This means that libraries produced solely by a code generator do NOT follow these guidelines; engineers MUST build a layer on top of the generated code in order to produce a library that meets the guidelines.
+**The Architecture Board reviews Track 2 libraries only**. By definition, a Track 2 library is one that follows our [Track 2 library design guidelines and specific language guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
 We expect all Azure client libraries to pass rigorous SDK API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs). In addition to detailed reviews of new libraries, **all changes** to an SDK API must be approved by an architect of the specific language before release.
 
@@ -21,32 +21,26 @@ Typically, there will be a minimum of three meetings with the Architecture Board
 
 1.	Introductory session
 2.	SDK API reviews
-3.	SDK API Sign Off
+3.	SDK API approval
 
 
 Depending on the library surface and other factors, more than one SDK API reviews may be needed.
-
-Create an epic using the “Record of Architecture Board Approval for Release” issue template to track reviews and approvals. The release manager will ask for a link to this issue as part of the PLR.
 
 It’s critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths:
 
 1. **New libraries, large feature work, and/or pipeline changes**
 
-    These changes should be discussed in an architecture board meeting at least three times. See “Types of Review Meetings and What to Prepare” section below.
+    These changes should be discussed in an architecture board meeting at least three times. See “Types of review meetings and what to prepare” section below.
 
 
 2. **Small, targeted changes and bug fixes**
 
     See “Getting approval for small, targeted changes and bug fixes” section below.
 
-If you are unsure which path applies to the work you are doing, you should consult with a language architect for guidance.
-
-
 ## Types of review meetings and what to prepare
 
-For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) to schedule review sessions with the Azure SDK Architecture.
-
-There are two types of meetings that may be scheduled through the app: Introduction and Follow-Up. Please select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction or previous meeting ("Follow-Up"). Requirements for each type of meeting are detailed below.
+There are two types of meetings that may be scheduled: Introduction and Follow-Up. 
+For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) to schedule review sessions. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of meeting are detailed below.
 
 ### 1. Introductory Session
 
@@ -63,25 +57,17 @@ This purely informational/educational session is to let the Azure SDK Architectu
 ### 2. SDK API Review
 During SDK API reviews, we look at sample code and detailed SDK API listings. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/main/docs/dotnet/APIListingExample.md).
 
-If you have a pull request for your changes, then you can use the automatically generated [APIView](http://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually).
-
-For all other languages, send a request to the Architecture Board to discuss the best format on individual basis.
-
 Depending on the situation and service, more than one SDK API review may be needed (because there are major changes between API versions, for example). If that is the case, scheduler another meeting when the team is ready for another review.
+
+**All SDK API languages must be approved before any stable release.** When there have been limited changes made to the SDK API since the previous review, *architects may choose to approve over email* without the need for a full meeting.
 
 **Prerequisites:**
 |Title | Importance |Brief Description | Example and Support Documentation |
 |--|--|--|--|
-| APIView | Must Have | APIView for each SDK. Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting | [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
+| APIView | Must Have | APIView for each SDK. Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting. If you have a pull request for your changes, then you can use the automatically generated [APIView](http://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually). | [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
 | Hero Scenarios | Good to have| Top scenarios on how service is consumed. Each scenario with the equivalent code sample. Note tht samples can be added in APIView. | Guidelines on how to identify hero scenarios - [link](https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd014/training/azure-sdk-apis/principles/approachable/README.md#hero-scenarios)<p><p> [Examples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration#examples) |
 | REST API Spec | Good to have | Link to the reviewed REST API spec definition in [azure/azure-rest-api-specs-pr](https://github.com/azure/azure-rest-api-specs-pr) or [azure/azure-rest-api-specs](https://github.com/azure/azure-rest-api-specs) repo. | [Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01/attestation.json) |
 | Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
-
-### 3. SDK API sign off
-
-The goal of the SDK API sign-off meeting is to resolve any controversial/unsettled questions about the SDK API. These questions can come from language architects or service teams.
-
-**All languages must be signed off before any stable release.** When there have been limited changes made to the SDK API since the second review, *architects may choose to sign off over email* without the need for a full meeting.
 
 **Prerequisites:**
 * [APIView](http://apiview.dev/) for each SDK. Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting
@@ -101,7 +87,7 @@ The typical agenda starts with service team presenting the service for about 30 
 
 Language architects will have reviewed the SDK API Listings provided by the time of review. They’ll jump right into discussing the SDK API and samples provided. The meeting will end with a short summary of action items to be taken.
 
-### SDK API sign off
+### SDK API approval
 
 Typically, there’ll be some unsettled/controversial questions on the SDK API either from language architects who reviewed the SDK API or from the presenting team. Since the goal of this review is to approve the SDK API, the Board usually jumps right into discussing these questions. The review will end with a final approval of the SDK API or follow up items to get the SDK API to be approved.
 
@@ -114,14 +100,9 @@ For an SDK API to be approved, the following conditions must be met at the Archi
 
 If a language architect is *not* present at the meeting, a deputy architect can be the representative of that specific language instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
 
-
 ## What happens after review
 
 For introductory and SDK API review sessions, there will usually be a list of action items to take before the next meeting. Be sure to follow up on these items. Sometimes, one of these action items could be to schedule for another SDK API review once the architects' suggested changes have been made.
-
-Remember to create an epic using the issue template “Record of Architecture Board Approval for Release” to keep track of API reviews and approvals.
-
-If after an SDK API Sign Off session the Architecture Board approves the release, the SDK Team will add the comment “APPROVED FOR RELEASE” to the issue requesting for the Sign Off review. Remember to add the issue's link to the record of approval epic!
 
 ## Previewing SDK API changes
 
@@ -129,7 +110,7 @@ It is expected that SDK API changes are released in beta for a period of time be
 
 ## Getting approval for small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify SDK APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to [APIView](http://apiview.dev/) diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the SDK API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
+For small or targeted changes and bug fixes which modify SDK APIs, the architect in each language can review and approve without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to [APIView](http://apiview.dev/) diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the SDK API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
 
 Remember that **all** changes to an SDK API must be approved by the language architect before a stable release.
 
