@@ -598,4 +598,47 @@ entries:
     - Mark the `Azure.Core.Http.Request` span as failed if the request fails with an exception thrown in the pipeline.
     - Fixed equality comparison when comparing a `string` to a `ContentType` instance.
     - Jitter is added when using a `RetryMode` of `Fixed`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.3.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.3.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the trigger uses to validate permissions on startup to ensure that it does not interrupt other triggers already running by temporarily asserting ownership of a partition.
+
+    #### Features Added
+
+    - It is now possible to configure a desired minimum for the number of events included in each batch that the trigger build and how long the trigger should wait while trying to a batch of that size.  This is intended to help control costs by having the trigger invoke the Function fewer times, but with more events in each batch.
+
+    It is important to note that neither the minimum batch size or maximum wait time are guarantees; the trigger will make its best effort to honor them but you may see partial batches or inaccurate timing.  This scenario is common when a Function is scaling.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.9.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the event processor uses to validate permissions on startup to ensure that it does not interrupt other processors already running by temporarily asserting ownership of a partition.
+
+    #### Breaking Changes
+
+    - If diagnostic tracing is enabled, diagnostic tracing information is retained on `EventData` instances when they are added to an `EventDataBatch`. This matches the existing behavior when sending events using the `SendEventsAsync` method that takes an `IEnumerable<EventData>`.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.9.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.9.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the event processor uses to validate permissions on startup to ensure that it does not interrupt other processors already running by temporarily asserting ownership of a partition.
 
