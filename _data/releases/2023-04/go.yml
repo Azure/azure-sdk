@@ -1896,4 +1896,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added `NullPartitionKey` variable to create and query documents with null partition key in CosmosDB
+- Name: sdk/monitor/azquery
+  Version: 1.1.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v1.1.0-beta.1/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the `LogsClient.QueryResource` method which allow users to query Azure resources directly without a Log Analytics workspace
 
