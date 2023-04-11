@@ -489,4 +489,45 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b10/sdk/sql/azure-mgmt-sql/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.13.0b4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.13.0b4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Credentials that are implemented via launching a subprocess to acquire tokens now have configurable timeouts using the `process_timeout` keyword argument. This addresses scenarios where these proceses can take longer than the current default timeout values. The affected credentials are `AzureCliCredential`, `AzureDeveloperCliCredential`, and `AzurePowerShellCredential`. (Note: For `DefaultAzureCredential`, the `developer_credential_timeout` keyword argument allows users to propagate this option to `AzureCliCredential`, `AzureDeveloperCliCredential`, and `AzurePowerShellCredential` in the authentication chain.) ([#28290](https://github.com/Azure/azure-sdk-for-python/pull/28290))
+- Name: azure-eventgrid
+  Version: 4.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.10.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Communication Services, DataBox and ApiManagementGateway APIs.
+
+    #### Bugs Fixed
+
+    - `SystemEventNames` enums for APIManagement were incorrectly capitalized, changed `Api` to `API`.
+- Name: azure-servicebus
+  Version: 7.9.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.9.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where enum members in `azure.servicebus.management` were not following uppercase convention.
+
+    #### Breaking Changes
+
+    - Client side validation of input is now disabled by default for the sync and async `ServiceBusAdministrationClient`. This means there will be no `msrest.exceptions.ValidationError` raised by the `ServiceBusAdministrationClient` in the case of malformed input. An `azure.core.exceptions.HttpResponseError` may now be raised if the server refuses the request.
 
