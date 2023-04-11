@@ -10,6 +10,11 @@ resources:
       endpoint: azure
       ref: refs/tags/azure-sdk-tools_20220404.3
 
+parameters:
+- name: UpdateDeprecated
+  type: boolean
+  default: false
+
 variables:
   AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
   AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
@@ -27,6 +32,7 @@ steps:
     arguments: >
       -github_pat '$(azuresdk-github-pat)'
       -nuget_pat '$(azure-sdk-nuget-pat)'
+      -updateDeprecated $${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday")
 
 - task: PowerShell@2
   displayName: Update packages from sdk release data
