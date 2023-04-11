@@ -530,4 +530,14 @@ entries:
     #### Breaking Changes
 
     - Client side validation of input is now disabled by default for the sync and async `ServiceBusAdministrationClient`. This means there will be no `msrest.exceptions.ValidationError` raised by the `ServiceBusAdministrationClient` in the case of malformed input. An `azure.core.exceptions.HttpResponseError` may now be raised if the server refuses the request.
+- Name: azure-monitor-ingestion
+  Version: 1.0.1
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-ingestion_1.0.1/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where log entry sizes were miscalculated when chunking. ([#29584](https://github.com/Azure/azure-sdk-for-python/pull/29584))
 
