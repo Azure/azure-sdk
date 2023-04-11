@@ -475,4 +475,19 @@ entries:
 
     - Added inline image support
     - Updated @azure/communication-signaling to 1.0.0-beta.17 with inline image support.
+- Name: '@azure/service-bus'
+  Version: 7.9.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue of over-adding credits when receiving messages in a batch [PR #25185](https://github.com/Azure/azure-sdk-for-js/pull/25185)
+    - Fix a race condition in initializing management links [PR #25279](https://github.com/Azure/azure-sdk-for-js/pull/25279)
+    - `Uint8Array` payload is converted into JSON before being sent. This PR fixes it so that `Uint8Array` is being treated the same as a Buffer.
+    - Fix an issue where closing receiver could be blocked indefinitely when we don't receive a drain credit response.
+    - Fix an edge case issue where `receiveMessages()` may never resolve indefinitely. [PR #25355](https://github.com/Azure/azure-sdk-for-js/pull/25355)
 
