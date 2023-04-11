@@ -490,4 +490,15 @@ entries:
     - `Uint8Array` payload is converted into JSON before being sent. This PR fixes it so that `Uint8Array` is being treated the same as a Buffer.
     - Fix an issue where closing receiver could be blocked indefinitely when we don't receive a drain credit response.
     - Fix an edge case issue where `receiveMessages()` may never resolve indefinitely. [PR #25355](https://github.com/Azure/azure-sdk-for-js/pull/25355)
+- Name: '@azure/core-http'
+  Version: 3.0.1
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.1/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade dependency `xml2js` version to `^0.5.0`.
 
