@@ -1735,4 +1735,22 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.13.0` to version `1.13.2`.
     - Upgraded `azure-core` from `1.37.0` to version `1.38.0`.
   GroupId: com.azure
+- Name: azure-health-insights-clinicalmatching
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights Clinical Matching
+  ServiceName: Health Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/azure-health-insights-clinicalmatching/CHANGELOG.md
+  ChangelogContent: '- Initial preview of the Azure Health Insights ClinicalMatching client library.'
+  GroupId: com.azure
+- Name: azure-health-insights-cancerprofiling
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights Cancer Profiling
+  ServiceName: Health Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/azure-health-insights-cancerprofiling/CHANGELOG.md
+  ChangelogContent: '- Initial preview of the Azure Health Insights CancerProfiling client library.'
+  GroupId: com.azure
 
