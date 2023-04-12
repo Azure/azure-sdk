@@ -2,7 +2,8 @@
 param (
   [string] $language = "all",
   [string] $github_pat = $env:GITHUB_PAT,
-  [string] $nuget_pat = $env:NUGET_PAT
+  [string] $nuget_pat = $env:NUGET_PAT,
+  [boolean] $updateDeprecated = $false
 )
 Set-StrictMode -Version 3
 
@@ -314,12 +315,10 @@ function Write-Latest-Versions($lang)
   }
 
   # Keep package managers up to date with package deprecations
-  # TODO: Commenting out till we can figure out how to run this
-  # function on an infrequent basis so it doesn't slow things down.
-  #if($lang -eq 'dotnet')
-  #{
-  #  Write-Nuget-Deprecated-Packages($packageList)
-  #}
+  if($updateDeprecated -eq $true -and $lang -eq 'dotnet')
+  {
+   Write-Nuget-Deprecated-Packages($packageList)
+  }
 
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($existingPkg in $packageList)
@@ -492,7 +491,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
         Start-Sleep -Seconds 60
       }
     }
-  }  
+  }
 }
 
 switch($language)
