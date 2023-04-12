@@ -1753,4 +1753,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/azure-health-insights-cancerprofiling/CHANGELOG.md
   ChangelogContent: '- Initial preview of the Azure Health Insights CancerProfiling client library.'
   GroupId: com.azure
+- Name: azure-aot-graalvm-support
+  Version: 1.0.0-beta.3
+  DisplayName: azure-aot-graalvm-support
+  ServiceName: azure-aot-graalvm-support
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-aot-graalvm-support_1.0.0-beta.3/sdk/aot/azure-aot-graalvm-support/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Marked this library as deprecated. Please refer to the [blog post](https://devblogs.microsoft.com/azure-sdk/announcing-graalvm-support-in-azure-sdk-for-java-and-spring-cloud-azure-libraries/) for more details on GraalVM support in Azure SDK for Java.
+    - Changed the proxy interface package names to match the 1.28.0 version of `azure-core`
+  GroupId: com.azure
+- Name: azure-aot-graalvm-support-netty
+  Version: 1.0.0-beta.3
+  DisplayName: azure-aot-graalvm-support-netty
+  ServiceName: azure-aot-graalvm-support-netty
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-aot-graalvm-support-netty_1.0.0-beta.3/sdk/aot/azure-aot-graalvm-support-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Marked this library as deprecated. Please refer to the [blog post](https://devblogs.microsoft.com/azure-sdk/announcing-graalvm-support-in-azure-sdk-for-java-and-spring-cloud-azure-libraries/) for more details on GraalVM support in Azure SDK for Java.
+
+    ##### Dependency Updates
+    - Updated `azure-aot-graalvm-support` version to 1.0.0-beta.3
+  GroupId: com.azure
 
