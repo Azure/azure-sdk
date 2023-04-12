@@ -541,4 +541,14 @@ entries:
     - Added a new `DocumentBooleanField` type for extracted fields that contain boolean values. This type is used in the `fields` data of an `AnalyzedDocument`.
     - Added new fields `backgroundColor`, `color`, `fontStyle`, `fontWeight`, and `similarFontFamily` to `DocumentStyle`. These fields contain additional information about the font style of extracted text and will only be populated if the `"ocr.font"` feature is enabled.
     - Added a new field `customNeuralDocumentModelBuilds` to `ResourceDetails` that contains information about the neural model build quota. This field has the type `QuotaDetails` and contains information about how many custom neural models may be built (`quota`), how many have been built (`used`), and when the quota will be reset (`quotaResetOn`).
+- Name: '@azure/identity'
+  Version: 3.1.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.4/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added a workaround of fetching all accounts from token cache to fix the issue of silent authentication not taking place when authenticationRecord is passed. For reference, see [issue](https://github.com/Azure/azure-sdk-for-js/issues/24349).
 
