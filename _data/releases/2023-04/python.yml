@@ -564,4 +564,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_29.2.0b2/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b13
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b13/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enable AAD Credentials
+    ([#28888](https://github.com/Azure/azure-sdk-for-python/pull/28888))
+    - Upgrading to OpenTelemetry SDK/API 1.17
+    ([#29656](https://github.com/Azure/azure-sdk-for-python/pull/29656))
+    - Updating sdkVersion prefix according to new spec. Using agents folder for marker.
+    ([#29730](https://github.com/Azure/azure-sdk-for-python/pull/29730))
 
