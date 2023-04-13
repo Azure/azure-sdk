@@ -1906,4 +1906,86 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added the `LogsClient.QueryResource` method which allow users to query Azure resources directly without a Log Analytics workspace
+- Name: sdk/keyvault/azcertificates
+  Version: 0.9.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.9.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module is now DEPRECATED. The latest supported version of this module is at github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azcertificates
+    * Renamed `ActionType` to `CertificatePolicyAction`
+    * Changed `Error` struct to `ErrorInfo`
+
+    #### Features Added
+    * Upgraded to api version 7.4
+- Name: sdk/security/keyvault/azcertificates
+  Version: 0.10.0
+  DisplayName: Certificates
+  ServiceName: Keyvault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v0.10.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Moved module from `sdk/keyvault/azadmin` to `sdk/security/keyvault/azadmin`
+- Name: sdk/security/keyvault/azadmin
+  Version: 0.2.0
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v0.2.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Renamed `ServerError` to `ErrorInfo`
+- Name: sdk/security/keyvault/azsecrets
+  Version: 0.13.0
+  DisplayName: Secrets
+  ServiceName: Keyvault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v0.13.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Moved from `sdk/keyvault/azsecrets` to `sdk/security/keyvault/azsecrets`
+- Name: sdk/security/keyvault/azkeys
+  Version: 0.11.0
+  DisplayName: Keys
+  ServiceName: Keyvault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v0.11.0/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Moved from `sdk/keyvault/azkeys` to `sdk/security/keyvault/azkeys`
+- Name: sdk/keyvault/azkeys
+  Version: 0.10.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.10.0/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module is now DEPRECATED. The latest supported version of this module is at github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
+    * Renamed `ActionType` to `KeyRotationPolicyAction`
+
+    #### Features Added
+    * Upgraded to api version 7.4
+- Name: sdk/keyvault/azsecrets
+  Version: 0.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.12.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module is now DEPRECATED. The latest supported version of this module is at github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets
+
+    #### Features Added
+    * upgraded to api version 7.4
 
