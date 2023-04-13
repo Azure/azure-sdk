@@ -377,8 +377,9 @@ function Write-Nuget-Deprecated-Packages($packageList)
   $contentUrl = $nugetPackageContentService.'@id'
   $contentUrl = $contentUrl.TrimEnd('/')
 
-  foreach ($pkg in $packageList){
-    if(($pkg.Support -eq "deprecated"))
+  foreach ($pkg in $packageList)
+  {
+    if($pkg.Support -eq "deprecated")
     {
       # Is it safe to assume there will always be either a
       # VersionGA or VersionPreview value?
@@ -443,20 +444,40 @@ function Write-Nuget-Deprecated-Packages($packageList)
         $versions = (ConvertFrom-Json $responseContent).versions
 
         # Construct the deprecation message
-        $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
-        if ($EOLDate -and ($EOLDate -ne "NA"))
-        {
-          $deprecationMsg += " after $EOLDate."
+        if ((Get-Date $pkg.EOLDate) -lt (Get-Date)) {
+          $deprecationMsg = "Please note, this package was officially deprecated on $EOLDate and is no longer maintained or monitored."
+          $markAsLegacy = "true"
+          $markAsOther = "false"
         } else {
-          $deprecationMsg += "."
+          $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
+          if ($EOLDate -and ($EOLDate -ne "NA"))
+          {
+            $deprecationMsg += " after $EOLDate."
+          } else {
+            $deprecationMsg += "."
+          }
+          $markAsLegacy = "false"
+          $markAsOther = "true"
         }
-        if ($replacementPackage -and ($replacementPackage -ne "NA")) {
-          if ($replacementPackage -ne $package) {
-            $deprecationMsg += " We encourage you to upgrade to the replacement package, $replacementPackage, to continue receiving updates."
-            $deprecationReplacement = $replacementPackage
-          } else { # package name hasn't changed
-            $deprecationMsg += " We encourage you to upgrade to the latest version to continue receiving updates."
-            $deprecationReplacement = ""
+        if ($replacementPackage -and ($replacementPackage -ne "NA"))
+        { # If there are multiple replacement packages, list them all
+          $packageArray = $replacementPackage.Split(",")
+          if ($packageArray.Count -gt 1) {
+            $deprecationMsg += " The Azure SDK team encourages you to upgrade to one of the following replacement packages, depending on your use case:`n"
+            foreach ($newPackage in $packageArray)
+            {
+              $deprecationMsg += "    $newPackage`n"
+            }
+            $deprecationReplacement = $packageArray[0]
+          } else { # only one replacement package
+            if ($replacementPackage -ne $package)
+            {
+                $deprecationMsg += " The Azure SDK team encourages you to upgrade to the replacement package, $replacementPackage, to continue receiving updates."
+                $deprecationReplacement = $replacementPackage
+            } else { # package name hasn't changed
+                $deprecationMsg += " The Azure SDK team encourages you to upgrade to the latest version to continue receiving updates."
+                $deprecationReplacement = ""
+            }
           }
         }
         if ($migrationGuide -and ($migrationGuide -ne "NA")) {
@@ -466,13 +487,13 @@ function Write-Nuget-Deprecated-Packages($packageList)
         $headers = @{
           "X-NuGet-ApiKey" = "$nuget_pat"
           "User-Agent" = "Query-Azure-Packages.ps1 (Azure SDK GH repo)"
-          "alternatePackageId" = "$deprecationReplacement"
         }
         $body = @{
           'versions'= @($versions)
-          'isLegacy' = ""
-          'isOther' = "true"
+          'isLegacy' = "$markAsLegacy"
+          'isOther' = "$markAsOther"
           'message' = "$deprecationMsg"
+          'alternatePackageId' = "$deprecationReplacement"
         } | ConvertTo-Json
         try {
           Write-Host "============================"
