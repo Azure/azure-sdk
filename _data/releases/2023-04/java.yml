@@ -1919,4 +1919,16 @@ entries:
     file-level encryption keys. This value is returned on `DataLakeFileClient.getProperties()`, `DataLakeFileClient.readWithResponse()`,
     and `DataLakeFileClient.listPaths()`.
   GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.16.1
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.16.1/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated timeout values for waiting for test proxy initialization.
+  GroupId: com.azure
 
