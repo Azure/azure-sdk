@@ -630,4 +630,19 @@ entries:
     #### Features Added
 
     - Includes all features released in 12.14.0-beta.1.
+- Name: '@azure/core-util'
+  Version: 1.3.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.3.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - UUID fix for older versions of Node.js
+    - [#25501](https://github.com/Azure/azure-sdk-for-js/issues/25501)
+    - [#25541](https://github.com/Azure/azure-sdk-for-js/issues/25541)
+    - [#25538](https://github.com/Azure/azure-sdk-for-js/issues/25538)
+    - [#25532](https://github.com/Azure/azure-sdk-for-js/issues/25532)
 
