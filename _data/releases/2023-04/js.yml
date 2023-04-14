@@ -551,4 +551,114 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Added a workaround of fetching all accounts from token cache to fix the issue of silent authentication not taking place when authenticationRecord is passed. For reference, see [issue](https://github.com/Azure/azure-sdk-for-js/issues/24349).
+- Name: '@azure/container-registry'
+  Version: 1.1.0-beta.3
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0-beta.3/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for uploading and downloading manifests of a custom media type.
+    - Pass the media type of the manifest you are downloading using the `mediaType` property of `setManifest` options bag.
+    - On download, OCI image manifests will be deserialized. The deserialized manifest will be available at the `manifest` property of the result from `getManifest`.
+    - Manifests of other media types will not be deserialized, but manifests of all types will still be accessible using the `content` property of the result.
+    - The `isGetOciImageManifestResult` type guard can be used to check if the downloaded manifest is an OCI image manifest, and therefore whether the
+    `manifest` property is available on the result.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where an unused stream was not cleaned up when calling `deleteBlob`.
+
+    #### Breaking Changes
+
+    - Renamed `ContainerRegistryBlobClient` to `ContainerRegistryContentClient`.
+    - Renamed `downloadManifest` and `uploadManfifest` methods on `ContainerRegistryContentClient` to `getManifest` and `setManifest` respectively.
+    - Renamed `DownloadManifestOptions` and `UploadManifestOptions` types to `GetManifestOptions` and `SetManifestOptions` respectively.
+    - Renamed `OciManifest` to `OciImageManifest`.
+    - Renamed `OciImageManifest.config` to `OciImageManifest.configuration`
+    - The `configuration` and `layers` parameters on `OciImageManifest` are now required.
+    - Renamed `OciBlobDescriptor` type to `OciDescriptor`.
+    - Renamed property `OciBlobDescriptor.size` to `OciBlobDescriptor.sizeInBytes`.
+- Name: '@azure/storage-blob'
+  Version: 12.14.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.14.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue of: StoragePipelineOptions is not passed into constructors for blob clients correctly when using undefined as credential parameter.
+
+    #### Features Added
+
+    - Includes all features released in 12.14.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.13.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.13.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.13.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.13.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.13.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2022-11-02.
+- Name: '@azure/storage-file-share'
+  Version: 12.14.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.14.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.14.0-beta.1.
+- Name: '@azure/core-util'
+  Version: 1.3.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.3.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - UUID fix for older versions of Node.js
+    - [#25501](https://github.com/Azure/azure-sdk-for-js/issues/25501)
+    - [#25541](https://github.com/Azure/azure-sdk-for-js/issues/25541)
+    - [#25538](https://github.com/Azure/azure-sdk-for-js/issues/25538)
+    - [#25532](https://github.com/Azure/azure-sdk-for-js/issues/25532)
+- Name: '@azure/identity'
+  Version: 3.2.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.0-beta.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added configurable process timeout for dev-time credentials - `AzureCLI Credential`, `AzurePowershell Credential` and `AzureDeveloperCLI Credential`.
+
+    #### Bugs Fixed
+
+    - Fixed a bug in `WorkloadIdentity Credential`, to incorporate the case where the options can be `undefined` in a conditional check. Related issue [#25089](https://github.com/Azure/azure-sdk-for-js/issues/25089) with the fix [#25119](https://github.com/Azure/azure-sdk-for-js/pull/25119).
+    - Exported `WorkloadIdentityDefaultCredentialOptions` which was previously not publicly exported in `index.ts`.
 
