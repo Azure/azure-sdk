@@ -354,12 +354,14 @@ function Write-Nuget-Deprecated-Packages($packageList)
   $nugetPackaceContentServiceName = $linkTemplates["nuget_package_content_service"]
 
   # 1) Get the nuget service index
-  try {
+  try
+  {
     $response = Invoke-WebRequest -Uri $nugetServiceIndex -Method Get -ErrorAction SilentlyContinue
     $responseContent = ConvertFrom-Json $response.Content
     $statusCode = $response.StatusCode
   }
-  catch {
+  catch
+  {
     $statusCode = $_.Exception.Response.StatusCode.value__
     Write-Host "Nuget service index query - Exception: $statusCode"
     Write-Host $_
@@ -377,8 +379,9 @@ function Write-Nuget-Deprecated-Packages($packageList)
   $contentUrl = $nugetPackageContentService.'@id'
   $contentUrl = $contentUrl.TrimEnd('/')
 
-  foreach ($pkg in $packageList){
-    if(($pkg.Support -eq "deprecated"))
+  foreach ($pkg in $packageList)
+  {
+    if($pkg.Support -eq "deprecated")
     {
       # Is it safe to assume there will always be either a
       # VersionGA or VersionPreview value?
@@ -386,7 +389,8 @@ function Write-Nuget-Deprecated-Packages($packageList)
       {
         $version = $pkg.VersionGA
       }
-      else {
+      else 
+      {
         $version = $pkg.VersionPreview
       }
       $package = $pkg.Package
@@ -395,11 +399,13 @@ function Write-Nuget-Deprecated-Packages($packageList)
       # 2) Use the package status query service to get the package index
       $packageIndex = "$registrationUrl/$packageName/index.json"
       $packageId = "$registrationUrl/$packageName/$($version.ToLowerInvariant()).json"
-      try {
+      try
+      {
         $response = Invoke-WebRequest -Uri $packageIndex -Method Get -ErrorAction SilentlyContinue
         $responseContent = ConvertFrom-Json $response.Content
       }
-      catch {
+      catch
+      {
         $statusCode = $_.Exception.Response.StatusCode.value__
         Write-Host "NuGet package index query - Exception: $statusCode"
         Write-Host "URI: $packageIndex"
@@ -412,29 +418,38 @@ function Write-Nuget-Deprecated-Packages($packageList)
       {
         #  5) If not, update the package to reflect deprecation status
         # Set variables
-        if ($pkg.EOLDate) {
+        if ($pkg.EOLDate)
+        {
           $EOLDate = $pkg.EOLDate
-        } else {
+        } 
+        else 
+        {
           $EOLDate = "NA"
         }
         if ($pkg.Replace){
           $replacementPackage = $pkg.Replace
-        } else {
+        }
+        else
+        {
           $replacementPackage = "NA"
         }
         if ($pkg.ReplaceGuide)
         {
           $migrationGuide = $pkg.ReplaceGuide
-        } else {
+        }
+        else
+        {
           $migrationGuide = "NA"
         }
         # 5b) Query the package content service to get package version list
         $packageContent = "$contentUrl/$packageName/index.json"
-        try {
+        try
+        {
           $response = Invoke-WebRequest -Uri $packageContent -Method Get -ErrorAction SilentlyContinue
           $responseContent = $response.Content
         }
-        catch {
+        catch
+        {
           $statusCode = $_.Exception.Response.StatusCode.value__
           Write-Host "NuGet package content query - Exception: $statusCode"
           Write-Host "URI: $packageContent"
@@ -443,45 +458,78 @@ function Write-Nuget-Deprecated-Packages($packageList)
         $versions = (ConvertFrom-Json $responseContent).versions
 
         # Construct the deprecation message
-        $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
-        if ($EOLDate -and ($EOLDate -ne "NA"))
+        if ((Get-Date $pkg.EOLDate) -lt (Get-Date))
         {
-          $deprecationMsg += " after $EOLDate."
-        } else {
-          $deprecationMsg += "."
+          $deprecationMsg = "Please note, this package was officially deprecated on $EOLDate and is no longer maintained or monitored."
+          $markAsLegacy = "true"
+          $markAsOther = "false"
+        } 
+        else 
+        {
+          $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
+          if ($EOLDate -and ($EOLDate -ne "NA"))
+          {
+            $deprecationMsg += " after $EOLDate."
+          } 
+          else
+          {
+            $deprecationMsg += "."
+          }
+          $markAsLegacy = "false"
+          $markAsOther = "true"
         }
-        if ($replacementPackage -and ($replacementPackage -ne "NA")) {
-          if ($replacementPackage -ne $package) {
-            $deprecationMsg += " We encourage you to upgrade to the replacement package, $replacementPackage, to continue receiving updates."
-            $deprecationReplacement = $replacementPackage
-          } else { # package name hasn't changed
-            $deprecationMsg += " We encourage you to upgrade to the latest version to continue receiving updates."
-            $deprecationReplacement = ""
+        if ($replacementPackage -and ($replacementPackage -ne "NA"))
+        { # If there are multiple replacement packages, list them all
+          $packageArray = $replacementPackage.Split(",")
+          if ($packageArray.Count -gt 1)
+          {
+            $deprecationMsg += " The Azure SDK team encourages you to upgrade to one of the following replacement packages, depending on your use case:`n"
+            foreach ($newPackage in $packageArray)
+            {
+              $deprecationMsg += "    $newPackage`n"
+            }
+            $deprecationReplacement = $packageArray[0]
+          } 
+          else
+          { # only one replacement package
+            if ($replacementPackage -ne $package)
+            {
+                $deprecationMsg += " The Azure SDK team encourages you to upgrade to the replacement package, $replacementPackage, to continue receiving updates."
+                $deprecationReplacement = $replacementPackage
+            }
+            else
+            { # package name hasn't changed
+                $deprecationMsg += " The Azure SDK team encourages you to upgrade to the latest version to continue receiving updates."
+                $deprecationReplacement = ""
+            }
           }
         }
-        if ($migrationGuide -and ($migrationGuide -ne "NA")) {
+        if ($migrationGuide -and ($migrationGuide -ne "NA"))
+        {
             $deprecationMsg += " Refer to the migration guide ($migrationGuide) for guidance on upgrading."
         }
         $deprecationMsg += " Refer to our deprecation policy (https://aka.ms/azsdk/support-policies) for more details."
         $headers = @{
           "X-NuGet-ApiKey" = "$nuget_pat"
           "User-Agent" = "Query-Azure-Packages.ps1 (Azure SDK GH repo)"
-          "alternatePackageId" = "$deprecationReplacement"
         }
         $body = @{
           'versions'= @($versions)
-          'isLegacy' = ""
-          'isOther' = "true"
+          'isLegacy' = "$markAsLegacy"
+          'isOther' = "$markAsOther"
           'message' = "$deprecationMsg"
+          'alternatePackageId' = "$deprecationReplacement"
         } | ConvertTo-Json
-        try {
+        try
+        {
           Write-Host "============================"
           Write-Host "Deprecating NuGet package:"
           Write-Host $packageName
           Write-Host "============================"
           Invoke-WebRequest -Uri $deprecationUrl/$packageName/deprecations -Method Put -Headers $headers -Body $body -ContentType "application/json"
         }
-        catch {
+        catch
+        {
           $statusCode = $_.Exception.Response.StatusCode.value__
           Write-Host "Nuget package deprecation - Exception: $statusCode"
           Write-Host "URI: $deprecationUrl/$package/deprecations"
