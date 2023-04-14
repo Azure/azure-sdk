@@ -582,4 +582,52 @@ entries:
     - The `configuration` and `layers` parameters on `OciImageManifest` are now required.
     - Renamed `OciBlobDescriptor` type to `OciDescriptor`.
     - Renamed property `OciBlobDescriptor.size` to `OciBlobDescriptor.sizeInBytes`.
+- Name: '@azure/storage-blob'
+  Version: 12.14.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.14.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue of: StoragePipelineOptions is not passed into constructors for blob clients correctly when using undefined as credential parameter.
+
+    #### Features Added
+
+    - Includes all features released in 12.14.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.13.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.13.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.13.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.13.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.13.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2022-11-02.
+- Name: '@azure/storage-file-share'
+  Version: 12.14.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.14.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.14.0-beta.1.
 
