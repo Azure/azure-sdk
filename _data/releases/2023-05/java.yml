@@ -1,0 +1,130 @@
+entries:
+- Name: azure-storage-file-share
+  Version: 12.18.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.18.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+    - Added support for `TokenCredential` to be used for authentication. **Note:** When using a `TokenCredential`, the new
+    keyword parameter `ShareTokenIntent` is **required** and must be provided. Additionally, this form of authentication is
+    only supported for certain operations in the Data Plane SDK.
+    - Added support for `allowTrailingDot` and `allowSourceTrailingDot` on client construction. When `allowTrailingDot` is
+    provided, the service will not silently remove any trailing `.` character from directory/file names for all operations
+    made from that client. `allowSourceTrailingDot` will apply this same rule to source files when performing a rename or copy operation.
+    - Added support for reading and writing a file via SeekableByteChannel.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.21.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.21.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.7.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.7.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.22.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.22.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug for when `FindBlobsOptions.setMaxResultsPerPage(Integer)` was set and `.byPage()` was called on `BlobServiceAsyncClient.findBlobsByTags(FindBlobsOptions)`, number of results being returned was greater than the specified max results.
+
+    #### Features Added
+    - Added new method `StorageAccountInfo.isHierarchicalNamespaceEnabled()` to determine whether storage account has hierarchical namespace enabled.
+    - Added support for 2022-11-02 service version.
+    - Added support for reading and writing a block blob via SeekableByteChannel.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.15.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.15.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+    - Adding support for Encryption Context on DataLake files, a string value that can be passed to allow users to generate
+    file-level encryption keys. This value is returned on `DataLakeFileClient.getProperties()`, `DataLakeFileClient.readWithResponse()`,
+    and `DataLakeFileClient.listPaths()`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.16.1
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.16.1/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated timeout values for waiting for test proxy initialization.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.13.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.13.4/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added a warning log message to indicate the use of Processor _start_ API after the _stop_ is not recommended. ([34464](https://github.com/Azure/azure-sdk-for-java/issues/34464))
+    - Fixed the issue of not retrying for a new session after the last acquire-session timeout. ([#34314](https://github.com/Azure/azure-sdk-for-java/issues/34314))
+    - Replay the terminal error to backing work of sync receive calls that arrive after the inner async client termination. ([#34332](https://github.com/Azure/azure-sdk-for-java/issues/34332))
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.18.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.18.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.17.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.17.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.21.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.21.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2022-11-02 service version.
+  GroupId: com.azure
+
