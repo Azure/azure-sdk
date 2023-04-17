@@ -175,4 +175,16 @@ entries:
 
     - Added `queryResource` methods to `LogsQueryClient` to support querying logs using Azure resource ID.
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.10
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.10/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug that disallowed empty strings as partition and row keys
+    - Fixed handling of paging headers when Table Storage returned a `x-ms-continuation-NextPartitionKey` but no `x-ms-continuation-NextRowKey`. This was causing the subsequent pages are not fetched.
+  GroupId: com.azure
 
