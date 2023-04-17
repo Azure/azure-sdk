@@ -461,7 +461,6 @@ entries:
 
     #### Features Added
     - Added support for a new communication identifier `MicrosoftBotIdentifier`.
-    -
 - Name: Azure.ResourceManager.AppContainers
   Version: 1.0.3
   DisplayName: Resource Management - Container Apps
@@ -492,4 +491,324 @@ entries:
     #### Breaking Changes
     - Changed: Renamed parameter names in EmailMessage constructor
     - Removed: Removed public methods for GetSendResult and GetSendResultAsync since the same functionality is available through EmailSendOperation.UpdateStatus method
+- Name: Azure.ResourceManager.Communication
+  Version: 1.1.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.1.0/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.1.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.1.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.1.0/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Health.Insights.ClinicalMatching
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights Clinical Matching
+  ServiceName: Health Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.ClinicalMatching_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.ClinicalMatching/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial preview of the Azure.Health.Insights.ClinicalMatching client library.
+- Name: Azure.Health.Insights.CancerProfiling
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights Cancer Profiling
+  ServiceName: Health Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.CancerProfiling_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.CancerProfiling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial preview of the Azure.Health.Insights.CancerProfiling client library.
+- Name: Azure.ResourceManager.Qumulo
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Qumulo_1.0.0-beta.1/sdk/qumulo/Azure.ResourceManager.Qumulo/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.2
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.2/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded dependent `Azure.Core` to `1.30.0` due to an [issue in `ArrayBackedPropertyBag`](https://github.com/Azure/azure-sdk-for-net/pull/34800) in `Azure.Core` version `1.29.0`.
+- Name: Azure.ResourceManager.ProviderHub
+  Version: 1.0.0
+  DisplayName: Resource Management - Provider Hub
+  ServiceName: Provider Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ProviderHub_1.0.0/sdk/providerhub/Azure.ResourceManager.ProviderHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.GraphServices
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Graphservices
+  ServiceName: Graphservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.GraphServices_1.0.0-beta.1/sdk/graphservices/Azure.ResourceManager.GraphServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridContainerService
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridContainerService_1.0.0-beta.1/sdk/hybridaks/Azure.ResourceManager.HybridContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.31.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.31.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `RetryPolicy` type which can be used to create a custom retry policy.
+    - Added the `DelayStrategy` type which can be used to customize delays.
+
+    #### Bugs Fixed
+
+    - Set the Activity status to `Error` on failed activity source activities.
+    - Mark the `Azure.Core.Http.Request` span as failed if the request fails with an exception thrown in the pipeline.
+    - Fixed equality comparison when comparing a `string` to a `ContentType` instance.
+    - Jitter is added when using a `RetryMode` of `Fixed`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.3.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.3.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the trigger uses to validate permissions on startup to ensure that it does not interrupt other triggers already running by temporarily asserting ownership of a partition.
+
+    #### Features Added
+
+    - It is now possible to configure a desired minimum for the number of events included in each batch that the trigger build and how long the trigger should wait while trying to a batch of that size.  This is intended to help control costs by having the trigger invoke the Function fewer times, but with more events in each batch.
+
+    It is important to note that neither the minimum batch size or maximum wait time are guarantees; the trigger will make its best effort to honor them but you may see partial batches or inaccurate timing.  This scenario is common when a Function is scaling.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.9.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the event processor uses to validate permissions on startup to ensure that it does not interrupt other processors already running by temporarily asserting ownership of a partition.
+
+    #### Breaking Changes
+
+    - If diagnostic tracing is enabled, diagnostic tracing information is retained on `EventData` instances when they are added to an `EventDataBatch`. This matches the existing behavior when sending events using the `SendEventsAsync` method that takes an `IEnumerable<EventData>`.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.9.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.9.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Changed the approach that the event processor uses to validate permissions on startup to ensure that it does not interrupt other processors already running by temporarily asserting ownership of a partition.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.10
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.10/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue of when using ILogger to log an Exception a custom message would override the exception message.
+    ([#33860](https://github.com/Azure/azure-sdk-for-net/pull/33860))
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.9
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.9/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `DownloadStreaming()` method to `ContainerRegistryContentClient`.  This method returns a network stream in the returned result that the caller must dispose after use.
+    - Added overloads to the `DownloadBlobTo()` method that take a file path instead of a Stream.
+    - Exceptions returned from service methods will now have the ErrorCode value populated when it is available in the service's error response.
+
+    #### Breaking Changes
+
+    - Renamed `ContainerRegistryBlobClient` to `ContainerRegistryContentClient`.
+    - Moved `ContainerRegistryContentClient` and related types into main namespace.
+    - Removed `MaxChunkSize` property from `ContainerRegistryClientOptions`.
+    - Renamed `ContainerRegistryContentClient.DownloadBlob()` method to `DownloadBlobContent()`.
+    - Renamed `DownloadBlobResult` to `DownloadRegistryBlobResult`.
+    - Renamed `UploadBlobResult` to `UploadRegistryBlobResult`.
+    - Renamed `ContainerRegistryContentClient.DownloadManifest()` to `GetManifest()` and `DownloadManifestResult` to `GetManifestResult`.
+    - Renamed `ContainerRegistryContentClient.UploadManifest ()` to `SetManifest()` and `UploadManifestResult` to `SetManifestResult`.
+    - Renamed `GetManifestResult.Content` name to `GetManifestResult.Manifest`.
+    - Removed `GetManifestResult.AsOciManifest()` method in favor of `BinaryData.ToObjectFromJson<OciImageManifest>()`.
+    - Changed `Url`, `Source` and `Documentation` properties on `OciAnnotations` type to `Uri` type.
+    - Renamed `OciAnnotations.Config` to `OciAnnotations.Configuration`.
+- Name: Azure.Storage.Common
+  Version: 12.15.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.15.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.15.0-beta.1.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.34
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.34/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.16.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.16.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.13.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.13.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.13.0-beta.1.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.14.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.14.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.14.0-beta.1.'
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.3
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added new public APIs `Services.AddOpenTelemetry().UseAzureMonitor()` and `Services.AddOpenTelemetry().UseAzureMonitor(Action<AzureMonitorOptions> configureAzureMonitor)`.
+
+    #### Breaking Changes
+
+    * Removed public APIs `Services.AddAzureMonitor()`, `Services.AddAzureMonitor(AzureMonitorOptions options)` and `Services.AddAzureMonitor(Action<AzureMonitorOptions> configureAzureMonitor)`.
+- Name: Azure.Storage.Queues
+  Version: 12.14.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.14.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.14.0-beta.1.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.14.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.14.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.14.0-beta.1.'
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.3.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.3.0/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.9.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.9.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Setting `DefaultAzureCredentialOptions.ExcludeWorkloadIdentityCredential` to `true` also excludes `TokenExchangeManagedIdentitySource` when using `DefaultAzureCredential` selects the `ManagedIdentityCredential`
+
+    #### Breaking Changes
+    - Renamed the developer credential options timeout settings as follows:
+    - `AzureCliCredential` to `AzureCliCredentialOptions.ProcessTimeout`
+    - `AzurePowerShellCredential` to `AzurePowerShellCredentialOptions.ProcessTimeout`
+    - `VisualStudioCredential` to `VisualStudioCredentialOptions.ProcessTimeout`
+    - `AzureDeveloperCliCredential` to `AzureDeveloperCliCredentialOptions.ProcessTimeout`
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.5.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.5.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix `Headers` field in `ConnectEventRequest` that was missed set.
+- Name: Azure.AI.FormRecognizer
+  Version: 4.1.0-beta.1
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.1.0-beta.1/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added property `QueryFields` to `AnalyzeDocumentOptions` to support field extraction without the need for added training.
+    - Added property `Features` to `AnalyzeDocumentOptions` to support add-on capabilities.
+    - Added properties `SimilarFontFamily`, `FontStyle`, `FontWeight`, `Color`, and `BackgroundColor` to `DocumentStyle`. These properties can only be populated when `DocumentAnalysisFeature.OcrFont` is enabled.
+    - Added properties `Annotations`, `Barcodes`, `Formulas`, `Images`, and `Kind` to `DocumentPage`. `Formulas` can only be populated when `DocumentAnalysisFeature.OcrFormula` is enabled.
+    - Added member `FormulaBlock` to `ParagraphRole`.
+    - Added methods in `DocumentAnalysisClient` to support custom document classification: `ClassifyDocument` and `ClassifyDocumentFromUri`.
+    - Added methods in `DocumentModelAdministrationClient` to support custom document classification: `BuildDocumentClassifier`, `GetDocumentClassifier`, `GetDocumentClassifiers`, and `DeleteDocumentClassifier`.
+    - Added a new `DocumentClassifierBuildOperationDetails` class. Instances of this class can now be returned in calls to `DocumentModelAdministrationClient.GetOperation`.
+    - Added member `DocumentClassifierBuild` to `DocumentOperationKind`.
+    - Added member `Boolean` to `DocumentFieldType`.
+    - Added method `AsBoolean` to `DocumentFieldValue` to support extracting values of boolean fields.
+    - Added property `Code` to the `CurrencyValue` class.
+    - Added properties `Unit`, `CityDistrict`, `StateDistrict`, `Suburb`, `House`, and `Level` to the `AddressValue` class.
+    - Added property `CommonName` to the `DocumentKeyValuePair` class.
+    - Added property `ExpiresOn` to the `DocumentModelDetails` and `DocumentModelSummary` classes.
+    - Added property `CustomNeuralDocumentModelBuilds` to the `ResourceDetails` class.
 
