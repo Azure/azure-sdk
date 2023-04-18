@@ -187,4 +187,101 @@ entries:
     - Fixed bug that disallowed empty strings as partition and row keys
     - Fixed handling of paging headers when Table Storage returned a `x-ms-continuation-NextPartitionKey` but no `x-ms-continuation-NextRowKey`. This was causing the subsequent pages are not fetched.
   GroupId: com.azure
+- Name: azure-resourcemanager-qumulo
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-qumulo_1.0.0-beta.1/sdk/qumulo/azure-resourcemanager-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-newrelicobservability
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Newrelicobservability
+  ServiceName: Newrelicobservability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-newrelicobservability_1.0.0-beta.2/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-confidentialledger
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-confidentialledger_1.0.0-beta.2/sdk/confidentialledger/azure-resourcemanager-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-iothub
+  Version: 1.2.0-beta.3
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-iothub_1.2.0-beta.3/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-security
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-security_1.0.0-beta.5/sdk/security/azure-resourcemanager-security/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-elastic
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-elastic_1.0.0-beta.3/sdk/elastic/azure-resourcemanager-elastic/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-postgresqlflexibleserver
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.6/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-digitaltwins-core
+  Version: 1.3.8
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.8/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.38.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.13.2`.
+    - Upgraded `azure-core-identity` dependency to `1.8.2`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency to `1.3.1`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.4.4
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.4.4/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Fixed the bug that multiple authentications coexist per builder. App Configuration client builder should only
+    support single authentication per builder instance.
+    - Moved the validation of authentication to client builder's `build()` method.
+
+    #### Bugs Fixed
+
+    - Fixed a race condition of invalid signature issue by not sharing `Mac` instance in class-level per request operation.
+    `Mac` isn't thread-safe, multiple threads could use it at once.
+  GroupId: com.azure
 
