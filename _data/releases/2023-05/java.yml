@@ -284,4 +284,15 @@ entries:
     - Fixed a race condition of invalid signature issue by not sharing `Mac` instance in class-level per request operation.
     `Mac` isn't thread-safe, multiple threads could use it at once.
   GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.16.2
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.16.2/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+    - Refactored startup of test-proxy instances to properly work in multi-threaded situations.
+  GroupId: com.azure
 
