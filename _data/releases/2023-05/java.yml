@@ -313,4 +313,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-text_1.0.0-beta.1/sdk/translation/azure-ai-translation-text/CHANGELOG.md
   ChangelogContent: '- Azure Text Translation client library for Java. This package contains Microsoft Azure Text Translation client library.'
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.6
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.37.0` to version `1.38.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.1` to version `1.13.2`.
+  GroupId: com.azure
 
