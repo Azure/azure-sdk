@@ -1,0 +1,117 @@
+entries:
+- Name: azure-core
+  Version: 1.9.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.9.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to ignore invalid certificate common name for TLS connections in WinHTTP transport.
+    - Added `DisableTlsCertificateValidation` in `TransportOptions`.
+    - Added `TokenCredential::GetCredentialName()` to be utilized in diagnostic messages. If you have any custom implementations of `TokenCredential`, it is recommended to pass the name of your credential to `TokenCredential` constructor. The old parameterless constructor is deprecated.
+    - Added support for challenge-based and multi-tenant authentication.
+- Name: azure-core
+  Version: 1.8.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.8.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4213]](https://github.com/Azure/azure-sdk-for-cpp/issues/4213) Fixed a bug where `Host` request header is not set for non-default port (80, 443).
+    - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
+- Name: azure-identity
+  Version: 1.5.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.5.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
+
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+- Name: azure-storage-files-datalake
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.6.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for encryption context:
+    - new filed `EncryptionContext` in `CreatePathOptions` , `PathItem`, `PathProperties`,  `DownloadFileDetails`.
+- Name: azure-storage-files-shares
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.5.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for OAuth:
+    - New field `ShareTokenIntent` in ShareClientOptions.
+    - New constructor with `TokenCredential` in `ShareServiceClient`, `ShareClient`, `ShareDirectoryClient`, `ShareFileClient`.
+    - Added support for trailing dot:
+    - New field `AllowTrailingDot`,  `AllowSourceTrailingDot` in `ShareClientOptions`.
+- Name: azure-security-keyvault-keys
+  Version: 4.4.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.4.0-beta.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [3366](https://github.com/Azure/azure-sdk-for-cpp/issues/4466) Fixed the user-agent string sent to the service to include the "keys" suffix in the value, when using `CryptographyClient`.
+
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+- Name: azure-security-keyvault-secrets
+  Version: 4.2.0-beta.1
+  DisplayName: 'Key Vault - Secrets '
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.2.0-beta.1/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+- Name: azure-security-keyvault-certificates
+  Version: 4.2.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.2.0-beta.1/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0-beta.3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-administration_4.0.0-beta.3/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+

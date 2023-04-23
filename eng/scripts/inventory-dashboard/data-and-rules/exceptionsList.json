@@ -1,5 +1,39 @@
 [
     {
+        "Exception":"Library not needed. API Spec retired.",
+        "Service":"AD Hybrid Health Services",
+        "SDKs":{
+            "Resource Management - AD Hybrid Health Services":{
+                "Plane":"mgmt",
+                "Languages":[".NET", "Go", "Java", "JavaScript","Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"API Management",
+        "SDKs":{
+            "@azure/api-management-custom-widgets-scaffolder":{
+                "Plane":"data",
+                "Languages":[".NET", "Go", "Java", "Python"]
+            },
+            "@azure/api-management-custom-widgets-tools":{
+                "Plane":"data",
+                "Languages":[".NET", "Go", "Java", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"App Configuration",
+        "SDKs":{
+            "App Configuration Provider":{
+                "Plane":"data",
+                "Languages":[".NET", "JavaScript", "Java"]
+            }
+        }
+    },
+    {
         "Exception":"Track 2 library not needed",
         "Service":"App Service",
         "SDKs":{
@@ -134,12 +168,56 @@
         }
     },
     {
+        "Exception":"Library not needed. API Spec retired.",
+        "Service":"IoT",
+        "SDKs":{
+            "Resource Management - Windows IoT":{
+                "Plane": "mgmt",
+                "Languages": ["Go", ".NET", "Java", "JavaScript", "Python"]
+            }
+        }
+    },
+    {
         "Exception":"API Spec does not map to one set of Libraries",
         "Service":"Key Vault",
         "SDKs":{
             "Key Vault":{
                 "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"Machine Learning",
+        "SDKs":{
+            "Machine Learning":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Schema Registry",
+        "SDKs":{
+            "azure-schemaregistry-spark-avro":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"Video Analyzer",
+        "SDKs":{
+            "@azure/video-analyzer-widgets":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "@azure/video-indexer-widgets":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
             }
         }
     }
