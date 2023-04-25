@@ -1,0 +1,13 @@
+entries:
+- Name: azure-core
+  Version: 1.8.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.8.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4490]](https://github.com/Azure/azure-sdk-for-cpp/issues/4490) Fixed WinHTTP memory leak during failed requests.
+
