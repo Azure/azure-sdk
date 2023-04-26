@@ -1021,4 +1021,19 @@ entries:
     - Upgraded `azure-storage-blob` from `12.21.1` to version `12.22.0`.
     - Upgraded `azure-messaging-eventhubs` from `5.15.3` to version `5.15.4`.
   GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.0.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.1/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.37.0` to version `1.38.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.1` to version `1.13.2`.
+  GroupId: com.azure
 
