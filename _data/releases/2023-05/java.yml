@@ -1045,4 +1045,45 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resourceconnector_1.0.0-beta.2/sdk/resourceconnector/azure-resourcemanager-resourceconnector/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-encryption
+  Version: 2.0.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.0.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Adds support for ParititonKey and Id encryption, when the PolicyFormatVersion is set to 2 - See [PR 33648](https://github.com/Azure/azure-sdk-for-java/pull/33648)
+
+    #### Features Added
+    * Added support for allowing partition key path and id to be part of client encryption policy - See [PR 33648](https://github.com/Azure/azure-sdk-for-java/pull/33648)
+  GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.0.2
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.2/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.37.0` to version `1.38.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.1` to version `1.13.2`.
+  GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.12
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.12/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
