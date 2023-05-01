@@ -80,13 +80,13 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="cpp-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
-{% include requirement/MUST id="cpp-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (for example, `Azure::<group>::KeyVault`). Specialized service clients should be placed in sub-packages.
+{% include requirement/MUST id="cpp-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (for example, `Azure::<group>::<service>`). Specialized service clients should be placed in sub-packages.
 
 {% include requirement/MUST id="cpp-service-client-type" %} make service clients `classes`, not `structs`.
 
-{% include requirement/MUST id="cpp-service-client-immutable" %} ensure that all service client classes are immutable and stateless upon instantiation.
+{% include requirement/MUST id="cpp-service-client-immutable" %} ensure that all service client classes thread safe (usually by making them immutable and stateless).
 
-{% include requirement/MUST id="cpp-service-client-geturl" %} expose a `GetURL()` method which returns the URL.
+{% include requirement/MUST id="cpp-service-client-geturl" %} expose a `GetUrl()` method which returns the URL.
 
 #### Service Client Constructors {#cpp-client-ctor}
 
@@ -96,9 +96,7 @@ For example, you may use a connection string, or host name and authentication.  
 
 {% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
 
-{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options such as credentials, a custom HTTP pipeline, or advanced configuration.
-
-Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
+{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
 
 ##### Client Configuration
 
