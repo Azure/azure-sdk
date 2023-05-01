@@ -257,4 +257,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourceconnector_1.0.0-beta.3/sdk/resourceconnector/arm-resourceconnector/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.10.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.10.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a memory leak issue of linked child abort signals not being released.
 
