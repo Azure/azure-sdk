@@ -92,7 +92,7 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="cpp-service-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
 
-For example, you may use a connection string, or host name and authentication.  It should be easy to start using the client without extensive customization.
+> TODO: Add service client factory pattern examples for connection strings.
 
 {% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
 
