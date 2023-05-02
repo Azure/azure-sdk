@@ -72,13 +72,31 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
-### The Service Client {#cpp-client}
+### Service Client {#cpp-client}
 
-> TODO: This section needs to be driven by code in the Core library.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
+
+There exists a distinction that must be made clear with service clients: not all classes that perform HTTP (or otherwise) requests to a service are automatically designated as a service client. A service client designation is only applied to classes that are able to be directly constructed because they are uniquely represented on the service. Additionally, a service client designation is only applied if there is a specific scenario that applies where the direct creation of the client is appropriate. If a resource can not be uniquely identified or there is no need for direct creation of the type, then the service client designation should not apply.
+
+{% include requirement/MUST id="cpp-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
+
+{% include requirement/MUST id="cpp-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (for example, `Azure::<group>::<service>`). Specialized service clients should be placed in sub-packages.
+
+{% include requirement/MUST id="cpp-service-client-type" %} make service clients `classes`, not `structs`.
+
+{% include requirement/MUST id="cpp-service-client-immutable" %} ensure that all service client classes thread safe (usually by making them immutable and stateless).
+
+{% include requirement/MUST id="cpp-service-client-geturl" %} expose a `GetUrl()` method which returns the URL.
 
 #### Service Client Constructors {#cpp-client-ctor}
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="cpp-service-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
+
+> TODO: Add service client factory pattern examples for connection strings.
+
+{% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
+
+{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
 
 ##### Client Configuration
 
