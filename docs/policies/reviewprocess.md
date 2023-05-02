@@ -46,9 +46,10 @@ For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkre
 
 This purely informational/educational session is to let the Azure SDK Architecture board get up to speed with the service and the library/new features that are coming. This allows for early feedback and will potentially affect the service design. High level topics such as API namespaces, function names, and types will be suggested in this first discussion.
 
-**Prerequisites**:
-|Title | Importance | Brief Description | Example and Support Documentation |
-|--|--|--|--|
+#### Prerequisites
+
+| Title | Importance | Brief Description | Example and Support Documentation |
+| --- | --- | --- | --- |
 | Hero Scenarios | Must Have | Top scenarios on how service is consumed. | Guidelines on how to identify hero scenarios - [link](https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd014/training/azure-sdk-apis/principles/approachable/README.md#hero-scenarios)<p><p> [Examples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md) |
 | Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
 | APIView | Good to have | APIView for the generated SDK | [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
@@ -61,18 +62,14 @@ Depending on the situation and service, more than one SDK API review may be need
 
 **All SDK API languages must be approved before any stable release.** When there have been limited changes made to the SDK API since the previous review, *architects may choose to approve over email* without the need for a full meeting.
 
-**Prerequisites:**
-|Title | Importance |Brief Description | Example and Support Documentation |
-|--|--|--|--|
+#### Prerequisites
+
+| Title | Importance |Brief Description | Example and Support Documentation |
+| --- | --- | --- | --- |
 | APIView | Must Have | APIView for each SDK. Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting. If you have a pull request for your changes, then you can use the automatically generated [APIView](http://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually). | [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
 | Hero Scenarios | Good to have| Top scenarios on how service is consumed. Each scenario with the equivalent code sample. Note that samples can be added in APIView. | Guidelines on how to identify hero scenarios - [link](https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd014/training/azure-sdk-apis/principles/approachable/README.md#hero-scenarios)<p><p> [Examples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration#examples) |
 | REST API Spec | Good to have | Link to the reviewed REST API spec definition in [azure/azure-rest-api-specs-pr](https://github.com/azure/azure-rest-api-specs-pr) or [azure/azure-rest-api-specs](https://github.com/azure/azure-rest-api-specs) repo. | [Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01/attestation.json) |
 | Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
-
-**Prerequisites:**
-* [APIView](http://apiview.dev/) for each SDK. Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting
-* Prepare to talk about unresolved questions about API
-
 
 ## What happens during review
 
