@@ -46,6 +46,8 @@ Codespaces is new technology that allows you to use a container as your developm
 
 This site uses Jekyll and GitHub pages. Installation instructions can be found here: https://jekyllrb.com/docs/installation
 
+Github instructions can be found at https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll
+
 Here's how to setup the site locally:
 
 1. [Install Ruby+DevKit 2.6](https://rubyinstaller.org/downloads/) - Don't install 2.7, it doesn't work with this site.
@@ -73,7 +75,7 @@ Here's how to setup the site locally:
 1. Open a terminal and execute the following command to start the site:
 
     ```bash
-    bundle exec jekyll serve
+    bundle exec jekyll serve --incremental
     ```
 
 1. Open a browser to https://127.0.0.1:4000 to run the site.
