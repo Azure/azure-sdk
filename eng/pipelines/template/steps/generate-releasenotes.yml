@@ -54,8 +54,7 @@ steps:
     displayName: Set Release Period Value
 
   - pwsh: |
-      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
-      -ForkRepoOwner "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
+      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
     displayName: Clean Up Stale Branches
 
   - pwsh: |
