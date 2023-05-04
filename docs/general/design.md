@@ -370,6 +370,18 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="general-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
 
+## Repeatable requests
+
+The ability to retry failed requests for which a client never received a response greatly simplifies the ability to write resilient distributed applications. When the method on the service is not idempotent, the service may support safe retry by supporting repeatability headers as defined in [OASIS Repeatable Requests Version 1.0](https://docs.oasis-open.org/odata/repeatable-requests/v1.0/repeatable-requests-v1.0.html).
+
+{% include requirement/MUST id="general-repeatable-requests-support" %} add the `Repeatability-Request-ID` (a uuid) and `Repeatability-First-Sent` (IMF fixdate) request headers before sending the HTTP request to the pipeline in any client method that directly invokes a single service operation. These header values remain the same cross all retries.
+
+{% include requirement/SHOULDNOT id="general-repeatable-requests-parameters" %} offer explicit parameters on client methods allowing the consumer to explicitly set the repeatability headers value.
+
+NOTE: If the client method allows the consumer to set arbitrary headers, then any values for these two headers should be used and must not be overwritten by the client method code.
+
+{% include requirement/MUST id="general-repeatable-requests-support" %} expose the Repeatability-Result response header in the response model for the method.
+
 ## Support for non-HTTP protocols
 
 Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
