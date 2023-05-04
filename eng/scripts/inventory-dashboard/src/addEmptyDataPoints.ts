@@ -10,14 +10,14 @@ import _servicesToHide from "../data-and-rules/servicesToHide.json";
 import path from "path";
 import fs from 'fs';
 const log = Logger.getInstance();
-const specsDirPath = path.join(__dirname, '../../../../../azure-rest-api-specs/specification');
+const specsDirPath = path.join(__dirname, '../../../../../rspecs/specification');
 const serviceNameMap: any = _serviceNameMap;
 const servicesToHide: any = _servicesToHide;
 
 
 /**
- * Adds empty package entries to the package list based on if the package exists for another language. 
- * @param packages A map of packages after being formatted 
+ * Adds empty package entries to the package list based on if the package exists for another language.
+ * @param packages A map of packages after being formatted
  * @returns a map of packages with empty entries added
  */
 export default async function addEmptyDataPoints(packages: PackageList): Promise<PackageList> {
@@ -30,11 +30,11 @@ export default async function addEmptyDataPoints(packages: PackageList): Promise
     }
     // Skip is package is a core package
     if (packages[key].Service === "Core") continue;
-    // Don't create missing empty packages if package is from a non-tier 1 language. 
+    // Don't create missing empty packages if package is from a non-tier 1 language.
     if (!Tier1Languages.includes(packages[key].Language) || packages[key].Language === "Go") continue;
     // Don't create missing empty packages if package is still in beta
     if (packages[key].Track2.ColorCode === 3) continue;
-    // Don't create missing empty packages if track 2 object is just for a package reference 
+    // Don't create missing empty packages if track 2 object is just for a package reference
     if (packages[key].Track2.ColorCode === 4) continue;
     // Don't create missing empty packages if package is a RLC JS package. ex: @azure-rest/...
     if (packages[key].Track2.Package.startsWith('@azure-rest/')) continue;
@@ -65,17 +65,17 @@ export default async function addEmptyDataPoints(packages: PackageList): Promise
   }
   // add new empty packages to package list and return
   packages = { ...packages, ...additionalPackages };
-  // add empty packages to package list if service API exists 
+  // add empty packages to package list if service API exists
   packages = { ...packages, ...(await getServicesFromSpecRepo(packages)) };
 
   return packages;
 }
 
 /**
- * Determines if there are azure apis without SDKs of the Tier 1 Languages and creates a Package List of empty packages for said apis. 
- * The function scans through a local copy of the Azure/azure-rest-api-specs repo to determine if SDKs are missing. 
+ * Determines if there are azure apis without SDKs of the Tier 1 Languages and creates a Package List of empty packages for said apis.
+ * The function scans through a local copy of the Azure/azure-rest-api-specs repo to determine if SDKs are missing.
  * @param packages a Package List of already existing packages, used to stop the function from creating duplicate packages
- * @returns a Package List of empty packages for apis that exist but don't already have a package. 
+ * @returns a Package List of empty packages for apis that exist but don't already have a package.
  */
 async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageList> {
   const additionalPackages: PackageList = {}; // empty pkgs collected from specs repo to add
@@ -91,7 +91,7 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
       serviceName = serviceNameMap[serviceSpecDir] === undefined ? serviceSpecDir : serviceNameMap[serviceSpecDir];
       sdkName = serviceName;
     }
-    // test if service spec dir is a dir, if not move on. 
+    // test if service spec dir is a dir, if not move on.
     if (!fs.lstatSync(path.join(specsDirPath, serviceSpecDir)).isDirectory()) continue;
     // list of plane dirs in service spec dir, should be either data-plane and/or resource-manager
     let planeSpecDirs: string[] = fs.readdirSync(path.join(specsDirPath, serviceSpecDir));
@@ -125,11 +125,11 @@ async function getServicesFromSpecRepo(packages: PackageList): Promise<PackageLi
         if (filteredMicrosoftDirContents.length <= 0) { log.info(`No stable API Spec found for ${serviceSpecDir}/${planeSpecDir}`); }
         else {
           // stable spec does exist
-          // check if package exists for each language, if not add empty entry 
+          // check if package exists for each language, if not add empty entry
           for (let language of Tier1Languages) {
             // create pkg key
             const key = (serviceName + sdkName + plane + language).toLowerCase();
-            // If package doesn't exist in list already, add it. 
+            // If package doesn't exist in list already, add it.
             if (packages[key] === undefined && additionalPackages[key] === undefined) {
               additionalPackages[key] = {
                 Service: serviceName,
