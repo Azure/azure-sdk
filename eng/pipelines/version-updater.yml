@@ -32,7 +32,7 @@ steps:
     arguments: >
       -github_pat '$(azuresdk-github-pat)'
       -nuget_pat '$(azure-sdk-nuget-pat)'
-      -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))\
+      -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))
 
 - task: PowerShell@2
   displayName: Update packages from sdk release data
