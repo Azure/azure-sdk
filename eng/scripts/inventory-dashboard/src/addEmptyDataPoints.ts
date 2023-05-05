@@ -10,7 +10,7 @@ import _servicesToHide from "../data-and-rules/servicesToHide.json";
 import path from "path";
 import fs from 'fs';
 const log = Logger.getInstance();
-const specsDirPath = path.join(__dirname, '../../../../../rspecs/specification');
+const specsDirPath = path.join(__dirname, '../../../../../azure-rest-api-specs/specification');
 const serviceNameMap: any = _serviceNameMap;
 const servicesToHide: any = _servicesToHide;
 
