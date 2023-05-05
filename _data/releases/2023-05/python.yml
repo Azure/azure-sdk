@@ -189,4 +189,40 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_23.0.1/sdk/network/azure-mgmt-network/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.6.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.6.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added experimental scatter gather node to DSL package. This node has a unique mldesigner dependency.
+    - Added support to make JobService and ServiceInstance objects serializable when printed
+    - Support Singularity compute in pipeline job
+    - Added purge operation support for workspace resource
+    - Added Feature Store, its dedicated classes and updated the docstrings, now available in public interface. The classes added are `FeatureStoreOperations, FeatureSetOperations, FeatureStoreEntityOperations` with properties classes specific to the new features.
+    - Support additional_includes in command component
+    - Added experimental `distribution: ray` support in command job.
+
+    #### Breaking Changes
+
+    - Renamed `JobServiceBase.job_service_type` to `type`
+
+    #### Bugs Fixed
+
+    - Fixed issue where show_progress=False was not being respected for uploads when set via MLClient
+    - Fixed issue of spark input/output mode validation doesn't take effect because of wrong type assertion
+    - Fixed the bug when setting `node.limits.timeout` to a pipeline input.
+    - Removed Experimental Tag from Idle Shutdown, Custom Applications, Setup Scripts, and Image Metadata on Compute Instances.
+    - Removed Experimental Tag from JobService classes
+- Name: azure-mgmt-monitor
+  Version: 6.0.1
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_6.0.1/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
 
