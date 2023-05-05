@@ -1,6 +1,6 @@
 pool:
-  name: 'azsdk-pool-mms-win-2022-general'
-  vmImage: 'windows-2022'
+  name: 'azsdk-pool-mms-ubuntu-2204-general'
+  vmImage: 'ubuntu-22.04'
 
 resources:
   repositories:
@@ -64,7 +64,7 @@ steps:
   workingDirectory: $(AzureSDKClonePath)
 
 - pwsh: |
-    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/rspecs
+    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
   displayName: Clone azure-rest-api-specs repo
 
 - bash: |
