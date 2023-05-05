@@ -64,7 +64,7 @@ steps:
   workingDirectory: $(AzureSDKClonePath)
 
 - pwsh: |
-    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/rspecs
+    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
   displayName: Clone azure-rest-api-specs repo
 
 - bash: |
