@@ -1452,4 +1452,158 @@ entries:
     - Upgraded `msal4j` from `1.13.7` to version `1.13.8`.
     - Upgraded `msal4j-persistence-extension` from `1.1.0` to version `1.2.0`.
   GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.35
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.35/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to `1.39.0`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.39
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.39/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `OperationLocationPollingStrategy` and `SyncOperationLocationPollingStrategy` for the new polling strategy.
+    - Added `PollResult` which represents a general poll result for the new polling strategy.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.2.0
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.2.0/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implement `azure-json` service provider interface with a GSON-based implementation.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.17.0
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.17.0/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enabled ability to skip matching request bodies with Test Proxy. ([#34631](https://github.com/Azure/azure-sdk-for-java/pull/34631))
+
+    #### Bugs Fixed
+
+    - Updated command line for Test Proxy to match changes it had with options. ([#34748](https://github.com/Azure/azure-sdk-for-java/pull/34748))
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.11.9
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.9/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to `1.39.0`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.13.3
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.13.3/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Changed how timeout handlers are added to the request pipeline.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to `1.39.0`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.8.5
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.5/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressing the overhead of batch send allocating byte array equal to the max message size. ([34426](https://github.com/Azure/azure-sdk-for-java/issues/34426))
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.35
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.35/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to `1.39.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.11.1
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.11.1/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.4.0
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.4.0/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implement `azure-json` service provider interface with a Jackson-based implementation.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.39.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.39.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `HttpHeaders.setAllHttpHeaders(HttpHeaders)` to provide a way to efficiently combine two `HttpHeaders`.
+    - Added `CoreUtils.parseQueryParameters` to efficient parse query parameters without array overhead found with `String.split`.
+
+    #### Bugs Fixed
+
+    - Fixed an edge case when parsing query parameters without a value (`key&key2=value2`). ([#34459](https://github.com/Azure/azure-sdk-for-java/pull/34459))
+
+    #### Breaking Changes
+
+    - Deprecated `String`-based APIs on `HttpHeaders`, `HttpRequest`, `HttpResponse`, and `RequestOptions`. Use
+    `HttpHeaderName`-based APIs instead as they provide better performance.
+  GroupId: com.azure
 
