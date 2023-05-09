@@ -176,4 +176,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SelfHelp_1.0.0-beta.1/sdk/selfhelp/Azure.ResourceManager.SelfHelp/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs
+  Version: 5.9.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.9.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed the 30 second cap applied when opening AMQP links; this allows developers to fully control the timeout for service operations by tuning the `TryTimeout` as appropriate for the application.
+- Name: Azure.AI.AnomalyDetector
+  Version: 3.0.0-preview.7
+  DisplayName: Anomaly Detector
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.7/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the `Value` suffix from convenience methods such as `GetMultivariateBatchDetectionResultValue` is now simply an overload of `GetMultivariateBatchDetectionResult`
 
