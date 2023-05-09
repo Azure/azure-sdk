@@ -1606,4 +1606,18 @@ entries:
 
     - Implement `azure-json` service provider interface with a Jackson-based implementation.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    ##### Features Generally Available from v1.9.0-beta3
+    - Added configurable timeout for developer credentials (Azure CLI, Azure Developer CLI)
+    - Added `WorkloadIdentityCredential` to authenticate using workload identity in Azure Kubernetes.
+  GroupId: com.azure
 
