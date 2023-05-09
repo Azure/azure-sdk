@@ -1162,4 +1162,71 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iotcentral/armiotcentral/v1.1.1/sdk/resourcemanager/iotcentral/armiotcentral/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azqueue
+  Version: 1.0.0
+  DisplayName: Storage - Queue
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azqueue/v1.0.0/sdk/storage/azqueue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * This is the initial GA release of the `azqueue` library
+- Name: sdk/data/azcosmos
+  Version: 0.3.5
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.5/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for accounts with [merge support](https://aka.ms/cosmosdbsdksupportformerge) enabled
+
+    #### Bugs Fixed
+    * Fixed unmarshalling error when using projections in value queries
+- Name: sdk/azidentity
+  Version: 1.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.3.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.3.0-beta.5
+    * Renamed `NewOnBehalfOfCredentialFromCertificate` to `NewOnBehalfOfCredentialWithCertificate`
+    * Renamed `NewOnBehalfOfCredentialFromSecret` to `NewOnBehalfOfCredentialWithSecret`
+- Name: sdk/messaging/azservicebus
+  Version: 1.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.3.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Authentication errors are indicated with an `azservicebus.Error`, with a `Code` of `azservicebus.CodeUnauthorizedAccess`. (PR#20447)
+
+    #### Bugs Fixed
+
+    - Authentication errors could cause unnecessary retries, making calls taking longer to fail. (PR#20447)
+    - Recovery now includes internal timeouts and also handles restarting a connection if AMQP primitives aren't closed cleanly.
+    - Potential leaks for $cbs and $management when there was a partial failure. (PR#20564)
+    - Sending a message to an entity that is full will no longer retry. (PR#20722)
+    - Sending a message that is larger than what the link supports now returns ErrMessageTooLarge. (PR#20721)
+    - Latest go-amqp changes have been merged in with fixes for robustness.
+- Name: sdk/storage/azfile
+  Version: 0.1.0
+  DisplayName: File
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v0.1.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * This is the initial preview release of the `azfile` library
 
