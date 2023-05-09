@@ -56,4 +56,38 @@ entries:
     #### Bugs Fixed
 
     - Fixed the UUID generation so the variant is RFC 4122 conforming.
+- Name: azure-storage-common
+  Version: 12.3.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.3.2/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2022-11-02`.
+- Name: azure-storage-files-shares
+  Version: 12.5.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.5.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.5.0-beta.1` are now generally available.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `ShareFileClient::ListHandles` and `ShareDirectoryClient::ListHandles` always return empty list.
+- Name: azure-storage-files-datalake
+  Version: 12.6.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.6.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: '- New features in `12.6.0-beta.1` are now generally available.'
 
