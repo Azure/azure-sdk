@@ -90,11 +90,10 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0-beta.2/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
   ChangelogContent: |-
       #### Breaking Changes
-      
     - Combined `SingleTransferOptions` and `ContainerTransferOptions` into `TransferOptions`.
     - If `TransferOptions.CreateMode` is not specified, it will default to `StorageResourceCreateMode.Fail` instead of `Overwrite`.
-      #### Bugs Fixed 
 
+      #### Bugs Fixed 
     - Fix to prevent thread starvation on the DataTransfer.AwaitCompletion
     - Fix to prevent unnecessary OperationCancelledException's showing up in the TransferOptions.TransferFailed when cancelling a job.
 - Name: Azure.ResourceManager.Network
