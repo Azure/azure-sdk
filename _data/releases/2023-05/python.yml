@@ -241,4 +241,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_6.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.10.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.10.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A new boolean keyword argument `uamqp_transport` has been added to sync and async `ServiceBusClient` constructors which indicates whether to use the `uamqp` library or the default pure Python AMQP library as the underlying transport.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where sync and async `ServiceBusAdministrationClient` expected `credential` with `get_token` method returning `AccessToken.token` of type `bytes` and not `str`, now matching the documentation.
+    - Fixed a bug where `raw_amqp_message.header` and `message.header` properties on `ServiceReceivedBusMessage` were returned with `durable`, `first_acquirer`, and `priority` properties set by default, rather than the values returned by the service.
+    - Fixed a bug where `ServiceBusReceivedMessage` was not picklable (Issue #27947).
 
