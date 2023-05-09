@@ -258,4 +258,15 @@ entries:
     - Fixed a bug where sync and async `ServiceBusAdministrationClient` expected `credential` with `get_token` method returning `AccessToken.token` of type `bytes` and not `str`, now matching the documentation.
     - Fixed a bug where `raw_amqp_message.header` and `message.header` properties on `ServiceReceivedBusMessage` were returned with `durable`, `first_acquirer`, and `priority` properties set by default, rather than the values returned by the service.
     - Fixed a bug where `ServiceBusReceivedMessage` was not picklable (Issue #27947).
+- Name: azure-eventgrid
+  Version: 4.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.11.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Storage Tasks, Azure Communication Services and Azure HealthcareApis.
 
