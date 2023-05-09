@@ -1162,4 +1162,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iotcentral/armiotcentral/v1.1.1/sdk/resourcemanager/iotcentral/armiotcentral/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 0.3.5
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.5/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed unmarshalling error when using projections in value queries
+
+    #### Features Added
+    * Added support for accounts with [merge support](https://aka.ms/cosmosdbsdksupportformerge) enabled
 
