@@ -331,4 +331,27 @@ entries:
     #### Bugs Fixed
 
     - Fixed the ISO8601 value for `twentyFourHours`to reflect `P24H`, instead of `P1D` under `Durations` object.
+- Name: '@azure/monitor-query'
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Resource centric query logs api for `LogsIngestionClient` from (`1.1.0-beta.1` release).
+- Name: '@azure/identity'
+  Version: 3.2.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `developerCredentialTimeOutInMs` to `processTimeoutInMs` in `DefaultAzureCredentialOptions`.
+    - Renamed `federatedTokenFilePath` to `tokenFilePath` under `WorkloadIdentityOptions`.
 
