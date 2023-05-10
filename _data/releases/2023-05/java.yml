@@ -1629,4 +1629,15 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-paloaltonetworks-ngfw_1.0.0-beta.1/sdk/paloaltonetworks/azure-resourcemanager-paloaltonetworks-ngfw/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-maps-elevation
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Maps Elevation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-elevation_1.0.0-beta.2/sdk/maps/azure-maps-elevation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    Please note, this package has been deprecated and will no longer be in service or maintained after 5 May 2023. All other Azure Maps APIs, Services and TilesetIDs are unaffected by this retirement. Refer to the migration guide [Elevation Services Retirement](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023/) for guidance on upgrading. Refer to our deprecation policy (https://aka.ms/azsdk/support-policies) for more details.
+  GroupId: com.azure
 
