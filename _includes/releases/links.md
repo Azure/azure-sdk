@@ -21,7 +21,7 @@
     {% assign code_url = source_url | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.Version', version %}
     {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
 
-    {% if include.version == "VersionGA" %}
+    {% if item.MSDocs != "NA" %}
         {% assign msdocs_url = item.MSDocs %}
         {% if item.MSDocs == "" %}
             {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
