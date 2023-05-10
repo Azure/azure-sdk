@@ -280,4 +280,15 @@ entries:
     #### Features Added
 
     - The client-side idle timeout for connections can now be configured using `ServiceBusClientOptions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.10.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.10.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MinMessageBatchSize` and `MaxBatchWaitTime` to `ServiceBusOptions` to allow configuring the minimum number of messages to process in a batch and the maximum time to wait for a batch to be filled before processing.
 
