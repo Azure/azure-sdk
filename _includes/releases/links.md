@@ -29,7 +29,6 @@
                 {% assign msdocs_url = msdocs_url | append: pre_suffix %}
             {% endif %}
         {% endif %}
-        {% assign msdocs_url = msdocs_url | replace: 'item.Version', version %}
         {% if code_url != "" and code_url != "NA" and msdocs_url != "" and msdocs_url != "NA" %}
             &nbsp;|&nbsp;
         {% endif %}
