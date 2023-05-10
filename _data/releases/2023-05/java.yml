@@ -1652,4 +1652,15 @@ entries:
 
     - Added `queryResource` methods to `LogsQueryClient` and `LogsQueryAsyncClient` to support querying logs using Azure resource ID.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.7
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.7/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Document Table cell now returns correct values for bounding boxes.
+  GroupId: com.azure
 
