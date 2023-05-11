@@ -291,4 +291,18 @@ entries:
     #### Features Added
 
     - Added `MinMessageBatchSize` and `MaxBatchWaitTime` to `ServiceBusOptions` to allow configuring the minimum number of messages to process in a batch and the maximum time to wait for a batch to be filled before processing.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.16.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.16.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AcsIncomingCallEventData` event.
+    - Added `DeliveryStatusDetails` property to `AcsEmailDeliveryReportReceivedEventData` event.
+    - Added `HealthCareDicomImageUpdatedEventData` event.
+    - Added `PartionName` property to Dicom events.
 
