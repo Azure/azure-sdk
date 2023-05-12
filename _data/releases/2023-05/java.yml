@@ -1606,4 +1606,61 @@ entries:
 
     - Implement `azure-json` service provider interface with a Jackson-based implementation.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    ##### Features Generally Available from v1.9.0-beta3
+    - Added configurable timeout for developer credentials (Azure CLI, Azure Developer CLI)
+    - Added `WorkloadIdentityCredential` to authenticate using workload identity in Azure Kubernetes.
+  GroupId: com.azure
+- Name: azure-resourcemanager-paloaltonetworks-ngfw
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Paloaltonetworks-Ngfw
+  ServiceName: Paloaltonetworks-Ngfw
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-paloaltonetworks-ngfw_1.0.0-beta.1/sdk/paloaltonetworks/azure-resourcemanager-paloaltonetworks-ngfw/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-maps-elevation
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Maps Elevation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-elevation_1.0.0-beta.2/sdk/maps/azure-maps-elevation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    Please note, this package has been deprecated and will no longer be in service or maintained after 5 May 2023. All other Azure Maps APIs, Services and TilesetIDs are unaffected by this retirement. Refer to the migration guide [Elevation Services Retirement](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023/) for guidance on upgrading. Refer to our deprecation policy (https://aka.ms/azsdk/support-policies) for more details.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.2.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.2.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `queryResource` methods to `LogsQueryClient` and `LogsQueryAsyncClient` to support querying logs using Azure resource ID.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.7
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.7/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Document Table cell now returns correct values for bounding boxes.
+  GroupId: com.azure
 
