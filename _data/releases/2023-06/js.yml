@@ -1,0 +1,12 @@
+entries:
+- Name: '@azure/identity'
+  Version: 3.2.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Remove console logging in `processMultitenantRequest` for tenant id and resolved tenant.
+
