@@ -26,4 +26,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b8/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.7.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.7.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added data import schedule. The class added is `ImportDataSchedule`.
+    - Added support to enable data isolation feature at workspace creation stage.
+    - Added auto_delete_setting support for asset version in data import job.
 
