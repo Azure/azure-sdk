@@ -54,10 +54,6 @@ steps:
     displayName: Set Release Period Value
 
   - pwsh: |
-      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" -RepoName "azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
-    displayName: Clean Up Stale Branches
-
-  - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
       git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
