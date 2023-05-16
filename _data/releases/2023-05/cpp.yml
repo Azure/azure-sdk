@@ -10,34 +10,6 @@ entries:
     #### Bugs Fixed
 
     - [[#4490]](https://github.com/Azure/azure-sdk-for-cpp/issues/4490) Fixed WinHTTP memory leak during failed requests.
-- Name: azure-identity
-  Version: 1.5.0
-  DisplayName: Identity
-  ServiceName: Identity
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.5.0/sdk/identity/azure-identity/CHANGELOG.md
-  ChangelogContent: |-
-    #### Features Added
-
-    - Added support for challenge-based and multi-tenant authentication.
-    - Added `DefaultAzureCredential`.
-
-    #### Bugs Fixed
-
-    - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
-- Name: azure-core
-  Version: 1.10.0-beta.1
-  DisplayName: Core
-  ServiceName: Other
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.0-beta.1/sdk/core/azure-core/CHANGELOG.md
-  ChangelogContent: |-
-    #### Features Added
-
-    - Added `Azure::Core::Uuid::AsArray()` and `Azure::Core::Uuid::CreateFromArray()` to enable reading or writing from an existing UUID.
-    This is useful when the UUID was generated outside the Azure SDK, or needs to be used from a component outside the Azure SDK.
 - Name: azure-core
   Version: 1.9.0
   DisplayName: Core
@@ -56,6 +28,34 @@ entries:
     #### Bugs Fixed
 
     - Fixed the UUID generation so the variant is RFC 4122 conforming.
+- Name: azure-core
+  Version: 1.10.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Azure::Core::Uuid::AsArray()` and `Azure::Core::Uuid::CreateFromArray()` to enable reading or writing from an existing UUID.
+    This is useful when the UUID was generated outside the Azure SDK, or needs to be used from a component outside the Azure SDK.
+- Name: azure-identity
+  Version: 1.5.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.5.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for challenge-based and multi-tenant authentication.
+    - Added `DefaultAzureCredential`.
+
+    #### Bugs Fixed
+
+    - [[#4443]](https://github.com/Azure/azure-sdk-for-cpp/issues/4443) Fixed potentially high CPU usage on Windows.
 - Name: azure-security-keyvault-certificates
   Version: 4.2.0
   DisplayName: Key Vault - Certificates
