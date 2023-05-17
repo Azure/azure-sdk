@@ -19,4 +19,12 @@ entries:
   ChangelogContent: |-
     - Added support for the API version 2023-04-01-preview.
     - Renamed sip Patch operation to Update operation
+- Name: '@azure/eventgrid'
+  Version: 4.12.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.12.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: '- No new changes for this release. This is to update the minor version of the release to indicate the new system events that were added in the `4.11.1` version.'
 
