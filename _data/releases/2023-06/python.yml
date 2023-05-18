@@ -153,4 +153,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue where `OnlineDeployment.provisioning_state` was incorrectly deserialized and set as `None`
+- Name: azure-mgmt-resource
+  Version: 23.0.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.0.1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
 
