@@ -263,7 +263,7 @@ Subscriptions,0,Resource Management - Subscriptions,mgmt,.NET,Microsoft.Azure.Ma
 Support,0,Resource Management - Support,mgmt,.NET,Microsoft.Azure.Management.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,1,false,Azure.ResourceManager.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,10,false,1,02/17/2023
 Synapse,0,Resource Management - Synapse,mgmt,.NET,Microsoft.Azure.Management.Synapse,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,1,false,Azure.ResourceManager.Synapse,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,10,false,1,02/20/2023
 Traffic Manager,0,Resource Management - Traffic Manager,mgmt,.NET,Microsoft.Azure.Management.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/trafficmanager/Microsoft.Azure.Management.TrafficManager,1,false,Azure.ResourceManager.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/trafficmanager,10,false,1,
-Voice Services,0,Resource Management - Voice Services,mgmt,.NET,,,11,false,Azure.ResourceManager.VoiceServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/voiceservices,3,false,1,
+Voice Services,0,Resource Management - Voice Services,mgmt,.NET,,,11,false,Azure.ResourceManager.VoiceServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/voiceservices,10,false,1,05/19/2023
 Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.ResourceManager.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,02/15/2023
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,04/25/2023
@@ -735,7 +735,7 @@ Communication,0,Communication Call Automation,data,Java,,,11,false,azure-communi
 Communication,0,Communication Chat,data,Java,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,04/25/2023
 Communication,0,Communication Common,data,Java,,,11,false,azure-communication-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/12/2023
 Communication,0,Communication Email,data,Java,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,04/25/2023
-Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,04/25/2023
+Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/16/2023
 Communication,0,Communication Network Traversal,data,Java,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/11/2022
 Communication,0,Communication Phone Numbers,data,Java,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,04/25/2023
 Communication,0,Communication Rooms,data,Java,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,3,false,1,
@@ -864,7 +864,7 @@ Edge Order,0,Resource Management - Edge Order,mgmt,Java,,,11,false,azure-resourc
 Education,0,Resource Management - Education,mgmt,Java,,,11,false,azure-resourcemanager-education,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/education,3,false,1,
 Elastic,0,Resource Management - Elastic,mgmt,Java,,,11,false,azure-resourcemanager-elastic,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elastic,3,false,1,
 Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Java,,,11,false,azure-resourcemanager-elasticsan,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elasticsan,3,false,1,
-Event Grid,0,Resource Management - Event Grid,mgmt,Java,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,true,azure-resourcemanager-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,01/23/2022
+Event Grid,0,Resource Management - Event Grid,mgmt,Java,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,true,azure-resourcemanager-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Java,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,04/21/2023
 Extended Location,0,Resource Management - Extended Location,mgmt,Java,,,11,false,azure-resourcemanager-extendedlocation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/extendedlocation,3,false,1,
 Fluid Relay,0,Resource Management - Fluid Relay,mgmt,Java,,,11,false,azure-resourcemanager-fluidrelay,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/fluidrelay,10,false,1,07/31/2022
@@ -1211,7 +1211,7 @@ Dynatrace,0,Resource Management - Dynatrace,mgmt,JavaScript,,,11,false,@azure/ar
 Education,0,Resource Management - Education,mgmt,JavaScript,,,11,false,@azure/arm-education,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/education,3,false,1,
 Elastic,0,Resource Management - Elastic,mgmt,JavaScript,,,11,false,@azure/arm-elastic,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/elastic,3,false,1,
 Elasticsan,0,Resource Management - Elasticsan,mgmt,JavaScript,,,11,false,@azure/arm-elasticsan,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/elasticsans,3,false,1,
-Event Grid,0,Resource Management - Event Grid,mgmt,JavaScript,azure-arm-eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid,10,false,1,01/11/2023
+Event Grid,0,Resource Management - Event Grid,mgmt,JavaScript,azure-arm-eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid,10,false,1,
 Event Hubs,0,Resource Management - Event Hubs,mgmt,JavaScript,azure-arm-eventhub,UNABLE TO DETERMINE REPO LINK,1,false,@azure/arm-eventhub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub,10,false,1,
 Extended Location,0,Resource Management - Extended Location,mgmt,JavaScript,,,11,false,@azure/arm-extendedlocation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/extendedlocation,3,false,1,
 Features,0,Resource Management - Features,mgmt,JavaScript,,,11,false,@azure/arm-features,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features,10,false,1,11/28/2022
@@ -1750,6 +1750,8 @@ SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Go,,,11,fal
 Storage,0,Resource Management - Storage Pool,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.StoragePool,,2,false,0,
 Storage,0,Resource Management - Storage Sync,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.StorageSync,,2,false,0,
 Synapse,0,Resource Management - Synapse,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Synapse,,2,false,0,
+Voice Services,0,Resource Management - Voice Services,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.VoiceServices,,2,false,0,
+Voice Services,0,Resource Management - Voice Services,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.VoiceServices,,2,false,0,
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,.NET,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,JavaScript,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
@@ -1768,8 +1770,6 @@ Device Provisioning Services,0,Resource Management - Device Provisioning Service
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
 New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-newrelicobservability,,2,false,0,
-Voice Services,0,Resource Management - Voice Services,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-voiceservices,,2,false,0,
-Voice Services,0,Resource Management - Voice Services,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-voiceservices,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,.NET,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,Java,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
