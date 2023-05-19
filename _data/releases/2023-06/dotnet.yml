@@ -43,4 +43,12 @@ entries:
     #### Features Added
     - Added new function `ListRooms` to list all created rooms by returning `Pageable<CommunicationRoom>`.
     - Added pagination support for `GetParticipants` by returning `Pageable<RoomParticipant>`.
+- Name: Azure.ResourceManager.VoiceServices
+  Version: 1.0.0
+  DisplayName: Resource Management - Voice Services
+  ServiceName: Voice Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.VoiceServices_1.0.0/sdk/voiceservices/Azure.ResourceManager.VoiceServices/CHANGELOG.md
+  ChangelogContent: ""
 
