@@ -51,4 +51,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.VoiceServices_1.0.0/sdk/voiceservices/Azure.ResourceManager.VoiceServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.Query
+  Version: 1.2.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.2.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `QueryResourceAsync<T>` method was not returning the correct value.
 
