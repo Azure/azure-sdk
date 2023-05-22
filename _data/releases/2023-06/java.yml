@@ -288,4 +288,42 @@ entries:
     - Upgraded `azure-core` from `1.38.0` to version `1.39.0`.
     - Upgraded `azure-communication-common` from `1.2.6` to version `1.2.8`.
   GroupId: com.azure
-
+- Name: azure-cosmos
+  Version: 4.45.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.45.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where status code & sub-status code `408/20008` will always be populated in the CosmosDiagnostics in case of `RNTBD` request failures - See [PR 34999](https://github.com/Azure/azure-sdk-for-java/pull/34999)
+    * Fixed `readMany` API bug to enable swallowing of `404 Not Found` exceptions for 404/0 scenarios when `readMany` performs point-reads internally - See [PR 34966](https://github.com/Azure/azure-sdk-for-java/pull/34966)
+  GroupId: com.azure
+- Name: azure-resourcemanager-costmanagement
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-costmanagement_1.0.0-beta.6/sdk/costmanagement/azure-resourcemanager-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-frontdoor
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-frontdoor_1.0.0-beta.3/sdk/frontdoor/azure-resourcemanager-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-qumulo
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-qumulo_1.0.0-beta.2/sdk/qumulo/azure-resourcemanager-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
