@@ -1,0 +1,329 @@
+entries:
+- Name: azure-communication-common
+  Version: 1.2.8
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.2.8/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to version `1.39.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.2` to version `1.13.3`.
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 2.1.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.1.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where empty array causes `NoSuchElementException` in `EncryptionProcessor` - See [PR 34847](https://github.com/Azure/azure-sdk-for-java/pull/34847)
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.45.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.45.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed `IllegalArgumentException` in changeFeedProcessor when `maxScaleCount` is configured - See [PR 34618](https://github.com/Azure/azure-sdk-for-java/pull/34618)
+    * Removed custom user agent suffix from client telemetry - See [PR 34866](https://github.com/Azure/azure-sdk-for-java/pull/34866)
+    * Fixed an issue where `userAgentSuffix` is not being used in `CosmosDiagnostics` - See [PR 34863](https://github.com/Azure/azure-sdk-for-java/pull/34863)
+    * Enabled proactive connection management to only reopen closed / reset connections to those endpoints used by containers which
+    were part of the connection warm up flow - See [PR 34892](https://github.com/Azure/azure-sdk-for-java/pull/34892)
+
+    #### Features Added
+    * Added support for priority based throttling - See [PR 34121](https://github.com/Azure/azure-sdk-for-java/pull/34121)
+    * Added configurability for minimum connection pool size for all containers through a system property - `COSMOS.MIN_CONNECTION_POOL_SIZE_PER_ENDPOINT` - See [PR 33983](https://github.com/Azure/azure-sdk-for-java/pull/33983).
+    * Added `CosmosContainerProactiveInitConfigBuilder:setAggressiveWarmupDuration(Duration aggressiveWarmupDuration)` public API to switch between aggressively opening connections
+    in a blocking manner to defensively opening connections in a non-blocking manner after `aggressiveWarmupDuration` has elapsed - See [PR 33983](https://github.com/Azure/azure-sdk-for-java/pull/33983).
+    * Added end to end timeout policy for item operations. Requests will be cancelled if they have not finished before the configured timeout - See [PR 34554](https://github.com/Azure/azure-sdk-for-java/pull/34554).
+    * Added capability to sample diagnostics dynamically (without need to reinitialize the app or the Cosmos Client instance). - See [PR 34915](https://github.com/Azure/azure-sdk-for-java/pull/34915).
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.14.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.14.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where receiving messages from `ServiceBusSessionReceiverAsyncClient` would never complete. ([#34597](https://github.com/Azure/azure-sdk-for-java/issues/34597))
+    - Fixed issue causing some messages to not be returned when calling peek on receiver client.
+    - Fixed the issue of `ServiceBusReceiverClient` recreating the link after closing the client. ([#34664](https://github.com/Azure/azure-sdk-for-java/issues/34664))
+    - Fixed a race condition in `ServiceBusReceiverClient` sometimes causing two requests to be sent when peeking or receiving deferred messages.
+    ([#34838](https://github.com/Azure/azure-sdk-for-java/issues/34838))
+    - Fixed tracing for renew-lock operation, now it traces individual calls to the broker instead local long-running operation.
+    ([#34813](https://github.com/Azure/azure-sdk-for-java/issues/34813))
+
+    #### Features Added
+
+    - Added `sessionIdleTimeout` method to configure session idle timeout on `ServiceBusSessionProcessorClientBuilder`. After this time has elapsed,
+    the processor will close the session and attempt to process another session. ([#34700](https://github.com/Azure/azure-sdk-for-java/issues/34700))
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.6.0-beta.6
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.6.0-beta.6/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to version `1.39.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.2` to version `1.13.3`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.3.1` to version `1.4.0`.
+    - Upgraded `azure-json` from `1.0.0` to version `1.0.1`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-selfhelp
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Selfhelp
+  ServiceName: Selfhelp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-selfhelp_1.0.0-beta.1/sdk/selfhelp/azure-resourcemanager-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.0.0-beta.5/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-blob
+  Version: 12.22.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.22.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    Fixed bug in `BlobBaseClient.downloadToFile()` and `BlobBaseClient.downloadToFileWithResponse()` where incorrect data could be written to the file in some circumstances if the SDK experienced a network error when using `azure-core-http-netty`'s `HttpClient` implementation.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.21.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.21.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.22.0` to version `12.22.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.18.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.18.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.22.0` to version `12.22.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.15.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.15.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.22.0` to version `12.22.1`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-devhub
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - DevHub
+  ServiceName: DevHub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-devhub_1.0.0-beta.2/sdk/devhub/azure-resourcemanager-devhub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-recoveryservices
+  Version: 1.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservices_1.1.0/sdk/recoveryservices/azure-resourcemanager-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-servicenetworking
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.0.0-beta.2/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-devcenter
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-devcenter_1.0.0-beta.5/sdk/devcenter/azure-resourcemanager-devcenter/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-communication-rooms
+  Version: 1.0.0-beta.3
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.0.0-beta.3/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new function `listRooms` to list all created rooms by returning `PagedIterable<CommunicationRoom>`,
+    - Added pagination support for `listParticipants` by returning `PagedIterable<RoomParticipant>`.
+
+    #### Breaking Changes
+
+    - Changed: `updateRoom` no longer accepts participant list as input.
+    - Changed: Replaced `addParticipants` and `updateParticipants` with `addOrUpdateParticipants`.
+    - Changed: Renamed `RoleType` to `ParticipantRole`.
+    - Changed: Renamed `getParticipants` to `listParticipants`.
+    - Changed: Renamed `CreatedOn` to `CreatedAt` in `CommunicationRoom`.
+    - Changed: `removeParticipants` now takes in a `Iterable<CommunicationIdentifier>` instead of `Iterable<RoomParticipant>`.
+    - Removed: `participants` from `CommunicationRoom` model.
+    - Removed: `roomJoinPolicy` so all rooms are invite-only by default.
+  GroupId: com.azure
+- Name: azure-resourcemanager-mysqlflexibleserver
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - MySQL Flexible Server
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mysqlflexibleserver_1.0.0-beta.4/sdk/mysqlflexibleserver/azure-resourcemanager-mysqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-networkcloud
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Networkcloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkcloud_1.0.0-beta.1/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-newrelicobservability
+  Version: 1.0.0
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-newrelicobservability_1.0.0/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-kubernetesconfiguration
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kubernetesconfiguration_1.0.0-beta.4/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-eventgrid
+  Version: 1.2.0-beta.4
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventgrid_1.2.0-beta.4/sdk/eventgrid/azure-resourcemanager-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-postgresqlflexibleserver
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.6/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-communication-identity
+  Version: 1.4.6
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.4.6/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.38.0` to version `1.39.0`.
+    - Upgraded `azure-communication-common` from `1.2.6` to version `1.2.8`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.45.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.45.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where status code & sub-status code `408/20008` will always be populated in the CosmosDiagnostics in case of `RNTBD` request failures - See [PR 34999](https://github.com/Azure/azure-sdk-for-java/pull/34999)
+    * Fixed `readMany` API bug to enable swallowing of `404 Not Found` exceptions for 404/0 scenarios when `readMany` performs point-reads internally - See [PR 34966](https://github.com/Azure/azure-sdk-for-java/pull/34966)
+  GroupId: com.azure
+- Name: azure-resourcemanager-costmanagement
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-costmanagement_1.0.0-beta.6/sdk/costmanagement/azure-resourcemanager-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-frontdoor
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-frontdoor_1.0.0-beta.3/sdk/frontdoor/azure-resourcemanager-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-qumulo
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-qumulo_1.0.0-beta.2/sdk/qumulo/azure-resourcemanager-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
