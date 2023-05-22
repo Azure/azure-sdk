@@ -824,24 +824,27 @@ The exception is available in ```Azure.Core``` package:
 ```csharp
 public class RequestFailedException : Exception {
 
-    public RequestFailedException(int status, string message);
-    public RequestFailedException(int status, string message, Exception innerException);
+    public RequestFailedException(Response response);
+    public RequestFailedException(Response response, Exception innerException);
+    public RequestFailedException(Response response, Exception innerException, RequestFailedDetailsParser detailsParser);
 
     public int Status { get; }
 }
 ```
 
-{% include requirement/SHOULD id="dotnet-errors-response-exception-extensions" %} use `ResponseExceptionExtensions` to create `RequestFailedException` instances.
-
-The exception message should contain detailed response information.  For example:
+The exception message will be formed from the passed in `Response` content. For example:
 
 ```csharp
 if (response.Status != 200) {
-    throw await response.CreateRequestFailedExceptionAsync(message);
+    throw new RequestFailedException(response);
 }
 ```
 
 {% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
+
+{% include requirement/MUST id="dotnet-request-failed-details-parser" %} provide `RequestFailedDetailsParser` for non-standard error formats.
+
+If customization is required to parse the response content, e.g. because the service does not adhere to the standard error format as represented by the `ResponseError` type, libraries can must implement a `RequestFailedDetailsParser` and pass the parser into the construction of the `HttpPipeline` via the `HttpPipelineOptions` type. If more granular control is required than associating the parser per pipeline, there is a constructor of `RequestFailedException` that takes a `RequestFailedDetailsParser` that may be used.
 
 Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
 
