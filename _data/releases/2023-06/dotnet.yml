@@ -72,4 +72,15 @@ entries:
     #### Features Added
 
     - Added `EventGridClient` for interacting with topic and subscription namespaces.
+- Name: Microsoft.Azure.WebJobs.Extensions.Tables
+  Version: 1.2.0-beta.1
+  DisplayName: Functions extension for Azure Tables
+  ServiceName: Functions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Tables_1.2.0-beta.1/sdk/tables/Microsoft.Azure.WebJobs.Extensions.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for deferred binding to enable binding to library types in the .NET isolated worker.
 
