@@ -9,7 +9,7 @@ Set-StrictMode -Version 3
 $ErrorActionPreference = "Continue"
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot .. common scripts helpers DevOps-WorkItem-Helpers.ps1)
+. (Join-Path $PSScriptRoot .. common scripts Helpers DevOps-WorkItem-Helpers.ps1)
 
 if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   Write-Error 'You must have the Azure CLI installed: https://aka.ms/azure-cli'
