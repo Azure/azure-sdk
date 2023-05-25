@@ -1,0 +1,321 @@
+entries:
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.0.0-beta.2/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.0-beta.2/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.2/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.0.0-beta.2/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Resources
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.0.0-beta.2/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.Chat
+  Version: 1.1.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.1.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: Updated `Azure.Communication.Chat` version.
+- Name: Azure.MixedReality.RemoteRendering
+  Version: 1.1.0
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.MixedReality.RemoteRendering_1.1.0/sdk/remoterendering/Azure.MixedReality.RemoteRendering/CHANGELOG.md
+  ChangelogContent: '- Ensure the MS-CV header is not redacted in logs. If you are logging an issue, it can be useful to quote this value.'
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.4/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.20.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.20.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an exception during EventSource creation on Xamarin.
+
+    #### Features Added
+
+    - Added the static `DelegatedTokenCredential` type with a `Create` method, which returns an instance of `TokenCredential` that uses the supplied delgates to produce an `AccessToken`. This would most typically be used when an token has previously been obtained from some other source and that token needs to be returned by a `TokenCredential` instance.
+    - Added `ResponseError` type to represent an Azure error type.
+    - Added an experimental `ActivitySource` support.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.2.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `ConfigurationSetting` constructor parameter to set an `ETag`.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.3
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    * [Update SdkVersion to include pre-release part](https://github.com/Azure/azure-sdk-for-net/pull/24290)
+    * [Remove otel.status_code from custom properties](https://github.com/Azure/azure-sdk-for-net/pull/24250)
+    * [Update Request operation name to use http.route/http.url path](https://github.com/Azure/azure-sdk-for-net/pull/24222)
+    * [Update Http Dependency name to httpUrl path and target for Db dependency](https://github.com/Azure/azure-sdk-for-net/pull/24211)
+    * [Rename EventSource](https://github.com/Azure/azure-sdk-for-net/pull/24176)
+    * [Update Request Name to match Operation Name](https://github.com/Azure/azure-sdk-for-net/pull/24059)
+    * [Fix success field logic for request and dependency](https://github.com/Azure/azure-sdk-for-net/pull/23757)
+    * [Default cloud_RoleInstance to HostName](https://github.com/Azure/azure-sdk-for-net/pull/23592)
+    * [Add InProc dependency type and update Db target mapping](https://github.com/Azure/azure-sdk-for-net/pull/23541)
+    * [Add ai.location.ip and ai.user.userAgent mapping](https://github.com/Azure/azure-sdk-for-net/pull/23524)
+    * [Operation name mapping for ActivityKind = SERVER](https://github.com/Azure/azure-sdk-for-net/pull/23448)
+    * [Update Dependency Type and Target mapping for Http and Db](https://github.com/Azure/azure-sdk-for-net/pull/23330)
+    * [Update Http Request mapping](https://github.com/Azure/azure-sdk-for-net/pull/23206)
+    * [Add ActivityLinks Support](https://github.com/Azure/azure-sdk-for-net/pull/23110)
+    * [Update OpenTelemetry Package versions](https://github.com/Azure/azure-sdk-for-net/pull/23059)
+- Name: Azure.Messaging.EventHubs
+  Version: 5.6.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.6.2/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Dependencies have been updated to resolve an error when creating `EventSource` instances when used with Xamarin.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.6.2
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.6.2/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Dependencies have been updated to resolve an error when creating `EventSource` instances when used with Xamarin.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.4.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Leveraged fix in AMQP library that allows messages to be properly unlocked when shutting down the processor.
+
+    #### Features Added
+    - Added support for cancelling send and receives while in-flight.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.5.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.5.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for specifying the maximum message size for entities in Premium namespaces.
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.8
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.8/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Enhance Long Running Operation (LRO) logic for `SparkBatchClient` to support both scenarios of job submission and job execution.
+    - Update `LivyState` to be an extensible enum.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.0.0-beta.2
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `StrictFilters` to `QueryFilters` which now contains a list of `MetadataRecord` - key-value pairs that allow for referencing the same key numerous times in a filter similar to, for example, "food = 'fruit' OR food = 'vegetable'".
+    - Made `projectName` and `deploymentName` parameters required for `QuestionAnsweringClient` methods.
+    - Moved `QueryKnowledgeBaseOptions`, `QueryTextOptions`, and `TextRecord` to `Azure.AI.Language.QuestionAnswering` namespace.
+    - Removed `QueryTextOptions.StringIndexType` property and will always pass `StringIndexType.Utf16CodeUnit` for .NET.
+    - Renamed "CompoundOperation" to "LogicalOperation" in properties and type names.
+    - Renamed `QuestionKnowledgeBaseOptions.StrictFilters` to `Filters` and changed type to `QueryFilters`.
+
+    #### Features Added
+
+    - Added support for API version 2021-07-15-preview.
+    - Added `QuestionAnsweringClientOptions.DefaultLanguage` to specify a client default, and the `language` parameters of `QueryTextOptions` optional.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.11
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.11/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Upgrade to [package-artifacts-composite-v1](https://github.com/Azure/azure-rest-api-specs/blob/bee724836ffdeb5458274037dc75f4d43576b5e3/specification/synapse/data-plane/readme.md#tag-package-artifacts-composite-v1)
+    - Added `SparkConfigurationClient`, `KqlScriptsClient` and associated support types.
+    - Update type of many modles from string to object
+    - `SparkJobDefinition`, `Notebook` and `SqlScript` now has a folder property
+    - `SqlScript` now has poolName and databaseName properties
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.3
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.3/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added caching of schemas.
+    - Updated dependency on `Azure.Data.SchemaRegistry`.
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.0.0-beta.4
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.0.0-beta.4/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FullyQualifiedNamespace` property to `SchemaRegistryClient`.
+
+    #### Breaking Changes
+
+    - Removed caching from `SchemaRegistryClient`.
+    - Renamed `GetSchemaId` method to `GetSchemaProperties`.
+    - Renamed `endpoint` parameter to `fullyQualifiedNamespace` in constructor.
+    - Renamed `SerializationType` to `SchemaFormat`.
+    - Make all methods return `Response<T>` instead of `T`.
+    - Changed return type of `GetSchema` to `SchemaRegistrySchema` type.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.4/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added APIs to [reset documents](https://docs.microsoft.com/azure/search/search-howto-run-reset-indexers#reset-docs-preview) and [skills](https://docs.microsoft.com/azure/search/search-howto-run-reset-indexers#reset-skills-preview).
+
+    #### Breaking Changes
+    - Renamed `QueryAnswer` to `QueryAnswerType` in `SearchOptions`.
+    - Renamed `QueryCaption` to `QueryCaptionType` in `SearchOptions`.
+    - Renamed `QuerySpeller` to `QuerySpellerType` in `SearchOptions`.
+    - Renamed `QueryCaptionHighlight` to `QueryCaptionHighlightEnabled` in `SearchOptions`.
+- Name: Azure.AI.FormRecognizer
+  Version: 4.0.0-beta.1
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.1/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This version of the SDK defaults to the latest supported Service API version, which currently is `2021_09_30_preview`.
+    - Added class `DocumentAnalysisClient` to the new `Azure.AI.FormRecognizer.DocumentAnalysis` namespace. This will be the main client to use when analyzing documents for service versions `2021_09_30_preview` and higher. For lower versions, please use the `FormRecognizerClient`.
+    - Added methods `StartAnalyzeDocument` and `StartAnalyzeDocumentFromUri` to `DocumentAnalysisClient`. These methods substitute all existing `StartRecognize<...>` methods, such as `StartRecognizeContent` and `StartRecognizeReceiptsFromUri`.
+    - Added class `DocumentModelAdministrationClient` to the new `Azure.AI.FormRecognizer.DocumentAnalysis` namespace. This will be the main client to use for model management for service versions `2021_09_30_preview` and higher. For lower versions, please use the `FormTrainingClient`.
+    - Added methods `StartBuildModel`, `StartCopyModel`, `StartCreateComposedModel`, `GetCopyAuthorization`, `GetModel`, `GetModels`, `GetAccountProperties`, `DeleteModel`, `GetOperation`, `GetOperations`, and the equivalent async methods to `DocumentModelAdministrationClient`.
+- Name: Azure.AI.Personalizer
+  Version: 2.0.0-beta.1
+  DisplayName: Personalizer
+  ServiceName: Personalizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Personalizer_2.0.0-beta.1/sdk/personalizer/Azure.AI.Personalizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial Release of Azure AI [Personalizer cognitive service](https://docs.microsoft.com/azure/cognitive-services/personalizer/) version 2.0.0-beta.1 SDK.
+    - This is a new release of the Azure AI Personalizer SDK that follows the Azure SDK guidelines, so the structure is a little different from the old SDK.
+    - [Multi-Slot personalization](https://docs.microsoft.com/azure/cognitive-services/personalizer/how-to-multi-slot?pivots=programming-language-csharp)
+    - [Personalizer Automatic Optimization](https://docs.microsoft.com/azure/cognitive-services/personalizer/concept-auto-optimization)
+    - Support Azure Active Directory Authentication.
+    - New overloads for `Rank`, `Reward` and the `PersonalizerClient` constructor.
+
+    #### Breaking Changes
+    - `PersonalizerClient` contains (single and multi-slot) Rank / Reward / Activate functionality.
+    - All other functionality (ServiceConfiguration, Evaluations, Policy, Model, Log) was moved to `PersonalizerAdministrationClient`.
+    - All methods are exposed in their top level client. For example `PersonalizerClient.Events.Reward` is now `PersonalizerClient.Reward`.
+    - Changed method names and signatures to follow Azure SDK guidelines.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.7.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.7.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added API Management events
+    - Added AcsUserDisconnectedEventData event
+- Name: Azure.Monitor.Query
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `Query` renamed to `QueryWorkspace` in `LogsQueryClient`
+    - `Query` renamed to `QueryResource` in `MetricsQueryClient`
+    - `Interval` renamed to `Granularity` in `MetricsQueryResult`
+    - `DisplayDescription` renamed to `Description` in `MetricResult`
+    - `Type` renamed to `ResourceType` in `MetricResult`
+    - Removed `LogsQueryClientAudience` and `MetricsQueryClientAudience` types and corresponding properties on `MetricsQueryClientOptions` and `LogsQueryClientOptions`.
+
+    #### Features Added
+    - Added `GetMetricByName` to `MetricsQueryResult`
+    - Added `MetricsQueryResult` to `MonitorQueryModelFactory`
+    - Added `LogsQueryResult` to `MonitorQueryModelFactory`
+

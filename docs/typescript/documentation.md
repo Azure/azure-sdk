@@ -3,7 +3,7 @@ title: "TypeScript Guidelines: Documentation"
 keywords: guidelines typescript
 permalink: typescript_documentation.html
 folder: typescript
-sidebar: js_sidebar
+sidebar: general_sidebar
 ---
 
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.

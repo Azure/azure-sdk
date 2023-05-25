@@ -1,0 +1,239 @@
+entries:
+- Name: sdk/azcore
+  Version: 0.19.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    ### Breaking Changes
+    * Split content out of `azcore` into various packages.  The intent is to separate content based on its usage (common, uncommon, SDK authors).
+      * `azcore` has all core functionality.
+      * `log` contains facilities for configuring in-box logging.
+      * `policy` is used for configuring pipeline options and creating custom pipeline policies.
+      * `runtime` contains various helpers used by SDK authors and generated content.
+      * `streaming` has helpers for streaming IO operations.
+    * `NewTelemetryPolicy()` now requires module and version parameters and the `Value` option has been removed.
+      * As a result, the `Request.Telemetry()` method has been removed.
+    * The telemetry policy now includes the SDK prefix `azsdk-go-` so callers no longer need to provide it.
+    * The `*http.Request` in `runtime.Request` is no longer anonymously embedded.  Use the `Raw()` method to access it.
+    * The `UserAgent` and `Version` constants have been made internal, `Module` and `Version` respectively.
+
+    ### Bug Fixes
+    * Fixed an issue in the retry policy where the request body could be overwritten after a rewind.
+
+    ### Other Changes
+    * Moved modules `armcore` and `to` content into `arm` and `to` packages respectively.
+      * The `Pipeline()` method on `armcore.Connection` has been replaced by `NewPipeline()` in `arm.Connection`.  It takes module and version parameters used by the telemetry policy.
+    * Poller logic has been consolidated across ARM and core implementations.
+      * This required some changes to the internal interfaces for core pollers.
+    * The core poller types have been improved, including more logging and test coverage.
+- Name: sdk/data/aztables
+  Version: 0.11.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    * This is the initial release of the `aztables` library
+- Name: sdk/keyvault/armkeyvault
+  Version: 0.2.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/armkeyvault/v0.2.0/sdk/keyvault/armkeyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/authorization/armauthorization
+  Version: 0.2.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/authorization/armauthorization/v0.2.0/sdk/authorization/armauthorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/armstorage
+  Version: 0.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/armstorage/v0.2.0/sdk/storage/armstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/eventgrid/armeventgrid
+  Version: 0.2.0
+  DisplayName: Resource Management - Eventgrid
+  ServiceName: Eventgrid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/eventgrid/armeventgrid/v0.2.0/sdk/eventgrid/armeventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/agrifood/armagrifood
+  Version: 0.1.0
+  DisplayName: Resource Management - Agrifood
+  ServiceName: Agrifood
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/agrifood/armagrifood/v0.1.0/sdk/agrifood/armagrifood/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/web/armweb
+  Version: 0.2.0
+  DisplayName: Resource Management - Web
+  ServiceName: Web
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/web/armweb/v0.2.0/sdk/web/armweb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/postgresql/armpostgresqlflexibleservers
+  Version: 0.2.0
+  DisplayName: Resource Management - Postgresqlflexibleservers
+  ServiceName: Postgresql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/postgresql/armpostgresqlflexibleservers/v0.2.0/sdk/postgresql/armpostgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/monitor/armmonitor
+  Version: 0.2.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/armmonitor/v0.2.0/sdk/monitor/armmonitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/apimanagement/armapimanagement
+  Version: 0.2.0
+  DisplayName: Resource Management - Apimanagement
+  ServiceName: Apimanagement
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/apimanagement/armapimanagement/v0.2.0/sdk/apimanagement/armapimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/compute/armcompute
+  Version: 0.3.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/compute/armcompute/v0.3.0/sdk/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/operationalinsights/armoperationalinsights
+  Version: 0.2.0
+  DisplayName: Resource Management - Operationalinsights
+  ServiceName: Operationalinsights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/operationalinsights/armoperationalinsights/v0.2.0/sdk/operationalinsights/armoperationalinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 0.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v0.11.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Unexported `AzureCLICredentialOptions.TokenProvider` and its type,
+    `AzureCLITokenProvider`
+- Name: sdk/azidentity
+  Version: 0.9.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v0.9.3/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `ManagedIdentityCredential.GetToken` no longer mutates its `opts.Scopes`
+- Name: sdk/postgresql/armpostgresql
+  Version: 0.2.0
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/postgresql/armpostgresql/v0.2.0/sdk/postgresql/armpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/cosmos/armcosmos
+  Version: 0.2.0
+  DisplayName: Resource Management - Cosmos
+  ServiceName: Cosmos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/cosmos/armcosmos/v0.2.0/sdk/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/network/armnetwork
+  Version: 0.3.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/network/armnetwork/v0.3.0/sdk/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resources/armresources
+  Version: 0.3.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resources/armresources/v0.3.0/sdk/resources/armresources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/redis/armredis
+  Version: 0.2.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/redis/armredis/v0.2.0/sdk/redis/armredis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/containerservice/armcontainerservice
+  Version: 0.2.0
+  DisplayName: Resource Management - Containerservice
+  ServiceName: Containerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containerservice/armcontainerservice/v0.2.0/sdk/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/containerregistry/armcontainerregistry
+  Version: 0.2.0
+  DisplayName: Resource Management - Containerregistry
+  ServiceName: Containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containerregistry/armcontainerregistry/v0.2.0/sdk/containerregistry/armcontainerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/sql/armsql
+  Version: 0.1.0
+  DisplayName: Resource Management - Sql
+  ServiceName: Sql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/sql/armsql/v0.1.0/sdk/sql/armsql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/eventhub/armeventhub
+  Version: 0.2.0
+  DisplayName: Resource Management - Eventhub
+  ServiceName: Eventhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/eventhub/armeventhub/v0.2.0/sdk/eventhub/armeventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/servicebus/armservicebus
+  Version: 0.2.0
+  DisplayName: Resource Management - Servicebus
+  ServiceName: Servicebus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/servicebus/armservicebus/v0.2.0/sdk/servicebus/armservicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/privatedns/armprivatedns
+  Version: 0.2.0
+  DisplayName: Resource Management - Privatedns
+  ServiceName: Privatedns
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/privatedns/armprivatedns/v0.2.0/sdk/privatedns/armprivatedns/CHANGELOG.md
+  ChangelogContent: ""
+

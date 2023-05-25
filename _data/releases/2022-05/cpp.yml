@@ -1,0 +1,64 @@
+entries:
+- Name: azure-core
+  Version: 1.6.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.6.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#3537]](https://github.com/Azure/azure-sdk-for-cpp/issues/3537) Updated field type `CurlTransportOptions.Proxy` from `std::string` to `Azure::Nullable<std::string>`. This allows libcurl to ignore the proxy settings from the environment when the string is empty.
+    - [[#3548]](https://github.com/Azure/azure-sdk-for-cpp/issues/3548), [[#1098]](https://github.com/Azure/azure-sdk-for-cpp/issues/1098) Improve performance of the Http transport on Windows by reusing the same session handle across all requests.
+
+    #### Features Added
+
+    - Add `Azure::Core::Http::Request` constructor overload to support payload and non-buffered response.
+- Name: azure-identity
+  Version: 1.3.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.3.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientCertificateCredential`, and updated `EnvironmentCredential` to support client certificate authentication.
+- Name: azure-security-attestation
+  Version: 1.0.0-beta.2
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.0.0-beta.2/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `AttestationOpenIdMetadata` type to `OpenIdMetadata`.
+    - Renamed `AttestationSigningCertificateResult` type to `TokenValidationCertificateResult` to more accurately reflect the
+    purpose of the type.
+    - Removed the `AttestationTokenBase` class and moved its contents to the `AttestationToken` class.
+    - Empty `AttestationToken` types are now represented with `AttestationToken<void>` rather than `AttestationToken<>` to more idiomatically express the idea of a nullable attestation token.
+    - Renamed `RuntimeClaims` field to `RunTimeClaims` to align with `InitTimeClaims` type name; standardized spelling of
+    `InitTimeClaims`.
+    - Changed input parameter to `AttestTpm` to be `AttestTpmOptions` instead of `std::string`.
+    - Changed output parameter of `AttestTpm` to be `TpmAttestationResult` instead of `std::string`.
+    - Renamed `AttestationTokenValidationOptions::ValidationTimeSlack` to `AttestationTokenValidationOptions::TimeValidationSlack`
+    to improve consistency with other attestation SDKs.
+    - Removed the unused `AttestationValidationCollateral` API.
+    - Renamed `AttestOptions` to `AttestEnclaveOptions`
+    - Renamed `TokenValidationOptions` field in various API Options structures to be `TokenValidationOptionsOverride` to better
+    reflect the semantics of the field.
+    - Renamed `PolicyCertificate` types to `IsolatedMode`.
+    - `PolicyCertificateModificationResult` becomes `IsolatedModeCertificateModificationResult`
+    - `PolicyCertificateListResult` becomes `IsolatedModeCertificateListResult`
+    - `GetPolicyManagementCertificateOptions` becomes `GetIsolatedModeCertificatesOptions`
+    - `AddPolicyManagementCertificatesOptions` becomes `AddIsolatedModeCertificatesOptions`
+    - `RemovePolicyManagementCertificatesOptions` becomes `RemoveIsolatedModeCertificatesOptions`
+    - `AttestationAdministrationClient::GetPolicyManagementCertificates` becomes `AttestationAdministrationClient::GetIsolatedModeCertificates`.
+    - `AttestationAdministrationClient::AddPolicyManagementCertificate` becomes `AttestationAdministrationClient::AddIsolatedModeCertificate`.
+    - `AttestationAdministrationClient::RemovePolicyManagementCertificate` becomes `AttestationAdministrationClient::RemoveIsolatedModeCertificate`.
+    - Removed `ClientVersion` API from `AttestationClient` and `AttestationAdministrationClient`
+

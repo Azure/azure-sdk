@@ -75,7 +75,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Azure Identity
 
-- Added new user credential types, allowing new authentication flows (Interactive, Device code, Username/password). See [Microsoft Authentication Library (MSAL) authentication flows](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows) for more details.
+- Added new user credential types, allowing new authentication flows (Interactive, Device code, Username/password). See [Microsoft Authentication Library (MSAL) authentication flows](https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows) for more details.
 
 ### Event Hubs
 

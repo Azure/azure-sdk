@@ -1,27 +1,66 @@
 trigger:
 - master
 
+resources:
+  repositories:
+    - repository: azure-sdk-tools
+      type: github
+      name: Azure/azure-sdk-tools
+      endpoint: azure
+      ref: refs/tags/azure-sdk-tools_20230428.1
+
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'azsdk-pool-mms-ubuntu-2204-general'
+  vmImage: 'ubuntu-22.04'
+
+variables:
+  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
 steps:
-- task: UseRubyVersion@0
+- checkout: self
+- checkout: azure-sdk-tools
+
+- task: Cache@2
   inputs:
-    versionSpec: '>= 2.4'
+    key: 'gems | "$(Agent.OS)" | $(Build.SourcesDirectory)/azure-sdk/Gemfile | $(Build.SourcesDirectory)/azure-sdk/Gemfile.lock'
+    path: $(BUNDLE_PATH)
+  displayName: Cache gems
+
+- task: UseRubyVersion@0
   displayName: Initialize Ruby
 
 - script: |
-    gem install jekyll bundler
-  displayName: Install jekyll and bundler
+    gem install bundler
+  displayName: Install bundler
+  workingDirectory: azure-sdk
 
 - script: |
     bundle install
   displayName: Install project dependencies
+  workingDirectory: azure-sdk
 
 - script: |
     bundle exec jekyll build --future
   displayName: Build Site
+  workingDirectory: azure-sdk
 
-- pwsh: |
-    ./eng/scripts/Verify-Links.ps1 ./_site/index.html
+- task: PowerShell@2
+  displayName: Verify CSV data contents
+  inputs:
+    pwsh: true
+    workingDirectory: azure-sdk
+    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1
+    arguments: "check"
+
+- task: PowerShell@2
   displayName: Verify site links
+  inputs:
+    pwsh: true
+    workingDirectory: azure-sdk
+    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1
+    arguments: >
+      -urls ./_site/azure-sdk/index.html
+      -ignoreLinksFile ./eng/ignore-links.txt
+      -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
+      -devOpsLogging:$true
+      -baseUrl "file://$PWD/_site/azure-sdk"

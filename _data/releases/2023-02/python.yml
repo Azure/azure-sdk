@@ -1,0 +1,387 @@
+entries:
+- Name: azure-mgmt-sqlvirtualmachine
+  Version: 1.0.0b5
+  DisplayName: Resource Management - SQL Virtual Machine
+  ServiceName: SQL Server on Virtual Machines
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sqlvirtualmachine_1.0.0b5/sdk/sql/azure-mgmt-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mobilenetwork
+  Version: 2.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mobilenetwork_2.0.0/sdk/mobilenetwork/azure-mgmt-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redhatopenshift
+  Version: 1.2.0
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift (ARO)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.2.0/sdk/redhatopenshift/azure-mgmt-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicenetworking
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Servicenetworking
+  ServiceName: Servicenetworking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicenetworking_1.0.0b1/sdk/servicenetworking/azure-mgmt-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-media
+  Version: 10.2.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_10.2.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 1.0.0b4
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_1.0.0b4/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-botservice
+  Version: 2.0.0
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-botservice_2.0.0/sdk/botservice/azure-mgmt-botservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 29.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_29.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.3.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.3.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Change print behavior of entity classes to show object yaml in notebooks, can be configured on in other contexts.
+    - Added property to enable/disable public ip addresses to Compute Instances and AML Computes.
+    - `Deployment` and `ScheduleOperations` added to public interface.
+
+    #### Bugs Fixed
+    - Fixed issue with date-time format for utc_time_created field when creating models.
+    - Added stricter behavior for ArmStr schemas when parsing 'azureml:' prefix.
+    - Fixed issue where AmlComputes could only be created in a workspace's default region.
+    - Improved intellisense with VS Code for fields supporting local paths and datastores.
+    - Added validation for token generation with aml scope when user_identity is used in job definition aka OBO flow.
+    - Fixed duplicate node name error in pipeline when two node names assigned to the same node and get renamed by node.name='xx'.
+    - Resolve the cross references for MLClient, Resource and OnlineDeployment.
+    - Explicit use of Optional (or a Union with None), as per PEP 484.
+    - Fixed print on Command objects when job id is empty.
+    - Fixed issue where `SasTokenConfiguration` cannot be used as credential for `WorkspaceConnection`.
+- Name: azure-eventhub
+  Version: 5.11.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A new boolean keyword argument `uamqp_transport` has been added to sync and async `EventHubProducerClient`/`EventHubConsumerClient` constructors which indicates whether to use the `uamqp` library or the default pure Python AMQP library as the underlying transport.
+
+    #### Bugs Fixed
+
+    - Fixed a bug that caused an error when sending batches with tracing enabled (issue #27986).
+    - Fixed a bug where `EventHubSharedKeyCredential` returned an `AccessToken.token` of type `bytes` and not `str`, now matching the documentation.
+- Name: azure-developer-loadtesting
+  Version: 1.0.0b3
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-loadtesting_1.0.0b3/sdk/loadtestservice/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_namespaces`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_definitions`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.list_metrics`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.create_or_update_app_components`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.get_app_components`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.create_or_update_server_metrics_config`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.get_server_metrics_config`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.administration.begin_upload_test_file`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.begin_test_run`
+    - Method added `azure.developer.loadtesting.LoadTestingClient.test_run.begin_test_run_status`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_namespaces`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metrics`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.create_or_update_app_components`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.get_app_components`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.create_or_update_server_metrics_config`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.get_server_metrics_config`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.administration.begin_upload_test_file`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.begin_test_run_status`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.get_metric_dimension_values`
+    - Method added `azure.developer.loadtesting.aio.LoadTestingClient.test_run.begin_test_run`
+
+
+    #### Breaking Changes
+    - Changed subclients `load_test_runs` and `load_test_adminsitration` to `test_run` and `adminsitrative` respectively
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_test_runs`
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.LoadTestingClient.test_run.list_test_runs`,
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.aio.LoadTestingClient.administration.list_test_files`
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.LoadTestingClient.administration.list_test_files`
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.aio.LoadTestingClient.administration.list_tests`
+    - Removed `continuation_token` as a parameter for method `azure.developer.loadtesting.LoadTestingClient.administration.list_tests`
+- Name: azure-eventhub
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where, when `websocket-client` was not installed, the error was not caught/raised properly (issue #28453).
+- Name: azure-mgmt-sql
+  Version: 4.0.0b7
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b7/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 5.1.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Backup
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_5.1.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-loadtesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loadtesting_1.0.0/sdk/loadtestservice/azure-mgmt-loadtesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-msi
+  Version: 7.0.0
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-msi_7.0.0/sdk/resources/azure-mgmt-msi/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.26.3
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.26.3/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed deflate decompression for aiohttp   #28483
+- Name: azure-storage-file-share
+  Version: 12.11.0b1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.11.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where keyword `name_starts_with` was not being passed to the service properly for the `list_shares` async API
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added support for file and directory paths that contain invalid XML characters. When listing or fetching properties,
+    the service will encode illegal characters and the SDK will now automatically decode them.
+    - Added support for `AsyncIterable` as data type for async file upload.
+- Name: azure-storage-queue
+  Version: 12.6.0b1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.6.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Removed `msrest` dependency.
+    - Added `typing-extensions>=4.0.1` as a dependency.
+    - Added `isodate>=0.6.1` as a dependency.
+    - Added extra dependency `aio` for installing optional async dependencies. Use `pip install azure-storage-queue[aio]` to install.
+- Name: azure-storage-blob
+  Version: 12.15.0b1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.15.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed how async streams are detected on async `upload_blob` to increase compatiblity with different types.
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added support for new blob tier, `Cold`.
+    - Added support for `AsyncIterable` as data type for async blob upload.
+- Name: azure-storage-file-datalake
+  Version: 12.10.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.10.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `rename_file` and `rename_directory` would not work correctly if the new file/directory name
+    contained a `?` character.
+
+    #### Features Added
+    - Added support for service version 2021-12-02.
+    - Added ability to perform leasing actions on file append and flush. See new keyword `lease_action` for details.
+    - Added support for `AsyncIterable` as data type for async file upload.
+- Name: azure-ai-ml
+  Version: 1.4.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.4.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added dedicated classes for each type of job service and updated the docstrings. The classes added are `JupyterLabJobService, SshJobService, TensorBoardJobService, VsCodeJobService` with a few properties specific to the type.
+    - Added Custom Applications Support to Compute Instances.
+
+    #### Bugs Fixed
+    - Fixed an issue where the ordering of `.amlignore` and `.gitignore` files are not respected.
+    - Fixed an issue that attributes with a value of `False` in `PipelineJobSettings` are not respected.
+    - Fixed an issue where ignore files weren't considered during upload directory size calculations.
+    - Fixed an issue where symlinks crashed upload directory size calculations.
+    - Fixes a bug where enable_node_public_ip returned an improper value when fetching a Compute.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b12
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b12/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add sdkVersion prefix during App Service attach
+    ([#28637](https://github.com/Azure/azure-sdk-for-python/pull/28637))
+
+    #### Bugs Fixed
+
+    - Update success criteria for requests
+    ([#28486](https://github.com/Azure/azure-sdk-for-python/pull/28486))
+- Name: azure-identity
+  Version: 1.13.0b2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.13.0b2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzureDeveloperCredential` for Azure Developer CLI. ([#27916](https://github.com/Azure/azure-sdk-for-python/pull/27916))
+    - Added `WorkloadIdentityCredential` for Workload Identity Federation on Kubernetes ([#28536](https://github.com/Azure/azure-sdk-for-python/pull/28536))
+    - Added support to use "TryAutoDetect" as the value for `AZURE_REGIONAL_AUTHORITY_NAME` to enable auto detecting the appropriate authority ([#526](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/526))
+- Name: azure-search-documents
+  Version: 11.4.0b3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b3/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the semantic reranker score and captions on `SearchResult`.(thanks to @LucasVascovici for the contribution)
+- Name: azure-appconfiguration
+  Version: 1.4.0b1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.4.0b1/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.7 or later.
+    - Bumped minimum dependency on `azure-core` to `>=1.24.0`.
+    - Changed the default async transport from `AsyncioRequestsTransport` to the one used in current `azure-core` (`AioHttpTransport`). ([#26427](https://github.com/Azure/azure-sdk-for-python/issues/26427))
+    - Dropped `msrest` requirement.
+    - Added dependency `isodate` with version range `>=0.6.0`.
+- Name: azure-data-tables
+  Version: 12.4.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.2/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug when deleting an entity with partition key or row key in empty string.([#24480](https://github.com/Azure/azure-sdk-for-python/issues/24480))
+- Name: azure-monitor-query
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.1.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Error details are now propagated inside the `LogsQueryError` object. ([#25137](https://github.com/Azure/azure-sdk-for-python/issues/25137))
+- Name: azure-developer-devcenter
+  Version: 1.0.0b2
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-devcenter_1.0.0b2/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added upcoming actions APIs to dev boxes.
+    - `delay_upcoming_action`
+    - `get_upcoming_action`
+    - `list_upcoming_actions`
+    - `skip_upcoming_action`
+
+    #### Bugs Fixed
+
+    - Invalid response types removed from `begin_delete_dev_box`, `begin_start_dev_box`, and `begin_stop_dev_box` APIs.
+    - Invalid `begin_delete_environment_action` API removed from `DevCenterClient`.
+    - Unimplemented artifacts APIs removed from `DevCenterClient`.
+
+    #### Breaking Changes
+
+    - `DevCenterClient` now accepts an endpoint URI on construction rather than tenant ID + dev center name.
+- Name: azure-mgmt-commerce
+  Version: 6.1.0b1
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commerce_6.1.0b1/sdk/commerce/azure-mgmt-commerce/CHANGELOG.md
+  ChangelogContent: ""
+

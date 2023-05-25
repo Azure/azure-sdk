@@ -1,0 +1,25 @@
+<div class="standard-verbs-table-row">
+    <div class="standard-verbs-table-cell-container standard-verbs-table-cell-verb">
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-mobile-header {{ include.perRowCellStyle }}">
+            Verb</div>
+        <div class="standard-verbs-table-cell {{ include.perRowCellStyle }} standard-verbs-table-cell-verb">
+            {{item.Verb | markdownify }}
+        </div>
+    </div>
+    <div class="standard-verbs-table-cell-container">
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-mobile-header {{ include.perRowCellStyle }}">
+            Parameters</div>
+        <div class="standard-verbs-table-cell {{ include.perRowCellStyle }}">{{item.Parameters | markdownify }}</div>
+    </div>
+    <div class="standard-verbs-table-cell-container">
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-mobile-header {{ include.perRowCellStyle }}">
+            Returns</div>
+        <div class="standard-verbs-table-cell {{ include.perRowCellStyle }}">{{item.Returns | markdownify }}</div>
+    </div>
+    <div class="standard-verbs-table-cell-container standard-verbs-table-cell-comments">
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-mobile-header {{ include.perRowCellStyle }}">
+            Comments</div>
+        <div class="standard-verbs-table-cell {{ include.perRowCellStyle }}">
+            {{item.Comments | markdownify }}</div>
+    </div>
+</div>

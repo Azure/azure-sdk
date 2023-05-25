@@ -1,0 +1,40 @@
+entries:
+- Name: AzureCommunicationChat
+  Version: 1.3.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.3.1/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added ARM64 simulator support
+- Name: AzureCommunicationCalling
+  Version: 2.3.0-beta.5
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.3.0-beta.5/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * New Teams captions feature that allows ACS users to enable closed captions in Teams meeting and allows Microsoft 365 users on ACS SDK to use closed captions in one to one and group calls. Users will also have the ability to update spoken language for the call and caption language for themselves (requires Teams Premium).
+    * New raise Hand feature on ACS and Teams meetings.
+    * New user facing diagnostics feature.
+    * CallKit support improvements.
+- Name: AzureCommunicationCommon
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCommon_1.2.0-beta.1/sdk/communication/AzureCommunicationCommon/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+    - Fixed typo in `cloudEnvironment` variable of `MicrosoftTeamsUserIdentifier`
+
+    #### Features Added
+    - Optimization added: When the proactive refreshing is enabled and the token refresher fails to provide a token that's not about to expire soon, the subsequent refresh attempts will be scheduled for when the token reaches half of its remaining lifetime until a token with long enough validity (>10 minutes) is obtained.
+    - Added `cancel()` to `CommunicationTokenCredential` that cancels any internal auto-refresh operation. An instance of `CommunicationTokenCredential` cannot be reused once it has been canceled, otherwise the error will be returned.
+    - Added support for a new communication identifier `MicrosoftBotIdentifier`.
+

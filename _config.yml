@@ -1,5 +1,11 @@
 repository: azure/azure-sdk
 
+
+tipue_search:
+  include:
+    pages: true
+    posts: true
+
 # feed.xml
 title: Azure SDKs
 description: "The design guidelines and policies under which the Azure SDKs are designed and built."
@@ -9,17 +15,18 @@ company_name: Microsoft Azure
 
 # github_editme_path: azure/azure-sdk/blob/gh-pages/
 # disqus_shortname: azure-sdk
-# google_analytics: <google-analytics-appid>
+google_analytics: UA-62780441-46
 app_insights: 5e03f19a-f5b4-4620-97d5-35707cec7fcb
 
 # The preview server settings
 host: 127.0.0.1
 port: 4000
+baseurl: /azure-sdk
+destination: ./_site/azure-sdk
 output: web
 
 plugins:
   - jekyll-github-metadata
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-seo-tag
@@ -49,6 +56,8 @@ social:
     - https://twitter.com/AzureSDK
     - https://github.com/azure/azure-sdk
 
+blog_url: https://devblogs.microsoft.com/azure-sdk/
+
 # Various plugin settings
 highlighter: rouge
 markdown: kramdown
@@ -58,8 +67,6 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
 
-paginate: 10
-paginate_path: /page:num/
 timezone: "US/Pacific"
 
 relative_links:
@@ -75,21 +82,21 @@ defaults:
       layout: "page"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
   -
     scope:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "post_redirect"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
       permalink: /posts/:year-:month-:day/:title:output_ext
 
 sidebars:
-  - home_sidebar
+  - general_sidebar
 
 github: [metadata]

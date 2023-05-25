@@ -1,0 +1,122 @@
+entries:
+- Name: azure-communication-chat
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_1.0.1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: '- Version update.'
+  GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 1.1.0-beta.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_1.1.0-beta.3/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: '- Version update.'
+  GroupId: com.azure.android
+- Name: azure-core
+  Version: 1.0.0-beta.8
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core_1.0.0-beta.8/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-jackson
+  Version: 1.0.0-beta.8
+  DisplayName: Core Jackson
+  ServiceName: Core Jackson
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-jackson_1.0.0-beta.8/sdk/core/azure-core-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `jackson-dataformat-xml` dependency version to `2.13.0`.
+    - Updated `jackson-datatype-jsr310` dependency version to `2.13.0`.
+  GroupId: com.azure.android
+- Name: azure-core-rest
+  Version: 1.0.0-beta.8
+  DisplayName: Core REST
+  ServiceName: Core REST
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-rest_1.0.0-beta.8/sdk/core/azure-core-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-logging
+  Version: 1.0.0-beta.8
+  DisplayName: Core Logging
+  ServiceName: Core Logging
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-logging_1.0.0-beta.8/sdk/core/azure-core-logging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `DefaultLogger` will no longer cause the Android `Log` API to throw an exception when using an instance created with a tag longer than 23 characters for Android API levels <= 25; instead, it will shorten the tag as best as possible in such cases. For example:
+    - org.example.project.MyClass -> o*.e*.p*.MyClass
+    - org.example.project.subproject.MyClass -> o*.e*.p*.s*.MyClass
+    - org.example.MyQuiteLongNamedClassOfTooMuchCharacters -> o*.e*.MyQuiteLongNamed*
+    - o.e.project.subproject.MyClass -> o.e.p*.s*.MyClass
+    - MyQuiteLongNamedClassNotInAPackage -> MyQuiteLongNamedClassN*
+  GroupId: com.azure.android
+- Name: azure-core-http
+  Version: 1.0.0-beta.8
+  DisplayName: Core HTTP
+  ServiceName: Core HTTP
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http_1.0.0-beta.8/sdk/core/azure-core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-credential` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-credential
+  Version: 1.0.0-beta.8
+  DisplayName: Core Credential
+  ServiceName: Core Credential
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-credential_1.0.0-beta.8/sdk/core/azure-core-credential/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-test
+  Version: 1.0.0-beta.8
+  DisplayName: Core Test
+  ServiceName: Core Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-test_1.0.0-beta.8/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-rest` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+

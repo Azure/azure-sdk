@@ -1,0 +1,714 @@
+entries:
+- Name: azure-mgmt-containerservice
+  Version: 16.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
+- Name: azure-mgmt-sql
+  Version: 3.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_3.0.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Server has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+- Name: azure-mgmt-netapp
+  Version: 4.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_4.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ExportPolicyRule has a new parameter chown_mode
+    - Model BackupStatus has a new parameter last_transfer_size
+    - Model BackupStatus has a new parameter total_transfer_bytes
+    - Model BackupStatus has a new parameter last_transfer_type
+    - Model Volume has a new parameter cool_access
+    - Model Volume has a new parameter unix_permissions
+    - Model Volume has a new parameter coolness_period
+    - Model CapacityPool has a new parameter cool_access
+    - Model ActiveDirectory has a new parameter administrators
+    - Added operation BackupsOperations.get_volume_restore_status
+
+    **Breaking changes**
+
+    - Operation NetAppResourceOperations.check_file_path_availability has a new signature
+- Name: azure-mgmt-cosmosdb
+  Version: 6.4.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_6.4.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ContinuousModeBackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountGetResults has a new parameter restore_parameters
+    - Model DatabaseAccountGetResults has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountGetResults has a new parameter system_data
+    - Model DatabaseAccountGetResults has a new parameter instance_id
+    - Model DatabaseAccountGetResults has a new parameter disable_local_auth
+    - Model DatabaseAccountGetResults has a new parameter create_mode
+    - Model BackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter restore_parameters
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter disable_local_auth
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter create_mode
+    - Model PeriodicModeBackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountUpdateParameters has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountUpdateParameters has a new parameter disable_local_auth
+    - Added operation SqlResourcesOperations.begin_retrieve_continuous_backup_information
+    - Added operation group RestorableMongodbDatabasesOperations
+    - Added operation group RestorableDatabaseAccountsOperations
+    - Added operation group RestorableSqlDatabasesOperations
+    - Added operation group RestorableSqlContainersOperations
+    - Added operation group RestorableMongodbResourcesOperations
+    - Added operation group RestorableMongodbCollectionsOperations
+    - Added operation group RestorableSqlResourcesOperations
+- Name: azure-mgmt-appconfiguration
+  Version: 2.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.0.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model OperationDefinition has a new parameter properties
+    - Model OperationDefinition has a new parameter is_data_action
+    - Model OperationDefinition has a new parameter origin
+    - Model KeyValue has a new parameter id
+    - Model KeyValue has a new parameter type
+    - Model KeyValue has a new parameter name
+    - Model ConfigurationStore has a new parameter system_data
+    - Model ConfigurationStore has a new parameter disable_local_auth
+    - Model ConfigurationStoreUpdateParameters has a new parameter disable_local_auth
+    - Added operation group KeyValuesOperations
+
+    **Breaking changes**
+
+    - Model Resource no longer has parameter location
+    - Model Resource no longer has parameter tags
+    - Removed operation ConfigurationStoresOperations.list_key_value
+- Name: azure-mgmt-appconfiguration
+  Version: 0.7.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_0.7.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model OperationDefinition has a new parameter is_data_action
+    - Model OperationDefinition has a new parameter properties
+    - Model OperationDefinition has a new parameter origin
+    - Model ConfigurationStore has a new parameter disable_local_auth
+    - Model ConfigurationStore has a new parameter system_data
+    - Model KeyValue has a new parameter id
+    - Model KeyValue has a new parameter type
+    - Model KeyValue has a new parameter name
+    - Model ConfigurationStoreUpdateParameters has a new parameter disable_local_auth
+    - Added operation group KeyValuesOperations
+
+    **Breaking changes**
+
+    - Model Resource no longer has parameter location
+    - Model Resource no longer has parameter tags
+    - Removed operation ConfigurationStoresOperations.list_key_value
+- Name: azure-mgmt-sql
+  Version: 0.29.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_0.29.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model Server has a new parameter federated_client_id
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.create_or_update has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.update has a new signature
+- Name: azure-mgmt-containerservice
+  Version: 12.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_12.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
+- Name: azure-keyvault-secrets
+  Version: 4.3.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.3.0/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    This is the last version to support Python 3.5. The next version will require Python 2.7 or 3.6+.
+    #### Fixed
+    - Correct typing for async paging methods
+
+    #### Changed
+    - Key Vault API version 7.2 is now the default
+    - Updated minimum `msrest` version to 0.6.21
+
+    #### Added
+    - Added class `KeyVaultSecretIdentifier` that parses out a full ID returned by Key Vault,
+    so users can easily access the secret's `name`, `vault_url`, and `version`.
+- Name: azure-keyvault-certificates
+  Version: 4.3.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.3.0/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    This is the last version to support Python 3.5. The next version will require Python 2.7 or 3.6+.
+    #### Changed
+    - Key Vault API version 7.2 is now the default
+    - Updated minimum `msrest` version to 0.6.21
+    - The `issuer_name` parameter for `CertificatePolicy` is now optional
+
+    #### Added
+    - Added class `KeyVaultCertificateIdentifier` that parses out a full ID returned by Key Vault,
+    so users can easily access the certificate's `name`, `vault_url`, and `version`.
+- Name: azure-keyvault-administration
+  Version: 4.0.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.0.0/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Key Vault API version 7.2 is now the default
+    - `KeyVaultAccessControlClient.delete_role_assignment` and
+    `.delete_role_definition` no longer raise an error  when the resource to be
+    deleted is not found
+    - Raised minimum azure-core version to 1.11.0
+
+    #### Added
+    - `KeyVaultAccessControlClient.set_role_definition` accepts an optional
+    `assignable_scopes` keyword-only argument
+
+    #### Breaking Changes
+    - `KeyVaultAccessControlClient.delete_role_assignment` and
+    `.delete_role_definition` return None
+    - Changed parameter order in `KeyVaultAccessControlClient.set_role_definition`.
+    `permissions` is now an optional keyword-only argument
+    - Renamed `BackupOperation` to `KeyVaultBackupResult`, and removed all but
+    its `folder_url` property
+    - Removed `RestoreOperation` and `SelectiveKeyRestoreOperation` classes
+    - Removed `KeyVaultBackupClient.begin_selective_restore`. To restore a
+    single key, pass the key's name to `KeyVaultBackupClient.begin_restore`:
+    ```
+    # before (4.0.0b3):
+    client.begin_selective_restore(folder_url, sas_token, key_name)
+
+    # after:
+    client.begin_restore(folder_url, sas_token, key_name=key_name)
+    ```
+    - Removed `KeyVaultBackupClient.get_backup_status` and `.get_restore_status`. Use
+    the pollers returned by `KeyVaultBackupClient.begin_backup` and `.begin_restore`
+    to check whether an operation has completed
+    - `KeyVaultRoleAssignment`'s `principal_id`, `role_definition_id`, and `scope`
+    are now properties of a `properties` property
+    ```
+    # before (4.0.0b3):
+    print(KeyVaultRoleAssignment.scope)
+
+    # after:
+    print(KeyVaultRoleAssignment.properties.scope)
+    ```
+    - Renamed `KeyVaultPermission` properties:
+    - `allowed_actions` -> `actions`
+    - `denied_actions` -> `not_actions`
+    - `allowed_data_actions` -> `data_actions`
+    - `denied_data_actions` -> `denied_data_actions`
+    - Renamed argument `role_assignment_name` to `name` in
+    `KeyVaultAccessControlClient.create_role_assignment`, `.delete_role_assignment`,
+    and `.get_role_assignment`
+    - Renamed argument `role_definition_name` to `name` in
+    `KeyVaultAccessControlClient.delete_role_definition` and `.get_role_definition`
+    - Renamed argument `role_scope` to `scope` in `KeyVaultAccessControlClient` methods
+- Name: azure-keyvault-keys
+  Version: 4.4.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.4.0/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    This is the last version to support Python 3.5. The next version will require Python 2.7 or 3.6+.
+    #### Changed
+    - Key Vault API version 7.2 is now the default
+    - (From 4.4.0b1) Updated minimum `msrest` version to 0.6.21
+
+    #### Added
+    - `KeyClient` has a `create_oct_key` method for creating symmetric keys
+    - `KeyClient`'s `create_key` and `create_rsa_key` methods now accept a `public_exponent`
+    keyword-only argument ([#18016](https://github.com/Azure/azure-sdk-for-python/issues/18016))
+    - (From 4.4.0b1) Added support for Key Vault API version 7.2
+    ([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
+    - Added `oct_hsm` to `KeyType`
+    - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
+    algorithms to `EncryptionAlgorithm`
+    - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
+    - `CryptographyClient`'s `encrypt` method accepts `iv` and
+    `additional_authenticated_data` keyword arguments
+    - `CryptographyClient`'s `decrypt` method accepts `iv`,
+    `additional_authenticated_data`, and `authentication_tag` keyword arguments
+    - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
+    - (From 4.4.0b3) `CryptographyClient` will perform all operations locally if initialized with
+    the `.from_jwk` factory method
+    ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
+    - (From 4.4.0b3) Added requirement for `six`>=1.12.0
+    - (From 4.4.0b4) `CryptographyClient` can perform AES-CBCPAD encryption and decryption locally
+    ([#17762](https://github.com/Azure/azure-sdk-for-python/pull/17762))
+
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 4.3.1.
+    > Only code written against a beta version such as 4.4.0b1 may be affected.
+    - `parse_key_vault_key_id` and `KeyVaultResourceId` have been replaced by a
+    `KeyVaultKeyIdentifier` class, which can be initialized with a key ID
+- Name: azure-mgmt-baremetalinfrastructure
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Bare Metal Infrastructure
+  ServiceName: Bare Metal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.0.0b2/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: '* Fix dependencies'
+- Name: azure-mgmt-azurestackhci
+  Version: 6.1.0b1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_6.1.0b1/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Cluster has a new parameter cloud_management_endpoint
+    - Added operation group ArcSettingsOperations
+    - Added operation group ExtensionsOperations
+- Name: azure-core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.16.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add new ***provisional*** methods `send_request` onto the `azure.core.PipelineClient` and `azure.core.AsyncPipelineClient`. This method takes in
+    requests and sends them through our pipelines.
+    - Add new ***provisional*** module `azure.core.rest`. `azure.core.rest` is our new public simple HTTP library in `azure.core` that users will use to create requests, and consume responses.
+    - Add new ***provisional*** errors `StreamConsumedError`, `StreamClosedError`, and `ResponseNotReadError` to `azure.core.exceptions`. These errors
+    are thrown if you mishandle streamed responses from the provisional `azure.core.rest` module
+
+    #### Fixed
+
+    - Improved error message in the `from_dict` method of `CloudEvent` when a wrong schema is sent.
+- Name: azure-mgmt-rdbms
+  Version: 9.0.0
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_9.0.0/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ServerVersionCapability has a new parameter status
+    - Model Server has a new parameter network
+    - Model Server has a new parameter backup
+    - Model Server has a new parameter storage
+    - Model Server has a new parameter system_data
+    - Model Server has a new parameter high_availability
+    - Model Server has a new parameter minor_version
+    - Model Server has a new parameter source_server_resource_id
+    - Model Database has a new parameter system_data
+    - Model StorageProfile has a new parameter storage_autogrow
+    - Model StorageProfile has a new parameter geo_redundant_backup
+    - Model VcoreCapability has a new parameter status
+    - Model Configuration has a new parameter system_data
+    - Model StorageEditionCapability has a new parameter status
+    - Model FirewallRule has a new parameter system_data
+    - Model ServerForUpdate has a new parameter create_mode
+    - Model ServerForUpdate has a new parameter backup
+    - Model ServerForUpdate has a new parameter high_availability
+    - Model ServerForUpdate has a new parameter storage
+    - Model StorageMBCapability has a new parameter status
+    - Added operation GetPrivateDnsZoneSuffixOperations.execute
+    - Added operation ConfigurationsOperations.begin_put
+
+    **Breaking changes**
+
+    - Operation ServersOperations.begin_restart has a new signature
+    - Model Server no longer has parameter byok_enforcement
+    - Model Server no longer has parameter public_network_access
+    - Model Server no longer has parameter display_name
+    - Model Server no longer has parameter ha_state
+    - Model Server no longer has parameter private_dns_zone_arguments
+    - Model Server no longer has parameter source_server_name
+    - Model Server no longer has parameter storage_profile
+    - Model Server no longer has parameter source_resource_group_name
+    - Model Server no longer has parameter delegated_subnet_arguments
+    - Model Server no longer has parameter source_subscription_id
+    - Model Server no longer has parameter ha_enabled
+    - Model Server no longer has parameter standby_availability_zone
+    - Model ServerForUpdate no longer has parameter storage_profile
+    - Model ServerForUpdate no longer has parameter ha_enabled
+    - Model CapabilityProperties has a new signature
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-metricsadvisor_1.0.0/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed
+    - `DetectionConditionsOperator` -> `DetectionConditionOperator`
+    - `cross_conditions_operator` -> `condition_operator`
+    - `AnomalyAlert.created_on` -> `AnomalyAlert.created_time`
+    - `AnomalyAlert.modified_on` -> `AnomalyAlert.modified_time`
+    - `Anomaly.created_on` -> `Anomaly.created_time`
+    - `admin_emails` has been renamed to `admins` in `NotificationHook`
+    - `admin_emails` has been renamed to `admins` in `DataFeedOptions`
+    - `viewer_emails` has been renamed to `viewers` in `DataFeedOptions`
+- Name: azure-appconfiguration
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.2.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Adds `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` models
+    * `AzureAppConfigurationClient` can now be used as a context manager.
+    * Adds `update_sync_token` to update sync tokens from Event Grid notifications.
+- Name: azure-monitor-query
+  Version: 1.0.0b2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.0b2/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `workspaces`, `workspace_ids`, `qualified_names` and `azure_resource_ids` are now merged into a single `additional_workspaces` list in the query API.
+    - The `LogQueryRequest` object now takes in a `workspace_id` and `additional_workspaces` instead of `workspace`.
+    - `aggregation` param is now a list instead of a string in the `query` method.
+    - `duration` must now be provided as a timedelta instead of a string.
+- Name: azure-security-attestation
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-security-attestation_1.0.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Sample cleanup - instead of using `ClientSecretCredentials`, the samples now use
+    DefaultAzureCredential.
+
+    #### Breaking Changes
+
+    * TPM attestation takes a JSON string parameter and returns a JSON string parameter.
+    * `TPMAttestationRequest` and `TPMAttestationResponse` type were removed.
+    * `confirmation` attribute removed from `AttestationResult` type.
+    * The `AttestationSigningKey` type was removed, replaced with a `signing_key` and
+    `signing_certificate` kwargs parameter.
+    * All certificates and keys accepted and returned by the SDK are now PEM encoded
+    strings instead of DER encoded arrays of bytes for easier manipulation and
+    interoperability.
+    * Removed `AttestationResponse` type, token value merged into `AttestationResult`,
+    `PolicyResult`, etc.
+    * Removed `TokenValidationOptions` type and merged the validation options into
+    keyword arguments on the APIs which validate returned tokens. Those keyword
+    arguments can also be specified on the Client classes to simplify individual
+    API invocations.
+    * Renamed `instance_url` parameter to the constructors to `endpoint`.
+    * Many optional fields in `AttestationResult` were made non-optional.
+    * `AttestationToken._validate_token` is made internal-only, and now returns `None`.
+    * The caller provided `validation_callback` now must throw exceptions on invalid
+    tokens rather than returning `False`.
+    * Removed the `AttestationData` type, instead the `attest_xxx` APIs take two sets
+    of parameters: `inittime_data` and `inittime_json` and `runtime_data` and `runtime_json`.
+    if the `_json` value is set, the value of the parameter is an array of UTF8 encoded
+    JSON values, if the `_data` value is set, the value of the parameter is an array
+    of bytes.
+    * The `get_policy` API now returns a `Tuple[str, AttestationToken]` to simplify
+    the consumption experience.
+    * The `get_policy_management_certificates` API also returns a `Tuple[list[list[string]], AttestationToken]` to simplify the consumption experience. Note that each of the entries
+    in the list is a PEM encoded X.509 certificate.
+
+    To call into the attest APIs if you care about the attestation policy and token,
+    you can write:
+
+    ```python
+    policy, token = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    If you only care about the policy, you can write any of the following:
+
+    ```python
+    policy, _ = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    or
+
+    ```python
+    policy = attest_client.get_policy(AttestationType.SGX_ENCLAVE)[0]
+    ```
+
+    or
+
+    ```python
+    response = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    policy = response[0]
+    ```
+
+    * The `AttestationToken` class no longer inherits from `Generic`.
+    * The `attest_sgx_enclave`, and `attest_openenclave` APIs now return a tuple of
+    `AttestationResult`, `AttestationToken`, similar to the `get_policy` API.
+    * The `set_policy`, `reset_policy`, `add_policy_management_certificate`, and `remove_policy_management_certificate` APIs all return a tuple.
+    * The `AttestationToken.get_body()` API was renamed `AttestationToken.body()`
+    * Several time related properties were renamed to be consistent with the usage from
+    keyvault:
+    * The `expiration_time` property on `AttestationToken` was renamed to `expires`.
+    * The `issuance_time` property on `AttestationToken` was renamed to `issued_on`.
+    * The `not_before_time` property on `AttestationToken` was renamed to `not_before`.
+    * The `StoredAttestationPolicy` model type has been removed. To validate the attestation policy hash, use the `AttestationPolicyToken` model object instead.
+    * The `get_openidmetadata` API has been renamed `get_open_id_metadata`.
+- Name: azure-search-documents
+  Version: 11.3.0b1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added AAD support
+    - Added support for semantic search
+    - Added normalizer support
+- Name: azure-containerregistry
+  Version: 1.0.0b4
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b4/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixes a bug where `credential_scopes` keyword on `ContainerRegistryClient` was not passed through and the client could not authenticate with foreign clouds.
+- Name: azure-ai-translation-document
+  Version: 1.0.0b3
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b3/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - `TranslationStatusResult` was renamed to `TranslationStatus`.
+    - `DocumentStatusResult` was renamed to `DocumentStatus`.
+    - `get_document_formats` was renamed to `get_supported_document_formats`.
+    - `get_glossary_formats` was renamed to `get_supported_glossary_formats`.
+- Name: azure-data-tables
+  Version: 12.1.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.1.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Storage Accounts only: `TableClient` and `TableServiceClient`s can now use `azure-identity` credentials for authentication. Note: A `TableClient` authenticated with a `TokenCredential` cannot use the `get_table_access_policy` or `set_table_access_policy` methods.
+- Name: azure-ai-textanalytics
+  Version: 5.1.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.1.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `catagories_filter` to `RecognizePiiEntitiesAction`
+    - Added `HealthcareEntityCategory`
+    - Added AAD support for the `begin_analyze_healthcare_entities` methods.
+
+    #### Breaking Changes
+
+    - Changed: the response structure of `being_analyze_actions`. Now, we return a list of results, where each result is a list of the action results for the document, in the order the documents and actions were passed.
+    - Changed: `begin_analyze_actions` now accepts a single action per type. A `ValueError` is raised if duplicate actions are passed.
+    - Removed: `AnalyzeActionsType`
+    - Removed: `AnalyzeActionsResult`
+    - Removed: `AnalyzeActionsError`
+    - Removed: `HealthcareEntityRelationRoleType`
+    - Changed: renamed `HealthcareEntityRelationType` to `HealthcareEntityRelation`
+    - Changed: renamed `PiiEntityCategoryType` to `PiiEntityCategory`
+    - Changed: renamed `PiiEntityDomainType` to `PiiEntityDomain`
+- Name: azure-eventhub
+  Version: 5.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.6.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for sending AMQP annotated message which allows full access to the AMQP message fields.
+    - Introduced new namespace `azure.eventhub.amqp`.
+    - Added new enum class `azure.eventhub.amqp.AmqpMessageBodyType` to represent the body type of the message which includes:
+    - `DATA`: The body of message consists of one or more data sections and each section contains opaque binary data.
+    - `SEQUENCE`: The body of message consists of one or more sequence sections and each section contains an arbitrary number of structured data elements.
+    - `VALUE`: The body of message consists of one amqp-value section and the section contains a single AMQP value.
+    - Introduced new class `azure.eventhub.amqp.AmqpAnnotatedMessage` for accessing low-level amqp message sections which can be instantiated for sending.
+    - Introduced new classes `azure.eventhub.amqp.AmqpMessageHeader` and `azure.eventhub.amqp.AmqpMessageProperties` for accessing amqp header and properties.
+    - Added new property `body_type` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpMessageBodyType`.
+    - Added new read-only property `raw_amqp_message` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpAnnotatedMessage`.
+- Name: azure-servicebus
+  Version: 7.3.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a bug that when setting `ServiceBusMessage.partition_key`, input value should be not validated against `session_id` of None (PR #19233, thanks @bishnu-shb).
+    - Fixed a bug that setting `ServiceBusMessage.time_to_live` causes OverflowError error on Ubuntu 20.04.
+    - Fixed a bug that `AmqpAnnotatedProperties.creation_time` and `AmqpAnnotatedProperties.absolute_expiry_time` should be calculated in the unit of milliseconds instead of seconds.
+    - Updated uAMQP dependency to 1.4.1.
+    - Fixed a bug that attributes creation_time, absolute_expiry_time and group_sequence on MessageProperties should be compatible with integer types on Python 2.7.
+- Name: azure-mgmt-compute
+  Version: 22.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_22.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model RestorePointSourceMetadata has a new parameter location
+    - Added operation DiskRestorePointOperations.begin_revoke_access
+    - Added operation DiskRestorePointOperations.begin_grant_access
+
+    **Breaking changes**
+
+    - Model PublicIPAddressSku has a new signature
+- Name: azure-identity
+  Version: 1.7.0b2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `InteractiveBrowserCredential` keyword argument `login_hint` enables
+    pre-filling the username/email address field on the login page
+    ([#19225](https://github.com/Azure/azure-sdk-for-python/issues/19225))
+    - `AzureApplicationCredential`, a default credential chain for applications
+    deployed to Azure
+    ([#19309](https://github.com/Azure/azure-sdk-for-python/issues/19309))
+
+    #### Bugs Fixed
+    - `azure.identity.aio.ManagedIdentityCredential` is an async context manager
+    that closes its underlying transport session at the end of a `with` block
+- Name: azure-keyvault-keys
+  Version: 4.5.0b1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.5.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Key Vault API version 7.3-preview is now the default
+    - `KeyClient` has a `get_random_bytes` method for getting a requested number of random
+    bytes from a managed HSM
+- Name: azure-mgmt-appplatform
+  Version: 6.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_6.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model UserSourceInfo has a new parameter custom_container
+    - Model MetricDimension has a new parameter to_be_exported_for_shoebox
+    - Model DeploymentSettings has a new parameter resource_requests
+

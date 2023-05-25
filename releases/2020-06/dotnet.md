@@ -18,6 +18,10 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Form Recognizer
+- Identity
+- Search
+- Service Bus
 - Text Analytics
 
 ## Installation Instructions
@@ -25,12 +29,20 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
+
  $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
- 
+
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
+
+ $> dotnet add package Azure.Identity --version 1.2.0-preview.4
+
+ $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.3
+
+ $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.4
 ```
 
 ## Feedback
@@ -65,57 +77,65 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added spatial geometry types.
 - Added `BinaryData` type.
 
-### Form Recognizer [Changelog]()
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview3-06-10-2020)
 
 #### Breaking Changes
- - Breaking changes
+- All long running operation objects now return a `xxxCollection` object instead of a list.
+- `USReceipt` and related types have been removed. Information about a `RecognizedReceipt` must now be extracted from its `RecognizedForm`.
+- Method `GetFormTrainingClient` has been removed from `FormRecognizerClient` and `GetFormRecognizerClient` has been added to `FormTrainingClient`.
+- Other method and property renaming detailed in changelog.
 
 #### New Features
- - New features
+- Support to copy a custom model from one Form Recognizer resource to another.
+- Authentication using azure-identity credentials now supported.
 
 #### Key Bug Fixes
- - Notable bug fixes
+- `FormRecognizerClient.StartRecognizeCustomFormsFromUri` now works with URIs that contain blank spaces, encoded or not ([#11564](https://github.com/Azure/azure-sdk-for-net/issues/11564)).
+- Custom form recognition without labels can now handle multipaged forms ([#11881](https://github.com/Azure/azure-sdk-for-net/issues/11881)).
 
- ### Identity [Changelog]()
+ ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview4)
+
+#### New Features
+- Makes `AzureCliCredential`, `VisualStudioCredential` and `VisualStudioCodeCredential` public to allow direct usage.
+- Added `Authenticate` methods to `UsernamePasswordCredential`
+
+#### Key Bug Fixes
+- Fix `SharedTokenCacheCredential` account filter to be case-insensitive (Issue [#10816](https://github.com/Azure/azure-sdk-for-net/issues/10816))
+- Update `VisualStudioCodeCredential` to properly throw `CredentialUnavailableException` when re-authentication is needed. (Issue [#11595](https://github.com/Azure/azure-sdk-for-net/issues/11595))
+
+ ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#100-preview4-2020-06-09)
 
 #### Breaking Changes
- - Breaking changes
+ - Split `SearchServiceClient` into `SearchIndexClient` for managing indexes, and `SearchIndexerClient` for managing indexers, both of which are now in `Azure.Search.Documents.Indexes`.
+ - Moved models for managing indexes, indexers, and skillsets to `Azure.Search.Documents.Indexes.Models`.
+ - Made collection- and dictionary-type properties read-only, i.e. has only get-accessors.
+ - Removed `dynamic` support from `SearchDocument` for the time being.
+ - Please see the [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#100-preview4-2020-06-09) for additional type, method, and parameter renames.
 
 #### New Features
- - New features
- 
-#### Key Bug Fixes
- - Notable bug fixes
+ - Referencing `Azure.Core.Experimental` which brings new spatial types and custom serializers.
+ - Added `SearchClientBuilderExtensions` to integrate with ASP.NET Core.
+ - Added `SearchModelFactory` to mock output model types.
 
- ### Search [Changelog]()
+ ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview3-2020-06-08)
 
 #### Breaking Changes
- - Breaking changes
+- Introduce ServiceBusSessionReceiverOptions/ServiceBusSessionProcessorOptions for creating ServiceBusSessionReceiver/ServiceBusSessionProcessor.
+- Make ServiceBusReceivedMessage.Properties IReadOnlyDictionary rather than IDictionary.
 
 #### New Features
- - New features
+- Add the ServiceBusManagementClient for CRUD operations on a namespace.
+- Add constructor for ServiceBusMessage taking a string.
+- Use the BinaryData type for ServiceBusMessage.Body.
+- Add diagnostic tracing.
 
-#### Key Bug Fixes
- - Notable bug fixes
+### Text Analytics
 
- ### Service Bus [Changelog]()
-
-#### Breaking Changes
- - Breaking changes
-
-#### New Features
- - New features
- 
-#### Key Bug Fixes
- - Notable bug fixes
-
-### Text Analytics 
-
-#### 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-2020-06-09)
+#### 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-2020-06-09)
 
 - General availability release.
 
-#### 1.0.0-preview.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
+#### 1.0.0-preview.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
 
 ##### Breaking Changes
 - Updated the models to correspond with service changes.
@@ -125,7 +145,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.dotnet-packages %}
-{% include dotnet-packages.html %}
+View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
 {% include refs.md %}

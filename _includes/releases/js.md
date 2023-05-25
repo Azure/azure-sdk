@@ -1,11 +1,19 @@
-{% if page.header %}
-{% include releases/header.md %}
-{% endif %}
+{% include releases/header.md type=include.type %}
 
 ## JavaScript
 
-{% assign packages = site.data.releases.latest.js-packages %}
+{% if include.type == "all" %}
+  {% assign packages = site.data.releases.latest.js-packages %}
+{% elsif include.type == "deprecated" %}
+  {% assign packages = site.data.releases.latest.js-packages | where: 'Support', 'deprecated' %}
+{% else %}
+  {% assign packages = site.data.releases.latest.js-packages | where: 'Type', include.type | where: 'New', 'true' %}
+{% endif %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/js.md %})
+{{ description | replace: 'PackageCount', packages.size }}
 
-{% include js-packages.html %}
+{% include releases/tabs.md lang="js" active=include.type %}
+
+{% include releases/variables/js.md %}
+
+{% include releases/pkgtable.md type=include.type %}

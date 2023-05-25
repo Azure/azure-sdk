@@ -3,7 +3,7 @@ title: "Python Guidelines: Documentation"
 keywords: guidelines python
 permalink: python_documentation.html
 folder: python
-sidebar: python_sidebar
+sidebar: general_sidebar
 ---
 
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
@@ -33,14 +33,34 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, and methods.
 
-{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
+{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method and add a ref link to [core options](https://aka.ms/azsdk/python/options) to provide introduction for shared options. You may refer to the signature of a called method if the `**kwargs` are passed through.
 
 Example:
 ```python
 def request(method, url, headers, **kwargs): ...
 
 def get(*args, **kwargs):
-    "Calls `request` with the method "GET" and forwards all other arguments."
+    """Calls `request` with the method "GET" and forwards all other arguments.
+
+    :param str method-param: The method-param parameter
+    :keyword int method-kwarg: The optional method-kwarg parameter
+
+    For additional request configuration options, please see https://aka.ms/azsdk/python/options.
+    """
+    return request("GET", *args, **kwargs)
+```
+
+{% include requirement/MUST id="python-docstrings-defaults" %} document any default values as part of your docstrings using the format recommended
+by sphinx.
+
+Example:
+```python
+def get(*args, **kwargs):
+    """Calls `request` with the method "GET" and forwards all other arguments.
+
+    :keyword str value_param: A value param, defaults to "cat".
+    :keyword class type_param: A type param, defaults to :py:class:`namespace.TypeName`
+    """
     return request("GET", *args, **kwargs)
 ```
 
@@ -62,4 +82,4 @@ Combined operations cause unnecessary friction for a library consumer by requiri
 
 {% include refs.md %}
 {% include_relative refs.md %}
-[1]: http://www.sphinx-doc.org/en/1.5/markup/code.html#includes
+[1]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html?highlight=literalinclude#directive-literalinclude

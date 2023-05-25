@@ -5,17 +5,17 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Language    | Design Guidelines                           | Packages             | Repo                             | Documentation                    |
 |:------------|:-------------------------------------------:|:--------------------:|:--------------------------------:|:--------------------------------:|
 | General     |[General Design Guidelines]                  |                      |[azure-sdk Repository]            | [Official Azure Documentation]   |
-| Android     |[Design Guidelines for Android] (Draft)      |                      |[azure-sdk-for-android Repository]| Coming Soon                      |
+| Android     |[Design Guidelines for Android] (Draft)      |[Android Packages]    |[azure-sdk-for-android Repository]| Coming Soon                      |
 | C# /.NET    |[Design Guidelines for .NET]                 |[.NET Packages]       |[azure-sdk-for-net Repository]    | [.NET Documentation]             |
-| Go          |[Design Guidelines for Go] (Draft)           |                      |[azure-sdk-for-go Repository]     | [Go Documentation]               |
-| C           |[Design Guidelines for C99] (Draft)          |                      |[azure-sdk-for-c Repository]      | Coming Soon                      |
-| C++         |[Design Guidelines for C++] (Draft)          |                      |[azure-sdk-for-cpp Repository]    | Coming Soon                      |
-| iOS         |[Design Guidelines for iOS] (Draft)          |                      |[azure-sdk-for-ios Repository]    | Coming Soon                      |
+| Go          |[Design Guidelines for Go] (Draft)           |[Go Packages]         |[azure-sdk-for-go Repository]     | [Go Documentation]               |
+| C           |[Design Guidelines for C99] (Draft)          |[C Packages]          |[azure-sdk-for-c Repository]      | [C Documentation]                |
+| C++         |[Design Guidelines for C++] (Draft)          |[C++ Packages]        |[azure-sdk-for-cpp Repository]    | [C++ Documentation]              |
+| iOS         |[Design Guidelines for iOS] (Draft)          |[iOS Packages]        |[azure-sdk-for-ios Repository]    | Coming Soon                      |
 | Java        |[Design Guidelines for Java]                 |[Java Packages]       |[azure-sdk-for-java Repository]   | [Java Documentation]             |
 | JavaScript  |[Design Guidelines for TypeScript]           |[JavaScript Packages] |[azure-sdk-for-js Repository]     | [JavaScript Documentation]       |
 | Python      |[Design Guidelines for Python]               |[Python Packages]     |[azure-sdk-for-python Repository] | [Python Documentation]           |
 
-Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process][revproc] for more information.
+Service teams should schedule reviews of their client libraries with the Azure SDK Architecture Board.  See the [Review Process][revproc] for more information.
 
 ## Terminology
 
@@ -50,15 +50,15 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [![Github.io linkchecker](https://img.shields.io/azure-devops/build/azure-sdk/internal/1620?label=github.io%20linkchecker)](https://dev.azure.com/azure-sdk/internal/_build/latest?definitionId=1620&branchName=master)
 
 [General Design Guidelines]: https://azure.github.io/azure-sdk/general_introduction.html
-[Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
+[Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_design.html
 [Design Guidelines for .NET]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
-[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_introduction.html
+[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_design.html
 [Design Guidelines for C++]: https://azure.github.io/azure-sdk/cpp_introduction.html
 [Design Guidelines for iOS]: https://azure.github.io/azure-sdk/ios_introduction.html
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
 [Design Guidelines for TypeScript]: https://azure.github.io/azure-sdk/typescript_introduction.html
-[Design Guidelines for Python]: https://azure.github.io/azure-sdk/python_introduction.html
+[Design Guidelines for Python]: https://azure.github.io/azure-sdk/python_design.html
 [revproc]: https://azure.github.io/azure-sdk/policies_reviewprocess.html
 
 [azure-sdk Repository]: https://github.com/Azure/azure-sdk
@@ -78,8 +78,15 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Java Documentation]: http://aka.ms/java-docs
 [JavaScript Documentation]: http://aka.ms/js-docs
 [Python Documentation]: https://aka.ms/python-docs
+[C Documentation]: https://aka.ms/c-docs
+[C++ Documentation]: https://aka.ms/cpp-docs
 
 [.NET Packages]: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
 [Java Packages]: https://azure.github.io/azure-sdk/releases/latest/java.html
-[Javascript Packages]: https://azure.github.io/azure-sdk/releases/latest/js.html
+[JavaScript Packages]: https://azure.github.io/azure-sdk/releases/latest/js.html
 [Python Packages]: https://azure.github.io/azure-sdk/releases/latest/python.html
+[C Packages]: https://azure.github.io/azure-sdk/releases/latest/c.html
+[C++ Packages]: https://azure.github.io/azure-sdk/releases/latest/cpp.html
+[Android Packages]: https://azure.github.io/azure-sdk/releases/latest/android.html
+[iOS Packages]: https://azure.github.io/azure-sdk/releases/latest/ios.html
+[Go Packages]: https://azure.github.io/azure-sdk/releases/latest/go.html

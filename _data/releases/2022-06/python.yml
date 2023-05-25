@@ -1,0 +1,343 @@
+entries:
+- Name: azure-mgmt-videoanalyzer
+  Version: 1.0.0b4
+  DisplayName: Resource Management - Video Analyzer
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-videoanalyzer_1.0.0b4/sdk/videoanalyzer/azure-mgmt-videoanalyzer/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 19.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_19.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appplatform
+  Version: 7.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_7.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 27.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_27.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicelinker
+  Version: 1.1.0
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicelinker_1.1.0/sdk/servicelinker/azure-mgmt-servicelinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b4
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b4/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Healthcare Entities Analysis through the `begin_analyze_actions` API with the `AnalyzeHealthcareEntitiesAction` type.
+    - Added keyword argument `fhir_version` to `begin_analyze_healthcare_entities` and `AnalyzeHealthcareEntitiesAction`. Use the keyword to indicate the version for the `fhir_bundle` contained on the `AnalyzeHealthcareEntitiesResult`.
+    - Added property `fhir_bundle` to `AnalyzeHealthcareEntitiesResult`.
+    - Added keyword argument `display_name` to `begin_analyze_healthcare_entities`.
+- Name: azure-mgmt-cosmosdb
+  Version: 7.0.0b6
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b6/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of Async I/O APIs, including all changes from 4.3.0b1 to 4.3.0b4.
+
+    #### Breaking Changes
+    - Method signatures have been updated to use keyword arguments instead of positional arguments for most method options in the async client.
+    - Bugfix: Automatic Id generation for items was turned on for `upsert_items()` method when no 'id' value was present in document body.
+    Method call will now require an 'id' field to be present in the document body.
+- Name: azure-mgmt-keyvault
+  Version: 10.0.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-azurestackhci
+  Version: 7.0.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_7.0.0/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-language-conversations
+  Version: 1.1.0b1
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Conversation summarization task (Long-running operation)
+    * Conversation PII extraction task (Long-running operation)
+
+    #### Breaking Changes
+    * Client now uses python dictionaries for method parameters and results instead of classes.
+    * Many input and result parameter name changes in `analyze_conversation()` method
+- Name: azure-mgmt-confidentialledger
+  Version: 1.0.0
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confidentialledger_1.0.0/sdk/confidentialledger/azure-mgmt-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datafactory
+  Version: 2.6.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.6.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.24.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.24.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Declare method level span as INTERNAL by default  #24492
+    - Fixed type hints for `azure.core.paging.ItemPaged` #24548
+- Name: azure-mgmt-applicationinsights
+  Version: 3.1.0
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_3.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabricmanagedclusters
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabricmanagedclusters_2.0.0b1/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-communication
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-communication_2.0.0b1/sdk/communication/azure-mgmt-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-translation-document
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed: `begin_translation` parameter `target_language_code` has been renamed to `target_language`.
+    - Changed: `begin_translation` keyword-only argument `source_language_code` has been renamed to `source_language`.
+    - Changed: `DocumentTranslationInput` keyword-only argument and property `source_language_code` has been renamed to `source_language`.
+    - Changed: `TranslationTarget` keyword-only argument and property `language_code` has been renamed to `language`.
+    - Changed: `TranslationStatus` property `documents_not_yet_started_count` has been renamed to `documents_not_started_count`.
+    - Removed: `results_per_page` keyword-only argument from `list_translation_statuses` and `list_document_statuses`.
+- Name: azure-keyvault-keys
+  Version: 4.6.0b1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.6.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - If a key's ID contains a port number, this port will now be preserved in the vault URL of a
+    `CryptographyClient` instance created from this key
+    ([#24446](https://github.com/Azure/azure-sdk-for-python/issues/24446))
+    - Port numbers are now preserved in the `vault_url` property of a `KeyVaultKeyIdentifier`
+- Name: azure-keyvault-certificates
+  Version: 4.5.0b1
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.5.0b1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Port numbers are now preserved in the `vault_url` property of a `KeyVaultCertificateIdentifier`
+    ([#24446](https://github.com/Azure/azure-sdk-for-python/issues/24446))
+- Name: azure-keyvault-secrets
+  Version: 4.5.0b1
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.5.0b1/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Port numbers are now preserved in the `vault_url` property of a `KeyVaultSecretIdentifier`
+    ([#24446](https://github.com/Azure/azure-sdk-for-python/issues/24446))
+- Name: azure-eventhub
+  Version: 5.8.0a4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a4/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for connection using websocket and http proxy.
+    - Added support for custom endpoint connection over websocket.
+- Name: azure-servicebus
+  Version: 7.7.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.7.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug to make AMQP exceptions retryable by default, if condition is not non-retryable, to ensure that InternalServerErrors are retried.
+
+    #### Features Added
+
+    - The `ServiceBusClient` constructor now accepts optional `custom_endpoint_address` argument
+    which allows for specifying a custom endpoint to use when communicating with the Service Bus service,
+    and is useful when your network does not allow communicating to the standard Service Bus endpoint.
+    - The `ServiceBusClient`constructor now accepts optional `connection_verify` argument
+    which allows for specifying the path to the custom CA_BUNDLE file of the SSL certificate which is used to authenticate
+    the identity of the connection endpoint.
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b5
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `bounding_box` to `polygon` on `BoundingRegion`, `DocumentContentElement`, `DocumentLine`, `DocumentSelectionMark`, `DocumentWord`.
+    - Renamed `language_code` to `locale` on `DocumentLanguage`.
+    - Some models that previously returned string for address related fields may now return `AddressValue`. TIP: Use `get_model()` on `DocumentModelAdministrationClient` to see updated prebuilt model schemas.
+    - Removed `entities` property on `AnalyzeResult`.
+    - Removed `DocumentEntity` model.
+
+    #### Features Added
+    - Added `paragraphs` property on `AnalyzeResult`.
+    - Added new `DocumentParagraph` model to represent document paragraphs.
+    - Added new `AddressValue` model to represent address fields found in documents.
+    - Added `kind` property on `DocumentPage`.
+- Name: azure-mgmt-appconfiguration
+  Version: 2.1.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.1.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-eventhub
+  Version: 5.10.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.10.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes the following features related to buffered sending of events:
+    - A new method `send_event` to `EventHubProducerClient` which allows sending single `EventData` or `AmqpAnnotatedMessage`.
+    - Buffered mode sending to `EventHubProducerClient` which is intended to allow for efficient publishing of events
+    without having to explicitly manage batches in the application.
+    - The constructor of `EventHubProducerClient` and `from_connection_string` method takes the following new keyword arguments
+    for configuration:
+    - `buffered_mode`: The flag to enable/disable buffered mode sending.
+    - `on_success`: The callback to be called once events have been successfully published.
+    - `on_error`: The callback to be called once events have failed to be published.
+    - `max_buffer_length`: The total number of events per partition that can be buffered before a flush will be triggered.
+    - `max_wait_time`: The amount of time to wait for a batch to be built with events in the buffer before publishing.
+    - A new method `EventHubProducerClient.flush` which flushes events in the buffer to be sent immediately.
+    - A new method `EventHubProducerClient.get_buffered_event_count` which returns the number of events that are buffered and waiting to be published for a given partition.
+    - A new property `EventHubProducerClient.total_buffered_event_count` which returns the total number of events that are currently buffered and waiting to be published, across all partitions.
+    - A new boolean keyword argument `flush` to `EventHubProducerClient.close` which indicates whether to flush the buffer or not while closing.
+- Name: azure-mgmt-compute
+  Version: 27.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_27.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.2.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.2.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 20.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_20.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b6/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Update to OpenTelemetry api/sdk 1.12.0rc1
+    ([#24619](https://github.com/Azure/azure-sdk-for-python/pull/24619))
+
+    #### Features Added
+    - Implement log exporter using experimental OT logging sdk
+    ([#23486](https://github.com/Azure/azure-sdk-for-python/pull/23486))
+    - Implement sending of exception telemetry via log exporter
+    ([#23633](https://github.com/Azure/azure-sdk-for-python/pull/23633))
+    - Implement exporting span events as message/exception telemetry
+    ([#23708](https://github.com/Azure/azure-sdk-for-python/pull/23708))
+    - Implement metrics exporter using experimental OT metrics sdk
+    ([#23960](https://github.com/Azure/azure-sdk-for-python/pull/23960))
+

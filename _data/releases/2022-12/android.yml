@@ -1,0 +1,18 @@
+entries:
+- Name: azure-communication-common
+  Version: 1.1.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.1.0/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the logic of `PhoneNumberIdentifier` to always maintain the original phone number string whether it included the leading + sign or not.
+
+    ##### Dependency updates
+    - Updated `android-core` version to `1.0.0-beta.12`.
+    - Updated `android-core-logging` version to `1.0.0-beta.12`.
+    - Updated `jackson-databind` dependency to `2.12.7.1`.
+  GroupId: com.azure.android
+

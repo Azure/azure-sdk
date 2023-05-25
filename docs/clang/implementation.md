@@ -1,137 +1,331 @@
 ---
-title: "C Guidelines: Implementation"
+title: "Embedded C Guidelines: Implementation"
 keywords: guidelines clang
 permalink: clang_implementation.html
 folder: clang
-sidebar: clang_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C Language guidelines are in DRAFT status" %}
 
-## Supported platforms
+## API Implementation
 
-{% include requirement/MUST id="clang-c99" %} implement the client library in [C99](https://en.wikipedia.org/wiki/C99) to ensure maximum portability of your code. While MSVC supports most C99 features, it is not fully compatible with C99 yet.  If using MSVC (or if Windows is required), ensure you avoid non-supported C99 features in MSVC.
+### Service Client
 
-> TODO: Provide a link to non-supported C99 features in MSVC
+#### Service Methods
 
-{% include requirement/SHOULD id="clang-platform" %} support the following platforms and associated compilers when implementing your client library.
+C doesn't have object oriented programming built in, but most programs end up implementing some kind of ad-hoc object model. 
 
-| Operating System    | Architecture | Compiler Version                        |
-|---------------------|:------------:|:----------------------------------------|
-| Ubuntu 16.04 (LTS)  | x64          | gcc-5.4.0                               |
-| Ubuntu 18.04 (LTS)  | x86          | gcc-7.3                                 |
-| Ubuntu 18.04 (LTS)  | x64          | Clang 6.0.x                             |
-| OSX 10.13.4         | x64          | XCode 9.4.1                             |
-| Windows Server 2016 | x86          | MSVC 14.16.x                            |
-| Windows Server 2016 | x64          | MSVC 14.16.x                            |
-| Windows Server 2016 | x64          | MSVC 14.23.x                            |
-| Windows Server 2016 | x86,x64      | MSVC 14.23.x                            |
-| Debian 9 Stretch    | x64          | gcc-7.x                                 |
+Let's consider the object used to represent a widget in the fictional Azure Widgets service. Such a structure could be defined like this:
 
-> TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
-
-> TODO: provide any common flags to be used with each compiler.
-
-{% include requirement/SHOULDNOT id="clang-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
-
-* [MSVC compiler extensions](https://docs.microsoft.com/en-us/cpp/build/reference/microsoft-extensions-to-c-and-cpp?view=vs-2019)
-* [Clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
-* [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
-
-Use the appropriate options for each compiler to prevent the use of such extensions.
-
-{% include requirement/MUST id="clang-cpp-options" %} use compiler flags to identify warnings:
-
-| Compiler                 | Compiler Flags   |
-|:-------------------------|------------------|
-| gcc                      | `-Wall -Wextra`  |
-| Clang and XCode          | `-Wall -Wextra`   |
-| MSVC                     | `/W4`            |
-
-hen configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
-
-### Client configuration
-
-{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user.
-
-{% include requirement/SHOULD id="clang-config-global-config-howto" %} Use an "options" structure
-to allow user specified configuration, in particular when there are many configuration options
-for one client constructor.
-
-For example,
-
-```c
-typedef struct az_widgets_client_options {
-    uint32_t num_sides;
-    bool was_frobnicated;
-} az_widgets_client_options;
-
-AZ_NODISCARD az_widgets_client_options az_widgets_client_default_options(void);
-
-AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self, const az_widgets_default_client_options* options);
-```
-
-The user can request the default with:
-
-```c
-az_widgets_client client = {0};
-az_result res = az_widgets_client_init(&client, NULL);
-```
-or specify their own options with:
-```c
-az_widgets_client client = {0};
-az_widgets_client_options options = az_widgets_client_default_options();
-options.num_sides = 4;
-az_result res = az_widgets_client_init(&client, &options);
-```
-
-{% include requirement/MUST id="clang-config-for-different-clients" %} allow different clients of the same type to use different configurations.
-
-{% include requirement/MUST id="clang-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
-
-{% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
-
-{% include requirement/MUST id="clang-config-defaults-consistent" %} Have consistent defaults across
-all supported systems and build configurations. This means changing settings such as
-default buffer sizes based on the target platform or build settings is prohibited.
-
-For example, consider the structure:
-```c
+{% highlight c %}
 typedef struct az_widgets_widget {
-    int num_sides;
-    uint8_t side_buffer[AZ_WIDGETS_SIDE_BUFFER_SIZE];
+  uint16_t num_sides;
+  az_widget_side* sides;
+  bool was_frobnicated;
 } az_widgets_widget;
-```
+{% endhighlight %}
 
-This is OK:
+If you are defining an opaque type then the definition is placed in a `.c` file and the header file contains the following:
 
-```cmake
-...
-set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
-target_compile_definitions(az_widgets PUBLIC AZ_WIDGETS_SIDE_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
-```
+{% highlight c %}
+typedef struct az_widgets_widget az_widgets_widget;
+{% endhighlight %}
 
-This is not OK:
+If you need to expose the type (for stack allocation), but would like to make it clear that some fields are private and should not be modified, place the type in the header file as follows::
 
-```cmake
-if(TARGETING_DESKTOP)
-    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 4096 CACHE STRING "default size of side buffer")
-else()
-    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
-endif()
-target_compile_definitions(az_widgets PUBLIC CAT_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
-```
+{% highlight c %}
+typedef struct az_widgets_widget {
+  struct {
+    uint16_t num_sides;
+    az_widgets_side* sides;
+    bool was_frobnicated;
+  } _internal;
+} az_widgets_widget;
+{% endhighlight %}
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client configuration options based on runtime system or client state.
+{% include requirement/MUSTNOT id="clang-objmodel-nohiding" %} hide the members of a struct that supports stack allocation, except in the above way.  This can result in alignment problems and missed optimization opportunities.
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
-client configuration options based on how the client library was built.
+##### Initialization and destruction
 
-{% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
-configuration such as environment variables or a config file. Keep in mind that many IOT devices
-won't have a filesystem or an "environment block" to read from.
+You must always have an initialization function. This function will take a block of allocated memory of the correct size and alignment and turn it into a valid object instance, setting fields to default values and processing initialization parameters. 
 
-## Parameter validation
+{% include requirement/MUST id="clang-objmodel-init" %} name initialization functions with the form `az_<libname>_init_...`.
+
+{% include requirement/MUST id="clang-objmodel-ready" %} ensure that the object is "ready to use" after a call to the init function for the object.
+
+If there is more than one way to initialize an object, you should define multiple initialization functions with different names. For example:
+
+{% highlight c %}
+void az_widgets_client_init(az_widgets_client* client);
+void az_kwidgets_client_init_with_sides(az_widgets_client* client, int num_sides, az_widgets_side* sides);
+{% endhighlight %}
+
+If initialization could fail (for example, during parameter validation), ensure the init function returns an `az_result` to indicate error conditions.
+
+A possible implementation of these initialization functions would be:
+
+{% highlight c %}
+void az_widgets_client_init(az_widgets_client* client) {
+  memset(client, 0, sizeof(az_widgets_client));
+}
+
+
+void az_widgets_client_init_with_sides(az_widgets_client* client,
+				       int num_sides, az_widgets_side* sides) {
+  az_widgets_client_init(herd);
+  herd->sides = sides;
+  herd->num_sides = num_sides;
+}
+{% endhighlight %}
+
+Similarly to allocation, a type can have a destruction function. However only types that own a resource (such as memory), or require special cleanup (like securely zeroing their memory) need a destruction function.
+
+{% include requirement/SHOULD id="clang-objmodel-prefer-nonalloc" %} prefer non-allocating types and methods.
+
+##### Allocation and deallocation
+
+Your library should not allocate memory if possible.  It should be possible to use the client library without any allocations, deferring all allocations to the client program.
+
+Allocation should be separated from initialization, unless there's an extremely good reason to tie them together. In general we want to let the user allocate their own memory. You only need an allocation function if you intend to hide the size and alignment of the object from the user.
+
+{% include requirement/MUST id="clang-objmodel-alloc1" %} name the allocation and deallocation functions as `az_<libname>_(de)allocate_<objtype>`.
+
+Note that this is the opposite of the pattern for other methods.  Allocation functions do not operate on a value of `<objtype>`.  Rather they create and destroy such values.
+
+{% include requirement/MUST id="clang-objmodel-alloc2" %} provide an allocation and deallocation function for opaque types.
+
+{% include requirement/SHOULD id="clang-objmodel-alloc3" %} take a set of allocation callbacks as a parameter to the allocation and deallocation functions for an opaque type.  Use the library default allocation functions if the allocation callback parameter is NULL.
+
+{% include requirement/SHOULDNOT id="clang-objmodel-alloc4" %} store a pointer to the allocation callbacks inside the memory returned by the allocation function.  You may store such a pointer for debugging purposes.
+
+The intent is to allow storing a pointer to the allocation callbacks to ensure the same set of callbacks is used for allocation and deallocation.  However, it is not allowed to change the ABI of the returned object to do this.  You need to store the callbacks before or after the pointer returned to the caller.
+
+> TODO: Rationalize this - do we store or not store?
+
+{% include requirement/MUSTNOT id="clang-objmodel-alloc5" %} return any errors from the deallocation function.  It is impossible to write leak-free programs if deallocation and cleanup functions can fail.
+
+For example:
+
+{% highlight c %}
+#include <stdint.h>
+typedef struct az_widget_client az_widget_client;
+
+az_result az_widgets_allocate_client(az_widgets_client** herd, az_allocation_callbacks* alloc);
+void az_widgets_deallocate_client(az_widgets_client* herd, az_allocation_callbacks* alloc);
+{% endhighlight %}
+
+{% highlight c %}
+#include "herd.h"
+typedef struct az_widgets_client {
+  uint16_t num_sides;
+  az_widgets_side* sides;
+  bool was_frobnicated;
+} az_widgets_client;
+
+
+az_result az_widgets_allocate_client(az_widgets_client** client, az_allocation_callbacks* alloc) {
+if(!alloc) {
+    *client = az_default_alloc(sizeof(az_widgets_client));
+} else {
+    *client = alloc->allocate(sizeof(az_widgets_herd));
+}
+if(!*client) {
+    return AZ_ERROR_ALLOCATION_ERROR;
+}
+return AZ_OK;
+}
+
+void az_widgets_deallocate_client(az_widgets_client* client, az_allocation_callbacks* alloc) {
+if(!alloc) {
+    az_default_deallocate(client);
+} else {
+    alloc->deallocate(client);
+}
+}
+{% endhighlight %}
+
+##### Initialization for objects that allocate
+
+The initialization function should take a set of allocation callbacks and store them inside the object instance.  
+
+{% include requirement/MUST id="clang-objmodel-initalloc1" %} take a set of allocation / deallocation callbacks in the `init` function of objects owning inner pointers.
+
+{% include requirement/SHOULDNOT id="clang-objmodel-initalloc2" %} allocate different inner pointers with different sets of allocation callbacks.  Use a single allocation callback.
+
+##### Destruction for objects that allocate
+
+{% include requirement/MUST id="clang-objmodel-destroyalloc1" %} name destruction functions `az_<libname>_<objtype>_destroy`.
+
+{% include requirement/MUSTNOT id="clang-objmodel-destroyalloc2" %} take allocation callbacks in the destruction function.
+
+The reason one would take an allocation callback parameter in the destruction function is to save space by not storing it in the object instance. The reason we prohibit this is that it means an object that owns a pointer to another object must then take _two_ allocation parameters in its destroy function. 
+
+{% include requirement/MUSTNOT id="clang-objmodel-destroyalloc3" %} return any errors in the destruction function.  It's impossible to write leak-free programs if deallocation / cleanup functions can fail.
+
+The destruction function should follow this pattern:
+
+{% highlight c %}
+void az_widgets_client_destroy(az_widgets_client* client);
+{% endhighlight %}
+
+The following is a possible implementation of a destruction function for the widgets client object:
+
+{% highlight c %}
+void az_widgets_client_destroy(az_widgets_client* client) {
+if(client->alloc) {
+    client->alloc->deallocate(sides);
+}
+az_string_destroy(client->str);
+client->num_sides = 0;
+client->alloc = 0;
+}
+{% endhighlight %}
+
+##### Methods on objects
+
+To define a method on an object simply define a function taking a pointer to that object as its first parameter. For example:
+
+{% highlight c %}
+/**
+ * @brief add a side to the widget
+ * @memberof az_widgets_client
+ *
+ * @param[in] herd - the herd
+ * @param[in] __[transfer none]__ side - the side to add
+ * @return Any errors
+ * @retval AZ_OK on success
+ * @retval AZ_ERROR_NO_MEMORY if a reallocation of the internal
+ *                            array failed
+ */
+az_result az_widgets_client_add_side(az_widgets_client* client, az_widgets_side* side);
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-objmodel-memberof" %} use `@memberof` to indicate a function is associated with a class.
+
+{% include requirement/MUST id="clang-objmodel-firstparam" %} provide the class object as the first parameter to a function associated with the class.
+
+##### Functions with many parameters
+
+Sometimes a function will take a large number of parameters, many of which have sane defaults.  In this case you should pass them via a struct. Default arguments should be represented by "zero". If the function is a method then the first parameter should still be a pointer to the object type the method is associated with.
+
+For example the previous `az_widgets_client_init_with_sides` function could be defined instead as:
+
+{% highlight c %}
+typedef struct az_widgets_client_init_with_sides_options {
+  int num_sides;
+  az_widgets_side* sides;
+  bool was_frobnicated;
+} az_widgets_client_init_with_sides_options;
+void az_widgets_client_init_with_sides(az_widgets_client* client, const az_widgets_client_init_with_sides_options* options);
+{% endhighlight %}
+
+and would be called from user code like:
+
+{% highlight c %}
+int main() {
+  az_widgets_client client = { 0 };
+  az_widgets_client_init_with_sides_options options = 
+    az_widgets_client_init_with_sides_default_options();
+  az_widgets_client_init_with_sides(&client, NULL);
+}
+{% endhighlight %}
+
+Note that the `num_sides` and `sides` parameters are left as default.
+
+If the `params` parameter is `NULL` then the `az_widgets_client_init_with_sides` function should assume the defaults for all parameters.
+
+If a function takes both optional and non-optional parameters then prefer passing the non-optional ones as parameters and the optional ones by struct.
+
+{% include requirement/MUST id="clang-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.  
+
+{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
+
+##### Methods requiring allocation
+
+If a method could require allocating memory then it should use the most relevant set of allocation callbacks. For example the `az_widgets_client_add_side` method may need to allocate or re-allocate the array of sides.  It should use the `az_widgets_client` allocators.  On the other hand the method:
+
+{% highlight c %}
+void az_widgets_client_set_str(az_widgets_client* herd, const char* str);
+{% endhighlight %}
+
+would likely use the allocation callbacks inside the `client->str` structure.
+
+> TODO: Rationalize advice here.  Earlier, we said don't include allocators inside the structure.
+
+##### Callbacks
+
+Callback functions should be defined to take a pointer to the "sender" object as the first argument and a void pointer to user data as the last argument. Any additional arguments, if any, should be contextual data needed by the callback. For example say we had an object `az_widgets_client` that could make requests to be handled in a callback and we represent the response as an object `az_response`. We might define the following:
+
+{% highlight c %}
+typedef bool (*az_widgets_response_callback)(az_widgets_client* client,
+						az_response* resp,
+						void* user_data);
+void az_widgets_client_set_response_callback(az_widgets_client* client,
+						az_widgets_response_callback callback,
+						void* user_data);
+{% endhighlight %}
+
+Client code would use this in the following manner:
+
+{% highlight c %}
+typedef struct user_data {
+  int some_int;
+} user_data;
+
+
+bool handle_resp(az_widgets_client* client,
+		 az_response* resp,
+		 void* user) {
+  user_data* data = user;
+  /* do things with parameters */
+  return true;
+}
+
+int main() {
+  user_data d = {.some_int = 5};
+  az_widgets_client client = { 0 };
+  az_widgets_client_init(&client);
+  az_widgets_client_set_response_callback(&client, &handle_resp, &d);
+  /* do something that triggers the callback */
+
+  /* unset the callback if we don't want to handle it anymore */
+  az_widgets_client_set_response_callback(&client, NULL, NULL);
+}
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-objmodel-callback-userdata" %} include a `user_data` parameter on all callbacks.
+
+{% include requirement/MUSTNOT id="clang-objmodel-callback-deref" %} de-reference the user data pointer from inside the library.
+
+##### Discriminated Unions
+
+Discriminated unions can be useful for grouping information in a struct. However, C does not provide a standard way of defining discriminated unions.  Use the following:
+
+{% highlight c %}
+typedef struct discriminated_union {
+  enum {
+	discriminated_union_tag_int,
+	discriminated_union_tag_float,
+	discriminated_union_tag_double
+  } tag;
+  union {
+    int the_int;
+    float the_float;
+    double the_double;
+  } value;
+} discriminated_union;
+{% endhighlight %}
+
+This syntax is supported on all C99 compilers as it adheres to strict C99 syntax. Access the inner member using `union_value.value.the_int` (as an example).
+
+The nested enum and union should never have a `tag name` as this is *always* an extension.  It is a user error to access the union without checking its tag first.
+
+#### Service Method Parameters
+
+##### Parameter Validation
+
+> TODO: This is duplicated from the design.md.
 
 The service client will have several methods that perform requests on the service.  _Service parameters_ are directly passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
@@ -141,29 +335,97 @@ The service client will have several methods that perform requests on the servic
 
 {% include requirement/MUST id="clang-params-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service.  If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
 
-## Network requests
+##### Functions with many parameters
 
-> TODO: Implement the spirit of the general guidelines for network requests - explicitly, how to use Azure Core for making network requests
+Sometimes a function will take a large number of parameters, many of which have sane defaults.  In this case you should pass them via a struct. Default arguments should be represented by "zero". If the function is a method then the first parameter should still be a pointer to the object type the method is associated with.
 
-## Authentication
+For example the previous `az_widgets_client_init_with_sides` function could be defined instead as:
 
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+{% highlight c %}
+typedef struct az_widgets_client_init_with_sides_options {
+  int num_sides;
+  az_widgets_side* sides;
+  bool was_frobnicated;
+} az_widgets_client_init_with_sides_options;
+void az_widgets_client_init_with_sides(az_widgets_client* client, const az_widgets_client_init_with_sides_options* options);
+{% endhighlight %}
 
-{% include requirement/MUSTNOT id="clang-implementing-no-persistence-auth" %}
-persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
+and would be called from user code like:
 
-If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+{% highlight c %}
+int main() {
+  az_widgets_client client = { 0 };
+  az_widgets_client_init_with_sides_options options = 
+    az_widgets_client_init_with_sides_default_options();
+  az_widgets_client_init_with_sides(&client, NULL);
+}
+{% endhighlight %}
 
-{% include requirement/MUST id="clang-implementing-secure-auth-erase" %} Use a "secure" function to zero authentication or authorization credentials as soon as possible once they are no longer needed. Examples of such functions
-include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insecure functions include `memset`. An optimizer may notice that the credentials are
-never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
+Note that the `num_sides` and `sides` parameters are left as default.
 
-{% include requirement/MUST id="clang-implementing-auth-policy" %}
-provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+If the `params` parameter is `NULL` then the `az_widgets_client_init_with_sides` function should assume the defaults for all parameters.
 
-> TODO: The authentication policies are generally within the Azure Core / Identity library - that does not exist yet.
+If a function takes both optional and non-optional parameters then prefer passing the non-optional ones as parameters and the optional ones by struct.
 
-## Logging
+{% include requirement/MUST id="clang-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.  
+
+{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
+
+### Supporting Types
+
+#### Serialization
+
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
+
+The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
+
+{% include requirement/MUST id="clang-return-logical-entities" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+
+{% include requirement/MUST id="clang-return-expose-raw" %} *make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
+
+For example, you may choose to do something similar to the following:
+
+{% highlight c %}
+typedef struct az_json_short_item {
+    // JSON decoded structure.
+} az_json_short_item;
+
+typedef struct az_json_short_paged_results {
+    uint32 size;
+    az_json_short_item *items;
+} az_json_short_paged_results;
+
+
+typedef struct az_json_short_raw_paged_results {
+    http_headers *headers;
+    uint16 status_code;
+    uint8_t *raw_body;
+    az_json_short_paged_results* results;
+} az_json_short_raw_paged_results;
+
+az_json_short_paged_results* az_json_get_short_list_items(client, /* extra params */);
+az_json_short_raw_paged_results* az_json_get_short_list_items_with_response(client, /* extra params */);
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-return-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+
+For methods that combine multiple requests into a single call:
+
+{% include requirement/MUSTNOT id="clang-return-no-headers-if-confusing" %} return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+
+{% include requirement/MUST id="clang-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
+
+#### Enumeration-like Structures
+
+> TODO: This section is not applicable for the Embedded C SDK.
+
+## SDK Feature Implementation
+
+### Configuration
+
+> TODO: Add discussion on configuration environment variables to parallel that of other languages
+
+### Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues and quickly determine whether the issue is in the consumer code, client library code, or service.
 
@@ -189,7 +451,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="clang-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUSTNOT id="clang-logging-exclude" %} log payloads or HTTP header/query parameter values that aren't on the service provided white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
+{% include requirement/MUSTNOT id="clang-logging-exclude" %} log payloads or HTTP header/query parameter values that aren't on the service provided allow list.  For header/query parameters not on the allow list use the value `<REDACTED>` in place of the real value.
 
 {% include requirement/MUST id="clang-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
@@ -215,44 +477,15 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="clang-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
-## Distributed tracing
+### Distributed Tracing
 
 > TODO: Implement the spirit of the general guidelines for distributed tracing.
 
 > TODO: Distributed Tracing is explicitly removed?
 
-## Dependencies
+### Telemetry
 
-Dependencies bring in many considerations that are often easily avoided by avoiding the 
-dependency. 
-
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
-- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
-- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
-- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult ortime consuming to get the vulnerability corrected if Microsoft does not control the dependencys code base.
-
-{% include requirement/MUST id="clang-dependencies-stdlibc" %} use the [C standard library](https://en.wikipedia.org/wiki/C_standard_library).  The C standard library is sometimes referred to as `libc`, the C-Runtime, CRT, or (for Windows) Universal CRT.
-
-{% include requirement/MUST id="clang-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
-
-> TODO: Move the azure/azure-c-shared-utility into azure-core as a prerequisite for release of the guidelines.
-
-{% include requirement/MUSTNOT id="clang-dependencies-approved-only" %} be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
-
-{% include requirement/SHOULD id="clang-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
-
-{% include requirement/MUSTNOT id="clang-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
-
-### C language specifics
-
-Unlike many other programming languages, which have large runtimes, the C standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, sandard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for synchronization, networking and advanced memory management and threading are not part of the standard library. Instead, many of those features are included in open source C libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
-
-{% include requirement/MUST id="clang-approved-dependencies" %} utilize the following libraries as needed for commonly required operations:
-
-{% include_relative approved_dependencies.md %}
-
-{% include requirement/MUST id="clang-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
+> TODO: Add details about how telemetry is not supported in the Embedded C SDK.
 
 ## Testing
 
@@ -346,38 +579,6 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 {% include requirement/MUST id="clang-testing-code-coverage" %} maintain a minimum 80% code coverage with unit tests.
 
-## Coding style
-
-### Files 
-
-{% include requirement/MUST id="clang-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c` or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
-
-{% include requirement/MUST id="clang-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>.h`.  For example, `iot_credential.h`.
-
-{% include requirement/MUST id="clang-style-privateapi-hdr" %} place include files that are not part of the public API in the `src` directory.
-
-{% include requirement/MUST id="clang-style-internalapi-hdr" %} place include files that are exposed to other sdk components but not part of the public api in
-the `internal` directory (a sibling of `src` and `inc`).
-
-{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
-
-{% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} install internal or private headers with `make install` or equivalent.
-
-{% include requirement/MUST id="clang-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
-
-Filenames should be concise, but convey what role the file plays within the library.
-
-{% include requirement/MUST id="clang-style-headerguards" %} use header file guards:
-
-{% highlight c %}
-#ifndef IOT_CLIENT_H
-#define IOT_CLIENT_H
-
-/* Contents of iot_client.h */
-
-#endif /* IOT_CLIENT_H */
-{% endhighlight %}
-
 ## Tooling
 
 We use a common build and test pipeline to provide for automatic distribution of client libraries.  To support this, we need common tooling.
@@ -385,7 +586,7 @@ We use a common build and test pipeline to provide for automatic distribution of
 {% include requirement/MUST id="clang-tooling-cmake" %} use [CMake](https://CMake.org/) v3.7 for your project build system. 
 
 Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft hosted agents 
-(https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops)
+(https://docs.microsoft.com/azure/devops/pipelines/agents/hosted)
 
 {% include requirement/MUST id="clang-tooling-cmake-targets" %} include the following standard targets:
 
@@ -508,30 +709,6 @@ endif()
 
 {% include requirement/MUSTNOT id="clang-tooling-cmake-no-samples-by-default" %} install samples by default.
 
-### Testing and Mocking {clang-testing}
-
-{% include requirement/MUST id="clang-tooling-test-tools" %} use the following tools for testing:
-
-* Azure C Test for unit test running: [https://github.com/Azure/azure-ctest](https://github.com/Azure/azure-ctest)
-
-* Azure micro mock C [umock-c](https://github.com/Azure/umock-c): [https://github.com/Azure/umock-c](https://github.com/Azure/umock-c)
-
-* Use TestRunnerSwitcher, which is a simple library to switch test runners between [azure-ctest](https://github.com/Azure/azure-ctest.git) and CppUnitTest: [https://github.com/Azure/azure-c-testrunnerswitcher](https://github.com/Azure/azure-c-testrunnerswitcher)
-
-## Packaging
-
-{% include requirement/SHOULD id="clang-package-dynamic" %} provide both dynamic and static linking options for your library.  Each has its own merits and use cases.
-
-{% include requirement/MUST id="clang-package-source" %} publish your package in source code format.  Due to differences in platforms, this is the most common publishing mechanism for C libraries.
-
-{% include requirement/MUST id="clang-package-vcpkg" %} publish your package to [vcpkg](https://github.com/Microsoft/vcpkg), a C++ library manager supporting Windows, Linux, and MacOS.
-
-{% include requirement/SHOULD id="clang-package-linux" %} publish libraries targeted to Linux to standard Linux package managers.
-
-> TODO: decide which Linux package managers to support plus which repositories we bless.
-
-> TODO:  Decide if we need to publish to GitHub Package Registry.  If we do, then we likely want to do it across all languages.ß
-
 ## Formatting
 
 {% include requirement/MUST id="clang-format-clang" %} use [clang-format](http://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `clang-format` options from Engineering Systems.
@@ -637,6 +814,54 @@ while (EOF != (c = getchar())) {
 {% endhighlight %}
 
 However, one should consider the tradeoff between increased speed and decreased maintainability that results when embedded assignments are used in artificial places.
+
+## Memory management
+
+{% include requirement/MUST id="clang-design-mm-allocation" %} let the caller allocate memory, then pass a pointer to it to the functions; e.g. `int az_iot_create_client(az_iot_client* client);`. 
+
+The developer could then write code similar to:
+
+{% highlight c %}
+az_iot_client client; /* or allocate dynamically with malloc() if needed */
+
+/* init client, if needed */
+client.id = 0; 
+client.name = NULL;
+
+if (az_iot_create_client(*client) != 0)
+{
+    /* handle error */
+}
+{% endhighlight %}
+
+{% include requirement/SHOULD id="clang-design-mm-allocation2" %} If you must allocate memory within the client library,
+do so using user-overridable functions.
+
+{% highlight c %}
+/**
+ * @brief   uLib malloc
+ *
+ *  Defines the malloc function that the ulib shall use as its own way to dynamically allocate
+ *      memory from the HEAP. For simplicity, it can be defined as the malloc(size) from the `stdlib.h`.
+ */
+#define AZ_IOT_MALLOC(size)    malloc(size)
+
+/**
+ * @brief   uLib free
+ *
+ *  Defines the free function that the ulib shall use as its own way to release memory dynamic 
+ *      allocated in the HEAP. For simplicity, it can be defined as the free(ptr) from the `stdlib.h`.
+ */
+#define AZ_IOT_FREE(ptr)       free(ptr)
+{% endhighlight %}
+
+> TODO: Should this be in azure core, or specific to a library?
+
+## Secure functions
+
+{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
+
+> TODO: Verify with the security team, and what are the alternatives?
 
 ## Miscellaneous
 

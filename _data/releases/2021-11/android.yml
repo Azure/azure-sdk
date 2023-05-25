@@ -1,0 +1,255 @@
+entries:
+- Name: azure-core-http-okhttp
+  Version: 1.0.0-beta.8
+  DisplayName: Core HTTP OkHttp
+  ServiceName: Core HTTP OkHttp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-okhttp_1.0.0-beta.8/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-test
+  Version: 1.0.0-beta.8
+  DisplayName: Core Test
+  ServiceName: Core Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-test_1.0.0-beta.8/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-rest` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core
+  Version: 1.0.0-beta.8
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core_1.0.0-beta.8/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-http
+  Version: 1.0.0-beta.8
+  DisplayName: Core HTTP
+  ServiceName: Core HTTP
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http_1.0.0-beta.8/sdk/core/azure-core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-credential` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-jackson
+  Version: 1.0.0-beta.8
+  DisplayName: Core Jackson
+  ServiceName: Core Jackson
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-jackson_1.0.0-beta.8/sdk/core/azure-core-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `jackson-dataformat-xml` dependency version to `2.13.0`.
+    - Updated `jackson-datatype-jsr310` dependency version to `2.13.0`.
+  GroupId: com.azure.android
+- Name: azure-core-rest
+  Version: 1.0.0-beta.8
+  DisplayName: Core REST
+  ServiceName: Core REST
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-rest_1.0.0-beta.8/sdk/core/azure-core-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-credential
+  Version: 1.0.0-beta.8
+  DisplayName: Core Credential
+  ServiceName: Core Credential
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-credential_1.0.0-beta.8/sdk/core/azure-core-credential/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-http-httpurlconnection
+  Version: 1.0.0-beta.8
+  DisplayName: Core HTTP HttpUrlConnection
+  ServiceName: Core HTTP HttpUrlConnection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-httpurlconnection_1.0.0-beta.8/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.8`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.8`.
+  GroupId: com.azure.android
+- Name: azure-core-logging
+  Version: 1.0.0-beta.8
+  DisplayName: Core Logging
+  ServiceName: Core Logging
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-logging_1.0.0-beta.8/sdk/core/azure-core-logging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `DefaultLogger` will no longer cause the Android `Log` API to throw an exception when using an instance created with a tag longer than 23 characters for Android API levels <= 25; instead, it will shorten the tag as best as possible in such cases. For example:
+    - org.example.project.MyClass -> o*.e*.p*.MyClass
+    - org.example.project.subproject.MyClass -> o*.e*.p*.s*.MyClass
+    - org.example.MyQuiteLongNamedClassOfTooMuchCharacters -> o*.e*.MyQuiteLongNamed*
+    - o.e.project.subproject.MyClass -> o.e.p*.s*.MyClass
+    - MyQuiteLongNamedClassNotInAPackage -> MyQuiteLongNamedClassN*
+  GroupId: com.azure.android
+- Name: azure-core
+  Version: 1.0.0-beta.9
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core_1.0.0-beta.9/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Downgraded `azure-core-logging` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-test
+  Version: 1.0.0-beta.9
+  DisplayName: Core Test
+  ServiceName: Core Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-test_1.0.0-beta.9/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-rest` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-jackson
+  Version: 1.0.0-beta.9
+  DisplayName: Core Jackson
+  ServiceName: Core Jackson
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-jackson_1.0.0-beta.9/sdk/core/azure-core-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.9`.
+    - Downgraded `jackson-dataformat-xml` dependency version to `2.12.5`.
+    - Downgraded `jackson-datatype-jsr310` dependency version to `2.12.5`.
+  GroupId: com.azure.android
+- Name: azure-core-credential
+  Version: 1.0.0-beta.9
+  DisplayName: Core Credential
+  ServiceName: Core Credential
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-credential_1.0.0-beta.9/sdk/core/azure-core-credential/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-http-okhttp
+  Version: 1.0.0-beta.9
+  DisplayName: Core HTTP OkHttp
+  ServiceName: Core HTTP OkHttp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-okhttp_1.0.0-beta.9/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-logging
+  Version: 1.0.0-beta.9
+  DisplayName: Core Logging
+  ServiceName: Core Logging
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-logging_1.0.0-beta.9/sdk/core/azure-core-logging/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.android
+- Name: azure-core-http
+  Version: 1.0.0-beta.9
+  DisplayName: Core HTTP
+  ServiceName: Core HTTP
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http_1.0.0-beta.9/sdk/core/azure-core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-credential` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-rest
+  Version: 1.0.0-beta.9
+  DisplayName: Core REST
+  ServiceName: Core REST
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-rest_1.0.0-beta.9/sdk/core/azure-core-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+- Name: azure-core-http-httpurlconnection
+  Version: 1.0.0-beta.9
+  DisplayName: Core HTTP HttpUrlConnection
+  ServiceName: Core HTTP HttpUrlConnection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-httpurlconnection_1.0.0-beta.9/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.9`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.9`.
+  GroupId: com.azure.android
+

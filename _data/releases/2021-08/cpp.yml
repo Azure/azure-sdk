@@ -1,0 +1,132 @@
+entries:
+- Name: azure-security-keyvault-keys
+  Version: 4.0.0-beta.4
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.0.0-beta.4/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `GetIv()` to `EncryptParameters` and `DecryptParameters`.
+    - Added `BackupKeyResult` for `BackupKey()` return type.
+
+    #### Breaking Changes
+
+    - Removed `Azure::Security::KeyVault::Keys::ServiceVersion::V7_0` and `V7_1`.
+    - Removed `Azure::Security::KeyVault::Keys::Cryptography::ServiceVersion::V7_0` and `V7_1`.
+    - Removed `CryptographyClient::RemoteClient()` and `CryptographyClient::LocalOnly()`.
+    - Removed the general constructor from `EncryptParameters` and `DecryptParameters`.
+    - Removed access to `Iv` field member from `EncryptParameters` and `DecryptParameters`.
+    - Removed `Encrypt(EncryptionAlgorithm, std::vector, context)`.
+    - Removed `Decrypt(DecryptAlgorithm, std::vector, context)`.
+    - Removed `JsonWebKey::HasPrivateKey()`.
+    - Removed the `MaxPageResults` field from `GetPropertiesOfKeysOptions`, `GetPropertiesOfKeyVersionsOptions`, and `GetDeletedKeysOptions`.
+    - Renamed header `list_keys_single_page_result.hpp` to `list_keys_responses.hpp`.
+    - Updated `BackupKey()` API return type to `BackupKeyResult` model type.
+    - Renamed `KeyPropertiesPageResult` to `KeyPropertiesPagedResponse`.
+    - Renamed `DeletedKeyPageResult` to `DeletedKeyPagedResponse`.
+    - Changed the container for `KeyOperations` from `std::list` to `std::vector` within `CreateKeyOptions` and `UpdateKeyProperties()`.
+    - Changed the return type of `CrytographyClient` APIs like `Encrypt()` to return `Response<T>` rather than the `T` directly.
+    - Renamed high-level header from `key_vault_keys.hpp` to `keyvault_keys.hpp`.
+- Name: azure-core
+  Version: 1.2.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.2.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Azure::Core::IO::ProgressBodyStream` type that wraps an existing BodyStream based type stream and reports progress via callback when the stream position is updated.
+
+    #### Bugs Fixed
+
+    - [2647](https://github.com/Azure/azure-sdk-for-cpp/issues/2647) Make the curl transport adapter to check the connection close header.
+    - [2474](https://github.com/Azure/azure-sdk-for-cpp/issues/2474) Fix compiling with MSVC and `/analyze`.
+    - Make WinHTTP transport adapter to NOT use SSL/TLS for unsecured HTTP connections.
+- Name: azure-identity
+  Version: 1.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.1.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - Fixed minor memory leak when obtaining a token.
+- Name: azure-security-keyvault-keys
+  Version: 4.0.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.0.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Consolidated keyvault and cryptography client options and model files into single headers.
+- Name: azure-storage-files-shares
+  Version: 12.1.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.1.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where unspecified SMB properties got overwritten rather than preserved by `SetProperties()`.
+- Name: azure-storage-common
+  Version: 12.1.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.1.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Avoid time domain casting exception during request cancellation. (A community contribution, courtesy of _[johnwheffner](https://github.com/johnwheffner)_)
+- Name: azure-storage-blobs
+  Version: 12.1.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.1.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where lease ID didn't work for `BlobContainerClient::GetAccessPolicy()`.
+    - Fixed a bug where sequence number access conditions didn't work for page blob operations.
+    - Fixed a bug where `BlobItemDetails::EncryptionKeySha256` was always null because it wasn't correctly parsed from xml.
+    - Fixed a bug where `BlockBlobClient::GetBlockList` threw exception if the blob is not committed.
+
+    #### Features Added
+
+    - Added lease ID access condition and tags access condition for `BlobClient::SetAccessTier()`.
+    - Added source ETag access conditions and last-modified access conditions for `PageBlobClient::UploadPagesFromUri()`.
+    - Added three new fields `IsServerEncrypted`, `EncryptionKeySha256` and `EncryptionScope` into `SetBlobMetadataResult`.
+    - Added support for setting blob tags when creating or copying blobs.
+    - Added new fields `AccessTierChangedOn`, `ArchiveStatus`, `RehydratePriority`, `CopyId`, `CopySource`, `CopyStatus`, `CopyStatusDescription`, `IsIncrementalCopy`, `IncrementalCopyDestinationSnapshot`, `CopyProgress`, `CopyCompletedOn`, `Tags`, `DeletedOn` and `RemainingRetentionDays` into `BlobItemDetails`.
+    - Added support for including blob tags when listing blobs.
+- Name: azure-storage-files-datalake
+  Version: 12.1.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.1.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ETag` and `LastModified` into `ScheduleFileDeletionResult`.
+

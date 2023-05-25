@@ -8,7 +8,7 @@ sidebar: general_sidebar
 To help make our repos more consistent and easier to approach from our team as well as the community we should have a consistent structure. That structure should avoid putting a lot of stuff in the root of the repo to make it appear neater and allow folks visiting the repo to quickly see the root README.md without needing to scroll. The directory structure should look like:
 
 - `common` - Will contain source code or projects that are not shipping artifacts but are shared and used by our sdk libraries. Things like common test projects or shared test or source code.
-- `doc` - Contains documentation, usually in markdown files, for anything in the repo. It should also contain a README.md that states the purposes of all the folders under `doc`.  ([Example](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/README.md))
+- `doc` - Contains documentation, usually in markdown files, for anything in the repo. It should also contain a README.md that states the purposes of all the folders under `doc`.  ([Example](https://github.com/Azure/azure-sdk-for-python/blob/main/doc/README.md))
   - `doc\dev` - Contains the set of documentation needed for developers that are contributing to the repository.
 - `eng` - Used to contain things needed by the engineering system to build, test, or perform other related tasks. It will usually contain configure files, build definitions, scripts and other tools (generally not checked in binaries).
 - `sdk` - Primary directory which will contain our sdk library source code. See below for more details on its layout.
@@ -37,6 +37,10 @@ sdk\<service name>\<package name>\*samples*
     - A folder which contains the source code for the library contained in the package in whatever format is appropriate for the specific language and tools.
     - A folder which contains the test code for the library contained in the package in whatever format is appropriate for the specific language and tools.
     - A folder which contains sample code for the library contained in the package in whatever format is appropriate for the specific language and tools.
+
+#### Special considerations for application frameworks
+
+The azure-sdk language repositories will sometimes contain modules/libraries/packages which provide integration between popular application frameworks as Azure services. For example Spring Boot, Spring Data, or ASP.NET. In general the modules that provide integration with a specific service should be co-located with the other modules for that service. In very limited circumstances an application framework may contains shared logic used across multiple integrations, or all integrations are in a single module. In those cases the module may be placed in a directory named after the application framework (e.g. ```sdk/spring/```).
 
 ### Examples:
 

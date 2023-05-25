@@ -1,0 +1,50 @@
+# <noun> needs to be scaped with \ because it's a html tag.
+entries:
+  - Verb: create_\<noun>
+    Parameters: key, item
+    Returns: Created item
+    Comments: Create new item. Fails if item already exists.
+  - Verb: upsert_\<noun>
+    Parameters: key, item
+    Returns: item
+    Comments: Create new item, or update existing item. Verb is primarily used in database-like services.
+  - Verb: set_\<noun>
+    Parameters: key, item
+    Returns: item
+    Comments: Create new item, or update existing item. Verb is primarily used for dictionary-like properties of a service.
+  - Verb: update_\<noun>
+    Parameters: key, partial item
+    Returns: item
+    Comments: Fails if item doesn't exist.
+  - Verb: replace_\<noun>
+    Parameters: ey, item
+    Returns: item
+    Comments: Replaces an existing item. Fails if the item doesn't exist.
+  - Verb: append_\<noun>
+    Parameters: item
+    Returns: item
+    Comments: Add item to a collection. Item will be added last.
+  - Verb: add_\<noun>
+    Parameters: index, item
+    Returns: item
+    Comments: Add item to a collection. Item will be added at the given index.
+  - Verb: get_\<noun>
+    Parameters: key
+    Returns: item
+    Comments: Raises an error if item doesn't exist.
+  - Verb: list_\<noun>
+    Parameters:
+    Returns: Pageable[Item]
+    Comments: Return an iterable of items. Returns iterable with no items if no items exist.
+  - Verb: \<noun>_exists
+    Parameters: key
+    Returns: boolean`
+    Comments: Return `True` if the item exists. Must raise an error if the method failed to determine if the item exists (for example, the service returned an HTTP 503 response).
+  - Verb: delete_\<noun>
+    Parameters: key
+    Returns:
+    Comments: Delete an existing item. Must succeed even if item didn't exist.
+  - Verb: remove_\<noun>
+    Parameters: key
+    Returns: removed item
+    Comments: Remove a reference to an item from a collection. This method doesn't delete the actual item, only the reference.

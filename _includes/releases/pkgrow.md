@@ -1,88 +1,30 @@
-<tr>
-  <td>{{ item.Service }}</td>
-  <td>
-    {% capture label %} 
-        {{ package_label }}
-    {% endcapture %}
+{% if item.Hide != "true" %}
 
-    {% if item.VersionGA != "" %}
-        {% assign version = item.VersionGA %}
-        {% capture url %}
-        {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
-        {% endcapture %}
-        {% include releases/pkgbadge.md  label=label url=url %}
-    {% endif %}
+    <!-- Add simple begin marker to mimic supporting beginning of word regex syntax -->
+    {% assign trimmedPackage = item.Package | prepend: "^" %}
+    {% assign packageTrim = package_trim | prepend: "^" %}
 
-    {% if item.VersionPreview != "" %}
-        {% assign version = item.VersionPreview %}
-        {% capture url %}
-        {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
-        {% endcapture %}
-        {% include releases/pkgbadge.md  label=label preview="true" url=url %}
-    {% endif %}
-  </td>
-  <td>
-    {% if item.VersionGA != "" %}
-        {% assign pkgPath = item.Package | remove: 'Azure.' | remove: 'azure-' %}
-        {% assign url = item.MSDocs %}
-        {% if item.MSDocs == "" %}
-            {% assign url = msdocs_url_template | replace: 'item.Package', pkgPath %}
-        {% endif %}
-        {% include releases/pkgbadge.md label="msdocs" url=url %}
+    {% assign trimmedPackage = trimmedPackage | remove: packageTrim | remove: "^" %}
+
+    {% if package_url_template contains "item.RepoPath" and item.RepoPath contains "http" %}
+        {% assign package_url = item.RepoPath %}
+    {% else %}
+        {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
     {% endif %}
 
-    {% if item.VersionPreview != "" %}
-        {% assign pkgPath = item.Package | remove: 'Azure.' | remove: 'azure-' %}
-        {% assign url = item.MSDocs %}
-        {% if item.MSDocs == "" %}
-            {% assign url = msdocs_url_template | replace: 'item.Package', pkgPath %}
-        {% endif %}
-        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url %}
+    <tr scope="row">
+        <td title="{{ item.Package }}">
+            <div><strong>{{ item.DisplayName }} {% if include.type == "all" and item.New == "true" %}<i>(New)</i>{%endif%}</strong></div>
+            <div><small>{{item.Package}}</small></div>
+            <div>{% include releases/replace.md %}</div>
+        </td>
+    {% if include.type != "deprecated" %}
+        <td>{% include releases/links.md version="VersionGA" %}</td>
+        <td>{% include releases/links.md version="VersionPreview" preview="true" %}</td>
+        <td class="text-nowrap">{% include releases/roadmap.md %}</td>
+    {% else %}
+        <td>{% include releases/links.md version="VersionGA" %}</td>
     {% endif %}
-  </td>
-  <td>
-    {% if item.VersionGA != "" %}
-        {% assign version = item.VersionGA %}
-        {% assign url = item.GHDocs %}
-        {% if item.GHDocs == "" %}
-            {% assign url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version %}
-        {% endif %}
-        {% include releases/pkgbadge.md label="ghdocs" url=url %}
-    {% endif %}
+    </tr>
 
-    {% if item.VersionPreview != "" %}
-        {% assign version = item.VersionPreview %}
-        {% assign url = item.GHDocs %}
-        {% if item.GHDocs == "" %}
-            {% assign url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version %}
-        {% endif %}
-        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url %}
-    {% endif %}
-  </td>
-  <td>
-    {% if item.VersionGA != "" %}
-        {% assign version = item.VersionGA %}
-        {% capture url %}
-        {% if item.RepoPath contains "http" %}
-            {{item.RepoPath}}
-        {% else %}
-            {{ source_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version | replace: 'item.RepoPath', item.RepoPath}}
-        {% endif %}
-        {% endcapture %}
-        {% include releases/pkgbadge.md label="github" url=url %}
-    {% endif %}
-
-    {% if item.VersionPreview != "" %}
-        {% assign version = item.VersionPreview %}
-        {% capture url %}
-        {% if item.RepoPath contains "http" %}
-            {{item.RepoPath}}
-        {% else %}
-            {{ source_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version | replace: 'item.RepoPath', item.RepoPath}}
-        {% endif %}
-        {% endcapture %}
-        {% include releases/pkgbadge.md label="github" preview="true" url=url %}
-    {% endif %}
-  </td>
-</tr>
-
+{% endif %}

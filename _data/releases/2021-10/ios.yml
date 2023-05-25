@@ -1,0 +1,24 @@
+entries:
+- Name: AzureCommunicationChat
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.1.0-beta.1/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - `ChatMessage` supports metadata, provide optional metadata when sending a `ChatMessage`
+    - `ChatMessageReceivedEvent` and `ChatMessageEditedEvent` also contain metadata
+    - Typing notifications support sender display name, `sendTypingNotification()` accepts an optional `senderDisplayName`
+- Name: AzureCommunicationChat
+  Version: 1.1.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.1.0-beta.2/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix missing AzureTest dependency in Package.swift
+

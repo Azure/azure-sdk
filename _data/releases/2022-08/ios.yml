@@ -1,0 +1,16 @@
+entries:
+- Name: AzureCommunicationChat
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.3.0-beta.1/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - `ChatClient` now supports Push Notifications for Chat events
+    - Following methods added to `ChatClient`:
+    - `startPushNotifications(deviceToken:)`
+    - `stopPushNotifications()`
+    - Added the prototol`PushNotificationKeyHandler` and the class `AppGroupPushNotificationKeyHandler` to support PushNotification Encryption Key Management
+

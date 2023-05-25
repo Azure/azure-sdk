@@ -1,0 +1,381 @@
+entries:
+- Name: '@azure/arm-datafactory'
+  Version: 10.5.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-changes'
+  Version: 1.0.0
+  DisplayName: Resource Management - Changes
+  ServiceName: Changes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changes_1.0.0/sdk/changes/arm-changes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.3.0-beta.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.0-beta.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `lroEngine` now supports cancellation of the long-running operation.
+- Name: '@azure/arm-network'
+  Version: 28.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-securityinsight'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Securityinsight
+  ServiceName: Securityinsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.3/sdk/securityinsight/arm-securityinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 16.1.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicelinker'
+  Version: 2.0.0
+  DisplayName: Resource Management - Servicelinker
+  ServiceName: Servicelinker
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicelinker_2.0.0/sdk/servicelinker/arm-servicelinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 14.0.0-beta.2
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/service-bus'
+  Version: 7.6.0-beta.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.6.0-beta.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add an option `omitMessageBody` in `PeekMessagesOptions` allowing omitting message body when peeking messages using `receiver.peekMessages()`
+- Name: '@azure/ai-text-analytics'
+  Version: 6.0.0-beta.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - This version targets Azure Cognitive Language Service API version `2022-04-01-preview` and newer. It _is not_ compatible with the Text Analytics service API. To continue to use the Text Analytics API version 3.1, please use major version 5 of the client library (`@azure/ai-text-analytics@^5.1.0`).
+    - `TextAnalyticsClient` has been replaced by `TextAnalysisClient`.
+    - The new `beginAnalyzeBatch` method replaces the previous `beginAnalyzeActions` and `beginAnalyzeHealthcareEntities` methods. The specification of actions and their results has changed to be a flat list instead of being an object where actions of the same kind are grouped into their own properties.
+    - The new `analyze` method replaces the text analysis methods of the previous client. It provides a single method that can analyze documents using an action name. It replaces `analyzeSentiment`, `extractKeyPhrases`, `recognizeEntities`, `recognizePiiEntities`, `recognizeLinkedEntities`, and `detectLanguage`. The new method produces an `AnalyzeResult` that gets specialized to the type of results corresponding to the input action.
+    - Previously, types were named such that they follow the naming convention of actions as verb phrases, e.g. `RecognizeEntitiesResult`. Actions are now renamed as nouns and so their corresponding types, so `RecognizeEntitiesResult` is now named `EntityRecognitionResult`. Please consult the migration guide for a full list of all renames.
+    - In many output types, properties are now marked as read-only.
+    - `SingleCategoryClassifyActionSuccessResult` is renamed to `CustomSingleLabelClassificationSuccessResult` and the `classification` property has been renamed to `classifications` and is now an array.
+    - `statistics` and `modelVersion` has been removed from result arrays, e.g. `RecognizeEntitiesResultArray` has been replaced by `EntityRecognitionResult[]`.
+- Name: '@azure/arm-appplatform'
+  Version: 2.0.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dynatrace'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_1.0.0-beta.1/sdk/dynatrace/arm-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesbackup'
+  Version: 9.0.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicesbackup/arm-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 16.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.16.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Allow users like cosmos-explorer to specify hierarchical partition keys. https://github.com/Azure/azure-sdk-for-js/pull/21934
+    - Support Dedicated Gateway RequestOptions and Max Integrated Cache Staleness. https://github.com/Azure/azure-sdk-for-js/pull/21240
+- Name: '@azure/arm-containerregistry'
+  Version: 10.1.0-beta.3
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-azurestackhci'
+  Version: 3.0.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_3.0.0/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-education'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Education
+  ServiceName: Education
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.1/sdk/education/arm-education/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-machinelearning'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Machinelearning
+  ServiceName: Machinelearning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-machinelearning_1.0.0-beta.1/sdk/machinelearning/arm-machinelearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-deviceupdate'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Deviceupdate
+  ServiceName: Deviceupdate
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceupdate_1.0.0-beta.1/sdk/deviceupdate/arm-deviceupdate/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 18.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-deviceprovisioningservices'
+  Version: 5.0.1
+  DisplayName: Resource Management - Device Provisioning Services
+  ServiceName: IoT Hub Device Provisioning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceprovisioningservices/arm-deviceprovisioningservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confidentialledger'
+  Version: 1.0.0
+  DisplayName: Resource Management - Confidentialledger
+  ServiceName: Confidentialledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_1.0.0/sdk/confidentialledger/arm-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.16.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix [#22003](https://github.com/Azure/azure-sdk-for-js/issues/22003) missing interface error. [#22015](https://github.com/Azure/azure-sdk-for-js/pull/22015)
+- Name: '@azure/arm-appinsights'
+  Version: 5.0.0-beta.4
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-orbital'
+  Version: 1.0.0
+  DisplayName: Resource Management - Orbital
+  ServiceName: Orbital
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_1.0.0/sdk/orbital/arm-orbital/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appcontainers'
+  Version: 1.0.0
+  DisplayName: Resource Management - Appcontainers
+  ServiceName: Appcontainers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_1.0.0/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-email'
+  Version: 1.0.0-beta.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.0-beta.1/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    The first preview of the Azure Communication Email Client has the following features:
+
+    - send emails to multiple recipients with attachments
+    - get the status of a sent message
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.9.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add TLS policy in `createPipelineFromOptions`. [#21949](https://github.com/Azure/azure-sdk-for-js/pull/21949)
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.10
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.10/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixes
+
+    - Fix to avoid skip `JSON.stringify` when the body is already a string. [20753](https://github.com/Azure/azure-sdk-for-js/pull/20753)
+
+    #### Other Changes
+
+    - Create new pipeline using @azure/core-rest-pipeline's `createPipelineFromOptions`, instead of a custom pipeline. [#21949](https://github.com/Azure/azure-sdk-for-js/pull/21949)
+    - Fix URL encoding for query parameters. [#20972](https://github.com/Azure/azure-sdk-for-js/pull/20972)
+- Name: '@azure/arm-imagebuilder'
+  Version: 2.0.0
+  DisplayName: Resource Management - Imagebuilder
+  ServiceName: Imagebuilder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_2.0.0/sdk/imagebuilder/arm-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/data-tables'
+  Version: 13.1.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.1.2/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support cross tenant authentication [#21678](https://github.com/Azure/azure-sdk-for-js/pull/21678)
+
+    #### Bugs Fixed
+
+    - fix react native bundling issue by adding a `react-native` mapping to ESM
+    entry point so that dependencies can be loaded asynchronously.
+- Name: '@azure/service-bus'
+  Version: 7.6.0-beta.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.6.0-beta.4/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support to add, retrieve, and remove subscription-level rules via AMQP links. [PR #22018](https://github.com/Azure/azure-sdk-for-js/pull/22018)
+- Name: '@azure/ai-form-recognizer'
+  Version: 4.0.0-beta.4
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - [**DEPRECATION**] Deprecated `PrebuiltModels`. In a future version (prior to a stable release), `PrebuiltModels` and its fields will be replaced with an out-of-tree solution for obtaining strongly-typed analysis results.
+    - [**DEPRECATION**] Deprecated `beginExtractLayout`, `beginExtractGeneralDocument`, and `beginReadDocument`. In a future version (prior to a stable release), these methods will be removed, and `beginAnalyzeDocument` will be enhanced to provide the same restricted types.
+    - Renamed the `beginCopyModel` method of `DocumentModelAdministrationClient` to `beginCopyModelTo`. [#20775](https://github.com/Azure/azure-sdk-for-js/pull/20775)
+    - Renamed `BoundingRegion#boundingBox` to `BoundingRegion#polygon`, as the service may now provide arbitrary, polygonal bounding areas rather than just rectangles.
+    - The polygon is represented as an array of `Point2D`, clockwise from the left, -180 degrees inclusive.
+    - Removed the `entities` property from the `AnalyzeResult` type. This field may be reintroduced in a future version, but service API version `2022-06-30-preview` no longer returns this field.
+    - Renamed the `languageCode` property in the `DocumentLanguage` type to `locale`.
+    - Made the `angle`, `height`, `lines`, `unit`, `width`, and `words` properties of `DocumentPage` optional, as not all page kinds are guaranteed to support these fields.
+
+    #### Features Added
+
+    - Updated the SDK to use the latest preview version of the Form Recognizer service: `2022-06-30-preview`.
+    - Added a `paragraphs` property to the `AnalyzeResult` type and a new `DocumentParagraph` type. This property represents the paragraph structure of the input document's text.
+    - Documents may now contain a `DocumentAddressField` type, which has an object with several fields related to physical addresses, such as `streetAddress`, `city`, and `state` as its value. This field is identified by the value `"address"` in the `kind` field.
+    - Added a `kind` field to `DocumentPage`. For now, the only supported value of this field is `"document"`. In the future, other page kinds may be added, indicating different dispositions of the extracted page elements.
+- Name: '@azure/arm-datafactory'
+  Version: 10.6.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-communication'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.0.0-beta.1/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 19.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 17.0.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-query'
+  Version: 1.0.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a typo in the string for user-provided scope for `MetricsQueryClient` and `LogsQueryClient`.
+

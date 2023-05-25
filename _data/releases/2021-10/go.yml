@@ -1,0 +1,58 @@
+entries:
+- Name: sdk/storage/azblob
+  Version: 0.1.0
+  DisplayName: Storage Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.1.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * This is the initial preview release of the `azblob` library
+- Name: sdk/data/aztables
+  Version: 0.1.0
+  DisplayName: aztables
+  ServiceName: sdk/data/aztables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.1.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: '* This is the initial release of the `aztables` library'
+- Name: sdk/data/aztables
+  Version: 0.2.0
+  DisplayName: aztables
+  ServiceName: sdk/data/aztables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.2.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the `ClientOptions.PerTryPolicies` for policies that execute once per retry of an operation.
+
+    #### Breaking Changes
+    * Changed the `ClientOptions.PerCallOptions` field name to `ClientOptions.PerCallPolicies`
+    * Changed the `ClientOptions.Transporter` field name to `ClientOptions.Transport`
+- Name: sdk/messaging/azservicebus
+  Version: 0.1.0
+  DisplayName: azservicebus
+  ServiceName: servicebus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.1.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: '- Initial preview for the new version of the Azure Service Bus Go SDK.'
+- Name: sdk/keyvault/azsecrets
+  Version: 0.1.0
+  DisplayName: Go - Keyvault Secrets
+  ServiceName: Keyvault.Secrets
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.1.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: '* This is the initial release of the `azsecrets` library'
+- Name: sdk/keyvault/azsecrets
+  Version: 0.1.1
+  DisplayName: Go - Keyvault Secrets
+  ServiceName: Keyvault.Secrets
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.1.1/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: '* Adds the MIT License for redistribution'
+

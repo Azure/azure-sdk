@@ -1,16 +1,23 @@
-<table>
-<tr>
-  <th>Service</th>
-  <th>Package</th>
-  <th>MSDocs</th>
-  <th>GHDocs</th>
-  <th>Source</th>
-</tr>
-<tbody id="myTable">
-{% for item in packages %}
+<div class="table-responsive">
+  <table class="table table-bordered table-condensed">
+      <tr>
+        <th class="table-display-text-th table-display-name-th" scope="col">Name</th>
+{% if include.type != "deprecated" %}
+        <th scope="col">Stable</th>
+        <th scope="col">Beta</th>
+        <th scope="col">Next Stable</th>
+{% else %}
+        <th scope="col">Version</th>
+{% endif %}
+      </tr>
+      <tbody id="myTable">
 
-{% include releases/pkgrow.md %}
+      {% for item in packages %}
 
-{% endfor %}
-</tbody>
-</table>
+      {% include releases/pkgrow.md type=include.type %}
+
+      {% endfor %}
+
+      </tbody>
+  </table>
+</div>

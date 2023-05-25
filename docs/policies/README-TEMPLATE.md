@@ -11,24 +11,37 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 * **DO NOT** use an "Introduction" or "Overview" heading (H2) for this section.
 * First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)).
+* Include version of the service this library supports: "this library supports [X.Y version of the service] and below"
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
   - [Package (PyPi)](https://pypi.org/project/azure-cosmos/)
-  - [API reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmos-readme?view=azure-python)
-  - [Product documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)
-  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
-  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
-  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
-  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
+  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme)
+  - [Product documentation](https://docs.microsoft.com/azure/cosmos-db/)
+  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos)
+  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples)
+  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/cosmosdb.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links.
+> TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
+
+## Link Guidelines
+
+* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume the content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to main in all our MD files in the repo as this will help ensure that links work in other contexts.
+
+  * Given we own the publishing pipeline for docs we will transform main links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published.
+
+  * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the main but will be a valid link after the PR is merged to main, then you can put the link as a comment like this `Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/main/samples.json)--> to look at.` (Note you can also put a TODO in the comment if you like). Then in a follow-up PR you can remove the comment to get the link you wanted.
+
+* **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
-* **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time. 
+* **DO NOT** use upper case in the anchor tag links like `#Samples`. Using upper case in anchor tag links will not work when we convert them to html as they are usually case sensitive. For this reason the guidance is to use lower case for any anchor tags we have in all our MD files in the repo as this will help ensure that links work in other contexts. For example use `https://github.com/Azure/azure-sdk-for-java#client-new-releases` instead of `https://github.com/Azure/azure-sdk-for-java#Client-New-Releases`
 
-> TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
+* **DO** use `https` instead of `http` for links to ensure we are linking to secure servers.
+
+* **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time.
 
 ## Getting started
 
@@ -113,11 +126,10 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 ## Links to language repos
 
-[Python Readme Template](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/template/azure-template/README.md)
+[Python Readme Template](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/template/azure-template/README.md)
 
-[JavaScript Readme Template](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/template/template/README.md)
+[JavaScript Readme Template](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/template/template/README.md)
 
-[Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
+[Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/template/azure-sdk-template/README.md)
 
-[.Net Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
-
+[.NET Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/template/Azure.Template/README.md)

@@ -1,51 +1,65 @@
 {% assign sidebar = site.data.sidebars[page.sidebar].entries %}
 
-<ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">{{sidebar[0].product}} {{sidebar[0].version}}</li>
-  {% for entry in sidebar %}
-    {% for folder in entry.folders %}
-      {% if page.url == folder.url %}
-      <li class="active">
-      {% else %}
-      <li>
-      {% endif %}
-        {% if folder.url %}
-        <a title="{{folder.title}}" href="{{folder.url | relative_url}}">{{folder.title}}</a>
+<div id="mysidebar" class="nav">
+
+  <script src="{{ "/js/tipuesearch_content.js" | relative_url }}"></script>
+  <script src="{{ "/js/tipuesearch_set.js" | relative_url }}"></script>
+  <script src="{{ "/js/tipuesearch.min.js" | relative_url }}"></script>
+
+<p>
+<form action="{{folder.url}}/azure-sdk/search.html" >
+    <div class=" tipue_search_left"><img src="{{ "/images/search.png" | relative_url }}" alt="Search Icon" class="tipue_search_icon"></div>
+    <input type="text" class="form-control tipue_search_right" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required placeholder="Search website">
+</form>
+</p>
+<div style="clear: both;"></div>
+  <ol>
+    <li class="sidebarTitle">{{sidebar[0].product}} {{sidebar[0].version}}</li>
+    {% for entry in sidebar %}
+      {% for folder in entry.folders %}
+        {% if page.url == folder.url %}
+        <li class="active">
         {% else %}
-        <a title="{{folder.title}}" href="#">{{folder.title}}</a>
+        <li>
         {% endif %}
-        <ul>
-          {% for folderitem in folder.folderitems %}
-            {% if folderitem.external_url %}
-              <li><a title="{{folderitem.title}}" href="{{folderitem.external_url}}" target="_blank" rel="noopener">{{folderitem.title}}</a></li>
-            {% elsif page.url == folderitem.url %}
-              <li class="active"><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
-            {% elsif folderitem.type == "empty" %}
-              <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
-            {% else %}
-              <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
-            {% endif %}
-            {% for subfolders in folderitem.subfolders %}
-              <li class="subfolders">
-                <a title="{{subfolders.title}}" href="#">{{ subfolders.title }}</a>
-                <ul>
-                  {% for subfolderitem in subfolders.subfolderitems %}
-                    {% if subfolderitem.external_url %}
-                      <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.external_url}}" target="_blank" rel="noopener">{{subfolderitem.title}}</a></li>
-                    {% elsif page.url == subfolderitem.url %}
-                      <li class="active"><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
-                    {% else %}
-                      <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              </li>
+          {% if folder.url %}
+          <a title="{{folder.title}}" href="{{folder.url | relative_url}}">{{folder.title}}</a>
+          {% else %}
+          <a title="{{folder.title}}" href="#">{{folder.title}}</a>
+          {% endif %}
+          <ul>
+            {% for folderitem in folder.folderitems %}
+              {% if folderitem.external_url %}
+                <li><a title="{{folderitem.title}}" href="{{folderitem.external_url}}" target="_blank" rel="noopener">{{folderitem.title}}</a></li>
+              {% elsif page.url == folderitem.url %}
+                <li class="active"><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+              {% elsif folderitem.type == "empty" %}
+                <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+              {% else %}
+                <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+              {% endif %}
+              {% for subfolders in folderitem.subfolders %}
+                <li class="subfolders">
+                  <a title="{{subfolders.title}}" href="#">{{ subfolders.title }}</a>
+                  <ul>
+                    {% for subfolderitem in subfolders.subfolderitems %}
+                      {% if subfolderitem.external_url %}
+                        <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.external_url}}" target="_blank" rel="noopener">{{subfolderitem.title}}</a></li>
+                      {% elsif page.url == subfolderitem.url %}
+                        <li class="active"><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
+                      {% else %}
+                        <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
             {% endfor %}
-          {% endfor %}
-        </ul>
-      </li>
+          </ul>
+        </li>
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
-</ul>
+  </ol>
+</div>
 
 <script>$("li.active").parents('li').toggleClass("active");</script>

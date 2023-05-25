@@ -3,12 +3,14 @@ title: "TypeScript Guidelines: Implementation"
 keywords: guidelines typescript
 permalink: typescript_implementation.html
 folder: typescript
-sidebar: js_sidebar
+sidebar: general_sidebar
 ---
 
 Once you've worked through an acceptable API design, you can start implementing the service clients.
 
 {% include requirement/SHOULD id="ts-should-use-template" %} use the [TypeScript client library template].
+
+TODO: Please add a discussion of how to use the Http Pipeline to implement a service method, if relevant, and on creating and adding custom policies to the pipeline.
 
 ## Configuration {#ts-configuration}
 
@@ -52,7 +54,7 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST id="ts-configuration-approval-for-envs" %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="ts-configuration-approval-for-envs" %} get approval from the [Architecture Board] for every new environment variable.
 
 {% include requirement/MUST id="ts-configuration-env-syntax" %} use this syntax for environment variables specific to a particular Azure service:
 
@@ -89,6 +91,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Response downloader
 - Distributed tracing
 - Logging
+-
+- TODO: If these policies are already implemented in Azure Core, does the library developer need to do this?  If not, please remove this guidance.
 
 {% include requirement/SHOULD id="general-implementing-use-core-policies" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
@@ -96,11 +100,13 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="general-implementing-no-persistence-auth" %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
+{% include requirement/MUSTNOT id="general-implementing-no-persistence-auth" %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
 {% include requirement/MUST id="general-implementing-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+
+TODO: Would a code sample be helpful here?
 
 ## Native code {#general-native-code}
 
@@ -110,13 +116,13 @@ Some languages support the development of platform-specific native code plugins.
 
 ## Error handling {#general-error-handling}
 
-Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.  
+Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
 
 {% include requirement/SHOULD id="general-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
 
 {% include requirement/MUST id="general-errors-when-http-fails" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
 
-{% include requirement/MUST id="general-errors-include-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
+{% include requirement/MUST id="general-errors-include-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -144,7 +150,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="ts-logging-use-debug-module" %} use the `debug` module to log to stderr or the browser console.
 
-{% include requirement/MUST id="general-logging-console" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
+{% include requirement/MUST id="general-logging-console" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented.
 
 {% include requirement/MUST id="ts-logging-prefix-channel-names" %} prefix channel names with `azure:<service-name>`.
 
@@ -153,7 +159,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 * Error: `:error`
 * Warning: `:warning`
 * Info: `:info`
-* Verbpse: `:verbose`
+* Verbose: `:verbose`
 
 {% include requirement/MAY id="ts-logging-additional-channels" %} have additional log channels, for example, to log from separate components. However, these channels MUST still provide the three log levels from above for each subchannel.
 
@@ -192,6 +198,8 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 {% include requirement/MUST id="general-tracing-create-span-on-rest" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.  JavaScript doesn't have primitives similar to a local context.  As such, we must manually plumb parent span IDs into the library.
+
+TODO: Please add a discussion of how to set the user-agent string for implementation of the SDK Telemetry feature.
 
 ## Dependencies {#ts-dependencies}
 
@@ -261,7 +269,7 @@ Consistent versioning allows consumers to determine what to expect from a new ve
 
 {% include requirement/MUST id="general-versioning-adding-features" %} increment the major or minor version when adding support for a service API version, or add a backwards-compatible feature.
 
-{% include requirement/MUSTNOT id="general-versioning-no-breaking-changes" %} make breaking changes.  If a breaking change is absolutely required, then you **MUST** engage with the [Architecture Board] prior to making the change.  If a breaking change is approved, increment the major version. 
+{% include requirement/MUSTNOT id="general-versioning-no-breaking-changes" %} make breaking changes.  If a breaking change is absolutely required, then you **MUST** engage with the [Architecture Board] prior to making the change.  If a breaking change is approved, increment the major version.
 
 {% include requirement/SHOULD id="general-versioning-major-bump" %} increment the major version when making large feature changes.
 
@@ -271,11 +279,13 @@ A particular (major.minor) version of a library can choose what service APIs it 
 
 {% include requirement/MUST id="ts-versioning-semver" %} version with [semver](https://semver.org/). Deprecated features and flags must offer an alternate stable or beta path for developers.
 
-{% include requirement/MUSTNOT id="ts-versioning-no-ga-prerelease" %} have a pre-release version or any additional build metadata for GA packages.
+{% include requirement/MUSTNOT id="ts-versioning-no-ga-prerelease" %} have a pre-release version or any additional build metadata for stable packages.
 
-{% include requirement/MUST id="ts-versioning-preview" %} give preview packages a pre-release version of the format `1.0.0-Preview.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
+{% include requirement/MUST id="ts-versioning-beta" %} give beta packages a pre-release version of the format `1.0.0-beta.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
 
-{% include requirement/MUSTNOT id="ts-versioning-no-version-0" %} use a major version of 0, even for preview packages.
+{% include requirement/MUSTNOT id="ts-versioning-no-version-0" %} use a major version of 0, even for beta packages.
+
+{% include requirement/MUST id="general-versioning-bump" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other npm scope or language.
 
 Semantic versioning is more of a lofty ideal than a practical specification for some libraries. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Package authors are required to follow semver in a way that is useful for their consumers.
 
@@ -338,7 +348,7 @@ The following sections describe the package.json file that must be included with
   "main": "./dist/index.js",
   "module": "./dist-esm/index.js",
   "browser": {
-    "./dist-esm/src/index.js": "./browser/index.js"
+    "./dist-esm/src/index.js": "./dist-esm/src/index.browser.js"
   },
   "types": "./dist-esm/index.d.ts",
   "engine": {
@@ -356,7 +366,7 @@ The following sections describe the package.json file that must be included with
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
   "repository": "github:Azure/azure-sdk",
-  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus",
+  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus",
   "bugs": {
     "url": "https://github.com/Azure/azure-sdk-for-js/issues"
   },
@@ -367,7 +377,7 @@ The following sections describe the package.json file that must be included with
 
 {% include requirement/MUST id="ts-package-json-name" %} set `name` to `@azure/<name>`, where `<name>` is the name of the service. Package names are kebab-case: all lowercase with words joined by dashes.
 
-{% include requirement/MUST id="ts-package-json-homepage" %} set `homepage` to a URL pointing to your library's readme inside the git repo. Since the repository link goes to the monorepo, this link exists to serve as an easier way to reach the actual package's source.  
+{% include requirement/MUST id="ts-package-json-homepage" %} set `homepage` to a URL pointing to your library's readme inside the git repo. Since the repository link goes to the monorepo, this link exists to serve as an easier way to reach the actual package's source.
 
 {% include requirement/MUST id="ts-package-json-bugs" %} set `bugs` to an object with a `url` key pointing to your library's issue tracker: https://github.com/Azure/azure-sdk-for-js/issues.
 
@@ -391,15 +401,15 @@ Side effects are modifications to the runtime environment of the program. For ex
 
 Tools such as [Webpack](https://webpack.js.org) use this key to discover the static module graph of your application for optimization purposes.
 
-{% include requirement/MUST id="ts-package-json-browser" %} include a file map in the `browser` object if your library supports the browser.  The file map must include the `main` entry, and map it to the corresponding (unminified) browser code.
+{% include requirement/MUST id="ts-package-json-browser" %} include a file map in the `browser` object if your library supports the browser and needs browser-specific module substitutions.
 
-For example, the following JSON snippet demonstrates the minimum requirements:
+For example, the following JSON snippet demonstrates the minimum requirements, assuming you have a separate entrypoint for browsers.
 
 ```json
 {
     "main": "./dist/index.js",
     "browser": {
-        "./dist/index.js": "./dist/browser/index.js"
+        "./dist/index.js": "./dist/index.browser.js"
     }
 }
 ```
@@ -413,7 +423,7 @@ For example, the following JSON snippet demonstrates the minimum requirements:
 
 {% include requirement/MUSTNOT id="ts-package-json-required-scripts-for-development" %} depend on shell scripts to build or test the package.  Shell scripts need to be platform-specific.  Include a `script` for any task required during development of your package.
 
-{% include requirement/MUST id="ts-package-json-files-required" %} set `files` to an array containing paths of your package contents. Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm. 
+{% include requirement/MUST id="ts-package-json-files-required" %} set `files` to an array containing paths of your package contents. Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm.
 
 {% include requirement/MUST id="ts-package-json-types" %} set `types` to point to the TypeScript type declarations for your library's public surface area, usually `"./types/index.d.ts"`.
 
@@ -427,13 +437,7 @@ Modern npm packages often ship multiple source distributions targeting different
 
 The source code in your package helps developers debug your package. _Go-to-definition_ is a quick way to confirm how to use a function. Seeing useful names and readable source code in call stacks helps with debugging. We can aggressively optimize the build artifacts since users won't need to puzzle through the mangled code.
 
-{% include requirement/MUST id="ts-include-cjs" %} include a CommonJS (CJS) build in your package if you intend to support Node.
-
-{% include requirement/SHOULD id="ts-use-umd" %} distribute your package as a UMD module if you intend to support browsers.
-
-A UMD module is recommended even if your library isn't intended for the browser.  The overhead of UMD over CJS is slight and it will make an eventual move to the Web platform easier later.
-
-When building the CommonJS module, the library name must be under the `Azure` namespace.  Refer to the [namespace guidelines] to determine the correct namespace.
+{% include requirement/MUST id="ts-include-cjs" %} include a CommonJS (CJS) or UMD build in your package if you intend to support Node.
 
 {% include requirement/MUST id="ts-flatten-umd" %} flatten the CommonJS or UMD module.  [Rollup](https://rollupjs.org) is recommended for producing a flattened module.
 
@@ -446,13 +450,13 @@ The process of packing multiple modules into a single file is known as _flatteni
 An ESM distribution is consumed by tools such as [Webpack](https://webpack.js.org) that optimize the module graph. It should be "transpiled" to support the runtime versions you're targeting. Versions of Webpack before Webpack 4.0 produce better optimized bundles if the ESM build is flattened. However, flattening doesn't play so well with tree-shaking. The latest versions of Webpack do a better job when using an unflattened ESM build.
 
 
-{% include requirement/SHOULD id="ts-browser-umd" %} provide a browser build in UMD format for your library.
+<a name="ts-browser-umd"></a>
+<a name="ts-browser-umd-global-naming"></a>
+<a name="ts-browser-minify-umd"></a>
+<a name="ts-browser-location"></a>
+{% include requirement/MUSTNOT id="ts-no-browser-bundle" %} include a browser bundle in your package. Shipping browser bundles is convenient for users but comes with some significant downsides too. For example, browser bundles must flatten the entire dependency tree and re-distribute all open source components it depends on. This requires ThirdPartyNotices.txt to be accurate which is a complex and error-prone. Security vulnerabilities in any dependency requires servicing the browser bundle as well.
 
-{% include requirement/MUST id="ts-browser-umd-global-naming" %} name the UMD global according to the [namespace guidelines].
-
-{% include requirement/MUST id="ts-browser-minify-umd" %} provide both minified and non-minified versions, both with source mapping.
-
-{% include requirement/MUST id="ts-browser-location" %} lace browser builds in a top level `browser` folder. The name of the file should be the service name. Append `.min` to the name of minified files. For example, Storage Blob should have `storage-blob.min.js` and `storage-blob.js` under `./browser`.
+In practice, users working on production applications will likely be using a bundler. Moreover, modern bundlers are much easier to use relative to earlier incarnation. Azure client libraries should work with most popular bundlers.
 
 ### Modules {#ts-modules}
 
@@ -460,7 +464,7 @@ An ESM distribution is consumed by tools such as [Webpack](https://webpack.js.or
 
 {% include requirement/MUSTNOT id="ts-modules-no-default" %} have a default export at the top level
 
-Azure packages authored using TypeScript export standard ES6 modules. As Node doesn't support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notably, a commonJS package can only import a single value. 
+Azure packages authored using TypeScript export standard ES6 modules. As Node doesn't support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notably, a commonJS package can only import a single value.
 
 {% include refs.md %}
 {% include_relative refs.md %}

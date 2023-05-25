@@ -209,7 +209,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity
 
-#### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
+#### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
 
 - Update azure-core dependency to version 1.4.0.
 
@@ -276,13 +276,13 @@ the search client library module name and namespace.
 - Initial preview of Azure Service Bus client library version 7.
 - This version of library has been designed based on the [Azure SDK Design Guidelines for Java]({{site.baseurl}}{% link docs/java/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
-### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md))
+### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md))
 - This release contains various bug fixes to improve quality.
 
-### Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
+### Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
 - It is now possible to specify a key/keyResolver after they specify a pipeline/client on the builder
 
-### Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+### Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 - Added an `isDirectory` property to `PathProperties`.
 - Added overloads to `DataLakeFileSystemClient.createFile/createDirectory`, `DataLakeDirectoryClient.createFile/createSubdirectory` to allow overwrite behavior.
 

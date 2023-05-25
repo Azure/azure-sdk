@@ -1,0 +1,404 @@
+entries:
+- Name: azure-mgmt-synapse
+  Version: 2.1.0b4
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-synapse_2.1.0b4/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 24.0.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_24.0.1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0b1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.1.0b1/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for API verion `2022-01-11-preview2`
+- Name: azure-mgmt-loganalytics
+  Version: 13.0.0b1
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.0.0b1/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-subscription
+  Version: 3.0.0
+  DisplayName: Resource Management - Subscription
+  ServiceName: Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-subscription_3.0.0/sdk/subscription/azure-mgmt-subscription/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-anomalydetector
+  Version: 3.0.0b5
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-anomalydetector_3.0.0b5/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md
+  ChangelogContent: '- Fix release issues'
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0b2
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0b2/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed all models
+    - Removed DeploymentsOperations
+    - Removed UpdateOperations
+    - Dropped support for Python2.7(https://github.com/Azure/azure-sdk-for-python#disclaimer)
+    - Parameter `account_endpoint` of DeviceUpdateClient is renamed to `endpoint`
+    - Renamed `client.updates` to `client.device_update`
+    - Removed `client.devices`
+    - Removed `client.deployments`
+    - Renamed UpdatesOperations.get_update to DeviceUpdateOperations.get_update
+    - Renamed UpdatesOperations.delete_update to DeviceUpdateOperations.begin_delete_update
+    - Renamed UpdatesOperations.get_providers to DeviceUpdateOperations.list_providers
+    - Renamed UpdatesOperations.get_names to DeviceUpdateOperations.list_names
+    - Renamed UpdatesOperations.get_versions to DeviceUpdateOperations.list_versions
+    - Renamed UpdatesOperations.get_file to DeviceUpdateOperations.get_file
+    - Renamed UpdatesOperations.get_files to DeviceUpdateOperations.list_files
+    - Renamed UpdatesOperations.get_operation to DeviceUpdateOperations.get_operation
+    - Renamed UpdatesOperations.get_operations to DeviceUpdateOperations.list_operations
+    - Renamed DevicesOperations.get_all_device_classes to DeviceManagementOperations.list_device_classes
+    - Renamed DevicesOperations.get_device_class to DeviceManagementOperations.get_device_class
+    - Renamed DevicesOperations.get_device_class_device_ids to DeviceManagementOperations.
+    - Renamed DevicesOperations.list_devices to DeviceManagementOperations.list_devices
+    - Renamed DevicesOperations.list_devices to DeviceManagementOperations.
+    - Renamed DevicesOperations.get_all_device_tags to DeviceManagementOperations.list_device_tags
+    - Renamed DevicesOperations.get_all_groups to DeviceManagementOperations.list_groups
+    - Renamed DevicesOperations.get_group to DeviceManagementOperations.get_group
+    - Renamed DevicesOperations.create_or_update_group to DeviceManagementOperations.create_or_update_group
+    - Renamed DevicesOperations.delete_group to DeviceManagementOperations.delete_group
+    - Renamed DevicesOperations.get_group_update_compliance to DeviceManagementOperations.get_group_update_compliance
+    - Renamed DevicesOperations.get_group_best_updates to DeviceManagementOperations.list_best_updates_for_group
+    - Renamed DeploymentsOperations.get_deployment_status to DeviceManagementOperations.get_deployment_status
+    - Renamed DeploymentsOperations.create_or_update_deployment to DeviceManagementOperations.create_or_update_deployment
+    - Renamed DeploymentsOperations.delete_deployment to DeviceManagementOperations.delete_deployment
+    - Renamed DeploymentsOperations.get_deployment_devices to DeviceManagementOperations.list_deployment_devices
+
+
+    #### Features Added
+
+    - Added DeviceManagementOperations
+    - Added DeviceUpdateOperations
+    - Added operation `send_request` to send customized http request conveniently
+    - Added `client.device_management`
+- Name: azure-mgmt-web
+  Version: 6.1.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_6.1.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.0b2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0b2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for split-proof queries for the sync client
+- Name: azure-mgmt-applicationinsights
+  Version: 2.1.0
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_2.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 20.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_20.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-containerregistry
+  Version: 1.0.0
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the property `size` of `ArtifactManifestProperties` to `size_in_bytes`.
+    - Renamed `TagOrder` to `ArtifactTagOrder`.
+    - Renamed `ManifestOrder` to `ArtifactManifestOrder`.
+
+    #### Features Added
+
+    - Supported passing the rest api version via `ContainerRegistryClient`.
+- Name: azure-mgmt-compute
+  Version: 25.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_25.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 2.2.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.2.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.22.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add response body to string representation of `HttpResponseError` if we're not able to parse out information #22302
+    - Raise `AttributeError` when calling azure.core.pipeline.transport.\_\_bases__    #22469
+
+    #### Features Added
+
+    - Add support for `final-state-via` LRO option in core.  #22713
+- Name: azure-storage-blob
+  Version: 12.10.0b3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `find_blobs_by_tags()` on a container.
+    - Added support for `Find (f)` container SAS permission.
+- Name: azure-storage-file-share
+  Version: 12.7.0b2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0b2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+    - Fixed a bug, that was introuced in the previous beta release, where `generate_account_sas()`
+    was not generating the proper SAS signature.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `rename_directory()` and `rename_file()`.
+    - Added support for `Create (c)` SAS permission for Share SAS.
+- Name: azure-search-documents
+  Version: 11.3.0b7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added models: `AzureMachineLearningSkill`
+- Name: azure-keyvault-certificates
+  Version: 4.4.0b3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.4.0b3/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
+    - (From 4.4.0b2) To support multi-tenant authentication, `get_token` calls during challenge
+    authentication requests now pass in a `tenant_id` keyword argument
+    ([#20698](https://github.com/Azure/azure-sdk-for-python/issues/20698))
+- Name: azure-keyvault-secrets
+  Version: 4.4.0b3
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.4.0b3/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `managed` property to SecretProperties
+- Name: azure-keyvault-keys
+  Version: 4.5.0b6
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.5.0b6/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 4.4.0.
+    > Only code written against a beta version such as 4.5.0b1 may be affected.
+    - Renamed the required argument `data` in `KeyReleasePolicy`'s constructor to
+    `encoded_policy`
+
+    #### Features Added
+    - Added `immutable` keyword-only argument and property to `KeyReleasePolicy` to support immutable
+    release policies. Once a release policy is marked as immutable, it can no longer be modified.
+- Name: azure-identity
+  Version: 1.8.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.8.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `validate_authority` support for msal client  #22625
+    - Added `resource_id` support for user-assigned managed identity  #22329
+    - Added `ClientAssertionCredential` support  #22328
+- Name: azure-keyvault-administration
+  Version: 4.1.0b3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.1.0b3/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
+    - Updated minimum `azure-core` version to 1.20.0
+    - (From 4.1.0b2) To support multi-tenant authentication, `get_token` calls during challenge
+    authentication requests now pass in a `tenant_id` keyword argument
+    ([#20698](https://github.com/Azure/azure-sdk-for-python/issues/20698))
+- Name: azure-ai-translation-document
+  Version: 1.0.0b6
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b6/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
+- Name: azure-eventhub
+  Version: 5.8.0a2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for async `EventHubProducerClient` and `EventHubConsumerClient`.
+
+    #### Breaking changes
+
+    - The following features have been temporarily pulled out of async `EventHubProducerClient` and `EventHubConsumerClient` which will be added back in future previews as we work towards a stable release:
+    - Passing the following keyword arguments to the constructors and `from_connection_string` methods of the `EventHubProducerClient` and `EventHubConsumerClient` is not supported:  `transport_type`, `http_proxy`, `custom_endpoint_address`, and `connection_verify`.
+- Name: azure-core
+  Version: 1.22.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Limiting `final-state-via` scope to POST until consuming SDKs has been fixed to use this option properly on PUT.  #22989
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0b1
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0b1/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This package is meant to replace the azure-schemaregistry-avroserializer.
+    - APIs have been updated to allow for encoding directly to and decoding from message type objects, where the data value is the Avro encoded payload.
+    - The content type of the message will hold the schema ID and record format indicator.
+- Name: azure-eventhub
+  Version: 5.9.0b1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.9.0b1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The classmethod `from_message_data` has been added to `EventData` for interoperability with the Schema Registry Avro Encoder library, and takes `data` and `content_type` as positional parameters.
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b3
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Added new required parameter `build_mode` to `begin_build_model()`.
+    - Some models that previously returned float for currency related fields may now return a `CurrencyValue`. TIP: Use `get_model()` to see updated prebuilt model schemas.
+
+    #### Features Added
+    - Added new `CurrencyValue` model to represent the amount and currency symbol values found in documents.
+    - Added `DocumentBuildMode` enum with values `template` and `neural`. These enum values can be passed in for the `build_mode` parameter in `begin_build_model()`.
+    - Added `api_version` and `tags` properties on `ModelOperation`, `ModelOperationInfo`, `DocumentModel`, `DocumentModelInfo`.
+    - Added `build_mode` property on `DocTypeInfo`.
+    - Added a `tags` keyword argument to `begin_build_model()`, `begin_create_composed_model()`, and `get_copy_authorization()`.
+    - Added `languages` property on `AnalyzeResult`.
+    - Added model `DocumentLanguage` that includes information about the detected languages found in a document.
+    - Added `sample_analyze_read.py` and `sample_analyze_read_async.py` under the `v3.2-beta` samples directory. These samples use the new `prebuilt-read` model added by the service.
+    - Added `sample_analyze_tax_us_w2.py` and `sample_analyze_tax_us_w2_async.py` under the `v3.2-beta` samples directory. These samples use the new `prebuilt-tax.us.w2` model added by the service.
+
+    #### Bugs Fixed
+    - Default the `percent_completed` property to 0 when not returned with model operation information.
+- Name: azure-servicebus
+  Version: 7.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduce `ServiceBusMessageState` enum that can assume the values of `active`, `scheduled` or `deferred`.
+    - Add `state` property in `ServiceBusReceivedMessage`.
+- Name: azure-ai-language-questionanswering
+  Version: 1.1.0b1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `QuestionAnsweringProjectsClient` for managing Qna projects. Performing project operations such as create, delete, export, and import project, as well as knowledge sources operations such as adding or listing knowledge sources, Qnas, and synonyms.
+
