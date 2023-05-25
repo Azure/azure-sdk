@@ -192,4 +192,12 @@ entries:
     * Added package `fake` to support generated fakes packages in SDKs.
     * The package contains public surface area exposed by fake servers and supporting APIs intended only for use by the fake server implementations.
     * Added an internal fake poller implementation.
+- Name: sdk/resourcemanager/resources/armsubscriptions
+  Version: 1.2.0
+  DisplayName: Resource Management - Subscriptions
+  ServiceName: Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armsubscriptions/v1.2.0/sdk/resourcemanager/resources/armsubscriptions/CHANGELOG.md
+  ChangelogContent: ""
 
