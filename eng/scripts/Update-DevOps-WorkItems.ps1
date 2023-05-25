@@ -6,7 +6,6 @@ param (
   [string] $devops_pat = $env:DEVOPS_PAT
 )
 Set-StrictMode -Version 3
-$ErrorActionPreference = "Continue"
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 . (Join-Path $PSScriptRoot .. common scripts Helpers DevOps-WorkItem-Helpers.ps1)
@@ -160,9 +159,10 @@ function ParseVersionsFromTags($versionsFromTags, $existingShippedVersionSet)
       $d = $existingShippedVersionSet[$v.RawVersion].Date
     }
     # if we don't have a cached value or the cached value is Unknown look at the
-    # release tag to try and get a date
-    if ($d -eq "Unknown" -and $v.Date -is [DateTime]) {
-      $d = $v.Date.ToString("MM/dd/yyyy")
+    # release tag to try and get a date if we have one
+    $tagDate = $v.Date -as [DateTime]
+    if ($d -eq "Unknown" -and $tagDate) {
+      $d = $tagDate.ToString("MM/dd/yyyy")
     }
     $versionList += New-Object PSObject -Property @{
       Type = $v.VersionType
@@ -318,7 +318,7 @@ function RefreshItems()
     $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackagePatchVersions"]) + "|"
   }
 
-  ## Loop over all packages in marked as New in CSV files
+  ## Loop over all packages marked as New in CSV files
   foreach ($pkgLang in $allVersions.Keys)
   {
     foreach ($pkgName in $allVersions[$pkgLang].Keys)
