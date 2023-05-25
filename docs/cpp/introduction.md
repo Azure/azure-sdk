@@ -175,10 +175,10 @@ The C++ SDK is designed for synchronous api calls.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _details {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Details
+} // namespace _details
 
 // Part of the public API
 [[nodiscard]] CatHerdClient CatHerdCreateClient(char* herdName);
@@ -194,7 +194,7 @@ namespace Details {
 
 {% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_details` namespace or an unnamed namespace.
 
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
 
@@ -211,9 +211,9 @@ void Function(int parameterName) {
     int localName;
 }
 
-namespace Details {
+namespace _details {
     extern int g_internalUseGlobal;
-} // namespace Details
+} // namespace _details
 
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
