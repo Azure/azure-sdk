@@ -211,7 +211,7 @@ void Function(int parameterName) {
     int localName;
 }
 
-namespace _details {
+namespace _detail {
     extern int g_internalUseGlobal;
 } // namespace _details
 
