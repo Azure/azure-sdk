@@ -213,7 +213,7 @@ void Function(int parameterName) {
 
 namespace _detail {
     extern int g_internalUseGlobal;
-} // namespace _details
+} // namespace _detail
 
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
