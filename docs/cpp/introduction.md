@@ -175,7 +175,7 @@ The C++ SDK is designed for synchronous api calls.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace _details {
+namespace _detail {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
 } // namespace _detail
