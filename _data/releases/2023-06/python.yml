@@ -396,4 +396,38 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databox_2.0.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.17.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.17.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2023-01-03.
+    - Content length limit increased from 4 MiB to 100 MiB for `append_block` and `append_block_from_url` APIs and their async equivalents.
+- Name: azure-storage-file-datalake
+  Version: 12.12.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.12.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2023-01-03.
+    - Added support for `encryption_context` to the `upload_data` API. Previously, `encryption_context` support was only on the `create_file` API.
+    - Added `owner`, `group`, and `permission` properties to `DirectoryProperties` and `FileProperties`.
+- Name: azure-storage-file-share
+  Version: 12.13.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.13.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2023-01-03.
+    - Added `access_rights` property to `Handle`.
 
