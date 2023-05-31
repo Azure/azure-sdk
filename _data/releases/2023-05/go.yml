@@ -1281,4 +1281,12 @@ entries:
 
     * Fixed time formatting for the conditional request headers. Fixes [#20475](https://github.com/Azure/azure-sdk-for-go/issues/20475).
     * Fixed an issue where passing a blob tags map of length 0 would result in the x-ms-tags header to be sent to the service with an empty string as value.
+- Name: sdk/resourcemanager/extendedlocation/armextendedlocation
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Extended Location
+  ServiceName: Extended Location
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/extendedlocation/armextendedlocation/v1.2.0-beta.1/sdk/resourcemanager/extendedlocation/armextendedlocation/CHANGELOG.md
+  ChangelogContent: ""
 
