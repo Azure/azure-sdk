@@ -299,4 +299,23 @@ entries:
     - Windows Web Account Manager (WAM) Brokered Authentication is still in preview and not available in this release. It will be available in the next beta release.
     - Additional Continuous Access Evaluation (CAE) support for service principal credentials is still in preview and not available in this release. It will be available in the next beta release.
     - Renamed keyword argument `developer_credential_timeout` to `process_timeout` in `DefaultAzureCredential` to remain consistent with the other credentials that launch a subprocess to acquire tokens.
+- Name: azure-synapse-artifacts
+  Version: 0.16.0
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.16.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix to support IO input  #29615
+- Name: azure-mgmt-machinelearningservices
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Machine Learning Services
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-machinelearningservices_2.0.0b2/sdk/machinelearning/azure-mgmt-machinelearningservices/CHANGELOG.md
+  ChangelogContent: ""
 

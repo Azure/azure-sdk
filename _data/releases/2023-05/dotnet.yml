@@ -305,4 +305,25 @@ entries:
     - Added `DeliveryStatusDetails` property to `AcsEmailDeliveryReportReceivedEventData` event.
     - Added `HealthCareDicomImageUpdatedEventData` event.
     - Added `PartionName` property to Dicom events.
+- Name: Azure.Identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.9.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed visibility of all environment variable based properties on `EnvironmentCredentialOptions` to internal. These options are again only configurable via environment variables.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added sanity check for manifest size at download time:  if the manifest is bigger than 4MB, `RequestFailedException` will be thrown.
 

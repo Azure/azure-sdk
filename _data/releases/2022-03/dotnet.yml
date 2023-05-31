@@ -48,14 +48,6 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.1.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md
   ChangelogContent: "- Optimization added: When the proactive refreshing is enabled and the token refresher fails to provide a token that's not about to expire soon, the subsequent refresh attempts will be scheduled for when the token reaches half of its remaining lifetime until a token with long enough validity (>10 minutes) is obtained."
 - Name: Azure.ResourceManager.Hci
-  Version: 2.0.0-beta.1
-  DisplayName: Azure Stack HCI
-  ServiceName: Stack HCI
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_2.0.0-beta.1/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
-  ChangelogContent: ""
-- Name: Azure.ResourceManager.Hci
   Version: 1.0.0-beta.1
   DisplayName: Azure Stack HCI
   ServiceName: Stack HCI
