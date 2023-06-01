@@ -430,4 +430,20 @@ entries:
     #### Features Added
     - Added support for service version 2023-01-03.
     - Added `access_rights` property to `Handle`.
+- Name: azure-core
+  Version: 1.27.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.27.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to use sync credentials in `AsyncBearerTokenCredentialPolicy`. #30381
+    - Added "prefix" parameter to AzureKeyCredentialPolicy #29901
+
+    #### Bugs Fixed
+
+    - Improve error message when providing the wrong credential type for AzureKeyCredential  #30380
 
