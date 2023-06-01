@@ -341,4 +341,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-qumulo_1.0.0/sdk/liftrqumulo/arm-qumulo/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.11.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.11.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add a policy `auxiliaryAuthenticationHeaderPolicy` for external tokens to `x-ms-authorization-auxiliary` header. This header will be used when creating a cross-tenant application we may need to handle authentication requests for resources that are in different tenants. [PR #25270](https://github.com/Azure/azure-sdk-for-js/pull/25270)
+- Name: '@azure/core-client'
+  Version: 1.7.3
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.7.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - remove the validation that credential scopes must be a valid URL [Issue #25881](https://github.com/Azure/azure-sdk-for-js/issues/25881)
 
