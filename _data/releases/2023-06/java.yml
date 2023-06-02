@@ -1952,4 +1952,162 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-keyvault-certificates_5.2.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.40
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.40/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.36
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.36/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced `OpenTelemetryTracingOptions.setProvider` with `OpenTelemetryTracingOptions.setOpenTelemetry` method. Instead of `io.opentelemetry.api.trace.TracerProvider` instance
+    it now takes `io.opentelemetry.api.OpenTelemetry` container.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.40.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.40.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where a known length wasn't passed to `BinaryData.fromStream` resulting it being handled as a
+    non-replayable `BinaryData`. ([#34851](https://github.com/Azure/azure-sdk-for-java/pull/34851))
+    - Changed the design of how `AsynchronousByteChannel`s were written to limit chances of race conditions between the
+    writer thread and the Reactor thread handling `onComplete` and `onError` events. This results in more consistent
+    behavior at the cost of lower throughput, which will be investigated in future releases. ([#35004](https://github.com/Azure/azure-sdk-for-java/pull/35004))
+
+    #### Features Added
+
+    - Added `TracingOptions` configurations allowing to pick a specific `TracerProvider` implementation if several are resolved by `ServiceLoader`.
+    - Added `MetricsOptions` configurations allowing to pick a specific `MeterProvider` implementation if several are resolved by `ServiceLoader`.
+    - Added `CoreUtils.randomUuid` to replace usage of `UUID.randomUUID`. In some cases `UUID.randomUUID` used a blocking
+    call whereas `CoreUtils.randomUuid` should never block. ([#34790](https://github.com/Azure/azure-sdk-for-java/pull/34790))
+    - Added support for prefixes in `AzureKeyCredentialPolicy`. ([#35010](https://github.com/Azure/azure-sdk-for-java/pull/35010))
+    - Added the ability to configure a backoff strategy for `FluxUtil.createRetriableDownloadFlux`. Previous retries
+    wouldn't backoff which could result in requests being sent to a service already at capacity and throttling. ([#35035](https://github.com/Azure/azure-sdk-for-java/pull/35035))
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.18.0
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.18.0/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enabled ability to use test playback records from the assets repo, removing the need to maintain them in `azure-sdk-for-java`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.11.2
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.11.2/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.36
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.36/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.8.6
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.6/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.2.1
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.2.1/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.13.4
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.13.4/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `NettyAsyncHttpResponse.writeBodyTo` and `writeBodyToAsync` could have a race condition when writing
+    to the `WritableByteChannel`/`AsynchronousByteChannel` while tracking the bytes written when a network error happens
+    during consumption of the HTTP response body. ([#35004](https://github.com/Azure/azure-sdk-for-java/pull/35004))
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.4.1
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.4.1/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.11.10
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.10/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to `1.40.0`.
+  GroupId: com.azure
 
