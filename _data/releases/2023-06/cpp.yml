@@ -33,4 +33,15 @@ entries:
     #### Features Added
 
     - Added new fields `Owner`, `Group` and `Permissions` in `PathProperties` and `DownloadFileDetails`.
+- Name: azure-core
+  Version: 1.10.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Azure::Core::Uuid::AsArray()` and `Azure::Core::Uuid::CreateFromArray()` to enable reading or writing from an existing UUID. This is useful when the UUID was generated outside the Azure SDK, or needs to be used from a component outside the Azure SDK.
 
