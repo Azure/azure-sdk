@@ -216,4 +216,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/v0.9.0/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/containers/azcontainerregistry
+  Version: 0.2.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containers/azcontainerregistry/v0.2.0/sdk/containers/azcontainerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add `DigestValidationReader` to help to do digest validation when read manifest or blob
+
+    #### Breaking Changes
+    * Remove `MarshalJSON` for some of the types that are not used in the request.
+
+    #### Bugs Fixed
+    * Add state restore for hash calculator when upload fails
+    * Do not re-calculate digest when retry
 
