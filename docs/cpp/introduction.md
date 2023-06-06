@@ -175,10 +175,10 @@ The C++ SDK is designed for synchronous api calls.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _detail {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Details
+} // namespace _detail
 
 // Part of the public API
 [[nodiscard]] CatHerdClient CatHerdCreateClient(char* herdName);
@@ -194,7 +194,7 @@ namespace Details {
 
 {% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
 
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
 
@@ -211,9 +211,9 @@ void Function(int parameterName) {
     int localName;
 }
 
-namespace Details {
+namespace _detail {
     extern int g_internalUseGlobal;
-} // namespace Details
+} // namespace _detail
 
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
@@ -603,18 +603,18 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
+{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `_detail` namespace.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _detail {
 // Part of the private API
 struct HashComputation {
     int InternalBookkeeping;
 };
 
 const int g_privateConstant = 1729;
-} // namespace Details
+} // namespace _detail
 
 // Part of the public API
 struct UploadBlobRequest {

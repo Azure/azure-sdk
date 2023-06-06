@@ -56,7 +56,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         }
         else
         {
-            throw await response.CreateRequestFailedExceptionAsync(message);
+            throw new RequestFailedException(response);
         }
     }
 }

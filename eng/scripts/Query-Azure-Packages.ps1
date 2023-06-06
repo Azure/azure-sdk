@@ -152,11 +152,20 @@ function Get-js-Packages
 
 function Get-python-Packages
 {
-  $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('azure-sdk')]"
-  $pythonPackagesNames = (python -c "$pythonQuery")
+  $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('<OWNER>')]"
+  $azurePackageNames = (python -c ("$pythonQuery" -replace "<OWNER>","azure-sdk"))
+  $microsoftPackageNames = (python -c ("$pythonQuery" -replace "<OWNER>","microsoft"))
 
-  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json" -MaximumRetryCount 3) } catch { } }
-  Write-Host "Found $($pythonPackages.Count) python packages"
+  $microsoftPythonPackages = $microsoftPackageNames | Foreach-Object {
+    try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json" -MaximumRetryCount 3) } catch { } }
+
+  # Filter to only microsoft owned packages with "azure sdk" keyword or any packages
+  # owned/maintained by the azure-sdk account
+  $pythonPackages = $microsoftPythonPackages | Where-Object {
+    $_.info.keywords -match "azure sdk" -or $azurePackageNames -contains $_.info.name }
+
+  Write-Host "Found $($azurePackageNames.Count) azure-sdk owned python packages"
+  Write-Host "Found $($pythonPackages.Count) total packages"
 
   $packages = @()
   foreach ($package in $pythonPackages)
@@ -166,7 +175,7 @@ function Get-python-Packages
 
     # Python info.Version only takes last stable version so we need to sort the releases.
     # Only use the sorted releases if they are all valid sem versions otherwise we might have
-    # and incorrect sort. We determine that if the list of sorted versions match the count of the versions
+    # an incorrect sort. We determine that if the list of sorted versions match the count of the versions
     $versions = [AzureEngSemanticVersion]::SortVersionStrings($packageReleases)
     if ($versions.Count -eq $packageReleases.Count)
     {
@@ -389,7 +398,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
       {
         $version = $pkg.VersionGA
       }
-      else 
+      else
       {
         $version = $pkg.VersionPreview
       }
@@ -421,8 +430,8 @@ function Write-Nuget-Deprecated-Packages($packageList)
         if ($pkg.EOLDate)
         {
           $EOLDate = $pkg.EOLDate
-        } 
-        else 
+        }
+        else
         {
           $EOLDate = "NA"
         }
@@ -463,14 +472,14 @@ function Write-Nuget-Deprecated-Packages($packageList)
           $deprecationMsg = "Please note, this package was officially deprecated on $EOLDate and is no longer maintained or monitored."
           $markAsLegacy = "true"
           $markAsOther = "false"
-        } 
-        else 
+        }
+        else
         {
           $deprecationMsg = "Please note, this package has been deprecated and will no longer be maintained"
           if ($EOLDate -and ($EOLDate -ne "NA"))
           {
             $deprecationMsg += " after $EOLDate."
-          } 
+          }
           else
           {
             $deprecationMsg += "."
@@ -489,7 +498,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
               $deprecationMsg += "    $newPackage`n"
             }
             $deprecationReplacement = $packageArray[0]
-          } 
+          }
           else
           { # only one replacement package
             if ($replacementPackage -ne $package)

@@ -354,42 +354,6 @@ entries:
 
     - Renamed `developerCredentialTimeOutInMs` to `processTimeoutInMs` in `DefaultAzureCredentialOptions`.
     - Renamed `federatedTokenFilePath` to `tokenFilePath` under `WorkloadIdentityOptions`.
-- Name: '@azure/search-documents'
-  Version: 12.0.0-beta.1
-  DisplayName: Cognitive Search
-  ServiceName: Search
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.1/sdk/search/search-documents/CHANGELOG.md
-  ChangelogContent: |-
-    #### Breaking Changes
-
-    - Update `SearchIndexerDataNoneIdentity.odatatype`. [#23495](https://github.com/Azure/azure-sdk-for-js/pull/23495)
-    - Fix `SearchClient.getDocument` returning documents that contain fields which were not selected [#23627](https://github.com/Azure/azure-sdk-for-js/pull/23627)
-    - Add type narrowing to returned documents [#23627](https://github.com/Azure/azure-sdk-for-js/pull/23627)
-    - Add breaking type parameters to these types:
-    - `AutocompleteOptions`
-    - `AutocompleteRequest`
-    - `GetDocumentOptions`
-    - `SearchIterator`
-    - `SearchOptions`
-    - `SearchRequestOptions`
-    - `SuggestOptions`
-    - `SuggestRequest`
-
-    #### Features Added
-
-    - Enable `OcrSkill` and `ImageAnalysisSkill`. [#23495](https://github.com/Azure/azure-sdk-for-js/pull/23495)
-
-    #### Bugs Fixed
-
-    - Allow nested field names to be specified in `select` and `searchFields` options [#23627](https://github.com/Azure/azure-sdk-for-js/pull/23627)
-    - Affects these types:
-    - `AutocompleteRequest`
-    - `SearchRequestOptions`
-    - `SuggestRequest`
-    - Fix discarded user-defined `onResponse` callback [#24479](https://github.com/Azure/azure-sdk-for-js/pull/24479)
-    - Fix ISO8601 deserialization [#25801](https://github.com/Azure/azure-sdk-for-js/pull/25801)
 - Name: '@azure/identity'
   Version: 3.2.1
   DisplayName: Identity
@@ -401,3 +365,25 @@ entries:
     #### Bug Fixes
     - Fixed a bug in `WorkloadIdentity Credential`, to incorporate the case where the options can be `undefined` in a conditional check.
     Related issue [#25827](https://github.com/Azure/azure-sdk-for-js/issues/25827) with the fix [#25829](https://github.com/Azure/azure-sdk-for-js/pull/25829).
+- Name: '@azure/container-registry'
+  Version: 1.1.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    Since `1.1.0-beta.3`:
+    - The manifest property on GetManifestResult is now `Record<string, unknown>` instead of OciImageManifest. This property is now populated regardless of the media type of the manifest, instead of only being populated when the manifest was an OCI image manifest.
+    - Added an `isOciImageManifest` type guard to check if a manifest is an OCI image manifest, providing strong typing.
+    - Renamed properties on `OciImageManifest`, `OciDescriptor`, and `OciAnnotations` to match the specification exactly:
+    - Renamed `OciAnnotations.createdOn` to `created`.
+    - Renamed `OciDescriptor.sizeInBytes` to `size`.
+    - Renamed `OciImageManifest.configuration` to `config`.
+    - Removed `GetOciImageManifestResult` and the corresponding type guard, `isGetOciImageManifestResult`.
+
+    #### Features Added
+    - Added `ContainerRegistryContentClient` for uploading and downloading OCI blobs and manifests.
+
