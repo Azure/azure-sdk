@@ -243,4 +243,28 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     * Re-enabled CAE support as in v1.3.0-beta.3
+- Name: sdk/messaging/azservicebus
+  Version: 1.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.4.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `admin.SubscriptionProperties` now allow for a `DefaultRule` to be set. This allows Subscriptions to be created with an immediate filter/action.
+    Contributed by @StrawbrryFlurry. (PR#20888)
+- Name: sdk/messaging/azeventhubs
+  Version: 1.0.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.0.1/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - GetPartitionProperties and GetEventHubProperties now retry properly on failures. (PR#20893)
+    - Connection recovery could artifically fail, prolonging recovery. (PR#20883)
 
