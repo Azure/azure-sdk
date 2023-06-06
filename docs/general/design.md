@@ -109,6 +109,22 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="general-service-apiversion-7" %} add or replace the `api-version` query parameter on any URI returned by the service e.g., `Operation-Location`, next page links, etc., with the service version passed configured on the client.
 
+{% include requirement/MUST id="general-service-apiversion-8" %} validate that query and header parameters passed to a method are defined for the api-version specified when the client was created and return an error if the validation fails.
+
+Validation must be performed before sending the request to the service to avoid unexpected behavior in the event the service does not reject a request with an unrecognized header or query parameter.
+
+{% include requirement/MUST id="general-service-apiversion-9" %} define a single class/struct for all compatible versions of a model type.
+
+Azure's versioning rules generally only allow properties to be added -- not removed, renamed, or modified in an incompatible way. In this (common) case, the latest version of the model is compatible with all earlier versions, and using this to represent all versions simplifies the API without loss of functionality.
+
+{% include requirement/MAY id="general-service-apiversion-10" %} validate that request body properties passed to a method are defined for the api-version specified when the client was created.
+
+Validating request body properties is not required because the cost in terms of code complexity and runtime performance is prohibitive in most languages.
+
+{% include requirement/MUSTNOT id="general-service-apiversion-11" %} validate that response body properties returned by the service are defined for the api-version specified on the request.
+
+Azure services should not return properties in a response that are not defined for the api-version specified on the request. The cost of validating this far exceeds the benefit of detecting a rare violation.
+
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
 ## Model types
