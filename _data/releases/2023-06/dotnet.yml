@@ -1442,4 +1442,62 @@ entries:
     #### Bugs Fixed
 
     - Do not copy over `DeliveryAnnotations` when constructing a new `ServiceBusMessage` from a `ServiceBusReceivedMessage`.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.9.2
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.9.2/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.6.2.  This resolves a potential issue opening TLS connections on .NET 6+.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.4.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.4.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for binding to `EventData` with the Event Hubs trigger in Functions using the isolated process model.
+
+    #### Bugs Fixed
+
+    - Fixed a race condition when Function instances are scaling that could cause a checkpoint to be written before the Function code was invoked to process events.  This would result in the new owner for the partition skipping those events causing them to go unprocessed.
+
+    - Fixed an issue that could cause the trigger to miss that a cancellation token has been signaled, slowing down responsiveness to scaling and shutdown.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.12
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.12/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Add support for Authenticated User Id.
+    ([#36509](https://github.com/Azure/azure-sdk-for-net/pull/36509))
+    * Add `db.name` to custom properties.
+    ([#36389](https://github.com/Azure/azure-sdk-for-net/pull/36389))
+
+    #### Bugs Fixed
+
+    * Fixed an issue which resulted in standard metrics getting exported to backends other than Azure Monitor, when Azure Monitor metric exporter was used with other exporters such as otlp side by side.
+    ([#36369](https://github.com/Azure/azure-sdk-for-net/pull/36369))
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.11.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.11.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where the main entity was not queried by the scale monitor when listening to the deadletter queue.
 
