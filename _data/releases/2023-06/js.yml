@@ -374,4 +374,15 @@ entries:
 
     - Export `isNode` from `@azure/core-util`.
     - Remove the validation that credential scopes must be a valid URL [Issue #25881](https://github.com/Azure/azure-sdk-for-js/issues/25881)
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.2/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where the customer-passed options for credentials were overwritten by the defaults values.
 
