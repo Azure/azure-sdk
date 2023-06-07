@@ -181,11 +181,6 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         // determine SDK name
         let sdkName: string = "Unable to determine Service Name";
         // if the serviceDir maps to a key in ../data-and-rules/apiSpecMap.json, and it's value object has an api-display-name property, with a property that matches the apiSpecDir, use the value of that property as the sdkName
-        log.atn(`apiSpecMap[serviceDir]: ${JSON.stringify(apiSpecMap[serviceDir])}`);
-        log.atn(`typeof apiSpecMap[serviceDir]: ${typeof apiSpecMap[serviceDir]}`);
-        log.atn(`apiSpecMap[serviceDir].hasOwnProperty('api-display-names'): ${apiSpecMap[serviceDir].hasOwnProperty('api-display-names')}`);
-        log.atn(`typeof apiSpecMap[serviceDir]['api-display-names']: ${typeof apiSpecMap[serviceDir]['api-display-names']}`);
-        log.atn(`apiSpecMap[serviceDir]['api-display-names'].hasOwnProperty(apiSpecDir): ${apiSpecMap[serviceDir]['api-display-names'].hasOwnProperty(apiSpecDir)}`);
         if (typeof apiSpecMap[serviceDir] === 'object' && apiSpecMap[serviceDir].hasOwnProperty('api-display-names') && typeof apiSpecMap[serviceDir]['api-display-names'] === 'object' && apiSpecMap[serviceDir]['api-display-names'].hasOwnProperty(apiSpecDir)) {
           log.atn(`apiSpecMap[serviceDir]['api-display-names'][apiSpecDir]: ${apiSpecMap[serviceDir]['api-display-names'][apiSpecDir]}`);
           sdkName = apiSpecMap[serviceDir]['api-display-names'][apiSpecDir];
@@ -197,7 +192,6 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         let plane: Plane = "UNABLE TO BE DETERMINED";
         if (apiSpecDir === 'data-plane') { plane = "data"; }
         else if (apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
-        // TODO - add way of checking TypeSpec api spec dirs plane
         else {
           // if apiSpecDir ends in .management regardless of case, print out attention log 
           if (apiSpecDir.toLowerCase().endsWith('.management')) {
