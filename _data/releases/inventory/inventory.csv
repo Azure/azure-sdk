@@ -199,6 +199,7 @@ Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,.
 Kusto,0,Resource Management - Kusto,mgmt,.NET,,,11,false,Azure.ResourceManager.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/kusto,10,false,1,
 Lab Services,0,Resource Management - Lab Services,mgmt,.NET,Microsoft.Azure.Management.LabServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/labservices/Microsoft.Azure.Management.LabServices,1,false,Azure.ResourceManager.LabServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/labservices,10,false,1,
 Load Testing,0,Resource Management - Load Testing,mgmt,.NET,,,11,false,Azure.ResourceManager.LoadTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,10,false,1,
+Log Analytics,0,Resource Management - Log Analytics,mgmt,.NET,,,11,false,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,
 Logic,0,Resource Management - Logic,mgmt,.NET,,,11,false,Azure.ResourceManager.Logic,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/logic,10,false,1,
 Machine Learning,0,Resource Management - Machine Learning,mgmt,.NET,Microsoft.Azure.Management.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearning/Microsoft.Azure.Management.MachineLearning,1,false,Azure.ResourceManager.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningservices,10,false,1,
 Machine Learning,0,Resource Management - Machine Learning Compute,mgmt,.NET,Microsoft.Azure.Management.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningcompute/Microsoft.Azure.Management.MachineLearningCompute,1,false,Azure.ResourceManager.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningcompute,3,false,1,
@@ -223,7 +224,6 @@ Networkcloud,0,Resource Management - Networkcloud,mgmt,.NET,,,11,false,Azure.Res
 New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NET,,,11,false,Azure.ResourceManager.NewRelicObservability,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/newrelicobservability,3,false,1,
 Nginx,0,Resource Management - Nginx,mgmt,.NET,,,11,false,Azure.ResourceManager.Nginx,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/nginx,3,false,1,
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs/Microsoft.Azure.Management.NotificationHubs,3,true,Azure.ResourceManager.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs,10,false,1,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,true,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,.NET,,,11,false,Azure.ResourceManager.Orbital,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/orbital,10,false,1,
 Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,.NET,,,11,false,Azure.ResourceManager.PaloAltoNetworks.Ngfw,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/paloaltonetworks,3,false,1,
 Peering,0,Resource Management - Peering,mgmt,.NET,Microsoft.Azure.Management.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,1,false,Azure.ResourceManager.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,false,1,
@@ -433,6 +433,7 @@ Media Services,0,Resource Management - Media Services,mgmt,.NET,Microsoft.Azure.
 Monitor,0,Resource Management - Monitor Fluent,mgmt,.NET,Microsoft.Azure.Management.Monitor.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
 Network,0,Resource Management - Network Fluent,mgmt,.NET,Microsoft.Azure.Management.Network.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 Notification Hubs,0,Resource Management - Notification Hubs Fluent,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.NotificationHubs,,4,false,1,
+Log Analytics,0,Resource Management - Operational Insights,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,true,Replaced by: Azure.ResourceManager.OperationalInsights,,4,false,1,
 Power BI Embedded,0,Resource Management - Power BI Embedded,mgmt,.NET,Microsoft.Azure.Management.PowerBIEmbedded,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Private DNS,0,Resource Management - Private DNS Fluent,mgmt,.NET,Microsoft.Azure.Management.PrivateDns.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Replaced by: Azure.ResourceManager.PrivateDns,,4,false,1,
 Redis,0,Resource Management - Redis Fluent,mgmt,.NET,Microsoft.Azure.Management.Redis.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Azure.ResourceManager.Redis,,4,false,1,
@@ -604,6 +605,7 @@ Lab Services,0,Resource Management - Lab Services,mgmt,Go,,,11,false,sdk/resourc
 Links,0,Resource Management - Links,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlinks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlinks,10,false,1,04/14/2023
 Load Testing,0,Resource Management - Load Testing,mgmt,Go,,,11,false,sdk/resourcemanager/loadtesting/armloadtesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/loadtesting/armloadtesting,10,false,1,03/30/2023
 Locks,0,Resource Management - Locks,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlocks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlocks,10,false,1,04/14/2023
+Log Analytics,0,Resource Management - Log Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/operationalinsights/armoperationalinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationalinsights/armoperationalinsights,10,false,1,04/14/2023
 Logic,0,Resource Management - Logic,mgmt,Go,,,11,false,sdk/resourcemanager/logic/armlogic,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/logic/armlogic,10,false,1,04/14/2023
 Logz,0,Resource Management - Logz,mgmt,Go,,,11,false,sdk/resourcemanager/logz/armlogz,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/logz/armlogz,10,false,1,04/14/2023
 M365 Security and Compliance,0,Resource Management - M365 Security and Compliance,mgmt,Go,,,11,false,sdk/resourcemanager/m365securityandcompliance/armm365securityandcompliance,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/m365securityandcompliance/armm365securityandcompliance,3,false,1,
@@ -636,7 +638,6 @@ New Relic Observability,0,Resource Management - New Relic Observability,mgmt,Go,
 Nginx,0,Resource Management - Nginx,mgmt,Go,,,11,false,sdk/resourcemanager/nginx/armnginx,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/nginx/armnginx,10,false,1,03/30/2023
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,Go,,,11,false,sdk/resourcemanager/notificationhubs/armnotificationhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/notificationhubs/armnotificationhubs,10,false,1,04/14/2023
 Oep,0,Resource Management - Oep,mgmt,Go,,,11,false,sdk/resourcemanager/oep/armoep,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/oep/armoep,3,false,1,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,Go,,,11,false,sdk/resourcemanager/operationalinsights/armoperationalinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationalinsights/armoperationalinsights,10,false,1,04/14/2023
 Operations Management,0,Resource Management - Operations Management,mgmt,Go,,,11,false,sdk/resourcemanager/operationsmanagement/armoperationsmanagement,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationsmanagement/armoperationsmanagement,3,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,Go,,,11,false,sdk/resourcemanager/orbital/armorbital,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/orbital/armorbital,10,false,1,04/14/2023
 Paloaltonetworksngfw,0,Resource Management - Panngfw,mgmt,Go,,,11,false,sdk/resourcemanager/paloaltonetworksngfw/armpanngfw,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/paloaltonetworksngfw/armpanngfw,3,false,1,
@@ -1105,7 +1106,7 @@ Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.co
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
 Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
 Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
-Key Vault,0,Key Vault - Keys,data,JavaScript,,,11,false,@azure/keyvault-keys,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
+Key Vault,0,Key Vault - Keys,data,JavaScript,,,11,false,@azure/keyvault-keys,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,06/07/2023
 Key Vault,0,Key Vault - Secrets,data,JavaScript,,,11,false,@azure/keyvault-secrets,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
 Cognitive Services,0,Language Text,data,JavaScript,,,11,false,@azure/ai-language-text,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage,10,false,1,
 Load Testing,0,Load Testing,data,JavaScript,,,11,false,@azure-rest/load-testing,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/loadtesting/load-testing-rest/,10,false,1,03/07/2023
@@ -1244,6 +1245,7 @@ Lab Services,0,Resource Management - Lab Services,mgmt,JavaScript,azure-arm-labs
 Links,0,Resource Management - Links,mgmt,JavaScript,,,11,false,@azure/arm-links,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links,10,false,1,04/19/2022
 Load Testing,0,Resource Management - Load Testing,mgmt,JavaScript,,,11,false,@azure/arm-loadtesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/loadtestservice,10,false,1,02/01/2023
 Locks,0,Resource Management - Locks,mgmt,JavaScript,,,11,false,@azure/arm-locks,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks,10,false,1,11/28/2022
+Log Analytics,0,Resource Management - Log Analytics,mgmt,JavaScript,azure-arm-operationalinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-operationalinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights,10,false,1,02/09/2023
 Logic Apps,0,Resource Management - Logic Apps,mgmt,JavaScript,azure-arm-logic,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-logic,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/logic/arm-logic,10,false,1,01/29/2023
 Machine Learning,0,Resource Management - Machine Learning,mgmt,JavaScript,azure-arm-machinelearning,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/arm-machinelearning,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning,10,false,1,12/02/2022
 Machine Learning,0,Resource Management - Machine Learning Compute,mgmt,JavaScript,azure-arm-machinelearningcompute,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/arm-machinelearningcompute,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningcompute/arm-machinelearningcompute,10,false,1,
@@ -1270,7 +1272,6 @@ New Relic Observability,0,Resource Management - New Relic Observability,mgmt,Jav
 Nginx,0,Resource Management - Nginx,mgmt,JavaScript,,,11,false,@azure/arm-nginx,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/nginx,10,false,1,02/03/2023
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,JavaScript,azure-arm-notificationhubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-notificationhubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs/arm-notificationhubs,10,false,1,12/06/2022
 Oep,0,Resource Management - Oep,mgmt,JavaScript,,,11,false,@azure/arm-oep,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/oep,3,false,1,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,JavaScript,azure-arm-operationalinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-operationalinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights,10,false,1,02/09/2023
 Operations Management,0,Resource Management - Operations Management,mgmt,JavaScript,,,11,false,@azure/arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationsmanagement/arm-operations,10,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,JavaScript,,,11,false,@azure/arm-orbital,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/orbital,10,false,1,03/22/2023
 Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,JavaScript,,,11,false,@azure/arm-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/paloaltonetworksngfw,3,false,1,
@@ -1753,8 +1754,6 @@ Media,0,Resource Management - Media,mgmt,Python,,,11,false,Missing: Created from
 Media,0,Resource Management - Media,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Media,,2,false,0,
 MySQL,0,Resource Management - MySQL,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.MySql,,2,false,0,
 NetApp Files,0,Resource Management - NetApp Files,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.NetApp,,2,false,0,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.OperationalInsights,,2,false,0,
 Provider Hub,0,Resource Management - Provider Hub,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ProviderHub,,2,false,0,
 Provider Hub,0,Resource Management - Provider Hub,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ProviderHub,,2,false,0,
 Qumulo,0,Resource Management - Qumulo,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Qumulo,,2,false,0,
@@ -1952,9 +1951,6 @@ IoT,0,Resource Management - IoT Hub Provisioning Services,mgmt,JavaScript,,,11,f
 IoT,0,Resource Management - IoT Hub Provisioning Services,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-iothubprovisioningservices,,2,false,0,
 Data Explorer,0,Resource Management - Kusto,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-kusto,,2,false,0,
 Data Explorer,0,Resource Management - Kusto,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-kusto,,2,false,0,
-Log Analytics,0,Resource Management - Log Analytics,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-loganalytics,,2,false,0,
-Log Analytics,0,Resource Management - Log Analytics,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-loganalytics,,2,false,0,
-Log Analytics,0,Resource Management - Log Analytics,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-loganalytics,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Machine Learning,0,Resource Management - Machine Learning Services,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-machinelearningservices,,2,false,0,
