@@ -412,4 +412,21 @@ entries:
     - Add OTel resource metric envelope.
     - Add OpenTelemetry Log Exporter
     - Use Kubernetes resource attributes to populate cloud role and role instance.
+- Name: '@azure/eventgrid'
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ContainerService.ClusterSupportEnded`
+    - `Microsoft.ContainerService.ClusterSupportEnding`
+    - `Microsoft.ContainerService.NodePoolRollingFailed`
+    - `Microsoft.ContainerService.NodePoolRollingStarted`
+    - `Microsoft.ContainerService.NodePoolRollingSucceeded`
 
