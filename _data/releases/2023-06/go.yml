@@ -307,4 +307,71 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/selfhelp/armselfhelp/v0.1.0/sdk/resourcemanager/selfhelp/armselfhelp/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/security/keyvault/azkeys
+  Version: 0.12.0
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v0.12.0/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Renamed `GetRandomBytesRequest` to `GetRandomBytesParameters`
+    * `ListDeletedKey` to `ListDeletedKeyProperties`
+    * `ListKeys` to `ListKeyProperties`
+    * `DeletedKeyBundle` to `DeletedKey`
+    * `KeyBundle` to `KeyVaultKey`
+    * `RestoreKeyParameters.KeyBundleBackup` to `RestoreKeyParameters.KeyBackup`
+    * `DeletedKeyItem` to `DeletedKeyProperties`
+    * `KeyItem` to `KeyProperties`
+    * `DeletedKeyListResult` to `DeletedKeyPropertiesListResult`
+    * `KeyListResult` `KeyPropertiesListResult`
+    * `KeyOperationsParameters` to `KeyOperationParameters`
+    * Changed `JSONWebKey.KeyOperations` from type []*string to []*KeyOperation
+    * `ReleaseParameters.Enc` to `ReleaseParameters.Algorithm`
+    * `KeyOperationParameters.AAD` to `KeyOperationParameters.AdditionalAuthenticatedData`
+    * `KeyOperationParameters.Tag` to `KeyOperationParameters.AuthenticationTag`
+    * `JSONWebKeyOperation` to `KeyOperation`
+    * `JSONWebKeyCurveName` to `KeyCurveName`
+    * `JSONWebKeyEncryptionAlgorithm` to `EncryptionAlgorithm`
+    * `JSONWebKeySignatureAlgorithm` to `SignatureAlgorithm`
+    * `JSONWebKeyType` to `KeyType`
+    * `LifetimeActions` to `LifetimeAction`
+    * Removed `DeletionRecoveryLevel` type
+    * Removed `SignatureAlgorithmRSNULL` constant
+    * Removed `KeyOperationExport` constant
+    * Removed `MaxResults` option
+- Name: sdk/security/keyvault/azadmin
+  Version: 0.3.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v0.3.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breatking Changes
+    * Renamed `SASTokenParameter` to `SASTokenParameters`
+    * Renamed `RestoreOperationParameters.SasTokenParameters` to `RestoreOperationParameters.SASTokenParameters`
+
+    #### Other Changes
+    * Updated dependencies
+- Name: sdk/security/keyvault/azsecrets
+  Version: 0.14.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v0.14.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Renamed `Client.ListSecrets` to `Client.ListSecretProperties`
+    * Renamed `Client.ListSecretVersions` to `Client.ListSecretPropertiesVersions`
+    * Renamed `SecretBundle` to `Secret`
+    * Renamed `DeletedSecretBundle` to `DeletedSecret`
+    * Renamed `SecretItem` to `SecretProperties`
+    * Renamed `DeletedSecretItem` to `DeletedSecretProperties`
+    * Renamed `Kid` to `KID`
+    * Removed `DeletionRecoveryLevel` type
+    * Remove `MaxResults` option
 
