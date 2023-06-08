@@ -199,7 +199,7 @@ Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,.
 Kusto,0,Resource Management - Kusto,mgmt,.NET,,,11,false,Azure.ResourceManager.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/kusto,10,false,1,
 Lab Services,0,Resource Management - Lab Services,mgmt,.NET,Microsoft.Azure.Management.LabServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/labservices/Microsoft.Azure.Management.LabServices,1,false,Azure.ResourceManager.LabServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/labservices,10,false,1,
 Load Testing,0,Resource Management - Load Testing,mgmt,.NET,,,11,false,Azure.ResourceManager.LoadTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,10,false,1,
-Log Analytics,0,Resource Management - Log Analytics,mgmt,.NET,,,11,false,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,
+Log Analytics,0,Resource Management - Log Analytics,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,true,Azure.ResourceManager.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,10,false,1,
 Logic,0,Resource Management - Logic,mgmt,.NET,,,11,false,Azure.ResourceManager.Logic,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/logic,10,false,1,
 Machine Learning,0,Resource Management - Machine Learning,mgmt,.NET,Microsoft.Azure.Management.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearning/Microsoft.Azure.Management.MachineLearning,1,false,Azure.ResourceManager.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningservices,10,false,1,
 Machine Learning,0,Resource Management - Machine Learning Compute,mgmt,.NET,Microsoft.Azure.Management.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningcompute/Microsoft.Azure.Management.MachineLearningCompute,1,false,Azure.ResourceManager.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningcompute,3,false,1,
@@ -221,7 +221,7 @@ NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Mana
 Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,
 Network Function,0,Resource Management - Network Function,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkFunction,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkfunction,3,false,1,
 Networkcloud,0,Resource Management - Networkcloud,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkCloud,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkcloud,3,false,1,
-New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NET,,,11,false,Azure.ResourceManager.NewRelicObservability,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/newrelicobservability,3,false,1,
+New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NET,,,11,false,Azure.ResourceManager.NewRelicObservability,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/newrelicobservability,10,false,1,06/07/2023
 Nginx,0,Resource Management - Nginx,mgmt,.NET,,,11,false,Azure.ResourceManager.Nginx,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/nginx,3,false,1,
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs/Microsoft.Azure.Management.NotificationHubs,3,true,Azure.ResourceManager.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs,10,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,.NET,,,11,false,Azure.ResourceManager.Orbital,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/orbital,10,false,1,
@@ -433,7 +433,6 @@ Media Services,0,Resource Management - Media Services,mgmt,.NET,Microsoft.Azure.
 Monitor,0,Resource Management - Monitor Fluent,mgmt,.NET,Microsoft.Azure.Management.Monitor.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
 Network,0,Resource Management - Network Fluent,mgmt,.NET,Microsoft.Azure.Management.Network.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 Notification Hubs,0,Resource Management - Notification Hubs Fluent,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.NotificationHubs,,4,false,1,
-Log Analytics,0,Resource Management - Operational Insights,mgmt,.NET,Microsoft.Azure.Management.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/operationalinsights,3,true,Replaced by: Azure.ResourceManager.OperationalInsights,,4,false,1,
 Power BI Embedded,0,Resource Management - Power BI Embedded,mgmt,.NET,Microsoft.Azure.Management.PowerBIEmbedded,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Private DNS,0,Resource Management - Private DNS Fluent,mgmt,.NET,Microsoft.Azure.Management.PrivateDns.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Replaced by: Azure.ResourceManager.PrivateDns,,4,false,1,
 Redis,0,Resource Management - Redis Fluent,mgmt,.NET,Microsoft.Azure.Management.Redis.Fluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Azure.ResourceManager.Redis,,4,false,1,
@@ -781,7 +780,7 @@ Purview,0,Purview Scanning,data,Java,,,11,false,azure-analytics-purview-scanning
 Purview,0,Purview Workflow,data,Java,,,11,false,azure-analytics-purview-workflow,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/purview,3,false,1,
 Schema Registry,0,Schema Registry,data,Java,,,11,false,azure-data-schemaregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,05/23/2023
 Schema Registry,0,Schema Registry - Avro,data,Java,,,11,false,azure-data-schemaregistry-apacheavro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,05/23/2023
-Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,1,false,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,05/15/2023
+Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,1,false,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,06/08/2023
 Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,05/23/2023
 Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,05/23/2023
 Storage,0,Storage - Blobs Changefeed,data,Java,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
@@ -1422,7 +1421,7 @@ Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https:/
 IoT,0,Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
 IoT,0,Digital Twins - Core,data,Python,,,11,false,azure-digitaltwins-core,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,07/12/2022
 Cognitive Services,0,Document Translation,data,Python,,,11,false,azure-ai-translation-document,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,06/07/2022
-Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,05/08/2023
+Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Event Hubs,data,Python,,,11,false,azure-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,03/21/2023
 FarmBeats,0,FarmBeats,data,Python,,,11,false,azure-agrifood-farming,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,
@@ -2134,11 +2133,11 @@ newrelic,0,Resource Management - newrelic,mgmt,Java,,,11,false,Missing: Created 
 newrelic,0,Resource Management - newrelic,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
 newrelic,0,Resource Management - newrelic,mgmt,Python,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
 newrelic,0,Resource Management - newrelic,mgmt,Go,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: operationalinsights/resource-manager,,2,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,Java,,,11,false,Missing: Created from API in specs repo: operationalinsights/resource-manager,,2,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: operationalinsights/resource-manager,,2,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,Python,,,11,false,Missing: Created from API in specs repo: operationalinsights/resource-manager,,2,false,0,
-Monitor,0,Resource Management - Operational Insights,mgmt,Go,,,11,false,Missing: Created from API in specs repo: operationalinsights/resource-manager,,2,false,0,
+Log Analytics,0,Log Analytics,data,.NET,,,11,false,Missing: Created from API in specs repo: operationalinsights/data-plane,,2,false,0,
+Log Analytics,0,Log Analytics,data,Java,,,11,false,Missing: Created from API in specs repo: operationalinsights/data-plane,,2,false,0,
+Log Analytics,0,Log Analytics,data,JavaScript,,,11,false,Missing: Created from API in specs repo: operationalinsights/data-plane,,2,false,0,
+Log Analytics,0,Log Analytics,data,Python,,,11,false,Missing: Created from API in specs repo: operationalinsights/data-plane,,2,false,0,
+Log Analytics,0,Log Analytics,data,Go,,,11,false,Missing: Created from API in specs repo: operationalinsights/data-plane,,2,false,0,
 paloaltonetworks,0,Resource Management - paloaltonetworks,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/resource-manager,,2,false,0,
 paloaltonetworks,0,Resource Management - paloaltonetworks,mgmt,Java,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/resource-manager,,2,false,0,
 paloaltonetworks,0,Resource Management - paloaltonetworks,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/resource-manager,,2,false,0,
