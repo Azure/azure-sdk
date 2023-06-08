@@ -109,19 +109,21 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="general-service-apiversion-7" %} add or replace the `api-version` query parameter on any URI returned by the service e.g., `Operation-Location`, next page links, etc., with the service version passed configured on the client.
 
-{% include requirement/MUST id="general-service-apiversion-8" %} validate that query and header parameters passed to a method are defined for the api-version specified when the client was created and return an error if the validation fails.
+{% include requirement/MUST id="general-service-apiversion-9" %} validate that query and header parameters passed to a method are defined for the api-version specified when the client was created and return an error if the validation fails.
 
-Validation must be performed before sending the request to the service to avoid unexpected behavior in the event the service does not reject a request with an unrecognized header or query parameter.
+Validation must be performed before sending the request to the service to avoid unexpected behavior in the event the service does not reject a request with an unrecognized header or query parameter. When the validation fails, the error returned to the client should indicate the first api-version that allows the parameter to be specified.
 
-{% include requirement/MUST id="general-service-apiversion-9" %} define a single class/struct for all compatible versions of a model type.
+{% include requirement/MUST id="general-service-apiversion-10" %} define a single class/struct for all compatible versions of a model type.
 
 Azure's versioning rules generally only allow properties to be added -- not removed, renamed, or modified in an incompatible way. In this (common) case, the latest version of the model is compatible with all earlier versions, and using this to represent all versions simplifies the API without loss of functionality.
 
-{% include requirement/MAY id="general-service-apiversion-10" %} validate that request body properties passed to a method are defined for the api-version specified when the client was created.
+Note: Azure versioning rules allow a new preview or GA api-version to be breaking in relation to a prior preview, but this isn't a concern since any libraries for the earlier preview should be beta versions which are exempt from compatibility guarantees.
+
+{% include requirement/MAY id="general-service-apiversion-11" %} validate that request body properties passed to a method are defined for the api-version specified when the client was created.
 
 Validating request body properties is not required because the cost in terms of code complexity and runtime performance is prohibitive in most languages.
 
-{% include requirement/MUSTNOT id="general-service-apiversion-11" %} validate that response body properties returned by the service are defined for the api-version specified on the request.
+{% include requirement/MUSTNOT id="general-service-apiversion-12" %} validate that response body properties returned by the service are defined for the api-version specified on the request.
 
 Azure services should not return properties in a response that are not defined for the api-version specified on the request. The cost of validating this far exceeds the benefit of detecting a rare violation.
 
