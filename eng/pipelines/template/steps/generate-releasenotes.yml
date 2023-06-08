@@ -60,6 +60,10 @@ steps:
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
+  - pwsh: |
+      $(AzureSDKReleaseNotesClonePath)/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -UpstreamRepoId "Azure/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+    displayName: Clean Up Stale Branches
+
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         $ErrorActionPreference = "Continue"
