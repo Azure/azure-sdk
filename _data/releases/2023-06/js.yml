@@ -364,4 +364,59 @@ entries:
 
     - Export `isNode` from `@azure/core-util`.
     - Remove the validation that credential scopes must be a valid URL [Issue #25881](https://github.com/Azure/azure-sdk-for-js/issues/25881)
+- Name: '@azure/keyvault-keys'
+  Version: 4.7.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.7.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where cryptographic operations would fail if the client did not have the get permission on the key, even if it had permission for the underlying operation. Issue [#26001](https://github.com/Azure/azure-sdk-for-js/issues/26001); PR [#26016](https://github.com/Azure/azure-sdk-for-js/issues/26016)
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.2/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where the customer-passed options for credentials were overwritten by the defaults values.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.13
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.13/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update opentelemetry/instrumentation packages.
+    - Add support for Application Insights log events.
+    - Add AiCloudRole and AiCloudRoleInstance to OTel Resource event.
+    - Add OTel resource metric envelope.
+    - Add OpenTelemetry Log Exporter
+    - Use Kubernetes resource attributes to populate cloud role and role instance.
+- Name: '@azure/eventgrid'
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ContainerService.ClusterSupportEnded`
+    - `Microsoft.ContainerService.ClusterSupportEnding`
+    - `Microsoft.ContainerService.NodePoolRollingFailed`
+    - `Microsoft.ContainerService.NodePoolRollingStarted`
+    - `Microsoft.ContainerService.NodePoolRollingSucceeded`
 
