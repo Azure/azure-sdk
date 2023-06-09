@@ -188,6 +188,16 @@
         }
     },
     {
+        "Exception":"API Spec does not map to valid libraries",
+        "Service":"Log Analytics",
+        "SDKs":{
+            "Log Analytics":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
         "Exception":"Library not needed in language",
         "Service":"Machine Learning",
         "SDKs":{
