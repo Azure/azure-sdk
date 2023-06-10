@@ -1,0 +1,25 @@
+entries:
+- Name: Azure.ResourceManager.MySql
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - MySQL
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.1.0-beta.2/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid
+  Version: 4.17.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.17.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new system events for Container Service.
+
+    #### Breaking Changes
+
+    - `EventGridClient` has been removed for the stable release. It will be included in a subsequent release.
+
