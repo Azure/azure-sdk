@@ -1,0 +1,53 @@
+entries:
+- Name: azure-cosmos-encryption
+  Version: 2.2.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.2.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.46.0`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.46.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.46.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the capability to filter request-level metrics based on diagnostic thresholds. Request-level metrics usually are used to capture metrics per backend endpoint/replica - a high cardinality dimension. Filtering by diagnostic thresholds reduces the overhead - but also means request-level metrics can only be used for debugging purposes - not for monitoring purposes. So, it is important to use the unfiltered operation-level metrics for health monitoring in this case. - See [PR 35114](https://github.com/Azure/azure-sdk-for-java/pull/35114)
+    * Added optional tags/dimensions for PartitionId/ReplicaId as alternative to ServiceAddress for direct-mode (rntbd) request-level metrics. - See [PR 35164](https://github.com/Azure/azure-sdk-for-java/pull/35164)
+    * Added request level info including timeline and system usage to the `CosmosDiagnosticsContext`. - See [PR 35254](https://github.com/Azure/azure-sdk-for-java/pull/35254) and [PR 35405](https://github.com/Azure/azure-sdk-for-java/pull/35405)
+    * Added an optional dimension/tag `OperationSubStatusCode` for operation-level metrics. - See [PR 35334](https://github.com/Azure/azure-sdk-for-java/pull/35334)
+    * Added support for `ComputedProperty` in `CosmosContainerProperties` - See [PR 35046](https://github.com/Azure/azure-sdk-for-java/pull/35046)
+
+    #### Bugs Fixed
+    * Enabled connection warm-up to continue in a best-effort manner to other regions in case of address resolution errors for a particular region - See [PR 35323](https://github.com/Azure/azure-sdk-for-java/pull/35323)
+    * Fixed an issue with `ChangeFeedProcessor` to fetch all changes before delay based on configured `PollDelay`. - See [PR 35324](https://github.com/Azure/azure-sdk-for-java/pull/35324)
+
+    #### Breaking Changes
+    * Renamed the JVM configuration - `COSMOS.DEFENSIVE_WARMUP_CONCURRENCY` to `COSMOS.OPEN_CONNECTIONS_CONCURRENCY` - See [PR 34859](https://github.com/Azure/azure-sdk-for-java/pull/34859)
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Properly set Index and Search Analyzer names in FieldBuilder
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.4.0` to version `1.4.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
+
