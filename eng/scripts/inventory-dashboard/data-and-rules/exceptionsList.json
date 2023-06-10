@@ -173,10 +173,10 @@
         "SDKs":{
             "Resource Management - Windows IoT":{
                 "Plane": "mgmt",
-                "Languages": ["Go", ".NET", "Java", "JavaScript", "Python"]
+                "Languages": [".NET", "Java", "JavaScript", "Python"]
             },
             "Time Series Insights":{
-                "Plane": "mgmt",
+                "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "JavaScript", "Python"]
             }
         }
@@ -287,7 +287,7 @@
             },
             "IoT Plug and Play - Devices Client":{
                 "Plane": "data",
-                "Languages": [".NET", "Java"]
+                "Languages": [".NET"]
             },
             "IoT Plug and Play - IoT Device AMQP":{
                 "Plane": "data",
