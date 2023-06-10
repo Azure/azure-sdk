@@ -32,4 +32,22 @@ entries:
     #### Breaking Changes
     * Renamed the JVM configuration - `COSMOS.DEFENSIVE_WARMUP_CONCURRENCY` to `COSMOS.OPEN_CONNECTIONS_CONCURRENCY` - See [PR 34859](https://github.com/Azure/azure-sdk-for-java/pull/34859)
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Properly set Index and Search Analyzer names in FieldBuilder
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.4.0` to version `1.4.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
 
