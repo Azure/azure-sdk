@@ -42,4 +42,15 @@ entries:
     #### Features Added
     - Added support to enable set workspace connection secret expiry time.
     - Added support for `stage` on model version
+- Name: azure-core
+  Version: 1.27.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.27.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix url building for some complex query parameters scenarios  #30707
 
