@@ -80,4 +80,20 @@ entries:
 
     - Prefetch reliability redesign. Adds MessageFlux, new credit accounting, better connection caching that removes thread hopping, handling of disposition ack on arrival thread, and reduces the Reactor operator queues in the async pipelines.
   GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.2/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed class `ChatMessageDelta` and replaced usage of it by `ChatMessage`.
+
+    #### Bugs Fixed
+    - [PR#35336](https://github.com/Azure/azure-sdk-for-java/commit/bf4fdac9cea3c18362029df4589bc78b834a4348) fixed
+    `com.fasterxml.jackson.databind.exc.MismatchedInputException: Missing required creator property 'usage' (index 3)`.
+  GroupId: com.azure
 
