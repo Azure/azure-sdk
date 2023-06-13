@@ -53,4 +53,16 @@ entries:
     #### Bugs Fixed
 
     - Fix url building for some complex query parameters scenarios  #30707
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b14
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b14/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgrading to OpenTelemetry SDK/API 1.18.
+    ([#30611](https://github.com/Azure/azure-sdk-for-python/pull/30611))
 
