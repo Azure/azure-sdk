@@ -1,0 +1,45 @@
+entries:
+- Name: azure-cosmos
+  Version: 4.4.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.4.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of Patch API and Delete All Items By Partition Key
+- Name: azure-servicebus
+  Version: 7.11.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.11.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where sending large messages failed on socket write timeout ([#30425](https://github.com/Azure/azure-sdk-for-python/issues/30425)).
+    - Fixed a bug where settling large messages failed due to  `delivery_id` being `None`.
+
+    #### Features Added
+
+    - A new float keyword argument `socket_timeout` has been added to `get_queue_sender`, `get_queue_receiver`, `get_topic_sender`, and `get_subscription_receiver` on the sync and async `ServiceBusClient`.
+- Name: azure-ai-ml
+  Version: 1.8.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.8.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue affecting authentication to registry-related services in sovereign regions.
+    - Made job_tier and priority values case insensitive
+
+
+    #### Features Added
+    - Added support to enable set workspace connection secret expiry time.
+    - Added support for `stage` on model version
+

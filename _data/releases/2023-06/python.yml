@@ -446,4 +446,71 @@ entries:
     #### Bugs Fixed
 
     - Improve error message when providing the wrong credential type for AzureKeyCredential  #30380
+- Name: azure-identity
+  Version: 1.14.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.14.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Continue attempt next credential when finding an expired token from cached token credential in DefaultAzureCredential. ([#30441](https://github.com/Azure/azure-sdk-for-python/pull/30441))
+- Name: azure-mgmt-azureadb2c
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Azure AD B2C
+  ServiceName: Azure AD B2C
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azureadb2c_1.0.0b2/sdk/azureadb2c/azure-mgmt-azureadb2c/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-agfood
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Agrifood
+  ServiceName: Agrifood
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-agfood_1.0.0b2/sdk/agfood/azure-mgmt-agfood/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-purview-sharing
+  Version: 1.0.0b2
+  DisplayName: Purview Sharing
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-sharing_1.0.0b2/sdk/purview/azure-purview-sharing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Samples and Tests
+- Name: azure-mgmt-rdbms
+  Version: 10.2.0b10
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b10/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-eventgrid
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.13.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Container Services.
+- Name: azure-cosmos
+  Version: 4.4.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.4.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of Patch API and Delete All Items By Partition Key
 
