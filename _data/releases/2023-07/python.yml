@@ -65,4 +65,14 @@ entries:
 
     - Upgrading to OpenTelemetry SDK/API 1.18.
     ([#30611](https://github.com/Azure/azure-sdk-for-python/pull/30611))
+- Name: azure-data-tables
+  Version: 12.4.3
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.3/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug in getting error attribute values when operations failed. ([#27410](https://github.com/Azure/azure-sdk-for-python/issues/27410))
 
