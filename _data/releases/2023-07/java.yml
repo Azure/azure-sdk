@@ -138,4 +138,178 @@ entries:
     - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
     - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
   GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.17.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.17.2/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.15.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.15.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.21.3
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.21.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.22.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.22.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+    - Upgraded `azure-storage-internal-avro` from `12.7.1` to version `12.8.0-beta.2`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.18.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.18.2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.3.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.3.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `values()` methods to all ExpandableStringEnum models.
+    - Added more values to enum class: `HealthcareEntityCategory` and `HealthcareEntityRelationType`.
+
+    #### Breaking Changes
+    > Note: The following changes are only breaking from the previous beta. They are not breaking against previous stable versions.
+    - Removed `Auto Language Detection`, `Dynamic Classification`, `Entity Resoluton`, and `Healthcare FHIR` features,
+    which were introduced in the previous beta releases.
+    - Renamed class:
+    `SummaryContext` to `AbstractiveSummaryContext`,
+    `SummarySentence` to `ExtractiveSummarySentence`,
+    `SummarySentencesOrder` to `ExtractiveSummarySentencesOrder`,
+    `ExtractSummaryOptions` to `ExtractiveSummaryOptions`,
+    `ExtractSummaryAction` to `ExtractiveSummaryAction`,
+    `ExtractSummaryActionResult` to `ExtractiveSummaryActionResult`,
+    `ExtractSummaryResult` to `ExtractiveSummaryResult`,
+    `ExtractSummaryResultCollection` to `ExtractiveSummaryResultCollection`,
+    `ExtractSummaryOperationDetail` to `ExtractiveSummaryOperationDetail`,
+    `ExtractSummaryPagedFlux` to `ExtractiveSummaryPagedFlux`,
+    `ExtractSummaryPagedIterable` to `ExtractiveSummaryPagedIterable`,
+    `AbstractSummaryOptions` to `AbstractiveSummaryOptions`,
+    `AbstractSummaryAction` to `AbstractiveSummaryAction`,
+    `AbstractSummaryActionResult` to `AbtractiveSummaryActionResult`,
+    `AbstractSummaryResultCollection` to `AbstractiveSummaryResultCollection`
+    `AbstractSummaryResult` to `AbstractiveSummaryResult`,
+    `AbstractSummaryOperationDetail` to `AbstractiveSummaryOperationDetail`,
+    `AbstractSummaryPagedFlux` to `AbstractiveSummaryPagedFlux`,
+    `AbstractSummaryPagedIterable` to `AbstractiveSummaryPagedIterable`,
+    - Renamed methods:
+    `getExtractSummaryActions()` to `getExtractiveSummaryActions()`,
+    `getAbstractSummaryActions()` to `getAbstractiveSummaryActions()`,
+    `setAbstractSummaryActions(AbstractSummaryAction... abstractSummaryActions)` to
+    `setAbstractiveSummaryActions(AbstractiveSummaryAction... abstractiveSummaryActions)`,
+    `setExtractSummaryActions(ExtractSummaryAction... extractSummaryActions)` to
+    `setExtractiveSummaryActions(ExtractiveSummaryAction... extractiveSummaryActions)`,
+    `getAbstractSummaryResults` to `getAbstractiveSummaryResults`,
+    `getExtractSummaryResults` to `getExtractiveSummaryResults`
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.18.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.18.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.21.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.21.2/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.7.2
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.7.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
 
