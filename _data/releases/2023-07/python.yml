@@ -145,4 +145,15 @@ entries:
     #### Features Added
 
     - New enum values added for `HealthcareEntityCategory` and `HealthcareEntityRelation`.
+- Name: azure-monitor-ingestion
+  Version: 1.0.2
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-ingestion_1.0.2/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue preventing custom authentication policies or credential scopes to be passed to the client. ([#30739](https://github.com/Azure/azure-sdk-for-python/pull/30739/))
 
