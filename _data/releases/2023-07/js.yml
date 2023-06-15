@@ -10,4 +10,21 @@ entries:
     #### Other Changes
 
     - Updated to latest OTEL libraries
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.14
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.14/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issues with Breeze events format for new Resource attributes telemetry event
+    and legacy Application Insights events.
+    - Metrics Exporter use delta aggregation temporality.
+
+    #### Features Added
+
+    - Update OpenTelemetry dependency packages.
 
