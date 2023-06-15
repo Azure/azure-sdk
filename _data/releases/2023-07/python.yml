@@ -111,4 +111,38 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dns_8.1.0/sdk/network/azure-mgmt-dns/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.3.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.3.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > Note: The following changes are only breaking from the previous beta. They are not breaking against previous stable versions.
+
+    - Renamed model `ExtractSummaryAction` to `ExtractiveSummaryAction`.
+    - Renamed model `ExtractSummaryResult` to `ExtractiveSummaryResult`.
+    - Renamed client method `begin_abstractive_summary` to `begin_abstract_summary`.
+    - Removed `dynamic_classification` client method and related types: `DynamicClassificationResult` and `ClassificationType`.
+    - Removed keyword arguments `fhir_version` and `document_type` from `begin_analyze_healthcare_entities` and `AnalyzeHealthcareEntitiesAction`.
+    - Removed property `fhir_bundle` from `AnalyzeHealthcareEntitiesResult`.
+    - Removed enum `HealthcareDocumentType`.
+    - Removed property `resolutions` from `CategorizedEntity`.
+    - Removed models and enums related to resolutions: `ResolutionKind`, `AgeResolution`, `AreaResolution`,
+    `CurrencyResolution`, `DateTimeResolution`, `InformationResolution`, `LengthResolution`,
+    `NumberResolution`, `NumericRangeResolution`, `OrdinalResolution`, `SpeedResolution`, `TemperatureResolution`,
+    `TemporalSpanResolution`, `VolumeResolution`, `WeightResolution`, `AgeUnit`, `AreaUnit`, `TemporalModifier`,
+    `InformationUnit`, `LengthUnit`, `NumberKind`, `RangeKind`, `RelativeTo`, `SpeedUnit`, `TemperatureUnit`,
+    `VolumeUnit`, `DateTimeSubKind`, and `WeightUnit`.
+    - Removed property `detected_language` from `RecognizeEntitiesResult`, `RecognizePiiEntitiesResult`, `AnalyzeHealthcareEntitiesResult`,
+    `ExtractKeyPhrasesResult`, `RecognizeLinkedEntitiesResult`, `AnalyzeSentimentResult`, `RecognizeCustomEntitiesResult`,
+    `ClassifyDocumentResult`, `ExtractSummaryResult`, and `AbstractSummaryResult`.
+    - Removed property `script` from `DetectedLanguage`.
+
+    #### Features Added
+
+    - New enum values added for `HealthcareEntityCategory` and `HealthcareEntityRelation`.
 
