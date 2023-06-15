@@ -63,4 +63,15 @@ entries:
     #### Features Added
 
     - Added support for service version 2023-04-01.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.3.0
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.3.0/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to use Active Directory authentication when using the `EventGrid` output binding. _(A community contribution, courtesy of [andrewjw1995](https://github.com/andrewjw1995))_
 
