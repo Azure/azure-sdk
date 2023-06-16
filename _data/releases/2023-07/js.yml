@@ -50,4 +50,15 @@ entries:
     #### Features Added
 
     - Added more values to enum class: `KnownHealthcareEntityCategory` and `KnownRelationType`.
+- Name: '@azure/communication-common'
+  Version: 2.2.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.2.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Bug fix for when running the policy, a query param is always being detected as the URLSearchParams object exists, even if it is empty.
 
