@@ -61,4 +61,24 @@ entries:
     #### Bugs Fixed
 
     - Bug fix for when running the policy, a query param is always being detected as the URLSearchParams object exists, even if it is empty.
+- Name: '@azure/communication-call-automation'
+  Version: 1.0.0
+  DisplayName: Call Automation
+  ServiceName: Call Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.0.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Create outbound calls to an Azure Communication Service user or a phone number.
+    - Answer/Redirect/Reject incoming call from an Azure Communication Service user or a phone number.
+    - Transfer the call to another participant.
+    - List, add or remove participants from the call.
+    - Hangup or terminate the call.
+    - Play audio files to one or more participants in the call.
+    - Recognize incoming DTMF in the call.
+    - Record calls with option to start/resume/stop.
+    - Record mixed and unmixed audio recordings.
+    - Download recordings.
+    - Parse various events happening in the call, such as CallConnected and PlayCompleted event.
 
