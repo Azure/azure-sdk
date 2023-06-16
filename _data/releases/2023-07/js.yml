@@ -27,4 +27,27 @@ entries:
     #### Features Added
 
     - Update OpenTelemetry dependency packages.
+- Name: '@azure/ai-language-text'
+  Version: 1.1.0
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.0.0.
+    > Only code written agaisnt a beta version such as 1.1.0-beta.1 will be affected.
+
+    Remove the following features added in the "2022-10-01-preview" API - version "1.1.0-beta.1"
+
+    - Dynamic Classification feature from the `analyze` method
+    - Entity resolution in entity recognition
+    - FHIR in `beginAnalyzeBatch`
+    - Automatic language detection in `beginAnalyzeBatch`
+
+    #### Features Added
+
+    - Added more values to enum class: `KnownHealthcareEntityCategory` and `KnownRelationType`.
 
