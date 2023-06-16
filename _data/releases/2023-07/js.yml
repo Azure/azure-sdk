@@ -10,4 +10,55 @@ entries:
     #### Other Changes
 
     - Updated to latest OTEL libraries
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.14
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.14/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issues with Breeze events format for new Resource attributes telemetry event
+    and legacy Application Insights events.
+    - Metrics Exporter use delta aggregation temporality.
+
+    #### Features Added
+
+    - Update OpenTelemetry dependency packages.
+- Name: '@azure/ai-language-text'
+  Version: 1.1.0
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.0.0.
+    > Only code written agaisnt a beta version such as 1.1.0-beta.1 will be affected.
+
+    Remove the following features added in the "2022-10-01-preview" API - version "1.1.0-beta.1"
+
+    - Dynamic Classification feature from the `analyze` method
+    - Entity resolution in entity recognition
+    - FHIR in `beginAnalyzeBatch`
+    - Automatic language detection in `beginAnalyzeBatch`
+
+    #### Features Added
+
+    - Added more values to enum class: `KnownHealthcareEntityCategory` and `KnownRelationType`.
+- Name: '@azure/communication-common'
+  Version: 2.2.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.2.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Bug fix for when running the policy, a query param is always being detected as the URLSearchParams object exists, even if it is empty.
 
