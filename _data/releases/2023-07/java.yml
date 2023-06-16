@@ -335,4 +335,15 @@ entries:
     - StartRecording now accepts ChannelAffinity.
     - Added EventProcessor, an easy and powerful way to handle Call Automation events. See README for details.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.17.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.17.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New Container Service events
+  GroupId: com.azure
 
