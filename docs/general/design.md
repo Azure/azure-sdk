@@ -119,9 +119,9 @@ Azure's versioning rules generally only allow properties to be added -- not remo
 
 Note: Azure versioning rules allow a new preview or GA api-version to be breaking in relation to a prior preview, but this isn't a concern since any libraries for the earlier preview should be beta versions which are exempt from compatibility guarantees.
 
-{% include requirement/MAY id="general-service-apiversion-11" %} validate that request body properties passed to a method are defined for the api-version specified when the client was created.
+{% include requirement/SHOULDNOT id="general-service-apiversion-11" %} validate that request body properties passed to a method are defined for the api-version specified when the client was created.
 
-Validating request body properties is not required because the cost in terms of code complexity and runtime performance is prohibitive in most languages.
+Validating request body properties is discouraged because the cost in terms of code complexity and runtime performance far outweighs the potential benefit in most cases.
 
 {% include requirement/MUSTNOT id="general-service-apiversion-12" %} validate that response body properties returned by the service are defined for the api-version specified on the request.
 
