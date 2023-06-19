@@ -38,7 +38,7 @@ Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.R
 Identity,0,Brokered Authentication,data,.NET,,,11,false,Azure.Identity.BrokeredAuthentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity,3,false,1,
 Search,0,Cognitive Search,data,.NET,,,11,false,Azure.Search.Documents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,
 Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/09/2023
-Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,09/16/2022
+Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/19/2023
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/11/2022
@@ -1077,7 +1077,7 @@ Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,07/31/2020
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,1,
-Call Automation,0,Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
+Call Automation,0,Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/16/2023
 Search,0,Cognitive Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/10/2023
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
@@ -2028,6 +2028,11 @@ Container Service,0,Resource Management - Fleet.Management,mgmt,Java,,,11,false,
 Container Service,0,Resource Management - Fleet.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
 Container Service,0,Resource Management - Fleet.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
 Container Service,0,Resource Management - Fleet.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
+containerstorage,0,Resource Management - ContainerStorage.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: containerstorage/ContainerStorage.Management,,2,false,0,
+containerstorage,0,Resource Management - ContainerStorage.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: containerstorage/ContainerStorage.Management,,2,false,0,
+containerstorage,0,Resource Management - ContainerStorage.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerstorage/ContainerStorage.Management,,2,false,0,
+containerstorage,0,Resource Management - ContainerStorage.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerstorage/ContainerStorage.Management,,2,false,0,
+containerstorage,0,Resource Management - ContainerStorage.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerstorage/ContainerStorage.Management,,2,false,0,
 Storage,0,Data Lake Analytics,data,Java,,,11,false,Missing: Created from API in specs repo: datalake-analytics/data-plane,,2,false,0,
 Storage,0,Data Lake Analytics,data,JavaScript,,,11,false,Missing: Created from API in specs repo: datalake-analytics/data-plane,,2,false,0,
 Storage,0,Data Lake Analytics,data,Python,,,11,false,Missing: Created from API in specs repo: datalake-analytics/data-plane,,2,false,0,
