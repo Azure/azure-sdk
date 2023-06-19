@@ -6,7 +6,7 @@
 - {{ package }}
 {% endfor %}
 
-{{ gaPackages.size }} GA packages
+{{ gaPackages.size }} Stable packages
 {% endif %}
 
 {% assign patchPackages = allPackagesSortedByDisplayName | where: "VersionType", "Patch" | map: 'DisplayName' | uniq %}
