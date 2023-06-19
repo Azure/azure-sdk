@@ -5,6 +5,8 @@
 {% for package in gaPackages %}
 - {{ package }}
 {% endfor %}
+
+{{ gaPackages.size }} GA packages
 {% endif %}
 
 {% assign patchPackages = allPackagesSortedByDisplayName | where: "VersionType", "Patch" | map: 'DisplayName' | uniq %}
@@ -13,6 +15,8 @@
 {% for package in patchPackages %}
 - {{ package }}
 {% endfor %}
+
+{{ patchPackages.size }} updated packages
 {% endif %}
 
 {% assign betaPackages = allPackagesSortedByDisplayName | where: "VersionType", "Beta" | map: 'DisplayName' | uniq %}
@@ -21,4 +25,8 @@
 {% for package in betaPackages %}
 - {{ package }}
 {% endfor %}
+
+{{ betaPackages.size }} beta packages
 {% endif %}
+
+Total of {{ allPackages.size }} packages released this month.
