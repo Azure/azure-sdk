@@ -107,4 +107,15 @@ entries:
     #### Features Added
 
     - Added `BinaryData.ToDynamicFromJson()` extension method to enable dynamic access to JSON.  See the [aka.ms/azsdk/net/dynamiccontent](https://aka.ms/azsdk/net/dynamiccontent) for further details.
+- Name: Azure.Communication.Chat
+  Version: 1.1.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.1.2/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Optimized the logic for deserializing types derived from the `CommunicationIdentifier`.
+    - Added factory methods for `public` models in `ChatModelFactory`.
 
