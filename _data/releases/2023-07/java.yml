@@ -1,0 +1,367 @@
+entries:
+- Name: azure-cosmos-encryption
+  Version: 2.2.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.2.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.46.0`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.46.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.46.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the capability to filter request-level metrics based on diagnostic thresholds. Request-level metrics usually are used to capture metrics per backend endpoint/replica - a high cardinality dimension. Filtering by diagnostic thresholds reduces the overhead - but also means request-level metrics can only be used for debugging purposes - not for monitoring purposes. So, it is important to use the unfiltered operation-level metrics for health monitoring in this case. - See [PR 35114](https://github.com/Azure/azure-sdk-for-java/pull/35114)
+    * Added optional tags/dimensions for PartitionId/ReplicaId as alternative to ServiceAddress for direct-mode (rntbd) request-level metrics. - See [PR 35164](https://github.com/Azure/azure-sdk-for-java/pull/35164)
+    * Added request level info including timeline and system usage to the `CosmosDiagnosticsContext`. - See [PR 35254](https://github.com/Azure/azure-sdk-for-java/pull/35254) and [PR 35405](https://github.com/Azure/azure-sdk-for-java/pull/35405)
+    * Added an optional dimension/tag `OperationSubStatusCode` for operation-level metrics. - See [PR 35334](https://github.com/Azure/azure-sdk-for-java/pull/35334)
+    * Added support for `ComputedProperty` in `CosmosContainerProperties` - See [PR 35046](https://github.com/Azure/azure-sdk-for-java/pull/35046)
+
+    #### Bugs Fixed
+    * Enabled connection warm-up to continue in a best-effort manner to other regions in case of address resolution errors for a particular region - See [PR 35323](https://github.com/Azure/azure-sdk-for-java/pull/35323)
+    * Fixed an issue with `ChangeFeedProcessor` to fetch all changes before delay based on configured `PollDelay`. - See [PR 35324](https://github.com/Azure/azure-sdk-for-java/pull/35324)
+
+    #### Breaking Changes
+    * Renamed the JVM configuration - `COSMOS.DEFENSIVE_WARMUP_CONCURRENCY` to `COSMOS.OPEN_CONNECTIONS_CONCURRENCY` - See [PR 34859](https://github.com/Azure/azure-sdk-for-java/pull/34859)
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Properly set Index and Search Analyzer names in FieldBuilder
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.4.0` to version `1.4.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-cosmosdbforpostgresql
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Cosmosdbforpostgresql
+  ServiceName: Cosmosdbforpostgresql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmosdbforpostgresql_1.0.0-beta.1/sdk/cosmosdbforpostgresql/azure-resourcemanager-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-sqlvirtualmachine
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - SQL Virtual Machine
+  ServiceName: SQL Virtual Machine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sqlvirtualmachine_1.0.0-beta.4/sdk/sqlvirtualmachine/azure-resourcemanager-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-core-amqp
+  Version: 2.9.0-beta.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.9.0-beta.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Prefetch reliability redesign. Adds MessageFlux, new credit accounting, better connection caching that removes thread hopping, handling of disposition ack on arrival thread, and reduces the Reactor operator queues in the async pipelines.
+  GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.2/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed class `ChatMessageDelta` and replaced usage of it by `ChatMessage`.
+
+    #### Bugs Fixed
+    - [PR#35336](https://github.com/Azure/azure-sdk-for-java/commit/bf4fdac9cea3c18362029df4589bc78b834a4348) fixed
+    `com.fasterxml.jackson.databind.exc.MismatchedInputException: Missing required creator property 'usage' (index 3)`.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.15.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.15.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This version takes dependency on the Prefetch reliability redesign in azure-core-amqp 2.9.0-beta.2 and redesigns the non-session Processor to reduce thread switching and address undesired eager disposition.
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.4.7
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.4.7/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-communication-common` from `1.2.8` to version `1.2.9`.
+  GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.2.9
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.2.9/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.17.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.17.2/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.15.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.15.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.21.3
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.21.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.22.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.22.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+    - Upgraded `azure-storage-internal-avro` from `12.7.1` to version `12.8.0-beta.2`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.18.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.18.2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.3.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.3.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `values()` methods to all ExpandableStringEnum models.
+    - Added more values to enum class: `HealthcareEntityCategory` and `HealthcareEntityRelationType`.
+
+    #### Breaking Changes
+    > Note: The following changes are only breaking from the previous beta. They are not breaking against previous stable versions.
+    - Removed `Auto Language Detection`, `Dynamic Classification`, `Entity Resoluton`, and `Healthcare FHIR` features,
+    which were introduced in the previous beta releases.
+    - Renamed class:
+    `SummaryContext` to `AbstractiveSummaryContext`,
+    `SummarySentence` to `ExtractiveSummarySentence`,
+    `SummarySentencesOrder` to `ExtractiveSummarySentencesOrder`,
+    `ExtractSummaryOptions` to `ExtractiveSummaryOptions`,
+    `ExtractSummaryAction` to `ExtractiveSummaryAction`,
+    `ExtractSummaryActionResult` to `ExtractiveSummaryActionResult`,
+    `ExtractSummaryResult` to `ExtractiveSummaryResult`,
+    `ExtractSummaryResultCollection` to `ExtractiveSummaryResultCollection`,
+    `ExtractSummaryOperationDetail` to `ExtractiveSummaryOperationDetail`,
+    `ExtractSummaryPagedFlux` to `ExtractiveSummaryPagedFlux`,
+    `ExtractSummaryPagedIterable` to `ExtractiveSummaryPagedIterable`,
+    `AbstractSummaryOptions` to `AbstractiveSummaryOptions`,
+    `AbstractSummaryAction` to `AbstractiveSummaryAction`,
+    `AbstractSummaryActionResult` to `AbtractiveSummaryActionResult`,
+    `AbstractSummaryResultCollection` to `AbstractiveSummaryResultCollection`
+    `AbstractSummaryResult` to `AbstractiveSummaryResult`,
+    `AbstractSummaryOperationDetail` to `AbstractiveSummaryOperationDetail`,
+    `AbstractSummaryPagedFlux` to `AbstractiveSummaryPagedFlux`,
+    `AbstractSummaryPagedIterable` to `AbstractiveSummaryPagedIterable`,
+    - Renamed methods:
+    `getExtractSummaryActions()` to `getExtractiveSummaryActions()`,
+    `getAbstractSummaryActions()` to `getAbstractiveSummaryActions()`,
+    `setAbstractSummaryActions(AbstractSummaryAction... abstractSummaryActions)` to
+    `setAbstractiveSummaryActions(AbstractiveSummaryAction... abstractiveSummaryActions)`,
+    `setExtractSummaryActions(ExtractSummaryAction... extractSummaryActions)` to
+    `setExtractiveSummaryActions(ExtractiveSummaryAction... extractiveSummaryActions)`,
+    `getAbstractSummaryResults` to `getAbstractiveSummaryResults`,
+    `getExtractSummaryResults` to `getExtractiveSummaryResults`
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.18.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.18.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-blob` from `12.22.1` to version `12.22.2`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.21.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.21.2/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.7.2
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.7.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.39.0` to version `1.40.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.3` to version `1.13.4`.
+    - Upgraded `azure-storage-common` from `12.21.1` to version `12.21.2`.
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.0.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.0.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - AddParticipant and RemoveParticipant now only accept one participant at a time.
+    - CallSource has been flattened out.
+    - CallInvite model replaces previous models for handling outbound calls.
+
+    #### Features Added
+    - Outbound calls can now be created without providing a User Identifier. This value can be specified in the CallAutomationClientOption if desired.
+    - AnswerCall now accepts OperationContext.
+    - Calls can be answered by a specific communication identifier user.
+    - RemoveParticipant now sends success and failure events with the request.
+    - ParticipantsUpdated event now includes a sequence number to distinguish the ordering of events.
+    - CallConnectionProperties now includes CorrelationId.
+    - StartRecording now accepts ChannelAffinity.
+    - Added EventProcessor, an easy and powerful way to handle Call Automation events. See README for details.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.17.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.17.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New Container Service events
+  GroupId: com.azure
+- Name: azure-resourcemanager-managementgroups
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managementgroups
+  ServiceName: Managementgroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-managementgroups_1.0.0-beta.1/sdk/managementgroups/azure-resourcemanager-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-dataprotection
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dataprotection_1.0.0-beta.4/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
