@@ -127,6 +127,10 @@ Validating request body properties is discouraged because the cost in terms of c
 
 Azure services should not return properties in a response that are not defined for the api-version specified on the request. The cost of validating this far exceeds the benefit of detecting a rare violation.
 
+{% include requirement/SHOULDNOT id="general-service-apiversion-13" %} validate that any service request issued by a client method is defined for the api-version specified when the client was created.
+
+A service may add new endpoints in a new api-version. If invoked with an earlier api-version, these endpoints should return an error. Attempting to detect this error in the client method before making the request is discouraged because it adds overhead to the client that delivers little value.
+
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
 ## Model types
