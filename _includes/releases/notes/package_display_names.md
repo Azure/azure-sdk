@@ -22,5 +22,3 @@
 - {{ package }}
 {% endfor %}
 {% endif %}
-
-Total of {{ allPackages.size }} packages released this month.
