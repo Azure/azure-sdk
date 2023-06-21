@@ -220,5 +220,55 @@
                 "Languages": ["JavaScript"]
             }
         }
+    },
+    {
+        "Exception":"Internal library",
+        "Service":"Storage",
+        "SDKs":{
+            "azure-toolkit-storage-lib":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"Storage",
+        "SDKs":{
+            "Storage - Blobs Batch":{
+                "Plane": "data",
+                "Languages": ["Go", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
+        "Service":"Storage",
+        "SDKs":{
+            "Storage - Blobs Cryptography":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "JavaScript", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Internal library",
+        "Service":"Storage",
+        "SDKs":{
+            "Storage - Internal Avro":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "JavaScript", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Deprecated Service",
+        "Service":"Storage",
+        "SDKs":{
+            "Storage - Internal Avro":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "JavaScript", "Python"]
+            }
+        }
     }
 ]
