@@ -196,4 +196,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.1.0-beta.2/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Analytics.Purview.Sharing
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Share
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Sharing_1.0.0-beta.3/sdk/purview/Azure.Analytics.Purview.Sharing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed skipToken as a parameter from all client list calls
+    - Constructor for clients now takes in Uri object as oppose to a string parameter
+
+    #### Features Added
+
+    - Added the new share resource capability that allows listing resources associated with sent and received shares.
 
