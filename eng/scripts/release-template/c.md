@@ -8,6 +8,9 @@ repository: Azure/azure-sdk-for-c
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
+No packages released this month.
+
+<!--
 #### Stable
 
 - _Add packages_
@@ -43,3 +46,4 @@ If you have a bug or feature request for one of the libraries, please post an is
 View all the latest versions of C packages [here][c-latest-releases].
 
 {% include refs.md %}
+-->
