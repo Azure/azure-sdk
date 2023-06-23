@@ -201,4 +201,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_1.0.0-beta.1/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a regression of missing `getToken` calls when renewing tokens.
 
