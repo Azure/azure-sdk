@@ -1,0 +1,279 @@
+entries:
+- Name: Azure.ResourceManager.MySql
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - MySQL
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.1.0-beta.2/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid
+  Version: 4.17.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.17.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new system events for Container Service.
+
+    #### Breaking Changes
+
+    - `EventGridClient` has been removed for the stable release. It will be included in a subsequent release.
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.3.0-beta.2/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations
+  Version: 1.1.0
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    The following changes are only breaking from the previous beta. They are not breaking since version 1.0.0 when those types and members did not exist.
+
+    - Removed support for service version 2022-05-15-preview.
+    - Removed support for service version 2022-10-01-preview.
+    - Removed support for "ConversationalPIITask" analysis.
+    - Removed support for "ConversationalSentimentTask" analysis.
+    - Removed `ConversationsAudience`.
+    - Removed `ConversationsClientOptions.Audience`.
+    - Removed `ConversationAuthoringClient.AssignDeploymentResources` and `AssignDeploymentResourcesAsync`.
+    - Removed `ConversationAuthoringClient.DeleteDeploymentFromResources` and `DeleteDeploymentFromResourcesAsync`.
+    - Removed `ConversationAuthoringClient.GetAssignDeploymentResourcesStatus` and `GetAssignDeploymentResourcesStatusAsync`.
+    - Removed `ConversationAuthoringClient.GetAssignedResourceDeployments` and `GetAssignedResourceDeploymentsAsync`.
+    - Removed `ConversationAuthoringClient.GetDeploymentDeleteFromResourcesStatus` and `GetDeploymentDeleteFromResourcesStatusAsync`.
+    - Removed `ConversationAuthoringClient.GetDeploymentResources` and `GetDeploymentResourcesAsync`.
+    - Removed `ConversationAuthoringClient.GetUnassignDeploymentResourcesStatus` and `GetUnassignDeploymentResourcesStatusAsync`.
+    - Removed `ConversationAuthoringClient.UnassignDeploymentResources` and `UnassignDeploymentResourcesAsync`.
+    - Renamed `ConversationAnalysisClient.AnalyzeConversation` and `AnalyzeConversationAsync` that took a `WaitUntil` parameter to `AnalyzeConversations` and `AnalyzeConversationsAsync`.
+    - Renamed `ConversationAnalysisClient.CancelAnalyzeConversationJob` and `CancelAnalyzeConversationJobAsync` to `CancelAnalyzeConversations` and `CancelAnalyzeConversationsAsync`.
+    - Renamed `ConversationAuthoringClient.GetLoadSnapshotStatus` and `GetLoadSnapshotStatusAsync` to `GetLoadSnapshotJobStatus` and `GetLoadSnapshotJobStatusAsync`.
+
+    #### Features Added
+
+    - Added support for service version 2023-04-01.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.3.0
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.3.0/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to use Active Directory authentication when using the `EventGrid` output binding. _(A community contribution, courtesy of [andrewjw1995](https://github.com/andrewjw1995))_
+- Name: Azure.Communication.CallAutomation
+  Version: 1.0.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.0.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Outbound calls can now be created without providing a User Identifier. This value can be specified in the CallAutomationClientOption if desired.
+    - AnswerCall now accepts OperationContext.
+    - Calls can be answered by a specific communication identifier user.
+    - RemoveParticipant now sends success and failure events with the request.
+    - ParticipantsUpdated event now includes a sequence number to distinguish the ordering of events.
+    - CallConnectionProperties now includes CorrelationId.
+    - StartRecording now accepts ChannelAffinity.
+    - Added EventProcessor, an easy and powerful way to handle Call Automation events. See README for details.
+
+    #### Breaking Changes
+    - AddParticipant and RemoveParticipant now only accept one participant at a time.
+    - CallSource has been flattened out.
+    - CallInvite model replaces previous models for handling outbound calls.
+- Name: Azure.Core
+  Version: 1.33.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.33.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `BinaryData.ToDynamicFromJson()` extension method to enable dynamic access to JSON.  See the [aka.ms/azsdk/net/dynamiccontent](https://aka.ms/azsdk/net/dynamiccontent) for further details.
+- Name: Azure.Communication.Chat
+  Version: 1.1.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.1.2/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Optimized the logic for deserializing types derived from the `CommunicationIdentifier`.
+    - Added factory methods for `public` models in `ChatModelFactory`.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.3.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.3.0/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the following methods: `TextAnalyticsClient.AnalyzeActions` and `TextAnalyticsClient.AnalyzeActionsAsync`.
+    - Hid `TextAnalyticsClient.StartAnalyzeActions` and `TextAnalyticsClient.StartAnalyzeActionsAsync` in favor of `TextAnalyticsClient.AnalyzeActions` and `TextAnalyticsClient.AnalyzeActionsAsync`. These methods can still be used but are not shown in code suggestions.
+    - Added the following methods: `TextAnalyticsClient.AnalyzeHealthcareEntities` and `TextAnalyticsClient.AnalyzeHealthcareEntitiesAsync`.
+    - Hid `TextAnalyticsClient.StartAnalyzeHealthcareEntities` and `TextAnalyticsClient.StartAnalyzeHealthcareEntitiesAsync` in favor of `TextAnalyticsClient.AnalyzeHealthcareEntities` and `TextAnalyticsClient.AnalyzeHealthcareEntitiesAsync`. These methods can still be used but are not shown in code suggestions.
+    - Added the following methods: `TextAnalyticsClient.SingleLabelClassify` and `TextAnalyticsClient.SingleLabelClassifyAsync`.
+    - Hid `TextAnalyticsClient.StartSingleLabelClassify` and `TextAnalyticsClient.StartSingleLabelClassifyAsync` in favor of `TextAnalyticsClient.SingleLabelClassify` and `TextAnalyticsClient.SingleLabelClassifyAsync`. These methods can still be used but are not shown in code suggestions.
+    - Added the following methods: `TextAnalyticsClient.MultiLabelClassify` and `TextAnalyticsClient.MultiLabelClassifyAsync`.
+    - Hid `TextAnalyticsClient.StartMultiLabelClassify` and `TextAnalyticsClient.StartMultiLabelClassifyAsync` in favor of `TextAnalyticsClient.MultiLabelClassify` and `TextAnalyticsClient.MultiLabelClassifyAsync`. These methods can still be used but are not shown in code suggestions.
+    - Added the following methods: `TextAnalyticsClient.RecognizeCustomEntities` and `TextAnalyticsClient.RecognizeCustomEntitiesAsync`.
+    - Hid `TextAnalyticsClient.StartRecognizeCustomEntities` and `TextAnalyticsClient.StartRecognizeCustomEntitiesAsync` in favor of `TextAnalyticsClient.RecognizeCustomEntities` and `TextAnalyticsClient.RecognizeCustomEntitiesAsync`. These methods can still be used but are not shown in code suggestions.
+
+    #### Breaking Changes
+
+    > Note: The following breaking changes only apply when upgrading from the previous beta versions (5.3.0-beta.*) and do not impact stable versions.
+
+    - Changes to extractive summarization:
+    - Renamed the `TextAnalyticsClient.StartExtractSummary` and `TextAnalyticsClient.StartExtractSummaryAsync` methods to `TextAnalyticsClient.ExtractiveSummarize` and `TextAnalyticsClient.ExtractiveSummarizeAsync` respectively.
+    - Renamed the `TextAnalyticsActions.ExtractSummaryActions` property to `TextAnalyticsActions.ExtractiveSummarizeActions`.
+    - Renamed the `AnalyzeActionResult.ExtractSummaryResults` property to `AnalyzeActionResult.ExtractiveSummarizeResults`.
+    - Renamed the `ExtractSummaryAction` class to `ExtractiveSummarizeAction`.
+    - Renamed the `ExtractSummaryActionResult` class to `ExtractiveSummarizeActionResult`.
+    - Renamed the `ExtractSummaryOperation` class to `ExtractiveSummarizeOperation`.
+    - Renamed the `ExtractSummaryOptions` class to `ExtractiveSummarizeOptions`.
+    - Renamed the `ExtractSummaryResult` class to `ExtractiveSummarizeResult`.
+    - Renamed the `ExtractSummaryResultCollection` class to `ExtractiveSummarizeResultCollection`.
+    - Renamed the `SummarySentencesOrder` enum to `ExtractiveSummarySentencesOrder`.
+    - Renamed the `SummarySentence` class to `ExtractiveSummarySentence`.
+    - Changes to abstractive summarization:
+    - Renamed the `TextAnalyticsClient.StartAbstractSummary` and `TextAnalyticsClient.StartAbstractSummaryAsync` methods to `TextAnalyticsClient.AbstractiveSummarize` and `TextAnalyticsClient.AbstractiveSummarizeAsync` respectively.
+    - Renamed the `TextAnalyticsActions.AbstractSummaryActions` property to `TextAnalyticsActions.AbstractiveSummarizeActions`.
+    - Renamed the `AnalyzeActionResult.AbstractSummaryResults` property to `AnalyzeActionResult.AbstractiveSummarizeResults`.
+    - Renamed the `AbstractSummaryAction` class to `AbstractiveSummarizeAction`.
+    - Renamed the `AbstractSummaryActionResult` class to `AbstractiveSummarizeActionResult`.
+    - Renamed the `AbstractSummaryOperation` class to `AbstractiveSummarizeOperation`.
+    - Renamed the `AbstractSummaryOptions` class to `AbstractiveSummarizeOptions`.
+    - Renamed the `AbstractSummaryResult` class to `AbstractiveSummarizeResult`.
+    - Renamed the `AbstractSummaryResultCollection` class to `AbstractiveSummarizeResultCollection`.
+    - Renamed the `AbstractSummaryAction` class to `AbstractiveSummaryAction`.
+    - Renamed the `SummaryContext` class to `AbstractiveSummaryContext`.
+    - Removed support for dynamic classification:
+    - Removed the following methods: `TextAnalyticsClient.DynamicClassify` and `TextAnalyticsClient.DynamicClassifyAsync`.
+    - Removed the following methods: `TextAnalyticsClient.DynamicClassifyBatch` and `TextAnalyticsClient.DynamicClassifyBatchAsync`.
+    - Removed the `DynamicClassifyDocumentResultCollection` class.
+    - Removed the `ClassificationType` enum.
+- Name: Azure.ResourceManager.ConfidentialLedger
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConfidentialLedger_1.1.0-beta.2/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Batch
+  Version: 1.2.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.2.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceFabricManagedClusters
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.1.0-beta.2/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Purview.Sharing
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Share
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Sharing_1.0.0-beta.3/sdk/purview/Azure.Analytics.Purview.Sharing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed skipToken as a parameter from all client list calls
+    - Constructor for clients now takes in Uri object as oppose to a string parameter
+
+    #### Features Added
+
+    - Added the new share resource capability that allows listing resources associated with sent and received shares.
+- Name: Azure.ResourceManager.Redis
+  Version: 1.2.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Redis_1.2.0/sdk/redis/Azure.ResourceManager.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesSiteRecovery
+  Version: 1.0.0
+  DisplayName: Resource Management - Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesSiteRecovery_1.0.0/sdk/recoveryservices-siterecovery/Azure.ResourceManager.RecoveryServicesSiteRecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HDInsight
+  Version: 1.1.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight_1.1.0/sdk/hdinsight/Azure.ResourceManager.HDInsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.3.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.3.0/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0-beta.2/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HDInsight
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight_1.2.0-beta.1/sdk/hdinsight/Azure.ResourceManager.HDInsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ManagedNetworkFabric
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managednetworkfabric
+  ServiceName: Managednetworkfabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ManagedNetworkFabric_1.0.0-beta.1/sdk/managednetworkfabric/Azure.ResourceManager.ManagedNetworkFabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.0.0-beta.1
+  DisplayName: IotFirmwareDefense
+  ServiceName: IotFirmwareDefense
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.0.0-beta.1/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+
