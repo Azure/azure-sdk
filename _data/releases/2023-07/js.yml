@@ -212,4 +212,31 @@ entries:
     #### Bugs Fixed
 
     - Fix a regression of missing `getToken` calls when renewing tokens.
+- Name: '@azure/arm-managednetworkfabric'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managednetworkfabric
+  ServiceName: Managednetworkfabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managednetworkfabric_1.0.0-beta.1/sdk/managednetworkfabric/arm-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.13.0-beta.2
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0-beta.2/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug with `publishCloudEvents` API. To add the elements to the array, `push` method should be called instead of `concat` method.
+- Name: '@azure/arm-selfhelp'
+  Version: 1.0.0
+  DisplayName: Resource Management - Selfhelp
+  ServiceName: Selfhelp
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_1.0.0/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
 
