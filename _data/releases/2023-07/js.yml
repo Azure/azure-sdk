@@ -239,4 +239,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_1.0.0/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.5
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.5/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Remove the abuse protection check since the service always validates the request
 
