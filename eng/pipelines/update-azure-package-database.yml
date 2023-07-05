@@ -4,6 +4,23 @@ pr: none
 
 trigger: none
 
+parameters:
+- name: Languages
+  type: string
+  default: '"java", "dotnet", "python", "javascript", "golang", "cpp"'
+- name: DaysAgo
+  type: string
+  default: '730'
+- name: Table
+  type: string
+  default: PackageReleaseData
+- name: ClearTable
+  type: boolean
+  default: true
+- name: UpdateDatabase
+  type: boolean
+  default: true
+
 pool:
   name: azsdk-pool-mms-ubuntu-2204-general
   vmImage: ubuntu-22.04
@@ -19,8 +36,9 @@ steps:
     scriptPath: $(System.DefaultWorkingDirectory)/eng/scripts/Update-Azure-Package-Data.ps1
     arguments: >
       -github_pat $(azuresdk-github-pat)
-      -languages @("java", "dotnet", "python", "javascript", "golang", "cpp")
-      -daysAgo 730
-      -clearTable
-      -updateDatabase
+      -languages ${{ parameters.Languages }}
+      -daysAgo ${{ parameters.DaysAgo }}
+      -Table ${{ parameters.Table }}
+      -clearTable:$${{ parameters.ClearTable }}
+      -updateDatabase:$${{ parameters.UpdateDatabase }}
 
