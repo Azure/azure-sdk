@@ -1,0 +1,26 @@
+# This pipeline updates an internal database used for visualizing package release statistics
+
+pr: none
+
+trigger: none
+
+pool:
+  name: azsdk-pool-mms-ubuntu-2204-general
+  vmImage: ubuntu-22.04
+
+steps:
+- checkout: self
+
+- task: AzureCLI@2
+  displayName: 'Update Release Data'
+  inputs:
+    azureSubscription: Azure SDK Engineering System
+    scriptType: pscore
+    scriptPath: $(System.DefaultWorkingDirectory)/eng/scripts/Update-Azure-Package-Data.ps1
+    arguments: >
+      -github_pat $(azuresdk-github-pat)
+      -languages @("java", "dotnet", "python", "javascript", "golang", "cpp")
+      -daysAgo 730
+      -clearTable
+      -updateDatabase
+
