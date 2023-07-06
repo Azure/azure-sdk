@@ -9,7 +9,7 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
 
-    - [#4723]](https://github.com/Azure/azure-sdk-for-cpp/issues/4723) Accept a wider variety of token responses.
+    - [[#4723]](https://github.com/Azure/azure-sdk-for-cpp/issues/4723) Accept a wider variety of token responses.
 - Name: azure-core
   Version: 1.10.1
   DisplayName: Core
@@ -20,7 +20,7 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
 
-    - [[#4662]](https://github.com/Azure/azure-sdk-for-cpp/issues/4662) `Azure::Core::Operation<T>::GetRawResponseInternal()` is now deprecated and no longer requires an overload.
+    - [[#4662]](https://github.com/Azure/azure-sdk-for-cpp/issues/4662) `Azure::Core::Operation<T>::GetRawResponseInternal()` is now deprecated and no longer requires an override.
 - Name: azure-core-amqp
   Version: 1.0.0-beta.1
   DisplayName: AMQP
