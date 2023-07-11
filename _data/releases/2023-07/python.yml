@@ -363,4 +363,68 @@ entries:
     - Deprecated `SentimentSkillV1` and `EntityRecognitionSkillV1`.
     #### Features Added
     - Added `VectorSearch` support.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b10
+  DisplayName: Core - Client - Tracing Opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b10/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enabled the use of the `context` keyword argument for passing in context headers of a parent span. This will be the parent context used when creating the span. ([#30411](https://github.com/Azure/azure-sdk-for-python/pull/30411))
+
+    #### Breaking Changes
+
+    - Remapped certain attributes to converge with OpenTelemetry semantic conventions ([#29203](https://github.com/Azure/azure-sdk-for-python/pull/29203)):
+    - `x-ms-client-request-id` -> `az.client_request_id`,
+    - `x-ms-request-id` -> `az.service_request_id`,
+    - `http.user_agent` -> `user_agent.original`,
+    - `message_bus.destination` -> `messaging.destination.name`,
+    - `peer.address` -> `net.peer.name`,
+- Name: azure-storage-blob
+  Version: 12.17.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.17.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.17.0b1
+- Name: azure-storage-file-share
+  Version: 12.13.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.13.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.13.0b1
+- Name: azure-search-documents
+  Version: 11.4.0b6
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b6/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `top_k` support for `VectorSearch`.
+- Name: azure-appconfiguration
+  Version: 1.5.0b1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.5.0b1/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `Snapshot` CRUD operations.
+
+    #### Bugs Fixed
+    - Fixed async `update_sync_token` to use async/await keywords
 
