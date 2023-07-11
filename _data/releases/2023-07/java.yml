@@ -2365,4 +2365,18 @@ entries:
     - Azure CLI and Azure Developer CLI no longer pass `organizations` as a tenant value when retrieving a token. [#34387](https://github.com/Azure/azure-sdk-for-java/issues/34387)
     - `WorkloadIdentityCredential` now uses the tenant value specified in `DefaultAzureCredential` when authenticating with Azure Identity. [#35619](https://github.com/Azure/azure-sdk-for-java/pull/35619)
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.8.7
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.7/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.40.0` to `1.41.0`.
+  GroupId: com.azure
 
