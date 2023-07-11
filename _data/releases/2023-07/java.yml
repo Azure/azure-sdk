@@ -2353,4 +2353,16 @@ entries:
 
     - Upgraded `azure-core` from `1.40.0` to `1.41.0`.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.9.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.9.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Azure CLI and Azure Developer CLI no longer pass `organizations` as a tenant value when retrieving a token. [#34387](https://github.com/Azure/azure-sdk-for-java/issues/34387)
+    - `WorkloadIdentityCredential` now uses the tenant value specified in `DefaultAzureCredential` when authenticating with Azure Identity. [#35619](https://github.com/Azure/azure-sdk-for-java/pull/35619)
+  GroupId: com.azure
 
