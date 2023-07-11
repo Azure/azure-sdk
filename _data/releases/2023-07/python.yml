@@ -359,7 +359,8 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b5/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
+    #### Breaking Changes
+    - Deprecated `SentimentSkillV1` and `EntityRecognitionSkillV1`.
     #### Features Added
-
-    - Exposed `azure.search.documents.models.Vector`.
+    - Added `VectorSearch` support.
 
