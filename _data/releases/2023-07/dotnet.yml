@@ -466,4 +466,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sphere_1.0.0-beta.1/sdk/sphere/Azure.ResourceManager.Sphere/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.2.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where content client `DownloadBlobStreaming()` method would throw for blobs greater than 2GB in size.
 
