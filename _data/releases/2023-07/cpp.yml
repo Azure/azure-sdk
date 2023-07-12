@@ -32,4 +32,39 @@ entries:
     #### Features Added
 
     - Initial release
+- Name: azure-storage-common
+  Version: 12.3.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.3.3/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2023-01-03`.
+- Name: azure-storage-files-datalake
+  Version: 12.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.7.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: '- New features in `12.7.0-beta.1` are now generally available.'
+- Name: azure-storage-files-shares
+  Version: 12.6.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.6.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: '- New features in `12.6.0-beta.1` are now generally available.'
+- Name: azure-storage-blobs
+  Version: 12.8.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.8.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: '- Features in `12.8.0-beta.1` are now generally available.'
 
