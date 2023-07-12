@@ -449,4 +449,28 @@ entries:
 
     - Deprecate Elevation tile enum
     - Remove python 3.6 support
+- Name: azure-eventhub
+  Version: 5.11.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.3/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the error `end frame received on invalid channel` which was raised when a disconnect was sent by the service ([#30860](https://github.com/Azure/azure-sdk-for-python/pull/30860))
+    - Fixed the error `link already closed` which was raised when the client was closing and disconnecting from the service ([#30836](https://github.com/Azure/azure-sdk-for-python/pull/30836))
+- Name: azure-servicebus
+  Version: 7.11.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.11.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the error `end frame received on invalid channel` which was raised when a disconnect was sent by the service ([#30860](https://github.com/Azure/azure-sdk-for-python/pull/30860))
+    - Fixed the error `link already closed` which was raised when the client was closing and disconnecting from the service ([#30836](https://github.com/Azure/azure-sdk-for-python/pull/30836))
 
