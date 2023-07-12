@@ -445,4 +445,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.16.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
   ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Core
+  Version: 1.34.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.34.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `IsCaeEnabled` property to `TokenRequestContext` to enabled per-request support for Continuous Access Evaluation
+    - Updated dependency on System.Diagnostics.DiagnosticSource
+    - Added `ContentLengthLong` property to `ResponseHeaders`
+- Name: Azure.ResourceManager.Sphere
+  Version: 1.0.0-beta.1
+  DisplayName: Sphere
+  ServiceName: Sphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sphere_1.0.0-beta.1/sdk/sphere/Azure.ResourceManager.Sphere/CHANGELOG.md
+  ChangelogContent: ""
 
