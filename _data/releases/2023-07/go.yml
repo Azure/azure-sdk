@@ -214,4 +214,29 @@ entries:
     #### Features Added
 
     * Added `ParseNTFSFileAttributes` method for parsing the file attributes to `file.NTFSFileAttributes` type.
+- Name: sdk/azcore
+  Version: 1.8.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.8.0-beta.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `messaging/CloudEvent` allows you to serialize/deserialize CloudEvents, as described in the CloudEvents 1.0 specification: [link](https://github.com/cloudevents/spec)
+- Name: sdk/azcore
+  Version: 1.7.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.7.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes affect only code written against beta versions v1.7.0-beta.1 or v1.7.0-beta.2
+    * The beta features for CAE, tracing, and fakes have been omitted for this release.
+
+    #### Features Added
+    * Added method `WithClientName()` to type `azcore.Client` to support shallow cloning of a client with a new name used for tracing.
 
