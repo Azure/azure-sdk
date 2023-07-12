@@ -199,4 +199,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/managednetworkfabric/armmanagednetworkfabric/v0.1.0/sdk/resourcemanager/managednetworkfabric/armmanagednetworkfabric/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.0.0
+  DisplayName: Storage File Share
+  ServiceName: Storage File Share
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.0.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed the issue where trailing slash is encoded when passed in directory or subdirectory name while creating the directory client.
+
+    #### Features Added
+
+    * Added `ParseNTFSFileAttributes` method for parsing the file attributes to `file.NTFSFileAttributes` type.
 
