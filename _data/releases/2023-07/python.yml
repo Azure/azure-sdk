@@ -305,11 +305,11 @@ entries:
     - Added header name parameter to `RequestIdPolicy`. #30772
     - Added `SensitiveHeaderCleanupPolicy` that cleans up sensitive headers if a redirect happens and the new destination is in another domain. #28349
 - Name: azure-search-documents
-  Version: 11.4.0b4
+  Version: 11.4.0b6
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: true
+  Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b4/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Breaking Changes
@@ -356,7 +356,7 @@ entries:
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b5/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Breaking Changes
@@ -404,11 +404,11 @@ entries:
     #### Features Added
     - Stable release of features from 12.13.0b1
 - Name: azure-search-documents
-  Version: 11.4.0b6
+  Version: 11.4.0b4
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b6/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
