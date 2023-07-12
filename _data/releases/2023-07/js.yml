@@ -263,4 +263,21 @@ entries:
     - Add `timeout`, `onUploadProgress`, `onDownloadProgress`, `abortSignal`, `tracingOptions`, `onResponse` in the `RequestParameters` for better RLC user experience.
     - Add `OperationOptions` for better modular user experience.
     - Correctly handle `allowInsecureConnection` handling when `undefined` is passed in `RequestParameters`. See https://github.com/Azure/autorest.typescript/issues/1916 for details.
+- Name: '@azure/search-documents'
+  Version: 12.0.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.2/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix compiler errors when using `SearchClient` without defined model. [#25999](https://github.com/Azure/azure-sdk-for-js/pull/25999)
+    - Fix all clients adding one or more duplicate user agents. [#26298](https://github.com/Azure/azure-sdk-for-js/pull/26298)
+    - Fix serializerOptions and onResponse options for SearchClient methods. [#26327](https://github.com/Azure/azure-sdk-for-js/pull/26327)
+
+    #### Features Added
+
+    - Add vector search. [#26069](https://github.com/Azure/azure-sdk-for-js/pull/26069)
 
