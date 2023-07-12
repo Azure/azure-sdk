@@ -437,4 +437,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Stable release of features from 12.12.0b1
+- Name: azure-maps-render
+  Version: 1.0.0b2
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-render_1.0.0b2/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecate Elevation tile enum
+    - Remove python 3.6 support
 
