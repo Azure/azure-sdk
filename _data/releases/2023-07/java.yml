@@ -2524,4 +2524,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.2/sdk/maps/azure-maps-render/CHANGELOG.md
   ChangelogContent: '- Enum deprecation update'
   GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.2.10
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.2.10/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.40.0` to version `1.41.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.4` to version `1.13.5`.
+  GroupId: com.azure
 
