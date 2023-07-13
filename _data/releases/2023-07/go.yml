@@ -239,4 +239,26 @@ entries:
 
     #### Features Added
     * Added method `WithClientName()` to type `azcore.Client` to support shallow cloning of a client with a new name used for tracing.
+- Name: sdk/messaging/azeventgrid
+  Version: 0.1.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventgrid/v0.1.0/sdk/messaging/azeventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview for the Event Grid package for Event Grid Namespaces
+- Name: sdk/tracing/azotel
+  Version: 0.2.0
+  DisplayName: OpenTelemetry
+  ServiceName: Tracing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/tracing/azotel/v0.2.0/sdk/tracing/azotel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * The type for parameter `tracerProvider` in function `NewTracingProvider()` has changed to `trace.TracerProvider`.
 
