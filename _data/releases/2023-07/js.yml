@@ -280,4 +280,49 @@ entries:
     #### Features Added
 
     - Add vector search. [#26069](https://github.com/Azure/azure-sdk-for-js/pull/26069)
+- Name: '@azure-rest/maps-render'
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_1.0.0-beta.2/sdk/maps/maps-render-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecate tilesetId "microsoft.dem" and "microsoft.dem.contours" per [announcement of the retirement for DEM tiles in Render API](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023/)
+    - Update README.
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.2/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update README.
+- Name: '@azure-rest/maps-geolocation'
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.2/sdk/maps/maps-geolocation-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update README.
+- Name: '@azure-rest/maps-search'
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_1.0.0-beta.3/sdk/maps/maps-search-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update README.
 
