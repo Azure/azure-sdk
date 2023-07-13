@@ -2515,4 +2515,13 @@ entries:
     - Added support for the `2023-01-03` service version.
     - Content length limit for `AppendBlobClient.appendBlock()` raised from 4 MiB to 100 MiB.
   GroupId: com.azure
+- Name: azure-maps-render
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.2/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: '- Enum deprecation update'
+  GroupId: com.azure
 
