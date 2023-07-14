@@ -2539,4 +2539,28 @@ entries:
     - Upgraded `azure-core` from `1.40.0` to version `1.41.0`.
     - Upgraded `azure-core-http-netty` from `1.13.4` to version `1.13.5`.
   GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.4.8
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.4.8/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.40.0` to version `1.41.0`.
+    - Upgraded `azure-communication-common` from `1.2.9` to version `1.2.10`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-paloaltonetworks-ngfw
+  Version: 1.0.0
+  DisplayName: Resource Management - Palo Alto Networks - Next Generation Firewall
+  ServiceName: Palo Alto Networks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-paloaltonetworks-ngfw_1.0.0/sdk/paloaltonetworks/azure-resourcemanager-paloaltonetworks-ngfw/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
