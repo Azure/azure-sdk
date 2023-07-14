@@ -228,7 +228,7 @@ New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NE
 Nginx,0,Resource Management - Nginx,mgmt,.NET,,,11,false,Azure.ResourceManager.Nginx,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/nginx,3,false,1,
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,.NET,Microsoft.Azure.Management.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs/Microsoft.Azure.Management.NotificationHubs,3,true,Azure.ResourceManager.NotificationHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/notificationhubs,10,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,.NET,,,11,false,Azure.ResourceManager.Orbital,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/orbital,10,false,1,
-Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,.NET,,,11,false,Azure.ResourceManager.PaloAltoNetworks.Ngfw,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/paloaltonetworks,3,false,1,
+Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,.NET,,,11,false,Azure.ResourceManager.PaloAltoNetworks.Ngfw,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/paloaltonetworks,10,false,1,07/14/2023
 Peering,0,Resource Management - Peering,mgmt,.NET,Microsoft.Azure.Management.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,true,Azure.ResourceManager.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,false,1,
 Policy Insights,0,Resource Management - Policy Insights,mgmt,.NET,Microsoft.Azure.Management.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,true,Azure.ResourceManager.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,false,1,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,.NET,Microsoft.Azure.Management.PostgreSQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql/Microsoft.Azure.Management.PostgreSQL,10,true,Azure.ResourceManager.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql,10,false,1,
@@ -481,6 +481,7 @@ App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzur
 App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,3,false,1,
+Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventgrid,3,false,1,
 Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,06/06/2023
 Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,
 Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,3,false,1,
@@ -490,7 +491,7 @@ Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecre
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,05/09/2023
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,1,false,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,06/06/2023
-Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,1,false,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,
+Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,1,false,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,07/13/2023
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,1,false,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
 Storage File Share,0,Storage File Share,data,Go,,,11,false,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,07/12/2023
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,06/16/2022
@@ -742,9 +743,9 @@ Event Grid,0,CloudNative CloudEvents with Event Grid ,data,Java,,,11,false,azure
 Search,0,Cognitive Search,data,Java,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/search,10,false,1,
 Communication,0,Communication Call Automation,data,Java,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/22/2023
 Communication,0,Communication Chat,data,Java,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/22/2023
-Communication,0,Communication Common,data,Java,,,11,false,azure-communication-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/14/2023
+Communication,0,Communication Common,data,Java,,,11,false,azure-communication-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,07/13/2023
 Communication,0,Communication Email,data,Java,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/22/2023
-Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/14/2023
+Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,07/14/2023
 Communication,0,Communication Network Traversal,data,Java,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/11/2022
 Communication,0,Communication Phone Numbers,data,Java,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/22/2023
 Communication,0,Communication Rooms,data,Java,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/22/2023
@@ -929,7 +930,7 @@ Notification Hubs,0,Resource Management - Notification Hubs,mgmt,Java,,,11,false
 Open Energy Platform,0,Resource Management - Open Energy Platform,mgmt,Java,,,11,false,azure-resourcemanager-oep,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/oep,3,false,1,
 Operations Management,0,Resource Management - Operations Management,mgmt,Java,azure-mgmt-operationsmanagement,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/operationsmanagement/mgmt-v2015_11_01_preview,3,true,azure-resourcemanager-operationsmanagement,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/operationsmanagement,3,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,Java,,,11,false,azure-resourcemanager-orbital,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/orbital,3,false,1,
-Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,Java,,,11,false,azure-resourcemanager-paloaltonetworks-ngfw,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/paloaltonetworks,3,false,1,
+Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,Java,,,11,false,azure-resourcemanager-paloaltonetworks-ngfw,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/paloaltonetworks,10,false,1,07/14/2023
 Peering,0,Resource Management - Peering,mgmt,Java,azure-mgmt-peering,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/peering/mgmt-v2019_08_01_preview,3,true,azure-resourcemanager-peering,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/peering,3,false,1,
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Java,azure-mgmt-policyinsights,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/policyinsights/mgmt-v2019_10_01,3,true,azure-resourcemanager-policyinsights,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/policyinsights,3,false,1,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,Java,azure-mgmt-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/postgresql/mgmt-v2017_12_01,3,true,azure-resourcemanager-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/postgresql,10,false,1,01/23/2022
@@ -1148,11 +1149,11 @@ Schema Registry,0,Schema Registry,data,JavaScript,,,11,false,@azure/schema-regis
 Schema Registry,0,Schema Registry - Avro,data,JavaScript,,,11,false,@azure/schema-registry-avro,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
 Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,04/10/2023
 Synapse,0,Spark,data,JavaScript,,,11,false,@azure/synapse-spark,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
-Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,07/12/2023
 Storage,0,Storage - Blobs Changefeed,data,JavaScript,,,11,false,@azure/storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,JavaScript,,,11,false,@azure/storage-file-datalake,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Files Share,data,JavaScript,@azure/storage-file,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/storage-file-share,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Queues,data,JavaScript,,,11,false,@azure/storage-queue,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,04/13/2023
+Storage,0,Storage - Files Data Lake,data,JavaScript,,,11,false,@azure/storage-file-datalake,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,07/12/2023
+Storage,0,Storage - Files Share,data,JavaScript,@azure/storage-file,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/storage-file-share,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,07/12/2023
+Storage,0,Storage - Queues,data,JavaScript,,,11,false,@azure/storage-queue,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,07/12/2023
 Tables,0,Tables,data,JavaScript,,,11,false,@azure/data-tables,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/tables,10,false,1,04/10/2023
 Cognitive Services,0,Text Analytics,data,JavaScript,@azure/cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-text-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics,10,false,1,07/07/2021
 Cognitive Services,0,Text Translation,data,JavaScript,,,11,false,@azure-rest/ai-translation-text,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/translation/ai-translation-text-rest/,3,false,1,
@@ -1292,7 +1293,7 @@ Notification Hubs,0,Resource Management - Notification Hubs,mgmt,JavaScript,azur
 Oep,0,Resource Management - Oep,mgmt,JavaScript,,,11,false,@azure/arm-oep,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/oep,3,false,1,
 Operations Management,0,Resource Management - Operations Management,mgmt,JavaScript,,,11,false,@azure/arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationsmanagement/arm-operations,10,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,JavaScript,,,11,false,@azure/arm-orbital,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/orbital,10,false,1,03/22/2023
-Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,JavaScript,,,11,false,@azure/arm-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/paloaltonetworksngfw,3,false,1,
+Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,JavaScript,,,11,false,@azure/arm-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/paloaltonetworksngfw,10,false,1,07/14/2023
 Peering,0,Resource Management - Peering,mgmt,JavaScript,,,11,false,@azure/arm-peering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering,10,false,1,12/05/2022
 Policy,0,Resource Management - Policy,mgmt,JavaScript,,,11,false,@azure/arm-policy,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy,10,false,1,05/24/2023
 Policy Insights,0,Resource Management - Policy Insights,mgmt,JavaScript,,,11,false,@azure/arm-policyinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights,10,false,1,
@@ -1514,7 +1515,7 @@ Billing Benefits,0,Resource Management - Billing Benefits,mgmt,Python,,,11,false
 Bot Service,0,Resource Management - Bot Service,mgmt,Python,,,11,false,azure-mgmt-botservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/botservice,10,false,1,01/17/2023
 Change Analysis,0,Resource Management - Change Analysis,mgmt,Python,,,11,false,azure-mgmt-changeanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/changeanalysis,10,false,1,04/07/2021
 Chaos,0,Resource Management - Chaos,mgmt,Python,,,11,false,azure-mgmt-chaos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/chaos,3,false,1,
-Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,Python,,,11,false,azure-mgmt-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/paloaltonetworks,3,false,1,
+Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,Python,,,11,false,azure-mgmt-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/paloaltonetworks,10,false,1,07/14/2023
 Search,0,Resource Management - Cognitive Search,mgmt,Python,,,11,false,azure-mgmt-search,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,02/16/2023
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,Python,,,11,false,azure-mgmt-cognitiveservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,10,false,1,02/16/2023
 Commerce,0,Resource Management - Commerce,mgmt,Python,,,11,false,azure-mgmt-commerce,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/commerce,10,false,1,
@@ -1713,7 +1714,6 @@ Cognitive Services,0,Conversational Language Understanding,data,Go,,,11,false,Mi
 IoT,0,Device Update,data,Go,,,11,false,Missing: Created from existing package: Azure.IoT.DeviceUpdate,,2,false,0,
 IoT,0,Digital Twins - Core,data,Go,,,11,false,Missing: Created from existing package: Azure.DigitalTwins.Core,,2,false,0,
 Cognitive Services,0,Document Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Document,,2,false,0,
-Event Grid,0,Event Grid,data,Go,,,11,false,Missing: Created from existing package: Azure.Messaging.EventGrid,,2,false,0,
 Event Hubs,0,Event Hubs - Event Processor,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
 Event Hubs,0,Event Hubs - Event Processor,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
 Cognitive Services,0,Form Recognizer,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.FormRecognizer,,2,false,0,
@@ -1781,6 +1781,10 @@ Media,0,Resource Management - Media,mgmt,Python,,,11,false,Missing: Created from
 Media,0,Resource Management - Media,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Media,,2,false,0,
 MySQL,0,Resource Management - MySQL,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.MySql,,2,false,0,
 NetApp Files,0,Resource Management - NetApp Files,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.NetApp,,2,false,0,
+Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.PaloAltoNetworks.Ngfw,,2,false,0,
+Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.PaloAltoNetworks.Ngfw,,2,false,0,
+Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.PaloAltoNetworks.Ngfw,,2,false,0,
+Paloaltonetworks.Ngfw,0,Resource Management - Paloaltonetworks.Ngfw,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.PaloAltoNetworks.Ngfw,,2,false,0,
 Provider Hub,0,Resource Management - Provider Hub,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ProviderHub,,2,false,0,
 Provider Hub,0,Resource Management - Provider Hub,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ProviderHub,,2,false,0,
 Qumulo,0,Resource Management - Qumulo,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Qumulo,,2,false,0,
@@ -1814,6 +1818,10 @@ Storage,0,Storage - Internal Avro,data,Go,,,11,false,Exception: Internal library
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
 Device Provisioning Services,0,Resource Management - Device Provisioning Services,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-deviceprovisioningservices,,2,false,0,
+Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-paloaltonetworks-ngfw,,2,false,0,
+Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-paloaltonetworks-ngfw,,2,false,0,
+Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-paloaltonetworks-ngfw,,2,false,0,
+Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-paloaltonetworks-ngfw,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,.NET,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,Java,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
 Communication,0,@azure/communication-calling-effects,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: @azure/communication-calling-effects,,2,false,0,
@@ -1908,6 +1916,10 @@ Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,Java,,,11,false,Missi
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-mysql-flexible,,2,false,0,
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-mysql-flexible,,2,false,0,
 Operations Management,0,Resource Management - Operations Management,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-operations,,2,false,0,
+Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-paloaltonetworksngfw,,2,false,0,
+Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-paloaltonetworksngfw,,2,false,0,
+Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-paloaltonetworksngfw,,2,false,0,
+Paloaltonetworksngfw,0,Resource Management - Paloaltonetworksngfw,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-paloaltonetworksngfw,,2,false,0,
 Policy,0,Resource Management - Policy,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-policy,,2,false,0,
 Policy,0,Resource Management - Policy,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-policy,,2,false,0,
 Policy,0,Resource Management - Policy,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-policy,,2,false,0,
@@ -1967,6 +1979,10 @@ Arc Data,0,Resource Management - Arc Data,mgmt,.NET,,,11,false,Missing: Created 
 Arc Data,0,Resource Management - Arc Data,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-azurearcdata,,2,false,0,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-baremetalinfrastructure,,2,false,0,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-baremetalinfrastructure,,2,false,0,
+Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-paloaltonetworksngfw,,2,false,0,
+Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-paloaltonetworksngfw,,2,false,0,
+Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-paloaltonetworksngfw,,2,false,0,
+Cloud NGFW by Palo Alto Networks,0,Resource Management - Cloud NGFW by Palo Alto Networks,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-paloaltonetworksngfw,,2,false,0,
 Cost Management,0,Resource Management - Cost Management,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-costmanagement,,2,false,0,
 Cost Management,0,Resource Management - Cost Management,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-costmanagement,,2,false,0,
 Custom Providers,0,Resource Management - Custom Providers,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-customproviders,,2,false,0,
