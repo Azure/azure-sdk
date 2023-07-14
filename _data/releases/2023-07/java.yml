@@ -2563,4 +2563,15 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-paloaltonetworks-ngfw_1.0.0/sdk/paloaltonetworks/azure-resourcemanager-paloaltonetworks-ngfw/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.9
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.9/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Update
+    - Update OpenTelemetry Java Instrumentation to 1.28.0
+  GroupId: com.azure
 
