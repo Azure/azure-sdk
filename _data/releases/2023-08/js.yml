@@ -1,0 +1,22 @@
+entries:
+- Name: '@azure/arm-paloaltonetworksngfw'
+  Version: 1.0.0
+  DisplayName: Resource Management - Paloaltonetworksngfw
+  ServiceName: Paloaltonetworksngfw
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.0.0/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.5.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.5.0-beta.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the new preview API version `2022-11-01-preview`, added configuration settings snapshot feature that allows users to create a point-in-time snapshot of their configuration store.
+    [#24535](https://github.com/Azure/azure-sdk-for-js/pull/24535)
+
