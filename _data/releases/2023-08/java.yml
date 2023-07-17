@@ -34,4 +34,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-paloaltonetworks-ngfw_1.0.0/sdk/paloaltonetworks/azure-resourcemanager-paloaltonetworks-ngfw/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-servicebus
+  Version: 7.14.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.14.2/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `NullPointerException` that happens when session receiver encounters an error and distributed tracing is enabled.
+    ([#35660](https://github.com/Azure/azure-sdk-for-java/issues/35660))
+  GroupId: com.azure
 
