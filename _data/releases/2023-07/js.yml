@@ -239,4 +239,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_1.0.0/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.5
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.5/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Remove the abuse protection check since the service always validates the request
+- Name: '@azure-rest/core-client'
+  Version: 1.1.4
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.4/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `timeout`, `onUploadProgress`, `onDownloadProgress`, `abortSignal`, `tracingOptions`, `onResponse` in the `RequestParameters` for better RLC user experience.
+    - Add `OperationOptions` for better modular user experience.
+    - Correctly handle `allowInsecureConnection` handling when `undefined` is passed in `RequestParameters`. See https://github.com/Azure/autorest.typescript/issues/1916 for details.
 
