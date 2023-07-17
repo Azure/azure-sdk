@@ -18,4 +18,70 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/paloaltonetworksngfw/armpanngfw/v1.0.0/sdk/resourcemanager/paloaltonetworksngfw/armpanngfw/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.0.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.0.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * First stable release of the azadmin module
+- Name: sdk/security/keyvault/azcertificates
+  Version: 0.11.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v0.11.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Rename `ListCertificates` to `ListCertificateProperties`
+    * `ListCertificateIssuers` to `ListIssuerProperties`
+    * `ListCertificateVersions` to `ListCertificatePropertiesVersions`
+    * `ListDeletedCertificates` to `ListDeletedCertificateProperties`
+    * `CertificateListResult` to `CertificatePropertiesListResult`
+    * `DeletedCertificateListResult` to `DeletedCertificatePropertiesListResult`
+    * `SetCertificateContacts` to `SetContacts`
+    * `GetCertificateContacts` to `GetContacts`
+    * `DeleteCertificateContacts` to `DeleteContacts`
+    * `SetCertificateIssuer` to `SetIssuer`
+    * `UpdateCertificateIssuer` to `UpdateIssuer`
+    * `GetCertificateIssuer` to `GetIssuer`
+    * `DeleteCertificateIssuer` to `DeleteIssuer`
+    * `CertificateIssuerListResult` to `IssuerPropertiesListResult`
+    * `UpdateCertificateIssuerParameters` to `UpdateIssuerParameters`
+    * `SetCertificateIssuerParameters` to `SetIssuerParameters`
+    * `CertificateBundle` to `Certificate`
+    * `CertificateItem` to `CertificateProperties`
+    * `DeletedCertificateBundle` to `DeletedCertificate`
+    * `DeletedCertificateItem` to `DeletedCertificateProperties`
+    * `IssuerBundle` to `Issuer`
+    * `CertificateIssuerItem` to `IssuerProperties`
+    * `RestoreCertificateParameters.CertificateBundleBackup` to `RestoreCertificateParameters.CertificateBackup`
+    * `JSONWebKeyCurveName` to `CurveName`
+    * `JSONWebKeyType` to `KeyType`
+    * `Trigger` to `LifetimeActionTrigger`
+    * `Action` to `LifetimeActionType`
+    * `AdministratorDetails` to ``AdministratorContact`
+    * `OrganizationDetails.AdminDetails` to `OrganizationDetails.AdminContacts`
+    * `EmailAddress` to `Email`
+    * `UPNs` to `UserPrincipalNames`
+    * `EKUs` to `EnhancedKeyUsage`
+    * remove `MaxResults` parameter
+    * remove `DeletionRecoveryLevel` type
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.0.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.0.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * changed type of `KID` from string to type `ID`
+
+    #### Features Added
+    * first stable release of `azsecrets` module
 
