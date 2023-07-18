@@ -7,4 +7,16 @@ entries:
   Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-paloaltonetworksngfw_1.0.0/sdk/paloaltonetworks/azure-mgmt-paloaltonetworksngfw/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b15
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b15/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgrading to OpenTelemetry SDK/API 1.19.
+    ([#31170](https://github.com/Azure/azure-sdk-for-python/pull/31170))
 
