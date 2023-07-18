@@ -19,4 +19,24 @@ entries:
 
     - Upgrading to OpenTelemetry SDK/API 1.19.
     ([#31170](https://github.com/Azure/azure-sdk-for-python/pull/31170))
+- Name: azure-purview-sharing
+  Version: 1.0.0b3
+  DisplayName: Purview Sharing
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-sharing_1.0.0b3/sdk/purview/azure-purview-sharing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In _operations.py, under the list_attached definition, the `skip_token` parameter was removed list definitions in favor of placing it within `nextLink`.
+
+    #### Bugs Fixed
+
+    - Fixed Samples and Tests
+
+    #### Features Added
+
+    - Added the new share resources capability that allows listing resources associated with sent and received shares.
+    - Added missing test cases to test_sent_shares and test_received_shares
 
