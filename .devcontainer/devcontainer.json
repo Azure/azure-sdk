@@ -4,13 +4,18 @@
 
     // Set *default* container specific settings.json values on container create.
     "settings": { 
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "csv-edit.quoteAllFields": true,
+        "csv-edit.quoteEmptyOrNullFields": "true",
+        "csv-edit.readOption_hasHeader": "true",
+        "csv-edit.writeOption_hasHeader": "true"
     },
 
     // Extensions we want installed when the container is created.
     "extensions": [
         "docsmsft.docs-authoring-pack",
-        "github.vscode-pull-request-github"
+        "github.vscode-pull-request-github",
+        "janisdd.vscode-edit-csv"
     ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
