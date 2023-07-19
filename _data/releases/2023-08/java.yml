@@ -75,4 +75,70 @@ entries:
 
     - Using ReceiversPumpingScheduler in azure-core-amqp:2.9.0-beta.4 for internal message pumping by the ServiceBusReactorReceiver.
   GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.3
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.3/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added methods and models to support DALL-E
+    - Added methods and models to support Functions
+    - Added models supporting ResponsibleAI annotations
+
+    #### Bugs Fixed
+
+    - Fixed garbled characters issue in the returned data of `getChatCompletionsStream`.
+  GroupId: com.azure
+- Name: azure-cosmos-test
+  Version: 1.0.0-beta.4
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-test_1.0.0-beta.4/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added fault injection support for Gateway connection mode - See [PR 35378](https://github.com/Azure/azure-sdk-for-java/pull/35378)
+
+    #### Bugs Fixed
+    * Fixed an issue where `FaultInjectionServerErrorType.TIMEOUT` is not injecting the correct error response - See [PR 34723](https://github.com/Azure/azure-sdk-for-java/pull/34723)
+    * Fixed an issue where connection error is not being injected when FaultInjectionEndpoints is not configured - See [PR 35034](https://github.com/Azure/azure-sdk-for-java/pull/35034)
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 2.3.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.3.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.48.0`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-managednetworkfabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Managed Network Fabric
+  ServiceName: Managed Network Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-managednetworkfabric_1.0.0/sdk/managednetworkfabric/azure-resourcemanager-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-cosmos
+  Version: 4.48.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.48.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue with deserialization of `conflictResolutionTimestamp` for All versions and deletes change feed mode. - See [PR 35909](https://github.com/Azure/azure-sdk-for-java/pull/35909)
+    * Added capability to mark a region as unavailable when a request is cancelled due to end-to-end timeout and connection issues
+    with the region in the direct connectivity mode. - See [PR 35586](https://github.com/Azure/azure-sdk-for-java/pull/35586)
+  GroupId: com.azure
 
