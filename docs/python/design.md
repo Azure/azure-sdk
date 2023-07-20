@@ -496,13 +496,13 @@ In order to facilitate round-trip of responses (common in get resource -> condit
 
 The following table enumerates the various models you might create:
 
-|Type|Example|Usage|
-|-|-|
-|<model>|Secret|The full data for a resource|
-|<model>Details|SecretDetails|Less important details about a resource. Attached to <model>.details|
-|<model>Item|SecretItem|A partial set of data returned for enumeration|
-|<operation>Result|AddSecretResult|A partial or different set of data for a single operation|
-|<model><verb>Result|SecretChangeResult|A partial or different set of data for multiple operations on a model|
+| Type             | Example          | Usage                                                              |
+|------------------|------------------|--------------------------------------------------------------------|
+| \<model>         | Secret           | The full data for a resource                                       |
+| \<model>Details  | SecretDetails    | Less important details about a resource. Attached to \<model>.details |
+| \<model>Item     | SecretItem       | A partial set of data returned for enumeration                      |
+| \<operation>Result | AddSecretResult | A partial or different set of data for a single operation           |
+| \<model>\<verb>Result | SecretChangeResult | A partial or different set of data for multiple operations on a model |
 
 ```python
 # An example of a model type.
