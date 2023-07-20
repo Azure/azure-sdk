@@ -198,4 +198,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/cognitiveservices/azopenai/v0.1.0/sdk/cognitiveservices/azopenai/CHANGELOG.md
   ChangelogContent: '* Initial release of the `azopenai` library'
+- Name: sdk/data/aztables
+  Version: 1.0.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.0.2/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Escape single-quote characters in partition and row keys.
 
