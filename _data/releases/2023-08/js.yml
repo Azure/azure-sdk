@@ -90,4 +90,14 @@ entries:
 
     - Number Lookup API public preview
     - API version `2023-05-01-preview` is the default
+- Name: '@azure/identity'
+  Version: 3.2.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.4/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed a bug related to [Managed Identity Credential intermixing wrong scopes](https://github.com/Azure/azure-sdk-for-js/pull/26566) for successive `getToken()` calls.
 
