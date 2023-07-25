@@ -303,4 +303,22 @@ entries:
     #### Features Added
     - Added `setEnableCae` and `isCaeEnabled` APIs to `TokenRequestContext` to indicate CAE authentication flow to be used downstream.
   GroupId: com.azure
+- Name: azure-resourcemanager-netapp
+  Version: 1.0.0-beta.13
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.0.0-beta.13/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-elasticsan
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-elasticsan_1.0.0-beta.2/sdk/elasticsan/azure-resourcemanager-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
