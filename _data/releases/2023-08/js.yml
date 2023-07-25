@@ -100,4 +100,15 @@ entries:
   ChangelogContent: |-
     #### Bug Fixes
     - Fixed a bug related to [Managed Identity Credential intermixing wrong scopes](https://github.com/Azure/azure-sdk-for-js/pull/26566) for successive `getToken()` calls.
+- Name: '@azure/core-lro'
+  Version: 2.5.4
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.5.4/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support non-standard PATCH operations.
 
