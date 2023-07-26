@@ -344,4 +344,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kusto/armkusto/v2.0.0/sdk/resourcemanager/kusto/armkusto/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/cognitiveservices/azopenai
+  Version: 0.1.1
+  DisplayName: Openai
+  ServiceName: Cognitiveservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/cognitiveservices/azopenai/v0.1.1/sdk/cognitiveservices/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * This module has moved to `github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai`.
+- Name: sdk/ai/azopenai
+  Version: 0.1.1
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.1.1/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Moved from `sdk/cognitiveservices/azopenai` to `sdk/ai/azopenai`.
 
