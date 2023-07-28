@@ -1132,4 +1132,16 @@ entries:
     - Added CAE Authentication support for Service principal authentication.
     - Added the ability to log PII from MSAL using new `enableSupportLogging` API.
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.2.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.2.3/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug that disabled sovereign cloud support.
+  GroupId: com.azure
 
