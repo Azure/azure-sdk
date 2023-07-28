@@ -115,3 +115,11 @@ steps:
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
         ScriptDirectory: $(AzureSDKToolsScriptsPath)
+
+    - pwsh: |
+        gh pr merge $(Submitted.PullRequest.Number) --auto --squash
+      condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+      displayName: Apply AutoMerge to Pull Request
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
+      env:
+        GH_TOKEN: $(azuresdk-github-pat)
