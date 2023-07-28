@@ -223,4 +223,46 @@ entries:
     <!-- LINKS -->
     [read_me]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-job-router/README.md
     [issues]: https://github.com/Azure/azure-sdk-for-js/issues
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.13
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.13/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `authenticationType` , `containerUri`, `sasUri` and `sasToken` properties to BlobService
+    - Added `setSystemVariable` proprety to SetVariableActivityTypeProperties
+    - Added `mongoDbAtlasDriverVersion` property to MongoDbAtlasLinkedServiceTypeProperties
+    - Added `ActionOnExistingTargetTable` property for Synapse Link
+    - Added `OutputColumn` Object For Office365Source outputColumns
+    - Added `configurationType` , `targetSparkConfiguration` and `sparkConfig` properties for SynapseNotebookActivityTypeProperties
+    - Added `credential` property for LinkedService
+    - Added `isolationLevel` property for SQLServerSource
+    - Added new apis of Create/Cancel/GetStatus/GetSnapshot for RunNotebook
+- Name: '@azure/arm-mobilenetwork'
+  Version: 3.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_3.0.0/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 9.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 10.1.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
 
