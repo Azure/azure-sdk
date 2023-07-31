@@ -191,4 +191,86 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_2.0.0-beta.1/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-job-router'
+  Version: 1.0.0-beta.1
+  DisplayName: Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-job-router_1.0.0-beta.1/sdk/communication/communication-job-router/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Using `JobRouterAdministrationClient`
+    - Create, update, get, list and delete `DistributionPolicy`.
+    - Create, update, get, list and delete `RouterQueue`.
+    - Create, update, get, list and delete `ClassificationPolicy`.
+    - Create, update, get, list and delete `ExceptionPolicy`.
+    - Using `JobRouterClient`
+    - Create, update, get, list and delete `RouterJob`.
+    - `RouterJob` can be created and updated with different matching modes: `QueueAndMatchMode`, `ScheduleAndSuspendMode` and `SuspendMode`.
+    - Re-classify a `RouterJob`.
+    - Close a `RouterJob`.
+    - Complete a `RouterJob`.
+    - Cancel a `RouterJob`.
+    - Un-assign a `RouterJob`, with option to suspend matching.
+    - Get the position of a `RouterJob` in a queue.
+    - Create, update, get, list and delete `RouterWorker`.
+    - Accept an offer.
+    - Decline an offer.
+    - Get queue statistics.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-job-router/README.md
+    [issues]: https://github.com/Azure/azure-sdk-for-js/issues
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.13
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.13/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `authenticationType` , `containerUri`, `sasUri` and `sasToken` properties to BlobService
+    - Added `setSystemVariable` proprety to SetVariableActivityTypeProperties
+    - Added `mongoDbAtlasDriverVersion` property to MongoDbAtlasLinkedServiceTypeProperties
+    - Added `ActionOnExistingTargetTable` property for Synapse Link
+    - Added `OutputColumn` Object For Office365Source outputColumns
+    - Added `configurationType` , `targetSparkConfiguration` and `sparkConfig` properties for SynapseNotebookActivityTypeProperties
+    - Added `credential` property for LinkedService
+    - Added `isolationLevel` property for SQLServerSource
+    - Added new apis of Create/Cancel/GetStatus/GetSnapshot for RunNotebook
+- Name: '@azure/arm-mobilenetwork'
+  Version: 3.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_3.0.0/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 9.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 10.1.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sphere'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sphere_1.0.0-beta.1/sdk/sphere/arm-sphere/CHANGELOG.md
+  ChangelogContent: ""
 
