@@ -370,4 +370,15 @@ entries:
     - Model WebActivityAuthentication has a new parameter user_tenant
     - Model WebHookActivity has a new parameter on_inactive_mark_as
     - Model WebHookActivity has a new parameter state
+- Name: azure-appconfiguration
+  Version: 1.5.0b2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.5.0b2/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in deserializing and serializing Snapshot when `filters` property is `None`.
+    - Fixed a bug when creating `FeatureFlagConfigurationSetting` from SDK but having an error in portal.([#31326](https://github.com/Azure/azure-sdk-for-python/issues/31326))
 
