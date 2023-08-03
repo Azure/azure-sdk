@@ -273,4 +273,42 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sphere_1.0.0-beta.1/sdk/sphere/arm-sphere/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-auth'
+  Version: 1.5.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.5.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `enableCae` option to `GetTokenOptions` to enable Continuous Access Evaluation in [PR #26614](https://github.com/Azure/azure-sdk-for-js/pull/26614).
+- Name: '@azure/core-util'
+  Version: 1.4.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.4.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds extra environment checks for browser or other environments [PR #26018](https://github.com/Azure/azure-sdk-for-js/pull/26018)
+    - Add helper functions `uint8ArrayToString` and `stringToUint8Array` for transform between string and bytes array with different character encodings.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.12.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.12.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a TypeError in React Native when `Platform.constants` is undefined [Issue #26609](https://github.com/Azure/azure-sdk-for-js/issues/26609)
+
+    #### Features Added
+
+    - Add CommonTelemetryOptions in PipelineOptions to allow customizing the client request id header name [PR #26424](https://github.com/Azure/azure-sdk-for-js/pull/26424)
 
