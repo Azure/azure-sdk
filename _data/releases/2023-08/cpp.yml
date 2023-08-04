@@ -1,0 +1,35 @@
+entries:
+- Name: azure-core
+  Version: 1.10.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4792]](https://github.com/Azure/azure-sdk-for-cpp/issues/4792) Only support CURL's root cert validation when CURL version is >= 7.77.0.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.2
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Azure::Core::Amqp::Models::AmqpBinaryData::operator=(std::vector<std::uint8_t> const&)`.
+    - Added `Azure::Core::Amqp::Models::AmqpMessage::MessageFormat`.
+    - Collection types (`AmqpArray`, `AmqpMap`, `AmqpList`, `AmqpBinaryData`, `AmqpSymbol` and `AmqpComposite`):
+    - Added explicit cast operator to underlying collection type.
+    - Added `find()`.
+    - Rationalized the return code for AMQP MessageSender and MessageReceiver and Management APIs to use AmqpError for error codes.
+    - Added additional AMQP Error values.
+
+    #### Breaking Changes
+
+    - Renamed `Azure::Core::Amqp::Models::AmqpMessageFormatValue` to `AmqpDefaultMessageFormatValue`.
+    - Changed the return values for the MessageSender, MessageReceiver and Management APIs.
+
