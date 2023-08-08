@@ -332,4 +332,262 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.4.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Search.Documents
+  Version: 11.5.0-beta.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.5.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for [Vector Search](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md).
+
+    #### Bugs Fixed
+    - Fixed issue with `QueryCaptionsType.None` in semantic search, resolving an invalid response to the service ([#37164](https://github.com/Azure/azure-sdk-for-net/issues/37164)).
+- Name: Azure.Data.AppConfiguration
+  Version: 1.3.0-beta.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.3.0-beta.2/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added configuration settings snapshot feature which allow users to create a point-in-time snapshot of their configuration store.
+- Name: Azure.Storage.Blobs
+  Version: 12.17.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.17.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.17.0-beta.1.'
+- Name: Azure.Storage.Queues
+  Version: 12.15.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.15.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.15.0-beta.1.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.14.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.14.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.14.0-beta.1.'
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0-beta.3
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0-beta.3/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `TransferManager` new API `PauseAllRunningTransfersAsync`.
+    - Added support for `TransferManager.GetTransfers`, to retrieve the list of transfers in the `TransferManager`.
+    - Added support for tracking progress of transfers. See `TransferOptions.ProgressHandler` and `TransferOptions.ProgressHandlerOptions`.
+    - Added `TransferManager.GetResumableTransfers` to get information about transfers that can be resumed.
+    - Added support for `Transfermanager.ResumeTransferAsync` to resume a transfer.
+    - Added support authorization using Azure Active Directory when using Service to Service Copy.
+
+    #### Bugs Fixed
+    - Fix to prevent empty strings or null to be passed as paths for `LocalFileStorageResource` and `LocalDirectoryStorageResourceContainer`.
+    - Fixed `ErrorHandlingOptions.ContinueOnFailure` not be respected.
+    - Fixed bug where resuming a transfer where the source and destination is a `StorageResourceContainer` would throw a null reference exception.
+    - Fixed bug when downloading zero length `StorageResource`s in a `StorageResourceContainer` will throw an exception.
+
+    #### Breaking Changes
+    - [BREAKING CHANGE] Altered API signatures on `TransferManager` and `DataTransfer` for pausing.
+    - [BREAKING CHANGE] `StorageResouceContainer.GetParentStorageResourceContainer()` removed.
+    - [BREAKING CHANGE] Updated `StorageResource.CompleteTransferAsync` to have an added overwrite parameter: `StorageResource.CompleteTransferAsync(bool overwrite, CancellationToken cancellationToken = default)`.
+    - [BREAKING CHANGE] Renamed `StorageResource` to `StorageResourceSingle` and `StorageResourceBase` to `StorageResouce`.
+    - [BREAKING CHANGE] Combined both `TransferManager.StartTransferAsync` methods into one that accepts single or container resources. All existing calls should continue to work due to inheritence.
+    - [BREAKING CHANGE] Renamed `ErrorHandlingOptions` to `ErrorHandlingBehavior`.
+    - [BREAKING CHANGE] Changed type of `StorageResource.CanProduceUri` to `bool`.
+    - [BREAKING CHANGE] Removed `TransferOptions.ResumeFromCheckpointId`. Use `Transfermanager.ResumeTransferAsync` to resume a transfer instead.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.15.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.15.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.15.0-beta.1.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.15.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.15.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.15.0-beta.1.
+    - Fixed bug where DatalakePathClient.Rename was using the filesystem name parameter for the destination path and vice versa.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.36
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.36/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Common
+  Version: 12.16.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.16.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Core
+  Version: 1.34.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.34.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `IsCaeEnabled` property to `TokenRequestContext` to enabled per-request support for Continuous Access Evaluation
+    - Updated dependency on System.Diagnostics.DiagnosticSource
+    - Added `ContentLengthLong` property to `ResponseHeaders`
+- Name: Azure.ResourceManager.Sphere
+  Version: 1.0.0-beta.1
+  DisplayName: Sphere
+  ServiceName: Sphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sphere_1.0.0-beta.1/sdk/sphere/Azure.ResourceManager.Sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.2.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where content client `DownloadBlobStreaming()` method would throw for blobs greater than 2GB in size.
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.6.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.6.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix secondary key validation failed.
+    - Fix multi request origins validation.
+- Name: Azure.Maps.Search
+  Version: 1.0.0-beta.4
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Search_1.0.0-beta.4/sdk/maps/Azure.Maps.Search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS authentication
+- Name: Azure.Maps.Rendering
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Render
+  ServiceName: Maps Render
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Rendering_1.0.0-beta.2/sdk/maps/Azure.Maps.Rendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS authentication
+- Name: Azure.Maps.Geolocation
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Geolocation
+  ServiceName: Maps Geolocation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Geolocation_1.0.0-beta.2/sdk/maps/Azure.Maps.Geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS authentication
+- Name: Azure.Maps.Routing
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Route
+  ServiceName: Maps Route
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Routing_1.0.0-beta.2/sdk/maps/Azure.Maps.Routing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Update dependency libraries versions
+
+    #### Features Added
+
+    - Support SAS authentication
+- Name: Azure.ResourceManager
+  Version: 1.7.0
+  DisplayName: Resource Management - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.7.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Maps.Common
+  Version: 1.0.0-beta.4
+  DisplayName: Maps Common
+  ServiceName: Maps Common
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Common_1.0.0-beta.4/sdk/maps/Azure.Maps.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Create SAS credential policy
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.13
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.13/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `ApplicationInsightsSampler` to the exporter, enabling users to customize the sampling rate using the `SamplingRatio` property.
+    ([#36972](https://github.com/Azure/azure-sdk-for-net/pull/36972))
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.5
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.5/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added instrumentation support for Azure SDKs.
+    See [Enable Azure SDK Instrumentation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/README.md#enable-azure-sdk-instrumentation) for details.
+    ([#37505](https://github.com/Azure/azure-sdk-for-net/pull/37505))
+    * Added `SamplingRatio` property to customize the sampling rate in Azure Monitor Exporter. **Note**: This package no longer takes dependency on [OpenTelemetry.Extensions.AzureMonitor](https://www.nuget.org/packages/OpenTelemetry.Extensions.AzureMonitor)
+    ([#36972](https://github.com/Azure/azure-sdk-for-net/pull/36972))
+- Name: Azure.ResourceManager.PaloAltoNetworks.Ngfw
+  Version: 1.0.0
+  DisplayName: Resource Management - Paloaltonetworks.Ngfw
+  ServiceName: Paloaltonetworks.Ngfw
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PaloAltoNetworks.Ngfw_1.0.0/sdk/paloaltonetworks.ngfw/Azure.ResourceManager.PaloAltoNetworks.Ngfw/CHANGELOG.md
+  ChangelogContent: ""
 
