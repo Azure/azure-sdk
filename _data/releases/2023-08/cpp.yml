@@ -32,4 +32,36 @@ entries:
 
     - Renamed `Azure::Core::Amqp::Models::AmqpMessageFormatValue` to `AmqpDefaultMessageFormatValue`.
     - Changed the return values for the MessageSender, MessageReceiver and Management APIs.
+- Name: azure-storage-files-datalake
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.8.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2023-08-03`.
+    - Added support for paginated directory delete when using AAD authentication.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `DataLakeDirectoryClient::ListPaths` and `DataLakeFileSystemClient::ListPaths` cannot list the second page and always fail with `std::bad_function_call`.
+    - Fixed a bug where `DataLakePathClient::SetAccessControlListRecursive` crashes when operating on the second page.
+- Name: azure-storage-blobs
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.9.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `RehydratePendingToCold` value to `ArchiveStatus` enum.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `PageBlobClient::GetPageRangesDiff` and `PageBlobClient::GetManagedDiskPageRangesDiff` crash when getting the second page.
 
