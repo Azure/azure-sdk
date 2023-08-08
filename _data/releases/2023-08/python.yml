@@ -386,7 +386,7 @@ entries:
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b7/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -398,4 +398,91 @@ entries:
     > These changes do not impact the API of stable versions such as 11.3.0.
     > Only code written against a beta version such as 11.4.0b6 may be affected.
     - Stopped supporting `vector`, `top_k` and `vector_fields` in `SearchClient.search` method.
+- Name: azure-storage-queue
+  Version: 12.7.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Bumped `azure-core` minimum dependency to 1.28.0 and `typing-extensions` to 4.3.0.
+- Name: azure-search-documents
+  Version: 11.4.0b8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.3.0.
+    > Only code written against a beta version such as 11.4.0b6 may be affected.
+    - Instead of using `VectorSearchAlgorithmConfiguration`, now you need to use concrete types like `HnswVectorSearchAlgorithmConfiguration`.
+    - Stopped supporting `vector`, `top_k` and `vector_fields` in `SearchClient.search` method.
+
+    #### Features Added
+
+    - Exposed `HnswVectorSearchAlgorithmConfiguration`
+    - Added multi-vector search support. Now instead of passing in `vector`, `top_k` and `vector_fields`, search method accepts `vectors` which is a list of `Vector` object.
+- Name: azure-storage-file-share
+  Version: 12.14.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+- Name: azure-storage-file-datalake
+  Version: 12.13.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+- Name: azure-storage-blob
+  Version: 12.18.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+    - Added `version_id` as a client constructor parameter to `BlobClient`. This change makes `BlobClient`s version-aware, such that
+    all APIs that accept `version_id` will operate on the version ID provided during client construction by default.
+    - Added optional keyword `version_id` to `get_blob_client` APIs which, if provided, will result in a version-aware `BlobClient` in which
+    all APIs that accept `version_id` will operate on the version ID provided to the `get_blob_client` API call by default.
+- Name: azure-core-experimental
+  Version: 1.0.0b4
+  DisplayName: Core - Client - Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-experimental_1.0.0b4/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Create new httpx client when used without "with" ([#31362](https://github.com/Azure/azure-sdk-for-python/pull/31370))
+    - Fix httpx sample with right API name
+- Name: azure-core
+  Version: 1.29.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A keyword argument `enable_cae` was added to the `get_token` method of the `TokenCredential` protocol.  #31012
+    - `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy` now accept `enable_cae` keyword arguments in their constructors. This is used in determining if [Continuous Access Evaluation (CAE)](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) should be enabled for each `get_token` request.  #31012
 
