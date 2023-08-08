@@ -1,0 +1,103 @@
+entries:
+- Name: azure-core
+  Version: 1.7.0-beta.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.7.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `noexcept` specification from `Azure::Core::Context::IsCancelled()`.
+
+    #### Features Added
+
+    - Added prototypes and initial service support for Distributed Tracing.
+- Name: azure-storage-common
+  Version: 12.2.4
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.2.4/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where text of XML element cannot be empty.
+- Name: azure-storage-blobs
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.5.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2020-10-02`.
+    - Added new API: `BlockBlobClient::Query()`.
+    - Added `ContinuationToken` and `PageSizeHint` in `GetPageRangesOptions`.
+    - Added support for listing system containers.
+    - Added support for listing deleted root blob with active versions.
+- Name: azure-security-keyvault-secrets
+  Version: 4.0.0
+  DisplayName: 'Key Vault - Secrets '
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.0.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `keyvault_secrets.hpp` to `secrets.hpp`.
+- Name: azure-security-attestation
+  Version: 1.0.0-beta.3
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.0.0-beta.3/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `ValueToSend` field in `TpmAttestationOptions` becomes `Payload`.
+    - `AddIsolatedModeCertificatesOptions` becomes `AddIsolatedModeCertificateOptions`
+    - `RemoveIsolatedModeCertificatesOptions` becomes `RemoveIsolatedModeCertificateOptions`
+    - Renamed `AttestEnclaveOptions` to `AttestSgxEnclaveOptions` and `AttestOpenEnclaveOptions`.
+    - `AttestationClient` and `AttestationAdministrationClient` creation is now done using the factory method `AttestationClient::Create()` and `AttestationAdministrationClient::Create()`.
+- Name: azure-security-keyvault-certificates
+  Version: 4.0.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.0.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `keyvault_certificates.hpp` to `certificates.hpp`.
+- Name: azure-identity
+  Version: 1.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.3.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientCertificateCredential`, and updated `EnvironmentCredential` to support client certificate authentication.
+    - Added `ChainedTokenCredential`.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.1
+  DisplayName: Tracing
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-tracing-opentelemetry_1.0.0-beta.1/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
+

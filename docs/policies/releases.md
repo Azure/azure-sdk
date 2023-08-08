@@ -123,13 +123,14 @@ deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to the lates
 continue receiving updates. 
 Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
-Language|Instructions
-----------|---------
-.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
-Java | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
-TS/JS | Run the relevant build pipeline.
-Python | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
-Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
+
+| Language | Instructions |
+| ---------- | --------- |
+|.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.|
+|Java | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README|
+|TS/JS | Run the relevant build pipeline.|
+|Python | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README|
+|Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)|
 
 #### Legacy packages support after the update
 
@@ -480,7 +481,7 @@ Initial Go package releases will be versioned will use `v0` versioning with `v0.
 
 ## Beta Releases and Stable Graduation
 
-The Azure SDK team may choose to create a beta release for several reasons:
+The Azure SDK team may choose to create a beta release for several reasons (beyond what is required for APEX Launch Requirements):
 
 - Service itself has features in preview and client library must be updated accordingly
 - Testing and receiving feedback on new API designs

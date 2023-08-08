@@ -56,7 +56,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         }
         else
         {
-            throw await response.CreateRequestFailedExceptionAsync(message);
+            throw new RequestFailedException(response);
         }
     }
 }
@@ -83,6 +83,39 @@ See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/c
 `HttpMessage`, `Request`, and `Response` don't have to be thread-safe.
 
 #### Service Method Parameters
+
+##### Parameter presence and ordering
+
+Public service methods should follow the below parameter presence and ordering guidelines.
+
+1. LRO Qualifier: This indicates if the user wants to wait for the LRO to simply start or wait for completion.
+    * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-type" %} be the type defined in `Azure.Core` [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/WaitUntil.cs).
+    * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-required" %} be a required parameter.
+    * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-required" %} be the first parameter.
+    * For LRO this {% include requirement/SHOULD id="dotnet-parameter-lro-qualifier-presence" %} be the present.
+
+2. Required Path: These are parameters that will go in the path of the URI.
+    * These {% include requirement/MUST id="dotnet-parameter-path-ordering" %} be sorted based on their order in the URI so they match.
+    * Sometimes these {% include requirement/MAY id="dotnet-parameter-path-omit" %} be omitted as public method parameters when the context is known by the enclosing class such as [ResourceGroup.Get](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/src/Resources/Generated/ResourceGroupResource.cs#L127)
+
+3. Required Query / Header: These are simple options that can be set as headers or query params in the request.  Typically primitive types or collections that can be transformed into delimited strings.
+    * Any required query or header parameters {% include requirement/MUST id="dotnet-parameter-query-header-order" %} come before the body parameter since the body parameter can be optional.
+
+4. Body: This is typically found in PUT or POST methods and is object passed as the content of the HTTP request.
+    * For PUT this {% include requirement/MUST id="dotnet-parameter-body-required-for-put" %} be a required parameter.
+
+5. ContentType: Defines the content type.
+    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-type" %} be the type defined in `Azure.Core` [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/ContentType.cs).
+    * If present this {% include requirement/MUST id="dotnet-parameter-content-type-optional" %} be an optional parameter.
+
+6. Optional Query / Header: These are simple options that can be set as headers or query params in the request.  Typically primitive types or lists that can be transformed into delimited strings.
+    * {% include requirement/SHOULD id="dotnet-parameter-query-header-property-bag" %} combine these into a property bag when there are more than 2 total including the required ones in item 3 of this list.
+        * The property bag {% include requirement/MUST id="dotnet-parameter-query-header-property-bag-required" %} be required if it includes required query or header parameters from item 3 of this list.  In this case the property bag will replace the parameter at position 3 and position 5 will no longer be present.
+        * If a method grew exceeded the threshold over time then an overload with the property bag {% include requirement/SHOULD id="dotnet-parameter-property-bag-overload" %} be provided leaving the old methods in place.
+
+7. Request Context: This is normally a `CancellationToken` and is defined as the last parameter.
+    * When more context is needed than just a `CancellationToken` such as DPG you {% include requirement/MAY id="dotnet-parameter-request-context" %} use the [RequestContext](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/RequestContext.cs) defined in `Azure.Core`.
+    * This {% include requirement/MUST id="dotnet-parameter-request-context-presence" %} always exist in one of the two forms and be defined as an optional parameter.
 
 ##### Parameter validation {#dotnet-parameters}
 
@@ -532,9 +565,19 @@ internal sealed class AzureCoreEventSource : AzureEventSource
 
 ### Distributed Tracing {#dotnet-distributedtracing}
 
-{% include draft.html content="Guidance coming soon ..." %}
+Distributed tracing allows customers to observe public API methods that are called and network calls that are made from Azure SDK libraries.  With these traces, customers can view the timing of these calls and any errors that occurred.
 
-TODO: Add guidance for distributed tracing implementation
+Distributed traces for network calls are sent automatically by the `HttpPipeline` in Azure.Core.  Library authors must trace public service methods using `ClientDiagnostics.CreateScope`.  The .NET `Activity` types are used for this internally by the `ClientDiagnostics` via .NET [`DiagnosticSource`](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) or [`ActivitySource`](https://docs.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
+
+{% include requirement/MUST id="dotnet-tracing" %} follow [General Distributed Tracing Guidance]({{ site.baseurl }}/general_implementation.html#distributed-tracing).
+
+{% include requirement/MUST id="dotnet-tracing-opentelemetry" %} support distributed tracing by using `ClientDiagnostics` and `DiagnosticScope`
+
+{% include requirement/MUST id="dotnet-tracing-new-span-per-method-failure" %} If method throws exception, record exception on scope using `scope.Failed(ex)`. Do not record exception if exception is handled within service method.
+
+{% include requirement/MUST id="dotnet-tracing-suppress-client-spans-for-inner-methods" %} enable inner client scope suppression when creating `ClientDiagnostics` by setting corresponding suppression flag to `true`. Client libraries that currently don't suppress inner client scopes must keep the flag value default (`null`) for backward compatibility reasons.
+
+{% include requirement/MUSTNOT id="dotnet-tracing-sources" %} use `DiagnosticSource`, or `ActivitySource` API directly from client libraries. `Activity` can be used directly when `DiagnosticScope` does not expose corresponding APIs.
 
 ### Telemetry
 

@@ -1,0 +1,262 @@
+entries:
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 2.0.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v2.0.1/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/loadtestservice/armloadtestservice
+  Version: 1.0.0
+  DisplayName: Resource Management - Loadtestservice
+  ServiceName: Loadtestservice
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/loadtestservice/armloadtestservice/v1.0.0/sdk/resourcemanager/loadtestservice/armloadtestservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/messaging/azeventhubs
+  Version: 0.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.2.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Retries now respect cancellation when they're in the "delay before next try" phase. (PR#19295)
+    - Fixed a potential leak which could cause us to open and leak a $cbs link connection, resulting in errors. (PR#19326)
+
+    #### Breaking Changes
+
+    - EventDataBatch.NumMessages() renamed to EventDataBatch.NumEvents()
+    - Prefetch is now enabled by default. To disable it set PartitionClientOptions.Prefetch to -1.
+    - NewWebSocketConnArgs renamed to WebSocketConnParams
+    - Code renamed to ErrorCode, including associated constants like `ErrorCodeOwnershipLost`.
+    - OwnershipData, CheckpointData, and CheckpointStoreAddress have been folded into their individual structs: Ownership and Checkpoint.
+    - StartPosition and OwnerLevel were erroneously included in the ConsumerClientOptions struct - they've been removed. These can be
+    configured in the PartitionClientOptions.
+
+    #### Features Added
+
+    - Raw AMQP message support, including full support for encoding Body (Value, Sequence and also multiple byte slices for Data). See ExampleEventDataBatch_AddEventData_rawAMQPMessages for some concrete examples. (PR#19156)
+    - Prefetch is now enabled by default. Prefetch allows the Event Hubs client to maintain a continuously full cache of events, controlled by PartitionClientOptions.Prefetch. (PR#19281)
+    - ConsumerClient.ID() returns a unique ID representing each instance of ConsumerClient.
+- Name: sdk/resourcemanager/securitydevops/armsecuritydevops
+  Version: 0.1.0
+  DisplayName: Resource Management - Securitydevops
+  ServiceName: Securitydevops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/securitydevops/armsecuritydevops/v0.1.0/sdk/resourcemanager/securitydevops/armsecuritydevops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/monitor/armmonitor
+  Version: 0.8.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/monitor/armmonitor/v0.8.0/sdk/resourcemanager/monitor/armmonitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/policyinsights/armpolicyinsights
+  Version: 0.6.0
+  DisplayName: Resource Management - Policyinsights
+  ServiceName: Policyinsights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/policyinsights/armpolicyinsights/v0.6.0/sdk/resourcemanager/policyinsights/armpolicyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/datafactory/armdatafactory
+  Version: 2.0.0
+  DisplayName: Resource Management - Datafactory
+  ServiceName: Datafactory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datafactory/armdatafactory/v2.0.0/sdk/resourcemanager/datafactory/armdatafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsan/armelasticsan
+  Version: 0.1.0
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsan/armelasticsan/v0.1.0/sdk/resourcemanager/elasticsan/armelasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 1.2.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v1.2.0/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/nginx/armnginx
+  Version: 2.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/nginx/armnginx/v2.0.0/sdk/resourcemanager/nginx/armnginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redis/armredis
+  Version: 2.1.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redis/armredis/v2.1.0/sdk/resourcemanager/redis/armredis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/avs/armavs
+  Version: 1.1.0
+  DisplayName: Resource Management - Avs
+  ServiceName: Avs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/avs/armavs/v1.1.0/sdk/resourcemanager/avs/armavs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azappconfig
+  Version: 0.4.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v0.4.3/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed missing host URL when iterating over pages.
+- Name: sdk/data/azappconfig
+  Version: 0.4.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v0.4.2/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug in `syncTokenPolicy` that could cause a panic in some conditions.
+- Name: sdk/azcore
+  Version: 1.2.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.2.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue in `runtime.SetMultipartFormData` to properly handle slices of `io.ReadSeekCloser`.
+    * Fixed the MaxRetryDelay default to be 60s.
+    * Failure to poll the state of an LRO will now return an `*azcore.ResponseError` for poller types that require this behavior.
+    * Fixed a bug in `runtime.NewPipeline` that would cause pipeline-specified allowed headers and query parameters to be lost.
+
+    #### Features Added
+    * Added `ClientOptions.APIVersion` field, which overrides the default version a client
+    requests of the service, if the client supports this (all ARM clients do).
+    * Added package `tracing` that contains the building blocks for distributed tracing.
+    * Added field `TracingProvider` to type `policy.ClientOptions` that will be used to set the per-client tracing implementation.
+- Name: sdk/keyvault/azkeys
+  Version: 0.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.9.0/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * `NewClient` returns an `error`
+- Name: sdk/keyvault/azsecrets
+  Version: 0.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.11.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * `NewClient` returns an `error`
+- Name: sdk/messaging/azservicebus
+  Version: 1.1.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.1.2/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - $cbs link is properly closed, even on cancellation (#19492)
+
+    #### Features Added
+
+    - Added a client-side idle timer which will reset Receiver links, transparently, if the link is idle for
+    5 minutes.
+- Name: sdk/keyvault/azcertificates
+  Version: 0.8.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.8.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * `NewClient` returns an `error`
+- Name: sdk/monitor/azquery
+  Version: 0.3.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v0.3.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `ColumnIndexLookup` field to Table struct
+    * Added type `Row`
+    * Added sovereign cloud support
+
+    #### Breaking Changes
+    * Added error return values to `NewLogsClient` and `NewMetricsClient`
+    * Rename `Batch` to `QueryBatch`
+    * Rename `NewListMetricDefinitionsPager` to `NewListDefinitionsPager`
+    * Rename `NewListMetricNamespacesPager` to `NewListNamespacesPager`
+    * Changed type of `Render` and `Statistics` from interface{} to []byte
+- Name: sdk/azidentity
+  Version: 1.2.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.2.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * This version includes all fixes and features from 1.2.0-beta.*
+- Name: sdk/data/azappconfig
+  Version: 0.5.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v0.5.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `OnlyIfChanged` and `OnlyIfUnchanged` option fields have no effect
+    ([#19297](https://github.com/Azure/azure-sdk-for-go/issues/19297))
+
+    #### Breaking Changes
+    * Changed type of `OnlyIfChanged` and `OnlyIfUnchanged` option fields from `bool` to `*azcore.ETag`.
+- Name: sdk/messaging/azeventhubs
+  Version: 0.3.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.3.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - $cbs link is properly closed, even on cancellation (#19492)
+
+    #### Breaking Changes
+
+    - ProducerClient.SendEventBatch renamed to ProducerClient.SendEventDataBatch, to align with
+    the name of the type.
+

@@ -1,94 +1,134 @@
 # This document describes Azure SDK semantic conventions for tracing in [OpenTelemetry format](https://github.com/open-telemetry/build-tools/blob/main/semantic-conventions/syntax.md).
 # DO NOT add new conventions - use [OpenTelemetry conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/semantic_conventions), but it's ok to extend existing ones.
-# DO remove conventions when moving to OpenTelemetry one - it's not breaking.
-# Version: 0.0.0
+# Version: 0.1.0
 
 groups:
   # common
   - id: azure-sdk
     brief: 'Describes Azure SDK spans.'
+    type: attribute_group
     attributes:
       - id: az.namespace
-        required: always
+        requirement_level: required
         type: string
         brief: '[Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against.'
         examples: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.ServiceBus']
+      - id: az.schema_url
+        requirement_level:
+          conditionally_required: if and only if OpenTelemetry in given language does not provide standard way to set schema_url (i.e. .NET) # https://opentelemetry.io/docs/reference/specification/schemas/#schema-url
+        type: string
+        brief: 'OpenTelemetry Schema URL including schema version. Only 1.17.0 is supported.'
+        examples: ['https://opentelemetry.io/schemas/1.17.0']
 
   # public API
   - id: azure-sdk.api
+    type: span
     span_kind: internal
     extends: azure-sdk
     brief: 'Describes Azure SDK API calls spans.'
-    note: 'Represents public surface API calls that wrap an Azure service call.'
+    note: > 
+      Represents public surface API calls that wrap an Azure service call.
 
+      Span name SHOULD match `<short-class-name.method>` pattern. Class and method name SHOULD match API user called close enough for users
+      to understand which method span matches to.
+      For example, `BlobClient.Download` could be used for different overloads of download method, it can also coexist with `BlobClient.DownloadToFile` or
+      `BlobClient.DownloadAsync`.  
+
+  # network calls
+  - id: azure-sdk.network
+    type: attribute_group
+    extends: azure-sdk
+    brief: 'Describes Azure SDK client spans.'
+    note: 'Represents calls that include network attributes'
+    attributes:
+      - ref: net.peer.name
+        requirement_level: required
+        sampling_relevant: true
+        type: string
+        brief: 'Fully qualified Azure service endpoint (host name component).'
+        examples: 'http://my-account.servicebus.windows.net/'
+      - ref: net.peer.port
+        requirement_level: 
+          conditionally_required: if not 80 or 443.
+        sampling_relevant: true
+        brief: Port of Azure service endpoint.'
+        type: int        
+        examples: [8080]
+    constraints:
+      - include: network #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/general.yaml
+      
   # http
   - id: azure-sdk.http
-    extends: azure-sdk
+    type: span
     span_kind: client
+    extends: azure-sdk.network
     brief: 'Describes HTTP client spans created per HTTP request (try).'
     note: >
       This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
       but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
+
+      Span name MUST NOT include dynamic parts and SHOULD follow `HTTP <method>` pattern. E.g. `HTTP GET`.
     attributes:
-      - id: http.method
-        type: string
-        required: always
+      - ref: http.method
+        requirement_level: required    
+        sampling_relevant: true  
+      - ref: http.url
+        requirement_level: required      
         sampling_relevant: true
-        brief: 'HTTP request method.'
-        examples: ["GET", "POST", "HEAD"]
-      - id: http.url
+      - ref: http.status_code
+        requirement_level: required      
+      - ref: http.user_agent
         type: string
-        required: always
-        sampling_relevant: true        
-        brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
-        examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
-      - id: http.status_code
-        type: int
-        required:
-          conditional: If and only if one was received/sent.
-        brief: '[HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).'
-        examples: [200]
-      - id: http.user_agent
+        brief: 'Value of the HTTP User-Agent or x-ms-user-agent header'
+      - id: az.client_request_id
         type: string
-        required: always
-        brief: 'Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client.'
-        examples: ['CERN-LineMode/2.15 libwww/2.17b3']
-      - id: requestId
-        type: string
-        required: always
+        requirement_level:
+          conditionally_required: only if present
         brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
-      - id: serviceRequestId
+      - id: az.service_request_id
         type: string
-        required: always
+        requirement_level:
+          conditionally_required: if and only if one was received
         brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
+    constraints:
+      - include: http.client #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/http.yaml
 
   # messaging
   - id: azure-sdk.messaging
+    type: span
     brief: 'Describes Azure messaging SDKs spans.'
-    extends: azure-sdk
+    extends: azure-sdk.network
     attributes:
-      - id: message_bus.destination
-        type: string
-        required: always
-        brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name.'
+      - ref: messaging.system
+        requirement_level: required      
+        sampling_relevant: true
+        examples: ['eventhubs', 'servicebus']
+      - ref: messaging.destination.name
+        requirement_level: required
+        sampling_relevant: true
+        brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name. Must not include partition or subscription'
         examples: ['myqueue', 'myhub']
-      - id: peer.address
-        type: string
-        brief: 'Fully qualified messaging service name.'
-        required: always
-        examples: ['myEventHubNamespace.servicebus.windows.net']
+      - ref: messaging.operation
+      - ref: messaging.batch.message_count
+    constraints:
+      - include: messaging #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/messaging.yaml
+
   - id: azure-sdk.messaging.producer
     span_kind: producer
-    extends: azure-sdk.messaging
+    extends: azure-sdk
     brief: 'Describes producer span created per message.'
+    note: Span name SHOULD match `<queue/topic_name> message`. E.g. `orders message`. 
 
   - id: azure-sdk.messaging.send
     span_kind: client
     extends: azure-sdk.messaging
-    brief: 'Describes send (transport call) span.'
-    note: 'Contains links to all messages contexts being sent.'
+    brief: 'Describes Azure messaging SDKs producer client spans.'
+    note: >
+      Contains links to all messages contexts being sent.
+      Span name SHOULD match `<queue/topic_name> publish`. E.g. `orders publish`. 
+      
 
   - id: azure-sdk.messaging.process
     span_kind: consumer
@@ -97,32 +137,8 @@ groups:
     note: >
       Contains links to all messages contexts being consumed. Each link has attribute `enqueuedTime` (with `long` type)
       attribute with unix epoch time with milliseconds precision representing when message was enqueued.
+      Span name SHOULD match `<queue/topic_name> process`. E.g. `orders process`. 
 
   # db
-  - id: azure-sdk.cosmos
-    span_kind: client
-    brief: 'Describes Azure CosmosDB spans.'
-    note: >
-      Events with additional debug info are added for long running operations.
-    extends: azure-sdk
-    attributes:
-      - id: db.url
-        type: string
-        required: always
-        brief: 'Cosmos DB URI'
-        examples: ['https://my-cosmos.documents.azure.com:443/']
-      - id: db.statement
-        type: string
-        required: always
-        brief: 'Database statement'
-        examples: ['createContainerIfNotExists.myContainer']
-      - id: db.instance
-        type: string
-        required: always
-        brief: 'Database name'
-        examples: ['mydb']
-      - id: db.type
-        type: string
-        required: always
-        brief: 'Database type'
-        examples: ['Cosmos']
+  # is being moved here: https://github.com/open-telemetry/opentelemetry-specification/pull/3097
+

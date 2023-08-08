@@ -1,0 +1,434 @@
+entries:
+- Name: '@azure/monitor-ingestion'
+  Version: 1.0.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The `upload` API throws an `AggregateLogsUploadError` in case of an error and returns `void` when operation succeeds.
+    - Renamed `LogsUploadError` to `LogsUploadFailure`.
+
+    #### Features Added
+
+    - Added an error callback functionality for inspecting individual log uploads via `LogsUploadOptions`.
+- Name: '@azure/arm-dataprotection'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_1.0.0-beta.2/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 11.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.3.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 7.4.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-reservations'
+  Version: 8.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 10.1.0-beta.5
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kusto'
+  Version: 7.3.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicebus'
+  Version: 6.2.0-beta.1
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices'
+  Version: 5.2.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservices/arm-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-synapse'
+  Version: 9.0.0-beta.1
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse/arm-synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagemover'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_1.0.0-beta.1/sdk/storagemover/arm-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagecache'
+  Version: 6.0.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/agrifood-farming'
+  Version: 1.0.0-beta.2
+  DisplayName: farmbeats
+  ServiceName: farmbeats
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding clients for Sensor Integration which includes crud operations on DeviceDataModels, Devices, SensorDataModels, Sensors, SensorMappings, SensorPartnerIntegration and get Sensor events.
+    - Adding new APIs for STAC search and get feature
+    - Adding breedingMethods and Measurements as part of Crop Entity
+    - Adding geographicIdentifier as part of Season Entity
+    - Adding trait, relativeMeasurements and treatments as part of CropVariety Entity
+    - Adding type, crs, centroid and bbox(bounding box of the geometry) as part of Boundary Entity
+    - Adding Source field in Party, Farm, Field, Seasonal Field, Boundary, Crop, Crop variety, Season and Attachment
+    - CreatedBy and ModifiedBy in all entities
+    - Measure renamed to measurements in Prescription & Crop
+    - Acreage renamed to area in Boundary
+    - Get Feature and Search Feature APIs for Sentinel 2 L2A and Sentinel 2 L1C STAC collections
+    - Adding Weather Data APIs to fetch IBM weather data
+    - Re-generate with latest generator version. This contains splitting models into input and output models and typing improvements [#20059](https://github.com/Azure/azure-sdk-for-js/pull/20059)
+    - Export pagination helper function. [#15831](https://github.com/Azure/azure-sdk-for-js/pull/15831)
+
+    #### Breaking Changes
+
+    - Removing primaryBoundaryId & boundaryIds from Field and Seasonal Field
+    - Removing isPrimary flag from Boundary
+    - Removing avgYields from Seasonal Field
+    - Renaming Farmer to Party
+    - Renaming CropVariety to CropProduct
+- Name: '@azure/core-client'
+  Version: 1.7.2
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.7.2/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a deserializer issue where setting null value when it's necessary.
+- Name: '@azure/storage-blob'
+  Version: 12.13.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.13.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.13.0-beta.1.
+    - Added BlobDownloadHeaders.createdOn property for interface BlobClient.Download().
+
+    #### Bugs Fixed
+
+    - Fixed an issue of getting 403 error for file or directory name with './' or '../'
+- Name: '@azure/storage-file-datalake'
+  Version: 12.12.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.12.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.12.0-beta.1.
+    - Added FileReadHeaders.CreatedOn property for interface DataLakeFileClient.read().
+
+    #### Bugs Fixed
+
+    - Renamed option 'leaseDuration' to 'leaseDurationInSeconds' in methods DataLakeFileClient.append() and flush(), the option was added in 12.12.0-beta.1.
+    - Fixed an issue of getting 403 error for file or directory name with './' or '../'
+- Name: '@azure/storage-queue'
+  Version: 12.12.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.12.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-12-02.
+- Name: '@azure/storage-file-share'
+  Version: 12.13.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.13.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features released in 12.13.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Fixed an issue of getting 403 error for blob name with './' or '../'
+- Name: '@azure/service-bus'
+  Version: 7.8.1-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.8.1-beta.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Pass `skipParsingBodyAsJson` and `skipConvertingDate` options to peek operations. (PR #24950)[https://github.com/Azure/azure-sdk-for-js/pull/24950]
+- Name: '@azure/communication-chat'
+  Version: 1.3.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to `@azure/communication-common` 2.2.0.
+    - Updated to @azure/communication-signaling@1.0.0-beta.16. Added GCCM real-time notification support.
+- Name: '@azure/identity'
+  Version: 3.2.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to disable instance discovery on AAD credentials.
+    - Added `AzureDeveloperCliCredential` [#24180](https://github.com/Azure/azure-sdk-for-js/pull/24180) and added it to the `DefaultAzureCredential` [#24826](https://github.com/Azure/azure-sdk-for-js/pull/24826) auth flow
+    - Added support for `WokloadIdentityCredential`[#24830](https://github.com/Azure/azure-sdk-for-js/pull/24830), added it to `DefaultAzureCredential` auth flow and replaced the in-house implementation of `Token Exchange MSI` in `ManagedIdentity` with `WorkloadIdentityCredential`.
+- Name: '@azure/cosmos'
+  Version: 3.17.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changes in bulk api to honour size restictions (i.e 2Mb) while creating individual batches.[#23923](https://github.com/Azure/azure-sdk-for-js/issues/23923)
+    - Enriched Timeout error response. We had defined Timeout error as custom error in our sdk but we were not sending up any message along with it, now we are throwing the specific Error. [#23025](https://github.com/Azure/azure-sdk-for-js/issues/23025)
+    - Added functionality to delete entire data for a partition id. [#22091](https://github.com/Azure/azure-sdk-for-js/issues/22091)
+    - SDK now defines all possible error types, namely Export RestError, AbortError, TimeoutError, and ErrorResponse. [22789](https://github.com/Azure/azure-sdk-for-js/issues/22789)
+    #### Bugs Fixed
+
+    - Removed excessive log warnings during bulk operations on a container with no partitionkey set.
+    - Fix issue with GlobalEndpointManager never making endpoints available after they fall-back [#22726](https://github.com/Azure/azure-sdk-for-js/issues/22726)
+    - Fix issue that caused parallel queries to break when returning a result of 0 or false. [#24493](https://github.com/Azure/azure-sdk-for-js/issues/24493)
+- Name: '@azure/core-xml'
+  Version: 1.3.3
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.3/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - port https://github.com/Azure/ms-rest-js/pull/475 [PR # 24962](https://github.com/Azure/azure-sdk-for-js/pull/24962)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.10.2
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.10.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Remove oscpu from OS sniffing [PR #24809](https://github.com/Azure/azure-sdk-for-js/pull/24809)
+- Name: '@azure/logger'
+  Version: 1.0.4
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.4/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improve docstring for setLogLevel [PR #24998](https://github.com/Azure/azure-sdk-for-js/pull/24998)
+- Name: '@azure/core-util'
+  Version: 1.2.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.2.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `createAbortablePromise` which creates promises that can be aborted.
+- Name: '@azure-rest/core-client'
+  Version: 1.1.1
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.1/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixed
+
+    - Fix issue where multiple parameters within same path segment are not replaced correctly [24997](https://github.com/Azure/azure-sdk-for-js/pull/24997)
+- Name: '@azure/arm-workloads'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Workloads
+  ServiceName: Workloads
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloads_1.0.0-beta.3/sdk/workloads/arm-workloads/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-email'
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.0-beta.2/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Reworked the SDK to follow the LRO (long running operation) approach. The 'beginSend' method returns a poller that can be used to check for the status of sending the email and retrieve the result. The return object has been adjusted to fit this approach.
+    - The `getSendStatus` method has been removed.
+    - The `sender` property has been changed to `senderAddress`.
+    - The `email` property under the recipient object has been changed to `address`.
+    - The `attachmentType` property under `attachments` has been changed to 'contentType'. This now accepts the attachment mime type.
+    - The EmailRecipients "cC" and "bCC" properties have been changed to "cc" and "bcc"
+    - The `contentBytesBase64` property under `attachments` has been changed to `contentInBase64`
+    - Custom headers in the email message are now key/value pairs.
+    - The importance property was removed. Email importance can now be specified through either the `x-priority` or `x-msmail-priority` custom headers.
+- Name: '@azure/arm-storagemover'
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_1.0.0/sdk/storagemover/arm-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.9.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixing a bug where events were not always received in order [[#23993]](https://github.com/Azure/azure-sdk-for-js/issues/23993).
+- Name: '@azure/service-bus'
+  Version: 7.8.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.8.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Pass `skipParsingBodyAsJson` and `skipConvertingDate` options to peek operations. (PR #24950)[https://github.com/Azure/azure-sdk-for-js/pull/24950]
+- Name: '@azure/ai-language-text'
+  Version: 1.1.0-beta.2
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0-beta.2/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove `defaultLanguage` from the `BeginAnalyzeBatchOptions` interface.
+
+    #### Features Added
+
+    - Add support for logging API warnings that are part of warn-text response headers.
+    - Add support for `partiallySucceeded` status and parse action error pointers.
+    - Change `AbstractiveSummarizationAction` property from `maxSentenceCount` to `sentenceCount`.
+- Name: '@azure-rest/load-testing'
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0/sdk/loadtesting/load-testing-rest/CHANGELOG.md
+  ChangelogContent: First stable release of Azure Load Testing client library for Javascript.
+- Name: '@azure/arm-containerservice'
+  Version: 17.4.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-voiceservices'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Voiceservices
+  ServiceName: Voiceservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-voiceservices_1.0.0-beta.1/sdk/voiceservices/arm-voiceservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/purview-workflow'
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Workflow
+  ServiceName: Purview Workflow
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-workflow_1.0.0-beta.1/sdk/purview/purview-workflow-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the Purview Workflow client library for JavaScript.
+

@@ -61,6 +61,14 @@ Here are some namespaces that do not meet the guidelines:
 
 The API surface will consist of one of more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
+The number of service clients in a client library should be minimized to provide consumers a clear starting point for using the library. However, multiple service clients may be appropriate in the following situations:
+
+- The service supports two distinct use cases, such as "authoring" and "inference", or "administration" and "runtime", that are unlikely to be used together.
+- The service has a small subset of methods that are needed for its hero scenarios.
+- A subset of service requests require special/different permissions.
+
+When a client library has multiple service clients, these must have descriptive names so that the consumer can quickly determine which client to use to accomplish their task.
+
 {% include requirement/MUST id="general-client-naming" %} name service client types with the `client` suffix.
 
 There are times when operations require the addition of optional data, provided in what is colloquially known as an "options bag".  Libraries should strive for consistent naming.
@@ -86,6 +94,8 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
 
 {% include requirement/MUST id="general-service-apiversion-1" %} only target generally available service API versions when releasing a stable version of the client library.
+
+{% include requirement/MUST id="general-service-apiversion-8" %} allow the consumer to explicitly select a supported service API version when instantiating the client.
 
 {% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default in stable versions of the client library.
 
@@ -359,6 +369,18 @@ Polling configuration may be used only in the absence of relevant retry-after he
 {% include requirement/MUST id="general-lro-logging" %} log polling status at the `Info` level (including time to next retry)
 
 {% include requirement/MUST id="general-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
+
+## Repeatable requests
+
+The ability to retry failed requests for which a client never received a response greatly simplifies the ability to write resilient distributed applications. When the method on the service is not idempotent, the service may support safe retry by supporting repeatability headers as defined in [OASIS Repeatable Requests Version 1.0](https://docs.oasis-open.org/odata/repeatable-requests/v1.0/repeatable-requests-v1.0.html).
+
+{% include requirement/MUST id="general-repeatable-requests-support" %} add the `Repeatability-Request-ID` (a uuid) and `Repeatability-First-Sent` (IMF fixdate) request headers before sending the HTTP request to the pipeline in any client method that directly invokes a single service operation. These header values remain the same cross all retries.
+
+{% include requirement/SHOULDNOT id="general-repeatable-requests-parameters" %} offer explicit parameters on client methods allowing the consumer to explicitly set the repeatability headers value.
+
+NOTE: If the client method allows the consumer to set arbitrary headers, then any values for these two headers should be used and must not be overwritten by the client method code.
+
+{% include requirement/MUST id="general-repeatable-requests-support" %} expose the Repeatability-Result response header in the response model for the method.
 
 ## Support for non-HTTP protocols
 

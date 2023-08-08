@@ -292,9 +292,70 @@ Providing a method that accepts multiple closure leads to unnecessarily cluttere
 
 {% include requirement/SHOULD id="ios-network-closure-type" %} use `HTTPResultHandler` as the type of the closure to expose both the result (or error) and the raw response data.
 
+#### Event Handling
+
+iOS applications commonly need to react to events from the UI or service. The following guidelines apply to SDKs that expose events to the customer.
+
+##### Closures
+
+{% include requirement/MUST id="ios-event-closures-required" %} expose event handlers as closures.
+
+{% include requirement/SHOULD id="ios-event-properties" %} group related events together in a `struct` whose definition is enclosed within the client. This struct should be named `Events` (if there is only one collection) or end with the `Events` suffix and should contain no other properties or methods besides the event handlers themselves. Event collections must be exposed directly on the client as a property that is either named `events` (if there is only one collection) or ends with the `Events` suffix. For example:
+
+{% highlight swift %}
+public class CatClient: PipelineClient {
+
+    public struct UnicastEvents {
+        public var onCatMeow: ((String) -> Void)? = nil
+        public var onCatSleep: ((String) -> Void)? = nil
+        ...
+    }
+    
+    public struct MulticastEvents {
+        public var onCatMeow: MulticastEventsCollection<((String) -> Void)>
+        public var onCatSleep: MulticastEventsCollection<((String) -> Void)>
+        ...
+    }
+
+    public var unicastEvents = Events()
+    public var multicastEvents = MulticastEvents()
+    ...
+}
+{% endhighlight %}
+    
+{% include requirement/MAY id="ios-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
+
+{% include requirement/SHOULDNOT id="ios-closure-typealias" %} provide a public typealias event signatures because they do not aid in Intellisense and pollute the public API surface area. If you feel you need to expose a public typealias, contact the SDK team. 
+
+{% include requirement/MUST id="ios-closure-naming-convention" %} name event properties using the Swift UI naming convention. For example, a delegate method called "cat(didMeow:)" would translate to an closure-based event named "onCatMeow".
+
+{% include requirement/MUST id="ios-event-multicast" %} expose multicast event handlers using the `MulticastEventCollection` generic type from `Azure.Core`. This type contains a `register` method which accepts the event as a trailing closure and returns a UUID string identifier which can be used to unregister the handler. SDKs which cannot use `Azure.Core` (for example, ObjC-based SDKs) should work with the Azure SDK team to ensure their multicast solution projects to the same Swift interface.
+
+{% highlight swift %}
+// SDK code
+public class CatClient: PipelineClient {
+    public struct Events {
+        public var onCatMeow: MulticastEventsCollection<((String) -> Void)>
+        public var onCatSleep: MulticastEventsCollection<((String) -> Void)>
+        ...
+    }
+    public var events = MulticastEvents()
+    ...
+}
+
+// Customer Code
+let client = CatClient(...)
+let event1 = client.events.onCatMeow.register { ... }
+let event 2 = client.events.onCatMeow.register { ... }
+client.events.unregister(event1)
+{% endhighlight %}
+
 ##### Delegates
 
-{% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a closure parameter for service methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or provide a property on the client to which the delegate can be attached. For example:
+{% include requirement/MAY id="ios-network-delegate" %} expose events as one or more delegate protocols that the developer can conform to. This pattern may be more familiar to Objective-C developers.
+
+
+{% include requirement/MUST id="ios-delegate-property" %} include an optional weak `delegate` property on the client if delegates are implemented. For example:
 
 {% highlight swift %}
 // Library code
@@ -322,34 +383,24 @@ public extension ConfigurationSettingDelegate {
 }
 
 public final class ConfigurationClient {
-    // Accept a delegate parameter
-    public func getChanges(
-        forConfigurationSettingsWithPrefix prefix: String,
-        delegate: ConfigurationSettingDelegate
-    ) {
-        ...
-    }
-
-    // Or provide a property on the client to which a delegate can be attached
-    public weak var configurationSettingDelegate: ConfigurationSettingDelegate? = nil
+    // Provide a property on the client to which a delegate can be attached
+    public weak var delegate: ConfigurationSettingDelegate? = nil
 
     public func getChanges(forConfigurationSettingsWithPrefix prefix: String) {
         ...
     }
 }
 {% endhighlight %}
+
 {% highlight swift %}
 // Consumer Code
 
 public func registerForChanges() {
     let client = ConfigurationClient(...)
 
-    // Provide delegate as a parameter
-    client.getChanges(forConfigurationSettingsWithPrefix: "Foo", delegate: self)
-
-    // Or attach delegate to the client
-    client.getChanges(forConfigurationSettingsWithPrefix: "Foo")
+    // Attach delegate to the client
     client.configurationSettingDelegate = self
+    client.getChanges(forConfigurationSettingsWithPrefix: "Foo")
 }
 
 // MARK: ConfigurationSettingDelegate Protocol
@@ -376,6 +427,8 @@ The name of the delegating object is commonly used as as the prefix. For example
 {% include requirement/SHOULD id="ios-network-delegate-method-param" %} accept the delegating object as the first unnamed parameter to delegate methods when using the delegating object's name as the prefix for the delegate method. This parameter should use the `_` syntax for its external label.
 
 {% include requirement/MUST id="ios-network-delegate-method-impls" %} provide empty (do-nothing) default implementations for all delegate methods.
+
+{% include requirement/SHOULD id="ios-delegate-closure-parity" %} expose the same level of functionality through delegates as through event closures if delegates are implemented; however, there does not need to be a one-to-one match between delegate methods and event closures. Delegate methods are often verbose and it is acceptable to use fewer closures to represent the same set of delegate methods.
 
 ##### Naming
 
@@ -737,30 +790,63 @@ public struct FeatureFlagGroup {
     
 {% include requirement/MUST id="ios-naming-enum-camelcase" %} use camel casing names for enum values. `EnumType.foo` and `EnumType.twoWords` are valid, whereas `EnumType.Foo` and `EnumType.TWO_WORDS` are not.
 
-{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. The customized value that accepts a string SHOULD be called `custom`. An example expandable enum is shown below:
+{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum is shown below:
 
 ```swift
-public enum ShapeEnum: RequestStringConvertible {
-    case custom(String)
-    case square
-    case circle
-    
-    var requestString: String {
-        switch self {
-        case let .custom(val):
-            return val
-        case .square:
-            return "square"
-        case .circle:
-            return "circle"
+public struct Shape: Equatable, RequestStringConvertible {
+
+    // the internal enum is a normal Swift enum
+    internal enum ShapeKV {
+        case circle
+        case square
+        case unknown(String)
+
+        var rawValue: String {
+            switch self {
+            case .circle:
+                return "circle"
+            case .square:
+                return "square"
+            case .unknown(let value):
+                return value
+            }
+        }
+
+        init(rawValue: String) {
+            switch rawValue.lowercased() {
+            case "circle":
+                self = .circle
+            case "square":
+                self = .square
+            default:
+                self = .unknown(rawValue.lowercase())
+            }
         }
     }
+
+    private let value: ShapeKV
+
+    public var requestString: String {
+        return value.rawValue
+    }
+
+    private init(rawValue: String) {
+        self.value = ShapeKV(rawValue: rawValue)
+    }
+
+    public static func == (lhs: Shape, rhs: Shape) -> Bool {
+        return lhs.requestString == rhs.requestString
+    }
+
+    // declare public static constants using the internal enum of known values
+    public static let circle: Shape = .init(value: .circle)
+    public static let square: Shape = .init(value: .square)
 }
 ```
 
-{% include requirement/MUST id="ios-enums-no-future-growth" %} use an regular `enum` only if the enum values are known to not change like days of a week, months in a year etc. 
+{% include requirement/MUST id="ios-enums-no-future-growth" %} use an regular `enum` ONLY if the enum values are known to not change like days of a week, months in a year etc. 
 
-{% include requirement/MUST id="ios-enums-future-growth" %} define an expandable enum for enumerations if the values could expand in the future.
+{% include requirement/MUST id="ios-enums-future-growth" %} define an expandable enum for enumerations if the values could expand in the future. An expandable enum forces customers who `switch` on the value to declare a `default` case, preventing the addition of a known case from causing a breaking change.
 
 #### Using Azure Core Types
 
@@ -867,7 +953,7 @@ iOS developers need to concern themselves with the runtime environment they are 
 
 {% include requirement/MUST id="ios-arch-support" %} support all architectures in $ARCH_STANDARD.
 
-{% include requirement/MUST id="ios-bitcode-enabled" %} support bitcode enabled.
+{% include requirement/MUSTNOT id="ios-bitcode-enabled" %} support bitcode enabled. Apple has marked this [deprecated](https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-14-release-notes) from XCode 14 onwards.
 
 {% include requirement/MUST id="ios-platform-support" %} support iPhone and iPad form factors.
 

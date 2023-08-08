@@ -72,13 +72,31 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
-### The Service Client {#cpp-client}
+### Service Client {#cpp-client}
 
-> TODO: This section needs to be driven by code in the Core library.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
+
+There exists a distinction that must be made clear with service clients: not all classes that perform HTTP (or otherwise) requests to a service are automatically designated as a service client. A service client designation is only applied to classes that are able to be directly constructed because they are uniquely represented on the service. Additionally, a service client designation is only applied if there is a specific scenario that applies where the direct creation of the client is appropriate. If a resource can not be uniquely identified or there is no need for direct creation of the type, then the service client designation should not apply.
+
+{% include requirement/MUST id="cpp-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
+
+{% include requirement/MUST id="cpp-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (for example, `Azure::<group>::<service>`). Specialized service clients should be placed in sub-packages.
+
+{% include requirement/MUST id="cpp-service-client-type" %} make service clients `classes`, not `structs`.
+
+{% include requirement/MUST id="cpp-service-client-immutable" %} ensure that all service client classes thread safe (usually by making them immutable and stateless).
+
+{% include requirement/MUST id="cpp-service-client-geturl" %} expose a `GetUrl()` method which returns the URL.
 
 #### Service Client Constructors {#cpp-client-ctor}
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="cpp-service-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
+
+> TODO: Add service client factory pattern examples for connection strings.
+
+{% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
+
+{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
 
 ##### Client Configuration
 
@@ -157,10 +175,10 @@ The C++ SDK is designed for synchronous api calls.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _detail {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Details
+} // namespace _detail
 
 // Part of the public API
 [[nodiscard]] CatHerdClient CatHerdCreateClient(char* herdName);
@@ -176,7 +194,7 @@ namespace Details {
 
 {% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
 
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
 
@@ -193,9 +211,9 @@ void Function(int parameterName) {
     int localName;
 }
 
-namespace Details {
+namespace _detail {
     extern int g_internalUseGlobal;
-} // namespace Details
+} // namespace _detail
 
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
@@ -585,18 +603,18 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
+{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `_detail` namespace.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _detail {
 // Part of the private API
 struct HashComputation {
     int InternalBookkeeping;
 };
 
 const int g_privateConstant = 1729;
-} // namespace Details
+} // namespace _detail
 
 // Part of the public API
 struct UploadBlobRequest {

@@ -427,7 +427,7 @@ Most methods in Azure SDK libraries should be named following the typical .NET m
 
 ##### Cancellation
 
-{% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_.
+{% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_ or, in case of protocol methods, an optional `RequestContext` parameter called _context_.
 
 The token should be further passed to all calls that take a cancellation token. DO NOT check the token manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
 
@@ -559,9 +559,11 @@ Some service operations, known as _Long Running Operations_ or _LROs_ take a lon
 
 Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
+Note that some older libraries use a slightly different, older LRO pattern. In the old pattern, LRO methods started with the prefix 'Start' and did not take the ```WaitUntil``` parameter. Such libraries are free to continue using this older pattern, or they can transition to the new pattern.
+
 ```csharp
 // the following type is located in Azure.Core
-public abstract class Operation<T> {
+public abstract class Operation<T> : Operation {
 
     public abstract bool HasCompleted { get; }
     public abstract bool HasValue { get; }
@@ -574,8 +576,16 @@ public abstract class Operation<T> {
     public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
     public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
 
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
+    public virtual Response<T> WaitForCompletion(CancellationToken cancellationToken = default);
+    public virtual Response<T> WaitForCompletion(TimeSpan pollingInterval, CancellationToken cancellationToken);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
+
+    // inherited  members returning untyped responses
+    public virtual Response WaitForCompletionResponse(CancellationToken cancellationToken = default);	
+    public virtual Response WaitForCompletionResponse(TimeSpan pollingInterval, CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
 }
 ```
 
@@ -589,8 +599,8 @@ public class CopyFromUriOperation : Operation<long> {
 
 public class BlobBaseClient {
 
-    public virtual CopyFromUriOperation StartCopyFromUri(..., CancellationToken cancellationToken = default);
-    public virtual Task<CopyFromUriOperation> StartCopyFromUriAsync(..., CancellationToken cancellationToken = default);
+    public virtual CopyFromUriOperation CopyFromUri(WaitUntil wait, ..., CancellationToken cancellationToken = default);
+    public virtual Task<CopyFromUriOperation> CopyFromUriAsync(WaitUntil wait, ..., CancellationToken cancellationToken = default);
 }
 ```
 
@@ -601,17 +611,17 @@ BlobBaseClient client = ...
 
 // automatic polling
 {
-    Response<long> response = await client.StartCopyFromUri(...).WaitForCompletionAsync();
-    Console.WriteLine(response.Value);
+    Operation<long> operation = await client.CopyFromUri(WaitUntil.Completed, ...);
+    Console.WriteLine(operation.Value);
 }
 
 // manual polling
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     while (true)
     {
-        await client.UpdateStatusAsync();
-        if (client.HasCompleted) break;
+        await operation.UpdateStatusAsync();
+        if (operation.HasCompleted) break;
         await Task.Delay(1000); // play some elevator music
     }
     if (operation.HasValue) Console.WriteLine(operation.Value);
@@ -619,7 +629,7 @@ BlobBaseClient client = ...
 
 // saving operation ID
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     string operationId = operation.Id;
 
     // two days later
@@ -628,9 +638,9 @@ BlobBaseClient client = ...
 }
 ```
 
-{% include requirement/MUST id="dotnet-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
-
 {% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
+
+{% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
@@ -814,24 +824,27 @@ The exception is available in ```Azure.Core``` package:
 ```csharp
 public class RequestFailedException : Exception {
 
-    public RequestFailedException(int status, string message);
-    public RequestFailedException(int status, string message, Exception innerException);
+    public RequestFailedException(Response response);
+    public RequestFailedException(Response response, Exception innerException);
+    public RequestFailedException(Response response, Exception innerException, RequestFailedDetailsParser detailsParser);
 
     public int Status { get; }
 }
 ```
 
-{% include requirement/SHOULD id="dotnet-errors-response-exception-extensions" %} use `ResponseExceptionExtensions` to create `RequestFailedException` instances.
-
-The exception message should contain detailed response information.  For example:
+The exception message will be formed from the passed in `Response` content. For example:
 
 ```csharp
 if (response.Status != 200) {
-    throw await response.CreateRequestFailedExceptionAsync(message);
+    throw new RequestFailedException(response);
 }
 ```
 
 {% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
+
+{% include requirement/MUST id="dotnet-request-failed-details-parser" %} provide `RequestFailedDetailsParser` for non-standard error formats.
+
+If customization is required to parse the response content, e.g. because the service does not adhere to the standard error format as represented by the `ResponseError` type, libraries can must implement a `RequestFailedDetailsParser` and pass the parser into the construction of the `HttpPipeline` via the `HttpPipelineOptions` type. If more granular control is required than associating the parser per pipeline, there is a constructor of `RequestFailedException` that takes a `RequestFailedDetailsParser` that may be used.
 
 Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
 
@@ -1026,9 +1039,13 @@ For example, if the component is in the `Azure.Storage.Blobs` namespace, the com
 
 Use the following target setting in the `.csproj` file:
 
-```
+```xml
 <TargetFramework>netstandard2.0</TargetFramework>
 ```
+
+{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
+
+You may multi-target client libraries to different [TFMs][.NET Target Framework Monikers] but the public API must be the same for all targets including class, interface, parameter, and return types.
 
 #### Common Libraries
 
@@ -1081,7 +1098,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 * `Microsoft.BCL.AsyncInterfaces`.
 * packages produced by your own team.
 
-In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
+In the past, [JSON.NET](https://www.newtonsoft.com/json), aka Newtonsoft.Json, was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
 package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.

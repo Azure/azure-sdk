@@ -24,12 +24,14 @@ given package ecosystem as well as by reading release tags from our mono repos. 
   - `spring` - This is a special classification only for Java that represents the spring libraries.
 - `New` - This field is set to true for any of our newer libraries that now following the guidelines outlined in this repo.
 - `PlannedVersions` - This field will list a set of versions combined with estimated dates in the format of `[version1],[date1]|[version2],[date2]|[version3],[date3]` with version in the format of `X.Y.Z[bN|-beta.N]` and date in the format of `MM/dd/yyyy`. These dates are intended to be displayed on a roadmap page.
+- `LatestGADate` - Thi field is used to identify the date of when the latest GA package released.
 - `FirstGADate` - This field is used to identify the date of when a new package shipped its first stable release.
 - `Support` - This field is used to identify the level of support for the given package. See the [support guidelines](https://azure.github.io/azure-sdk/policies_support.html#package-lifecycle) for more details but this field should contain `beta`, `active`, `deprecated` or `community`, if the value is empty it generally implies unknown or `beta` support level.
-- `DeprecatedDate` - If a package has a Support value of `deprecated` this field provides the date at which the deprecation begins.
+- `EOLDate` - If a package has a Support value of `deprecated` this field provides the date at which the package is end of life (i.e. no longer supported). If a package is marked as `deprecated`, this field must have a valid value.
 - `Hide` - This field will determine whether we hide this package from various places like the package index, docs, as well as automated updates. The value is either true to hide or empty to not hide. This is useful to filter older packages that are still on the package managers, but we don't want to promote or display anywhere.
-- `Replace` - This field is used the store the package name for the related older (replaces) or newer (replaced by) package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`).
-- `ReplaceGuide` - This field is used to store a link to a migration guide for folks to follow if they are trying to move from the older package to the replacement package. If the field is empty then nothing no link is displayed.
+- `Replace` - This field is used the store the package name for the related older (replaces) or newer (replaced by) package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`). If a package is marked as `deprecated`, this field must have a valid value.
+- `ReplaceGuide` - This field is used to store a link to a migration guide for folks to follow if they are trying to move from the older package to the replacement package. If the field is empty then nothing no link is displayed. If a package is marked as `deprecated`, this field must have a valid value.
+- `ServiceId` - The id for that represents the service in other internal data sources.
 - `MSDocService` - This field is the value of docs.ms metadata `ms.service`. If it is empty, then ms.service assigns to service directory. The value is defined [here](https://review.docs.microsoft.com/en-us/help/contribute/metadata-taxonomies?branch=main#msservice).
 - `Notes` - This is an open field that can be used to add any particular notes for a given package.
 

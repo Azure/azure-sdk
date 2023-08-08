@@ -40,28 +40,40 @@ function CreatePackage(
     $versionPreview = $version
   }
 
-  return [PSCustomObject][ordered]@{
+  $pkg = [PSCustomObject][ordered]@{
     Package = $package
-    GroupId = $groupId
+  }
+
+  if ($groupId) {
+    $pkg | Add-Member -NotePropertyName "GroupId" -NotePropertyValue $groupId
+  }
+
+  $otherProps = [ordered]@{
     VersionGA = $versionGA
     VersionPreview = $versionPreview
-    DisplayName = $package
-    ServiceName = ""
+    DisplayName = "Unknown Display Name"
+    ServiceName = "Unknown Service"
     RepoPath = "NA"
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
     New = "false"
     PlannedVersions = ""
+    LatestGADate = ""
     FirstGADate = ""
     Support = ""
-    DeprecatedDate = ""
+    EOLDate = ""
     Hide = ""
     Replace = ""
     ReplaceGuide = ""
     MSDocService = ""
-    Notes = ""
-  };
+    ServiceId = ""
+    Notes = "Needs Review"
+  }
+
+  $pkg | Add-Member -NotePropertyMembers $otherProps
+
+  return $pkg
 }
 
 function ClonePackage($pkg)
@@ -79,13 +91,15 @@ function ClonePackage($pkg)
     Type = $pkg.Type
     New = $pkg.New
     PlannedVersions = $pkg.PlannedVersions
+    LatestGADate = $pkg.LatestGADate
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
-    DeprecatedDate = $pkg.DeprecatedDate
+    EOLDate = $pkg.EOLDate
     Hide = $pkg.Hide
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
     MSDocService = $pkg.MSDocService
+    ServiceId = $pkg.ServiceId
     Notes = $pkg.Notes
   };
 }

@@ -1,0 +1,62 @@
+entries:
+- Name: azure-core
+  Version: 1.7.2
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.7.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WinHTTP Transport Adapter: Fixed missing reason phrase handling for HTTP/2 responses.
+- Name: azure-storage-files-shares
+  Version: 12.3.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.3.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2021-06-08`.
+    - Added fields `ProvisionedBandwidthMBps`, `EnabledProtocols` and `RootSquash` in `ShareItemDetails` and `ShareProperties`.
+    - Added support for listing files with extended information.
+    - Added new APIs:
+    - ShareDirectoryClient::RenameFile()
+    - ShareDirectoryClient::RenameSubdirectory()
+    - ShareLeaseClient::Renew()
+    - Added support for specifying last written time when uploading file range.
+    - Added support for specifying file changed time when creating/copying file or setting file properties.
+
+    #### Bugs Fixed
+
+    - Empty file or existing file won't be created/overwritten if the file to be downloaded doesn't exist.
+- Name: azure-storage-common
+  Version: 12.3.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.3.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.3.0-beta.1` are now generally available.
+- Name: azure-storage-blobs
+  Version: 12.6.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.6.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.6.0.beta.1` are now generally available.
+
+    #### Bugs Fixed
+
+    - Empty file or existing file won't be created/overwritten if the blob to be downloaded doesn't exist.
+
