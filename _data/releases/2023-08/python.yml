@@ -386,7 +386,7 @@ entries:
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b7/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -421,10 +421,12 @@ entries:
     > These changes do not impact the API of stable versions such as 11.3.0.
     > Only code written against a beta version such as 11.4.0b6 may be affected.
     - Instead of using `VectorSearchAlgorithmConfiguration`, now you need to use concrete types like `HnswVectorSearchAlgorithmConfiguration`.
+    - Stopped supporting `vector`, `top_k` and `vector_fields` in `SearchClient.search` method.
 
     #### Features Added
 
     - Exposed `HnswVectorSearchAlgorithmConfiguration`
+    - Added multi-vector search support. Now instead of passing in `vector`, `top_k` and `vector_fields`, search method accepts `vectors` which is a list of `Vector` object.
 - Name: azure-storage-file-share
   Version: 12.14.0b1
   DisplayName: Storage - Files Share
