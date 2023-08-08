@@ -485,4 +485,43 @@ entries:
 
     - A keyword argument `enable_cae` was added to the `get_token` method of the `TokenCredential` protocol.  #31012
     - `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy` now accept `enable_cae` keyword arguments in their constructors. This is used in determining if [Continuous Access Evaluation (CAE)](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) should be enabled for each `get_token` request.  #31012
+- Name: azure-eventhub
+  Version: 5.11.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.4/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug [#31258](https://github.com/Azure/azure-sdk-for-python/issues/31258) where async `BlobCheckpointStore` was reprocessing old events after an error.
+
+    #### Features Added
+
+    - A new float keyword argument `socket_timeout` has been added to the sync and async `EventHubConsumerClient` and `EventHubProducerClient`.
+- Name: azure-ai-formrecognizer
+  Version: 3.3.0
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > Note: The following changes are only breaking from the previous beta. They are not breaking against previous stable versions.
+
+    - Going forward this library will default to service API version `2023-07-31`.
+    - Removed `query_fields` keyword argument from `begin_analyze_document()` and `begin_analyze_document_from_url()`.
+    - Removed `kind` property from `DocumentPage`.
+    - Removed `images` property from `DocumentPage`.
+    - Removed `DocumentImage` model.
+    - Removed `annotations` property from `DocumentPage`.
+    - Removed `DocumentAnnotation` model.
+    - Removed `common_name` property from `DocumentKeyValuePair`.
+    - Changed `AnalysisFeature` enum member names and values. Supported enum members are: `OCR_HIGH_RESOLUTION`, `LANGUAGES`, `BARCODES`, `FORMULAS`, `KEY_VALUE_PAIRS`, `STYLE_FONT`.
+    - Renamed `custom_neural_document_model_builds` property to `neural_document_model_quota` on `ResourceDetails` model.
+    - Renamed `AzureBlobSource` model to `BlobSource`.
+    - Renamed `AzureBlobFileListSource` model to `BlobFileListSource`.
+    - Marked `neural_document_model_quota` as optional on `ResourceDetails`.
 
