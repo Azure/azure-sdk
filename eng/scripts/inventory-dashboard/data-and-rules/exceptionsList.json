@@ -111,6 +111,16 @@
     },
     {
         "Exception":"Library not needed in language",
+        "Service":"Communication",
+        "SDKs":{
+            "Communication Common":{
+                "Plane": "data",
+                "Languages":["Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
         "Service":"Event Hubs",
         "SDKs":{
             "Azure Blob Storage Checkpoint Store":{
