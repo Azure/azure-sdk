@@ -1,5 +1,5 @@
 ---
-title: Azure SDK (June 2023)
+title: Azure SDK (July 2023)
 layout: post
 tags: release
 sidebar: releases_sidebar
@@ -11,7 +11,9 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-Welcome to the June release of the Azure SDK. Read more on our [June Release Blog](https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-june-2023/).
+*
+*
+*
 
 ## Release Notes
 

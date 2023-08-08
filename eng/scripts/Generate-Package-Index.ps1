@@ -115,10 +115,16 @@ function Write-Markdown($lang)
   $allPackageList = $clientPackageList + $otherPackages
 
   $allFileContent = Get-Heading
+  $deprecated = 0
   foreach($pkg in $allPackageList)
   {
-    $allFileContent += Get-Row $pkg $langLinkTemplates
+    if ($pkg.Support -eq 'deprecated') {
+      $deprecated++
+    } else {
+      $allFileContent += Get-Row $pkg $langLinkTemplates
+    }
   }
+  Write-Host "Skipped $deprecated deprecated package"
 
   $allMdfile = Join-Path $outputFolder "$fileLang-all.md"
   Write-Host "Writing $allMdfile"
