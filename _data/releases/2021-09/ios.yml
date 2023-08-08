@@ -1,0 +1,39 @@
+entries:
+- Name: AzureCore
+  Version: 1.0.0-beta.13
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCore_1.0.0-beta.13/sdk/core/AzureCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed the format for application ID in `UserAgentPolicy` to remove the square brackets around it.
+- Name: AzureCommunicationChat
+  Version: 1.0.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.0.2/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `CommunicationSignalingErrorHandler` to `AzureCommunicationChatClientOptions` for handling signaling errors.
+
+    #### Bugs Fixed
+    - Fixed realtime notifications to handle nil `displayName`.
+    - Fixed `readOn` property in `readReceiptReceived` events.
+    - Fixed recipient id format in events.
+- Name: AzureCommunicationCalling
+  Version: 2.0.1-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.0.1-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `IncomingCall.accept` will now throw errors when trying to accept a terminated call or if already in an active call.
+    - SDK rebuilt with latest available AzureCommunicationCommon `1.0.2` ([#344](https://github.com/Azure/Communication/issues/344)).
+    - Using `CallKit` implementation in SDK when already in an incoming call another incoming call is recieved, accepting the new call operation now completes successfully.
+

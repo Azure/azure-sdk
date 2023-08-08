@@ -1,0 +1,372 @@
+entries:
+- Name: '@azure/event-hubs'
+  Version: 5.7.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0-beta.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `EventHubBufferedProducerClient` with functionality to manage batching, concurrency, and sending of events implicitly. This abstracts the complexity away from applications regarding publishing events in an optimal fashion. See issue [#17699](https://github.com/Azure/azure-sdk-for-js/issues/17699) for more details.
+    - Added `skipParsingBodyAsJson` optional parameter to `EventHubConsumerClient.subscribe` method. When set to `true` it will disable the client from running `JSON.parse()` on the message body when receiving the message. Not applicable if the message was sent with AMQP body type `value` or `sequence`.
+- Name: '@azure/arm-consumption'
+  Version: 9.0.0-beta.1
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.0.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 13.0.0-beta.1
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-apimanagement'
+  Version: 8.0.0-beta.2
+  DisplayName: Resource Management - Api Management
+  ServiceName: API Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/schema-registry'
+  Version: 1.0.1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.1/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Disable client-side validation of schema names and leave that to the service.
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.5
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.5/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Depends on @azure/schema-registry@1.0.1.
+- Name: '@azure/arm-datalake-analytics'
+  Version: 2.0.0-beta.1
+  DisplayName: '@azure/arm-datalake-analytics'
+  ServiceName: Datalake-Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-datalake-analytics_2.0.0-beta.1/sdk/datalake-analytics/arm-datalake-analytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-network-traversal'
+  Version: 1.0.0-beta.3
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.3/sdk/communication/communication-network-traversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Making user identity an optional argument when calling GetRelayConfiguration and GetRelayConfigurationAsync
+    - Adding optional parameter to GetRelayConfiguration to choose a RouteType
+- Name: '@azure/arm-batch'
+  Version: 7.0.0-beta.1
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managementgroups'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managementgroups/arm-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-orbital'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Orbital
+  ServiceName: Orbital
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_1.0.0-beta.1/sdk/orbital/arm-orbital/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcehealth'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-botservice'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/botservice/arm-botservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-search'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-analysisservices'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Analysis Services
+  ServiceName: Analysis Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-portal'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Portal
+  ServiceName: Portal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portal_1.0.0-beta.1/sdk/portal/arm-portal/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-devtestlabs'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Dev Test Labs
+  ServiceName: DevTest Labs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devtestlabs_4.0.0-beta.1/sdk/devtestlabs/arm-devtestlabs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sqlvirtualmachine'
+  Version: 5.0.0-beta.1
+  DisplayName: Resource Management - Sql Virtual Machine
+  ServiceName: SQL Server on Azure Virtual Machines
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.2.2
+  DisplayName: Core - LRO
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.2/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix LRO PATCH operations when their results are located in a different URL. [PR #18820](https://github.com/Azure/azure-sdk-for-js/pull/18820)
+- Name: '@azure/core-client'
+  Version: 1.3.3
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.3.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added a check to handle undefined value during the parsing of query parameters. Please refer to [PR #18621](https://github.com/Azure/azure-sdk-for-js/pull/18621) for further details.
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0-beta.2/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-02-12.
+    - Added support for premium file share `provisionedBandwidthMiBps` property.
+- Name: '@azure/storage-blob'
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0-beta.2/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-02-12
+    - Added support for listing system containers with `BlobServiceClient.listContainers()`.
+    - Added support for blob names container invalid XML characters.
+- Name: '@azure/arm-network'
+  Version: 26.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 17.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 5.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-locks'
+  Version: 2.0.0
+  DisplayName: Resource Management - Locks
+  ServiceName: Locks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managedapplications'
+  Version: 2.0.0
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-features'
+  Version: 3.0.0
+  DisplayName: Resource Management - Features
+  ServiceName: Features
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 9.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 17.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 5.0.0
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-links'
+  Version: 2.0.0
+  DisplayName: Resource Management - Links
+  ServiceName: Links
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 15.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-loadtestservice'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Loadtestservice
+  ServiceName: Loadtestservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtestservice_1.0.0-beta.1/sdk/loadtestservice/arm-loadtestservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.15.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.15.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - _GA_ Adds `container.item(itemId).patch()`. `patch()` is an alternative to `replace()` for item updates. https://github.com/Azure/azure-sdk-for-js/pull/16264/files#diff-7caca690c469e2025576523c0377ac71815f001024fde7c48b20cd24adaa6977R561
+    - _GA_ support for Bulk operation PATCH.
+    - _GA_ support for Batch operation PATCH.
+    -  Added the `SasTokenProperties` type and a `createAuthorizationSasToken` function to enable scoped access to Cosmos resources with SAS tokens. For an example that demonstrates creating a SAS token and using it to authenticate a `CosmosClient`, see [the `SasTokenAuth` sample](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/SasTokenAuth.ts).
+- Name: '@azure/arm-relay'
+  Version: 3.0.0
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/relay/arm-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 13.0.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub'
+  Version: 5.0.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 6.0.0
+  DisplayName: Resource Management - Redis Cache
+  ServiceName: Redis Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+

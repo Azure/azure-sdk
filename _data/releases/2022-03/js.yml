@@ -1,0 +1,607 @@
+entries:
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.6
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.6/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The encoder APIs have been revamped to work on messages instead of buffers where the payload is the pure encoded-data. The schema ID became part of the content type of that message. This change will improve the experience of using this encoder with the other messaging clients (e.g. Event Hubs, Service Bus, and Event Grid clients). The encoder also supports decoding messages with payloads that follow the old format where the schema ID was part of the payload.
+    - `decodeMessageData` now supports decoding using a different but compatible schema
+
+    #### Breaking Changes
+    - The `SchemaRegistryAvroSerializer` class has been renamed to `AvroEncoder`
+    - The `serialize` method has been renamed to `encodeMessageData` and it now returns a message
+    - The `deserialize` method has been renamed to `decodeMessageData` and it now takes a message as input
+- Name: '@azure/storage-blob'
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0-beta.3/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-04-10.
+    - Added support for finding blobs by tags in a container.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `BlobServiceClient`, `BlobClient`, `AppendBlobClient`, `BlockBlobClient`, `PageBlobClient` or `ContainerClient` with connection string.
+- Name: '@azure/ai-form-recognizer'
+  Version: 4.0.0-beta.3
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated the SDK to use the latest preview version of the Form Recognizer service: `2022-01-30-preview`.
+    - A new prebuilt model, `PrebuiltModels.TaxUsW2`, is available. It supports extracting data from United States W2 tax forms such as employee and employer information, IRS control number, tax withholding information, etc.
+    - Added a new method, `beginReadDocument` to `DocumentAnalysisClient`. This method uses the "prebuilt-read" model to extract textual information from the document such as page text contents and language spans.
+    - Added a `languages` field to the `AnalyzeResult` type. This field contains information about regions of text in the document that were identified as being of a particular written language. A `DocumentLanguage` consists of the identified `languageCode` (ISO 639-1 or BCP 47 language code), a list of `spans` of text that are of that language, and a `confidence` value (between zero and one) that the assessment is correct.
+    - Added a `tags` field to `BuildModelOptions`, `GetCopyAuthorizationOptions`, and `ModelSummary`. Tags are user-specified key-value pairs that are immutably associated with the model. If tags are provided when a model is created, the Form Recognizer service will return the same tags as part of the model's summary. The `OperationInfo` and `TrainingPollOperationState` of a model creation operation also produce the `tags` if they were provided in the `BuildModelOptions`.
+    - Models now report the service API version used to create the model and that will be used for analysis in the `apiVersion` field.
+    - Documents may now contain a new field type `DocumentCurrencyField`, which has an object with `amount` and `currencySymbol` fields as its value. This field is identified by the value `"currency"` in the `kind` field. The `amount` field contains the amount of the currency value, and the `currencySymbol` field may contain a three-letter currency symbol if one was identified for the field. For example, the text `$100.50` may have an `amount` of `100.5` and a `currencySymbol` of "USD".
+    - Added support for setting the `buildMode` of a model building operation and introduced the "neural" build mode. Previous versions of the service and SDK only supported a single build mode that is now known as the "template" mode. Template models only accept documents that have the same basic page structure (i.e. a uniform visual appearance, or the same _relative_ positioning of elements within the document), hence a fixed document "template." Neural models support document classes that have the same information, but different page structures. Examples of these documents include United States W2 tax forms, which all share the same information, but may vary in appearance by the company that created the document. Neural models currently only support English text, and are more costly and time-consuming to train and use for analysis, but should yield higher-quality results for English documents that do not follow a "template."
+    - The `DocTypeInfo` type now has a `buildMode` field that contains the build mode originally used to create the document type.
+
+    #### Bugs Fixed
+
+    - The `LayoutResult` and `GeneralDocumentResult` types were missing the `apiVersion`, `modelId`, and `content` fields that are common to all other analysis results. This version adds them through a new interface, `AnalyzeResultCommon`, that includes these fields. `LayoutResult`, `GeneralDocumentResult`, `ReadResult`, and `AnalyzeResult` all now extend the `AnalyzeResultCommon` interface.
+    - The `DocumentSignatureField` interface was missing a type for its `value` property. The property existed at runtime, but no type information was available for this field. The `value` property has been added to the interface.
+
+    #### Breaking Changes
+
+    - Renamed the `beginAnalyzeDocuments` method of `DocumentAnalysisClient` to `beginAnalyzeDocument` for accuracy (only one input document is supported, though the document may contain multiple pages in certain file formats) and for consistency with other Azure SDK packages.
+    - Renamed the options bag type `AnalyzeDocumentsOptions` to `AnalyzeDocumentOptions` for consistency with the method name.
+    - The `buildMode` parameter of `DocumentModelAdminsitrationClient#beginBuildModel` is a required parameter. To retain the same behavior as in previous versions, explicitly use the template build mode (pass the value `"template"` to the method).
+    - The `GeneratedDocument` type (as well as related types like `GeneratedDocumentField`) was removed from the public API and its uses replaced with `unknown`, as it is only intended for internal use. These types represented raw REST API response types that are not exposed at runtime by the client methods.
+    - Removed the `Preview` variant from the `FormRecognizerApiVersion` object because it will never be different from the `Latest` version in beta packages, and stable packages will not support it.
+    - Renamed `beginExtractGenericDocument` and `GenericDocumentResult` to `beginExtractGeneralDocument` and `GeneralDocumentResult` for consistency with other Form Recognizer SDK packages.
+    - Several of the prebuilt model schemas and result types have changed:
+    - The document type naming convention has changed. Instead of separation by colons (e.g. "prebuilt:receipt"), prebuilt model document type names are now separated by periods and are no longer prefixed with "prebuilt" ("prebuilt:idDocument:driverLicense" becomes "idDocument.driverLicense", "prebuilt:invoice" becomes just "invoice").
+    - In the `prebuilt-invoice` model, several numeric fields that represented amounts of money have been changed to a designated `"currency"` type. These include the `subTotal`, `totalTax`, `invoiceTotal`, `amountDue`, and `previousUnpaidBalance` fields of invoices and the `amount`, `tax`, and `unitPrice` fields of invoice items (a subfield of invoices).
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0-beta.3/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-04-10.
+    - Added support for renaming a file or a directory.
+- Name: '@azure/service-bus'
+  Version: 7.5.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.5.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The `processError` callback to `subscribe()` was previously called only for errors on setting up the receiver, errors on message settlement or message lock renewal and not for errors on AMQP link or session. This is now fixed. [PR #19189](https://github.com/Azure/azure-sdk-for-js/pull/19189)
+    - Fix an issue where we don't respect retry options before starting the next retry cycle when using the `subscribe()` method. [PR #20316](https://github.com/Azure/azure-sdk-for-js/pull/20316)
+
+    #### Features Added
+
+    - Add `state` property to `ServiceBusReceivedMessage`. Its value is one of `"active"`, `"deferred"`, or `"scheduled"`. [PR #18938](https://github.com/Azure/azure-sdk-for-js/pull/18938)
+    - Add optional boolean `skipParsingBodyAsJson` property to `ServiceBusReceiverOptions` and `ServiceBusSessionReceiverOptions`. By default, the client attempts to parse message body as JSON object, and this new parameter controls whether the client should skip performing this parsing. [PR #18692](https://github.com/Azure/azure-sdk-for-js/pull/18692)
+- Name: '@azure/arm-compute'
+  Version: 17.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iothub'
+  Version: 6.1.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesbackup'
+  Version: 8.1.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Site Recovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicesbackup/arm-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 17.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 2.0.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.3/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug that duplicated the tenant Id on the URI of outgoing requests when passing an `authorityHost` ending with a tenant Id.
+    - `ManagedIdentityCredential` now won't retry when it tries to ping the IMDS endpoint.
+    - Now we are specifying the maximum number of retries to 3 to ensure that maximum retries won't change without notice.
+
+    #### Features Added
+
+    - Added log warning for non-support of user assigned identity in Managed Identity credentials in Cloud Shell environments.
+- Name: '@azure/identity'
+  Version: 2.0.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a regression in version 2.0.3 in which providing an options bag, but _not_ a client ID, to the `ManagedIdentityCredential` constructor would discard the `options` parameter.
+- Name: '@azure/dtdl-parser'
+  Version: 1.0.0-beta.2
+  DisplayName: Digital Twins Definition Language Parser
+  ServiceName: Digital Twins
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix integration issues with @azure/iot-modelsrepository.
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.0.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 10.2.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dnsresolver'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Dnsresolver
+  ServiceName: Dnsresolver
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.0.0-beta.1/sdk/dnsresolver/arm-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 15.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kusto'
+  Version: 7.1.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mobilenetwork'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Mobilenetwork
+  ServiceName: Mobilenetwork
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_1.0.0-beta.1/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sqlvirtualmachine'
+  Version: 5.0.0-beta.3
+  DisplayName: Resource Management - Sql Virtual Machine
+  ServiceName: SQL Virtual Machine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 15.1.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 17.3.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appplatform'
+  Version: 2.0.0-beta.3
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 2.1.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for specifying a custom `resourceId` when creating a `ManagedIdentityCredential` or `DefaultAzureCredential`.
+    - In some scenarios where a user-assigned managed identity is required, the identity may be known by an ARM resource ID, but not a client ID (such as when user-assigned identities are created using an ARM template). The `resourceId` option allows an app to select its managed identity by its ARM resource ID to support such scenarios.
+    - If `resourceId` is provided, the managed identity providers for Azure App Service (2017), Azure Arc, Azure Cloud Shell, Azure Service Fabric and Token Exchange authentication will log a warning since this parameter is not supported by the identity endpoints in those services. The authentication attempts will be sent, but the parameter will be ignored by the service.
+    - Added `clientId` to the optional parameters of the `ManagedIdentityCredential`.
+    - Updated the Troubleshoot guide to have error codes and error messages for the Identity Customer Service Support.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.6.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.6.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add "WWW-Authenticate" to the allowed logged header list. [#20288](https://github.com/Azure/azure-sdk-for-js/pull/20288)
+
+    - Switch browser transport to fetch. [#20201](https://github.com/Azure/azure-sdk-for-js/pull/20201)
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0-beta.4
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0-beta.4/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug where ShareFileClient.startCopyFromURL() was not sending the ignoreReadonly parameter correctly.
+    - Set correct content length in requests for uploading operations to avoid unexpected failure if customized content length is incorrect.
+- Name: '@azure/storage-blob'
+  Version: 12.9.0-beta.4
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0-beta.4/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to specify Disk Compute AAD Audience in StoragePipelineOptions.
+
+    #### Bugs Fixed
+
+    - Set correct content length in requests for uploading operations to avoid unexpected failure if customized content length is incorrect.
+- Name: '@azure/arm-containerregistry'
+  Version: 10.1.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.2.4
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.4/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix polling so that resources created in a different URL will be retrieved once polling is done. [PR #20656](https://github.com/Azure/azure-sdk-for-js/pull/20656)
+- Name: '@azure/arm-digitaltwins'
+  Version: 3.1.0-beta.1
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: Digital Twins
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.0.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.0.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
+    - `createCommunicationAccessKeyCredentialPolicy` and `createCommunicationAuthPolicy` newly return `PipelinePolicy` instead of `RequestPolicyFactory`.
+
+    #### Features Added
+
+    - Optimization added: When the proactive refreshing is enabled and the token refresher fails to provide a token that's not about to expire soon, the subsequent refresh attempts will be scheduled for when the token reaches half of its remaining lifetime until a token with long enough validity (>10 minutes) is obtained.
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.7/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new APIs `createAlias`, `createOrUpdateAlias`, `deleteAlias`, `getAlias` & `listAliases` operations to the `SearchIndexClient`.
+- Name: '@azure/arm-resources-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-resources-profile-2020-09-01-hybrid'
+  ServiceName: Resources-Profile-2020-09-01-Hybrid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-profile-2020-09-01-hybrid_2.0.0/sdk/resources/arm-resources-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/service-bus'
+  Version: 7.5.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.5.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where we don't respect user request to close the receiver if the connection is disconnected when using the `subscribe()` method. [PR #20427](https://github.com/Azure/azure-sdk-for-js/pull/20427)
+- Name: '@azure/arm-locks-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-locks-profile-2020-09-01-hybrid'
+  ServiceName: Locks-Profile-2020-09-01-Hybrid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-locks-profile-2020-09-01-hybrid_2.0.0/sdk/locks/arm-locks-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.8.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.8.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new value `IdentityUnsupported` to `MediaJobErrorCode` and `Account` to `MediaJobErrorCategory` for `Microsoft.Media` events.
+- Name: '@azure/arm-azurestackhci'
+  Version: 2.1.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_2.1.0/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-policy-profile-2020-09-01-hybrid'
+  ServiceName: Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-policy-profile-2020-09-01-hybrid_2.0.0/sdk/policy/arm-policy-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-storage-profile-2020-09-01-hybrid'
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storage-profile-2020-09-01-hybrid_2.0.0/sdk/storage/arm-storage-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-network-profile-2020-09-01-hybrid'
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-network-profile-2020-09-01-hybrid_2.0.0/sdk/network/arm-network-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-compute-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-compute-profile-2020-09-01-hybrid'
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-compute-profile-2020-09-01-hybrid_2.0.0/sdk/compute/arm-compute-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-authorization-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-authorization-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-authorization-profile-2020-09-01-hybrid'
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-authorization-profile-2020-09-01-hybrid_2.0.0/sdk/authorization/arm-authorization-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-eventhub-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-eventhub-profile-2020-09-01-hybrid'
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-eventhub-profile-2020-09-01-hybrid_2.0.0/sdk/eventhub/arm-eventhub-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commerce-profile-2020-09-01-hybrid_2.0.0/sdk/commerce/arm-commerce-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  Version: 2.0.0-beta.1
+  DisplayName: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-commerce-profile-2020-09-01-hybrid'
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commerce-profile-2020-09-01-hybrid_2.0.0-beta.1/sdk/commerce/arm-commerce-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-network-traversal'
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.1.0-beta.1/sdk/communication/communication-network-traversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Making User, RouteType and Ttl part of the options parameter
+    - getRelayConfiguration can be called without parameters or passing the GetRelayConfigurationOptions parameter
+
+    #### Features Added
+
+    - Adding optional parameter to GetRelayConfiguration to choose credential Time-To-Live in seconds of max 48 hours.
+    The default value will be used if given value exceeds it.
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.2.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0-beta.2/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgraded the package to use the Azure Core V2, bringing several improvements to the package's HTTP pipeline architecture.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.8.0
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.8.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `DataLakeServiceClient` with connection string.
+    - Set correct content length in requests for uploading operations to avoid unexpected failure if customized content length is incorrect.
+
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.9.0-beta.1, 12.9.0-beta.2, 12.9.0-beta.3 and 12.9.0-beta.4.
+- Name: '@azure/arm-dns-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-dns-profile-2020-09-01-hybrid'
+  ServiceName: Dns
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dns-profile-2020-09-01-hybrid_2.0.0/sdk/dns/arm-dns-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.7
+  DisplayName: Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.7/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `AvroEncoder` has been renamed to `AvroSerializer`
+    - The `encodeMessageData` method has been renamed to `serializeMessageData`
+    - The `decodeMessageData` method has been renamed to `deserializeMessageData`
+- Name: '@azure/arm-keyvault-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-keyvault-profile-2020-09-01-hybrid'
+  ServiceName: Keyvault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-keyvault-profile-2020-09-01-hybrid_2.0.0/sdk/keyvault/arm-keyvault-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-monitor-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-monitor-profile-2020-09-01-hybrid'
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitor-profile-2020-09-01-hybrid_2.0.0/sdk/monitor/arm-monitor-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoxedge-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-databoxedge-profile-2020-09-01-hybrid'
+  ServiceName: Databoxedge
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge-profile-2020-09-01-hybrid_2.0.0/sdk/databoxedge/arm-databoxedge-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.8.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.8.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `QueueServiceClient` or `QueueClient` with connection string.
+
+    #### Features Added
+
+    - Added support for service version 2021-04-10.
+- Name: '@azure/storage-blob'
+  Version: 12.9.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue of always sending x-ms-encryption-algorithm header in request.
+
+    #### Features Added
+
+    - Includes all features released in 12.9.0-beta.1, 12.9.0-beta.2, 12.9.0-beta.3 and 12.9.0-beta.4.
+- Name: '@azure/arm-subscriptions-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-subscriptions-profile-2020-09-01-hybrid'
+  ServiceName: Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-subscriptions-profile-2020-09-01-hybrid_2.0.0/sdk/subscription/arm-subscriptions-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+

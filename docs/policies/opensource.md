@@ -11,6 +11,9 @@ sidebar: general_sidebar
 * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)
 * [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js)
 * [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go)
+* [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp)
+* [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
 {% include requirement/SHOULD %} develop in the open on GitHub. Seek feedback from the community on design choices and be active in conversations with the community.
 
@@ -65,6 +68,10 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
   * When using this format, service owners will be automatically subscribed to build notification failure alerts
 * Place more general rules higher in the file and more specific rules lower in the file as GitHub uses the last matching expression
 * Use only GitHub person aliases for the owners (e.g. `@person`). GitHub groups, GitHub users that aren't linked to internal users, internal group aliases, and email addresses are not supported at this time.
+* If you want PRs in those folders to be auto-labeled, add a comment line above the entry with the path with the content of `# PRLabel: ` followed by the `%Label` you want to apply. Note: Currently wildcards are not supported and just one label per folder works for now.
+* You can also capture the information about which people have to be notified when issues are filed for a service. To do that, you have to add the `# ServiceLabel: ` followed by the `%Label` that have to be applied to an issue in order for the people specified in the path below to be mentioned by the bot. 
+* If the code for a service is not inside the repo, you can use this special commented out path to allow issues to be tagged for a service: `#/<NotInRepo>/`
+* For the labels that are used with the `%` character, you can use spaces. Labels are delimited by the start of the `%` character.
 
 ```gitignore
 # Catch-all for SDK changes
@@ -72,8 +79,25 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
 
 # Service teams
 /sdk/azconfig/   @person3 @person4
+
+# Example for a service that needs issues to be labeled
+# ServiceLabel: %KeyVault %Service Attention
 /sdk/keyvault/   @person5 @person6
+
+# Example for a service that needs PRs to be labeled
+# PRLabel: %label
 /sdk/servicebus/ @person7 @person8
+
+# Example for a service that needs both issues and PRs to be labeled
+# ServiceLabel: %label
+# PRLabel: %label
+/sdk/eventhubs/ @person7 @person8
+
+# Example for service that does not have the code in the repo but wants issues to be labeled
+# Notice the use of the moniker /<NotInRepo>/
+# ServiceLabel: %label %Service Attention
+#/<NotInRepo>/ @person7 @person8
+
 ```
 
 This example `CODEOWNERS` file has a catch-all list of owners at the top of the file and drills into specific service teams. GitHub uses the *last* matching expression to assign reviewers. For example, a PR with changes in `/sdk/keyvault/` will result in `@person5` and `@person6` being added to the PR. If a new service, like batch, were added with changes under `/sdk/batch/` then `@person1` and `@person2` will be assigned.

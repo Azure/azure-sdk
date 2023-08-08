@@ -1,0 +1,395 @@
+entries:
+- Name: azure-communication-chat
+  Version: 1.1.0b1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-chat_1.1.0b1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - Added support to add `metadata` for `message`
+    - Added support to add `sender_display_name` for `ChatThreadClient.send_typing_notification`
+- Name: azure-communication-networktraversal
+  Version: 1.0.0b1
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-networktraversal_1.0.0b1/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
+  ChangelogContent: |-
+    - Preview release of `azure-communication-networktraversal`.
+
+    The first preview of the Azure Communication Relay Client has the following features:
+
+    - get a Relay Configuration by creating a CommunicationRelayClient
+
+    #### Added
+    - Added CommunicationRelayClient in preview.
+    - Added CommunicationRelayClient.get_relay_configuration in preview.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/
+- Name: azure-schemaregistry
+  Version: 1.0.0b2
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.0.0b2/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support caching of registered schemas and send requests to the service only if the cache does not have the looked-up schema/schema ID.
+- Name: azure-schemaregistry-avroserializer
+  Version: 1.0.0b2
+  DisplayName: Event Hubs - Schema Registry Avro Serializer
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroserializer_1.0.0b2/sdk/schemaregistry/azure-schemaregistry-avroserializer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Depends on `azure-schemaregistry==1.0.0b2` which supports client-level caching.
+- Name: azure-mgmt-web
+  Version: 4.0.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_4.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.6.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.6.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Persistent cache implementations are now loaded on demand, enabling
+    workarounds when importing transitive dependencies such as pywin32
+    fails
+    ([#19989](https://github.com/Azure/azure-sdk-for-python/issues/19989))
+- Name: azure-mgmt-costmanagement
+  Version: 3.0.0
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-costmanagement_3.0.0/sdk/costmanagement/azure-mgmt-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-policyinsights
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-policyinsights_1.1.0b1/sdk/policyinsights/azure-mgmt-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-healthcareapis
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: API for FHIR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthcareapis_1.1.0b1/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 2.1.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.1.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datamigration
+  Version: 10.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datamigration_10.0.0/sdk/datamigration/azure-mgmt-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 5.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_5.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 9.1.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_9.1.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 23.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_23.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.18.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.18.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `azure.core.serialization.AzureJSONEncoder` (introduced in 1.17.0) serializes `datetime.datetime` objects in ISO 8601 format, conforming to RFC 3339's specification.    #20190
+    - We now use `azure.core.serialization.AzureJSONEncoder` to serialize `json` input to `azure.core.rest.HttpRequest`.
+
+    #### Bugs Fixed
+
+    - The behaviour of the headers returned in `azure.core.rest` responses now aligns across sync and async. Items can now be checked case-insensitively and without raising an error for format.
+- Name: azure-mgmt-rdbms
+  Version: 9.1.0
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_9.1.0/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-synapse
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-synapse_2.1.0b1/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-relay
+  Version: 1.1.0
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relay_1.1.0/sdk/relay/azure-mgmt-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabric
+  Version: 2.0.0
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_2.0.0/sdk/servicefabric/azure-mgmt-servicefabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 20.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_20.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.3.0b3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b3/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new models:
+    - `azure.search.documents.models.Captions`
+    - `azure.search.documents.models.CaptionResult`
+    - `azure.search.documents.indexes.models.CustomEntityLookupSkillLanguage`
+    - `azure.search.documents.indexes.models.EntityRecognitionSkillVersion`
+    - `azure.search.documents.indexes.models.LexicalNormalizerName`
+    - `azure.search.documents.indexes.models.PIIDetectionSkill`
+    - `azure.search.documents.indexes.models.PIIDetectionSkillMaskingMode`
+    - `azure.search.documents.indexes.models.SearchIndexerCache`
+    - `azure.search.documents.indexes.models.SearchIndexerDataIdentity`
+    - `azure.search.documents.indexes.models.SearchIndexerDataNoneIdentity`
+    - `azure.search.documents.indexes.models.SearchIndexerDataUserAssignedIdentity`
+    - `azure.search.documents.indexes.models.SentimentSkillVersion`
+    - Added `normalizer_name` property to `AnalyzeTextOptions` model.
+
+    #### Breaking Changes
+
+    - Removed:
+    - `azure.search.documents.indexes.models.SentimentSkillV3`
+    - `azure.search.documents.indexes.models.EntityRecognitionSkillV3`
+    - Renamed:
+    - `SearchField.normalizer` renamed to `SearchField.normalizer_name`.
+- Name: azure-mgmt-web
+  Version: 5.0.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_5.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.3.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improved memory usage of `ServiceBusClient` to automatically discard spawned `ServiceBusSender` or `ServiceBusReceiver` from its handler set when no strong reference to the sender or receiver exists anymore.
+    - Reduced CPU load of `azure.servicebus.AutoLockRenewer` during lock renewal.
+- Name: azure-ai-translation-document
+  Version: 1.0.0b5
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b5/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed: `list_all_translation_statuses` has been renamed to `list_translation_statuses`
+    - Changed: `list_all_document_statuses` has been renamed to `list_document_statuses`
+    - Changed: `TranslationStatus` property `documents_cancelled_count` has been renamed to `documents_canceled_count`
+    - Changed: `FileFormat` has been renamed to `DocumentTranslationFileFormat`
+    - Changed: Operation statuses `Cancelled` and `Cancelling` have been renamed to `Canceled` and `Canceling`, respectively.
+
+    #### Bugs Fixed
+    - The operation `id` under `details` of the poller object now populates correctly.
+- Name: azure-containerregistry
+  Version: 1.0.0b6
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b6/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `credential_scopes` keyword.
+    - Added `audience` keyword, which allows customers to select from available audiences or provide their own audience string. This keyword is required when creating a client.
+- Name: azure-identity
+  Version: 1.7.0b4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `CertificateCredential` accepts certificates in PKCS12 format
+    ([#13540](https://github.com/Azure/azure-sdk-for-python/issues/13540))
+    - `OnBehalfOfCredential` supports the on-behalf-of authentication flow for
+    accessing resources on behalf of users
+    ([#19308](https://github.com/Azure/azure-sdk-for-python/issues/19308))
+    - `DefaultAzureCredential` allows specifying the client ID of interactive browser via keyword argument `interactive_browser_client_id`
+    ([#20487](https://github.com/Azure/azure-sdk-for-python/issues/20487))
+- Name: azure-keyvault-keys
+  Version: 4.5.0b3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.5.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated type hints to fix mypy errors
+    ([#19158](https://github.com/Azure/azure-sdk-for-python/issues/19158))
+- Name: azure-mgmt-servicebus
+  Version: 7.0.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_7.0.0/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.4.0b1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.4.0b1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Key Vault API version 7.3-preview is now the default
+- Name: azure-keyvault-secrets
+  Version: 4.4.0b1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.4.0b1/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Key Vault API version 7.3-preview is now the default
+- Name: azure-keyvault-administration
+  Version: 4.1.0b1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.1.0b1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Key Vault API version 7.3-preview is now the default
+- Name: azure-monitor-query
+  Version: 1.0.0b4
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.0b4/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `include_statistics` and `include_visualization` args can now work together.
+
+    #### Features Added
+
+    - Added additional `display_description` attribute to the `Metric` type.
+    - Added a `MetricClass` enum to provide the class of a metric.
+    - Added a `metric_class` attribute to the `MetricDefinition` type.
+    - Added a `MetricNamespaceClassification` enum to support the `namespace_classification` attribute on `MetricNamespace` type.
+    - Added a `MetricUnit` enum to describe the unit of the metric.
+
+    #### Breaking Changes
+
+    - Rename `batch_query` to `query_batch`.
+    - Rename `LogsBatchQueryRequest` to `LogsBatchQuery`.
+    - `include_render` is now renamed to `include_visualization` in the query API.
+    - `LogsQueryResult` now returns `visualization` instead of `render`.
+    - `start_time`, `duration` and `end_time` are now replaced with a single param called `timespan`
+    - `resourceregion` is renamed to `resource_region` in the MetricResult type.
+    - `top` is renamed to `max_results` in the metric's `query` API.
+    - `metric_namespace_name` is renamed to `fully_qualified_namespace`
+    - `is_dimension_required` is renamed to `dimension_required`
+    - `interval`  and `time_grain` are renamed to `granularity`
+    - `orderby` is renamed to `order_by`
+    - `LogsQueryResult` now returns `datetime` objects for a time values.
+    - `LogsBatchQuery` doesn't accept a `request_id` anymore.
+    - `MetricsMetadataValues` is removed. A dictionary is used instead.
+    - `time_stamp` is renamed to `timestamp` in `MetricValue` type.
+    - `AggregationType` is renamed to `MetricAggregationType`.
+    - Removed `LogsBatchResultError` type.
+    - `LogsQueryResultTable` is named to `LogsTable`
+    - `LogsTableColumn` is now removed. Column labels are strings instead.
+    - `start_time` in `list_metric_namespaces` API is now a datetime.
+    - The order of params in `LogsBatchQuery` is changed. Also, `headers` is no longer accepted.
+    - `timespan` is now a required keyword-only argument in logs APIs.
+    - batch api now returns a list of `LogsQueryResult` objects.
+- Name: azure-mgmt-containerservice
+  Version: 16.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+

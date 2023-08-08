@@ -1,0 +1,19 @@
+<div class="standard-verbs-table-container">
+    <!-- Table Header -->
+    <div class="standard-verbs-table-row">
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-header standard-verbs-table-cell-verb">Verb</div>
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-header">Parameters</div>
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-header">Returns</div>
+        <div class="standard-verbs-table-cell standard-verbs-table-cell-header standard-verbs-table-cell-comments">
+            Comments</div>
+    </div>
+    <!-- Table Rows -->
+    {% for item in data %}
+    {% assign mod = forloop.index0 | modulo:2 %}
+    {% if mod == 0 %}
+    {% include tables/standard_verbs_row.html perRowCellStyle="standard-verbs-table-cell-pair"%}
+    {% else %}
+    {% include tables/standard_verbs_row.html perRowStyle=""%}
+    {% endif %}
+    {% endfor %}
+</div>

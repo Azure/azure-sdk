@@ -1,48 +1,8 @@
 ---
 title: Azure SDK for Python (%%MMMM yyyy%%)
 layout: post
-tags: python
+tags: python azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
-
-The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
-
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
-#### Preview
-
-- _Add packages_
-
-## Installation Instructions
-
-To install the latest preview version of the packages, copy and paste the following commands into a terminal:
-
-```bash
-$> pip install azure-packagename
-```
-
-## Feedback
-
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
-
-## Changelog
-
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
-
-### _Package name_
-
-- Major changes only!
-
-## Latest Releases
-
-{% assign packages = site.data.releases.latest.python-packages %}
-{% include python-packages.html %}
-
-{% include refs.md %}
+{% include releases/notes/common.md language="python" date="%%yyyy-MM%%" displayDate="%%MMMM yyyy%%" %}

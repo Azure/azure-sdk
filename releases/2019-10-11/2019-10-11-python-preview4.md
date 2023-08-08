@@ -46,16 +46,16 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added support for tracing ([issue #7153](https://github.com/Azure/azure-sdk-for-python/issues/7153)).
 - Added new boolean type parameter `track_last_enqueued_event_properties` in method `EventHubClient.create_consumer()`.
 - Added new property `last_enqueued_event_properties` of EventHubConsumer which contains `sequence_number`, `offset`, `enqueued_time` and `retrieval_time information`.
-- Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IotHub can be used to create EventHubClient and read properties or events from an IoT Hub.
+- Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IoT Hub can be used to create EventHubClient and read properties or events from an IoT Hub.
 - Removed support for sending EventData to IoT Hub.
 - Removed parameter exception in method `close()` of EventHubConsumer and EventHubProcuer.
 
 ### Key Vault
 
 - Restructured the `Certificate`, `Key`, and `Secret` models. For more specific details, see the respective
-[certificate](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md),
-[key](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md),
-and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md) changelogs.
+[certificate](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md),
+[key](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md),
+and [secret](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md) changelogs.
 - Both async and sync versions of `create_certificate` return pollers now that poll on the certificate's successful creation
 
 ### Storage
@@ -69,7 +69,7 @@ and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyva
 ### Identity
 - `AuthorizationCodeCredential` authenticates with a previously obtained
 authorization code. See Azure Active Directory's
-[authorization code documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+[authorization code documentation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 for more information about this authentication flow.
 - Multi-cloud support: client credentials accept the authority of an Azure Active
 Directory authentication endpoint as an `authority` keyword argument. Known

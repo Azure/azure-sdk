@@ -1,0 +1,411 @@
+entries:
+- Name: '@azure/storage-queue'
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.7.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2020-10-02.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.7.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.7.0-beta.1.
+- Name: '@azure/arm-purview'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purview_1.0.0-beta.1/sdk/purview/arm-purview/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.8.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.8.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/storage-blob'
+  Version: 12.8.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.8.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/communication-chat'
+  Version: 1.1.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
+    - Updated to @azure/communication-signaling@1.0.0-beta.10.
+- Name: '@azure/arm-sql'
+  Version: 30.0.0-beta.4
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/mixed-reality-authentication'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/CHANGELOG.md
+  ChangelogContent: '- Initial release.'
+- Name: '@azure/mixed-reality-remote-rendering'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/CHANGELOG.md
+  ChangelogContent: '- Initial release.'
+- Name: '@azure/arm-apimanagement'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Api Management
+  ServiceName: API Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Redis Cache
+  ServiceName: Redis Cache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-client'
+  Version: 1.3.1
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.3.1/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updates package to work with the react native bundler. Browser APIs may still need to be pollyfilled for this package to run in react native. [PR #17783](https://github.com/Azure/azure-sdk-for-js/pull/17783)
+- Name: '@azure/core-lro'
+  Version: 2.2.1
+  DisplayName: Core - LRO
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Check for string type before calling toLowerCase(). [PR #17573](https://github.com/Azure/azure-sdk-for-js/pull/17573)
+- Name: '@azure/core-http'
+  Version: 2.2.1
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.1/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix incorrect caching of proxy agents [PR #17546](https://github.com/Azure/azure-sdk-for-js/pull/17546)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.3.1
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.3.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue on Node where aborting a request while its response body was still be processed would cause the HttpClient to emit a `RestError` rather than the appropriate `AbortError`. [PR #17956](https://github.com/Azure/azure-sdk-for-js/pull/17956)
+- Name: '@azure/logger'
+  Version: 1.0.3
+  DisplayName: Core - Logger
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updates package to work with the react native bundler. [PR #17783](https://github.com/Azure/azure-sdk-for-js/pull/17783)
+- Name: '@azure/keyvault-keys'
+  Version: 4.4.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0-beta.2/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `KeyClient.getCryptographyClient(keyName, options)` which provides a simple way to create a `CryptographyClient` for a given key (identified by its name).
+    - An optional `keyVersion` property may be used in the `options` parameter to create a cryptography client targeting a specific key version. The latest version is used by default.
+    - Added support for automated key rotation in Azure Key Vault.
+    - Added `KeyClient.rotateKey` to rotate a key on-demand.
+    - Added `KeyClient.updateKeyRotationPolicy` to update a key's automated rotation policy.
+    - Added `JsonWebKey.key_ops` property to `JsonWebKey` in addition to the existing `JsonWebKey.keyOps` property in order to comply with the JSON Web Key spec.
+- Name: '@azure/service-bus'
+  Version: 7.4.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.4.0-beta.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds new get/set property `maxMessageSizeInKilobytes` to `QueueProperties`, `TopicProperties`, `CreateQueueOptions`, and `CreateTopicOptions`. Only applicable for premium namespaces. Use this when creating or updating queues and topics. Added in [#17953](https://github.com/Azure/azure-sdk-for-js/pull/17953)
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.4/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed property `ignoreResetRequirements` to `skipIndexerResetRequirementForCache` in `CreateorUpdateDataSourceConnectionOptions`, `CreateorUpdateIndexerOptions` & `CreateOrUpdateSkillsetOptions` objects.
+    - Changed the type of `answers` property from `Answers` to `QueryAnswerType`, in the `SearchRequest` object.
+    - Changed the type of `captions` property from `Captions` to `QueryCaptionType`, in the `SearchRequest` object.
+    - Changed the type of `speller` property from `Speller` to `QuerySpellerType`, in the `SearchRequest` object.
+    - Changed the underlying dependency of the SDK from `core-http` to `core-rest-pipeline` package.
+
+    #### Features Added
+
+    - Added properties `currentState` & `statusDetail` to the `IndexerExecutionResult` object.
+    - Added operations `resetDocs` & `resetSkills` to the `SearchIndexerClient` class.
+- Name: '@azure/schema-registry'
+  Version: 1.0.0-beta.3
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.0-beta.3/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - renames `SchemaDescription`'s `group` to `groupName`
+    - renames `SchemaId` to `SchemaProperties`
+    - renames `getSchemaById` to `getSchema`
+    - renames `GetSchemaByIdOptions` to `GetSchemaOptions`
+    - renames `content` to `schemaDefinition`, `serializationType` to `format`, and `KnownSerializationType` to `KnownSchemaFormat`
+- Name: '@azure/eventgrid'
+  Version: 4.5.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.5.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new properties for the `Microsoft.Media.LiveEventIngestHeartbeat` System Event:
+
+    - `ingestDriftValue`
+    - `lastFragmentArrivalTime`
+    - `transcriptionLanguage`
+    - `transcriptionState`
+
+    - Added new System Events:
+    - API Management:
+    - `Microsoft.ApiManagement.APICreated`
+    - `Microsoft.ApiManagement.APIDeleted`
+    - `Microsoft.ApiManagement.APIReleaseCreated`
+    - `Microsoft.ApiManagement.APIReleaseDeleted`
+    - `Microsoft.ApiManagement.APIReleaseUpdated`
+    - `Microsoft.ApiManagement.APIUpdated`
+    - `Microsoft.ApiManagement.ProductCreated`
+    - `Microsoft.ApiManagement.ProductDeleted`
+    - `Microsoft.ApiManagement.ProductUpdated`
+    - `Microsoft.ApiManagement.SubscriptionCreated`
+    - `Microsoft.ApiManagement.SubscriptionDeleted`
+    - `Microsoft.ApiManagement.SubscriptionUpdated`
+    - `Microsoft.ApiManagement.UserCreated`
+    - `Microsoft.ApiManagement.UserDeleted`
+    - `Microsoft.ApiManagement.UserUpdated`
+    - Container Service:
+    - `Microsoft.ContainerService.NewKubernetesVersionAvailable`
+    - Communication:
+    - `Microsoft.Communication.UserDisconnected`
+    - Media Streaming:
+    - `Microsoft.Media.LiveEventChannelArchiveHeartbeat`
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.3
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.3/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `schemaGroup` is no longer a constructor parameter and has been moved to the constructor options because it is only required for serialization.
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.6
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.6/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade to [package-artifacts-composite-v1](https://github.com/Azure/azure-rest-api-specs/blob/bee724836ffdeb5458274037dc75f4d43576b5e3/specification/synapse/data-plane/readme.md#tag-package-artifacts-composite-v1)
+
+    - Added `SparkConfiguration`, `KqlScripts` and associated support types.
+    - Update type of many modles from string to object
+    - `SparkJobDefinition`, `Notebook` and `SqlScript` now has a folder property
+    - `SqlConnection` now has poolName and databaseName properties
+- Name: '@azure/synapse-spark'
+  Version: 1.0.0-beta.4
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.4/sdk/synapse/synapse-spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Re-generate with latest release tag `package-spark-2020-12-01`
+    - Update `LivyState` to be an extensible enum.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.5
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.5/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue with SDK version field not being populated correctly.
+- Name: '@azure/ai-form-recognizer'
+  Version: 4.0.0-beta.1
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.1/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - This package targets Azure Form Recognizer service API version `2021-09-30-preview` and newer. It _is not_ compatible with the older Form Recognizer service API versions (2.0 and 2.1). To continue to use Form Recognizer API version 2.1, please use major version 3 of the client package (`@azure/ai-form-recognizer@^3.2.0`).
+    - `FormRecognizerClient` has been replaced by `DocumentAnalysisClient`.
+    - The new `beginExtractLayout` method replaces the previous `beginRecognizeContent` method and its `-FromUrl` counterpart. Rather than a `FormPageArray`, the new method produces an object that has properties for `pages`, `tables`, and `styles`.
+    - The new `beginAnalyzeDocuments` method replaces the form recognition methods of the previous client. It provides a single method that can analyze documents using any model ID, including prebuilt models. It replaces `beginRecognizeCustomForms`, `beginRecognizeReceipts`, `beginRecognizeBusinessCards`, `beginRecognizeInvoices`, and `beginRecognizeIdentityDocuments`, as well as all of their -`FromUrl` counterparts. Rather than an array of forms, the new method produces an `AnalyzeResult` (an object with several fields, described below).
+    - Analysis using models trained without labeled training data is no longer supported by this package. This use-case is now provided by the prebuilt (generic) document model (see "New Features" below).
+    - The `language` option has been renamed to `locale`, and it accepts a wider variety of locale codes (such as "en-US" for United States English) as well as two-letter language codes (such as "fr" for French).
+    - The `pages` option is now a single `string` instead of an array of strings. Multiple page ranges may be specified by separating them with commas.
+    - In many output types, `boundingBox` has been replaced by a list of `boundingRegions`, which may contain a bounding box and page number. This is useful for objects that may span multiple pages.
+    - `FormTrainingClient` has been replaced by `DocumentModelAdministrationClient`.
+    - The new `beginBuildModel` method replaces the previous `beginTraining` method. The new method and underlying service API do not support training a model using unlabeled training data. Labeled data are required to build a custom document model using the new SDK and service API.
+    - The new `beginComposeModel` method replaces the `beginCreateComposedModel` method.
+    - The `getCopyAuthorization` method no longer requires the target resource name and region, instead requiring only a model ID/name.
+    - The `getModel` and `listModels` methods replace the `getCustomModel` and `listCustomModels` methods, as the new methods support prebuilt models as well as custom models. They no longer produce any information about models that did not succeed (if a model creation operation failed, it will not be included in the output of `listModels` and cannot be retrieved with `getModel` by model ID).
+    - Custom models no longer have a name that is distinct from the model ID (more accurately, the model ID and name have been unified).
+    - You must now specify a model ID to create a model (whether composed, copied, or built). Previously, the Form Recognizer service would generate a GUID for the newly-created model. Now, the model ID may be any text (so long as it does not start with "prebuilt-"), and it must be provided when the model is created.
+    - The `ModelInfo` type (previously `CustomFormModelInfo`) has been redesigned. It no longer contains `trainingDocuments`, and it has a property called `docTypes` that contains the information previously contained in `submodels`, but with a different shape. Please refer to the documentation for more information, as this type has changed significantly.
+    - The structure of many output types has changed. The full list of changes is extensive and discussed in depth in [the migration guide](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md). The following are some of the changes:
+    - When analyzing a document, the output is no longer an array of `RecognizedForm`s. All analysis methods&mdash;including custom/prebuilt model analysis, layout, and the generic document model&mdash;produce an `AnalyzeResult` or a subset thereof. The `AnalyzeResult` has fields for `pages`, `tables`, `styles`, `entities`, `keyValuePairs`, and `documents`. The `beginExtractLayout` and `beginExtractGenericDocument` methods produce subtypes (`LayoutResult` and `GenericDocumentResult` respectively) of `AnalyzeResult` that contain only those fields that are produced by that model. The list of changes within these types is extensive, as they have been redesigned. Please consult the documentation for more information.
+    - The new type `AnalyzedDocument` replaces `RecognizedForm`. It does not contain a `pages` property, as `pages` are now a top-level property of the `AnalyzeResult`.
+    - The new type `DocumentPage` replaces `FormPage`. It does not have a `tables` property, as `tables` are now a top-level property of the `AnalyzeResult`.
+    - The `DocumentLine` type (replacing `FormLine`) no longer has a `words` property, as `words` is now a property of the `DocumentPage`. The `DocumentLine` instead contains `spans` which can be used to correlate `DocumentWord`s to `DocumentLine`s, as words are no longer required to be part of a line.
+- Name: '@azure/monitor-query'
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `ErrorInfo` to `LogsErrorInfo`, which now extends the `Error` class and `code` as an additional property. Removed all the other properties.
+    - `query` method in `LogsQueryClient` renamed to `queryWorkspace`
+    - `query` method in `MetricsQueryClient` renamed to `queryResource`
+    - Renamed the status types in `LogsQueryResultStatus`. `Partial` to `PartialFailure` and `Failed` to `Failure`.
+    - Renamed `timeGrain` in `MetricAvailability` to `granularity`
+    - Renamed `TimeInterval` to `QueryTimeInterval`
+    - Updated constants in `Durations` to camel-case.
+    - Removed `credentialOptions.credentialScopes` property in `LogsQueryClientOptions` since scopes other than default are not supported yet.
+    - Removed `throwOnAnyError` flag from `LogsQueryOptions` and `LogsQueryBatchOptions`
+    - Removed the error classes `BatchError` and `AggregateBatchError`
+    - Updated `LogsQueryBatchResult` object to be a list of objects with the following possible types:
+    - `LogsQueryPartialResult`
+    - `LogsQuerySuccessfulResult`
+    - `LogsQueryError`
+    - Updated `LogsQueryResult` object to be of type `LogsQuerySuccessfulResult` or `LogsQueryPartialResult`
+
+    #### Features Added
+
+    - Enabled browser support
+    - Added different result objects `LogsQueryPartialResult`, `LogsQuerySuccessfulResult` or `LogsQueryError` based on the success scenarios for log queries.
+
+    #### Bugs Fixed
+
+    - Updated `listMetricNamespaces` signature to return the list of appropriate `MetricsNamespaces` object type
+- Name: '@azure/arm-eventhub'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-extendedlocation'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Extendedlocation
+  ServiceName: Extendedlocation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.1/sdk/extendedlocation/arm-extendedlocation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-quota'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_1.0.0-beta.1/sdk/quota/arm-quota/CHANGELOG.md
+  ChangelogContent: ""
+

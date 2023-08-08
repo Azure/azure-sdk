@@ -1,0 +1,393 @@
+entries:
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.0.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds stable features and bug fixes from the earlier preview releases.
+    #### Breaking Changes
+
+    - Renamed `ArtifactManifestOrderBy` to `ArtifactManifestOrder`.
+    - Renamed `ArtifactTagOrderBy` to `ArtifactTagOrder`.
+- Name: Microsoft.Azure.WebJobs.Extensions.Tables
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Functions extension for Azure Table service
+  ServiceName: tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Tables_1.0.0-beta.1/sdk/tables/Microsoft.Azure.WebJobs.Extensions.Tables/CHANGELOG.md
+  ChangelogContent: This is the first beta of the `Microsoft.Azure.WebJobs.Extensions.Tables` client library.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.1.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support of Denmark (DK) and United Kingdom (GB) phone number acquisitions.
+- Name: Azure.AI.AnomalyDetector
+  Version: 3.0.0-preview.5
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
+  ChangelogContent: '- Fix release issues'
+- Name: Azure.Monitor.Query
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.1.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Added the following methods to `MonitorQueryModelFactory`:
+    - `LogsQueryResult`
+    - `LogsTable`
+    - `LogsTableRow`
+    - `MetricsQueryResult`
+    - `MetricValue`
+    - `MetricTimeSeriesElement`
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.1.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.1.0/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove unnecessary dependency on Apache Avro.
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.0.0-beta.3
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.0.0-beta.3/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed all models
+
+    #### Features Added
+    - Added DeviceManagementClient
+    - Added DeviceUpdateClient
+    - Added GetDeviceModule Operation
+    - Added device import operations
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.8
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.8/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StoragePool
+  Version: 1.0.0-beta.1
+  DisplayName: Azure.ResourceManager.StoragePool
+  ServiceName: storagepool
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StoragePool_1.0.0-beta.1/sdk/storagepool/Azure.ResourceManager.StoragePool/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.0.0-beta.6/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.0-beta.6/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Resources
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.0.0-beta.6/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.6/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.0.0-beta.3/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.9.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Common
+  Version: 12.10.0-beta.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.10.0-beta.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: "- Fixed bug where AccountSasBuilder.SetPermissions(string rawPermissions) was not properly handling the Permanent Delete ('y') and set Immutability Policy ('i') permissions."
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.19
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.19/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Queues
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.9.0-beta.3/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.8.0-beta.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.8.0-beta.3/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.9.0-beta.3/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-04-10.
+    - Added support for ShareDirectoryClient.Rename() and ShareFileClient.Rename().
+    - Fixed a memory leak in ShareFileClient.UploadAsync().
+- Name: Azure.Storage.Blobs
+  Version: 12.11.0-beta.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.11.0-beta.3/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-04-10.
+    - Added support for BlobContainerClient.FilterBlobsByTag().
+    - Added support for BlobContainerClient.OpenWriteAsync().
+    - Fixed bug where BlobSasBuilder.SetPermissions(string rawPermissions) was not properly handling the Permanent Delete ('y') and set Immutability Policy ('i') permissions.
+    - Fixed a bug where BlobClient.Upload() and UploadAsync() would result in a NullReferenceException when trying to overwrite a blob with client-side encryption enabled
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.0.0-beta.3
+  DisplayName: Azure.ResourceManager.Cdn
+  ServiceName: cdn
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.0.0-beta.3/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.6
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.6/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `Unk` as an `OcrSkillLanguage` value. The values are used to set the default language code for the [OCR cognitive skill](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+    - Support for [`AzureMachineLearningSkill`](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill). The AML skill allows you to extend AI enrichment with a custom [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) (AML) model. Once an AML model is [trained and deployed](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspace), an AML skill integrates it into AI enrichment.
+- Name: Azure.AI.Language.Conversations
+  Version: 1.0.0-beta.2
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AnalyzeConversation` method now takes instance of `ConversationsProject` instead of `ProjectName` and `DeploymentName`.
+    - Renamed the attribute `ConfidenceScore` to `Confidence` in the following classes:
+    - `AnswerSpan`
+    - `ConversationEntity`
+    - `ConversationIntent`
+    - `KnowledgeBaseAnswer`
+    - `TargetIntentResult`
+
+    #### Bugs Fixed
+
+    - Made following property public `TargetIntentResult.TargetKind` instead of internal.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.1.0-beta.1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `QuestionAnsweringProjectsClient` to manage Question Answering projects.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.3.0-beta.7
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.3.0-beta.7/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyReleasePolicy.Immutable` property.
+
+    #### Breaking Changes
+
+    - `KeyRotationPolicy.ExpiresIn` was changed from a `TimeSpan?` to a `string` to properly round trip. It must be an ISO 8601 duration like "P30D" for 30 days.
+    - `KeyRotationLifetimeAction.TimeAfterCreate` and `TimeBeforeExpiry` were changed from a `TimeSpan?` to a `string` to properly round trip. It must be an ISO 8601 duration like "P30D" for 30 days.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.1.0-beta.3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.1.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated documentation.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.0-beta.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.0-beta.3/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events read by the `EventHubConsumerClient`.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.0-beta.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.0-beta.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events dispatched for processing.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.8.2
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.8.2/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed deserialization bugs in `StorageDirectoryDeletedEventData` and `EventHubCaptureFileCreatedEventData` system events.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.6.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix unnecessary task scheduling in ServiceBusProcessor and ServiceBusSessionProcessor
+    - Remove array allocation when creating linked token sources from the ServiceBusProcessor
+
+    #### Features Added
+
+    - The `State` property has been added to `ServiceBusReceivedMessage` which indicates whether a message is `Active`, `Scheduled`, or `Deferred`. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Extension methods have been added for registering the `ServiceBusAdministrationClient` via dependency injection for use in ASP.NET Core applications. _(A community contribution, courtesy of [kaylumah](https://github.com/kaylumah))_
+
+    - Support for cancellation tokens has been improved for AMQP operations, enabling earlier detection of cancellation requests without needing to wait for the configured timeout to elapse.
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.6
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.6/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added dynamic overload for encoding messages.
+    - Added generic overload for decoding messages.
+
+    #### Breaking Changes
+
+    - The generic method signature for encoding has changed.
+    - The dynamic method signature for decoding has changed.
+- Name: Azure.AI.FormRecognizer
+  Version: 4.0.0-beta.3
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - FormRecognizerAudience and DocumentAnalysisAudience have been added to allow the user to select the Azure cloud where the resource is located. Issue [17192](https://github.com/azure/azure-sdk-for-net/issues/17192).
+
+    #### Features Added
+    - Added the `DocumentField.AsCurrency` method and the `DocumentFieldType.Currency` enum value to support analyzed currency fields.
+    - Added the `Languages` property to the `AnalyzeResult` class. This property is populated when using the `prebuilt-read` model and holds information about the languages in which the document is written.
+    - Added the `Tags` property to the `BuildModelOptions` class. This property can be used to specify custom key-value attributes associated with the model to be built.
+    - Added the `Tags` property to the `DocumentModelInfo` and to the `ModelOperationInfo` classes.
+    - Added the `BuildMode` property to `DocTypeInfo` to indicate the technique used when building the correspoding model.
+    - Added the `DocumentAnalysisModelFactory` static class to the `Azure.AI.FormRecognizer.DocumentAnalysis` namespace. It contains methods for instantiating `DocumentAnalysis` models for mocking.
+
+    #### Breaking Changes
+    - Added the required parameter `buildMode` to `StartBuildModel` methods. Users must now choose the technique (`Template` or `Neural`) used to build models. For more information about the available build modes and their differences, see [here](https://aka.ms/azsdk/formrecognizer/buildmode).
+    - Added the `tags` parameter to the `GetCopyAuthorization` methods.
+    - Added the `tags` parameter to the `StartCreateComposedModel` methods.
+    - The `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target the service version `2022-01-30-preview`, so they don't support `2021-09-30-preview` anymore.
+- Name: Azure.Identity
+  Version: 1.6.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.6.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `AuthenticationFailedException` from `AzurePowerSheellCredential` when not logged in on non-windows platforms [#23498](https://github.com/Azure/azure-sdk-for-net/issues/23498)
+    - Fixed `ManagedIdentityCredential` response parsing to handle non-json responses [#24158](https://github.com/Azure/azure-sdk-for-net/issues/24158)
+
+    #### Features Added
+    - `EnvironmentCredential` now supports certificate subject name / issuer based authentication with `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` environment variable (A community contribution, courtesy of _[trevorlacey-msft](https://github.com/trevorlacey-msft))_.
+    - `ManagedIdentityCredential` now supports accepting a `ResourceIdentifier` argument to specify a User Assigned Managed Identity by resource Id rather than client Id. `DefaultAzureCredential` also supports this via the `ManagedIdentityResourceId` property of `DefaultAzureCredentialOptions`.
+    - Added `ClientAssertionCredential` for authenticating service principals with a presigned client assetion.
+

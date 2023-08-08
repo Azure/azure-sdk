@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     {% include head.html %}
-    {% if sidebar %}
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Initialize navgoco with default options
             $("#mysidebar").navgoco({
                 caretHtml: '',
@@ -22,20 +22,27 @@
                 }
             });
 
-            $("#collapseAll").click(function(e) {
+            $("#collapseAll").click(function (e) {
                 e.preventDefault();
                 $("#mysidebar").navgoco('toggle', false);
             });
 
-            $("#expandAll").click(function(e) {
+            $("#expandAll").click(function (e) {
                 e.preventDefault();
                 $("#mysidebar").navgoco('toggle', true);
             });
 
         });
 
-        $(document).ready(function() {
-            $("#tg-sb-link").click(function() {
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#tg-sb-link").click(function () {
                 $("#tg-sb-sidebar").toggle();
                 $("#tg-sb-content").toggleClass('col-md-9');
                 $("#tg-sb-content").toggleClass('col-md-12');
@@ -43,12 +50,6 @@
                 $("#tg-sb-icon").toggleClass('fa-toggle-off');
             });
         });
-    </script>
-    {% endif %}
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
     </script>
     {% if page.datatable == true %}
     <!-- Include the standard DataTables bits -->
@@ -60,43 +61,58 @@
          Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
       -->
     <script>
-      $(document).ready(function(){
-          $('div.datatable-begin').nextUntil('div.datatable-end', 'table').addClass('display');
-          $('table.display').DataTable( {
-              paging: true,
-              stateSave: true,
-              searching: true
-          });
-       });
+        $(document).ready(function () {
+            $('div.datatable-begin').nextUntil('div.datatable-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true
+            });
+        });
     </script>
     {% endif %}
+    <!-- Due to the page header height, all anchors uses top padding to offset the top possion and appear below the main header.
+        If one requirement icon is just below another, the padding of the icon overlaps the one on top of it and block the clicking surface.
+        The script below finds all requirements icons and adds z-index decrementally to place any previous icon on top of the next ones.
+        The script runs after the page is completelly load (all content is downloaded).
+      -->
+    <script>
+        $(window).bind("load", function () {
+            let requeriments = $('.requirement');
+            requeriments.each(function (index, element) {
+                $(element).css("z-index", requeriments.length - index);
+            });
+        });
+    </script>
 
 </head>
-<body>
-{% include topnav.html %}
-<!-- Page Content -->
-<div class="container">
-  <div id="main">
-    <!-- Content Row -->
-    <div class="row">
-        {% assign content_col_size = "col-md-12" %}
-        {% unless page.hide_sidebar %}
-            <!-- Sidebar Column -->
-            <div class="col-md-3" id="tg-sb-sidebar">
-                {% include sidebar.html %}
-            </div>
-            {% assign content_col_size = "col-md-9" %}
-        {% endunless %}
 
-        <!-- Content Column -->
-        <div class="{{content_col_size}}" id="tg-sb-content">
-            {{content}}
+<body>
+    {% include topnav.html %}
+    <!-- Page Content -->
+    <div class="container-fluid" style="margin-top: 60px; min-height: calc(100vh - 50px);">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                {% assign content_col_size = "col-md-12" %}
+                {% unless page.hide_sidebar %}
+                <!-- Sidebar Column -->
+                <div class="col-md-2 col-xs-12" id="tg-sb-sidebar">
+                    {% include sidebar.html %}
+                </div>
+                {% assign content_col_size = "col-md-10 col-xs-12" %}
+                {% endunless %}
+
+                <!-- Content Column -->
+                <div class="{{content_col_size}}" id="tg-sb-content">
+                    {{content}}
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
         </div>
-    <!-- /.row -->
-</div>
-<!-- /.container -->
-</div>
-<!-- /#main -->
+        <!-- /#main -->
     </div>
     {% if site.google_analytics %}
     {% include google_analytics.html %}
@@ -105,4 +121,6 @@
     {% include app_insights.html %}
     {% endif %}
 </body>
+{{site.data.alerts.hr_shaded}}
+{% include footer.html %}
 </html>

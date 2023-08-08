@@ -1,0 +1,404 @@
+entries:
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.4
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.4/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to support both services API versions `2020-12-01` and `2021-06-01-preview`
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.7
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to use service API version `2020-12-01`
+- Name: Azure.Analytics.Synapse.AccessControl
+  Version: 1.0.0-preview.5
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.AccessControl_1.0.0-preview.5/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to use service API version `2020-12-01`
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.0.0-beta.3
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.0.0-beta.3/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: '- Added caching to `SchemaRegistryClient`'
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.2
+  DisplayName: Schema Registry Avro Serializer
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.2/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: '- Updated dependency on `Azure.Data.SchemaRegistry`'
+- Name: Azure.Core
+  Version: 1.18.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.18.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where a buffered error responses on .NET Framework were prematurely disposed
+    - Fixed relative redirect support.
+- Name: Azure.Analytics.Purview.Account
+  Version: 1.0.0-beta.1
+  DisplayName: Azure.Analytics.Purview.Account
+  ServiceName: Azure.Analytics.Purview.Account
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Account/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Azure Purview Account client library for .NET
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.2/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.0-beta.1/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.0.0-beta.1/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.0.0-beta.1/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Resources
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.0.0-beta.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.1/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.19.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.19.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: '- Added `HttpAuthorization` to represent authentication information in Authorization, ProxyAuthorization, WWW-Authenticate, and Proxy-Authenticate header values.'
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.1.0
+  DisplayName: ASP.NET Extension - DataProtection Keys
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.1.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ContainerRegistryBlobClient` with methods to upload and download OCI Manifests and artifact blobs, to enable implementation of push/pull for OCI artifacts.
+- Name: Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
+  Version: 1.0.0
+  DisplayName: 'CloudNative CloudEvents with Event Grid '
+  ServiceName: eventgrid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `SendCloudEvent` to `SendCloudNativeCloudEvent`
+    - Renamed `SendCloudEvents` to `SendCloudNativeCloudEvents`
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.3.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.0.0-beta.6
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.6/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support binding to `BinaryData` instances.
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.0.0-beta.3
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.3/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `WebPubSubServiceClient`. For example, you can get started with `new WebPubSubServiceClient(endpoint, hub, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
+- Name: Azure.Data.Tables
+  Version: 12.2.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.2.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Properly handle `GenerateSasUri` when the client is constructed with a connection string ([#23404](https://github.com/Azure/azure-sdk-for-net/issues/23404))
+    - Fixed an exception when constructing the `TableClient` with a connection string where the table name is the same as the account name.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for [Lexical normalizers](https://docs.microsoft.com/azure/search/search-normalizers#normalizers) in [text analysers](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) via `AnalyzeTextOptions`.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.6.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.6.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
+
+    ### Other Changes
+
+    - A sample demonstrating the use of the `AzureEventSourceListener` from `Azure.Core` for common scenarios with the Event Hubs client library has been created.   _(A community contribution, courtesy of [andreyshihov](https://github.com/andreyshihov))_
+
+    - Serialization of event data from Event Hubs has been tweaked for greater efficiency.  _(A community contribution, courtesy of [johnthcall](https://github.com/johnthcall))_
+
+    - Adjusted the approach used to abandon AMQP sessions when an exception occurs while opening a link to ensure that the transport library does not continue to hold an unnecessary reference.
+
+    - Documentation has been enhanced to provide additional context for client library types, notably detailing non-obvious validations applied to parameters and options members.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0-beta.5
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.5/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `DocumentFilter.CreatedAfter` and `DocumentFilter.CreatedBefore` are now nullable properties.
+    - Renamed method `GetAllTranslationStatuses` to `GetTranslationStasuses`.
+    - Renamed method `GetAllDocumentStatuses` to `GetDocumentStasuses`.
+    - Renamed type `TranslationFilter` to `GetTranslationStatusesOptions`.
+    - Renamed type `DocumentFilter` to `GetDocumentStatusesOptions`.
+    - Renamed type `DocumentStatus` to `DocumentStatusResult`.
+    - Renamed type `TranslationStatus` to `TranslationStatusResult`.
+    - Renamed type `FileFormat` to `DocumentTranslationFileFormat`.
+    - Renamed property `TranslatedTo` to `TranslatedToLanguageCode` in `DocumentStatusResult`.
+    - Renamed parameter `asc` to `ascending` in `DocumentStatusResult` constructor.
+    - Changed spelling of `cancelled`/`cancelling` to `canceled`/`cancelling`. The following changes have been made:
+    - property `DocumentsCancelled` to `DocumentsCanceled` in `DocumentTranslationOperation`
+    - property `DocumentsCancelled` to `DocumentsCanceled` in `TranslationStatusResult`
+    - value `Cancelled` to `Canceled` in `DocumentTranslationOperation`
+    - value `Cancelling` to `Canceling` in `DocumentTranslationOperation`
+    - parameter `Cancelled` to `Canceled` in function `DocumentTranslationModelFactory.TranslationStatus`
+
+    #### Bugs Fixed
+    - `GetDocumentStasus` and `GetDocumentStatusesAsync` no longer set CreatedAfter and CreatedBefore if the user doesn't set it.
+    - In `GetTranslationStasuses`, `GetDocumentStasuses` and their async counterparts; URL parameters for `Ids`, `Statuses`, and `OrderBy` are no longer included in the request URL if the user does not set them.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.6.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.6.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.5
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.5/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `V2021_06_01_Preview` value from `ServiceVersion` enum, and set default `api-version` to `2020-12-01`.
+- Name: Azure.Identity
+  Version: 1.5.0-beta.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.5.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Refactored IMDS discovery to remove socket probing and caching of failures to improve `ManagedIdentityCredential` resiliency. [#23028](https://github.com/Azure/azure-sdk-for-net/issues/23028)
+    - Updated `UsernamePasswordCredential` to use cached tokens when available [#23324](https://github.com/Azure/azure-sdk-for-net/issues/23324)
+
+    #### Features Added
+
+    - `DefaultAzureCredentialOptions` now has a `InteractiveBrowserClientId` property which allows passing a ClientId value to the InteractiveBrowserCredential` when constructing a `DefaultAzureCredential`.
+    - Implement `OnBehalfOfCredential` which enables authentication to Azure Active Directory using an On-Behalf-Of flow.
+    - Added support to `ManagedIdentityCredential` for Azure hosts using federated token exchange for managed identity.
+- Name: Azure.Monitor.Query
+  Version: 1.0.0-beta.4
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0-beta.4/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updated `GetResult()` in `LogsBatchQueryResult` to return a `LogsBatchQueryResult`
+
+    #### Features Added
+    - `Endpoint` is a public property in `LogsQueryClient`
+
+    #### Breaking Changes
+    - `NamespaceCollection` renamed to `MetricNamespaceCollection`
+    - `QueryModelFactory` renamed to `MonitorQueryModelFactory`
+    - `TimeSeriesElement` renamed to `MetricTimeSeriesElement`
+    - `Data` renamed as `Values` in `MetricTimeSeriesElement`
+    - `Top` renamed to `Size` in `MetricsQueryOptions`
+    - Updated `GetObject` methods to be internal in `LogsTableRow`
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.3/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.7.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.7.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.7.0-beta.1 and 12.7.0-beta.2.
+    - Fixed bug where Batch Delete was not property parsing DeleteSnapshotsOption.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.8.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.8.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.8.0-beta.1 and 12.8.0-beta.2.'
+- Name: Azure.Storage.Blobs
+  Version: 12.10.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.10.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.10.0-beta.1 and 12.10.0-beta.2.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.8.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.8.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.8.0-beta.1 and 12.8.0-beta.2.'
+- Name: Azure.Storage.Common
+  Version: 12.9.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.9.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.9.0-beta.1 and 12.9.0-beta.2.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.16
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.16/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Queues
+  Version: 12.8.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.8.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.8.0-beta.1 and 12.8.0-beta.2.
+    - Fixed issue where QueueClient.ReceiveMessage() and .ReceiveMessageAsync() were creating two Diagnostic Scopes.
+

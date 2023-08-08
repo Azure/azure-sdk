@@ -1,11 +1,19 @@
-{% if page.header %}
 {% include releases/header.md %}
-{% endif %}
 
 ## Python
 
-{% assign packages = site.data.releases.latest.python-packages %}
+{% if include.type == "all" %}
+  {% assign packages = site.data.releases.latest.python-packages %}
+{% elsif include.type == "deprecated" %}
+  {% assign packages = site.data.releases.latest.python-packages | where: 'Support', 'deprecated' %}
+{% else %}
+  {% assign packages = site.data.releases.latest.python-packages | where: 'Type', include.type | where: 'New', 'true' %}
+{% endif %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/python.md %})
+{{ description | replace: 'PackageCount', packages.size }}
 
-{% include python-packages.html %}
+{% include releases/tabs.md lang="python" active=include.type %}
+
+{% include releases/variables/python.md %}
+
+{% include releases/pkgtable.md type=include.type %}

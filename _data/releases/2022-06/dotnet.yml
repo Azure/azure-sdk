@@ -1,0 +1,224 @@
+entries:
+- Name: Azure.ResourceManager.Storage
+  Version: 1.0.0-beta.9
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.9/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.8.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.8.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue that could result in the message lock renewal not being cancelled if the user message handler threw an exception.
+    - Abandon messages that are received from the `ProcessorReceiveActions` in the event of the user message handler throwing an exception.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.5.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.5.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated dependency on `Azure.Messaging.ServiceBus` to benefit from bug fix.
+    - Messages will now be abandoned if the function invocation throws for multiple dispatch functions. This was already the behavior for single dispatch functions.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.2.0-beta.3
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.2.0-beta.3/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Enum `EntityCategory.IPAddress` now uses the underlying string `IPAddress` value instead of `IP` to align with the Text Analytics service behavior.
+
+    #### Bugs Fixed
+    - Long-Running operation rehydration has been patched to stop throwing a `NullReferenceException`. Issue [24692](https://github.com/Azure/azure-sdk-for-net/issues/24692).
+    - TextAnalyticsAudience has been added to allow the user to select the Azure cloud where the resource is located. Issue [18520](https://github.com/Azure/azure-sdk-for-net/issues/18520).
+    - In `AnalyzeHealthcareEntitiesOperation`, `Cancel` calls won't overwrite the response from `GetRawResponse` anymore. PR [28375](https://github.com/Azure/azure-sdk-for-net/pull/28375)
+
+    #### Features Added
+    - Added keyword argument `FhirVersion` to `AnalyzeHealthcareEntitiesOptions`. Use the keyword to indicate the version for the property `AnalyzeHealthcareEntitiesResult.FhirBundle`  that represents a FHIR compatible object for consumption in other Healthcare tools.
+    - Added property `FhirBundle` to `AnalyzeHealthcareEntitiesResult`.
+- Name: Azure.ResourceManager.MachineLearning
+  Version: 1.0.0-beta.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MachineLearning_1.0.0-beta.1/sdk/machinelearningservices/Azure.ResourceManager.MachineLearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Hci
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.0.0-beta.4/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Dynatrace
+  Version: 1.0.0-beta.1
+  DisplayName: Dynatrace
+  ServiceName: Dynatrace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dynatrace_1.0.0-beta.1/sdk/dynatrace/Azure.ResourceManager.Dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotCentral
+  Version: 1.0.0-beta.1
+  DisplayName: IotCentral
+  ServiceName: IotCentral
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotCentral_1.0.0-beta.1/sdk/iotcentral/Azure.ResourceManager.IotCentral/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.9.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.9.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated behavior of `ServiceBusSessionReceiver.IsClosed` to return `true` if the underlying link was closed.
+
+    #### Features Added
+
+    - Added `ServiceBusRuleManager` for managing rules.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - In `DocumentTranslationOperation`, `Cancel` calls won't overwrite the response from `GetRawResponse` anymore.
+
+    #### Breaking Changes
+    - Renamed type `StorageInputType` to `StorageInputUriKind`.
+    - Renamed property `StorageType` to `StorageUriKind` in `DocumentTranslationInput`.
+    - Renamed parameter `asc` to `ascending` in `TranslationFilterOrder` constructor.
+    - The following properties inside of the `DocumentTranslationOperation` class will throw an `InvalidOperationException` if they are accessed and the LRO hasn't made a request to the service:
+    - `CreatedOn`
+    - `DocumentsCanceled`
+    - `DocumentsFailed`
+    - `DocumentsInProgress`
+    - `DocumentsNotStarted`
+    - `DocumentsSucceeded`
+    - `DocumentsTotal`
+    - `LastModified`
+    - `Status`
+
+    #### Features Added
+    - Added optional parameter `categoryId` to the `DocumentTranslationInput.AddTarget`.
+    - Added property `Ascending` to type `DocumentFilterOrder` and `TranslationFilterOrder`.
+    - `DocumentTranslationAudience` has been added to allow the user to select the Azure cloud where the resource is located.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.1.0/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Sql
+  ServiceName: Sql Database
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.0.0-beta.5/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.1.0
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.1.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.FormRecognizer
+  Version: 4.0.0-beta.4
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `Kind` property to the `DocumentPage` class.
+    - Added the `Paragraphs` property to the `AnalyzeResult` class. This property holds information about the paragraphs extracted from the input documents.
+    - Added `DocumentAnalysisClient` integration for ASP.NET Core ([#27123](https://github.com/azure/azure-sdk-for-net/issues/27123)).
+
+    #### Breaking Changes
+    - In the `DocumentAnalysis` namespace, renamed `BoundingBox` model and properties to `BoundingPolygon`. It will eventually be able to include more points to better fit the borders of a document element.
+    - Removed the support for analyzing entities. The `DocumentEntity` class and related properties have been removed from the SDK.
+    - Renamed `DocumentModelAdministrationClient.StartCopyModel` methods to `StartCopyModelTo`.
+    - Made `DocumentSpan` a `struct` instead of a `class`.
+    - In `AccountProperties`, renamed `Count` and `Limit` to `DocumentModelCount` and `DocumentModelLimit`.
+    - In `DocumentPage`, properties `Angle`, `Height`, `Unit`, and `Width` were made nullable.
+    - In `DocumentTableCell`, properties `Kind`, `RowSpan`, and `ColumnSpan` are not nullable anymore.
+    - In `DocumentLanguage`, renamed property `LanguageCode` to `Locale`.
+    - In the method `DocumentModelAdministrationClient.StartCreateComposedModel`, renamed parameter `modelIds` to `componentModelIds`.
+    - The `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target the service version `2022-06-30-preview`, so they don't support `2020-01-30-preview` anymore.
+    - `DocumentAnalysisModelFactory.DocumentPage` has a new `kind` parameter.
+- Name: Azure.Data.Tables
+  Version: 12.6.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.6.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that caused `TableEntity.GetBinaryData` to return incorrectly formatted data for binary entity properties. ([#29029](https://github.com/Azure/azure-sdk-for-net/issues/29029))
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.5.1
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.5.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed race condition when starting up function app.
+- Name: Azure.ResourceManager.ServiceLinker
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceLinker_1.0.0-beta.1/sdk/servicelinker/Azure.ResourceManager.ServiceLinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Applications.Containers
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Applications.Containers_1.0.0-beta.1/sdk/containerapps/Azure.ResourceManager.Applications.Containers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Communication
+  Version: 1.1.0-beta.4
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.1.0-beta.4/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+

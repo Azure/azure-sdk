@@ -1,0 +1,103 @@
+entries:
+- Name: azure-storage-blobs
+  Version: 12.0.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.0.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes and Improvements
+
+    - Added and updated some samples.
+    - Fixed a read consistency issue.
+- Name: azure-identity
+  Version: 1.0.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.0.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: No API changes since `1.0.0-beta.6`.
+- Name: azure-storage-files-shares
+  Version: 12.0.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.0.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `ContentLength` in `FileItemDetails` to `FileSize`.
+
+    #### Other Changes and Improvements
+
+    - Updated some samples.
+    - Fixed a read consistency issue.
+- Name: azure-storage-common
+  Version: 12.0.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.0.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes and Improvements
+
+    - Fixed a filename encoding issue.
+- Name: azure-core
+  Version: 1.0.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.0.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Make `RequestFailedException` copiable so it can be propagated across thread.
+    - By default, add `x-ms-request-id` header to the allow list of headers to log.
+- Name: azure-security-keyvault-common
+  Version: 4.0.0-beta.3
+  DisplayName: Key Vault - Common
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-common_4.0.0-beta.3/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md
+  ChangelogContent: No breaking changes or new features added. Includes only implementation enhancements.
+- Name: azure-storage-files-datalake
+  Version: 12.0.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.0.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `ContentLength` in `FlushFileResult` to `FileSize`.
+
+    #### Other Changes and Improvements
+
+    - Removed `IfUnmodifiedSince` from access conditions of setting filesystem metadata operation.
+    - Updated some samples.
+    - Fixed a read consistency issue.
+- Name: azure-security-keyvault-keys
+  Version: 4.0.0-beta.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.0.0-beta.3/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Updated `MaxPageResults` type to `int32_t`, from `uint32_t`, affecting:
+    - `GetDeletedKeysOptions()`.
+    - `GetPropertiesOfKeysOptions()`.
+    - `GetPropertiesOfKeyVersionsOptions()`.
+    - Updated `CreateRsaKeyOptions::KeySize` type from `uint64_t` to `int64_t`.
+    - Updated `CreateRsaKeyOptions::PublicExponent` type from `uint64_t` to `int64_t`.
+    - Updated `CreateOctKeyOptions::KeySize` type from `uint64_t` to `int64_t`.
+

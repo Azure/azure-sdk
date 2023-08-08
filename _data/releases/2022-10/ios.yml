@@ -1,0 +1,43 @@
+entries:
+- Name: AzureCommunicationChat
+  Version: 1.3.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.3.0/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - `ChatClient` now supports Push Notifications for Chat events
+    - Following methods added to `ChatClient`:
+    - `startPushNotifications(deviceToken:)`
+    - `stopPushNotifications()`
+    - Added the prototol `PushNotificationKeyStorage` and the class `AppGroupPushNotificationKeyStorage` to support PushNotification Encryption Key Management
+- Name: AzureCommunicationCalling
+  Version: 2.3.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.3.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Azure Communication Services introduces the concept of a `room` for developers who are building structured conversations such as virtual appointments or virtual events. Learn more about rooms [here](https://learn.microsoft.com/azure/communication-services/concepts/rooms/room-concept). Get started using rooms by following the [quick start guides](https://learn.microsoft.com/azure/communication-services/quickstarts/rooms/get-started-rooms).
+    - Callkit Integration
+    - Application will be able to configure call capabilities with `CallKitOptions`.
+    - Application will be able to pass the means to reach a call recipient and the display name with `CallKitRemoteInfo`.
+    - Application will be able to use `reportIncomingCallToCallKit` to handle notification when the app is in kill state.
+    - Support for stopping an incoming call because it was answered in another device, or caller cancelled, etc.
+    - Dominant Speakers
+    - Dominant speakers is an extended feature that allows you to obtain a list of the active speakers in the call. The dominant speakers list can change dynamically according to the activity of the participants on the call.
+
+    #### Bugs fixed
+    - Fix for issue when a call with a host would not end if the host leaves the call.
+    - Fix for internal update when Call Id changes in the middle of a call.
+    - Fix for fetching token from background thread blocks the creation of `CallAgent`.
+    - Fix for simulator crash when UI window size is returned as zero.
+    - Fix for audio not flowing issue when resume ACS call from PSTN call.
+    - Fixed crash when an invalid token is provided.
+    - Fix for wrong response with isMuted() method when user is trying to mute ACS participant.
+    - Fix for issue where local user stops streaming during `connecting` state, remote participant sees them as rendering stream.
+

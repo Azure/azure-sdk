@@ -35,8 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity
 
-    $> dotnet add package Azure.Messaging.EventHubs 
-    $> dotnet add package Azure.Messaging.EventHubs.Processor 
+    $> dotnet add package Azure.Messaging.EventHubs
+    $> dotnet add package Azure.Messaging.EventHubs.Processor
 
     $> dotnet add package Azure.Security.KeyVault.Certificates
     $> dotnet add package Azure.Security.KeyVault.Key
@@ -60,7 +60,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Namespaces have been reorganized to align types to their functional area. Cross-functional types have been left in the root namespace while specialized types were moved to the Producer, Consumer, or Processor namespaces.
 
-- The hierarchy of custom exceptions has been flattened, with only the EventHubsException remaining. The well-known failure scenarios that had previously been represented as stand-alone types are now exposed by the `Reason` property.  Please see the [Event Hubs README](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs#event-hubs-exception) for details.
+- The hierarchy of custom exceptions has been flattened, with only the EventHubsException remaining. The well-known failure scenarios that had previously been represented as stand-alone types are now exposed by the `Reason` property.  Please see the [Event Hubs README](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs#event-hubs-exception) for details.
 
 ### Key Vault
 

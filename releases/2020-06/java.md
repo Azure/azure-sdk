@@ -79,7 +79,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.2</version
 </dependency>
-    
+
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-servicebus</artifactId>
@@ -131,7 +131,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#151-2020-06-08))
+### Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#151-2020-06-08))
 
 Here are some of the highlights:
 
@@ -139,7 +139,7 @@ Here are some of the highlights:
 
 - Better handling of custom `Content-Type` headers, ex `application/custom+json`.
 
-### Core - AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#120-2020-06-08))
+### Core - AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-amqp/CHANGELOG.md#120-2020-06-08))
 
 Here are some of the highlights:
 
@@ -153,7 +153,7 @@ Here are some of the highlights:
 - Fixed triggering multiple retries occuring when creating a new AMQP channel.
 - Fixed adding credits to new AMQP receive links upon creation.
 
-### Core - Http - Netty ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#152-2020-06-08))
+### Core - Http - Netty ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-http-netty/CHANGELOG.md#152-2020-06-08))
 
 Here are some of the highlights:
 
@@ -161,7 +161,7 @@ Here are some of the highlights:
 
 - Fixed incorrect handling of environment inferred proxies when they don't use authentication.
 
-### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta3-2020-06-10))
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta3-2020-06-10))
 
 Here are some of the highlights:
 
@@ -193,16 +193,16 @@ Here are some of the highlights:
 
 ### Text Analytics
 
-#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
 
 - Initial release of `azure-ai-textanalytics` version 1.0.0 which targets Azure Text Analytics service API version v3.0.
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta5-2020-05-27))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta5-2020-05-27))
 
 ##### New features
 
 - Added Text property and `getText()` to `SentenceSentiment`.
-- Added `getWarnings()` to `CategorizedEntityCollection`, `KeyPhrasesCollection`, `LinkedEntityCollection` to retrieve warnings. 
+- Added `getWarnings()` to `CategorizedEntityCollection`, `KeyPhrasesCollection`, `LinkedEntityCollection` to retrieve warnings.
 - Text analytics SDK update the service to version `v3.0` from `v3.0-preview.1`.
 
 ##### Breaking changes
@@ -213,7 +213,7 @@ Here are some of the highlights:
 - Removed `getGraphemeLength()` and `getGraphemeOffset()` from `CategorizedEntity`, `SentenceSentiment`, and `LinkedEntityMatch`.
 - Removed `TextDocumentInput(String id, String text, String language)` constructor, but added `setLanguage()` setter since `language` is optional.
 
-### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta3-2020-06-08))
+### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta3-2020-06-08))
 
 Here are some of the highlights:
 
@@ -221,7 +221,7 @@ Here are some of the highlights:
 
 - Added support for transactions. APIs to create, commit and rollback a transaction and to send and settle messages using a transaction.
 
-### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta5-2020-06-08))
+### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta5-2020-06-08))
 
 Here are some of the highlights:
 
@@ -229,7 +229,7 @@ Here are some of the highlights:
 
 - Changed `Tracer` loading from using all on classpath to only using the first.
 
-### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#401-2020-06-10))
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#401-2020-06-10))
 
 ## 4.0.1 (2020-06-10)
 ### New Features
@@ -241,26 +241,26 @@ Here are some of the highlights:
 
 ## 4.0.1-beta.4 (2020-06-03)
 ### New Features
-* Added more samples & enriched docs to `CosmosClientBuilder`. 
-* Updated `CosmosDatabase` & `CosmosContainer` APIs with throughputProperties for autoscale/autopilot support. 
-* Renamed `CosmosClientException` to `CosmosException`. 
-* Replaced `AccessCondition` & `AccessConditionType` by `ifMatchETag()` & `ifNoneMatchETag()` APIs. 
+* Added more samples & enriched docs to `CosmosClientBuilder`.
+* Updated `CosmosDatabase` & `CosmosContainer` APIs with throughputProperties for autoscale/autopilot support.
+* Renamed `CosmosClientException` to `CosmosException`.
+* Replaced `AccessCondition` & `AccessConditionType` by `ifMatchETag()` & `ifNoneMatchETag()` APIs.
 * Merged all `Cosmos*AsyncResponse` & `CosmosResponse` types to a single `CosmosResponse` type.
-* Renamed `CosmosResponseDiagnostics` to `CosmosDiagnostics`.  
-* Wrapped `FeedResponseDiagnostics` in `CosmosDiagnostics`. 
-* Removed `jackson` dependency from azure-cosmos & relying on azure-core. 
-* Replaced `CosmosKeyCredential` with `AzureKeyCredential` type. 
-* Added `ProxyOptions` APIs to `GatewayConnectionConfig`. 
-* Updated SDK to use `Instant` type instead of `OffsetDateTime`. 
-* Added new enum type `OperationKind`. 
-* Renamed `FeedOptions` to `QueryRequestOptions`. 
-* Added `getETag()` & `getTimestamp()` APIs to `Cosmos*Properties` types. 
-* Added `userAgent` information in `CosmosException` & `CosmosDiagnostics`. 
-* Updated new line character in `Diagnostics` to System new line character. 
+* Renamed `CosmosResponseDiagnostics` to `CosmosDiagnostics`.
+* Wrapped `FeedResponseDiagnostics` in `CosmosDiagnostics`.
+* Removed `jackson` dependency from azure-cosmos & relying on azure-core.
+* Replaced `CosmosKeyCredential` with `AzureKeyCredential` type.
+* Added `ProxyOptions` APIs to `GatewayConnectionConfig`.
+* Updated SDK to use `Instant` type instead of `OffsetDateTime`.
+* Added new enum type `OperationKind`.
+* Renamed `FeedOptions` to `QueryRequestOptions`.
+* Added `getETag()` & `getTimestamp()` APIs to `Cosmos*Properties` types.
+* Added `userAgent` information in `CosmosException` & `CosmosDiagnostics`.
+* Updated new line character in `Diagnostics` to System new line character.
 * Removed `readAll*` APIs, use query select all APIs instead.
-* Added `ChangeFeedProcessor` estimate lag API.   
+* Added `ChangeFeedProcessor` estimate lag API.
 ### Key Bug Fixes
-* Fixed issue with parsing of query results in case of Value order by queries. 
+* Fixed issue with parsing of query results in case of Value order by queries.
 
 ## Need help
 
@@ -272,7 +272,6 @@ Here are some of the highlights:
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.java-packages %}
-{% include java-packages.html %}
+View all the latest versions of Java packages [here][java-latest-releases].
 
 {% include refs.md %}

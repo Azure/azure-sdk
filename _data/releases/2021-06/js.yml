@@ -1,0 +1,528 @@
+entries:
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.3
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.1.0-beta.3/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: '- Merged `bearerTokenChallengeAuthenticationPolicy` into `bearerTokenAuthenticationPolicy`. This will keep the functionality of `bearerTokenAuthenticationPolicy`, but also adds the `challengeCallbacks` feature.'
+- Name: '@azure/eventgrid'
+  Version: 4.3.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.3.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added new System Event: `Microsoft.Storage.BlobInventoryPolicyCompleted`
+
+    #### Key Bug Fixes
+
+    - The `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners` event was incorrectly listed with the name of `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener`.
+    This has been corrected. When using TypeScript, you will need to replace any calls to `isSystemEvent("Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener")` with
+    `isSystemEvent("Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners")`.
+- Name: '@azure/search-documents'
+  Version: 11.2.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.0/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    The list of changes in 11.2.0 since 11.1.0 & 11.2.0-beta.2 are provided below:
+
+    **Changes since 11.1.0**
+
+    - Added support for Knowledge Store feature through the new `SearchIndexerKnowledgeStore` in the `SearchIndexerSkillset` object.
+    - The `skillsetCounter` property in `ServiceCounters` object has been made optional.
+    - Added Support for new datasource `adlsgen2`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+    - Added Support for new skills such as `CustomEntityLookupSkill`, `DocumentExtractionSkill`, etc. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+
+    **Changes since 11.2.0-beta.2**
+
+    - Removed Support for Semantic Search and introduced new properties in `SearchOptions`, `SearchRequest`, `SearchResult` and `SearchDocumentsResult` objects.
+    - Removed Support for normalizers `LexicalNormalizer` & `CustomNormalizer`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+- Name: '@azure/app-configuration'
+  Version: 1.2.0-beta.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.2.0-beta.2/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    - With [#15136](https://github.com/Azure/azure-sdk-for-js/pull/15136), if the key of a feature flag(setting with `contentType="application/vnd.microsoft.appconfig.ff+json;charset=utf-8"`) doesn't start with `".appconfig.featureflag/"` (featureFlagPrefix), SDK adds the prefix before sending the request.
+    - New design for feature flags and secret references,
+    - New types for FeatureFlag and SecretReference - `ConfigurationSetting<FeatureFlagValue>` and `ConfigurationSetting<SecretReferenceValue>`
+    - Upon using `getConfigurationSetting`(or add/update), use `parseFeatureFlag` and `parseSecretReference` methods to access the properties(to translate `ConfigurationSetting` into the types above).
+    - Helper method `isFeatureFlag` (and `isSecretReference`) checks the contentType and return boolean values.
+- Name: '@azure/storage-file-share'
+  Version: 12.6.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.6.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    - Updated Azure Storage Service API version to 2020-08-04.
+    - Fixed bug where ShareFileClient.download, ShareFileClient.downloadToBuffer or ShareFileClient.downloadToFile could corrupt data if source is modified when retrying.
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    - Initial release of the monitor-query library, allowing you to query Log Analytics Workspaces
+    for logs and metrics.
+- Name: '@azure/ai-metrics-advisor'
+  Version: 1.0.0-beta.4
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0-beta.4/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support for `Azure Log Analytics` DataFeed source and `Azure EventHubs` DataFeed source
+    - Added datasource credential API support to client
+    - Added authentication type support for data feed
+    - Added property `splitAlertByDimensions` to `AnomalyAlertConfiguration` model
+    - Added properties`value` and `expectedValue` to `DataPointAnomaly` and `valueOfRootNode` and `expectedValueOfRootNode` to `AnomalyIncident`
+
+    #### Breaking Changes
+
+    - Updated Patch types for all update methods
+    - Replaced `updateSubscriptionKey` and `updateApiKey` into one method `updateKey`
+    - Removed support for `HttpRequestDataFeed` and `ElasticsearchDataFeed` source type
+    - Removed `DataSourceParameter` property and serialized `DataSourceParameter` properties for all datafeed sources into `DataFeedSource` types
+    - Renamed `AlertSnoozeCondition` to `MetricAnomalyAlertSnoozeCondition` and `MetricAlertConditions` to `MetricAnomalyAlertConditions`
+- Name: '@azure/storage-file-datalake'
+  Version: 12.5.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.5.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features released in 12.5.0-beta.1.
+    - Refined variable names for the Path Soft Delete features introduced from the last beta version: 12.5.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.5.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.5.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: '- Updated Azure Storage Service API version to 2020-08-04.'
+- Name: '@azure/storage-blob'
+  Version: 12.6.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.6.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: '- Includes all features released in 12.6.0-beta.1.'
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/CHANGELOG.md
+  ChangelogContent: Update the title and description of the package and updates to readme.
+- Name: '@azure/core-http'
+  Version: 1.2.5
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.2.5/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Delay loading of NO_PROXY environment variable until when request pipeline is being created. This fixes [issue 14873](https://github.com/Azure/azure-sdk-for-js/issues/14873)
+    - Fixed an issue where tracing spans were not setting a status correctly (on success or error) which results in the span status being `UNSET`. In addition, we will now capture the HTTP status code when a request fails in the tracing span. [PR 15061](https://github.com/Azure/azure-sdk-for-js/pull/15061)
+    - Fix packaging issue [PR 15286](https://github.com/Azure/azure-sdk-for-js/pull/15286)
+    - Improve the sanitizer to handle recursive objects [PR 15426](https://github.com/Azure/azure-sdk-for-js/pull/15426)
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.3
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.3/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Split `ContentProperties` into separate `*WriteableProperties` types because they can have different properties.
+    - Add new type `ArtifactManifestPlatform` for manifest list in `ArtifactManifestProperties`. The property has been renamed to `relatedArtifacts`.
+    - Flatten `writeableProperties` in `*Properties` types.
+    - Rename `endpointUrl` to `endpoint` in `ContainerRegistryClient`.
+    - Change known os and arch types to enum so the known values can be used in string comparisons
+    - Update `*OrderBy` values from `"timeAsc"/"timeDesc"` to `"lastUpdatedOnAscending"/"lastUpdatedOnDescending"`
+    - Rename `listTags` to `listTagProperties` and `listManifests` to `listManifestProperties`
+    - Rename `set*Properties` function names to `update*Properties`
+
+    #### Features Added
+
+    - Add `authenticationScope` properties to `ContainerRegistryClientOptions` to support national clouds.
+    - Add `continuationToken` to paging response types.
+
+    #### Bug Fixes
+
+    - The expiry time is now retrieved from the ACR refresh token, instead of hard-coded three hours later from `Date.now()`.
+- Name: '@azure/core-amqp'
+  Version: 3.0.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.0.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - Updates the `rhea-promise` and `rhea` dependencies to version 2.x. `rhea` contains a breaking change that changes deserialization of timestamps from numbers to Date objects.
+    - Removes the `AsyncLock` and `defaultLock` exports. `defaultCancellableLock` should be used instead.
+- Name: '@azure/data-tables'
+  Version: 12.0.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_12.0.0/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for generating SAS tokens using an `AzureNamedKeyCredential` [#15564](https://github.com/Azure/azure-sdk-for-js/pull/15564)
+    - Use @azure/core-auth `AzureSASCredendial` [#15564](https://github.com/Azure/azure-sdk-for-js/pull/15564)
+    - Fix submit transaction issue [15403](https://github.com/Azure/azure-sdk-for-js/issues/15403) when sending multiple transactions. [#15493](https://github.com/Azure/azure-sdk-for-js/pull/15493)
+    - Fix date serialization on `getAccessPolicy` and `setAccessPolicy` Table client methods. [#15633](https://github.com/Azure/azure-sdk-for-js/pull/15633)
+
+    #### Breaking Changes
+
+    - Use @azure/core-auth `AzureNamedKeyCredential` [#15529](https://github.com/Azure/azure-sdk-for-js/pull/15529)
+      - Name: "@azure/communication-network-traversal"
+    Version: 1.0.0-beta.1
+    DisplayName: "@azure/communication-network-traversal"
+    ServiceName: ""
+    VersionType: Beta
+    Hidden: false
+    ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-network-traversal_1.0.0-beta.1/sdk/communication/communication-network-traversal/CHANGELOG.md#100-beta1-2021-05-24
+    ChangelogContent: |-
+      The first preview of the Azure Communication Relay Client has the following features:
+      - get a Relay Configuration by creating a CommunicationRelayClient
+      #### Added
+      - Added CommunicationRelayClient in preview.
+      - Added CommunicationRelayClient.getRelayConfiguration in preview.
+      #### Breaking Changes
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/video-analyzer-edge_1.0.0-beta.1/sdk/videoanalyzer/video-analyzer-edge/CHANGELOG.md#100-beta1-2021-05-20
+  ChangelogContent: Initial release
+- Name: '@azure/ai-form-recognizer'
+  Version: 3.1.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-form-recognizer_3.1.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-2021-05-26
+  ChangelogContent: |-
+    - This General Availability (GA) release marks the stability of the changes introduced in package versions 3.1.0-beta.1 through 3.1.0-beta.3.
+    - Changed all names including `IdDocument` to use `IdentityDocument` instead, for example: `BeginRecognizeIdentityDocumentOptions`, `beginRecognizeIdentityDocuments`, and `beginRecognizeIdentityDocumentsFromUrl` for clarity.
+    - Flattened the `TextStyle` type into the `TextAppearance` type. Rather than having a `style` property with its own `name` and `confidence`, `TextAppearance` now has `styleName` and `styleConfidence` properties.
+    - Removed the `FormGenderField` type. Any recognized value that was previously produced as a `FormGenderField` is now returned as a `FormStringField` instead (the `value` will remain the same).
+    - Renamed the `FormCountryField` type to `FormCountryRegionField`, and changed the `valueType` discriminant property of that type to `"countryRegion:`.
+    - Renamed `ReadingOrder` and `Language` to `FormReadingOrder` and `FormLanguage` to reduce the chance that these types would collide with other types having the same name from other packages.
+    - Removed the `KnownStyleName`, `KnownSelectionMarkState`, and `KnownKeyValueType` enums, as they represent simple string enums. The `styleName`, `state`, and `valueType` properties (respectively) now have strong string-enum types.
+    - Added the `KnownFormLocale` enum to access the well-known possible values of form locales (the `locale` property of the options parameters for prebuilt model recognition).
+    - Migrated to the 2.1 Form Recognizer service endpoint for all REST API calls.
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.3
+  DisplayName: rest-core-client
+  ServiceName: core-rest
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.3/sdk/core-rest/core-client/CHANGELOG.md#100-beta3-2021-05-26
+  ChangelogContent: '- Set Date in query string parameters as ISO string. [#15209](https://github.com/Azure/azure-sdk-for-js/pull/15209)'
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.4
+  DisplayName: rest-core-client
+  ServiceName: core-rest
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.4/sdk/core-rest/core-client/CHANGELOG.md#100-beta4-2021-05-27
+  ChangelogContent: '- Update @azure/core-rest-pipeline dependency to GA. [#15435](https://github.com/Azure/azure-sdk-for-js/pull/15435)'
+- Name: '@azure-rest/agrifood-farming'
+  Version: 1.0.0-beta.1
+  DisplayName: farmbeats
+  ServiceName: farmbeats
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/agrifood-farming_1.0.0-beta.1/sdk/agrifood/agrifood-farming-rest/CHANGELOG.md#100-beta1-2021-05-26
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/iot-modelsrepository'
+  Version: 1.0.0-beta.1
+  DisplayName: '@azure/iot-modelsrepository'
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/iot-modelsrepository_1.0.0-beta.1/sdk/iot/iot-modelsrepository/CHANGELOG.md#100-beta1-2021-05-27
+  ChangelogContent: |-
+    With [#14863](https://github.com/Azure/azure-sdk-for-js/pull/14863), this is the first release of the @azure/iot-modelsrepository package.
+    This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models. Additionally, helper functions for working with DTMIs are provided.```
+- Name: '@azure/event-hubs'
+  Version: 5.5.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.5.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug fixes
+
+    - Fixes issue [#13500](https://github.com/Azure/azure-sdk-for-js/issues/13500) where a `TypeError: Cannot read property '_process' of undefined` could be thrown in rare cases.
+- Name: '@azure/attestation'
+  Version: 1.0.0-beta.3
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0-beta.3/sdk/attestation/attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    #### Breaking Changes
+
+    - Essentially completely rewritten. All existing functionality has been replaced.
+    - Removed `policy` property on `AttestationClient` object, because it has been replaced.
+    - Removed `policy.reset` and `policy.set`, replaced with the `resetPolicy` and `setPolicy` methods on the `AttestationAdministrationClient`.
+    - Removed `policy.get`, replaced with the `getPolicy` method of the new  `AttestationAdministrationClient` client object.
+    - Removed `attestation.attestSgxEnclave`, `attestation.attestOpenEnclave`, `attestation.attestTpm`, and `attestation` property from attestationClient, replaced with `attestSgxEnclave`, `attestOpenEnclave` and `attestTpm`.
+    - Removed `metadataConfiguration` and `signingCertificates` properties from attestationClient.
+    - Removed `metadataConfiguration.get()` method, replaced with `client.getOpenIdMetadata()`.
+    - Removed `signingCertificates.get()` method, replaced with `client.getAttestationSigners()`. The return value for `getAttestationSigners()` is an array of `AttestationSigner` objects,
+    each of which has two properties: `key_id` and `certificates`. `key_id`
+    reflects the `kid` JSON Web Key attribute, and `certificates` is the **decoded** `x5c` attribute
+    in the JSON Web Key.
+- Name: '@azure/service-bus'
+  Version: 7.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.2.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
+
+    More information about the AMQP message body type can be found in the AMQP specification: [link](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#section-message-format)
+
+    - Improves cancellation support when sending messages or initializing a connection to the service.
+    Resolves [#15311](https://github.com/Azure/azure-sdk-for-js/issues/15311) and [#13504](https://github.com/Azure/azure-sdk-for-js/issues/13504).
+
+    #### Bug fixes
+
+    - ServiceBusSender could throw an error (`TypeError: Cannot read property 'maxMessageSize' of undefined`) if a link was being restarted while calling sendMessages().
+    [PR#15409](https://github.com/Azure/azure-sdk-for-js/pull/15409)
+    - Fixes issue [#13500](https://github.com/Azure/azure-sdk-for-js/issues/13500) where a `TypeError: Cannot read property '_process' of undefined` could be thrown in rare cases.
+- Name: '@azure/cosmos'
+  Version: 3.11.4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.11.4/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: '- BUGFIX: Correctly failover to new regions when regional DNS has gone offline.'
+- Name: '@azure/cosmos'
+  Version: 3.11.5
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.11.5/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    #### Breaking Changes
+
+    #### Key Bugs Fixed
+
+    #### Fixed
+
+    - BUGFIX: Adds another failover condition.
+- Name: '@azure/core-http'
+  Version: 1.2.6
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.2.6/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bugs Fixed
+
+    - Fixed an issue of lost properties when flattening array in deserialization [issue 15653](https://github.com/azure/azure-sdk-for-js/issues/15653)
+    - Fixed an issue of incorrect minimum version of tslib [issue 15697](https://github.com/Azure/azure-sdk-for-js/issues/15697)
+- Name: '@azure/keyvault-admin'
+  Version: 4.0.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.0.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    This release marks the general availability of the `@azure/keyvault-admin` package.
+
+    #### New Features
+
+    - The `KeyVaultAccessControlClient` provides support for managing role-based access control (RBAC) operations.
+    - Both role assignments and custom role definitions are supported with the ability to create, read, update, and delete custom role definitions and assignments.
+    - The `KeyVaultBackupClient` provides support for back up and restore operations for the entire Key Vault Managed HSM instance.
+    - Full Managed HSM backup and restore operations are supported.
+    - Selective Key Restore from a previous backup is also supported.
+
+    #### Changes since 4.0.0-beta.3:
+
+    - Added the "KeyVault" prefix to all of the Key Vault Admin client operations.
+    - Made the AesGcmDecryptParameters authenticationTag required.
+    - Collapsed `KeyVaultRoleAssignmentPropertiesWithScope` to `KeyVaultRoleAssignmentProperties`.
+    - Renamed `KeyVaultKeyId` to `KeyVaultKeyIdentifier`.
+    - Renamed `beginRestore`'s `blobStorageUri` to `folderUri`.
+    - Removed `folderName` from `beginRestore`. Now the folder name will be inferred from the `folderUri`.
+    - Renamed `beginSelectiveRestore`'s `blobStorageUri` to `folderUri`.
+    - Removed `folderName` from `beginSelectiveRestore`. Now the folder name will be inferred from the `folderUri`.
+    - Reordered the parameters of `beginSelectiveRestore` to `keyName`, `folderUrl`, `sasToken`, `[options]`.
+    - Renamed `KeyVaultBackupResult`'s `backupFolderUri` to `folderUri`.
+    - Renamed `beginSelectiveRestore` to `beginSelectiveKeyRestore`.
+    - Renamed `KeyVaultBeginSelectiveRestoreOptions` to `KeyVaultBeginSelectiveKeyRestoreOptions`.
+    - Renamed `KeyVaultSelectiveRestoreOperationState` to `KeyVaultSelectiveKeyRestoreOperationState`.
+    - Renamed `KeyVaultSelectiveRestoreResult` to `KeyVaultSelectiveKeyRestoreResult`.
+    - `deleteRoleAssignment` and `deleteRoleDefinition` will no longer throw an exception when the resource no longer exist and return no result.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.2.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed an issue with `beginDeleteCertificate` and `beginRecoverDeletedCertificate` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Fixed an issue where importing a certificate incorrectly required a Subject or Subject Alternative Name.
+    - Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+    - Marked `ErrorModel` as deprecated. It was erroneously exported publicly in 4.1 and should not be used. Please change the type to use `CertificateOperationError` instead.
+
+    #### Changes since 4.2.0-beta.3
+
+    - Marked `ErrorModel` as deprecated. It was erroneously exported publicly in 4.1 and should not be used. Please change the type to use `CertificateOperationError` instead.
+    - Fixed a bug with `beginDeleteCertificate` and `beginRecoverDeletedCertificate` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Renamed the `KeyVaultCertificateId` to `KeyVaultCertificateIdentifier`, and exported a method to parse Key Vault Certificate Ids: `parseKeyVaultCertificateIdentifier`.
+- Name: '@azure/keyvault-keys'
+  Version: 4.2.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.2.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support for local cryptography operations. If supported by the key type and algorithm, the `CryptographyClient` will attempt to perform a cryptography operation locally.
+    - Added support for symmetric keys in Managed HSMs including support for AES encryption algorithms to encrypt, decrypt, wrap, and unwrap using symmetric keys.
+    - Added support for the 7.2 version of the Key Vault service API.
+
+    #### Bug Fixes
+
+    - Fixed a bug with `beginDeleteKey` and `beginRecoverDeletedKey` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Fixed bug with the list operations which were returning misplaced properties. Fixes customer issue: [15353](https://github.com/Azure/azure-sdk-for-js/issues/15353).
+    - Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+
+    #### Changes since 4.2.0-beta.5:
+
+    - Removed the now obsolete `KeyOperationsOptions` and replaced it with `CryptographyOptions`.
+    - Introduced in 4.2.0-beta.1 to support additional encryption parameters for AES encryption, we have since moved these parameters outside of the options bag so a separate `KeyOperationsOptions` is now redundant.
+    - Fixed a bug with `beginDeleteKey` and `beginRecoverDeletedKey` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Fixed bug with the list operations which were returning misplaced properties. Fixes customer issue: [15353](https://github.com/Azure/azure-sdk-for-js/issues/15353).
+    - Exported a method to parse Key Vault Key Ids: `parseKeyVaultKeyIdentifier`.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.2.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.2.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support for the 7.2 version of the Key Vault service API.
+
+    #### Bug Fixes
+
+    - Fixed a bug with `beginDeleteSecret` and `beginRecoverDeletedSecret` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+    - Added a `certificateKeyId?: string` secret property to use instead of the deprecated `keyId?: URL` and removed `"lib": ["dom"]` from `tsconfig.json`
+
+    #### Changes since 4.2.0-beta.4:
+
+    - Fixed a bug with `beginDeleteSecret` and `beginRecoverDeletedSecret` in which unknown service errors wouldn't bubble up properly to the end users.
+    - Renamed the `KeyVaultSecretId` to `KeyVaultSecretIdentifier`, and exported a method to parse Key Vault Secret Ids: `parseKeyVaultSecretIdentifier`.
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    - Fixing issue using non-commercial clouds, where it wasn't possible to pass in an endpoint and custom
+    scope, both of which are needed.
+    [PR#15705](https://github.com/Azure/azure-sdk-for-js/pull/15705)
+    - Adding a mitigation for LogsQueryClient.queryLogsBatch() where an invalidly encoded response could lead
+    to no results being surfaced to the user. This should allow for the result to be properly parsed.
+    [PR#15718](https://github.com/Azure/azure-sdk-for-js/pull/15718)
+- Name: '@azure/keyvault-admin'
+  Version: 4.0.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.0.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed an issue where bundling could fail when importing this library due to an incorrectly set import.
+- Name: '@azure/keyvault-keys'
+  Version: 4.2.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.2.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed an issue where bundling could fail when importing this library due to an incorrectly set import.
+- Name: '@azure/attestation'
+  Version: 1.0.0-beta.4
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0-beta.4/sdk/attestation/attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The package now contains type definitions compatible with TypeScript versions earlier than v3.6.
+
+    #### Key Bugs Fixed
+
+    - Fixes the location of types definition in package.json
+

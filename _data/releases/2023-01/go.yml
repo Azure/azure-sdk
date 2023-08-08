@@ -1,0 +1,266 @@
+entries:
+- Name: sdk/storage/azblob
+  Version: 0.6.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.6.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix compilation error on Darwin.
+- Name: sdk/azidentity
+  Version: 1.3.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.3.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `WorkloadIdentityCredential` and `DefaultAzureCredential` support
+    Workload Identity Federation on Kubernetes. `DefaultAzureCredential`
+    support requires environment variable configuration as set by the
+    Workload Identity webhook.
+    ([#15615](https://github.com/Azure/azure-sdk-for-go/issues/15615))
+- Name: sdk/resourcemanager/devcenter/armdevcenter
+  Version: 0.4.0
+  DisplayName: Resource Management - Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devcenter/armdevcenter/v0.4.0/sdk/resourcemanager/devcenter/armdevcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/billingbenefits/armbillingbenefits
+  Version: 1.0.0
+  DisplayName: Resource Management - Billingbenefits
+  ServiceName: Billingbenefits
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/billingbenefits/armbillingbenefits/v1.0.0/sdk/resourcemanager/billingbenefits/armbillingbenefits/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storage/armstorage
+  Version: 1.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storage/armstorage/v1.2.0/sdk/resourcemanager/storage/armstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.3.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.3.0-beta.2/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 2.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v2.1.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery
+  Version: 1.1.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services Site Recovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/v1.1.0/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mobilenetwork/armmobilenetwork
+  Version: 1.0.0
+  DisplayName: Resource Management - Mobilenetwork
+  ServiceName: Mobilenetwork
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mobilenetwork/armmobilenetwork/v1.0.0/sdk/resourcemanager/mobilenetwork/armmobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redhatopenshift/armredhatopenshift
+  Version: 1.1.0
+  DisplayName: Resource Management - Redhatopenshift
+  ServiceName: Redhatopenshift
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redhatopenshift/armredhatopenshift/v1.1.0/sdk/resourcemanager/redhatopenshift/armredhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/networkfunction/armnetworkfunction
+  Version: 2.0.0
+  DisplayName: Resource Management - Networkfunction
+  ServiceName: Networkfunction
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/networkfunction/armnetworkfunction/v2.0.0/sdk/resourcemanager/networkfunction/armnetworkfunction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.3.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.3.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `BearerTokenOptions.AuthorizationHandler` to enable extending `runtime.BearerTokenPolicy`
+    with custom authorization logic
+    * Added `Client` types and matching constructors to the `azcore` and `arm` packages.  These represent a basic client for HTTP and ARM respectively.
+- Name: sdk/data/azcosmos
+  Version: 0.3.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.3/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `PatchItem` function to patch documents
+    * Added support for querying databases and containers
+- Name: sdk/messaging/azservicebus
+  Version: 1.1.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.1.4/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - User-Agent was incorrectly formatted in our AMQP-based clients. (PR#19712)
+- Name: sdk/azidentity
+  Version: 1.3.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.3.0-beta.2/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `OnBehalfOfCredential` to support the on-behalf-of flow
+    ([#16642](https://github.com/Azure/azure-sdk-for-go/issues/16642))
+
+    #### Bugs Fixed
+    * `AzureCLICredential` reports token expiration in local time (should be UTC)
+- Name: sdk/messaging/azeventhubs
+  Version: 0.4.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v0.4.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - User-Agent was incorrectly formatted in our AMQP-based clients. (PR#19712)
+    - Connection recovery has been improved, removing some unnecessasry retries as well as adding a bound around
+    some operations (Close) that could potentially block recovery for a long time. (PR#19683)
+- Name: sdk/resourcemanager/servicenetworking/armservicenetworking
+  Version: 0.1.0
+  DisplayName: Resource Management - Servicenetworking
+  ServiceName: Servicenetworking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicenetworking/armservicenetworking/v0.1.0/sdk/resourcemanager/servicenetworking/armservicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/monitor/azquery
+  Version: 0.4.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v0.4.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed type of `Body.Timespan`, `MetricsClientQueryResourceOptions.Timespan`, `Response.Timespan` from *string to *TimeInterval
+    * Remove `ColumnIndexLookup` field from Table struct
+    * Renamed `Body.Workspaces` to `Body.AdditionalWorkspaces`
+    * Renamed `Results.Render` and `BatchResponse.Render` to `Results.Visualization` and `BatchResponse.Visualization`
+
+    #### Features Added
+    * Added `TimeInterval` type with constructor to aid with timespan creation
+    * Added `NewBatchQueryRequest` constructor to aid with logs batch requests
+    * Added `LogsQueryOptions` model for easier setting of logs options
+- Name: sdk/resourcemanager/containerinstance/armcontainerinstance
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerinstance/armcontainerinstance/v2.2.0-beta.1/sdk/resourcemanager/containerinstance/armcontainerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/maintenance/armmaintenance
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/maintenance/armmaintenance/v1.1.0-beta.2/sdk/resourcemanager/maintenance/armmaintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.4.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.4.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.3.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 4.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v4.1.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mobilenetwork/armmobilenetwork
+  Version: 2.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mobilenetwork/armmobilenetwork/v2.0.0/sdk/resourcemanager/mobilenetwork/armmobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/postgresql/armpostgresqlflexibleservers
+  Version: 2.0.0
+  DisplayName: Resource Management - PostgreSQL Flexible Servers
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/v2.0.0/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mediaservices/armmediaservices
+  Version: 3.2.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mediaservices/armmediaservices/v3.2.0/sdk/resourcemanager/mediaservices/armmediaservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/botservice/armbotservice
+  Version: 1.0.0
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/botservice/armbotservice/v1.0.0/sdk/resourcemanager/botservice/armbotservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dataprotection/armdataprotection
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dataprotection/armdataprotection/v2.0.0-beta.1/sdk/resourcemanager/dataprotection/armdataprotection/CHANGELOG.md
+  ChangelogContent: ""
+

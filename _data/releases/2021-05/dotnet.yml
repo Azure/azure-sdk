@@ -1,0 +1,764 @@
+entries:
+- Name: Azure.Core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.14.0/sdk/core/Azure.Core/CHANGELOG.md#1140-2021-05-11
+  ChangelogContent: |-
+    #### Added
+
+    - Added additional methods to `BearerTokenAuthenticationPolicy`, which enables creation of authentication policies that can handle challenges.
+- Name: Azure.Security.Attestation
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md#100-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Final changes for Azure Attestation Service for .Net, including API review feedback. Mostly code cleanups, but significant improvements to the `AttestationToken` class.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.4.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#541-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### New Features
+
+    - `EventProcessor<TPartition>` will now perform validation of core configuration and permissions at startup, in order to attempt to detect unrecoverable problems more deterministically.
+
+    - Partition initialization for `EventProcessor<TPartition>` has been optimized for better performance.
+
+    ##### Key Bug Fixes
+
+    - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
+
+    - Event Hubs client types will now surface a consistent exception when a shared connection was closed while still in use.
+- Name: Azure.Data.Tables
+  Version: 12.0.0-beta.8
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.8/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta8-2021-05-11
+  ChangelogContent: "#### Breaking Changes\r\n\r\n- Eliminated the `TableTransactionalBatch` type and added the `TableTransactionAction` type.\r\n  - Submitting a batch transaction is now accomplished via the `TableClient.SubmitTransaction` or `TableClient.SubmitTransactionAsync` methods which accepts\r\n    an `IEnumerable<TableTransactionAction>`.\r\n- `TableClient.SubmitTransaction` and `TableClient.SubmitTransactionAsync` now return `Response<IReadOnlyList<Response>>` rather than `TableBatchResponse`.\r\n  - `TableBatchResponse.GetResponseForEntity` is no longer necessary as the responses can now be correlated directly between the `Response<IReadOnlyList<Response>>`\r\n    and the list of `TableTransactionAction`s provided to the submit method.\r\n    \r\n#### Changed\r\n- Failed batch transaction operations now throw `TableTransactionFailedException` which contains a `FailedTransactionActionIndex` property to indicate which \r\n`TableTransactionAction` caused the failure.\r\n  \r\n#### Added\r\n\r\n- Added `TableOdataFilter` to assist with odata string filter quoting and escaping.\r\n\r\n#### Key Bug Fixes\r\n\r\n- Merge operations no longer fail for Cosmos table endpoints."
+- Name: Azure.Analytics.Synapse.AccessControl
+  Version: 1.0.0-preview.4
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.AccessControl_1.0.0-preview.4/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md#100-preview4-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.9
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.9/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview9-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+    - Improved deserialization of optional parameters (https://github.com/Azure/azure-sdk-for-net/issues/20051)
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.4.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#541-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### New Features
+
+    - `EventProcessor<TPartition>` will now perform validation of core configuration and permissions at startup, in order to attempt to detect unrecoverable problems more deterministically.
+
+    - Partition initialization for `EventProcessor<TPartition>` has been optimized for better performance.
+
+    ##### Key Bug Fixes
+
+    - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
+- Name: Azure.Search.Documents
+  Version: 11.3.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Added
+    - Added support for [Semantic Search](https://docs.microsoft.com/azure/search/semantic-search-overview), which is a collection of query-related capabilities that add semantic relevance and language understanding to search results.
+    - Added support for [Knowledge Store](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), which is a feature of Azure Cognitive Search that persists output from an AI enrichment pipeline for independent analysis or downstream processing.
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.6
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Spark_1.0.0-preview.6/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md#100-preview6-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.Monitoring
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Monitoring
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Monitoring_1.0.0-beta.3/sdk/synapse/Azure.Analytics.Synapse.Monitoring/CHANGELOG.md#100-beta3-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.3/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md#100-beta3-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.0.0-beta.2/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md#100-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for accessing ACR anonymously via two new constructors on `ContainerRegistryClient`.
+    - Added caching of the ACR refresh token during the authentication token exchange to reduce per operation network calls to the service.
+    - Updated API to have a single client as an entry point, `ContainerRegistryClient`, with two helper classes, `ContainerRepository` and `RegistryArtifact`, for resource-specific service calls.
+    - Added strongly typed string constants for `ArtifactArchitecture` and `ArtifactOperatingSystem`.
+    - Renamed methods operating on a manifest to have `Manifest` in their names.
+
+    #### Breaking Changes
+    - Removed `ContainerRepositoryClient`.
+    - Renamed `GetRepositories` to `GetRepositoryNames` on `ContainerRegistryClient`.
+- Name: Azure.Storage.ConfidentialLedger
+  Version: 1.0.0-beta.1
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.ConfidentialLedger_1.0.0-beta.1/sdk/confidentialledger/Azure.Storage.ConfidentialLedger/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial package'
+- Name: Azure.MixedReality.ObjectAnchors.Conversion
+  Version: 0.2.0-beta.1
+  DisplayName: Azure Object Anchors Conversion
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.2.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#020-beta1-2021-05-11
+  ChangelogContent: '- Added error codes to AssetConversionProperties'
+- Name: Azure.Messaging.EventGrid
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.2.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#420-2021-05-10
+  ChangelogContent: "#### New Features\r\n* Added the following new system events: \r\n  - PolicyInsightsPolicyStateChangedEventData\r\n  - PolicyInsightsPolicyStateCreatedEventData\r\n  - PolicyInsightsPolicyStateDeletedEventData\r\n  - StorageAsyncOperationInitiatedEventData\r\n  - StorageBlobTierChangedEventData"
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.1.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.1.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#411-2021-05-04
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Communication.Chat
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Chat_1.0.1/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#101-2021-05-11
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Changed DateTime.MinValue to DateTimeOffset.MinValue in sample code
+    - Fixed the bug where Message type is defaulting to text
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.1.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.1.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#411-2021-05-04
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.1.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.1.1/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#411-2021-05-04
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.2.0-beta.6
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.2.0-beta.6/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta6-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.2.0-beta.5
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.2.0-beta.5/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta5-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.0.0-beta.5
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Administration_4.0.0-beta.5/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md#400-beta5-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.2.0-beta.6
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.2.0-beta.6/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta6-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Updated dependency versions
+- Name: Azure.Storage.Queues
+  Version: 12.7.0-beta.4
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.7.0-beta.4/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta4-2021-05-12
+  ChangelogContent: |-
+    - Fixed bug where clients would sometimes throw a NullReferenceException when calling GenerateSas() with a QueueSasBuilder parameter.
+    - Deprecated property QueueSasBuilder.Version, so when generating SAS will always use the latest Storage Service SAS version.
+- Name: Azure.Storage.Blobs
+  Version: 12.9.0-beta.4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.9.0-beta.4/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta4-2021-05-12
+  ChangelogContent: |-
+    - Added support for service version 2020-08-04.
+    - Added WithCustomerProvidedKey() and WithEncryptionScope() to BlobClient, BlobBaseClient, AppendBlobClient, and PageBlobClient.
+    - BlobLeaseClient now remembers the Lease ID after a lease change.
+    - Fixed bug where clients would sometimes throw a NullReferenceException when calling GenerateSas() with a BlobSasBuilder parameter.
+    - Fixed bug where BlobBaseClient.Exists() would not function correctly on blobs encrypted with CPK.
+    - Includes all updates and fixes from 12.8.2 and 12.8.3
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.6.0-beta.4
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.6.0-beta.4/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta4-2021-05-12
+  ChangelogContent: |-
+    - Added support for service version 2020-08-04.
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.12
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.12/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md#1200-preview12-2021-05-12
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.7.0-beta.4
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.7.0-beta.4/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta4-2021-05-12
+  ChangelogContent: |-
+    - Added support for service version 2020-08-04.
+    - Added support for Soft Delete for Hierarchical-Namespace enabled accounts.
+    - DataLakeLeaseClient now remembers the Lease ID after a lease change.
+    - Fixed bug where clients would sometimes throw a NullReferenceException when calling GenerateSas() with a DataLakeSasBuilder parameter.
+    - Deprecated property DataLakeSasBuilder.Version, so when generating SAS will always use the latest Storage Service SAS version.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.7.0-beta.4
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.7.0-beta.4/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta4-2021-05-12
+  ChangelogContent: |-
+    - Added support for service version 2020-08-04.
+    - Added support for Share and Share Snapshot Lease.
+    - DataLakeLeaseClient now remembers the Lease ID after a lease change.
+    - Fixed bug where clients would sometimes throw a NullReferenceException when calling GenerateSas() with a ShareSasBuilder parameter.
+    - Deprecated property ShareSasBuilder.Version, so when generating SAS will always use the latest Storage Service SAS version.
+- Name: Azure.Storage.Common
+  Version: 12.8.0-beta.4
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.8.0-beta.4/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1280-beta4-2021-05-12
+  ChangelogContent: |-
+    - Added ability to specify server timeout.
+    - Deprecated property AccountSasBuilder.Version, so when generating SAS will always use the latest Storage Service SAS version.
+- Name: Azure.Identity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0/sdk/identity/Azure.Identity/CHANGELOG.md#140-2021-05-12
+  ChangelogContent: "#### New Features\r\n\r\n- By default, the MSAL Public Client Client Capabilities are populated with \"CP1\" to enable support for [Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/develop/app-resilience-continuous-access-evaluation).\r\nThis indicates to AAD that your application is CAE ready and can handle the CAE claim challenge. This capability can be disabled, if necessary, by either setting an `AppContext` switch named \"Azure.Identity.DisableCP1\" to `true` or by setting the environment variable;\r\n\"AZURE_IDENTITY_DISABLE_CP1\" to \"true\". Note: AppContext switches can also be configured via configuration like below:\r\n  \r\n```xml  \r\n<ItemGroup>\r\n    <RuntimeHostConfigurationOption Include=\"Azure.Identity.DisableCP1\" Value=\"true\" />\r\n</ItemGroup> \r\n  ```\r\n#### Fixes and improvements\r\n\r\n- The Microsoft Authentication Library (MSAL) dependency versions have been updated to the latest\r\n    - Microsoft.Identity.Client version 4.30.1, Microsoft.Identity.Client.Extensions.Msal version 2.18.4."
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.2.0-beta.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.2.0-beta.3/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#720-beta3-2021-05-12
+  ChangelogContent: "#### Added\r\n* Added `SubQueue` option to `ServiceBusProcessorOptions` to allow for processing the deadletter queue\r\n* Added Verbose event source events for the following scenarios that previously had Error events which resulted in unnecessary noise in application logs: \r\n  * Accepting a session times out because there are no sessions available.\r\n  * TaskCanceledException occurs while stopping the processor."
+- Name: Azure.Analytics.Purview.Scanning
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Scanning
+  ServiceName: Purview Scanning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Scanning_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Scanning/CHANGELOG.md#100-beta1-2021-05-12
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Purview Scanning client library for .NET
+- Name: Azure.Analytics.Purview.Catalog
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Catalog
+  ServiceName: Purview Catalog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Catalog_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Catalog/CHANGELOG.md#100-beta1-2021-05-12
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Azure Purview Catalog client library for .NET
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.0.0-beta.2
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.2/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### New Features
+
+    - Binding to the `CloudEvent` type is now supported.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.0.3
+  DisplayName: ASP.NET Extension - DataProtection Keys
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#103-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.2.1
+  DisplayName: ASP.NET Extension - DataProtection Blobs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md#121-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+
+    ##### Key Bug Fixes
+
+    - Fixed a bug where referencing an existing empty blob resulted in a failure.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.1.0
+  DisplayName: ASP.NET Extension - Configuration Secrets
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.1.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#110-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+
+    #### Added
+
+    - The `AzureKeyVaultConfigurationProvider` was made public.
+    - The `KeyVaultSecretManager.GetData` method was added to allow customizing the way secrets are turned into configuration values.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.10
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.10/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview10-2021-05-13
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - LibraryRestClient.Append method now includes comp parameter (https://github.com/Azure/azure-rest-api-specs/pull/13841)
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.2.1
+  DisplayName: ASP.NET Extension - Configuration Secrets
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#121-2021-05-18
+  ChangelogContent: |-
+    #### Changes
+
+    ##### Key Bug Fixes
+
+    - Fixes an issues where keys returned from `AzureKeyVaultConfigurationProvider` were case sensitive.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.1.0-beta.7
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.7/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta7-2021-05-18
+  ChangelogContent: |-
+    #### New features
+    - Added property `DisableServiceLogs` to `TextAnalyticsRequestOptions`.
+    - Added support for Sentiment Analysis as an action type for `StartAnalyzeBatchActions`.
+    - Changed type of `IncludeOpinionMining` to `bool?`.
+
+    #### Breaking changes
+    - The client defaults to the latest supported service version, which currently is `3.1-preview.5`.
+    - Renamed type `TextElementsV8` to `TextElementV8` in model `StringIndexType`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.0-beta.5
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.5/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md#500-beta5-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### Key Bug Fixes
+
+    - The web proxy specified in configuration is now respected.
+
+    ##### New Features
+
+    - Added support for specifying `accountName` or `blobServiceUri` for the checkpoint connection.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.0.0-beta.4
+  DisplayName: WebJobs Extensions - Storage Queues
+  ServiceName: Functions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.0.0-beta.4/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md#500-beta4-2021-05-18
+  ChangelogContent: |-
+    - Fixed bug where custom implementations of `IQueueProcessorFactory` could overwrite each other settings.
+    - Added new configuration formats so extensions that need multiple storage services can specify them in one connection configuration.
+
+    Sample config:
+    ```json
+    {
+        "MyStorageConnection1": {
+            "blobServiceUri": "https://<my_account>.blob.core.windows.net",
+            "queueServiceUri": "https://<my_account>.queue.core.windows.net"
+        },
+
+        "MyStorageConnection2": {
+            "accountName": "<my_account>"
+        }
+    }
+    ```
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage
+  Version: 5.0.0-beta.4
+  DisplayName: WebJobs Extensions - Storage
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.Storage_5.0.0-beta.4/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage/CHANGELOG.md#500-beta4-2021-05-18
+  ChangelogContent: Please refer to [`Microsoft.Azure.WebJobs.Extension.Storage.Blobs`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md) and [`Microsoft.Azure.WebJobs.Extension.Storage.Queues`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md) for detailed list of changes.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.0.0-beta.4
+  DisplayName: WebJobs Extensions - Storage Blobs
+  ServiceName: Functions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.0.0-beta.4/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md#500-beta4-2021-05-18
+  ChangelogContent: |-
+    - Added new configuration formats so extensions that need multiple storage services can specify them in one connection configuration.
+
+    Sample config:
+    ```json
+    {
+        "MyStorageConnection1": {
+            "blobServiceUri": "https://<my_account>.blob.core.windows.net",
+            "queueServiceUri": "https://<my_account>.queue.core.windows.net"
+        },
+
+        "MyStorageConnection2": {
+            "accountName": "<my_account>"
+        }
+    }
+    ```
+- Name: Azure.Data.AppConfiguration
+  Version: 1.0.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.0.3/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#103-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+- Name: Azure.Media.VideoAnalyzer.Edge
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Media.VideoAnalyzer.Edge_1.0.0-beta.2/sdk/videoanalyzer/Azure.Media.VideoAnalyzer.Edge/CHANGELOG.md#100-beta2-2021-05-19
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed package from 'Microsoft.Azure.Media.VideoAnalytics.Edge' to 'Azure.Media.VideoAnalyzer.Edge'
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.0.0-beta.3
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.3/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta3-2021-05-18
+  ChangelogContent: |-
+    #### Added
+    - Added `JsonSerializerSettings` property to `ServiceBusOptions`.
+
+    #### Breaking Changes
+    - Made `Constants` class internal.
+    - Made `ServiceBusWebJobsStartup` class internal.
+    - Renamed `EntityType` to `ServiceBusEntityType`.
+    - Removed `receiver` parameter from `MessageProcessor` constructor.
+    - Removed `client` parameter from `SessionMessageProcessor` constructor.
+
+    #### Key Bug Fixes
+    - The web proxy specified in configuration is now respected.
+    - Binding to JObject is now supported.
+- Name: Azure.Storage.Queues
+  Version: 12.6.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.6.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Common
+  Version: 12.7.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1273-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.5.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.5.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1252-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.6.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.6.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.6.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.6.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.8.4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.4/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1284-2021-05-20
+  ChangelogContent: '- Fixed bug where Client Side Encryption during large transactions (greater than max int value) would throw an exception.'
+- Name: Azure.Media.VideoAnalyzer.Edge
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Media.VideoAnalyzer.Edge_1.0.0-beta.3/sdk/videoanalyzer/Azure.Media.VideoAnalyzer.Edge/CHANGELOG.md#100-beta3-2021-05-24
+  ChangelogContent: '- Update the title and description of the package.'
+- Name: Azure.Communication.NetworkTraversal
+  Version: 1.0.0-beta.1
+  DisplayName: Azure.Communication.NetworkTraversal
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.NetworkTraversal_1.0.0-beta.1/sdk/communication/Azure.Communication.NetworkTraversal/CHANGELOG.md#100-beta1-2021-05-24
+  ChangelogContent: |-
+    This is the first release of Azure Communication Services for Network Traversal. For more information, please see the [README][read_me].
+
+    This is a Public Preview version, so breaking changes are possible in subsequent releases as we improve the product. To provide feedback, please submit an issue in our [Azure SDK for .NET GitHub repo](https://github.com/Azure/azure-sdk-for-net/issues).
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.NetworkTraversal/README.md
+- Name: Azure.Media.VideoAnalyzer.Edge
+  Version: 1.0.0-beta.4
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Media.VideoAnalyzer.Edge_1.0.0-beta.4/sdk/videoanalyzer/Azure.Media.VideoAnalyzer.Edge/CHANGELOG.md#100-beta4-2021-05-24
+  ChangelogContent: '- Update the title package and updates to readme'
+- Name: Azure.MixedReality.Authentication
+  Version: 1.0.1
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.Authentication_1.0.1/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: |-
+    #### Key Bug Fixes
+
+    - Updated dependency versions.
+- Name: Azure.Communication.Sms
+  Version: 1.0.1
+  DisplayName: Communication SMS
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Sms_1.0.1/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: '- Dependency versions updated.'
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.0.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.0.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: '- Dependency versions updated.'
+- Name: Azure.Communication.Common
+  Version: 1.0.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.1/sdk/communication/Azure.Communication.Common/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: '- Dependency versions updated.'
+- Name: Azure.Communication.Identity
+  Version: 1.0.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.0.1/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: '- Dependency versions updated.'
+- Name: Azure.AI.FormRecognizer
+  Version: 3.1.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-2021-05-26
+  ChangelogContent: |-
+    #### New Features
+    - This General Availability (GA) release marks the stability of the changes introduced in package versions `3.1.0-beta.1` through `3.1.0-beta.4`.
+    - Updated the `FormRecognizerModelFactory` class to support missing model types for mocking.
+    - Added support for service version `2.0`. This can be specified in the `FormRecognizerClientOptions` object under the `ServiceVersion` enum.
+    By default the SDK targets latest supported service version.
+
+    #### Breaking changes
+    - The client defaults to the latest supported service version, which currently is `2.1`.
+    - Renamed `Id` for `Identity` in all the `StartRecognizeIdDocuments` functionalities. For example, the name of the method is now `StartRecognizeIdentityDocuments`.
+    - Renamed the model `ReadingOrder` to `FormReadingOrder`.
+    - The model `TextAppearance` now includes the properties `StyleName` and `StyleConfidence` that were part of the `TextStyle` object.
+    - Removed the model `TextStyle`.
+    - Renamed the method `AsCountryCode` to `AsCountryRegion`.
+    - Removed type `FieldValueGender`.
+    - Removed value `Gender` from the model `FieldValuetype`.
+- Name: Azure.Verticals.AgriFood.Farming
+  Version: 1.0.0-beta.1
+  DisplayName: FarmBeats
+  ServiceName: FarmBeats
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Verticals.AgriFood.Farming_1.0.0-beta.1/sdk/farmbeats/Azure.Verticals.AgriFood.Farming/CHANGELOG.md#100-beta1-2021-05-26
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial Preview Release of the Azure FarmBeats client library for .NET
+- Name: Azure.MixedReality.RemoteRendering
+  Version: 1.0.1
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.RemoteRendering_1.0.1/sdk/remoterendering/Azure.MixedReality.RemoteRendering/CHANGELOG.md#101-2021-05-25
+  ChangelogContent: '- Update dependency versions'
+- Name: Azure.IoT.TimeSeriesInsights
+  Version: 1.0.0-beta.1
+  DisplayName: Azure.IoT.TimeSeriesInsights
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.TimeSeriesInsights_1.0.0-beta.1/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/CHANGELOG.md#100-beta1-2021-05-27
+  ChangelogContent: |-
+    #### New features
+
+    - Official public preview of Azure.IoT.TimeSeriesInsights SDK
+    - [Azure Time Series Insights Public Repo](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights)
+    - [Azure Time Series Insights Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/timeseriesinsights/Azure.IoT.TimeSeriesInsights/samples)
+

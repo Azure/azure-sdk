@@ -1,0 +1,125 @@
+parameters:
+- name: PrBranchName
+  type: string
+  default: "CreateOrUpdateReleaseDataFor"
+- name: Repos
+  type: object
+  default:
+    azure-sdk-for-android:
+      Language: android
+    # C repo doesn't currently support the correct tagging and changelog format
+    # azure-sdk-for-c:
+    #   Language: c
+    azure-sdk-for-cpp:
+      Language: cpp
+    azure-sdk-for-net:
+      Language: dotnet
+    # Go repo doesn't currently follow the changelog guidelines
+    azure-sdk-for-go:
+      Language: go
+    azure-sdk-for-ios:
+      Language: ios
+    azure-sdk-for-java:
+      Language: java
+    azure-sdk-for-js:
+      Language: js
+    azure-sdk-for-python:
+      Language: python
+
+steps:
+  - pwsh: |
+      $today = Get-Date
+      $firstDayOfMonth = $today.AddDays(-1 * $today.Day + 1)
+      $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
+
+      # Move to next month's release period but still collect notes from the second friday fo this month.
+      if ($today -gt $secondFridayOfMonth) {
+        $releasePeriod = $firstDayOfMonth.AddMonths(1)
+        $releaseStartDate = $secondFridayOfMonth
+      }
+      else {
+        # Take the second friday of last month as start date
+        $firstDayOfLastMonth = $firstDayOfMonth.AddMonths(-1)
+        $secondFridayOfLastMonth = $firstDayOfLastMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfLastMonth.DayOfWeek + 7) % 7 + 7)
+
+        $releasePeriod = $firstDayOfMonth
+        $releaseStartDate = $secondFridayOfLastMonth
+      }
+
+      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
+      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+
+      Write-Host "[ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
+      Write-Host "[ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+    displayName: Set Release Period Value
+
+  - pwsh: |
+      git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
+      cd $(AzureSDKReleaseNotesClonePath)
+      git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+    displayName: Clone azure-sdk for release notes
+    condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
+
+  - pwsh: |
+      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -UpstreamRepoId "Azure/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+    displayName: Clean Up Stale Branches
+
+  - ${{ each repo in parameters.Repos }}:
+    - pwsh: |
+        $ErrorActionPreference = "Continue"
+
+        $RemoteName = "azure-sdk-fork"
+        $PRBranchName = "${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)"
+        Write-Host "##vso[task.setvariable variable=PRBranchName]$PRBranchName"
+
+        # Fetch and checkout remote branch if it already exists otherwise create a new branch.
+        git ls-remote --exit-code --heads $RemoteName $PRBranchName
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "git fetch $RemoteName $PRBranchName"
+          git fetch $RemoteName $PRBranchName
+
+          Write-Host "git checkout $PRBranchName."
+          git checkout $PRBranchName
+        }
+        else {
+          # Reset back to the head of default so we can build on top of that if the branch doesn't already exist.
+          git reset --hard origin/$(DefaultBranch)
+
+          Write-Host "git checkout -b $PRBranchName."
+          git checkout -b $PRBranchName
+        }
+      displayName: '${{ repo.value.Language }} Checkout Previous PRBranch if it exist.'
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
+
+    - task: PowerShell@2
+      displayName: '${{ repo.value.Language }} Generate ReleaseNotes for the Release Period'
+      inputs:
+        pwsh: true
+        workingDirectory: $(System.DefaultWorkingDirectory)
+        filePath: $(AzureSDKClonePath)/eng/scripts/Generate-ReleaseNotes.ps1
+        arguments: >
+          -releasePeriod $(ReleasePeriod)
+          -releaseStartDate $(ReleaseStartDate)
+          -commonScriptPath $(AzureSDKToolsScriptsPath)
+          -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
+          -repoLanguage ${{ repo.value.Language }}
+          -github_pat '$(azuresdk-github-pat)'
+
+    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+      parameters:
+        RepoName: azure-sdk
+        BaseBranchName: $(DefaultBranch)
+        PRBranchName: $(PRBranchName)
+        CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
+        PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
+        PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
+        WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
+        ScriptDirectory: $(AzureSDKToolsScriptsPath)
+
+    - pwsh: |
+        gh pr merge $(Submitted.PullRequest.Number) --auto --squash
+      condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+      displayName: Apply AutoMerge to Pull Request
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
+      env:
+        GH_TOKEN: $(azuresdk-github-pat)

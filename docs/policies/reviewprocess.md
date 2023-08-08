@@ -5,80 +5,135 @@ folder: policies
 sidebar: general_sidebar
 ---
 
-We expect all Azure client libraries to pass rigorous API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs).  In addition to detailed reviews of new libraries, **all changes** to an API must be approved by the language architect before release.
+## Introduction
 
-## Sequence of events
+The Azure SDK Architecture Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Android, and iOS.
 
-Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths.  If you are unsure which path applies to the work you are doing, you should consult with a language architect for guidance.
+**The Architecture Board reviews Track 2 libraries only**. By definition, a Track 2 library is one that follows our [Track 2 library design guidelines and specific language guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
-### 1 New libraries, large feature work, and/or pipeline changes
+We expect all Azure client libraries to pass rigorous SDK API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs). In addition to detailed reviews of new libraries, **all changes** to an SDK API must be approved by an architect of the specific language before release.
 
-Our common goal is to create a great developer experience on Azure.  New libraries provide an opportunity to dramatically improve that experience by working closely with the architecture board.  Talking about designs in a group results in better APIs, facilitates mutual learning, and helps get everyone on the same page for what we consider a consistent design. The reviews are not a gate, but a fundamental process for designing good APIs.
+Note that the library review process described here is currently an **internal** one. This document is intended to clarify the process for Azure service teams looking to have their libraries reviewed.
 
-It's critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. New libraries and/or large feature work should be discussed in an architecture board meeting three times:
+## SDK API review process roadmap
 
-1. **Informational** - The first is purely informational/educational to enable the board to get up to speed with the library / new features that are coming.  This allows for early feedback and will potentially affect the service design.  High level topics such as API namespaces, function names, and types will be suggested in this first discussion.  See [What to prepare for the initial discussion](#what-to-prepare-for-the-initial-discussion) below.
-2. **Review** - The second is to propose and review the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency. Occasionally, questions arise in the review for one language that will impact the implementation in other languages as well.  For this reason, it is encouraged that all languages are scheduled for review in the same board meeting or in board meetings within a 7 day period.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This review should be done before the first public preview.  See [API Listings](#api-listings) below.
-3. **Signoff** - The third is a final API signoff.  All languages must be signed off before any are released as GA.  When there have been limited changes made to the API since the second review, architects may choose to sign off over email without the need for a full meeting.
+Typically, there will be a minimum of three meetings with the Architecture Board:
 
-See [Requesting a meeting with the board](#requesting-a-meeting-with-the-board) below for instructions on how to request one of these three meetings.
+1.	Introductory session
+2.	SDK API reviews
+3.	SDK API approval
 
-### 2 Small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to API diffs.  Include all architects as reviewers. In some cases it makes sense for small changes to the API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then a board meeting should be scheduled. 
+Depending on the library surface and other factors, more than one SDK API reviews may be needed.
 
-Remember that **all changes** to an API must be approved by the language architect before release.
+It’s critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths:
 
-### Previewing API changes
+1. **New libraries, large feature work, and/or pipeline changes**
 
-It is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support.  In most circumstances, API changes going through either the full or abbreviated review process should be previewed (or RC) before GA.
+    These changes should be discussed in an architecture board meeting at least three times. See “Types of review meetings and what to prepare” section below.
 
-### Tracking API changes that need to be reviewed
 
-While an API is in preview or after it is in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a language architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are paired with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.  
+2. **Small, targeted changes and bug fixes**
 
-When the library developers indicate they're ready to release, these should be reviewed by the architect as part of final signoff before GA.  Libraries should not be released as GA (or updated to GA) if there are unresolved "APIChange" labels without a corresponding "ArchApproved" label.  Once final review is requested, all "APIChange" labels will be responded to within 5 working days.
+    See “Getting approval for small, targeted changes and bug fixes” section below.
 
-## What to prepare for the initial discussion
+## Types of review meetings and what to prepare
 
-For the initial discussion of a new library or large feature work, it is encouraged that the following things be proposed or provided by the owners of the client library:
+There are two types of meetings that may be scheduled: Introduction and Follow-Up. 
+For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) to schedule review sessions. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of meeting are detailed below.
 
-1. Code samples added to the repo for key scenarios relevant to the target developer.  For introductory discussions, these samples do not need to be 'final' or 'perfect.'  They should be added to the library's sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)). These must demonstrate the expected use of API functions which target developers would use regularly. ([example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)). It is expected that these samples are optimized for ensuring that succinct, intuitive, and productive developer experiences are possible for each scenario.
-2. Link to the service documentation/specification.
-3. Link to the service REST APIs, if applicable/available.
+### 1. Introductory Session
 
-## Requesting a meeting with the board
+This purely informational/educational session is to let the Azure SDK Architecture board get up to speed with the service and the library/new features that are coming. This allows for early feedback and will potentially affect the service design. High level topics such as API namespaces, function names, and types will be suggested in this first discussion.
 
-To request a review:
+#### Prerequisites
 
-1. [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the [Architecture Board].  If the service is pre-release and not yet publicly disclosed, use the private repository([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)).  After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
-    - Ensure you provide all information (or direct links to the information) for ease of review.
-    - If this is an API review, ensure that API listings are published for review at least 5 working days before the meeting with the board, allowing time for reviews and comments.
-    - If this is an API review, also prepare several code samples for review showing how the client library is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
-2. A review with the entire board will be scheduled.
-3. After the review is completed, the architecture board will publish recommendations.
+| Title | Importance | Brief Description | Example and Support Documentation |
+| --- | --- | --- | --- |
+| Hero Scenarios | Must Have | Top scenarios on how service is consumed. | Guidelines on how to identify hero scenarios - [link](https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd014/training/azure-sdk-apis/principles/approachable/README.md#hero-scenarios)<br><br> [Examples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md) |
+| Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
+| APIView | Good to have | APIView for the generated SDK | [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
+| REST API Spec | Good to have | Link to the reviewed REST API Spec definition in [azure/azure-rest-api-specs-pr](https://github.com/azure/azure-rest-api-specs-pr) or [azure/azure-rest-api-specs](https://github.com/azure/azure-rest-api-specs) repo. | [Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01/attestation.json) |
 
-## Approval Meeting Requirements
+### 2. SDK API Review
+During SDK API reviews, we look at sample code and detailed SDK API listings. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/main/docs/dotnet/APIListingExample.md).
 
-In order for an API to be approved, the following conditions must be met at the architectural board meeting:
+Depending on the situation and service, more than one SDK API review may be needed (because there are major changes between API versions, for example). If that is the case, scheduler another meeting when the team is ready for another review.
 
-- Representatives from all tier-1 languages, and all languages under consideration must be present at the meeting.
-- A minimum of **TWO** architects from different language groups must be present at the meeting.
+**All SDK API languages must be approved before any stable release.** When there have been limited changes made to the SDK API since the previous review, *architects may choose to approve over email* without the need for a full meeting.
 
-If a language architect is not present at the meeting, they must review and confirm the outcome of the meeting within 1 business day.  If the language architect is unavailable, the language area engineering lead within the Azure SDK group can approve instead.
-The list of language representatives can only be changed by the LT of the Azure SDK group.
+#### Prerequisites
 
-## API Listings
+| Title | Importance |Brief Description | Example and Support Documentation |
+| --- | --- | --- | --- |
+| APIView | Must Have | APIView for each SDK. Be sure to provide these at least **5 business days before** the review date.| [Example](https://apiview.dev/Assemblies/Review/8b7f5312697a458ab9e65c2fd9cdc2dd)  |
+| Hero Scenarios | Good to have| Top scenarios on how service is consumed. Each scenario with the equivalent code sample. Note that samples can be added in APIView. | Guidelines on how to identify hero scenarios - [link](https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd014/training/azure-sdk-apis/principles/approachable/README.md#hero-scenarios)<br><br> [Examples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration#examples) |
+| REST API Spec | Good to have | Link to the reviewed REST API spec definition in [azure/azure-rest-api-specs-pr](https://github.com/azure/azure-rest-api-specs-pr) or [azure/azure-rest-api-specs](https://github.com/azure/azure-rest-api-specs) repo. | [Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01/attestation.json) |
+| Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
 
-During API reviews, we look at API usage samples (as discussed above) and a detailed API listing.  You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
 
-If you have a prototype of your APIs, depending on the language the APIs are for, you can generate the API listing.
+**APIView Note**: If you have a pull request for your changes, then you can use the automatically generated [APIView](http://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually). 
 
-- For .NET, upload a DLL to the [ApiView tool](http://apiview.dev).
-- For Java, upload the `*-sources.jar` file to the [ApiView tool](http://apiview.dev) (e.g. `azure-core-1.3.0-beta.1-sources.jar`).
-- For TypeScript, use [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) to produce a single file with your public API surface.  Submit the output of the API-Extractor as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository.
-- For Python, use [our custom API stub generator](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/api-stub-generator#generate-stub-file) to produce a single file with your public API surface.  Upload the output of stubgen to the [ApiView tool](http://apiview.dev).
+## What happens during review
 
-For all other languages, send a request to the [Architecture Board] to discuss the best format on individual basis.
+### Who should be present?
+
+The people familiar with the SDK APIs and service (usually the Engineering and/or PM Lead) should be present.
+
+### Introductory sessions
+The typical agenda starts with service team presenting the service for about 30 minutes. Then hero scenarios will be presented, each followed by discussions. This will take up majority of the time. If there are REST API Specs available, the Board will discuss them if time allows. And finally, there’ll be a short summary of action items to be done before the next review meeting.
+
+### SDK API reviews
+
+Language architects will have reviewed the SDK API Listings provided by the time of review. They’ll jump right into discussing the SDK API and samples provided. The meeting will end with a short summary of action items to be taken.
+
+### SDK API approval
+
+Typically, there’ll be some unsettled/controversial questions on the SDK API either from language architects who reviewed the SDK API or from the presenting team. Since the goal of this review is to approve the SDK API, the Board usually jumps right into discussing these questions. The review will end with a final approval of the SDK API or follow up items to get the SDK API to be approved.
+
+### Required quorum
+
+For an SDK API to be approved, the following conditions must be met at the Architecture Board meeting:
+
+* Representatives from all Tier-1 languages (Java, Python, TS/JS, C#), and all languages under consideration must be present.
+* A minimum of THREE architects from different language groups must be present.
+
+If a language architect is *not* present at the meeting, a deputy architect can be the representative of that specific language instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
+
+## What happens after review
+
+For introductory and SDK API review sessions, there will usually be a list of action items to take before the next meeting. Be sure to follow up on these items. Sometimes, one of these action items could be to schedule for another SDK API review once the architects' suggested changes have been made.
+
+## Previewing SDK API changes
+
+It is expected that SDK API changes are released in beta for a period of time before they are released as stable. This gives customers time to provide feedback which could result in adjustments to the SDK API before it moves to stable. SDK API changes that go straight to stable do not benefit from this feedback which can result in them being difficult for customers to use and for us to support. In most circumstances, SDK API changes going through either the full or abbreviated review process should be released as beta before a stable release.
+
+## Getting approval for small, targeted changes and bug fixes
+
+For small or targeted changes and bug fixes which modify SDK APIs, the architect in each language can review and approve without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to [APIView](http://apiview.dev/) diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the SDK API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
+
+Remember that **all** changes to an SDK API must be approved by the language architect before a stable release.
+
+### Hero Scenarios
+
+A hero scenario is a use case that the consumer of the client library is commonly expected to perform.  Hero scenarios are used to ensure the developer experience is exemplary for the common cases. You need to show the entire code sample (including error handling, as an example) for the hero scenarios. Please also show how the **authentication workflow** would look like for your library.
+
+Good scenarios are technology agnostic (i.e. the customer can do the same thing in multiple ways), and are expected to be used by > 20% of users.
+
+Examples of bad scenarios:
+* Create a client (it's part of a scenario, and we'll see it often enough in true hero scenarios)
+* Send a batch of events (again, part of the scenario)
+* Create a page blob (it's not used by enough of the user base)
+
+### Quickstart Samples
+
+Samples demonstrating common how-tos:
+
+* Create a new resource
+* Read the resource
+* Modify the resource
+* Delete the resource
+* Error handling
+* Handling race conditions/concurrency issues
 
 {% include refs.md %}

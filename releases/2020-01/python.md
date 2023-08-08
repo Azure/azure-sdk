@@ -60,7 +60,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added support for tracing ([issue #7153](https://github.com/Azure/azure-sdk-for-python/issues/7153)).
 - Added new boolean type parameter `track_last_enqueued_event_properties` in method `EventHubClient.create_consumer()`.
 - Added new property `last_enqueued_event_properties` of EventHubConsumer which contains `sequence_number`, `offset`, `enqueued_time` and `retrieval_time information`.
-- Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IotHub can be used to create EventHubClient and read properties or events from an IoT Hub.
+- Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IoT Hub can be used to create EventHubClient and read properties or events from an IoT Hub.
 - Removed support for sending EventData to IoT Hub.
 - Removed parameter exception in method `close()` of EventHubConsumer and EventHubProcuer.
 

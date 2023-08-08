@@ -1,0 +1,13 @@
+entries:
+- Name: azure-security-keyvault-keys
+  Version: 4.2.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.2.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - [2833](https://github.com/Azure/azure-sdk-for-cpp/issues/2833) Added `GetCryptographyClient()` to `KeyClient` to return a `CryptographyClient` that uses the same options, policies, and pipeline as the `KeyClient` that created it.
+

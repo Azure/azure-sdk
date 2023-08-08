@@ -1,0 +1,13 @@
+entries:
+- Name: AzureCore
+  Version: 1.0.0-beta.14
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCore_1.0.0-beta.14/sdk/core/AzureCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where certain system errors would be swallowed by AzureCore instead of passed
+    along to the developer.
+

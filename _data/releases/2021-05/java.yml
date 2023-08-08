@@ -1,0 +1,982 @@
+entries:
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-starter-appconfiguration-config
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-appconfiguration-config_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config` to `azure-spring-cloud-starter-appconfiguration-config`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management-web
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-feature-management-web
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-feature-management-web_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-feature-management-web/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-feature-management-web` to `azure-spring-cloud-feature-management-web`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-feature-management
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-feature-management_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-feature-management/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-feature-management` to `azure-spring-cloud-feature-management`.
+    - New Targeting Feature filter has been added.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-appconfiguration-config
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-appconfiguration-config_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config` to `azure-spring-cloud-appconfiguration-config`.
+    - Format and options of library configuration has completely changed. See Readme in Starter
+    - Use of a Watch Key is now required see `spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers`
+    - Added support for JSON content type
+    - Feature Management config loading is no longer on by default.
+    - Users can now select multiple groups of keys from one store see `spring.cloud.azure.appconfiguration.stores[0].selects`. Same default select happens as before.
+    - By default, `spring.profiles.active` is used as the label of all filters. This can be overridden using selects. If no profile is set `\0` is used i.e. `(No Label)
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-appconfiguration-config-web
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-appconfiguration-config-web_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config-web` to `azure-spring-cloud-appconfiguration-config-web`.
+    - Added a new Push based Refresh method. Two Spring Actuator endpoints have been added `appconfiguration-refresh` and `appconfiguration-refresh-bus`. The first triggers the cache to reset on configurations on an application. The second triggers a refresh on all instaces subscribed to the same Service Bus.
+  GroupId: com.azure.spring
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.0.0-beta.3
+  DisplayName: azure-cosmos-spark_3-1_2-12
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-spark_3-1_2-12_4.0.0-beta.3/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md#400-beta3-2021-05-05
+  ChangelogContent: |-
+    * Cosmos DB Spark 3.1.1 Connector Preview `4.0.0-beta.3` Release.
+    ##### Configuration Renames
+    * Renamed data source name "cosmos.items" to "cosmos.oltp".
+    * Renamed data source name "cosmos.changeFeed" to "cosmos.oltp.changeFeed".
+    * Configuration renamed. See [Configuration-Reference](https://aka.ms/azure-cosmos-spark-3-config) for more details.
+
+    ##### Key Bug Fixes
+    * Added validation for all config-settings with a name starting with "spark.cosmos."
+    * Fixed a bug in bulk write causing hang.
+  GroupId: com.azure.cosmos.spark
+- Name: azure-core-amqp
+  Version: 2.0.5
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_2.0.5/sdk/core/azure-core-amqp/CHANGELOG.md#205-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core_1.16.0/sdk/core/azure-core/CHANGELOG.md#1160-2021-05-07
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Support for Challenge Based Authentication in `BearerTokenAuthenticationPolicy`.
+
+    #### Key Bugs Fixed
+
+    - Updated logic to eagerly read response bodies to include return types `void` and `Void`. ([#21091](https://github.com/Azure/azure-sdk-for-java/issues/21091))
+    - Updated URL path appending logic to prevent double slashes (`//`) from occurring. ([#21138](https://github.com/Azure/azure-sdk-for-java/issues/21138))
+
+    #### Fixed
+
+    - Updated `ServiceLoader`s to use the class loader that loaded the class instead of system class loader. (Thank you @ueisele)
+    - Changed an instance `Map` to static `Map` for resources that are static for the lifetime of an application.
+
+    #### Dependency Updates
+
+    - Updated Reactor from `3.4.3` to `3.4.5`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.13
+  DisplayName: Core Experimental
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-experimental_1.0.0-beta.13/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta13-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.10
+  DisplayName: Tracing OpenTelemetry Plugin
+  ServiceName: Plugin
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.10/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta10-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.2.2
+  DisplayName: Management - Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-management_1.2.2/sdk/core/azure-core-management/CHANGELOG.md#122-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.3
+  DisplayName: Core Serializer Jackson JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-json-jackson_1.2.3/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#123-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.6.2
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-test_1.6.2/sdk/core/azure-core-test/CHANGELOG.md#162-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.10
+  DisplayName: Core Serializer Apache Avro
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-avro-apache_1.0.0-beta.10/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md#100-beta10-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.6.2
+  DisplayName: Core - HTTP OkHttp
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-http-okhttp_1.6.2/sdk/core/azure-core-http-okhttp/CHANGELOG.md#162-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.9.2
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-http-netty_1.9.2/sdk/core/azure-core-http-netty/CHANGELOG.md#192-2021-05-07
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a bug where `ProxyConnectException`s weren't eagerly being retried.
+    - Updated how `ProxyConnectException`s are propagated to include response headers.
+
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.15.0` to `1.16.0`.
+    - Upgraded Netty from `4.1.60.Final` to `4.1.63.Final`.
+    - Upgraded Reactor Netty from `1.0.4` to `1.0.6`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.2
+  DisplayName: Core Serializer GSON JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-json-gson_1.1.2/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#112-2021-05-07
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.4.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.4.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md#1140-beta2-2021-05-10
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Semantic Search capability to `SearchClient` and `SearchAsyncClient`.
+    - Added the ability to configure Knowledge Store in skillsets.
+    - Added factory method to `SynonymMap` to enable creation from a file.
+
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.15.0` to `1.16.0`.
+    - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.7.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.7.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#571-2021-05-10
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.3.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.3.2/sdk/search/azure-search-documents/CHANGELOG.md#1132-2021-05-11
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.0.1
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.1/sdk/communication/azure-communication-sms/CHANGELOG.md#101-2021-05-11
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixing bugs to support idempotency.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.7.0
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.7.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#170-2021-05-10
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-analytics-purview-catalog
+  Version: 1.0.0-beta.1
+  DisplayName: azure-analytics-purview-catalog
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-purview-catalog_1.0.0-beta.1/sdk/purview/azure-analytics-purview-catalog/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial beta release for Purview Catalog client library.'
+  GroupId: com.azure
+- Name: azure-data-confidentialledger
+  Version: 1.0.0-beta.1
+  DisplayName: azure-data-confidentialledger
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-data-confidentialledger_1.0.0-beta.1/sdk/confidentialledger/azure-data-confidentialledger/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial beta release for Confidential Ledger client library.'
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.3.0/sdk/identity/azure-identity/CHANGELOG.md#130-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+    - Added `AzurePowerShellCredential` to support authentication using Powershell on development platforms.
+    - Added support to disable CP1 capability in `TokenCredentials` via configuration of environment variable `AZURE_IDENTITY_DISABLE_CP1`
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to 1.16.0
+    - Upgraded `msal4j` dependency to 1.1.0
+  GroupId: com.azure
+- Name: azure-verticals-agrifood-farming
+  Version: 1.0.0-beta.1
+  DisplayName: azure-verticals-agrifood-farming
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-verticals-agrifood-farming_1.0.0-beta.1/sdk/farmbeats/azure-verticals-agrifood-farming/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial beta release for FarmBeats client library.'
+  GroupId: com.azure
+- Name: azure-analytics-purview-scanning
+  Version: 1.0.0-beta.1
+  DisplayName: azure-analytics-purview-scanning
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-purview-scanning_1.0.0-beta.1/sdk/purview/azure-analytics-purview-scanning/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial beta release for Purview Scanning client library.'
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.2.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.2.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#721-2021-05-12
+  ChangelogContent: "#### Fixed\r\n- Fixed an issue: When 'ServiceBusProcessorClient:maxConcurrentCalls' is set, this will result in SDK cache more \r\n  messages that are not delivered to the client in time and sometime the client is not able to settle these messages as\r\n  the message lock might expire.\r\n  \r\n#### Dependency Updates\r\n- Upgraded `azure-core` dependency to `1.16.0`.\r\n- Upgraded `azure-core-amqp` dependency to `2.0.5`."
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.3.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventgrid_4.3.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#430-2021-05-12
+  ChangelogContent: |-
+    #### New Features
+    - Added new Storage system events `StorageAsyncOperationInitiatedEventData` and `StorageBlobTierChangedEventData`.
+    - Added new Policy Insights system events `PolicyInsightsPolicyStateCreatedEventData`, `PolicyInsightsPolicyStateChangedEventData`, and `PolicyInsightsPolicyStateDeletedEventData`.
+
+    #### Dependency Updates
+    - Update `azure-core` dependency to `1.16.0`.
+    - Update `azure-core-http-netty` dependency to `1.9.2`.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.0.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-containers-containerregistry_1.0.0-beta.2/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md#100-beta2-2021-05-11
+  ChangelogContent: |-
+    #### New Features
+    - Added helper types for ManifestArtifact and ContainerRepository.
+    - Restricted builder count to 1.
+    - Enabled support for anonymous access.
+    - Improved samples and readme.
+  GroupId: com.azure
+- Name: azure-resourcemanager-netapp
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-netapp_1.0.0-beta.3/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md#100-beta3-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager NetAppFiles client library for Java. This package contains Microsoft Azure SDK for NetAppFiles Management SDK. Microsoft NetApp Files Azure Resource Provider specification. Package tag package-netapp-2021-02-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.VolumeBackupStatus` was removed
+
+    ##### `NetAppFilesManager` was modified
+
+    * `volumeBackupStatus()` was removed
+
+    ##### `models.Backup` was modified
+
+    * `java.lang.String backupType()` -> `models.BackupType backupType()`
+
+    ##### `models.BackupsList` was modified
+
+    * `innerModel()` was removed
+    * `java.util.List value()` -> `java.util.List value()`
+
+    ##### `models.BackupPatch` was modified
+
+    * `java.lang.String backupType()` -> `models.BackupType backupType()`
+
+    ##### `models.AccountBackups` was modified
+
+    * `models.BackupsList list(java.lang.String,java.lang.String)` -> `com.azure.core.http.rest.PagedIterable list(java.lang.String,java.lang.String)`
+    * `listWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
+
+    #### New Feature
+
+    * `models.BackupType` was added
+
+    ##### `models.Backup` was modified
+
+    * `useExistingSnapshot()` was added
+
+    ##### `models.Backups` was modified
+
+    * `getStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+    * `getStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
+
+    ##### `models.VolumePatchPropertiesDataProtection` was modified
+
+    * `snapshot()` was added
+    * `withSnapshot(models.VolumeSnapshotProperties)` was added
+
+    ##### `models.BackupsList` was modified
+
+    * `validate()` was added
+    * `withValue(java.util.List)` was added
+
+    ##### `models.BackupPatch` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+    * `useExistingSnapshot()` was added
+
+    ##### `models.Backup$Update` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+
+    ##### `models.AccountBackups` was modified
+
+    * `list(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+    ##### `models.Backup$Definition` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-maintenance
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-maintenance_1.0.0-beta.2/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md#100-beta2-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager Maintenance client library for Java. This package contains Microsoft Azure SDK for Maintenance Management SDK. Azure Maintenance Management Client. Package tag package-2021-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    ##### `MaintenanceManager` was modified
+
+    * `fluent.MaintenanceClient serviceClient()` -> `fluent.MaintenanceManagementClient serviceClient()`
+
+    #### New Feature
+
+    * `models.PublicMaintenanceConfigurations` was added
+
+    * `models.ListApplyUpdate` was added
+
+    * `models.Visibility` was added
+
+    * `models.ApplyUpdateForResourceGroups` was added
+
+    * `models.MaintenanceConfigurationsForResourceGroups` was added
+
+    ##### `models.ApplyUpdate` was modified
+
+    * `systemData()` was added
+
+    ##### `models.MaintenanceConfiguration$Definition` was modified
+
+    * `withTimeZone(java.lang.String)` was added
+    * `withVisibility(models.Visibility)` was added
+    * `withDuration(java.lang.String)` was added
+    * `withRecurEvery(java.lang.String)` was added
+    * `withExpirationDateTime(java.lang.String)` was added
+    * `withStartDateTime(java.lang.String)` was added
+
+    ##### `MaintenanceManager` was modified
+
+    * `maintenanceConfigurationsForResourceGroups()` was added
+    * `publicMaintenanceConfigurations()` was added
+    * `applyUpdateForResourceGroups()` was added
+
+    ##### `models.ConfigurationAssignment` was modified
+
+    * `systemData()` was added
+
+    ##### `models.Operation` was modified
+
+    * `isDataAction()` was added
+
+    ##### `models.ApplyUpdates` was modified
+
+    * `list()` was added
+    * `list(com.azure.core.util.Context)` was added
+
+    ##### `models.MaintenanceConfiguration` was modified
+
+    * `expirationDateTime()` was added
+    * `timeZone()` was added
+    * `duration()` was added
+    * `systemData()` was added
+    * `visibility()` was added
+    * `recurEvery()` was added
+    * `startDateTime()` was added
+
+    ##### `models.MaintenanceConfiguration$Update` was modified
+
+    * `withDuration(java.lang.String)` was added
+    * `withRecurEvery(java.lang.String)` was added
+    * `withStartDateTime(java.lang.String)` was added
+    * `withExpirationDateTime(java.lang.String)` was added
+    * `withVisibility(models.Visibility)` was added
+    * `withTimeZone(java.lang.String)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-confluent
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-confluent_1.0.0-beta.2/sdk/confluent/azure-resourcemanager-confluent/CHANGELOG.md#100-beta2-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager Confluent client library for Java. This package contains Microsoft Azure SDK for Confluent Management SDK.  Package tag package-2021-03-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.OrganizationResourcePropertiesUserDetail` was removed
+
+    * `models.OrganizationResourcePropertiesOfferDetail` was removed
+
+    * `models.OrganizationResourceProperties` was removed
+
+    ##### `models.OrganizationResource$DefinitionStages` was modified
+
+    * Stage 3, 4 was added
+
+    ##### `models.OrganizationResource$Definition` was modified
+
+    * `withProvisioningState(models.ProvisionState)` was removed
+
+    #### New Feature
+
+    * `models.Validations` was added
+
+    ##### `ConfluentManager` was modified
+
+    * `validations()` was added
+
+    ##### `models.OrganizationResource` was modified
+
+    * `systemData()` was added
+
+    ##### `models.ConfluentAgreementResource` was modified
+
+    * `systemData()` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-common
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.12.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: '- Fixed bug in Utility.convertStreamToByteBuffer where variable updates would happen incorrectly if we hit the end of stream.'
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.10.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: '- Added support for the 2020-08-04 service version.'
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.12.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Deprecated support to undelete a blob container to a new name.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.10.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Added back ability to create a ShareLeaseClient for a Share or Share Snapshot.
+    - Added upload() overloads to ShareFileClient supporting large ranges and parallel upload.
+    - Deprecated old upload() overloads on ShareFileClient that only supported single Put Range operations, replacing them
+    with uploadRange() methods.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.15.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.15.0/sdk/cosmos/azure-cosmos/CHANGELOG.md#4150-2021-05-12
+  ChangelogContent: |-
+    ##### New Features
+    * Added `backendLatencyInMs` in `CosmosDiagnostics` for `DIRECT` connection mode.
+    * Added `retryContext` in `CosmosDiagnostics` for query operations.
+
+    ##### Key Bug Fixes
+    * Fixed ignored `HttpClient` decoder configuration issue.
+    * Fixed incorrect connection mode issue in `CosmosDiagnostics`.
+    * Fixed issue with handling collisions in the effective partition key.
+    * Fixed `CosmosQueryRequestOptions` NPE in `readAllItems` API.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.10.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: '- Added support for the 2020-08-04 service version.'
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.12.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for specifying an encryption scope.
+    - Added support for the 2020-08-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.6.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1260-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Added support to undelete a file or directory
+    - Added support to list deletedPaths
+    - Added support to get/set service properties
+    - Deprecated support to undelete a file system to a new name.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.0.4-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.4-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1204-beta1-2021-05-13
+  ChangelogContent: '- Update `azure-storage-common` to version `12.12.0-beta.1`'
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.7.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-data-cosmos_3.7.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#370-2021-05-12
+  ChangelogContent: |-
+    ##### New Features
+    * Updated Spring Boot to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/).
+    * Updated Spring Cloud to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/).
+    * Added `slice` support for queries that do not require page count.
+    * Updated `azure-cosmos` to version 4.15.0.
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.0.0-beta.4
+  DisplayName: azure-cosmos-encryption
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-encryption_1.0.0-beta.4/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md#100-beta4-2021-05-12
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-resourcemanager-appconfiguration
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appconfiguration_1.0.0-beta.2/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md#100-beta2-2021-05-14
+  ChangelogContent: |-
+    - Azure Resource Manager AppConfiguration client library for Java. This package contains Microsoft Azure SDK for AppConfiguration Management SDK.  Package tag package-2021-03-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.ListKeyValueParameters` was removed
+
+    ##### `models.ConfigurationStore$Update` was modified
+
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was removed
+
+    ##### `models.ConfigurationStoreUpdateParameters` was modified
+
+    * `publicNetworkAccess()` was removed
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was removed
+
+    ##### `models.ConfigurationStore` was modified
+
+    * `listKeyValue(models.ListKeyValueParameters)` was removed
+    * `listKeyValueWithResponse(models.ListKeyValueParameters,com.azure.core.util.Context)` was removed
+
+    ##### `models.ConfigurationStores` was modified
+
+    * `listKeyValue(java.lang.String,java.lang.String,models.ListKeyValueParameters)` was removed
+    * `listKeyValueWithResponse(java.lang.String,java.lang.String,models.ListKeyValueParameters,com.azure.core.util.Context)` was removed
+
+    #### New Feature
+
+    * `models.KeyValue$Definition` was added
+
+    * `models.KeyValue$UpdateStages` was added
+
+    * `models.ServiceSpecification` was added
+
+    * `models.OperationProperties` was added
+
+    * `models.KeyValues` was added
+
+    * `models.LogSpecification` was added
+
+    * `models.MetricDimension` was added
+
+    * `models.KeyValueListResult` was added
+
+    * `models.KeyValue$Update` was added
+
+    * `models.KeyValue$DefinitionStages` was added
+
+    * `models.MetricSpecification` was added
+
+    ##### `models.ConfigurationStore$Update` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+
+    ##### `models.ConfigurationStoreUpdateParameters` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+    * `disableLocalAuth()` was added
+
+    ##### `models.OperationDefinition` was modified
+
+    * `properties()` was added
+    * `isDataAction()` was added
+    * `origin()` was added
+
+    ##### `models.ConfigurationStore` was modified
+
+    * `systemData()` was added
+    * `disableLocalAuth()` was added
+
+    ##### `AppConfigurationManager` was modified
+
+    * `keyValues()` was added
+
+    ##### `models.ConfigurationStore$Definition` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+
+    ##### `models.KeyValue` was modified
+
+    * `refresh(com.azure.core.util.Context)` was added
+    * `type()` was added
+    * `refresh()` was added
+    * `name()` was added
+    * `id()` was added
+    * `update()` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-data-tables
+  Version: 12.0.0-beta.7
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.7/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta7-2021-05-15
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `getAccessPolicy()` and `setAccessPolicy()` to `TableClient` and `TableAsyncClient`.
+    - Added `getProperties()`, `setProperties()` and `getStatistics()` to `TableServiceClient` and `TableServiceAsyncClient`.
+    - Added the following models:
+        - `TableAccessPolicy`
+        - `TableServiceCorsRule`
+        - `TableServiceGeoReplication`
+        - `TableServiceGeoReplicationStatus`
+        - `TableServiceLogging`
+        - `TableServiceMetrics`
+        - `TableServiceProperties`
+        - `TableServiceRetentionPolicy`
+        - `TableServiceStatistics`
+        - `TableSignedIdentifier`
+
+    #### Breaking Changes
+
+    - Renamed `create()` and `delete()` methods to `createTable()` and `deleteTable()` on `TableClient` and `TableAsyncClient`. Also made `createTable()` and its variants return a `TableItem`.
+    - Removed `deleteEntity(String partitionKey, String rowKey, String eTag)` and added `deleteEntity(TableEntity tableEntity)` in both `TableClient` and `TableAsyncClient`.
+    - Made it so that when deleting a table or entity that does not exist, the resulting `404` error gets swallowed instead of thrown.
+    - Removed public APIs supporting the use of `TableEntity` subclasses.
+    - Made the following classes `final`:
+        - `TableEntity`
+        - `TableItem`
+        - `TableClient`
+        - `TableServiceClient`
+        - `TableServiceAsyncClient`
+        - `TableClientBuilder`
+        - `TableServiceClientBuilder`.
+    - Removed method overloads that used `timeout`, except in the maximal overload for a method (the `withResponse` variant).
+    - Ensured that all timeout usages are client-side and not server-side.
+    - Made `createTable()` and `createTableIfNotExists()` in `TableServiceClient` and `TableServiceAsyncClient` return a `TableClient` and `TableAsyncClient` respectively.
+    - Made select in `ListEntitiesOptions` a `List` of `Strings` instead of a single `String`. Did the same for select in `getEntity()` and `getEntityWithResponse()` in `TableClient` and `TableAsyncClient`.
+    - Replaced `retryOptions(RequestRetryOptions)` with `retryPolicy(RetryPolicy)` in `TableClientBuilder` and `TableServiceClientBuilder`.
+    - Removed `TableSharedKeyCredential` in favor of using Azure Core's `AzureNamedKeyCredential`.
+    - Replaced `TableSharedKeyCredentialPolicy` with `AzureNamedKeyCredentialPolicy`.
+    - Renamed `UpdateMode` to `TableEntityUpdateMode`.
+    - Renamed `TablesServiceVersion` to `TableServiceVersion`.
+    - Renamed `getTableUrl()` and `getApiVersion()` to `getTableEndpoint()` and `getServiceVersion()` respectively, in `TableClient` and `TableAsyncClient`.
+    - Renamed `getServiceUrl()` and `getApiVersion()` to `getServiceEndpoint()` and `getServiceVersion()` respectively, in `TableClient` and `TableAsyncClient`.
+    - Renamed `addProperties()` to `setProperties()` in `TableEntity`. Also made `setProperties()` replace the contents of properties map with those of the argument, instead of adding them to the existing properties.
+    - Removed dependency on `azure-storage-common` and added direct dependency on `azure-core-http-netty`.
+
+    #### Bug Fixes
+
+    - Merge operations no longer fail for Cosmos table endpoints.
+    - Fixed issue with `TablesJacksonSerializer` where it could not handle HTTP responses with empty bodies.
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.2.0-beta.6
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.2.0-beta.6/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta6-2021-05-15
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0-beta.7
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-administration_4.0.0-beta.7/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta7-2021-05-15
+  ChangelogContent: |-
+    #### New features
+
+    - Added support for creating, retrieving, updating and deleting custom role definitions.
+
+    #### Breaking Changes
+
+    - Added the public `KeyVaultAdministrationException`, which will be thrown in place of an exception with the same name in the `implementation` package.
+
+    ##### Behavioral Changes
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.9.2`
+    - Upgraded `azure-core-http-okhttp` dependency to `1.6.2`
+    - Upgraded `azure-identity` dependency to `1.3.0`
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.3.0-beta.8
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.3.0-beta.8/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta8-2021-05-15
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-resourcemanager-botservice
+  Version: 1.0.0-beta.1
+  DisplayName: azure-resourcemanager-botservice
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-botservice_1.0.0-beta.1/sdk/botservice/azure-resourcemanager-botservice/CHANGELOG.md#100-beta1-2021-05-14
+  ChangelogContent: '- Azure Resource Manager BotService client library for Java. This package contains Microsoft Azure SDK for BotService Management SDK. Azure Bot Service is a platform for creating smart conversational agents. Package tag package-2021-03-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0-beta.6
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.3.0-beta.6/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta6-2021-05-15
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-resourcemanager-iothub
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-iothub_1.0.0-beta.2/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md#100-beta2-2021-05-13
+  ChangelogContent: '- Azure Resource Manager IotHub client library for Java. This package contains Microsoft Azure SDK for IotHub Management SDK. Use this API to manage the IoT hubs in your Azure subscription. Package tag package-2020-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-internal-avro
+  Version: 12.0.4
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.4/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1204-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.11.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.11.1/sdk/storage/azure-storage-common/CHANGELOG.md#12111-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.11.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.11.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12111-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.9.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.9.1/sdk/storage/azure-storage-queue/CHANGELOG.md#1291-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.11.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.11.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12111-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.9.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.9.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1291-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.9.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.9.1/sdk/storage/azure-storage-file-share/CHANGELOG.md#1291-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.5.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.5.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1251-2021-05-13
+  ChangelogContent:
+  GroupId: com.azure
+

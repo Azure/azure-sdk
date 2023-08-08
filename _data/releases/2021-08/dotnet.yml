@@ -1,0 +1,656 @@
+entries:
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.0.0-beta.5
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.5/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `ServiceBusEntityType` property to `EntityType`.
+    - Renamed `messageActions` and `sessionActions` parameters to `actions` in `MessageProcessor` and `SessionMessageProcessor`.
+    - Renamed `MaxBatchSize` to `MaxMessageBatchSize` in `ServiceBusOptions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.0-beta.7
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.7/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `MaxBatchSize` to `MaxEventBatchSize` in `EventHubsOptions`.
+- Name: Azure.AI.MetricsAdvisor
+  Version: 1.0.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed methods `AddDimensionColumn` and `RemoveDimensionColumn` from `DimensionKey`. In order to access elements, the new method `TryGetValue` must be used. Once the instance has been created, the columns can't be modified anymore.
+    - `DimensionKey` is not an `IEquatable` anymore. Equality will be calculated based on reference only.
+    - `DimensionKey` constructor now takes the required `dimensions` parameter.
+    - The whole `DatasourceCredential` API has been renamed to `DataSourceCredential`. This includes renames in methods, method parameters, and properties.
+    - Renamed type `DatasourceCredential` to `DataSourceCredentialEntity`.
+    - Renamed type `DataLakeGen2SharedKeyDatasourceCredential` to `DataLakeSharedKeyCredentialEntity`.
+    - Renamed type `ServicePrincipalDatasourceCredential` to `ServicePrincipalCredentialEntity`.
+    - Renamed type `ServicePrincipalInKeyVaultDatasourceCredential` to `ServicePrincipalInKeyVaultCredentialEntity`.
+    - Renamed type `SqlConnectionStringDatasourceCredential` to `SqlConnectionStringCredentialEntity`.
+    - Renamed type `DetectionConditionsOperator` to `DetectionConditionOperator`. Also, `MetricWholeSeriesDetectionCondition.CrossConditionsOperator` has been renamed to `ConditionOperator`.
+    - Renamed type `MetricAnomalyAlertConfiguration` to `MetricAlertConfiguration`.
+    - Renamed type `MetricAnomalyAlertConfigurationsOperator` to `MetricAlertConfigurationsOperator`.
+    - Renamed type `DataSourceType` to `DataSourceKind`. Similarly, `GetDataFeedsFilter.SourceType` has been renamed to `SourceKind`, and `DataFeedSource.DataSourceType` has been renamed to `DataSourceKind`.
+    - Renamed type `AzureDataLakeStorageGen2DataFeedSource` to `AzureDataLakeStorageDataFeedSource`. Similarly, `DataSourceType.AzureDataLakeStorageGen2` has been renamed to `AzureDataLakeStorage`.
+    - Renamed type `FeedbackType` to `MetricFeedbackKind`. Similarly, `GetAllFeedbackOptions.FeedbackType` has been renamed to `FeedbackKind`, and `MetricFeedback.Type` to `FeedbackKind` as well.
+    - Renamed type `PeriodType` to `MetricPeriodType`.
+    - Renamed type `FeedbackDimensionFilter` to `FeedbackFilter` and moved it to the namespace `Azure.AI.MetricsAdvisor`.
+    - Renamed type `GetAnomaliesForDetectionConfigurationFilter` to `AnomalyFilter`.
+    - Renamed type `GetDataFeedsFilter` to `DataFeedFilter`, and the property `GetDataFeedsOptions.GetDataFeedsFilter` to `Filter`.
+    - Split the method `GetAnomalies` into two different methods: `GetAnomaliesForAlert` and `GetAnomaliesForDetectionConfiguration`.
+    - Split the method `GetIncidents` into two different methods: `GetIncidentsForAlert` and `GetIncidentsForDetectionConfiguration`.
+    - Removed the property `DimensionFilter` in `MetricFeedback`. It's now a property of type `DimensionKey` (named `DimensionKey` as well). Similarly, feedback constructors now require a `dimensionKey` parameter to be passed.
+    - `DataFeedIngestionSettings` constructor now takes the required `ingestionStartsOn` parameter. For this reason, the property `IngestionStartTime`, now named `IngestionStartsOn`, is not nullable anymore.
+    - `DataFeedMissingDataPointFillSettings` constructor now takes the required `fillType` parameter. For this reason, the property `FillType` is not nullable anymore.
+    - `EmailNotificationHook` constructor now takes the required `name` parameter.
+    - `WebNotificationHook` constructor now takes the required `name` and `endpoint` parameters.
+    - `MetricSeriesGroupDetectionCondition` constructor now takes the required `seriesGroupKey` parameter.
+    - `MetricSingleSeriesDetectionCondition` constructor now takes the required `seriesKey` parameter.
+    - Renamed all occurrences of `CreatedTime` to `CreatedOn` and `ModifiedTime` to `LastModified`.
+    - Renamed `AnomalyIncident.StartTime` to `StartedOn` and `AnomalyIncident.LastTime` to `LastDetectedOn`.
+    - Renamed any other occurrences of `StartTime` to `StartsOn`, and `EndTime` to `EndsOn`, including property and parameter names.
+    - Renamed `AlertQueryTimeMode.AnomalyTime` to `AnomalyDetectedOn`, and `FeedbackQueryTimeMode.FeedbackCreatedTime` to `FeedbackCreatedOn`.
+    - Renamed `DataFeedRollupSettings.AlreadyRollupIdentificationValue` to `RollupIdentificationValue`.
+    - In `DataFeedRollupType`, renamed `AlreadyRollup` to `AlreadyRolledUp`, `NeedRollup` to `RollupNeeded`, and `NoRollup` to `NoRollupNeeded`.
+    - In `DataFeed`, renamed `AdministratorsEmails` to `Administrators`, `ViewersEmails` to `Viewers`, and `CreatorEmail` to `Creator`.
+    - In `NotificationHook`, renamed `AdministratorsEmails` to `Administrators`, and `ExternalLink` to `ExternalUri`.
+    - In `MetricAnomalyFeedback`, renamed `AnomalyDetectionConfigurationId` to `DetectionConfigurationId`, and `AnomalyDetectionConfigurationSnapshot` to `DetectionConfigurationSnapshot`.
+    - In `ChangeThresholdCondition`, renamed `IsWithinRange` to `WithinRange`. Similarly, the constructor parameter `isWithinRange` has been renamed to `withinRange`.
+    - In `MetricSeriesData`, removed the `Definition` property. Now, properties `MetricId` and `SeriesKey` can be accessed directly from `MetricSeriesData`.
+    - In `DataPointAnomaly`, renamed property `AnomalyDetectionConfigurationId` to `DetectionConfigurationId`.
+    - In `DataFeedMetric`, renamed constructor parameter `metricName` to `name` only.
+    - In `DataFeedDimension`, renamed constructor parameter `dimensionName` to `name` only.
+    - In `MetricAnomalyAlertScope`, renamed static methods `GetScopeFor<...>` to `CreateScopeFor<...>`. For instance, `GetScopeForSeriesGroup` was renamed to `CreateScopeForSeriesGroup`.
+    - Changed signature of the `MetricAnomalyAlertScope.GetScopeForTopNGroup` method to take the parameters `top`, `period`, and `minimumTopCount` directly. For this reason, removed the public constructor of `TopNGroupScope`.
+    - Moved `GetAlertConfigurationsOptions`, `GetDatasourceCredentialsOptions`, and `GetDetectionConfigurationsOptions` to the `Azure.AI.MetricsAdvisor.Administration` namespace.
+    - Moved `DatasourceCredential`, `DataFeedSource`, `NotificationHook`, and all of their concrete child types to the `Azure.AI.MetricsAdvisor.Administration` namespace.
+    - Moved `MetricFeedback` and all of its concrete child types to the `Azure.AI.MetricsAdvisor` namespace.
+    - In `GetAllFeedbackOptions`, moved all feedback filter properties to a new nested property `Filter` of type `FeedbackFilter`.
+    - Changed order of parameters of `MetricsAdvisorClient.GetMetricEnrichedSeriesData`. Now, `detectionConfigurationId` appears first.
+    - Optional properties `FeedbackFilter.DimensionKey` and `GetAnomalyDimensionValuesOptions.DimensionToFilter` must now be manually added with setters to be used.
+    - Moved property `DataFeed.SourceType` to `DataFeedSource.DataSourceType`.
+    - In `GetAnomaliesForDetectionConfigurationFilter` (now named `AnomalyFilter`), renamed `SeriesGroupKeys` to `DimensionKeys`.
+    - In `GetAnomalyDimensionValuesOptions`, renamed `DimensionToFilter` to `SeriesGroupKey`.
+    - In `GetIncidentsForAlertOptions`, renamed `DimensionsToFilter` to `DimensionKeys`.
+    - In `GetMetricDimensionValuesOptions`, renamed `DimensionValueToFilter` to `DimensionValueFilter`.
+    - In `GetMetricSeriesDataOptions`, renamed `SeriesToFilter` to `SeriesKeys`.
+    - In `GetMetricSeriesDefinitionsOptions`, renamed `DimensionCombinationsToFilter` to `DimensionCombinationsFilter`.
+    - In `AnomalyIncident`, renamed `RootDimensionKey` to `RootSeriesKey`.
+    - In `FeedbackDimensionFilter` (now named `FeedbackFilter`), renamed `DimensionFilter` to `DimensionKey`.
+    - In `MetricsAdvisorKeyCredential`, merged `UpdateSubscriptionKey` and `UpdateApiKey` into a single method, `Update`, to make it an atomic operation.
+    - Removed setters from `StartTime` and `EndTime`, both in `MetricAnomalyFeedback` and in `MetricChangePointFeedback`.
+    - The class `NotificationHook` is now abstract.
+    - The class `DatasourceCredential` (now called `DataSourceCredentialEntity`) is now abstract.
+    - `AlertQueryTimeMode` and `FeedbackQueryTimeMode` are now regular enums.
+    - The enum `AuthenticationType` present in some `DataFeedSource` subtypes is now an extensible enum.
+    - Removed constructor `(string workspaceId, string query)` from the `LogAnalyticsDataFeedSource`.
+- Name: Azure.Identity
+  Version: 1.5.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.5.0-beta.2/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support to `ManagedIdentityCredential` for Bridge to Kubernetes local development authentication.
+    - TenantId values returned from service challenge responses can now be used to request tokens from the correct tenantId. To support this feature, there is a new `AllowMultiTenantAuthentication` option on `TokenCredentialOptions`.
+    - By default, `AllowMultiTenantAuthentication` is false. When this option property is false and the tenant Id configured in the credential options differs from the tenant Id set in the `TokenRequestContext` sent to a credential, an `AuthorizationFailedException` will be thrown. This is potentially breaking change as it could be a different exception than what was thrown previously. This exception behavior can be overridden by either setting an `AppContext` switch named "Azure.Identity.EnableLegacyTenantSelection" to `true` or by setting the environment variable "AZURE_IDENTITY_ENABLE_LEGACY_TENANT_SELECTION" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Identity.EnableLegacyTenantSelection" Value="true" />
+    </ItemGroup>
+    ```
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.0.0-beta.2
+  DisplayName: WebPubSub
+  ServiceName: webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for [RequestOptions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md#using-requestoptions-to-customize-behavior) on protocol methods.
+    - Added support for API management with `ReverseProxyEndpoint` option. https://github.com/Azure/azure-webpubsub/issues/194 describes how to integrate with the API Management service.
+    - Removed dependency on `System.IdentityModel.Tokens.Jwt`.
+
+    #### Bugs Fixed
+    - https://github.com/Azure/azure-webpubsub/issues/166
+    - https://github.com/Azure/azure-webpubsub/issues/90
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.0.0-beta.2
+  DisplayName: WebJobs Extensions - WebPubSub
+  ServiceName: webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.0.0-beta.2/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `WebPubSubRequest` input binding to support Static Web Apps.
+
+    #### Bugs Fixed
+    - Fixed exceptions when the library is used in Static Web Apps.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.5.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.5.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added constructor for `EventGridPublisherClient` that takes a `TokenCredential` to enable Azure Active Directory authentication.
+    - Added `Metadata` property to `AcsChatMessageEditedEventData`, `AcsChatMessageEditedInThreadEventData`, `AcsChatMessageReceivedEventData`, and `AcsChatMessageReceivedInThreadEventData`.
+    - Added custom converter for `EventGridEvent` that allows this type to be serialized and deserialized using `System.Text.Json` APIs.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.14
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.14/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    - TenantId can now be discovered through the service challenge response, when using a TokenCredential for authorization.
+    - A new property is now available on the ClientOptions called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt a challenge containing the tenantId hint.
+    - Fixed bug where "Segment doesn't have any more events" exception was throw when attempting to resume from a cusor pointed at a segment that had no more events, and newer segments exist in the Change Feed.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.7.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.7.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-10-02.
+    - TenantId can now be discovered through the service challenge response, when using a TokenCredential for authorization.
+    - A new property is now available on the ClientOptions called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt a challenge containing the tenantId hint.
+    - Fixed bug where blob name was not encoded properly when using batch operations.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.8.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-10-02.
+    - Added support for OAuth copy sources in ShareFileClient.UploadRangeFromUri()
+    - Added support for including additional information in ShareDirectoryClient.GetFilesAndDirectories().
+    - Fixed bug where ShareDirectoryClient.SetMetadataAsync() would not property parse Last-Modified response header.
+    - Fixed bug where ShareFileClient.DownloadAsync() would fail downloading zero-length file.
+- Name: Azure.Storage.Queues
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.8.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    - TenantId can now be discovered through the service challenge response, when using a TokenCredential for authorization.
+    - A new property is now available on the ClientOptions called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt a challenge containing the tenantId hint.
+- Name: Azure.Storage.Blobs
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.10.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-10-02.
+    - Added support for Immutable Storage with Versioning
+    - Added BlobBaseClient.SetImmutibilityPolicy()
+    - Added BlobBaseClient.DeleteImmutabilityPolicy()
+    - Added BlobBaseClient.SetLegalHold()
+    - Added support for listing deleted root blobs with versions to BlobContainerClient.GetBlobs() and .GetBlobsByHierarchy()
+    - Added support for OAuth copy sources for synchronous copy operations.
+    - Added support for Parquet as an input format in BlockBlobClient.Query().
+    - Added optimization to unwrap encryption key once for DownloadTo and OpenRead when Client Side Encryption is enabled.
+    - Added support for RequestConditions parameter validation.  If a request condition is set for an API that doesn't support it, and ArguementException will be thrown.
+    - This feature can be disabled with the environment variable "AZURE_STORAGE_DISABLE_REQUEST_CONDITIONS_VALIDATION" or the App Context switch "Azure.Storage.DisableRequestConditionsValidation".
+    - Fixed bug where BlobBaseClient.DownloadStreamingAsync() won't correctly parse the LeaseStatus header.
+    - Fixed bug where BlobBaseClient.DownloadContentAsync() fails on 304 response.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.8.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-10-02.
+    - Added support for Parquet as an input format in DataLakeFileClient.Query().
+    - Added support for RequestConditions parameter validation.  If a request condition is set for an API that doesn't support it, and ArguementException will be thrown.
+    - This feature can be disabled with the environment variable "AZURE_STORAGE_DISABLE_REQUEST_CONDITIONS_VALIDATION" or the App Context switch "Azure.Storage.DisableRequestConditionsValidation".
+- Name: Azure.Storage.Common
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.9.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    - TenantId can now be discovered through the service challenge response, when using a TokenCredential for authorization.
+    - A new property is now available on the ClientOptions called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt a challenge containing the tenantId hint.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.8.0-beta.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Queues
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.8.0-beta.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.10.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.10.0-beta.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Common
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.9.0-beta.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release changes the dependency on Azure.Core to v1.16.0'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.15
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.15/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.7.0-beta.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.7.0-beta.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.8.0-beta.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.0.0-beta.3
+  DisplayName: WebJobs Extensions - WebPubSub
+  ServiceName: webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.0.0-beta.3/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgrade dependency package `Azure.Messaging.WebPubSub` to 1.0.0-beta.2.
+- Name: Azure.Communication.Chat
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.1.0-beta.1/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - Added support for metadata in messages.
+    - Added new overloads for sendmessage and updatemessage operations with options : SendChatMessageOptions and UpdateChatMessageOptions.
+    - Added support for user display name in typing notifications.
+    - Added new overloads for sendtypingnotification operation with options : TypingNotificationOptions.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.0.0-beta.1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: '- Initial release which supports querying of knowledge bases and text records.'
+- Name: Azure.Core
+  Version: 1.17.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.17.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientOptions.Default` to configure defaults process-wide.
+    - Added `HttpPipelinePosition.BeforeTransport` to be able to add policies at the end of the pipeline before the transport.
+- Name: Azure.DigitalTwins.Core
+  Version: 1.3.0-beta.1
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.3.0-beta.1/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `DigitalTwinsQueryBuilder` under the  `Azure.DigitalTwins.Core.QueryBuilder.Fluent` and the `Azure.DigitalTwins.Core.QueryBuilder.Linq` namespaces to allow for the creation of ADT queries using fluent-style syntax to abstract the ADT query language from users. As of August 2021, these two query builders are trial features that will be shipped in preview before being potentially released in the future pending user feedback.
+- Name: Azure.Identity
+  Version: 1.4.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.4.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixes and improvements
+
+    - Fixed issue resulting in duplicate event source names when executing in Azure Functions
+- Name: Azure.DigitalTwins.Core
+  Version: 1.3.0-beta.2
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.3.0-beta.2/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix the bug where boolean expressions did not convert to the correct string representation.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.2.0-beta.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.2.0-beta.1/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - The client defaults to the latest supported service version, which currently is `3.2-preview.1`.
+    - Added property `ExtractSummaryActions` to `TextAnalyticsActions` to support the new 'extractive text summarization' API. This action can be used to get a summary for the input document by extracting the most relevant sentences.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.6.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Each Event Hubs client type now offers an option to set an Identifier. The identifier is informational and is associated with the AMQP links used, allowing the service to provide additional context in error messages and the SDK logs to provide an additional point of correlation.
+- Name: Azure.Monitor.Query
+  Version: 1.0.0-beta.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0-beta.3/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `LogsQueryResult.PrimaryTable` renamed to `Table`, and `LogsQueryResult.Tables` to `AllTables`.
+    - `MetricQueryResult` renamed to `MetricsQueryResult`
+    - `GetMetricNamespaces` and `GetMetricDefinitions` return `Pageable` types.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Enhanced the documentation of some `SearchOptions` properties by adding links to REST docs - https://github.com/Azure/azure-sdk-for-net/issues/22808
+
+    #### Features Added
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `SearchClient`, `SearchIndexClient` or a `SearchIndexerClient`. For example, you can get started with `new SearchClient(endpoint, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). For more details see [how to use role-based authentication in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-rbac?tabs=config-svc-portal%2Crbac-portal).
+- Name: Azure.Data.AppConfiguration
+  Version: 1.2.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.2.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `ConfigurationSetting` constructor parameter to set an `ETag`.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0-beta.4
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.4/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added filtering options to methods `GetAllTranslationStatuses`, `GetAllDocumentStatuses` and their async equivalent.
+    - Added `DocumentTranslationModelFactory` static class to support mocking model types.
+
+    #### Breaking Changes
+    - Properties `Suffix` and `Prefix` are now available under `TranslationSource` instead of in type `DocumentFilter`.
+    - Type `DocumentTranslationError` is now a struct.
+    - Type `StorageInputType` is now a regular enum instead of an extensible enum.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.6.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.6.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where partition processing would ignore cancellation when the processor was shutting down or partition ownership changed and continue dispatching events to the handler until the entire batch was complete.  Cancellation will now be properly respected.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0-beta.4
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.0.0-beta.4/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced `AuthenticationScope` property on `ContainerRegistryClientOptions` with `Audience`.  `Audience` is of type `ContainerRegistryAudience`, a statically typed string, which allows customers to select from available audiences or provide their own audience string.  All calls to client constructors now require passing `ContainerRegistryClientOptions` with the `Audience` property set.
+- Name: Azure.AI.MetricsAdvisor
+  Version: 1.1.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.1.0/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the static class `MetricsAdvisorModelFactory`. It can be used to instantiate Metrics Advisor models for mocking.
+- Name: Azure.Identity
+  Version: 1.5.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.5.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Stopped loading `$PROFILE` and checking for updates when using `AzurePowerShellCredential`.
+    - Fixed unrecognized argument issue in `AzureCliCredential` when specifying the `TenantId` option. [#23158](https://github.com/Azure/azure-sdk-for-net/issues/23158) (A community contribution, courtesy of _[tomas-pajurek](https://github.com/tomas-pajurek))_.
+    - Handled an additional error scenario for AzureCliCredential that prompts developers to run `az login` when needed. [#21758](https://github.com/Azure/azure-sdk-for-net/issues/21758)
+    - Fixed an issue in `EnvironmentCredential` where the supplied `options` were not getting properly applied. [#22787](https://github.com/Azure/azure-sdk-for-net/issues/22787)
+    - Fixed DateTime parsing to use the current culture in AzurePowerShellCredential. [#22638](https://github.com/Azure/azure-sdk-for-net/issues/22638)
+
+    #### Features Added
+
+    - A new trace event is now logged when `DefaultAzureCredential` selects a credential during initialization.
+    - Added `AzureApplicationCredential`
+    - Added `IsPIILoggingEnabled` property to `TokenCredentialOptions`, which controls whether MSAL PII logging is enabled, and other sensitive credential related logging content.
+
+    #### Breaking Changes
+
+    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`. The value should now be a host, for example "http://169.254.169.254" (the default).
+- Name: Azure.Data.Tables
+  Version: 12.2.0-beta.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.2.0-beta.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed and issue with connection string parsing for Azure Storage Emulator connection strings. (A community contribution, courtesy of _[yifanbian-msft](https://github.com/yifanbian-msft))_.
+
+
+    #### Features Added
+
+    - Added an extension method to the Builder extensions that accepts just the Table Uri. (A community contribution, courtesy of _[flcdrg](https://github.com/flcdrg))_.
+- Name: Azure.Communication.NetworkTraversal
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.NetworkTraversal_1.0.0-beta.2/sdk/communication/Azure.Communication.NetworkTraversal/CHANGELOG.md
+  ChangelogContent: |-
+    - Renamed `CommunicationTurnServer` to `CommunicationIceServer`
+    - Renamed field `turnServers` to `iceServers` in `CommunicationRelayConfiguration`
+    - Renamed `IssueCredentials[Async]` to `IssueRelayConfiguration[Async]`
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.3.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - The default service version is now "7.3-preview".
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.3.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `GetRandomBytes` and `GetRandomBytesAsync` to `KeyClient` to get random bytes from a managed HSM.
+    - Added `Exportable` and `ReleasePolicy` to `CreateKeyOptions`, `ImportKeyOptions`, and `KeyProperties` to support Secure Key Release for Key Vault and Managed HSM.
+    - Added `ReleaseKey` and `ReleaseKeyAsync` to `KeyClient` to release a key for Key Vault and Managed HSM.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.1.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.1.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - The default service version is now "7.3-preview".
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.3.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.3.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - The default service version is now "7.3-preview".
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.3.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.3.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where receiving a message with `AbsoluteExpiryTime` of DateTime.MaxValue would cause an `ArgumentException'. (A community contribution, courtesy of _[tlecomte](https://github.com/tlecomte))_
+
+    #### Features Added
+    - Added the `ReleaseSession` method to `ProcessSessionMessageEventArgs` which allows processing for a session to terminated early.
+    - Added protected constructors to `ServiceBusProcessor`, `ServiceBusReceiver`, `ServiceBusSender`, and `ServiceBusSessionProcessor` to allow these types to be extended.
+    - Added `UpdateConcurrency` methods to `ServiceBusProcessor` and `ServiceBusSessionProcessor` to allow concurrency to be changed for an already created processor.
+    - Allow a TimeSpan of zero to be passed as the `maxWaitTime` for the various receive overloads if Prefetch mode is enabled.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.6.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `ContainerServiceNewKubernetesVersionAvailableEventData` system event.
+
+    #### Bugs Fixed
+    - Updated deserialization of KeyVault system events to match the casing used in the events published by the service.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.1/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for additional/enhanced skills - [EntityLinkingSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-linking-v3), [EntityRecognitionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition-v3), [PiiDetectionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection), [SentimentSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-sentiment-v3)
+    - Use managed identities in Azure Active Directory with [SearchIndexerDataIdentity](https://docs.microsoft.com/azure/search/search-howto-managed-identities-data-sources)
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.4
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.4/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to support both services API versions `2020-12-01` and `2021-06-01-preview`
+- Name: Azure.Analytics.Synapse.AccessControl
+  Version: 1.0.0-preview.5
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.AccessControl_1.0.0-preview.5/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to use service API version `2020-12-01`
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.7
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+    - Updated to use service API version `2020-12-01`
+

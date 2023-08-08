@@ -183,7 +183,7 @@ Here are some of the highlights:
 - Added option to write to shared token cache from `InteractiveBrowserCredential`, `AuthorizationCodeCredential`, `UsernamePasswordCredential` and `DeviceCodeCredential`
 
 
-### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07))
+### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07))
 
 Here are some of the highlights:
 
@@ -192,7 +192,7 @@ Here are some of the highlights:
 - Allow receiving from first available single and multiple sessions through ServiceBusReceiverAsyncClient.
 - Add send overload that accepts an Iterable of ServiceBusMessage.
 
-### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#100-beta3-2020-05-05))
+### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#100-beta3-2020-05-05))
 
 Here are some of the highlights:
 
@@ -265,7 +265,6 @@ Here are some of the highlights:
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.java-packages %}
-{% include java-packages.html %}
+View all the latest versions of Java packages [here][java-latest-releases].
 
 {% include refs.md %}

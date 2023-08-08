@@ -1,0 +1,126 @@
+entries:
+- Name: azure-core
+  Version: 1.2.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.2.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [2785](https://github.com/Azure/azure-sdk-for-cpp/issues/2785) Fix to build on g++ 5.5.
+- Name: azure-storage-files-shares
+  Version: 12.2.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.2.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing files.
+
+    #### Breaking Changes
+
+    - `AccessPolicy::StartsOn` and `AccessPolicy::ExpiresOn` are now nullable values.
+- Name: azure-storage-blobs
+  Version: 12.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.2.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing blobs.
+
+    #### Breaking Changes
+
+    - `StartsOn` and `ExpiresOn` in `SignedIdentifier` were changed to nullable.
+- Name: azure-storage-common
+  Version: 12.2.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.2.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that may cause crash when parsing XML.
+
+    #### Features Added
+
+    - Used new xml library on Windows, dropped dependency for libxml2.
+- Name: azure-storage-files-datalake
+  Version: 12.2.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.2.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing files.
+
+    #### Breaking Changes
+
+    - `StartsOn` and `ExpiresOn` in `SignedIdentifier` were changed to nullable.
+- Name: azure-security-keyvault-keys
+  Version: 4.1.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.1.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [2750](https://github.com/Azure/azure-sdk-for-cpp/issues/2750) Support for Azure `managedhsm` cloud and any other non-public Azure cloud.
+
+    #### Features Added
+
+    - Added `GetUrl()` to `KeyClient`.
+- Name: azure-storage-queues
+  Version: 12.0.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.0.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support for Queue features:
+    - QueueServiceClient::ListQueues
+    - QueueServiceClient::SetProperties
+    - QueueServiceClient::GetProperties
+    - QueueServiceClient::GetStatistics
+    - QueueServiceClient::CreateQueue
+    - QueueServiceClient::DeleteQueue
+    - QueueClient::Create
+    - QueueClient::Delete
+    - QueueClient::GetProperties
+    - QueueClient::SetMetadata
+    - QueueClient::GetAccessPolicy
+    - QueueClient::SetAccessPolicy
+    - QueueClient::EnqueueMessage
+    - QueueClient::ReceiveMessages
+    - QueueClient::PeekMessages
+    - QueueClient::UpdateMessage
+    - QueueClient::DeleteMessage
+    - QueueClient::ClearMessages
+    - Added support for queue SAS.
+- Name: azure-security-keyvault-secrets
+  Version: 4.0.0-beta.1
+  DisplayName: 'Key Vault - Secrets '
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.0.0-beta.1/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: '- initial preview'
+
