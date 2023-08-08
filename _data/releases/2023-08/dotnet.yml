@@ -221,4 +221,111 @@ entries:
     #### Features Added
     - Added the ability to perform multiple vectors query searches.
     - Added support for vector queries over multiple fields.
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.1.0-beta.3/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.1.0-beta.2/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Files.Shares
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.16.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2023-05-03 and 2023-08-03.'
+- Name: Azure.Storage.Common
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.17.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Queues
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.16.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for creating `WorkloadIdentityCredential` objects from the configuration using the `"credential": "workloadidentity"`. Users must provide values for the `tenentId`, `clientId`, and newly added `tokenFilePath` keys in the configuration, or they must set the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_FEDERATED_TOKEN_FILE`.
+- Name: Azure.Storage.Blobs
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.18.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2023-05-03 and 2023-08-03.
+    - Added RehydratePendingToCold value to ArchiveStatus enum.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.16.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2023-05-03 and 2023-08-03.
+    - Added support for paginated directory delete when using AAD authentication.  Note that this feature only applies to HNS storage accounts.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.37
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.37/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2023-05-03 and 2023-08-03.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.15.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2023-05-03 and 2023-08-03.'
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.16.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.16.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The `CancellationTokenSource` used by the `ServiceBusSessionProcessor` in order to renew session
+    locks is now disposed when the session is no longer being processed, thereby preventing a memory leak.
+
+    #### Features Added
+
+    - `ProcessMessageEventArgs` provides a `MessageLockLostAsync` event that can be subscribed to in
+    order to be notified when the message lock is lost.
+    - `ProcessSessionMessageEventArgs` provides a `SessionLockLostAsync` event that can be subscribed to in
+    order to be notified when the session lock is lost.
+    - A constructor for `ServiceBusMessage` taking an `AmqpAnnotatedMessage` has been added.
 
