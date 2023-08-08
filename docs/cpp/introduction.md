@@ -175,7 +175,7 @@ The C++ SDK is designed for synchronous api calls.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace _details {
+namespace _detail {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
 } // namespace _detail
@@ -603,18 +603,18 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
+{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `_detail` namespace.
 
 {% highlight cpp %}
 namespace Azure { namespace Group { namespace Service {
-namespace Details {
+namespace _detail {
 // Part of the private API
 struct HashComputation {
     int InternalBookkeeping;
 };
 
 const int g_privateConstant = 1729;
-} // namespace Details
+} // namespace _detail
 
 // Part of the public API
 struct UploadBlobRequest {

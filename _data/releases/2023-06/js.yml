@@ -9,16 +9,6 @@ entries:
   ChangelogContent: |-
     #### Bug Fixes
     - Remove console logging in `processMultitenantRequest` for tenant id and resolved tenant.
-- Name: '@azure/communication-phone-numbers'
-  Version: 1.3.0-alpha.20230517.1
-  DisplayName: Communication Phone Numbers
-  ServiceName: Communication
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-alpha.20230517.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
-  ChangelogContent: |-
-    - Added support for the API version 2023-04-01-preview.
-    - Renamed sip Patch operation to Update operation
 - Name: '@azure/eventgrid'
   Version: 4.12.0
   DisplayName: Event Grid
@@ -77,7 +67,7 @@ entries:
   ChangelogContent: ""
 - Name: '@azure/arm-mysql-flexible'
   Version: 4.0.0-beta.1
-  DisplayName: '@azure/arm-mysql-flexible'
+  DisplayName: 'Resource Management - MySQL Flexible'
   ServiceName: Mysql-Flexible
   VersionType: Beta
   Hidden: false
@@ -214,4 +204,253 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-appcontainers'
+  Version: 2.0.0-beta.3
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_2.0.0-beta.3/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 5.1.0
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcehealth'
+  Version: 4.0.0
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-costmanagement'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Costmanagement
+  ServiceName: Costmanagement
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-costmanagement_1.0.0-beta.1/sdk/cost-management/arm-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.1
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.1/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: '- This is the initial beta release for Azure OpenAI inference capabilities, including completions, chat completions, and embeddings.'
+- Name: '@azure/arm-baremetalinfrastructure'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Baremetalinfrastructure
+  ServiceName: Baremetalinfrastructure
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-baremetalinfrastructure_1.0.0-beta.1/sdk/baremetalinfrastructure/arm-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.3.2-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.2-beta.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added file attachment support
+    - Updated @azure/communication-signaling to 1.0.0-beta.18 with file attachment support.
+- Name: '@azure/arm-resources-subscriptions'
+  Version: 2.1.0
+  DisplayName: Resouce Management - Resources Subscriptions
+  ServiceName: Resources Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_2.1.0/sdk/resources-subscriptions/arm-resources-subscriptions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-postgresql-flexible'
+  Version: 8.0.0-beta.2
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.0.0-beta.2/sdk/postgresql/arm-postgresql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-devhub'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - DevHub
+  ServiceName: DevHub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devhub_1.0.0-beta.3/sdk/devhub/arm-devhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-blob'
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.15.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2023-01-03.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.14.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2023-01-03.
+    - Added owner, group and permissions properties for response of DataLakePathClient.getProperties(), DataLakeFileClient.getProperties(), DataLakeFileClient,read(), and DataLakeDirectoryClient.getProperties().
+- Name: '@azure/storage-file-share'
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.15.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2023-01-03.
+    - Added access rights in each handles returned by ShareDirectoryClient.listHandles()/ShareFileClient.listHandles().
+- Name: '@azure/arm-qumulo'
+  Version: 1.0.0
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-qumulo_1.0.0/sdk/liftrqumulo/arm-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.11.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.11.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add a policy `auxiliaryAuthenticationHeaderPolicy` for external tokens to `x-ms-authorization-auxiliary` header. This header will be used when creating a cross-tenant application we may need to handle authentication requests for resources that are in different tenants. [PR #25270](https://github.com/Azure/azure-sdk-for-js/pull/25270)
+- Name: '@azure/core-client'
+  Version: 1.7.3
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.7.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - remove the validation that credential scopes must be a valid URL [Issue #25881](https://github.com/Azure/azure-sdk-for-js/issues/25881)
+- Name: '@azure/core-http'
+  Version: 3.0.2
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.2/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Export `isNode` from `@azure/core-util`.
+    - Remove the validation that credential scopes must be a valid URL [Issue #25881](https://github.com/Azure/azure-sdk-for-js/issues/25881)
+- Name: '@azure/keyvault-keys'
+  Version: 4.7.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.7.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where cryptographic operations would fail if the client did not have the get permission on the key, even if it had permission for the underlying operation. Issue [#26001](https://github.com/Azure/azure-sdk-for-js/issues/26001); PR [#26016](https://github.com/Azure/azure-sdk-for-js/issues/26016)
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.2/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where the customer-passed options for credentials were overwritten by the defaults values.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.13
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.13/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update opentelemetry/instrumentation packages.
+    - Add support for Application Insights log events.
+    - Add AiCloudRole and AiCloudRoleInstance to OTel Resource event.
+    - Add OTel resource metric envelope.
+    - Add OpenTelemetry Log Exporter
+    - Use Kubernetes resource attributes to populate cloud role and role instance.
+- Name: '@azure/eventgrid'
+  Version: 4.13.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.13.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ContainerService.ClusterSupportEnded`
+    - `Microsoft.ContainerService.ClusterSupportEnding`
+    - `Microsoft.ContainerService.NodePoolRollingFailed`
+    - `Microsoft.ContainerService.NodePoolRollingStarted`
+    - `Microsoft.ContainerService.NodePoolRollingSucceeded`
+- Name: '@azure/event-hubs'
+  Version: 5.11.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds an option to set an identifier for Event Hubs clients.
+    - Adds a property on each Event Hub client that returns the identifier of the client.
+- Name: '@azure/monitor-query'
+  Version: 1.1.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the ISO8601 value for `twentyFourHours`to `PT24H`, instead of the incorrect `P24H` under `Durations` object.
+    - Fixed the ISO8601 value for `fortyEightHours`to `PT48H`, instead of the incorrect `P48H` under `Durations` object.
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.3.0-alpha.20230517.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-alpha.20230517.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for the API version 2023-04-01-preview.
+    - Renamed sip Patch operation to Update operation
 

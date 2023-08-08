@@ -8,7 +8,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20230428.1
+      ref: refs/tags/azure-sdk-tools_20230607.1
 
 parameters:
 - name: UpdateDeprecated
@@ -73,7 +73,7 @@ steps:
   displayName: Installing Inventory Dashboard Data Scripts Dependencies
 
 - bash: |
-    npm run start
+    npm run start $(System.DefaultWorkingDirectory)/azure-rest-api-specs/specification
   workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
   displayName: Run Inventory Dashboard Data Scripts
 

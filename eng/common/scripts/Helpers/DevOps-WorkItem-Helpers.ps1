@@ -838,7 +838,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
     }
     else
     {
-      # Check for any date update, general case would from previous Unknown to date
+      # Check for any date update, general case would from be previous Unknown to date
       if ($shippedVersionSet[$version.Version].Date -ne $version.Date)
       {
         $shippedVersionSet[$version.Version] = $version
