@@ -411,7 +411,7 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-service-methods-sync-and-async" %} provide both asynchronous and synchronous variants for all service methods.
 
-Many developers want to port existing applications to the Cloud. These applications are often synchronous, and the cost of rewriting them to be asynchronous is usually prohibitive. Calling asynchronous APIs from synchronous methods can only be done through a technique called [_sync-over-async_, which can cause deadlocks](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/).  The Azure SDK provides synchronous APIs to minimize friction when porting existing application to Azure.
+Many developers want to port existing applications to the Cloud. These applications are often synchronous, and the cost of rewriting them to be asynchronous is usually prohibitive. Calling asynchronous APIs from synchronous methods can only be done through a technique called [_sync-over-async_, which can cause deadlocks](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/). The Azure SDK provides synchronous APIs to minimize friction when porting existing application to Azure. Synchronous methods should not use explicit multithreading or background tasks to parallelize.  Concurrent processing should only be used by asynchronous methods.
 
 {% include requirement/MUST id="dotnet-service-methods-naming" %} ensure that the names of the asynchronous and the synchronous variants differ only by the _Async_ suffix.
 
