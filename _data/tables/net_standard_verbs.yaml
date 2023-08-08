@@ -20,6 +20,10 @@ entries:
     Parameters: key, item
     Returns: item
     Comments: Retrieves one or more resources. Returns empty set if no resources found.
+  - Verb: Get\<resource_name>IfExists
+    Parameters: key
+    Returns: item, if exists
+    Comments: Retrieves a resource if it exists. Returns ```NullableResponse<T>``` in which ```HasValue``` indicates whether or not the item was returned.
   - Verb: Delete
     Parameters: item
     Returns: item
@@ -27,7 +31,7 @@ entries:
   - Verb: Remove
     Parameters: index, item
     Returns: item
-    Comments: Remove a reference to a resource from a collection. This method doesn’t delete the actual resource, only the reference.
+    Comments: Remove a reference to a resource from a collection. This method does not delete the actual resource, only the reference.
   - Verb: \<resource_name>Exists
     Parameters: key
     Returns: item
