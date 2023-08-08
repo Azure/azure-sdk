@@ -7,10 +7,11 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20220404.3
+      ref: refs/tags/azure-sdk-tools_20230607.1
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'azsdk-pool-mms-ubuntu-2204-general'
+  vmImage: 'ubuntu-22.04'
 
 variables:
   BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
@@ -26,8 +27,6 @@ steps:
   displayName: Cache gems
 
 - task: UseRubyVersion@0
-  inputs:
-    versionSpec: '2.7.x'
   displayName: Initialize Ruby
 
 - script: |

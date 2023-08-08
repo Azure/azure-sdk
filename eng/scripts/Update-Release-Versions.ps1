@@ -86,7 +86,7 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$skipIfNA -or $pkg.MSDocs -eq "")
   {
     $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
-    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package $pkg.VersionGA
+    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
     if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
       $msdocLink += $preSuffix
@@ -168,9 +168,9 @@ function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
     }
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
-    $committeDate = $gaVersion.Date
+    $committeDate = $gaVersion.Date -as [DateTime]
 
-    if ($committeDate -is [DateTime]) {
+    if ($committeDate) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
       Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
       return $committeDate
@@ -233,7 +233,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionGA -ne $version) {
       if (CheckRequiredLinks $langLinkTemplates $pkg $version){
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        Write-Host "Updating VersionGA for '$($pkg.Package)' from '$($pkg.VersionGA)' to '$version'"
         $pkg.VersionGA = $version;
       }
       else {
@@ -261,13 +261,14 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionPreview -ne $version) {
       if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        Write-Host "Updating VersionPreview for '$($pkg.Package)' from '$($pkg.VersionPreview)' to '$version'"
         $pkg.VersionPreview = $version;
       }
       else {
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
+
     CheckOptionalLinks $langLinkTemplates $pkg
   }
 }
@@ -308,7 +309,35 @@ function CheckAll($langs)
   {
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
     $csvFile = Get-LangCsvFilePath $lang
-
+    $allClientPackages = Get-PackageListForLanguage $lang
+ 
+    foreach ($pkg in $allClientPackages){
+      if(($pkg.Support -eq "deprecated")) {
+        if (!$pkg.EOLDate -or $pkg.EOLDate -eq "NA")
+        {
+          Write-Warning "No EOLDate specified for deprecated package '$($pkg.Package)' in $csvFile."
+          $foundIssues = $true
+        }
+        if (!$pkg.Replace)
+        {
+          Write-Warning "No replacement package specified for deprecated package '$($pkg.Package)' in $csvFile."
+          Write-Warning "If the package name hasn't changed, copy the package name to the replacement library field."
+          $foundIssues = $true
+        }
+        # If a replacement package exists, check if the replacement name matches the deprecated name.
+        # Skip the migration guide check if the names are the same.
+        elseif ($pkg.Replace -ne $pkg.Package)
+        {
+          if (!$pkg.ReplaceGuide)
+          {
+            Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
+            Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
+            $foundIssues = $true
+          }
+        }
+      }
+    }
+    
     foreach ($pkg in $clientPackages)
     {
       $serviceNames += [PSCustomObject][ordered]@{
@@ -355,7 +384,16 @@ function CheckAll($langs)
   $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
-  $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+  foreach ($service in $serviceGroups)
+  {
+    $languages = $service.Group.Lang | Sort-Object -Unique
+    $pkgGroups = $service.Group.PkgInfo | Group-Object DisplayName
+    Write-Host "$($service.Name) [$($languages -join ', ')]"
+    foreach ($pg in $pkgGroups)
+    {
+      Write-Host "        $($pg.Name) [$($pg.Group.Package -join ', ')]"
+    }
+  }
 
   if ($foundIssues) {
     Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."

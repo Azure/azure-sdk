@@ -9,10 +9,11 @@ sidebar: general_sidebar
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
 * `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][README-EXAMPLE])
-* `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com. 
-* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. 
-* `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. 
-* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer. 
+* `TROUBLESHOOTING.md` - Resides in the root of your library's directory within the SDK repository. Includes troubleshooting guidance used by customers and the Customer Service & Support (CSS) group.
+* `API reference` - Generated from the docstrings in your code; published on learn.microsoft.com.
+* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart.
+* `Quickstart` - Article on learn.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer.
+* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on learn.microsoft.com; typically written by your service's content developer.
 
 {% include requirement/MUST id="general-docs-contentdev" %} include your service's content developer in the Architecture Board review for your library. To find the content developer you should work with, check with your team's Program Manager.
 

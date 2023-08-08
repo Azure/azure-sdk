@@ -1,0 +1,389 @@
+entries:
+- Name: '@azure/core-http'
+  Version: 2.3.2
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.3.2/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade dependency `xml2js` version to `^0.5.0`.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.12
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.12/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Use Prefix/Distro version if available.
+    - Remove standard metrics custom handling.
+    - Remove mapped Span attributes and remaining as properties.
+    - Updated OpenTelemetry dependencies to their latest available versions.
+- Name: '@azure/core-util'
+  Version: 1.3.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.3.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - UUID fix for older versions of Node.js
+    - [#25501](https://github.com/Azure/azure-sdk-for-js/issues/25501)
+    - [#25541](https://github.com/Azure/azure-sdk-for-js/issues/25541)
+    - [#25538](https://github.com/Azure/azure-sdk-for-js/issues/25538)
+    - [#25532](https://github.com/Azure/azure-sdk-for-js/issues/25532)
+- Name: '@azure/identity'
+  Version: 3.2.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.0-beta.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added configurable process timeout for dev-time credentials - `AzureCLI Credential`, `AzurePowershell Credential` and `AzureDeveloperCLI Credential`.
+
+    #### Bugs Fixed
+
+    - Fixed a bug in `WorkloadIdentity Credential`, to incorporate the case where the options can be `undefined` in a conditional check. Related issue [#25089](https://github.com/Azure/azure-sdk-for-js/issues/25089) with the fix [#25119](https://github.com/Azure/azure-sdk-for-js/pull/25119).
+    - Exported `WorkloadIdentityDefaultCredentialOptions` which was previously not publicly exported in `index.ts`.
+- Name: '@azure/arm-voiceservices'
+  Version: 1.0.0
+  DisplayName: Resource Management - Voiceservices
+  ServiceName: Voiceservices
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-voiceservices_1.0.0/sdk/voiceservices/arm-voiceservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-translation-text'
+  Version: 1.0.0-beta.1
+  DisplayName: Text Translation
+  ServiceName: Text Translation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-text_1.0.0-beta.1/sdk/translation/ai-translation-text-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Text Translation - [Translate API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate)
+    - Added support for Text Transliteration - [Transliterate API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)
+    - Added support for Finding Sentence Boundaries - [FindSentenceBoundaries API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)
+    - Added support for Getting the Supported Languages - [GetLanguages API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)
+    - Added support for Looking up the Dictionary Entries - [LookupDictionaryEntries API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup)
+    - Added support for Looking up the Dictionary Examples - [LookupDictionaryExamples API](https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-examples)
+- Name: '@azure/arm-containerinstance'
+  Version: 9.1.0-beta.2
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.4.0-beta.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 18.0.0-beta.3
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub'
+  Version: 5.2.0-beta.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-postgresql-flexible'
+  Version: 7.1.0
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_7.1.0/sdk/postgresql/arm-postgresql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-authorization'
+  Version: 9.0.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confidentialledger'
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_1.3.0-beta.1/sdk/confidentialledger/arm-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elastic'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_1.0.0-beta.2/sdk/elastic/arm-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerinstance'
+  Version: 9.1.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 18.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.4.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.4.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - "\0" as the `labelFilter` in the listing methods `AppConfgurationClient#listConfigurationSettings` would return the settings without any labels. Docs were updated to reflect that.
+    [#21309](https://github.com/Azure/azure-sdk-for-js/pull/21039)
+    - [#25463](https://github.com/Azure/azure-sdk-for-js/pull/25463) If the app configuration endpoint ends withs a slash(`/`), the requests made using the `AppConfigurationClient` hit 401 error owing to `Bearer error="invalid_token", error_description="Authorization token failed validation"`. The issue is fixed as part of [#20766](https://github.com/Azure/azure-sdk-for-js/pull/20766).
+
+    #### Features Added
+    - Added dependency on `@azure/logger` to help with debugging. [#23860](https://github.com/Azure/azure-sdk-for-js/pull/23860)
+- Name: '@azure/arm-iothub'
+  Version: 6.3.0-beta.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 3.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-security'
+  Version: 6.0.0-beta.4
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/opentelemetry-instrumentation-azure-sdk'
+  Version: 1.0.0-beta.3
+  DisplayName: OpenTelemetry Instrumentation
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.3/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated to latest OTEL libraries
+- Name: '@azure/arm-imagebuilder'
+  Version: 3.0.0
+  DisplayName: Resource Management - Image Builder
+  ServiceName: Image Builder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_3.0.0/sdk/imagebuilder/arm-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appconfiguration'
+  Version: 4.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 2.3.0-beta.1
+  DisplayName: 'Resouce Management - Redis Enterprise '
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_2.3.0-beta.1/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 15.4.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-workloads'
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloads
+  ServiceName: Workloads
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloads_1.0.0/sdk/workloads/arm-workloads/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourceconnector'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Resource Connector
+  ServiceName: Resource Connector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourceconnector_1.0.0-beta.3/sdk/resourceconnector/arm-resourceconnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.10.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.10.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a memory leak issue of linked child abort signals not being released.
+- Name: '@azure/monitor-query'
+  Version: 1.1.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.0-beta.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Resource centric query logs api for `LogsIngestionClient`.
+- Name: '@azure/arm-paloaltonetworksngfw'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Paloaltonetworksngfw
+  ServiceName: Paloaltonetworksngfw
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.0.0-beta.1/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.5.3
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.5.3/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Include detailed error information in failed polling error messages.
+- Name: '@azure-rest/core-client'
+  Version: 1.1.3
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.3/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add loggingOptions in ClientOptions for logger support.
+- Name: '@azure/core-util'
+  Version: 1.3.2
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.3.2/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where `randomUUID()` is not exported for react-native [issue #25754](https://github.com/Azure/azure-sdk-for-js/issues/25754)
+- Name: '@azure/monitor-query'
+  Version: 1.0.4
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.4/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the ISO8601 value for `twentyFourHours`to reflect `P24H`, instead of `P1D` under `Durations` object.
+- Name: '@azure/monitor-query'
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Resource centric query logs api for `LogsIngestionClient` from (`1.1.0-beta.1` release).
+- Name: '@azure/identity'
+  Version: 3.2.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `developerCredentialTimeOutInMs` to `processTimeoutInMs` in `DefaultAzureCredentialOptions`.
+    - Renamed `federatedTokenFilePath` to `tokenFilePath` under `WorkloadIdentityOptions`.
+- Name: '@azure/identity'
+  Version: 3.2.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed a bug in `WorkloadIdentity Credential`, to incorporate the case where the options can be `undefined` in a conditional check.
+    Related issue [#25827](https://github.com/Azure/azure-sdk-for-js/issues/25827) with the fix [#25829](https://github.com/Azure/azure-sdk-for-js/pull/25829).
+- Name: '@azure/container-registry'
+  Version: 1.1.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    Since `1.1.0-beta.3`:
+    - The manifest property on GetManifestResult is now `Record<string, unknown>` instead of OciImageManifest. This property is now populated regardless of the media type of the manifest, instead of only being populated when the manifest was an OCI image manifest.
+    - Added an `isOciImageManifest` type guard to check if a manifest is an OCI image manifest, providing strong typing.
+    - Renamed properties on `OciImageManifest`, `OciDescriptor`, and `OciAnnotations` to match the specification exactly:
+    - Renamed `OciAnnotations.createdOn` to `created`.
+    - Renamed `OciDescriptor.sizeInBytes` to `size`.
+    - Renamed `OciImageManifest.configuration` to `config`.
+    - Removed `GetOciImageManifestResult` and the corresponding type guard, `isGetOciImageManifestResult`.
+
+    #### Features Added
+    - Added `ContainerRegistryContentClient` for uploading and downloading OCI blobs and manifests.
+

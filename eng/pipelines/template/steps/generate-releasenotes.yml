@@ -54,16 +54,15 @@ steps:
     displayName: Set Release Period Value
 
   - pwsh: |
-      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
-      -ForkRepoOwner "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
-    displayName: Clean Up Stale Branches
-
-  - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
       git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
+
+  - pwsh: |
+      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -UpstreamRepoId "Azure/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+    displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
@@ -116,3 +115,11 @@ steps:
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
         ScriptDirectory: $(AzureSDKToolsScriptsPath)
+
+    - pwsh: |
+        gh pr merge $(Submitted.PullRequest.Number) --auto --squash
+      condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+      displayName: Apply AutoMerge to Pull Request
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
+      env:
+        GH_TOKEN: $(azuresdk-github-pat)

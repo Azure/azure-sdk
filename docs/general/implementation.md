@@ -45,7 +45,7 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST id="general-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="general-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable.
 
 {% include requirement/MUST id="general-config-envvars-format" %} use this syntax for environment variables specific to a particular Azure service:
 
@@ -75,13 +75,13 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 {% include requirement/MUST id="general-requests-implement-policies" %} implement the following policies in the HTTP pipeline:
 
-- Telemetry
-- Unique Request ID
-- Retry
-- Authentication
-- Response downloader
-- Distributed tracing
-- Logging
+* Telemetry
+* Unique Request ID
+* Retry
+* Authentication
+* Response downloader
+* Distributed tracing
+* Logging
 
 {% include requirement/SHOULD id="general-requests-use-azurecore-impl" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
@@ -129,7 +129,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="general-logging-pluggable-logger" %} support pluggable log handlers.
 
-{% include requirement/MUST id="general-logging-console-logger" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
+{% include requirement/MUST id="general-logging-console-logger" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented.
 
 {% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: `Verbose` (details), `Informational` (things happened), `Warning` (might be a problem or not), and `Error`.
 
@@ -197,14 +197,21 @@ Some of these requirements will be handled by the HTTP pipeline.  However, as a 
 
 ## Dependencies
 
-Dependencies bring in many considerations that are often easily avoided by avoiding the 
-dependency. 
+Azure services should not require customers to use more than HTTP and JSON (where a JSON string is either a "pure" string or else parseable/formattable as either an RFC 3339 Date/Time, a UUID, or a Base-64 encoded bytes).  This is in order to minimize the learning curve for customers, increase potential customer reach, as well as reduce support costs for Microsoft (a tenet that the Azure review boards are chartered to oversee and manage).  Azure SDK Languages have already selected libraries to assist with these technologies.
 
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
-- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
-- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
-- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
+If a service needs a technology beyond that which has already been selected, the following process can be used:
+
+* First, the service team can petition the Azure API Stewardship Board to approve technologies that require client-side components.  This must be done early in the design process.  The petitioning team must gather relevant data to justify the critical business need (e.g. competitive advantage, widespread adoption and/or support in the community, improved performance, etc.), why that need cannot reasonably be fulfilled via REST & JSON, the future viability and sustainability of the technology, as well as documentation for the cases/conditions where use of the new technology is indicated.   Evaluation includes a discussion of impact across all languages, especially those supported by Azure SDKs.
+
+* Having gained approval, then to avoid issues with SDKs taking hard dependencies on 3rd party libraries such as versioning, quality, and security issues in code that Microsoft does not own and cannot control, SDKs can offer an extensibility point allowing the end-customer to integrate the 3rd-party library and version they desire into the SDK.  In this case, the SDK’s documentation must have examples showing a customer how to do this correctly for each SDK language.  
+
+The following are considerations that will be discussed in any petition to include additional technologies:
+
+* **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
+* **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+* **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+* **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+* **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
 {% include requirement/MUST id="general-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
 
@@ -214,7 +221,7 @@ dependency.
 
 {% include requirement/MUSTNOT id="general-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
-Language specific guidelines will maintain a list of approved dependencies.
+The above considerations may differ in degree between languages, and so it's important to check the approved dependencies and guidelines for any given language early in the design phase.  (Also note that, in some rare cases, the Azure SDK Architecture Board may opt to take a hard dependency on an additional third party library if, after substantial vetting, the board believes that there is minimal risk to supporting our customers in a sustained manner by doing so.)
 
 ## Service-specific common library code
 

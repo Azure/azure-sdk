@@ -1,4 +1,4 @@
-{% if item.Replace != "" %}
+{% if item.Replace != "" and item.Replace != "NA" %}
     {% if item.New != "true" %}
     <div class="replacement"><small>Replaced By:
     {% assign replaceItems = item.Replace | split: "," %}
@@ -9,7 +9,7 @@
         <li><a href="{{ package_root_url }}">{{ replaceItemS }}</a></li>
     {% endfor %}
     </ul>
-    {% if item.ReplaceGuide != "" %}
+    {% if item.ReplaceGuide != "" and item.ReplaceGuide != "NA" %}
     See <a href="{{ item.ReplaceGuide }}">migration guide</a>.
     {% endif %}
     </small>

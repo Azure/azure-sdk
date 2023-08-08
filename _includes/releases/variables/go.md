@@ -4,6 +4,6 @@
 {% assign pre_suffix = "" %}
 {% assign package_root_url_template = "https://github.com/Azure/azure-sdk-for-go/tree/main/item.Package" %}
 {% assign package_url_template = "https://github.com/Azure/azure-sdk-for-go/tree/item.Package/vitem.Version/sdk/item.RepoPath/" %}
-{% assign msdocs_url_template = "https://docs.microsoft.com/go/api/overview/azure/item.TrimmedPackage-readme" %}
+{% assign msdocs_url_template = "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/item.Package" %}
 {% assign ghdocs_url_template = "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/item.Package@vitem.Version" %}
 {% assign source_url_template = "https://github.com/Azure/azure-sdk-for-go/tree/item.Package/vitem.Version/sdk/item.RepoPath/" %}

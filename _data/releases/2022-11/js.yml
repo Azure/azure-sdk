@@ -101,4 +101,284 @@ entries:
 
     - Added the ability to disable Azure SDK Spans from being recorded by setting the `AZURE_TRACING_DISABLED` environment variable to true.
     - Added support for `AZURE_HTTP_TRACING_CHILDREN_DISABLED` environment variable which allows disabling all children of our core HTTP spans from being recorded.
+- Name: '@azure/arm-elasticsan'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.1/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.9
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.9/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Azure Monitor OpenTelemetry Metrics Exporter Configuration updated.
+
+
+    #### Bugs Fixed
+
+    - Suppress tracing while exporting metrics.
+    - Envelopes not populating sampleRate correctly.
+
+    #### Features Added
+
+    - Application Insights Sampler.
+    - Added retriable behavior for 502, 503 and 504 status codes.
+    - Export Metric attributes and Histogram Min/Max values.
+    - Added new config options disableOfflineStorage, storageDirectory and exposed ApplicationInsightsClientOptionalParams for HTTP client extra configuration.
+- Name: '@azure/arm-nginx'
+  Version: 2.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_2.0.0/sdk/nginx/arm-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 7.1.0
+  DisplayName: Resource Management - Redis Cache
+  ServiceName: Redis Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-avs'
+  Version: 3.2.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/load-testing'
+  Version: 1.0.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0-beta.1/sdk/loadtestservice/load-testing-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Initial release of the Azure LoadTesting package
+- Name: '@azure/communication-common'
+  Version: 2.2.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.2.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the logic of `getIdentifierRawId` and `createIdentifierFromRawId` for `PhoneNumberIdentifier` to always maintain the original phone number string whether it included the leading `+` sign or not.
+
+    #### Features Added
+
+    - Optimized the logic for deserializing types derived from the `CommunicationIdentifier`.
+- Name: '@azure/core-amqp'
+  Version: 3.2.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.2.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix React-Native bundling issue by adding a `react-native` mapping to ESM entrypoint file. (PR #23524)[https://github.com/Azure/azure-sdk-for-js/pull/23524]
+- Name: '@azure/core-paging'
+  Version: 1.4.0
+  DisplayName: Core - Paging
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.4.0/sdk/core/core-paging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `toElements` function to convert a page to a list of elements
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.10.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.10.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where policies added to a cloned Pipeline would also be added to the original (and vice versa) until policies were removed from either. [#23316](https://github.com/Azure/azure-sdk-for-js/pull/23316)
+- Name: '@azure/core-http'
+  Version: 2.3.0
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.3.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for `x-ms-text` [PR# 23631](https://github.com/Azure/azure-sdk-for-js/pull/23631)
+- Name: '@azure/identity'
+  Version: 3.0.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.0.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug to enable `additionallyAllowedTenants` to pass through to MSAL Flow.
+- Name: '@azure/maps-search'
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.2/sdk/maps/maps-search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Correct the type declaration file generation.
+- Name: '@azure/maps-common'
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Common
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-common_1.0.0-beta.2/sdk/maps/maps-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Correct the path of type declation files.
+- Name: '@azure/eventgrid'
+  Version: 4.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.11.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.HealthcareApis.DicomImageCreated`
+    - `Microsoft.HealthcareApis.DicomImageDeleted`
+- Name: '@azure/service-bus'
+  Version: 7.7.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix React-Native bundling issue by adding a `react-native` mapping to ESM entrypoint file. (PR #23524)[https://github.com/Azure/azure-sdk-for-js/pull/23524]
+- Name: '@azure/identity'
+  Version: 3.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.1.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Docs improvements for cross-language alignment
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.1
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.1/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial Release
+- Name: '@azure/keyvault-common'
+  Version: 1.0.0-beta.1
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0-beta.1/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the keyvault-common package. The package is intended for internal consumption only and only exposes
+    helpers and other common code used by the Key Vault SDKs.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.10
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.10/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add network Statsbeat Metrics.
+- Name: '@azure/arm-hybridcontainerservice'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcontainerservice_1.0.0-beta.1/sdk/hybridcontainerservice/arm-hybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-http'
+  Version: 2.3.1
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.3.1/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Undo PR #23660 so that released listing blobs works again in storage-blob.
+- Name: '@azure/keyvault-admin'
+  Version: 4.4.0-beta.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyVaultSettingsClient` to get and update Managed HSM settings.
+    - Added support for service version `7.4-preview.1`.
+- Name: '@azure/keyvault-keys'
+  Version: 4.7.0-beta.1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.7.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for [Octet Key Pair (OKP)](https://datatracker.ietf.org/doc/html/rfc8037) key types as well as `sign`, `verify`, `signData`, and `verifyData` cryptography operations when using OKP keys.
+    - Added support for the Ed25519 curve for the creation of OKP keys.
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0-beta.1
+  DisplayName: DevCenter
+  ServiceName: DevCenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.1/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Initial release of the Azure DevCenter package
 

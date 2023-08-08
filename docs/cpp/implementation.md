@@ -820,7 +820,7 @@ endif()
 
 * [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
 * [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
-* [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
+* [GNU C compiler extensions](https://gcc.gnu.org/extensions.html)
 
 Use the appropriate options for each compiler to prevent the use of such extensions.
 
