@@ -593,6 +593,82 @@ The `PagedAsyncCollection.forEachPage()` offers an overload to accept a `continu
 
 {% include requirement/MUSTNOT id="android-pagination-large-get-iterator" %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
 
+#### Event handling
+
+Android applications commonly need to react to events from the UI or service. The following guidelines apply to client libraries that provide APIs to handle events.
+
+##### Event Handlers
+
+{% include requirement/MAY id="android-event-handler-mutable" %} allow users to add and remove individual event handlers after client instantiation through the `add` and `remove` methods detailed below. This is not considered to be mutating the state of the client.
+
+{% include requirement/MUST id="android-event-handler-registration" %} register event handlers on clients via methods whose names start with the `addOn` prefix and end with the `Handler` suffix.
+
+{% include requirement/MUST id="android-event-handler-registration-arguments" %} define event handler methods as taking a single argument of type `EventHandler` (from Azure Core). This argument must be named `handler`.
+
+```java
+public void addOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
+    ...
+}
+```
+
+{% include requirement/MUST id="android-event-handler-removal" %} provide methods for unregistering event handlers whose names start with the `removeOn` prefix and end with the `Handler` suffix. said methods method must take one argument named `handler`.
+
+```java
+public void removeOnMessageReceivedHandler(EventHandler<MessageReceivedEvent> handler) {
+    ...
+}
+```
+
+{% include requirement/SHOULD id="android-group-event-details" %} bundle together event details to pass to an event handler via an instance of a class whose name ends with the `Event` suffix. For example:
+
+```java
+public static class MessageReceivedEvent {
+    private String messageId;
+    private String userId;
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public MessageReceivedEvent setMessageId(String messageId) {
+        this.messageId = messageId;
+
+        return this;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public MessageReceivedEvent setUserId(String userId) {
+        this.userId = userId;
+
+        return this;
+    }
+}
+```
+
+{% include requirement/MAY id="android-event-details-other-classes" %} instead provide other types of objects to event handlers when grouping event details together is not necessary. For example:
+
+```java
+public void addOnAlertTriggeredHandler(EventHandler<String> handler) {
+    ...
+}
+
+...
+
+EventHandler<String> alertTriggeredHandler = new EventHandler<String>() {
+    @Override
+    public void handle(String timestamp) {
+        ...
+    } 
+}
+
+...
+
+client.addOnAlertTriggeredHandler(alertTriggeredHandler);
+```
+
 #### Methods Invoking Long Running Operations
 
 Long-running operations are uncommon in a mobile context. If you feel like you need long running operations, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
