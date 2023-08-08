@@ -328,4 +328,14 @@ entries:
     - `ProcessSessionMessageEventArgs` provides a `SessionLockLostAsync` event that can be subscribed to in
     order to be notified when the session lock is lost.
     - A constructor for `ServiceBusMessage` taking an `AmqpAnnotatedMessage` has been added.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.2.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added custom page sizes to PurchasedPhoneNumbers, Countries, Localities, AreaCodes and Offerings.
 
