@@ -349,4 +349,41 @@ entries:
     #### Features Added
 
     - Added `SchemaRegistrySerializer` which serializes using JSON by default.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.14
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.14/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue causing no telemetry if SDK Version string exceeds max length.
+    ([#37807](https://github.com/Azure/azure-sdk-for-net/pull/37807))
+
+    #### Breaking Changes
+
+    * Location ip on server spans will now be set using `client.address` tag key on
+    activity instead of `http.client_ip`.
+    ([#37707](https://github.com/Azure/azure-sdk-for-net/pull/37707))
+    * Removing `ServiceVersion.V2020_09_15_Preview`. This is no longer in use and
+    the exporter has already defaulted to the latest `ServiceVersion.v2_1`.
+    ([#37996](https://github.com/Azure/azure-sdk-for-net/pull/37996))
+    * Remove Nullable Annotations from the Exporter's public API.
+    ([#37996](https://github.com/Azure/azure-sdk-for-net/pull/37996))
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.6
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.6/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `Resource` to traces, logs, and metrics with default configuration.
+    ([#37837](https://github.com/Azure/azure-sdk-for-net/pull/37837))
+    * Added resource detection for `Azure App Service` and `Azure Virtual Machine` environment. .
+    ([#37837](https://github.com/Azure/azure-sdk-for-net/pull/37837))
 
