@@ -338,4 +338,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added custom page sizes to PurchasedPhoneNumbers, Countries, Localities, AreaCodes and Offerings.
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.4.0-beta.2
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.4.0-beta.2/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SchemaRegistrySerializer` which serializes using JSON by default.
 
