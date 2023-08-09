@@ -182,7 +182,6 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         let sdkName: string = "Unable to determine Service Name";
         // if the serviceDir maps to a key in ../data-and-rules/apiSpecMap.json, and it's value object has an api-display-name property, with a property that matches the apiSpecDir, use the value of that property as the sdkName
         if (typeof apiSpecMap[serviceDir] === 'object' && apiSpecMap[serviceDir].hasOwnProperty('api-display-names') && typeof apiSpecMap[serviceDir]['api-display-names'] === 'object' && apiSpecMap[serviceDir]['api-display-names'].hasOwnProperty(apiSpecDir)) {
-          log.atn(`apiSpecMap[serviceDir]['api-display-names'][apiSpecDir]: ${apiSpecMap[serviceDir]['api-display-names'][apiSpecDir]}`);
           sdkName = apiSpecMap[serviceDir]['api-display-names'][apiSpecDir];
         } else {
           // if apiSpecDir is data-plane or resource-manager, sdkName should be the same as serviceName, else it should be the same as apiSpecDir

@@ -74,6 +74,70 @@ public final class ConfigurationClientBuilder { ... }
 
 This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
 
+#### Event Handling
+
+##### Event Handlers
+
+{% include requirement/SHOULD id="android-event-handler-collection" %} use Azure Core's `EventHandlerCollection` internally to keep track of registered event handlers and their associations with different event types within a client.
+
+{% include requirement/MUST id="android-event-types" %} declare event types to associate event handlers with as package-private client constants of the type `String`.
+
+```java
+public class MessagingClient {
+    static final String MESSAGE_SENT = "MessageSent";
+    static final String MESSAGE_RECEIVED = "MessageReceived";
+
+    private final String userId;
+    private final MessagingClientImpl innerClient;
+    private final EventHandlerCollection eventHandlerCollection;
+
+    public MessagingClient(String userId) {
+        this.userId = userId;
+        this.innerClient = new MessagingClientImpl(userId);
+        this.eventHandlerCollection = new EventHandlerCollection();
+    }
+
+    public void addOnMessageSentEventHandler(EventHandler<MessageSentEvent> handler) {
+        eventHandlerCollection.addEventHandler(MESSAGE_SENT, handler);
+    }
+
+    public void addOnMessageReceivedEventHandler(EventHandler<MessageReceivedEvent> handler) {
+        eventHandlerCollection.addEventHandler(MESSAGE_RECEIVED, handler);
+    }
+
+    public void removeOnMessageSentEventHandler(EventHandler<MessageSentEvent> handler) {
+        eventHandlerCollection.removeEventHandler(MESSAGE_SENT, handler);
+    }
+
+    public void removeOnMessageReceivedEventHandler(EventHandler<MessageReceivedEvent> handler) {
+        eventHandlerCollection.removeEventHandler(MESSAGE_RECEIVED, handler);
+    }
+
+    public void sendMessage(Message message) {
+        innerClient.sendMessage(message);
+
+        MessageSentEvent messageSentEvent = new MessageSentEvent()
+                .setMessageId(UUID.newUUID())
+                .setTimestamp(new Date())
+                .setUserId(this.userId);
+
+        eventHandlerCollection.fireEvent(MESSAGE_SENT, messageSentEvent);
+    }
+
+    public void receiveMessages() {
+        for (Message message : innerClient.receiveMessages()) {
+            MessageReceivedEvent messageReceivedEvent = new MessageReceivedEvent()
+                    .setMessageId(message.getMessageId())
+                    .setTimestamp(message.getTimestamp())
+                    .setUserId(message.getUserId())
+                    .setContents(message.getContents());
+
+            eventHandlerCollection.fireEvent(MESSAGE_RECEIVED, messageReceivedEvent);
+        }
+    }
+}
+```
+
 ### Supporting Types
 
 #### Model Types

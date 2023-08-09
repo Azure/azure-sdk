@@ -111,6 +111,16 @@
     },
     {
         "Exception":"Library not needed in language",
+        "Service":"Communication",
+        "SDKs":{
+            "Communication Common":{
+                "Plane": "data",
+                "Languages":["Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Library not needed in language",
         "Service":"Event Hubs",
         "SDKs":{
             "Azure Blob Storage Checkpoint Store":{
@@ -173,7 +183,225 @@
         "SDKs":{
             "Resource Management - Windows IoT":{
                 "Plane": "mgmt",
+                "Languages": [".NET", "Java", "JavaScript", "Python"]
+            },
+            "Time Series Insights":{
+                "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "JavaScript", "Python"]
+            }
+        }
+    },
+    {
+        "Exception":"Track 2 library not needed",
+        "Service":"IoT",
+        "SDKs":{
+            "Digital Twins Device Client Preview":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Digital Twins Service":{
+                "Plane": "data",
+                "Languages": [".NET","JavaScript"]
+            },
+            "IoT AMQP Base":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Deps":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Device":{
+                "Plane": "data",
+                "Languages": ["Python"]
+            },
+            "IoT Edge - Gateway - Java Binding":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge - Gateway - Linux":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge - Gateway - Module Base":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge - Gateway - Module Simple":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge - Gateway - Win32":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge Archetype":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Edge Function":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "IoT Http Base":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub":{
+                "Plane": "data",
+                "Languages": ["JavaScript","Python"]
+            },
+            "IoT Hub - IoT Common":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub - IoT Device":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub - Security Provider":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Hub - TPM Provider":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Hub - X509 Provider":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "IoT Hub Device Provisioning":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub Device Provisioning - AMQP":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub Device Provisioning - Http":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Hub Device Provisioning - MQTT":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Models Repository":{
+                "Plane": "data",
+                "Languages": [".NET","Java","JavaScript","Python"]
+            },
+            "IoT MQTT Base":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Plug and Play - Devices Client":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "IoT Plug and Play - IoT Device AMQP":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Plug and Play - IoT Device Http":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Plug and Play - IoT Device MQTT":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Security Symmetric Key":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Security TPM":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Security X509":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "IoT Service Client":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "iotedgedev":{
+                "Plane": "data",
+                "Languages": ["Python"]
+            },
+            "iotedgehubdev":{
+                "Plane": "data",
+                "Languages": ["Python"]
+            },
+            "Microsoft.Azure.Devices":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Authentication":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Client.PCL":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.ProtocolGateway.Core":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.ProtocolGateway.IotHubClient":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.ProtocolGateway.Providers.CloudStorage":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Provisioning.Client":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Provisioning.Security.Tpm":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Provisioning.Transport.Amqp":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Provisioning.Transport.Http":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Provisioning.Transport.Mqtt":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.Devices.Shared":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Microsoft.Azure.IoT.Edge.Module":{
+                "Plane": "data",
+                "Languages": [".NET"]
+            },
+            "Node Red Contrib Azure IoT Hub Node":{
+                "Plane": "data",
+                "Languages": ["JavaScript"]
+            },
+            "Provisioning Device Client":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Provisioning Service Client":{
+                "Plane": "data",
+                "Languages": ["Java"]
+            },
+            "Websocket Transport Layer":{
+                "Plane": "data",
+                "Languages": ["Java"]
             }
         }
     },
@@ -182,6 +410,16 @@
         "Service":"Key Vault",
         "SDKs":{
             "Key Vault":{
+                "Plane": "data",
+                "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
+            }
+        }
+    },
+    {
+        "Exception":"API Spec does not map to valid libraries",
+        "Service":"Log Analytics",
+        "SDKs":{
+            "Log Analytics":{
                 "Plane": "data",
                 "Languages": ["Go", ".NET", "Java", "Python", "JavaScript"]
             }

@@ -1,0 +1,44 @@
+# This pipeline updates an internal database used for visualizing package release statistics
+
+pr: none
+
+trigger: none
+
+parameters:
+- name: Languages
+  type: string
+  default: '"java", "dotnet", "python", "javascript", "golang", "cpp"'
+- name: DaysAgo
+  type: string
+  default: '730'
+- name: Table
+  type: string
+  default: PackageReleaseData
+- name: ClearTable
+  type: boolean
+  default: true
+- name: UpdateDatabase
+  type: boolean
+  default: true
+
+pool:
+  name: azsdk-pool-mms-ubuntu-2204-general
+  vmImage: ubuntu-22.04
+
+steps:
+- checkout: self
+
+- task: AzureCLI@2
+  displayName: 'Update Release Data'
+  inputs:
+    azureSubscription: Azure SDK Engineering System
+    scriptType: pscore
+    scriptPath: $(System.DefaultWorkingDirectory)/eng/scripts/Update-Azure-Package-Data.ps1
+    arguments: >
+      -github_pat $(azuresdk-github-pat)
+      -languages ${{ parameters.Languages }}
+      -daysAgo ${{ parameters.DaysAgo }}
+      -Table ${{ parameters.Table }}
+      -clearTable:$${{ parameters.ClearTable }}
+      -updateDatabase:$${{ parameters.UpdateDatabase }}
+

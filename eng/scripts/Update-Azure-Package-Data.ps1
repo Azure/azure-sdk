@@ -5,6 +5,7 @@ param (
   [array] $languages = @("java", "dotnet", "python", "javascript", "golang", "cpp"),
   [int] $daysAgo = 730,
   [string] $outPath = "package-data.csv",
+  [string] $table = 'PackageReleaseData',
   [switch] $clearTable,
   [switch] $updateDatabase
 )
@@ -328,11 +329,10 @@ function sendDataExplorerCommand([switch]$mgmt, [string]$query)
   return $resp
 }
 
-function Set-DataExplorer([switch]$clearTable)
+function Set-DataExplorer([string]$table, [switch]$clearTable)
 {
   $ErrorActionPreference = "Stop"
 
-  $table = 'BebroderTest'
   $packageBlob = 'https://azsdkpackagereleasedata.blob.core.windows.net/data/package-data.csv'
 
   if ($clearTable)
@@ -381,5 +381,5 @@ Set-Package-Data $Languages $daysAgo $outPath
 if ($updateDatabase)
 {
   az storage blob upload -f $outPath --account-name azsdkpackagereleasedata --container-name data --overwrite
-  Set-DataExplorer $clearTable
+  Set-DataExplorer $table $clearTable
 }
