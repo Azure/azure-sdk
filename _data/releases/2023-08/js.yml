@@ -380,4 +380,12 @@ entries:
     - `keyValuePairs`: enable the detection of general key value pairs (form fields) in the document.
     - `languages`: enables the detection of the text content language.
     - `beginBuildDocumentModel` has a new overload that accepts a `DocumentModelSource` in place of a raw `containerUrl`. This allows training document models using the new Blob File List source (that is already supported by document classifiers). Like with classifiers, the source inputs are specified as an object containing an `azureFileListSource` property or an `azureBlobSource` property containing the respective details of each source type.
+- Name: '@azure/schema-registry-json'
+  Version: 1.0.0-beta.1
+  DisplayName: Schema Registry Json
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-json_1.0.0-beta.1/sdk/schemaregistry/schema-registry-json/CHANGELOG.md
+  ChangelogContent: '- Initial preview release'
 
