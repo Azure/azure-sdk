@@ -595,4 +595,14 @@ entries:
     - Sync and async `JsonSchemaEncoder` have been added under `azure.schemaregistry.encoder.jsonencoder`.
     - `InvalidContentError` and `JsonSchemaDraftIdentifier` have been added under `azure.schemaregistry.encoder.jsonencoder` for use with the `JsonSchemaEncoder`.
     - `MessageType`, `MessageContent`, `SchemaContentValidate`, `SchemaEncoder` have been added under `azure.schemaregistry` as protocols to define/for use with the `JsonSchemaEncoder` and future encoder implementations.
+- Name: azure-confidentialledger
+  Version: 1.1.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.1.1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Allow some `ResourceNotFoundError` occurrences in `begin_wait_for_commit` to account for unexpected loss of session stickiness. These errors may occur when the connected node changes and transactions have not been fully replicated.
 
