@@ -2164,4 +2164,22 @@ entries:
     It can be used to build a document model from alternative content sources.
     - Added property `serviceVersion` to classes `AnalyzeResult`, `DocumentModelDetails`, `DocumentModelSummary`, `OperationDetails`, and `OperationSummary`.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.14.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.14.3/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed incorrect process span duration reported by `ServiceBusProcessorClient` when max concurrency is bigger than 1.
+    ([#35916](https://github.com/Azure/azure-sdk-for-java/issues/35916))
+
+    - Fixed the create-batch and send API to treat RequestResponseChannelClosedException as retriable and enabled retry for potential network call that create-batch makes. ([#34646](https://github.com/Azure/azure-sdk-for-java/issues/34646))
+
+    - Fixed mapping of `ServiceBusManagementError` to corresponding `AzureExceptions` in `ServiceBusAdministrationClient`. ([#33609](https://github.com/Azure/azure-sdk-for-java/issues/33609))
+
+    - Fixed issue causing updates to TopicProperties with AuthorizationRules to return 400 Bad request. ([#34880](https://github.com/Azure/azure-sdk-for-java/issues/34880))
+  GroupId: com.azure
 
