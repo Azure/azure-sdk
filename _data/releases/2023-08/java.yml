@@ -2130,4 +2130,38 @@ entries:
     #### Features Added
     - Added `BrowserCustomizationOptions` to `InteractiveBrowserCredentialBuilder` to allow for customization of the browser window.
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.3.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.3.0-beta.1/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `MetricsBatchQueryClient` and `MetricsBatchQueryAsyncClient` to support batch querying metrics.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.1.0
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.1.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `DocumentStyle` now correctly returns values for `font`, `similarFontFamily`, `backgroundColor`.
+
+    #### Breaking Changes
+    - `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target service API version `2023-07-31` by default. Version `2023-02-28-preview` is not supported anymore.
+    - In class `ResourceDetails`, renamed property `customNeuralDocumentModelBuilds` to `neuralDocumentModelQuota`.
+    - In class `DocumentClassifierDetails`, renamed property `apiVersion` to `serviceVersion`.
+
+    #### Features Added
+    - Added class `DocumentAnalysisFeature`, added properties `Barcodes`, `KeyValuePairs`, and `Languages` as add-on capabilities.
+    - Added class `ContentSource` as a base class to `BlobContentSource` and `BlobFileListContentSource`
+    - In `DocumentModelAdministrationClient`, added a new overload to `beginBuildDocumentModel` that takes a `ContentSource` object.
+    It can be used to build a document model from alternative content sources.
+    - Added property `serviceVersion` to classes `AnalyzeResult`, `DocumentModelDetails`, `DocumentModelSummary`, `OperationDetails`, and `OperationSummary`.
+  GroupId: com.azure
 
