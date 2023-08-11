@@ -27,8 +27,8 @@ Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvau
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
 Key Vault,0,Key Vault - Secrets ,data,C++,,,11,false,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
-Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/11/2023
-Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/11/2023
+Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,08/09/2023
 Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,04/05/2022
 Cognitive Services,0,Anomaly Detector,data,.NET,Microsoft.Azure.CognitiveServices.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.AnomalyDetector_1.0.0-preview.1/sdk/cognitiveservices/AnomalyDetector,1,false,Azure.AI.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector,3,false,1,
@@ -148,7 +148,7 @@ Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,.NET,,,11,f
 Confluent,0,Resource Management - Confluent,mgmt,.NET,Microsoft.Azure.Management.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confluent,10,false,1,
 Connected VMware vSphere,0,Resource Management - Connected VMware vSphere,mgmt,.NET,,,11,false,Azure.ResourceManager.ConnectedVMwarevSphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/connectedvmwarevsphere,3,false,1,
 Consumption,0,Resource Management - Consumption,mgmt,.NET,Microsoft.Azure.Management.Consumption,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/consumption/Microsoft.Azure.Management.Consumption,10,true,Azure.ResourceManager.Consumption,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/consumption,10,false,1,
-Container Apps,0,Resource Management - Container Apps,mgmt,.NET,,,11,false,Azure.ResourceManager.AppContainers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerapps,10,false,1,
+Container Apps,0,Resource Management - Container Apps,mgmt,.NET,,,11,false,Azure.ResourceManager.AppContainers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerapps,10,false,1,08/11/2023
 Container Instances,0,Resource Management - Container Instances,mgmt,.NET,Microsoft.Azure.Management.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,true,Azure.ResourceManager.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,false,1,
 Container Registry,0,Resource Management - Container Registry,mgmt,.NET,Microsoft.Azure.Management.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,true,Azure.ResourceManager.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,
 Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,
@@ -739,6 +739,7 @@ Cognitive Services,0,Anomaly Detector,data,Java,,,11,false,azure-ai-anomalydetec
 App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,07/26/2023
 Attestation,0,Attestation,data,Java,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/attestation,10,false,1,07/26/2023
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Java,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,07/26/2023
+Cosmos Spark,0,Azure Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,
 Maps,0,Azure Maps Elevation,data,Java,,,11,false,azure-maps-elevation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,true,1,
 Maps,0,Azure Maps Geolocation,data,Java,,,11,false,azure-maps-geolocation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
 Maps,0,Azure Maps TimeZone,data,Java,,,11,false,azure-maps-timezone,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
@@ -1835,6 +1836,10 @@ Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,P
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Go,,,11,false,Missing: Created from existing package: azure-identity-extensions,,2,false,0,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
+Cosmos Spark,0,Azure Cosmos Spark 3.4,data,.NET,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-4_2-12,,2,false,0,
+Cosmos Spark,0,Azure Cosmos Spark 3.4,data,JavaScript,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-4_2-12,,2,false,0,
+Cosmos Spark,0,Azure Cosmos Spark 3.4,data,Python,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-4_2-12,,2,false,0,
+Cosmos Spark,0,Azure Cosmos Spark 3.4,data,Go,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-4_2-12,,2,false,0,
 Storage,0,Storage - Blobs Cryptography,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Cryptography,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Cryptography,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
