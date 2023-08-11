@@ -67,7 +67,7 @@ entries:
   ChangelogContent: ""
 - Name: '@azure/arm-mysql-flexible'
   Version: 4.0.0-beta.1
-  DisplayName: '@azure/arm-mysql-flexible'
+  DisplayName: 'Resource Management - MySQL Flexible'
   ServiceName: Mysql-Flexible
   VersionType: Beta
   Hidden: false
@@ -443,4 +443,14 @@ entries:
 
     - Fixed the ISO8601 value for `twentyFourHours`to `PT24H`, instead of the incorrect `P24H` under `Durations` object.
     - Fixed the ISO8601 value for `fortyEightHours`to `PT48H`, instead of the incorrect `P48H` under `Durations` object.
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.3.0-alpha.20230517.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-alpha.20230517.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for the API version 2023-04-01-preview.
+    - Renamed sip Patch operation to Update operation
 

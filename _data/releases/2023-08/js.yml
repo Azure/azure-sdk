@@ -1,0 +1,443 @@
+entries:
+- Name: '@azure/arm-paloaltonetworksngfw'
+  Version: 1.0.0
+  DisplayName: Resource Management - Paloaltonetworksngfw
+  ServiceName: Paloaltonetworksngfw
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.0.0/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.5.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.5.0-beta.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the new preview API version `2022-11-01-preview`, added configuration settings snapshot feature that allows users to create a point-in-time snapshot of their configuration store.
+    [#24535](https://github.com/Azure/azure-sdk-for-js/pull/24535)
+- Name: '@azure/communication-chat'
+  Version: 1.3.2-beta.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.2-beta.3/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to `@azure/communication-common` 3.0.0-beta.1
+- Name: '@azure/arm-iotfirmwaredefense'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Iotfirmwaredefense
+  ServiceName: Iotfirmwaredefense
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotfirmwaredefense_1.0.0-beta.1/sdk/iotfirmwaredefense/arm-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dataprotection'
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_1.2.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-quantum'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Quantum
+  ServiceName: Quantum
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quantum_1.0.0-beta.1/sdk/quantum/arm-quantum/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 18.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kusto'
+  Version: 8.0.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-authorization'
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-beta.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Number Lookup API public preview
+    - API version `2023-05-01-preview` is the default
+- Name: '@azure/identity'
+  Version: 3.2.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.2.4/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed a bug related to [Managed Identity Credential intermixing wrong scopes](https://github.com/Azure/azure-sdk-for-js/pull/26566) for successive `getToken()` calls.
+- Name: '@azure/core-lro'
+  Version: 2.5.4
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.5.4/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support non-standard PATCH operations.
+- Name: '@azure/arm-hdinsight'
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 19.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 7.5.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 32.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 21.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elasticsan'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0-beta.2/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagemover'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_2.0.0-beta.1/sdk/storagemover/arm-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managednetworkfabric'
+  Version: 1.0.0
+  DisplayName: Resource Management - Managednetworkfabric
+  ServiceName: Managednetworkfabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managednetworkfabric_1.0.0/sdk/managednetworkfabric/arm-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.0.0-beta.2/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-webpubsub'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_2.0.0-beta.1/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-job-router'
+  Version: 1.0.0-beta.1
+  DisplayName: Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-job-router_1.0.0-beta.1/sdk/communication/communication-job-router/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Using `JobRouterAdministrationClient`
+    - Create, update, get, list and delete `DistributionPolicy`.
+    - Create, update, get, list and delete `RouterQueue`.
+    - Create, update, get, list and delete `ClassificationPolicy`.
+    - Create, update, get, list and delete `ExceptionPolicy`.
+    - Using `JobRouterClient`
+    - Create, update, get, list and delete `RouterJob`.
+    - `RouterJob` can be created and updated with different matching modes: `QueueAndMatchMode`, `ScheduleAndSuspendMode` and `SuspendMode`.
+    - Re-classify a `RouterJob`.
+    - Close a `RouterJob`.
+    - Complete a `RouterJob`.
+    - Cancel a `RouterJob`.
+    - Un-assign a `RouterJob`, with option to suspend matching.
+    - Get the position of a `RouterJob` in a queue.
+    - Create, update, get, list and delete `RouterWorker`.
+    - Accept an offer.
+    - Decline an offer.
+    - Get queue statistics.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-job-router/README.md
+    [issues]: https://github.com/Azure/azure-sdk-for-js/issues
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.13
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.13/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `authenticationType` , `containerUri`, `sasUri` and `sasToken` properties to BlobService
+    - Added `setSystemVariable` proprety to SetVariableActivityTypeProperties
+    - Added `mongoDbAtlasDriverVersion` property to MongoDbAtlasLinkedServiceTypeProperties
+    - Added `ActionOnExistingTargetTable` property for Synapse Link
+    - Added `OutputColumn` Object For Office365Source outputColumns
+    - Added `configurationType` , `targetSparkConfiguration` and `sparkConfig` properties for SynapseNotebookActivityTypeProperties
+    - Added `credential` property for LinkedService
+    - Added `isolationLevel` property for SQLServerSource
+    - Added new apis of Create/Cancel/GetStatus/GetSnapshot for RunNotebook
+- Name: '@azure/arm-mobilenetwork'
+  Version: 3.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_3.0.0/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 9.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 10.1.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sphere'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sphere_1.0.0-beta.1/sdk/sphere/arm-sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-auth'
+  Version: 1.5.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.5.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `enableCae` option to `GetTokenOptions` to enable Continuous Access Evaluation in [PR #26614](https://github.com/Azure/azure-sdk-for-js/pull/26614).
+- Name: '@azure/core-util'
+  Version: 1.4.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.4.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds extra environment checks for browser or other environments [PR #26018](https://github.com/Azure/azure-sdk-for-js/pull/26018)
+    - Add helper functions `uint8ArrayToString` and `stringToUint8Array` for transform between string and bytes array with different character encodings.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.12.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.12.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a TypeError in React Native when `Platform.constants` is undefined [Issue #26609](https://github.com/Azure/azure-sdk-for-js/issues/26609)
+
+    #### Features Added
+
+    - Add CommonTelemetryOptions in PipelineOptions to allow customizing the client request id header name [PR #26424](https://github.com/Azure/azure-sdk-for-js/pull/26424)
+- Name: '@azure/arm-advisor'
+  Version: 3.2.0
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.4
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.4/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where server-sent events were not being parsed correctly.
+
+    #### Features Added
+
+    - Exporting individual capabilities as separate functions to be used in code-size-concious applications. For example, streaming completions can be imported individually as follows:
+
+    ```js
+    import { listCompletions, createOpenAI } from "@azure/openai/api";
+    const client = createOpenAI(endpoint, new AzureKeyCredential(azureApiKey));
+    const events = listCompletions(client, prompt, deploymentId, { maxTokens: 128 });
+    ```
+- Name: '@azure/ai-form-recognizer'
+  Version: 5.0.0
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    From the last stable release (4.0.0):
+
+    - Support for passing alternative API versions has been removed from the client. In practice, the client only supported
+    using a single API version, but types and options for specifying an API version were provided. In version 5.0.0, these options and their associated types were removed:
+    - The `apiVersion` option that was previously accepted by the `DocumentAnalysisClient` and `DocumentModelAdministrationClient` constructors was removed. This option previously only had one valid value in version 4.0.0, and supporting multiple API versions in a single package weakens the type constraints, so we have chosen to only support the latest Generally Available version of the service in this SDK package. Support for multiple API versions may be reintroduced in a future version.
+    - The `FormRecognizerApiVersion` type and enum were removed as they no longer serve any purpose.
+    - The type of `apiVersion` properties of result objects was changed from `FormRecognizerApiVersion` to `string`. This type is more accurate, as these fields reflect the API version used to create the model or start the analysis operation, and not necessarily an API version that the client instance is aware of.
+    - The `FormRecognizerCommonClientOptions` interface, which both `DocumentAnalysisClientOptions` and `DocumentModelAdministrationClientOptions` inherited from was removed, as it only carried the `apiVersion` option that no longer exists.
+    - The `languages` and `keyValuePairs` properties of `AnalyzeResult` that were previously returned when using the `prebuilt-document` model are no longer returned unless the corresponding `features` are specified when making the analysis request.
+
+    From the last beta release (4.1.0-beta.1):
+
+    - `AnalyzeDocumentOptions.features` changed the following feature names:
+    - `ocr.highResolution` renamed to `ocrHighResolution`.
+    - `ocr.formula` renamed to `formulas`.
+    - `ocr.font` renamed to `styleFont`.
+    - The following fields have been removed:
+    - `AnalyzeDocumentOptions.queryFields`
+    - `DocumentPage.kind` and `DocumentPage.images` (`DocumentPageKind` and `DocumentImage` types have been removed too.)
+    - `DocumentKeyValuePair.commonName`
+    - The type of the `docTypes` parameter of `beginBuildDocumentClassifier` was refined slightly. The type will no longer accept _both_ `azureBlobSource` and `azureFileListSource`
+
+    #### Features Added
+
+    - Updated the SDK to use the latest Generally Available (GA) version of the Form Recognizer REST API: `2023-07-31`.
+    - `AnalyzeDocumentOptions.features` accepts three new features compared to the last beta version:
+    - `barcodes`: enables the detection of barcodes in the document.
+    - `keyValuePairs`: enable the detection of general key value pairs (form fields) in the document.
+    - `languages`: enables the detection of the text content language.
+    - `beginBuildDocumentModel` has a new overload that accepts a `DocumentModelSource` in place of a raw `containerUrl`. This allows training document models using the new Blob File List source (that is already supported by document classifiers). Like with classifiers, the source inputs are specified as an object containing an `azureFileListSource` property or an `azureBlobSource` property containing the respective details of each source type.
+- Name: '@azure/schema-registry-json'
+  Version: 1.0.0-beta.1
+  DisplayName: Schema Registry Json
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-json_1.0.0-beta.1/sdk/schemaregistry/schema-registry-json/CHANGELOG.md
+  ChangelogContent: '- Initial preview release'
+- Name: '@azure/keyvault-keys'
+  Version: 4.7.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.7.2/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `listPropertiesOfKeysVersions` failed to retrieve the second page of results. Issue [#26547](https://github.com/Azure/azure-sdk-for-js/issues/26547); PR [#26584](https://github.com/Azure/azure-sdk-for-js/pull/26584).
+    - Bumped `@azure/core-rest-pipeline` dependency to version including the `isRestError` helper, which was used in PR [#26016](https://github.com/Azure/azure-sdk-for-js/issues/26016).
+- Name: '@azure/storage-file-datalake'
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.15.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2023-08-03.
+    - Added support for paginated directory delete when using AAD authentication. Note that this feature only applies to HNS storage accounts.
+- Name: '@azure/storage-blob'
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.16.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2023-08-03.
+    - Added rehydrate-pending-to-cold value to ArchiveStatus enum.
+- Name: '@azure/search-documents'
+  Version: 12.0.0-beta.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.3/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add multi-vector search. [#26765](https://github.com/Azure/azure-sdk-for-js/pull/26765)
+
+    #### Breaking Changes
+
+    - Change vector option `SearchOptions.vector` to array of vectors option
+    `SearchOptions.vectors`. [#26765](https://github.com/Azure/azure-sdk-for-js/pull/26765)
+

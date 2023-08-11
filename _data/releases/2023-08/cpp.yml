@@ -1,0 +1,91 @@
+entries:
+- Name: azure-core
+  Version: 1.10.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#4792]](https://github.com/Azure/azure-sdk-for-cpp/issues/4792) Only support CURL's root cert validation when CURL version is >= 7.77.0.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.2
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Azure::Core::Amqp::Models::AmqpBinaryData::operator=(std::vector<std::uint8_t> const&)`.
+    - Added `Azure::Core::Amqp::Models::AmqpMessage::MessageFormat`.
+    - Collection types (`AmqpArray`, `AmqpMap`, `AmqpList`, `AmqpBinaryData`, `AmqpSymbol` and `AmqpComposite`):
+    - Added explicit cast operator to underlying collection type.
+    - Added `find()`.
+    - Rationalized the return code for AMQP MessageSender and MessageReceiver and Management APIs to use AmqpError for error codes.
+    - Added additional AMQP Error values.
+
+    #### Breaking Changes
+
+    - Renamed `Azure::Core::Amqp::Models::AmqpMessageFormatValue` to `AmqpDefaultMessageFormatValue`.
+    - Changed the return values for the MessageSender, MessageReceiver and Management APIs.
+- Name: azure-storage-files-datalake
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.8.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2023-08-03`.
+    - Added support for paginated directory delete when using AAD authentication.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `DataLakeDirectoryClient::ListPaths` and `DataLakeFileSystemClient::ListPaths` cannot list the second page and always fail with `std::bad_function_call`.
+    - Fixed a bug where `DataLakePathClient::SetAccessControlListRecursive` crashes when operating on the second page.
+- Name: azure-storage-blobs
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.9.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `RehydratePendingToCold` value to `ArchiveStatus` enum.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `PageBlobClient::GetPageRangesDiff` and `PageBlobClient::GetManagedDiskPageRangesDiff` crash when getting the second page.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release.
+    - Supported scenarios: Sending events and receiving events.
+    See [README.md](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/eventhubs/azure-messaging-eventhubs/README.md) for more information on how to use the EventHubs client.
+- Name: azure-storage-files-shares
+  Version: 12.6.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.6.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `ShareDirectoryClient::ListFilesAndDirectories` only returns the first page without ContinuationToken, even if there are more pages.
+
