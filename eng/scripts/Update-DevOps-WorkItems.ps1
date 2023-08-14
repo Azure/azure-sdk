@@ -3,7 +3,8 @@ param (
   [string] $pkgFilter = $null,
   [bool] $updateAllVersions = $false, # When false only updates the versions in the preview and ga in csv
   [string] $github_pat = $env:GITHUB_PAT,
-  [string] $devops_pat = $env:DEVOPS_PAT
+  [string] $devops_pat = $env:DEVOPS_PAT,
+  [bool] $ignoreReleasePlannerTests = $true
 )
 Set-StrictMode -Version 3
 
