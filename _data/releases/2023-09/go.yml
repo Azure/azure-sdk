@@ -1,0 +1,13 @@
+entries:
+- Name: sdk/azcore
+  Version: 1.7.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.7.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    ### Bugs Fixed
+
+    * Enable TLS renegotiation in the default transport policy.
+
