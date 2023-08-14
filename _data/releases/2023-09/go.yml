@@ -10,4 +10,15 @@ entries:
     ### Bugs Fixed
 
     * Enable TLS renegotiation in the default transport policy.
+- Name: sdk/cognitiveservices/azopenai
+  Version: 0.1.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/cognitiveservices/azopenai/v0.1.2/sdk/cognitiveservices/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Retracting this module to delist it from pkg.go.dev. Use `github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai` instead.
 
