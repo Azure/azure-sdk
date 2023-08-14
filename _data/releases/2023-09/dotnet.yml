@@ -50,4 +50,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.7.0-beta.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.5.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.5.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When binding to a `CancellationToken`, the token will no longer be signaled when in Drain Mode.
+    To detect if the function app is in Drain Mode, use dependency injection to inject the
+    `IDrainModeManager`, and check the `IsDrainModeEnabled` property. Additionally, checkpointing
+    will now occur when the function app is in Drain Mode.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.12.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.12.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When binding to a `CancellationToken`, the token will no longer be signaled when in Drain Mode.
+    To detect if the function app is in Drain Mode, use dependency injection to inject the
+    `IDrainModeManager`, and check the `IsDrainModeEnabled` property.
 
