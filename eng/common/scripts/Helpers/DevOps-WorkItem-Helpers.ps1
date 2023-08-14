@@ -158,10 +158,10 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
   $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
 
   if($ignoreReleasePlannerTests){
-    $query += " AND [System.Tags] NOT CONTAINS 'Release Planner App Test'"
+    $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
   }
 
-  $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent")
+  $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent", "System.Tags")
 
   $workItems = Invoke-Query $fields $query $outputCommand
 
@@ -258,7 +258,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   }
 
   if($ignoreReleasePlannerTests){
-    $query += " AND [System.Tags] NOT CONTAINS 'Release Planner App Test'"
+    $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
   }
 
   $workItems = Invoke-Query $fields $query $outputCommand
@@ -286,13 +286,13 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   return $null
 }
 
-function InitializeWorkItemCache($outputCommand = $true, $includeClosed = $false)
+function InitializeWorkItemCache($outputCommand = $true, $includeClosed = $false, $ignoreReleasePlannerTests = $true)
 {
   # Pass null to cache all service parents
-  $null = FindParentWorkItem -serviceName $null -packageDisplayName $null -outputCommand $outputCommand
+  $null = FindParentWorkItem -serviceName $null -packageDisplayName $null -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
 
   # Pass null to cache all the package items
-  $null = FindPackageWorkItem -lang $null -packageName $null -version $null -outputCommand $outputCommand -includeClosed $includeClosed
+  $null = FindPackageWorkItem -lang $null -packageName $null -version $null -outputCommand $outputCommand -includeClosed $includeClosed -ignoreReleasePlannerTests $ignoreReleasePlannerTests
 }
 
 function GetCachedPackageWorkItems()
