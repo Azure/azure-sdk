@@ -135,7 +135,7 @@ function BuildHashKey()
 }
 
 $parentWorkItems = @{}
-function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $false)
+function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $false, $ignoreReleasePlannerTests = $true)
 {
   $key = BuildHashKey $serviceName $packageDisplayName
   if ($key -and $parentWorkItems.ContainsKey($key)) {
@@ -155,7 +155,11 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
     $serviceCondition = "[ServiceName] <> ''"
   }
 
-  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
+  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}'"
+
+  if($ignoreReleasePlannerTests){
+    $query += " AND [System.Tags] NOT CONTAINS 'Release Planner App Test'"
+  }
 
   $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent")
 
