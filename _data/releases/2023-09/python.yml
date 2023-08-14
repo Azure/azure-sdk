@@ -9,4 +9,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Allow some `ResourceNotFoundError` occurrences in `begin_wait_for_commit` to account for unexpected loss of session stickiness. These errors may occur when the connected node changes and transactions have not been fully replicated.
+- Name: azure-core
+  Version: 1.29.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added a default implementation for `AsyncTokenCredential.__aexit__()` #31573
 
