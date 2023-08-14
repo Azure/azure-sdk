@@ -155,7 +155,7 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
     $serviceCondition = "[ServiceName] <> ''"
   }
 
-  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}'"
+  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
 
   if($ignoreReleasePlannerTests){
     $query += " AND [System.Tags] NOT CONTAINS 'Release Planner App Test'"
