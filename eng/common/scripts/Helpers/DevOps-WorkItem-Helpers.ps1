@@ -206,7 +206,7 @@ function FindLatestPackageWorkItem($lang, $packageName, $outputCommand = $true)
   return $latestWI
 }
 
-function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $true, $includeClosed = $false)
+function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $true, $includeClosed = $false, $ignoreReleasePlannerTests = $true)
 {
   $key = BuildHashKeyNoNull $lang $packageName $version
   if ($key -and $packageWorkItems.ContainsKey($key)) {
@@ -218,6 +218,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   $fields += "System.State"
   $fields += "System.AssignedTo"
   $fields += "System.Parent"
+  $fields += "System.Tags"
   $fields += "Custom.Language"
   $fields += "Custom.Package"
   $fields += "Custom.PackageDisplayName"
@@ -250,6 +251,10 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   }
   if ($version) {
     $query += " AND [PackageVersionMajorMinor] = '${version}'"
+  }
+
+  if($ignoreReleasePlannerTests){
+    $query += " AND [System.Tags] NOT CONTAINS 'Release Planner App Test'"
   }
 
   $workItems = Invoke-Query $fields $query $outputCommand
