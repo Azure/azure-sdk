@@ -77,4 +77,27 @@ entries:
     - When binding to a `CancellationToken`, the token will no longer be signaled when in Drain Mode.
     To detect if the function app is in Drain Mode, use dependency injection to inject the
     `IDrainModeManager`, and check the `IsDrainModeEnabled` property.
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.3.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.3.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.10.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `BrowserCustomization` property to `InteractiveBrowserCredential` to enable web view customization for interactive authentication.
+
+    #### Bugs Fixed
+
+    - ManagedIdentityCredential will no longer attempt to parse invalid json payloads on responses from the managed identity endpoint.
+    - Fixed an issue where AzurePowerShellCredential fails to parse the token response from Azure PowerShell. [#22638](https://github.com/Azure/azure-sdk-for-net/issues/22638)
 
