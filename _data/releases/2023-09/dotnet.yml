@@ -100,4 +100,16 @@ entries:
 
     - ManagedIdentityCredential will no longer attempt to parse invalid json payloads on responses from the managed identity endpoint.
     - Fixed an issue where AzurePowerShellCredential fails to parse the token response from Azure PowerShell. [#22638](https://github.com/Azure/azure-sdk-for-net/issues/22638)
+- Name: Azure.Communication.Chat
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.2.0-beta.1/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add `metadata` property to `ChatParticipant` and `ChatThreadProperties`.
+    - Add apis to add `ChatParticipant` metadata and `ChatThreadProperties` metadata.
+    - Add api to update `ChatThreadProperties` including metadata.
 
