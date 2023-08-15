@@ -298,9 +298,7 @@ Schema Registry,0,Schema Registry for Kafka Avro,UNABLE TO BE DETERMINED,.NET,Mi
 Schema Registry,0,Schema Registry for Kafka Json,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Json,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 IoT,0,Time Series Insights,UNABLE TO BE DETERMINED,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Configuration,0,App Configuration Provider,data,.NET,Microsoft.Extensions.Configuration.AzureAppConfiguration,https://github.com/Azure/AppConfiguration-DotnetProvider,10,false,Exception: Library not needed in language,,10,false,1,
-App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-App Service,0,App Service - API Apps Common,data,.NET,Microsoft.Azure.AppService.ApiApps.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-App Service,0,App Service - API Apps Service,data,.NET,Microsoft.Azure.AppService.ApiApps.Service,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Batch,0,Batch,data,.NET,Microsoft.Azure.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,,,1,false,0,
 Batch,0,Batch - Apps Cryptography,data,.NET,Microsoft.Azure.Batch.Apps.Cryptography,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -313,7 +311,7 @@ IoT,0,Devices Provisioning Service,data,.NET,Microsoft.Azure.Devices.Provisionin
 IoT,0,Digital Twins Service,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Service,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Event Hubs,0,Event Hubs - Service Fabric Processor,data,.NET,Microsoft.Azure.EventHubs.ServiceFabricProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,3,false,Exception: Track 2 library not needed,,10,false,1,
 App Configuration,0,Feature Management,data,.NET,Microsoft.FeatureManagement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-App Service,0,Gallery,data,.NET,Microsoft.Azure.Gallery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+App Service,0,Gallery,data,.NET,Microsoft.Azure.Gallery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 HDInsight,0,Hadoop Client,data,.NET,Microsoft.Hadoop.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 HDInsight,0,HDInsight - Job,data,.NET,Microsoft.Azure.HDInsight.Job,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight,3,false,,,1,false,0,
 Information Protection,0,Information Protection,data,.NET,Microsoft.InformationProtection.File,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -364,7 +362,7 @@ Synapse,0,Synapse Analytics,data,.NET,Microsoft.Azure.Synapse,https://github.com
 Cognitive Services,0,Vision Content Moderator,data,.NET,Microsoft.Azure.CognitiveServices.Vision.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.ContentModerator_2.1.0-preview.1/sdk/cognitiveservices/Vision.ContentModerator,3,false,Exception: Track 2 library not needed,,10,false,1,
 Storage,0,Wastorage,data,.NET,wastorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.Azure.Storage.CPP,,4,false,1,
 Storage,0,Wastorage - Redist,data,.NET,wastorage.redist,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.Azure.Storage.Common,,4,false,1,
-App Service,0,WebSites - DataProtection,data,.NET,Microsoft.Azure.WebSites.DataProtection,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+App Service,0,WebSites - DataProtection,data,.NET,Microsoft.Azure.WebSites.DataProtection,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Configuration Manager,0,WindowsAzure Configuration Manager,data,.NET,Microsoft.WindowsAzure.ConfigurationManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
 Media Services,0,WindowsAzure Media Services,data,.NET,windowsazure.mediaservices,https://github.com/Azure/azure-sdk-for-media-services,10,false,,,1,false,0,
 Mobile Services,0,WindowsAzure Mobile Services,data,.NET,WindowsAzure.MobileServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
@@ -1043,7 +1041,6 @@ Unable to determine Service Name,0,synapseutils_2.12,UNABLE TO BE DETERMINED,Jav
 Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-dapr,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
 Schema Registry,0,azure-schemaregistry-spark-avro,data,Java,azure-schemaregistry-spark-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
-App Service,0,azure-toolkit-appservice-lib,data,Java,azure-toolkit-appservice-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Batch,0,Batch,data,Java,azure-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/microsoft-azure-batch,10,false,,,1,false,0,
 Authentication,0,Client Authentication,data,Java,azure-client-authentication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-contentmoderator,3,false,,,1,false,0,
@@ -1146,7 +1143,7 @@ Maps,0,Maps Search,data,JavaScript,,,11,false,@azure-rest/maps-search,https://gi
 Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABLE TO DETERMINE REPO LINK,1,false,@azure/ai-metrics-advisor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor,10,false,1,07/06/2021
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,02/17/2023
-Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,06/08/2023
+Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,
 Synapse,0,Monitoring,data,JavaScript,,,11,false,@azure/synapse-monitoring,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
@@ -1619,7 +1616,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Python,,,
 Media Services,0,Resource Management - Media Services,mgmt,Python,,,11,false,azure-mgmt-media,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,10,false,1,01/17/2023
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Python,,,11,false,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,10,false,1,
 Mobile Network,0,Resource Management - Mobile Network,mgmt,Python,,,11,false,azure-mgmt-mobilenetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mobilenetwork,10,false,1,07/25/2023
-Monitor,0,Resource Management - Monitor,mgmt,Python,,,11,false,azure-mgmt-monitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,05/04/2023
+Monitor,0,Resource Management - Monitor,mgmt,Python,azure-monitor,https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor_0.3.1/azure-monitor/,3,true,azure-mgmt-monitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,05/04/2023
 NetApp Files,0,Resource Management - NetApp Files,mgmt,Python,,,11,false,azure-mgmt-netapp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/netapp,10,false,1,07/24/2023
 Network,0,Resource Management - Network,mgmt,Python,,,11,false,azure-mgmt-network,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,07/25/2023
 Network Function,0,Resource Management - Network Function,mgmt,Python,,,11,false,azure-mgmt-networkfunction,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/networkfunction,3,false,1,
@@ -1704,7 +1701,6 @@ IoT,0,iotedgehubdev,data,Python,iotedgehubdev,https://github.com/Azure/azure-sdk
 Key Vault,0,Key Vault,data,Python,azure-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,Exception: API Spec does not map to one set of Libraries,,10,false,1,
 Data Explorer,0,Kusto Data,data,Python,azure-kusto-data,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Log Analytics,0,Log Analytics - Query,data,Python,azure-loganalytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-loganalytics_0.1.0/azure-loganalytics/,3,true,Replaced by: azure-monitor-query,,4,false,1,
-Monitor,0,Resource Management - Monitor,data,Python,azure-monitor,https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor_0.3.1/azure-monitor/,3,true,Replaced by: azure-mgmt-monitor,,4,false,1,
 Cognitive Services,0,Speech,data,Python,azure-cognitiveservices-speech,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Storage,0,Storage,data,Python,azure-storage,https://github.com/Azure/azure-storage-python,1,false,"Replaced by: azure-storage-blob, azure-storage-file-share, azure-storage-queue, azure-storage-file-datalake",,4,false,1,
 Synapse,0,Synapse,data,Python,azure-synapse,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,,,1,false,0,
