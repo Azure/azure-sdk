@@ -26,4 +26,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0-beta.1/sdk/monitor/monitor-query/CHANGELOG.md
   ChangelogContent: '- Added `MetricsBatchQueryClient` to support batch querying of metrics.'
+- Name: '@azure/identity'
+  Version: 3.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.3.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    -  Enabled support for logging [personally identifiable information](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/PII), required for customer support through the `enableUnsafeSupportLogging` option on `loggingOptions` under `TokenCredentialOptions`.
+    - Continuous Access Evaluation (CAE) is now configurable per-request by setting the `enable_cae` keyword argument to `True` in `get_token`. This applies to user credentials and service principal credentials. ([#26614](https://github.com/Azure/azure-sdk-for-js/pull/26614))
+
+    #### Breaking Changes
+    - CP1 client capabilities for CAE is no longer always-on by default for user credentials. This capability will now be configured as-needed in each `getToken` request by each SDK.  ([#26614](https://github.com/Azure/azure-sdk-for-js/pull/26614))
+    - Suffixes are now appended to persistent cache names to indicate whether CAE or non-CAE tokens are stored in the cache. This is to prevent CAE and non-CAE tokens from being mixed/overwritten in the same cache. This could potentially cause issues if you are trying to share the same cache between applications that are using different versions of the Azure Identity library as each application would be reading from a different cache file.
+    - Since CAE is no longer always enabled for user-credentials, the `AZURE_IDENTITY_DISABLE_CP1` environment variable is no longer supported.
 
