@@ -60,4 +60,16 @@ entries:
     - Update ReceiverUnsettledDeliveries::sendDisposition(,) API to return DeliveryNotOnLinkException if the link is closed (hence delivery map cleared) or the DeliveryMap has no matching delivery. This simplifies the implementation of disposition attempt on management channel.
     - Adding support to turn off retry in MessageFlux hence propagating error or completion event from the first receiver to downstream, this allows using MessageFlux in the cases that need proper credit accounting but not rolling to another receiver.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.15.0-beta.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.15.0-beta.3/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Redesigned session processor that addresses the out of order message delivery and to use Prefetch reliability redesign in azure-core-amqp 2.9.0-beta.5.
+  GroupId: com.azure
 
