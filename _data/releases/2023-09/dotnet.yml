@@ -112,4 +112,25 @@ entries:
     - Add `metadata` property to `ChatParticipant` and `ChatThreadProperties`.
     - Add apis to add `ChatParticipant` metadata and `ChatThreadProperties` metadata.
     - Add api to update `ChatThreadProperties` including metadata.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.16.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.16.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed race condition that could lead to an `ObjectDisposedException` when using the `ServiceBusSessionProcessor`.
+- Name: Azure.Data.Tables
+  Version: 12.8.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.8.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the URL returned by `TableClient.Uri` when connecting to Azurite
 
