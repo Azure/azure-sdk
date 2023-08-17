@@ -10,4 +10,18 @@ entries:
     #### Features Added
     * New Teams captions feature that allows ACS users to enable closed captions in Teams meeting and allows Microsoft 365 users on ACS SDK to use closed captions in one to one and group calls. Users will also have the ability to update spoken language for the call and caption language for themselves (requires Teams Premium).
     * Added support for user facing diagnostics feature.
+- Name: AzureCommunicationCalling
+  Version: 2.7.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.7.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for media stats.
+    * Updated Captions feature.
+    * Updated Network Diagnostics feature.
+    * Added support for Video Constraints.
+    * Added support for unmixed audio.
 
