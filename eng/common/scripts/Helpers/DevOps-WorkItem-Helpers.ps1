@@ -135,7 +135,7 @@ function BuildHashKey()
 }
 
 $parentWorkItems = @{}
-function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $false)
+function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $false, $ignoreReleasePlannerTests = $true)
 {
   $key = BuildHashKey $serviceName $packageDisplayName
   if ($key -and $parentWorkItems.ContainsKey($key)) {
@@ -157,7 +157,11 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
 
   $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
 
-  $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent")
+  if($ignoreReleasePlannerTests){
+    $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
+  }
+
+  $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent", "System.Tags")
 
   $workItems = Invoke-Query $fields $query $outputCommand
 
@@ -206,7 +210,7 @@ function FindLatestPackageWorkItem($lang, $packageName, $outputCommand = $true)
   return $latestWI
 }
 
-function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $true, $includeClosed = $false)
+function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $true, $includeClosed = $false, $ignoreReleasePlannerTests = $true)
 {
   $key = BuildHashKeyNoNull $lang $packageName $version
   if ($key -and $packageWorkItems.ContainsKey($key)) {
@@ -218,6 +222,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   $fields += "System.State"
   $fields += "System.AssignedTo"
   $fields += "System.Parent"
+  $fields += "System.Tags"
   $fields += "Custom.Language"
   $fields += "Custom.Package"
   $fields += "Custom.PackageDisplayName"
@@ -252,6 +257,10 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
     $query += " AND [PackageVersionMajorMinor] = '${version}'"
   }
 
+  if($ignoreReleasePlannerTests){
+    $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
+  }
+
   $workItems = Invoke-Query $fields $query $outputCommand
 
   foreach ($wi in $workItems)
@@ -277,13 +286,13 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   return $null
 }
 
-function InitializeWorkItemCache($outputCommand = $true, $includeClosed = $false)
+function InitializeWorkItemCache($outputCommand = $true, $includeClosed = $false, $ignoreReleasePlannerTests = $true)
 {
   # Pass null to cache all service parents
-  $null = FindParentWorkItem -serviceName $null -packageDisplayName $null -outputCommand $outputCommand
+  $null = FindParentWorkItem -serviceName $null -packageDisplayName $null -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
 
   # Pass null to cache all the package items
-  $null = FindPackageWorkItem -lang $null -packageName $null -version $null -outputCommand $outputCommand -includeClosed $includeClosed
+  $null = FindPackageWorkItem -lang $null -packageName $null -version $null -outputCommand $outputCommand -includeClosed $includeClosed -ignoreReleasePlannerTests $ignoreReleasePlannerTests
 }
 
 function GetCachedPackageWorkItems()
