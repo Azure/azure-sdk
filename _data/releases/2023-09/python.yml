@@ -20,4 +20,15 @@ entries:
     #### Bugs Fixed
 
     - Added a default implementation for `AsyncTokenCredential.__aexit__()` #31573
+- Name: azure-monitor-query
+  Version: 1.3.0b1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.3.0b1/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MetricsBatchQueryClient` to support batch querying metrics from Azure resources. ([#31049](https://github.com/Azure/azure-sdk-for-python/pull/31049))
 
