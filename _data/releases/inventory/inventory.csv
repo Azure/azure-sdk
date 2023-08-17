@@ -39,7 +39,7 @@ Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.Mixed
 Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,false,1,09/17/2021
 Identity,0,Brokered Authentication,data,.NET,,,11,false,Azure.Identity.BrokeredAuthentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity,3,false,1,
 Search,0,Cognitive Search,data,.NET,,,11,false,Azure.Search.Documents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,
-Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/09/2023
+Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/31/2023
@@ -478,6 +478,7 @@ Traffic Manager,0,WindowsAzure Management - Traffic Manager,mgmt,.NET,Microsoft.
 Network,0,WindowsAzure Management - Virtual Networks,mgmt,.NET,Microsoft.WindowsAzure.Management.VirtualNetworks,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzure.Management.WebSites,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.AppService,,4,false,1,
 App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,3,false,1,
+Data Lake Gen2,0,Azure Storage Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,3,false,1,
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventgrid,3,false,1,
@@ -867,6 +868,7 @@ Database Migration Service,0,Resource Management - Data Migration,mgmt,Java,azur
 Data Protection,0,Resource Management - Data Protection,mgmt,Java,,,11,false,azure-resourcemanager-dataprotection,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/dataprotection,10,false,1,07/21/2023
 Databricks,0,Resource Management - Databricks,mgmt,Java,,,11,false,azure-resourcemanager-databricks,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/databricks,3,false,1,
 Datadog,0,Resource Management - Datadog,mgmt,Java,,,11,false,azure-resourcemanager-datadog,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/datadog,3,false,1,
+Defendereasm,0,Resource Management - Defendereasm,mgmt,Java,,,11,false,azure-resourcemanager-defendereasm,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/defendereasm,3,false,1,
 Delegated Network,0,Resource Management - Delegated Network,mgmt,Java,,,11,false,azure-resourcemanager-delegatednetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/delegatednetwork,3,false,1,
 Deployment Manager,0,Resource Management - Deployment Manager,mgmt,Java,,,11,false,azure-resourcemanager-deploymentmanager,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/deploymentmanager,3,false,1,
 Desktop Virtualization,0,Resource Management - Desktop Virtualization,mgmt,Java,,,11,false,azure-resourcemanager-desktopvirtualization,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/desktopvirtualization,10,false,1,03/20/2023
@@ -1104,7 +1106,7 @@ Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azu
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,1,
 Search,0,Cognitive Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/10/2023
-Communication,0,Communication Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/16/2023
+Communication,0,Communication Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communication-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/16/2023
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/31/2023
@@ -1476,7 +1478,7 @@ Media,0,Media Analytics Edge,data,Python,,,11,false,azure-media-analytics-edge,h
 Metrics Advisor,0,Metrics Advisor,data,Python,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/metricsadvisor,10,false,1,07/06/2021
 Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,Python,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,06/15/2023
-Monitor,0,Monitor Query,data,Python,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,05/09/2023
+Monitor,0,Monitor Query,data,Python,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,
 Monitor,0,OpenTelemetry Exporter,data,Python,azure-opentelemetry-exporter-azuremonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,true,azure-monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,Python,azure-cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,1,false,azure-ai-personalizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/personalizer,3,false,1,
 Purview,0,Purview Account,data,Python,,,11,false,azure-purview-account,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,3,false,1,
