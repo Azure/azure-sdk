@@ -133,4 +133,18 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed the URL returned by `TableClient.Uri` when connecting to Azurite
+- Name: Azure.Communication.CallAutomation
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.1.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Play and recognize supports TTS and SSML source prompts.
+    - Recognize supports choices and freeform speech.
+    - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
+    - Send DTMF tones to a participant in the call.
+    - Mute participants in the call.
 
