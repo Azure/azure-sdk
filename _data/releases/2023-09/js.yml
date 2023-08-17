@@ -69,4 +69,16 @@ entries:
     - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
     - Send DTMF tones to a participant in the call.
     - Mute participant in the call.
+- Name: '@azure/communication-chat'
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.4.0-beta.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `metadata` for chat thread and chat participant.
+    - Updated @azure/communication-signaling to 1.0.0-beta.19 with thread and participant metadata support.
 
