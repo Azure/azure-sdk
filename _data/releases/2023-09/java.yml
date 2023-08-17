@@ -72,4 +72,28 @@ entries:
 
     - Redesigned session processor that addresses the out of order message delivery and to use Prefetch reliability redesign in azure-core-amqp 2.9.0-beta.5.
   GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.1.0-beta.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Play and recognize supports TTS and SSML source prompts.
+    - Recognize supports choices and freeform speech.
+    - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
+    - Send DTMF tones to a participant in the call.
+    - Mute participants in the call.
+  GroupId: com.azure
+- Name: azure-resourcemanager-defendereasm
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Defendereasm
+  ServiceName: Defendereasm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-defendereasm_1.0.0-beta.1/sdk/defendereasm/azure-resourcemanager-defendereasm/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
