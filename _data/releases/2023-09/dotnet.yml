@@ -147,4 +147,14 @@ entries:
     - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
     - Send DTMF tones to a participant in the call.
     - Mute participants in the call.
+- Name: Azure.Communication.Email
+  Version: 1.0.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Email_1.0.1/sdk/communication/Azure.Communication.Email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Improve memory management for attachment handling
 
