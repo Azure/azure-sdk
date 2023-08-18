@@ -76,4 +76,14 @@ entries:
     #### Features Added
 
     * This is the initial preview release of the `azdatalake` library
+- Name: sdk/data/azcosmos
+  Version: 0.3.6
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.6/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed PatchItem function to respect EnableContentResponseOnWrite
 
