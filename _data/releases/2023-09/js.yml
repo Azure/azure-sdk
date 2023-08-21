@@ -89,4 +89,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-alpha.20230820.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
   ChangelogContent: '- Added support for matchNumberToRoutes'
+- Name: '@azure/monitor-query'
+  Version: 1.2.0-beta.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0-beta.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In the `MetricsBatchOptionalParams` object, the casing of property names `endtime`, `orderby`, and `starttime` changed to `endTime`, `orderBy`, and `startTime` respectively.
+    - In the `MetricsBatchQueryClientOptions` object, the `batchEndPoint` has been removed as optional property. Instead, this has been changed to mandatory parameter in the `MetricsBatchQueryClient` class.
+    - In the `MetricsBatchOptionalParams` object, the data type properties of `startTime` & `endTime` have been changed from `string` to `Date`.
 
