@@ -114,4 +114,44 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.0.0-beta.6/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-encryption
+  Version: 2.4.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.4.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.49.0`.
+  GroupId: com.azure
+- Name: azure-cosmos-test
+  Version: 1.0.0-beta.5
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-test_1.0.0-beta.5/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where connection is being closed when inject `connection_delay` rule with configured delay smaller than configured `connectionTimeout` - See [PR 35852](https://github.com/Azure/azure-sdk-for-java/pull/35852)
+    * Fixed an issue where `java.lang.NoClassDefFoundError: com/azure/cosmos/implementation/faultinjection/IRntbdServerErrorInjector` is thrown when using `FaultInjection version 1.0.0-beta.4` - See [Issue 36381](https://github.com/Azure/azure-sdk-for-java/issues/36381)
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.49.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.49.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added a flag for allowing customers to preserve ordering in bulk mode. See [PR 35892](https://github.com/Azure/azure-sdk-for-java/pull/35892)
+    * Added a flag to bypass integrated cache when dedicated gateway is used. See [PR 35865](https://github.com/Azure/azure-sdk-for-java/pull/35865)
+    * Added new aggressive retry timeouts for in-region calls. See [PR 35987](https://github.com/Azure/azure-sdk-for-java/pull/35987)
+
+    #### Bugs Fixed
+    * Wired `proactiveInit` into the diagnostics to track warmed up containers, proactive connection regions and aggressive warm up duration - See [PR 36111](https://github.com/Azure/azure-sdk-for-java/pull/36111)
+    * Fixed possible `NullPointerException` issue if health-check flow kicks in before RNTBD context negotiation for a given channel - See [PR 36397](https://github.com/Azure/azure-sdk-for-java/pull/36397).
+  GroupId: com.azure
 
