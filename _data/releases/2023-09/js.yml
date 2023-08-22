@@ -102,4 +102,12 @@ entries:
     - In the `MetricsBatchOptionalParams` object, the casing of property names `endtime`, `orderby`, and `starttime` changed to `endTime`, `orderBy`, and `startTime` respectively.
     - In the `MetricsBatchQueryClientOptions` object, the `batchEndPoint` has been removed as optional property. Instead, this has been changed to mandatory parameter in the `MetricsBatchQueryClient` class.
     - In the `MetricsBatchOptionalParams` object, the data type properties of `startTime` & `endTime` have been changed from `string` to `Date`.
+- Name: '@azure/arm-containerservice'
+  Version: 19.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
