@@ -24,4 +24,15 @@ entries:
     * Updated Network Diagnostics feature.
     * Added support for Video Constraints.
     * Added support for unmixed audio.
+- Name: AzureCommunicationCalling
+  Version: 2.7.0-beta.2
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.7.0-beta.2/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    * Fixed crash related to cameras being updated.
+    * Fixed orientation issue when in landscape mode.
 
