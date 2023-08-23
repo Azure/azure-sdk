@@ -86,4 +86,14 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed PatchItem function to respect EnableContentResponseOnWrite
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.0.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.0.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
 
