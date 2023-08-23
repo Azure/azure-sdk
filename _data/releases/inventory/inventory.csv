@@ -281,7 +281,7 @@ Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.Resourc
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,
 Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
 Communication,0,Azure.Communication.CallingServer,UNABLE TO BE DETERMINED,.NET,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Storage,0,Data Movement - Blobs,UNABLE TO BE DETERMINED,.NET,Azure.Storage.DataMovement.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -487,7 +487,7 @@ Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/a
 Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,10,false,1,07/18/2023
 Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/azadmin,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azadmin,10,false,1,07/17/2023
 Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,3,false,1,
-Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,07/17/2023
+Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,08/22/2023
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,05/09/2023
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
