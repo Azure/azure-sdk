@@ -182,4 +182,101 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourceconnector_1.0.0/sdk/resourceconnector/arm-resourceconnector/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.15
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.15/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue with wrong name for _OTELRESOURCE_ metric.
+    - Fix an issue with serializing nested log messages.
+
+    #### Breaking Changes
+
+    - `AzureMonitorExporterOptions.aadTokenCredential` is now `AzureMonitorExporterOptions.credential`.
+    - No longer expose the `MonitorBase`, `MonitorDomain`, or `TelemetryItem` interfaces.
+- Name: '@azure/communication-chat'
+  Version: 1.3.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.3.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.20. Added EUDB real-time notification support. `https://*.trouter.teams.microsoft.com` and `https://teams.microsoft.com` needs to be allowed for real-time notifications.
+- Name: '@azure/arm-apimanagement'
+  Version: 9.1.0
+  DisplayName: Resource Management - Api Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcesdeploymentstacks'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resourcesdeploymentstacks
+  ServiceName: Resourcesdeploymentstacks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesdeploymentstacks_1.0.0-beta.1/sdk/resourcesdeploymentstacks/arm-resourcesdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-apicenter'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Apicenter
+  ServiceName: Apicenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-apicenter_1.0.0-beta.1/sdk/apicenter/arm-apicenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dynatrace'
+  Version: 2.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_2.0.0/sdk/dynatrace/arm-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-maintenance'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-maintenance_1.0.0-beta.1/sdk/maintenance/arm-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hdinsightcontainers'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hdinsightcontainers
+  ServiceName: Hdinsightcontainers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hdinsightcontainers_1.0.0-beta.1/sdk/hdinsight/arm-hdinsightcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.5
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.5/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove `beginAzureBatchImageGeneration` and `getAzureBatchImageGenerationOperationStatus` methods.
+    - `getImages` has been updated to return the image URLs/payloads directly, rather than requiring the user to call `getAzureBatchImageGenerationOperationStatus` to retrieve them.
+
+    #### Features Added
+
+    - (Azure OpenAI specific) Chat completions with your own data is now supported, see [Azure OpenAI's quickstart guide](https://learn.microsoft.com/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line&pivots=programming-language-studio) for details.
+    - A list of AzureExtensionChatConfiguration may be populated on `ChatCompletionsOptions` via its `azureExtensionOption.extensions` property. These configurations include a type together with a JSON Schema representation of its parameters. The type is used to determine which extension to use when generating chat completions. See the `bringYourOwnData.js` sample for an example of how to use this feature.
+    - Functions for chat completions are now supported: see [OpenAI's blog post on the topic](https://openai.com/blog/function-calling-and-other-api-updates) for much more detail.
+    - A list of `FunctionDefinition` objects may be populated on `ChatCompletionsOptions` via its `functions` property. These definitions include a name and description together with a serialized JSON Schema representation of its parameters.
+    - **NOTE**: Chat Functions requires a minimum of the `-0613` model versions for `gpt-4` and `gpt-3.5-turbo`/`gpt-35-turbo`. Please ensure you're using these later model versions, as Functions are not supported with older model revisions. For Azure OpenAI, you can update a deployment's model version or create a new model deployment with an updated version via the Azure AI Studio interface, also accessible through Azure Portal.
+    - (Azure OpenAI specific) Completions and Chat Completions responses now include embedded content filter annotations for prompts and responses
 
