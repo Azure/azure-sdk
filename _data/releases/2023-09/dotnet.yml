@@ -180,4 +180,12 @@ entries:
     - `AzureChatExtensionsOptions` then has `AzureChatExtensionConfiguration` instances added to its `Extensions` property, with these instances representing the supplementary information needed for Azure OpenAI to use desired data sources to supplement chat completions behavior.
     - `ChatChoice` instances on a `ChatCompletions` response value that used chat extensions will then also have their `Message` property supplemented by an `AzureChatExtensionMessageContext` instance. This context contains a collection of supplementary `Messages` that describe the behavior of extensions that were used and supplementary response data, such as citations, provided along with the response.
     - See the README sample snippet for a simplified example of request/response use with "using your own data"
+- Name: Azure.ResourceManager.HDInsight.Containers
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hdinsight.Containers
+  ServiceName: Hdinsight.Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight.Containers_1.0.0-beta.1/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers/CHANGELOG.md
+  ChangelogContent: ""
 
