@@ -260,4 +260,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers/v0.1.0/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.2.0
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.2.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - EventReader, used by GetChatCompletionsStream and GetCompletionsStream for streaming results, would not return an
+    error if the underlying Body reader was closed or EOF'd before the actual DONE: token arrived. This could result in an
+    infinite loop for callers. (PR#21323)
+
+    #### Breaking Changes
+
+    - ChatCompletionsOptions, CompletionsOptions, EmbeddingsOptions `DeploymentID` field renamed to `Deployment`.
+    - Method `Close()` on `EventReader[T]` now returns an error.
+
+    #### Features Added
+
+    - ChatCompletions supports Azure OpenAI's newest feature to use Azure OpenAI with your own data. See `example_client_getchatcompletions_extensions_test.go`
+    for a working example. (PR#21426)
 
