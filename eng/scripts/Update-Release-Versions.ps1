@@ -105,6 +105,13 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
     }
   }
 
+  # We always perfer to the MSDoc links over GHDocs so they will never be displayed if MSDoc is setup so we
+  # don't need to worry about checking the GHDoc links unless MSDocs is NA.
+  if ($pkg.MSDocs -ne "NA") 
+  {
+    return
+  }
+
   if (!$skipIfNA -or $pkg.GHDocs -eq "")
   {
     $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
@@ -286,6 +293,7 @@ function OutputVersions($lang)
   Write-Host "Checking doc links for other packages"
   foreach ($otherPackage in $otherPackages)
   {
+    if ($otherPackage.Hide) { continue }
     CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
   }
 
