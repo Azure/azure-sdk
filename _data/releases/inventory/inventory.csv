@@ -1301,6 +1301,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,JavaScrip
 Media Services,0,Resource Management - Media Services,mgmt,JavaScript,azure-arm-mediaservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-mediaservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mediaservices/arm-mediaservices,10,false,1,01/17/2023
 Migrate,0,Resource Management - Migrate,mgmt,JavaScript,,,11,false,@azure/arm-migrate,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate,10,false,1,02/03/2023
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,JavaScript,,,11,false,@azure/arm-mixedreality,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality,10,false,1,01/20/2022
+Machine Learning,0,Resource Management - ML Web Services,mgmt,JavaScript,,,11,false,@azure/arm-webservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices,10,false,1,12/02/2022
 Mobile Network,0,Resource Management - Mobile Network,mgmt,JavaScript,,,11,false,@azure/arm-mobilenetwork,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mobilenetwork,10,false,1,07/28/2023
 Monitor,0,Resource Management - Monitor,mgmt,JavaScript,azure-arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor,10,false,1,12/21/2021
 MySQL,0,Resource Management - MySQL,mgmt,JavaScript,azure-arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql,10,false,1,12/06/2022
@@ -1374,7 +1375,6 @@ Visual Studio,0,Resource Management - Visual Studio,mgmt,JavaScript,azure-arm-vi
 VMware Solution by CloudSimple,0,Resource Management - VMware Solution by CloudSimple,mgmt,JavaScript,,,11,false,@azure/arm-vmwarecloudsimple,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/vmwarecloudsimple/arm-vmwarecloudsimple,10,false,1,02/03/2023
 Voiceservices,0,Resource Management - Voiceservices,mgmt,JavaScript,,,11,false,@azure/arm-voiceservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/voiceservices,10,false,1,04/19/2023
 Web PubSub,0,Resource Management - Web PubSub,mgmt,JavaScript,,,11,false,@azure/arm-webpubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,03/20/2023
-Machine Learning,0,Resource Management - Web Services,mgmt,JavaScript,,,11,false,@azure/arm-webservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices,10,false,1,12/02/2022
 Workloads,0,Resource Management - Workloads,mgmt,JavaScript,,,11,false,@azure/arm-workloads,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/workloads,10,false,1,04/24/2023
 Machine Learning,0,Resource Management - Workspaces,mgmt,JavaScript,,,11,false,@azure/arm-workspaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces,10,false,1,12/02/2022
 Key Vault,0,@azure/keyvault,UNABLE TO BE DETERMINED,JavaScript,@azure/keyvault,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/keyvault-keys,,4,false,1,
@@ -1949,6 +1949,10 @@ MariaDB,0,Resource Management - MariaDB,mgmt,Python,,,11,false,Missing: Created 
 Migrate,0,Resource Management - Migrate,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-migrate,,2,false,0,
 Migrate,0,Resource Management - Migrate,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-migrate,,2,false,0,
 Migrate,0,Resource Management - Migrate,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-migrate,,2,false,0,
+Machine Learning,0,Resource Management - ML Web Services,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
+Machine Learning,0,Resource Management - ML Web Services,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
+Machine Learning,0,Resource Management - ML Web Services,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
+Machine Learning,0,Resource Management - ML Web Services,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-mysql-flexible,,2,false,0,
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-mysql-flexible,,2,false,0,
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-mysql-flexible,,2,false,0,
@@ -1993,10 +1997,6 @@ Voiceservices,0,Resource Management - Voiceservices,mgmt,.NET,,,11,false,Missing
 Voiceservices,0,Resource Management - Voiceservices,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-voiceservices,,2,false,0,
 Voiceservices,0,Resource Management - Voiceservices,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-voiceservices,,2,false,0,
 Voiceservices,0,Resource Management - Voiceservices,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-voiceservices,,2,false,0,
-Machine Learning,0,Resource Management - Web Services,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
-Machine Learning,0,Resource Management - Web Services,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
-Machine Learning,0,Resource Management - Web Services,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
-Machine Learning,0,Resource Management - Web Services,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-webservices,,2,false,0,
 Machine Learning,0,Resource Management - Workspaces,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
 Machine Learning,0,Resource Management - Workspaces,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
 Machine Learning,0,Resource Management - Workspaces,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-workspaces,,2,false,0,
