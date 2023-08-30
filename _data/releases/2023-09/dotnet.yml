@@ -199,4 +199,14 @@ entries:
     #### Features Added
     - Number Lookup API public preview
     - API version `2023-05-01-preview` is the default
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.7.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.7.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix multi request origins validation.
 
