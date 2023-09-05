@@ -1,0 +1,197 @@
+entries:
+- Name: azure-confidentialledger
+  Version: 1.1.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.1.1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Allow some `ResourceNotFoundError` occurrences in `begin_wait_for_commit` to account for unexpected loss of session stickiness. These errors may occur when the connected node changes and transactions have not been fully replicated.
+- Name: azure-core
+  Version: 1.29.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added a default implementation for `AsyncTokenCredential.__aexit__()` #31573
+- Name: azure-monitor-query
+  Version: 1.3.0b1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.3.0b1/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MetricsBatchQueryClient` to support batch querying metrics from Azure resources. ([#31049](https://github.com/Azure/azure-sdk-for-python/pull/31049))
+- Name: azure-mgmt-networkcloud
+  Version: 1.0.0
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_1.0.0/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 21.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.1.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resourceconnector
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource Connector
+  ServiceName: Resource Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourceconnector_1.0.0/sdk/resourceconnector/azure-mgmt-resourceconnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 26.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_26.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-maintenance
+  Version: 2.1.0
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maintenance_2.1.0/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-chaos
+  Version: 1.0.0b7
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-chaos_1.0.0b7/sdk/chaos/azure-mgmt-chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redhatopenshift
+  Version: 1.3.0
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift (ARO)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.3.0/sdk/redhatopenshift/azure-mgmt-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 25.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_25.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-devspaces
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Dev Spaces
+  ServiceName: Dev Spaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-devspaces_1.0.0b3/sdk/aks/azure-mgmt-devspaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 6.0.2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_6.0.2/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appcontainers
+  Version: 3.0.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcontainers_3.0.0/sdk/appcontainers/azure-mgmt-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dynatrace
+  Version: 2.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dynatrace_2.0.0/sdk/dynatrace/azure-mgmt-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hdinsightcontainers
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Hdinsightcontainers
+  ServiceName: Hdinsightcontainers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsightcontainers_1.0.0b1/sdk/hdinsight/azure-mgmt-hdinsightcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.29.3
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.3/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Typing fix: `message` cannot be `None` in `AzureError`. #31564
+- Name: azure-mgmt-avs
+  Version: 8.0.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-avs_8.0.0/sdk/compute/azure-mgmt-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-apicenter
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Apicenter
+  ServiceName: Apicenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-apicenter_1.0.0b1/sdk/apicenter/azure-mgmt-apicenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b12
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b12/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b16
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b16/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Export OTel Resource
+    ([#31355](https://github.com/Azure/azure-sdk-for-python/pull/31355))
+    - Use observed timestamp for log record if timetamp is None
+    ([#31660](https://github.com/Azure/azure-sdk-for-python/pull/31660))
+    - Support custom events
+    ([#31883](https://github.com/Azure/azure-sdk-for-python/pull/31883))
+- Name: azure-mgmt-recoveryservices
+  Version: 2.5.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_2.5.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+

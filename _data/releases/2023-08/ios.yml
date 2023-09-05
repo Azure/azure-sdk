@@ -1,0 +1,37 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.5.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.5.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for simulators on M1 machines.
+- Name: AzureCommunicationCalling
+  Version: 2.6.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.6.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for simulators on M1 machines.
+    * Added support for Background Blur Video Effect for local video streams.
+    * Added support for Raw Outgoing Video.
+    * Added support for Raw Audio.
+    * Various miscellaneous updates.
+- Name: AzureCommunicationCalling
+  Version: 2.6.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.6.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * New Teams captions feature that allows ACS users to enable closed captions in Teams meeting and allows Microsoft 365 users on ACS SDK to use closed captions in one to one and group calls. Users will also have the ability to update spoken language for the call and caption language for themselves (requires Teams Premium).
+    * Added support for user facing diagnostics feature.
+

@@ -1,0 +1,24 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.4.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.4.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue with handling incoming call when the app is running in background or in kill mode.
+- Name: AzureCommunicationCalling
+  Version: 2.5.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.5.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Background Blur Video Effect for local video streams.
+    * Added support for Raise Hand feature on ACS and Teams meetings.
+    * Added support for joining a Room.
+
