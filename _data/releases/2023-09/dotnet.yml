@@ -252,4 +252,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.1.0-beta.2/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.JobRouter
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.JobRouter_1.0.0-beta.2/sdk/communication/Azure.Communication.JobRouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added getters for ScoringRuleOptions, ScoringRule in BestWorkerMode, FunctionUri in FunctionRouterRule, AppKey, ClientId and FunctionKey in FunctionRouterRuleCredential, and ExpiresAfter in PassThroughWorkerSelectorAttachment
 
