@@ -283,4 +283,15 @@ entries:
 
     - ChatCompletions supports Azure OpenAI's newest feature to use Azure OpenAI with your own data. See `example_client_getchatcompletions_extensions_test.go`
     for a working example. (PR#21426)
+- Name: sdk/azcore
+  Version: 1.7.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.7.2/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix default HTTP transport to work in WASM modules.
 
