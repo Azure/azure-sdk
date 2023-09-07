@@ -123,7 +123,7 @@ Api Management,0,Resource Management - Api Management,mgmt,.NET,Microsoft.Azure.
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,.NET,,,11,false,Azure.ResourceManager.AppComplianceAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appcomplianceautomation,3,false,1,
 App Configuration,0,Resource Management - App Configuration,mgmt,.NET,,,11,false,Azure.ResourceManager.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,08/29/2022
 App Platform,0,Resource Management - App Platform,mgmt,.NET,,,11,false,Azure.ResourceManager.AppPlatform,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appplatform,10,false,1,03/28/2023
-App Service,0,Resource Management - App Service,mgmt,.NET,,,11,false,Azure.ResourceManager.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/websites,10,false,1,05/04/2023
+App Service,0,Resource Management - App Service,mgmt,.NET,,,11,false,Azure.ResourceManager.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/websites,10,false,1,
 Application Insights,0,Resource Management - Application Insights,mgmt,.NET,Microsoft.Azure.Management.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,true,Azure.ResourceManager.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,false,1,
 Arc ScVmm,0,Resource Management - Arc ScVmm,mgmt,.NET,,,11,false,Azure.ResourceManager.ArcScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/arc-scvmm,3,false,1,
 Attestation,0,Resource Management - Attestation,mgmt,.NET,Microsoft.Azure.Management.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,3,true,Azure.ResourceManager.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,3,false,1,
@@ -1047,7 +1047,7 @@ Unable to determine Service Name,0,synapseml-vw_2.12,UNABLE TO BE DETERMINED,Jav
 Unable to determine Service Name,0,synapseutils,UNABLE TO BE DETERMINED,Java,synapseutils,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,synapseutils_2.11,UNABLE TO BE DETERMINED,Java,synapseutils_2.11,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Unable to determine Service Name,0,synapseutils_2.12,UNABLE TO BE DETERMINED,Java,synapseutils_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-dapr,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-ai-vision-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
 Schema Registry,0,azure-schemaregistry-spark-avro,data,Java,azure-schemaregistry-spark-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Batch,0,Batch,data,Java,azure-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/microsoft-azure-batch,10,false,,,1,false,0,
@@ -1164,7 +1164,7 @@ Purview,0,Purview Scanning,data,JavaScript,,,11,false,@azure-rest/purview-scanni
 Purview,0,Purview Workflow,data,JavaScript,,,11,false,@azure-rest/purview-workflow,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-workflow-rest/,3,false,1,
 Schema Registry,0,Schema Registry,data,JavaScript,,,11,false,@azure/schema-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,10/11/2022
 Schema Registry,0,Schema Registry - Avro,data,JavaScript,,,11,false,@azure/schema-registry-avro,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
-Schema Registry,0,Schema Registry Json,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,3,false,1,
+Schema Registry,0,Schema Registry Json Schema,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,3,false,1,
 Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,04/10/2023
 Synapse,0,Spark,data,JavaScript,,,11,false,@azure/synapse-spark,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,
@@ -1272,6 +1272,7 @@ Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,JavaScript,,,11,fal
 Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,JavaScript,,,11,false,@azure/arm-hybridcompute,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridcompute,10,false,1,01/19/2022
 Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,JavaScript,,,11,false,@azure/arm-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridcontainerservice,3,false,1,
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,JavaScript,,,11,false,@azure/arm-hybridkubernetes,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridkubernetes,10,false,1,11/30/2022
+Hybridconnectivity,0,Resource Management - Hybridconnectivity,mgmt,JavaScript,,,11,false,@azure/arm-hybridconnectivity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridconnectivity,3,false,1,
 Image Builder,0,Resource Management - Image Builder,mgmt,JavaScript,,,11,false,@azure/arm-imagebuilder,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/imagebuilder,10,false,1,04/24/2023
 IoT,0,Resource Management - IoT Central,mgmt,JavaScript,,,11,false,@azure/arm-iotcentral,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral,10,false,1,01/20/2022
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,JavaScript,,,11,false,@azure/arm-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotfirmwaredefense,3,false,1,
@@ -1452,6 +1453,7 @@ Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-ev
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,1,
 Search,0,Cognitive Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,
+Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/14/2021
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,Python,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/31/2022
@@ -1728,7 +1730,6 @@ Attestation,0,Attestation,data,Go,,,11,false,Missing: Created from existing pack
 Mixed Reality,0,Azure Remote Rendering,data,Python,,,11,false,Missing: Created from existing package: Azure.MixedReality.RemoteRendering,,2,false,0,
 Mixed Reality,0,Azure Remote Rendering,data,Go,,,11,false,Missing: Created from existing package: Azure.MixedReality.RemoteRendering,,2,false,0,
 Search,0,Cognitive Search,data,Go,,,11,false,Missing: Created from existing package: Azure.Search.Documents,,2,false,0,
-Communication,0,Communication Call Automation,data,Python,,,11,false,Missing: Created from existing package: Azure.Communication.CallAutomation,,2,false,0,
 Communication,0,Communication Call Automation,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.CallAutomation,,2,false,0,
 Communication,0,Communication Chat,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Chat,,2,false,0,
 Communication,0,Communication Common,data,Python,,,11,false,Missing: Created from existing package: Azure.Communication.Common,,2,false,0,
