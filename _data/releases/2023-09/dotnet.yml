@@ -263,4 +263,19 @@ entries:
     #### Bugs Fixed
 
     - Added getters for ScoringRuleOptions, ScoringRule in BestWorkerMode, FunctionUri in FunctionRouterRule, AppKey, ClientId and FunctionKey in FunctionRouterRuleCredential, and ExpiresAfter in PassThroughWorkerSelectorAttachment
+- Name: Azure.Core
+  Version: 1.35.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.35.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Expand the set of supported `DynamicData` property types to included heterogeneous arrays of allowed types.
+
+    #### Breaking Changes
+
+    - Added the nullability annotation to `NullableResponse<T>.Value` to indicate that it is a nullable type.
 
