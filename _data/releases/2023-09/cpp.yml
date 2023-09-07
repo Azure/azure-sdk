@@ -1,0 +1,12 @@
+entries:
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.3
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.3/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When a message sender is destroyed, close the underlying AMQP link if it hasn't been closed already.
