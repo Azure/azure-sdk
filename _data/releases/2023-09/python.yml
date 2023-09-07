@@ -208,4 +208,30 @@ entries:
     - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
     - Send DTMF tones to a participant in the call.
     - Mute participant in the call.
+- Name: azure-core
+  Version: 1.29.4
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.4/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue that some urls trigger an infinite loop. #31346
+    - Fixed issue where IndexError was raised if multipart responses did not match the number of requests. #31471
+    - Fixed issue unbound variable exception if dict is invalid in CloudEvent.from_dict. #31835
+    - Fixed issue asyncBearerTokenCredentialPolicy is not backward compatible with SansIOHTTPPolicy. #31836
+    - Fixed issue mypy complains with new version of azure-core. #31564
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b11
+  DisplayName: Core - Client - Tracing Opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b11/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `OpenTelemetrySpan` typing to correctly implement the `AbstractSpan` protocol. ([#31943](https://github.com/Azure/azure-sdk-for-python/pull/31943))
 
