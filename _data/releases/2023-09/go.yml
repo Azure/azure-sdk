@@ -294,4 +294,19 @@ entries:
     #### Bugs Fixed
 
     * Fix default HTTP transport to work in WASM modules.
+- Name: sdk/azcore
+  Version: 1.8.0-beta.3
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.8.0-beta.3/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Suppress creating spans for nested SDK API calls. The HTTP span will be a child of the outer API span.
+
+    #### Features Added
+
+    * Added function `FetcherForNextLink` and `FetcherForNextLinkOptions` to the `runtime` package to centralize creation of `Pager[T].Fetcher` from a next link URL.
 
