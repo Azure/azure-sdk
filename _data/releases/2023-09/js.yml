@@ -336,4 +336,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_1.0.0-beta.1/sdk/hybridconnectivity/arm-hybridconnectivity/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.12.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.12.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Set `init.duplex` to `"half"` when streaming body via `fetch()` [PR #26890](https://github.com/Azure/azure-sdk-for-js/pull/26890)
+    - Defer Error construction [PR #26897](https://github.com/Azure/azure-sdk-for-js/pull/26897)
 
