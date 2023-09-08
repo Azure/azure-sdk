@@ -23,3 +23,11 @@ jobs:
       Write-Host "Job2"
     displayName: Run Prettier
     condition: succeededOrFailed()
+
+  - pwsh: |
+      $sha = git show-ref -s HEAD
+      Write-Host $sha
+      gh api repos/Azure/azure-rest-api-specs/commits/$sha/check-runs --jq .check_runs.[].name
+    displayName: List checks
+    env:
+      GH_TOKEN: $(System.AccessToken)
