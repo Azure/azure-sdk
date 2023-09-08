@@ -7,10 +7,14 @@ jobs:
     vmImage: ubuntu-22.04
 
   steps:
+  - checkout: self
+    persistCredentials: true
+
   - pwsh: |
-      Write-Host "Job1"
-    displayName: Validate Impacted Specs
+      git config -l
+    displayName: check git config
     condition: succeededOrFailed()
+
 
 - job:
   displayName: Job2
@@ -19,9 +23,12 @@ jobs:
     vmImage: ubuntu-22.04
 
   steps:
+  - checkout: self
+    persistCredentials: true
+
   - pwsh: |
-      Write-Host "Job2"
-    displayName: Run Prettier
+      git config -l
+    displayName: check git config
     condition: succeededOrFailed()
 
   - pwsh: |
