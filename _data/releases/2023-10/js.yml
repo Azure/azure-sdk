@@ -1,0 +1,13 @@
+entries:
+- Name: '@azure/service-bus'
+  Version: 7.9.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Check whether we can send messages before making management requests. [PR #26927](https://github.com/Azure/azure-sdk-for-js/pull/26927)
+
