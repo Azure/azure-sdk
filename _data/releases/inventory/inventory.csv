@@ -48,7 +48,7 @@ Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Commu
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/06/2023
 Communication,0,Communication SMS,data,.NET,,,11,false,Azure.Communication.Sms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,05/25/2021
-Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,11/09/2022
+Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,09/12/2023
 Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,05/11/2023
 Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.AI.ContentSafety,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety,3,false,1,
 Cognitive Services,0,Conversational Language Understanding,data,.NET,,,11,false,Azure.AI.Language.Conversations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,06/14/2023
@@ -97,12 +97,12 @@ Cognitive Services,0,Question Answering,data,.NET,Microsoft.Azure.CognitiveServi
 Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,
 Schema Registry,0,Schema Registry - Avro,data,.NET,,,11,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,05/12/2022
 Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,08/16/2023
-Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/12/2023
+Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/12/2023
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/12/2023
+Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/12/2023
+Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/12/2023
 Synapse,0,Synapse - AccessControl,data,.NET,,,11,false,Azure.Analytics.Synapse.AccessControl,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,.NET,,,11,false,Azure.Analytics.Synapse.Artifacts,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Managed Private Endpoints,data,.NET,,,11,false,Azure.Analytics.Synapse.ManagedPrivateEndpoints,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
@@ -487,7 +487,7 @@ Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azu
 Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,08/16/2023
 Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,10,false,1,08/23/2023
 Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/azadmin,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azadmin,10,false,1,08/24/2023
-Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,3,false,1,
+Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,10,false,1,09/12/2023
 Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,08/22/2023
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,05/09/2023
@@ -1125,7 +1125,7 @@ Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communicat
 Communication,0,Communication Sms,data,JavaScript,,,11,false,@azure/communication-sms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/29/2021
 Confidential Ledger,0,Confidential Ledger,data,JavaScript,,,11,false,@azure-rest/confidential-ledger,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/confidentialledger/confidential-ledger-rest/,10,false,1,07/19/2022
 Container Registry,0,Container Registry,data,JavaScript,,,11,false,@azure/container-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry,10,false,1,05/11/2023
-Cosmos DB,0,Cosmos DB,data,JavaScript,documentdb,UNABLE TO DETERMINE REPO LINK,1,false,@azure/cosmos,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb,10,false,1,02/28/2023
+Cosmos DB,0,Cosmos DB,data,JavaScript,documentdb,UNABLE TO DETERMINE REPO LINK,1,false,@azure/cosmos,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb,10,false,1,09/12/2023
 Dev Center,0,Dev Center,data,JavaScript,,,11,false,@azure-rest/developer-devcenter,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/devcenter/developer-devcenter-rest/,3,false,1,
 IoT,0,Device Update,data,JavaScript,,,11,false,@azure-rest/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/deviceupdate/iot-device-update-rest/,10,false,1,09/09/2022
 IoT,0,Digital Twins - Core,data,JavaScript,,,11,false,@azure/digital-twins-core,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins,10,false,1,07/19/2022
