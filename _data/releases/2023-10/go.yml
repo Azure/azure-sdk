@@ -1,0 +1,23 @@
+entries:
+- Name: sdk/azidentity
+  Version: 1.4.0-beta.5
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.4.0-beta.5/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Credential chains such as `DefaultAzureCredential` now try their next credential, if any, when
+    managed identity authentication fails in a Docker Desktop container
+    ([#21417](https://github.com/Azure/azure-sdk-for-go/issues/21417))
+
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.4.0-beta.4
+    * Whether `GetToken` requests a CAE token is now determined by `TokenRequestOptions.EnableCAE`. Azure
+    SDK clients which support CAE will set this option automatically. Credentials no longer request CAE
+    tokens by default or observe the environment variable "AZURE_IDENTITY_DISABLE_CP1".
+
+    #### Features Added
+    * Service principal credentials can request CAE tokens
+
