@@ -37,4 +37,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.2.0-beta.2/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.9.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.9.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Several improvements to logging have been made to capture additional context and fix typos.  Most notable among them is the inclusion of starting and ending sequence numbers when events are read from Event Hubs and dispatched for processing.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.6.3.  This fixes an issue with timeout duration calculations during link creation and includes several efficiency improvements.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.0.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.0.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The default batch size has changed to 100 events.  Previously, the default batch size was 10.
+
+    This setting represents the maximum number of events from Event Hubs that the function can receive when it's invoked. The decision to change the default was based on developer feedback, testing, and a desire to match the defaults used by the Azure SDK for Event Hubs.  This change will be beneficial to the average scenario by helping to improve performance as well as lower costs due to fewer function executions.
+
+    We recommend testing to ensure no breaking changes are introducing to your function app before updating existing applications to version 6.0.0 or newer of the Event Hubs extension, especially if you have code code that was written to expect 10 as the max event batch size.
 
