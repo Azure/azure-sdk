@@ -133,4 +133,165 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed the URL returned by `TableClient.Uri` when connecting to Azurite
+- Name: Azure.Communication.CallAutomation
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.1.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Play and recognize supports TTS and SSML source prompts.
+    - Recognize supports choices and freeform speech.
+    - Start/Stop continuous DTMF recognition by subscribing/unsubscribing to tones.
+    - Send DTMF tones to a participant in the call.
+    - Mute participants in the call.
+- Name: Azure.Communication.Email
+  Version: 1.0.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Email_1.0.1/sdk/communication/Azure.Communication.Email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Improve memory management for attachment handling
+- Name: Azure.ResourceManager.NetworkCloud
+  Version: 1.0.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.0.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.7
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.7/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The Azure OpenAI "using your own data" feature is now supported. See [the Azure OpenAI using your own data quickstart](https://learn.microsoft.com/azure/ai-services/openai/use-your-data-quickstart) for conceptual background and detailed setup instructions.
+    - Azure OpenAI chat extensions are configured via a new `AzureChatExtensionsOptions` property on `ChatCompletionsOptions`. When an `AzureChatExtensionsOptions` is provided, configured requests will only work with clients configured to use the Azure OpenAI service, as the capabilities are unique to that service target.
+    - `AzureChatExtensionsOptions` then has `AzureChatExtensionConfiguration` instances added to its `Extensions` property, with these instances representing the supplementary information needed for Azure OpenAI to use desired data sources to supplement chat completions behavior.
+    - `ChatChoice` instances on a `ChatCompletions` response value that used chat extensions will then also have their `Message` property supplemented by an `AzureChatExtensionMessageContext` instance. This context contains a collection of supplementary `Messages` that describe the behavior of extensions that were used and supplementary response data, such as citations, provided along with the response.
+    - See the README sample snippet for a simplified example of request/response use with "using your own data"
+- Name: Azure.ResourceManager.HDInsight.Containers
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Hdinsight.Containers
+  ServiceName: Hdinsight.Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight.Containers_1.0.0-beta.1/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Number Lookup API public preview
+    - API version `2023-05-01-preview` is the default
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.7.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.7.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix multi request origins validation.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0-beta.2/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Service version updated to include 2023-05-01-preview
+    - Default to latest public version
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.1.0-beta.2/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.3
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.3/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MobileNetwork
+  Version: 1.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MobileNetwork_1.0.0/sdk/mobilenetwork/Azure.ResourceManager.MobileNetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppService
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.1.0-beta.2/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.JobRouter
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.JobRouter_1.0.0-beta.2/sdk/communication/Azure.Communication.JobRouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added getters for ScoringRuleOptions, ScoringRule in BestWorkerMode, FunctionUri in FunctionRouterRule, AppKey, ClientId and FunctionKey in FunctionRouterRuleCredential, and ExpiresAfter in PassThroughWorkerSelectorAttachment
+- Name: Azure.Core
+  Version: 1.35.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.35.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Expand the set of supported `DynamicData` property types to included heterogeneous arrays of allowed types.
+
+    #### Breaking Changes
+
+    - Added the nullability annotation to `NullableResponse<T>.Value` to indicate that it is a nullable type.
+- Name: Azure.ResourceManager.RecoveryServicesBackup
+  Version: 1.1.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesBackup_1.1.0/sdk/recoveryservices-backup/Azure.ResourceManager.RecoveryServicesBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServices
+  Version: 1.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServices_1.1.0/sdk/recoveryservices/Azure.ResourceManager.RecoveryServices/CHANGELOG.md
+  ChangelogContent: ""
 
