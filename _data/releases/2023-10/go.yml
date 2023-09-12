@@ -57,4 +57,14 @@ entries:
     #### Features Added
 
     - The publisher client for Event Grid topics has been added as a sub-package under `publisher`.
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.0.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.0.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * First stable release of the azcertificates module
 
