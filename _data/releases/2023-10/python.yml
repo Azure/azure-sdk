@@ -26,4 +26,15 @@ entries:
 
     - Added Windows Web Account Manager (WAM) Brokered Authentication support.
     - Added `enable_msa_passthrough` suppport for `InteractiveBrowserCredential`. By default `InteractiveBrowserCredential` only lists AAD accounts. If you set `enable_msa_passthrough` to `True`, it lists both AAD accounts and MSA outlook.com accounts that are logged in to Windows.
+- Name: azure-search-documents
+  Version: 11.4.0b9
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b9/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug that list type of `order_by` was not correctly handled. #31837
 
