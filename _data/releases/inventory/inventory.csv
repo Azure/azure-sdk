@@ -494,10 +494,10 @@ Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.co
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
 Cognitive Services,0,OpenAI,data,Go,,,11,false,sdk/cognitiveservices/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/cognitiveservices/azopenai,3,true,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
-Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,06/06/2023
+Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,09/06/2023
 Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,1,false,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,07/13/2023
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,1,false,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
-Storage File Share,0,Storage File Share,data,Go,,,11,false,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,07/12/2023
+Storage File Share,0,Storage File Share,data,Go,,,11,false,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,07/20/2023
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
 IoT,0,IoT Firmware Defense,mgmt,Go,,,11,false,sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,3,false,1,
@@ -2247,6 +2247,11 @@ playwrighttesting,0,PlaywrightTesting,data,Java,,,11,false,Missing: Created from
 playwrighttesting,0,PlaywrightTesting,data,JavaScript,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting,,2,false,0,
 playwrighttesting,0,PlaywrightTesting,data,Python,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting,,2,false,0,
 playwrighttesting,0,PlaywrightTesting,data,Go,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting,,2,false,0,
+playwrighttesting,0,Resource Management - PlaywrightTesting.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting.Management,,2,false,0,
+playwrighttesting,0,Resource Management - PlaywrightTesting.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting.Management,,2,false,0,
+playwrighttesting,0,Resource Management - PlaywrightTesting.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting.Management,,2,false,0,
+playwrighttesting,0,Resource Management - PlaywrightTesting.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting.Management,,2,false,0,
+playwrighttesting,0,Resource Management - PlaywrightTesting.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: playwrighttesting/PlaywrightTesting.Management,,2,false,0,
 PostgreSQL HSC,0,Resource Management - PostgreSQL HSC,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: postgresqlhsc/resource-manager,,2,false,0,
 PostgreSQL HSC,0,Resource Management - PostgreSQL HSC,mgmt,Java,,,11,false,Missing: Created from API in specs repo: postgresqlhsc/resource-manager,,2,false,0,
 PostgreSQL HSC,0,Resource Management - PostgreSQL HSC,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: postgresqlhsc/resource-manager,,2,false,0,
