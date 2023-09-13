@@ -85,4 +85,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Stable release of features from 12.7.0b1
+- Name: azure-eventgrid
+  Version: 4.14.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.14.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure App Configuration and Azure EventGrid.
 
