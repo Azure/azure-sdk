@@ -96,4 +96,14 @@ entries:
     #### Features Added
 
     - Added new enum values to `SystemEventNames` related to Azure App Configuration and Azure EventGrid.
+- Name: azure-cosmos
+  Version: 4.5.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.5.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug when query with DISTINCT + OFFSET/LIMIT operators returns unexpected result. See [PR 31925](https://github.com/Azure/azure-sdk-for-python/pull/31925).
 
