@@ -155,4 +155,20 @@ entries:
 
     - `ManagedIdentityCredential` will fall through to the next credential in the chain in the case that Docker Desktop returns a 403 response when attempting to access the IMDS endpoint. [#38218](https://github.com/Azure/azure-sdk-for-net/issues/38218)
     - Fixed an issue where interactive credentials would still prompt on the first GetToken request even when the cache is populated and an AuthenticationRecord is provided. [#38431](https://github.com/Azure/azure-sdk-for-net/issues/38431)
+- Name: Azure.Messaging.EventGrid
+  Version: 4.18.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.18.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `EventGridClient` has been removed for the stable release. It will be included in a subsequent release.
+
+    #### Features Added
+
+    - Added new system events for Event Grid and App Configuration.
+    - Added `Recipient` property to `AcsEmailEngagementTrackingReportReceivedEventData` event.
 
