@@ -23,4 +23,63 @@ entries:
 
     - `ProducerClient` now has convenience methods for sending events without batching.
     - Added `std::ostream` insertion operators for model types to simplify debugging.
+- Name: azure-storage-blobs
+  Version: 12.9.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.9.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.9.0-beta.1` and `12.9.0-beta.2` are now generally available.
+- Name: azure-storage-files-datalake
+  Version: 12.8.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.8.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.8.0-beta.1` and `12.8.0-beta.2` are now generally available.
+- Name: azure-storage-queues
+  Version: 12.1.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.1.0/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.1.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.7.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.7.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.7.0-beta.1` and `12.7.0-beta.2` are now generally available.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `ShareServiceClient::SetProperties` and `ShareServiceClient::GetProperties` threw exception if property `Protocol` is not null.
+- Name: azure-storage-common
+  Version: 12.4.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.4.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2023-08-03`.
 
