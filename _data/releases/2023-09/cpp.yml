@@ -10,7 +10,6 @@ entries:
     #### Bugs Fixed
 
     - When a message sender is destroyed, close the underlying AMQP link if it hasn't been closed already.
-entries:
 - Name: azure-messaging-eventhubs
   Version: 1.0.0-beta.2
   DisplayName: Event Hubs
