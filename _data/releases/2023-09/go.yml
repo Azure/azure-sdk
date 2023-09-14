@@ -1,0 +1,312 @@
+entries:
+- Name: sdk/azcore
+  Version: 1.7.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.7.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    ### Bugs Fixed
+
+    * Enable TLS renegotiation in the default transport policy.
+- Name: sdk/cognitiveservices/azopenai
+  Version: 0.1.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/cognitiveservices/azopenai/v0.1.2/sdk/cognitiveservices/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Retracting this module to delist it from pkg.go.dev. Use `github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai` instead.
+- Name: sdk/azcore
+  Version: 1.8.0-beta.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.8.0-beta.2/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Propagate any query parameters when constructing a fake poller and/or injecting next links.
+
+    #### Features Added
+
+    * Added function `SanitizePagerPollerPath` to the `server` package to centralize sanitization and formalize the contract.
+    * Added `TokenRequestOptions.EnableCAE` to indicate whether to request a CAE token.
+
+    #### Breaking Changes
+
+    > This change affects only code written against beta version `v1.8.0-beta.1`.
+    * `messaging.CloudEvent` deserializes JSON objects as `[]byte`, instead of `json.RawMessage`. See the documentation for CloudEvent.Data for more information.
+
+    > This change affects only code written against beta versions `v1.7.0-beta.2` and `v1.8.0-beta.1`.
+    * Removed parameter from method `Span.End()` and its type `tracing.SpanEndOptions`. This API GA'ed in `v1.2.0` so we cannot change it.
+- Name: sdk/azidentity
+  Version: 1.3.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.3.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/azidentity
+  Version: 1.4.0-beta.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.4.0-beta.4/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/storage/azdatalake
+  Version: 0.1.0-beta.1
+  DisplayName: Azure Storage Data Lake
+  ServiceName: Data Lake Gen2
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v0.1.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * This is the initial preview release of the `azdatalake` library
+- Name: sdk/data/azcosmos
+  Version: 0.3.6
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.6/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed PatchItem function to respect EnableContentResponseOnWrite
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.0.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.0.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/resourcemanager/avs/armavs
+  Version: 1.3.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/avs/armavs/v1.3.0/sdk/resourcemanager/avs/armavs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redhatopenshift/armredhatopenshift
+  Version: 1.3.0
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redhatopenshift/armredhatopenshift/v1.3.0/sdk/resourcemanager/redhatopenshift/armredhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/chaos/armchaos
+  Version: 0.7.0
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/chaos/armchaos/v0.7.0/sdk/resourcemanager/chaos/armchaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/maintenance/armmaintenance
+  Version: 1.2.0
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/maintenance/armmaintenance/v1.2.0/sdk/resourcemanager/maintenance/armmaintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storage/armstorage
+  Version: 1.4.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storage/armstorage/v1.4.0/sdk/resourcemanager/storage/armstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 4.2.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v4.2.0-beta.2/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 4.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v4.1.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/maps/armmaps
+  Version: 1.0.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/maps/armmaps/v1.0.0/sdk/resourcemanager/maps/armmaps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/apicenter/armapicenter
+  Version: 0.1.0
+  DisplayName: Resource Management - Apicenter
+  ServiceName: Apicenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/apicenter/armapicenter/v0.1.0/sdk/resourcemanager/apicenter/armapicenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.0.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.0.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/resourcemanager/dynatrace/armdynatrace
+  Version: 2.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dynatrace/armdynatrace/v2.0.0/sdk/resourcemanager/dynatrace/armdynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcontainers/armappcontainers
+  Version: 2.0.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcontainers/armappcontainers/v2.0.0/sdk/resourcemanager/appcontainers/armappcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/apimanagement/armapimanagement
+  Version: 2.0.0
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/apimanagement/armapimanagement/v2.0.0/sdk/resourcemanager/apimanagement/armapimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 4.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v4.3.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 4.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v4.2.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.0.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.0.1/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Upgraded dependencies
+- Name: sdk/resourcemanager/resources/armdeploymentstacks
+  Version: 0.1.0
+  DisplayName: Resource Management - Deploymentstacks
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeploymentstacks/v0.1.0/sdk/resourcemanager/resources/armdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/networkcloud/armnetworkcloud
+  Version: 1.0.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/networkcloud/armnetworkcloud/v1.0.0/sdk/resourcemanager/networkcloud/armnetworkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resourceconnector/armresourceconnector
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource Connector
+  ServiceName: Resource Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resourceconnector/armresourceconnector/v1.0.0/sdk/resourcemanager/resourceconnector/armresourceconnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers
+  Version: 0.1.0
+  DisplayName: Resource Management - Hdinsightcontainers
+  ServiceName: Hdinsightcontainers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers/v0.1.0/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.2.0
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.2.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - EventReader, used by GetChatCompletionsStream and GetCompletionsStream for streaming results, would not return an
+    error if the underlying Body reader was closed or EOF'd before the actual DONE: token arrived. This could result in an
+    infinite loop for callers. (PR#21323)
+
+    #### Breaking Changes
+
+    - ChatCompletionsOptions, CompletionsOptions, EmbeddingsOptions `DeploymentID` field renamed to `Deployment`.
+    - Method `Close()` on `EventReader[T]` now returns an error.
+
+    #### Features Added
+
+    - ChatCompletions supports Azure OpenAI's newest feature to use Azure OpenAI with your own data. See `example_client_getchatcompletions_extensions_test.go`
+    for a working example. (PR#21426)
+- Name: sdk/azcore
+  Version: 1.7.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.7.2/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix default HTTP transport to work in WASM modules.
+- Name: sdk/azcore
+  Version: 1.8.0-beta.3
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.8.0-beta.3/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Suppress creating spans for nested SDK API calls. The HTTP span will be a child of the outer API span.
+
+    #### Features Added
+
+    * Added function `FetcherForNextLink` and `FetcherForNextLinkOptions` to the `runtime` package to centralize creation of `Pager[T].Fetcher` from a next link URL.
+
