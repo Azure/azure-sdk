@@ -10,3 +10,108 @@ entries:
     #### Bugs Fixed
 
     - When a message sender is destroyed, close the underlying AMQP link if it hasn't been closed already.
+entries:
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.2/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Storage names used for checkpoint store have been normalized to match behavior of other Azure SDK eventhubs packages.
+    - `EventDataBatch` object can no longer be directly created but instead must be created via `ProducerClient::CreateEventDataBatch`.
+    - `EventDataBatch::AddMessage` method has been renamed to `EventDataBatch::TryAddMessage` and it now returns false if the message will not fit.
+    - `SendEventDataBatch` method has been renamed to `Send` and it now returns a void (throwing an exception of the send fails).
+
+    #### Bugs Fixed
+
+    - Setting `PartitionClientOptions::StartPosition::EnqueuedTime` now works as expected.
+    - Internally restructured how AMQP senders and receivers are configured to simplify code and significantly improve reliability.
+
+    #### Features Added
+
+    - `ProducerClient` now has convenience methods for sending events without batching.
+    - Added `std::ostream` insertion operators for model types to simplify debugging.
+- Name: azure-storage-blobs
+  Version: 12.9.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.9.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.9.0-beta.1` and `12.9.0-beta.2` are now generally available.
+- Name: azure-storage-files-datalake
+  Version: 12.8.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.8.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.8.0-beta.1` and `12.8.0-beta.2` are now generally available.
+- Name: azure-storage-queues
+  Version: 12.1.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.1.0/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.1.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.7.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.7.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.7.0-beta.1` and `12.7.0-beta.2` are now generally available.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `ShareServiceClient::SetProperties` and `ShareServiceClient::GetProperties` threw exception if property `Protocol` is not null.
+- Name: azure-storage-common
+  Version: 12.4.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.4.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2023-08-03`.
+- Name: azure-identity
+  Version: 1.6.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.6.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for reading the tenant id, client id, and the token file path for `WorkloadIdentityCredential` from the environment variables.
+
+    #### Bugs Fixed
+
+    - [[#4084]](https://github.com/Azure/azure-sdk-for-cpp/issues/4084) Remove OpenSSL dependency on Windows. (A community contribution, courtesy of _[teo-tsirpanis](https://github.com/teo-tsirpanis)_)
+
+    #### Breaking Changes
+
+    - Modify the order of the credentials used within the `DefaultAzureCredential` to be consistent with other languages.
+    - Add `WorkloadIdentityCredential` to the `DefaultAzureCredential`.
+
