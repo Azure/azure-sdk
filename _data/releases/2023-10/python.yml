@@ -185,4 +185,31 @@ entries:
     #### Bugs Fixed
     - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
     NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-monitor-opentelemetry
+  Version: 1.0.0
+  DisplayName: Azure Monitor OpenTelemetry Distro
+  ServiceName: Monitor OpenTelemetry Distro
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.0.0/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add Azure resource detectors
+    ([#32087](https://github.com/Azure/azure-sdk-for-python/pull/32087))
+- Name: azure-data-tables
+  Version: 12.4.4
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.4/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug when submitting transactions with an empty operation list. ([#31471](https://github.com/Azure/azure-sdk-for-python/issues/31471))
+    * Fixed a bug when decoding response body in string type. Thanks @kldtz for the contribution! ([#31265](https://github.com/Azure/azure-sdk-for-python/pull/31265))
+    * Fixed a bug when retrieving an entity with partition key and/or row key in empty string, the empty string values were disappeared in result. ([#31920]https://github.com/Azure/azure-sdk-for-python/issues/31920)
+
+    #### Features Added
+    * Enabled to specify resource type `container` in account SAS access.
 
