@@ -129,4 +129,60 @@ entries:
 
     * New API for Azure App Configuration Provider, `refresh`, which can be used to refresh the configuration from the Azure App Configuration service. `refresh` by default can check every 30 seconds for changes to specified sentinel keys. If a change is detected then all configurations are reloaded. Sentinel keys can be set by passing  a list of `SentinelKey`'s to `refresh_on`.
     * Added support for customer provided user agent prefix.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b17
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b17/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle missing or empty message data
+    ([#31944](https://github.com/Azure/azure-sdk-for-python/pull/31944))
+- Name: azure-storage-queue
+  Version: 12.7.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-file-share
+  Version: 12.14.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-blob
+  Version: 12.18.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-file-datalake
+  Version: 12.13.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
 
