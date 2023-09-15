@@ -309,4 +309,103 @@ entries:
     #### Features Added
 
     * Added function `FetcherForNextLink` and `FetcherForNextLinkOptions` to the `runtime` package to centralize creation of `Pager[T].Fetcher` from a next link URL.
+- Name: sdk/azidentity
+  Version: 1.4.0-beta.5
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.4.0-beta.5/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Credential chains such as `DefaultAzureCredential` now try their next credential, if any, when
+    managed identity authentication fails in a Docker Desktop container
+    ([#21417](https://github.com/Azure/azure-sdk-for-go/issues/21417))
 
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.4.0-beta.4
+    * Whether `GetToken` requests a CAE token is now determined by `TokenRequestOptions.EnableCAE`. Azure
+    SDK clients which support CAE will set this option automatically. Credentials no longer request CAE
+    tokens by default or observe the environment variable "AZURE_IDENTITY_DISABLE_CP1".
+
+    #### Features Added
+    * Service principal credentials can request CAE tokens
+- Name: sdk/storage/azfile
+  Version: 1.1.0-beta.1
+  DisplayName: Storage File Share
+  ServiceName: Storage File Share
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.1.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Updated service version to `2022-11-02`.
+    * Added OAuth support.
+    * Added [Rename Directory API](https://learn.microsoft.com/rest/api/storageservices/rename-directory).
+    * Added [Rename File API](https://learn.microsoft.com/rest/api/storageservices/rename-file).
+    * Added `x-ms-file-change-time` request header in
+    * Create File/Directory
+    * Set File/Directory Properties
+    * Copy File
+    * Added `x-ms-file-last-write-time` request header in Put Range and Put Range from URL.
+    * Updated the SAS Version to `2022-11-02` and added `Encryption Scope` to Account SAS.
+    * Trailing dot support for files and directories.
+
+    #### Bugs Fixed
+
+    * Fixed service SAS creation where expiry time or permissions can be omitted when stored access policy is used.
+    * Fixed issue where some requests fail with mismatch in string to sign.
+- Name: sdk/messaging/azeventgrid
+  Version: 0.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventgrid/v0.2.0/sdk/messaging/azeventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The publisher client for Event Grid topics has been added as a sub-package under `publisher`.
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.0.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.0.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * First stable release of the azcertificates module
+- Name: sdk/resourcemanager/iothub/armiothub
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iothub/armiothub/v1.2.0-beta.2/sdk/resourcemanager/iothub/armiothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/recoveryservices/armrecoveryservices
+  Version: 1.5.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservices/armrecoveryservices/v1.5.0/sdk/resourcemanager/recoveryservices/armrecoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservicefleet/armcontainerservicefleet
+  Version: 0.2.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/v0.2.0/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup
+  Version: 3.0.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Backup
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/v3.0.0/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
