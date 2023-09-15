@@ -1,0 +1,162 @@
+entries:
+- Name: azure-storage-blob
+  Version: 12.24.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.24.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+    - Added RehydratePendingToCold value to ArchiveStatus enum.
+  GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.1.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.1.0/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `LogsIngestionClient` now implements `AutoCloseable` interface and can be used in try-with-resources block.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.23.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.23.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a blob's contents could not be decrypted if the metadata's key set on the blob had any uppercase letters. The metadata key is now able to handle any casing.
+
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.20.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.20.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.17.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.17.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+    - Added `DataLakeDirectoryClient.deleteRecursively()` which allows users to delete a directory and all of its contents recursively.
+    - Added support for paginated directory delete when using AAD authentication. Note that this feature only applies to HNS storage accounts and when using token authentication.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.3.0-beta.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.3.0-beta.2/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MetricsQueryOptions` to `MetricsBatchQueryClient` and `MetricsBatchQueryAsyncClient` to support batch querying metrics with
+    additional options.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.19.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.19.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.20.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.20.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.18.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.18.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New events for EventGrid and AppConfig
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.23.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.23.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.9.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.9.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.10.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.42.0` to version `1.43.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.6` to version `1.13.7`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-containerservicefleet
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservicefleet_1.0.0-beta.2/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-signalr
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-signalr_1.0.0-beta.7/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
