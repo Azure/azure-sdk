@@ -224,4 +224,17 @@ entries:
     used by a container which is also part of the connection warm-up flow. - See [PR 36225](https://github.com/Azure/azure-sdk-for-java/pull/36225)
     * Fixed possible `NullPointerException` issue if health-check flow kicks in before RNTBD context negotiation for a given channel - See [PR 36397](https://github.com/Azure/azure-sdk-for-java/pull/36397).
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.14.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.14.4/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `NullPointerException` that happens when session processor or receiver encounters an error and distributed tracing is enabled.
+    ([#36800](https://github.com/Azure/azure-sdk-for-java/issues/36800))
+  GroupId: com.azure
 
