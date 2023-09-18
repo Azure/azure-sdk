@@ -294,4 +294,255 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServices_1.1.0/sdk/recoveryservices/Azure.ResourceManager.RecoveryServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.2.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.2.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
 
+    - `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` will now retain custom attributes in the setting value.  Previously, only attributes that were defined in the associated JSON schema were allowed and unknown attributes were discarded.
+
+    - Added the ability to create `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` instances with an ETag, matching `ConfigurationSetting`.  This allows all setting types to use the [GetConfigurationSettingAsync](https://learn.microsoft.com/dotnet/api/azure.data.appconfiguration.configurationclient.getconfigurationsettingasync?view=azure-dotnet#azure-data-appconfiguration-configurationclient-getconfigurationsettingasync(azure-data-appconfiguration-configurationsetting-system-boolean-system-threading-cancellationtoken)) overload that accepts `onlyIfUnchanged.`  Previously, this was not possible for specialized settings types.
+
+    - Added the ability to create `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` instances for testing purposes using the `ConfigurationModelFactory`. It was previously not possible to populate service-owned fields when testing.
+
+    - Marked a constructor overload of `ConfigurationSetting` that was intended for testing purposes as non-visible, as the `ConfigurationModelFactory` should instead be used.
+
+    - Fixed a bug where a disposed content stream was used to attempt deserialization in some scenarios, such as using a custom `HttpMessageHandler` that returns `StringContent`.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.9.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.9.3/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When using the `EventHubBufferedProducerClient`, events are now instrumented when `EnqueueEventAsync` or `EnqueueEventsAsync` is called, rather than when the event is published. This ensures that the instrumentation is accurate when the event is published, regardless of whether the event is published immediately or buffered for a period of time.
+- Name: Azure.ResourceManager.Communication
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.2.0-beta.2/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.9.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.9.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Several improvements to logging have been made to capture additional context and fix typos.  Most notable among them is the inclusion of starting and ending sequence numbers when events are read from Event Hubs and dispatched for processing.
+
+    - The reference for the AMQP transport library, `Microsoft.Azure.Amqp`, has been bumped to 2.6.3.  This fixes an issue with timeout duration calculations during link creation and includes several efficiency improvements.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.0.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.0.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The default batch size has changed to 100 events.  Previously, the default batch size was 10.
+
+    This setting represents the maximum number of events from Event Hubs that the function can receive when it's invoked. The decision to change the default was based on developer feedback, testing, and a desire to match the defaults used by the Azure SDK for Event Hubs.  This change will be beneficial to the average scenario by helping to improve performance as well as lower costs due to fewer function executions.
+
+    We recommend testing to ensure no breaking changes are introducing to your function app before updating existing applications to version 6.0.0 or newer of the Event Hubs extension, especially if you have code code that was written to expect 10 as the max event batch size.
+- Name: Azure.Storage.Blobs
+  Version: 12.18.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.18.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.18.0-beta.1.'
+- Name: Azure.Communication.JobRouter
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.JobRouter_1.0.0-beta.3/sdk/communication/Azure.Communication.JobRouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added getter for ScoringParameters in ScoringRuleOptions
+- Name: Azure.Storage.Common
+  Version: 12.17.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.17.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.17.0-beta.1.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.15.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.15.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.15.0-beta.1.'
+- Name: Azure.Storage.Queues
+  Version: 12.16.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.16.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.38
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.38/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.16.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.16.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.16.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.16.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.16.0-beta.1.'
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.2.0
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.2.0/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Service calls that result in a `HttpStatusCode.NotFound` status will now be retried by default. This is to handle scenarios where there is an unexpected loss of session stickiness when the connected node changes and transactions have not been fully replicated.
+- Name: Azure.Identity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.10.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `ManagedIdentityCredential` will fall through to the next credential in the chain in the case that Docker Desktop returns a 403 response when attempting to access the IMDS endpoint. [#38218](https://github.com/Azure/azure-sdk-for-net/issues/38218)
+    - Fixed an issue where interactive credentials would still prompt on the first GetToken request even when the cache is populated and an AuthenticationRecord is provided. [#38431](https://github.com/Azure/azure-sdk-for-net/issues/38431)
+- Name: Azure.Messaging.EventGrid
+  Version: 4.18.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.18.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `EventGridClient` has been removed for the stable release. It will be included in a subsequent release.
+
+    #### Features Added
+
+    - Added new system events for Event Grid and App Configuration.
+    - Added `Recipient` property to `AcsEmailEngagementTrackingReportReceivedEventData` event.
+- Name: Azure.ResourceManager.AppService
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.1.0-beta.3/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.2.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.4
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.4/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApiCenter
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Apicenter
+  ServiceName: Apicenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiCenter_1.0.0-beta.1/sdk/apicenter/Azure.ResourceManager.ApiCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DefenderEasm
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Defendereasm
+  ServiceName: Defendereasm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DefenderEasm_1.0.0-beta.1/sdk/defendereasm/Azure.ResourceManager.DefenderEasm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ResourceConnector
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resourceconnector
+  ServiceName: Resourceconnector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceConnector_1.0.0-beta.1/sdk/resourceconnector/Azure.ResourceManager.ResourceConnector/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.1.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.1.0/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Marketplace
+  Version: 1.1.0
+  DisplayName: Resource Management - Marketplace
+  ServiceName: Marketplace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Marketplace_1.1.0/sdk/marketplace/Azure.ResourceManager.Marketplace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SecurityCenter
+  Version: 1.2.0-beta.3
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityCenter_1.2.0-beta.3/sdk/securitycenter/Azure.ResourceManager.SecurityCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.5.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.5.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
