@@ -120,4 +120,12 @@ entries:
     #### Bugs Fixed
     * Fixed issue where some requests fail with mismatch in string to sign.
     * Fixed service SAS creation where expiry time or permissions can be omitted when stored access policy is used. Fixes [#21229](https://github.com/Azure/azure-sdk-for-go/issues/21229).
+- Name: sdk/resourcemanager/servicefabricmesh/armservicefabricmesh
+  Version: 0.6.2
+  DisplayName: Resource Management - Service Fabric Mesh
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicefabricmesh/armservicefabricmesh/v0.6.2/sdk/resourcemanager/servicefabricmesh/armservicefabricmesh/CHANGELOG.md
+  ChangelogContent: ""
 
