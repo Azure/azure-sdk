@@ -205,4 +205,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_1.0.0/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.0.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.0.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Avoid dependency telemetry for ingestion endpoint calls.
+    - Add custom AI Sampler to maintain data reliability in Standard Metrics.
+    - Fix issues with SDK version not propagating correctly.
+
+    #### Features Added
+
+    - Add support for Azure Functions programming model v4.
 
