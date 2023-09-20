@@ -1,0 +1,338 @@
+entries:
+- Name: azure-mgmt-maps
+  Version: 2.1.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maps_2.1.0/sdk/maps/azure-mgmt-maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.15.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Ensure `AzurePowershellCredential` calls PowerShell with the `-NoProfile` flag to avoid loading user profiles for more consistent behavior.  ([#31682](https://github.com/Azure/azure-sdk-for-python/pull/31682))
+    - Fixed an issue with subprocess-based developer credentials (such as AzureCliCredential) where the process would sometimes hang waiting for user input.  ([#31534](https://github.com/Azure/azure-sdk-for-python/pull/31534))
+    - Fixed an issue with `ClientAssertionCredential` not properly checking if CAE should be enabled.  ([#31544](https://github.com/Azure/azure-sdk-for-python/pull/31544))
+    - `ManagedIdentityCredential` will fall through to the next credential in the chain in the case that Docker Desktop returns a 403 response when attempting to access the IMDS endpoint.  ([#31824](https://github.com/Azure/azure-sdk-for-python/pull/31824))
+
+    #### Features Added
+
+    - Added Windows Web Account Manager (WAM) Brokered Authentication support.
+    - Added `enable_msa_passthrough` suppport for `InteractiveBrowserCredential`. By default `InteractiveBrowserCredential` only lists AAD accounts. If you set `enable_msa_passthrough` to `True`, it lists both AAD accounts and MSA outlook.com accounts that are logged in to Windows.
+- Name: azure-search-documents
+  Version: 11.4.0b9
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b9/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug that list type of `order_by` was not correctly handled. #31837
+- Name: azure-storage-blob
+  Version: 12.18.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.18.0b1
+- Name: azure-storage-file-share
+  Version: 12.14.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.14.0b1
+- Name: azure-mgmt-containerservicefleet
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Containerservicefleet
+  ServiceName: Containerservicefleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicefleet_1.0.0b2/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.13.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.13.0b1
+- Name: azure-storage-queue
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.7.0b1
+- Name: azure-eventgrid
+  Version: 4.14.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.14.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure App Configuration and Azure EventGrid.
+- Name: azure-cosmos
+  Version: 4.5.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.5.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug when query with DISTINCT + OFFSET/LIMIT operators returns unexpected result. See [PR 31925](https://github.com/Azure/azure-sdk-for-python/pull/31925).
+- Name: azure-servicebus
+  Version: 7.11.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.11.2/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the error `NoneType object has no attribute 'settle_messages'` which was raised when a connection was dropped due to a blocked process ([#30514](https://github.com/Azure/azure-sdk-for-python/issues/30514))
+- Name: azure-appconfiguration-provider
+  Version: 1.1.0b1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.1.0b1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * New API for Azure App Configuration Provider, `refresh`, which can be used to refresh the configuration from the Azure App Configuration service. `refresh` by default can check every 30 seconds for changes to specified sentinel keys. If a change is detected then all configurations are reloaded. Sentinel keys can be set by passing  a list of `SentinelKey`'s to `refresh_on`.
+    * Added support for customer provided user agent prefix.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b17
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b17/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle missing or empty message data
+    ([#31944](https://github.com/Azure/azure-sdk-for-python/pull/31944))
+- Name: azure-storage-queue
+  Version: 12.7.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-file-share
+  Version: 12.14.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-blob
+  Version: 12.18.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-storage-file-datalake
+  Version: 12.13.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed breaking `KeyError: 'sdk_moniker'` in `create_configuration`.
+    NOTE: This is not an exported method and therefore should not be imported/called directly.
+- Name: azure-monitor-opentelemetry
+  Version: 1.0.0
+  DisplayName: Azure Monitor OpenTelemetry Distro
+  ServiceName: Monitor OpenTelemetry Distro
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.0.0/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add Azure resource detectors
+    ([#32087](https://github.com/Azure/azure-sdk-for-python/pull/32087))
+- Name: azure-data-tables
+  Version: 12.4.4
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.4/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug when submitting transactions with an empty operation list. ([#31471](https://github.com/Azure/azure-sdk-for-python/issues/31471))
+    * Fixed a bug when decoding response body in string type. Thanks @kldtz for the contribution! ([#31265](https://github.com/Azure/azure-sdk-for-python/pull/31265))
+    * Fixed a bug when retrieving an entity with partition key and/or row key in empty string, the empty string values were disappeared in result. ([#31920]https://github.com/Azure/azure-sdk-for-python/issues/31920)
+
+    #### Features Added
+    * Enabled to specify resource type `container` in account SAS access.
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 7.0.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_7.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-communication
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-communication_2.1.0b1/sdk/communication/azure-mgmt-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redis
+  Version: 14.3.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redis_14.3.0/sdk/redis/azure-mgmt-redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-signalr
+  Version: 2.0.0b1
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-signalr_2.0.0b1/sdk/signalr/azure-mgmt-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 3.0.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_3.0.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration
+  Version: 3.1.0
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration_3.1.0/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicessiterecovery
+  Version: 1.1.0
+  DisplayName: Resource Management - Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicessiterecovery_1.1.0/sdk/recoveryservices/azure-mgmt-recoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 25.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_25.1.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerregistry
+  Version: 10.2.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_10.2.0/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.10.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.10.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Feature sets can now be registers after being dumped and reloaded.
+    - SDK feature store create/update can now assign materialization identities to cross RG offline stores and online stores.
+- Name: azure-mgmt-managedapplications
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Managedapplications
+  ServiceName: Managedapplications
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managedapplications_1.0.0b1/sdk/managedapplications/azure-mgmt-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 30.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_30.2.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdbforpostgresql
+  Version: 1.0.0
+  DisplayName: Resource Management - Cosmosdbforpostgresql
+  ServiceName: Cosmosdbforpostgresql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdbforpostgresql_1.0.0/sdk/cosmosdbforpostgresql/azure-mgmt-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridconnectivity
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybridconnectivity
+  ServiceName: Hybridconnectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_1.0.0/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridconnectivity
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Hybridconnectivity
+  ServiceName: Hybridconnectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_1.0.0b1/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+
