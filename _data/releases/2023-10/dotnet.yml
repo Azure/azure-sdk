@@ -251,4 +251,33 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.5.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.7
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.7/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Update OpenTelemetry dependencies
+    ([#38568](https://github.com/Azure/azure-sdk-for-net/pull/38568))
+    ([#38833](https://github.com/Azure/azure-sdk-for-net/pull/38833))
+    - OpenTelemetry 1.6.0
+    - OpenTelemetry.Extensions.Hosting 1.6.0
+    - OpenTelemetry.ResourceDetectors.Azure 1.0.0-beta.3
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue during network failures which prevented the exporter to store
+    the telemetry offline for retrying at a later time.
+    ([#38832](https://github.com/Azure/azure-sdk-for-net/pull/38832))
 
