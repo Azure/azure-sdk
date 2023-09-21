@@ -265,4 +265,31 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-iothub_1.2.0/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.11.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.11.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+    - Fixed flowing `HttpClientOptions` through credentials [#36382](https://github.com/Azure/azure-sdk-for-java/pull/36382)
+    - Fixed edge case in Docker where 403s erronously caused CredentialUnavailableExceptions [#36747](https://github.com/Azure/azure-sdk-for-java/pull/36747)
+
+
+
+
+    #### Features Added
+    - Added support for passing an InputStream containing a client cerfificate [#36747](https://github.com/Azure/azure-sdk-for-java/pull/36747)
+  GroupId: com.azure
+- Name: azure-resourcemanager-managedapplications
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-managedapplications_1.0.0-beta.3/sdk/managedapplications/azure-resourcemanager-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
