@@ -273,15 +273,12 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.11.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
   ChangelogContent: |-
+    #### Features Added
+    - Added support for passing an InputStream containing a client certificate [#36747](https://github.com/Azure/azure-sdk-for-java/pull/36747)
+    
     #### Bugs fixed
     - Fixed flowing `HttpClientOptions` through credentials [#36382](https://github.com/Azure/azure-sdk-for-java/pull/36382)
     - Fixed edge case in Docker where 403s erronously caused CredentialUnavailableExceptions [#36747](https://github.com/Azure/azure-sdk-for-java/pull/36747)
-
-
-
-
-    #### Features Added
-    - Added support for passing an InputStream containing a client cerfificate [#36747](https://github.com/Azure/azure-sdk-for-java/pull/36747)
   GroupId: com.azure
 - Name: azure-resourcemanager-managedapplications
   Version: 1.0.0-beta.3
