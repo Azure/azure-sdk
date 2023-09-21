@@ -221,4 +221,52 @@ entries:
     * Fixed an issue that could cause HTTP requests to fail with `http.StatusUnauthorized` in some cases.
     * The pipeline policy for setting the `Sync-Token` header in HTTP requests now properly formats the value.
     * The caching mechanism for `Sync-Token` values is now goroutine safe.
+- Name: sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql
+  Version: 1.0.0
+  DisplayName: Resource Management - Cosmosforpostgresql
+  ServiceName: Cosmosforpostgresql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql/v1.0.0/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redis/armredis
+  Version: 3.0.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redis/armredis/v3.0.0/sdk/resourcemanager/redis/armredis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerregistry/armcontainerregistry
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerregistry/armcontainerregistry/v1.2.0-beta.1/sdk/resourcemanager/containerregistry/armcontainerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerregistry/armcontainerregistry
+  Version: 1.1.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerregistry/armcontainerregistry/v1.1.0/sdk/resourcemanager/containerregistry/armcontainerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery
+  Version: 2.1.0
+  DisplayName: Resource Management - Site Recovery
+  ServiceName: Site Recovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/v2.1.0/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridconnectivity/armhybridconnectivity
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridconnectivity/armhybridconnectivity/v1.0.0/sdk/resourcemanager/hybridconnectivity/armhybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
 
