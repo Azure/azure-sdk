@@ -86,7 +86,7 @@ function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::Utc
           Write-Verbose "Found $($tagNode.name) in repo $repo with date ${tagDate}"
           $tags += [PSCustomObject]@{
             Tag = $tagNode.name
-            # Remove the time part of this date and note this date is UTC so depending on usage contex
+            # Remove the time part of this date and note this date is UTC so depending on usage context
             # this can cause an off-by-one day issue if used to compare against local
             Date = $tagDate.ToString("MM/dd/yyy")
           }
