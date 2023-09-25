@@ -1,0 +1,127 @@
+entries:
+- Name: Azure.ResourceManager.ResourceMover
+  Version: 1.1.0
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceMover_1.1.0/sdk/resourcemover/Azure.ResourceManager.ResourceMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Marketplace
+  Version: 1.1.0
+  DisplayName: Resource Management - Marketplace
+  ServiceName: Marketplace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Marketplace_1.1.0/sdk/marketplace/Azure.ResourceManager.Marketplace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.3.0-beta.3
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.3.0-beta.3/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue during network failures which prevented the exporter to store
+    the telemetry offline for retrying at a later time.
+    ([#38832](https://github.com/Azure/azure-sdk-for-net/pull/38832))
+- Name: Azure.ResourceManager.Network
+  Version: 1.5.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.5.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.0.0-beta.7
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.0.0-beta.7/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Update OpenTelemetry dependencies
+    ([#38568](https://github.com/Azure/azure-sdk-for-net/pull/38568))
+    ([#38833](https://github.com/Azure/azure-sdk-for-net/pull/38833))
+    - OpenTelemetry 1.6.0
+    - OpenTelemetry.Extensions.Hosting 1.6.0
+    - OpenTelemetry.ResourceDetectors.Azure 1.0.0-beta.3
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.8
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.8/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support for the described breaking change for `PromptFilterResults` was added and this library version will now again
+    deserialize `PromptFilterResults` appropriately
+    - `PromptFilterResults` and `ContentFilterResults` are now exposed on the result classes for streaming Completions and
+    Chat Completions. `Streaming(Chat)Completions.PromptFilterResults` will report an index-sorted list of all prompt
+    annotations received so far while `Streaming(Chat)Choice.ContentFilterResults` will reflect the latest-received
+    content annotations that were populated and received while streaming
+
+    #### Breaking Changes
+
+    - The underlying representation of `PromptFilterResults` (for `Completions` and `ChatCompletions`) has had its response
+    body key changed from `prompt_annotations` to `prompt_filter_results`
+    - **Prior versions of the `Azure.AI.OpenAI` library may no longer populate `PromptFilterResults` as expected** and it's
+    highly recommended to upgrade to this version if the use of Azure OpenAI content moderation annotations for input data
+    is desired
+    - If a library version upgrade is not immediately possible, it's advised to use `Response<T>.GetRawResponse()` and manually
+    extract the `prompt_filter_results` object from the top level of the `Completions` or `ChatCompletions` response `Content`
+    payload
+
+    #### Features Added
+
+    - Audio Transcription and Audio Translation using OpenAI Whisper models is now supported. See [OpenAI's API
+    reference](https://platform.openai.com/docs/api-reference/audio) or the [Azure OpenAI
+    quickstart](https://learn.microsoft.com/azure/ai-services/openai/whisper-quickstart) for detailed overview and
+    background information.
+    - The new methods `GetAudioTranscription` and `GetAudioTranscription` expose these capabilities on `OpenAIClient`
+    - Transcription produces text in the primary, supported, spoken input language of the audio data provided, together
+    with any optional associated metadata
+    - Translation produces text, translated to English and reflective of the audio data provided, together with any
+    optional associated metadata
+    - These methods work for both Azure OpenAI and non-Azure `api.openai.com` client configurations
+- Name: Azure.ResourceManager.SecurityCenter
+  Version: 1.2.0-beta.3
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityCenter_1.2.0-beta.3/sdk/securitycenter/Azure.ResourceManager.SecurityCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDBForPostgreSql
+  Version: 1.0.0
+  DisplayName: Resource Management - Cosmos DB for PostgreSQL
+  ServiceName: Cosmos DB for PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDBForPostgreSql_1.0.0/sdk/cosmosdbforpostgresql/Azure.ResourceManager.CosmosDBForPostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.1.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.1.0/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+
