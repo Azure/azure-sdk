@@ -335,4 +335,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_1.0.0b1/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.18.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.2/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `user_agent` was being ignored on `upload_blob` or `download_blob` if client was configured
+    for encryption.
+- Name: azure-storage-queue
+  Version: 12.7.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.2/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `user_agent` was being ignored on `send_message`, `receive_message`, `receive_messages`,
+    `update_message`, and `peek_messages` if client was configured for encryption.
 
