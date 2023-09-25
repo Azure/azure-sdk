@@ -273,4 +273,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0-beta.1/sdk/contentsafety/ai-content-safety-rest/CHANGELOG.md
   ChangelogContent: '- This is the initial beta release for Azure AI Content Safety, see README.md for details.'
+- Name: '@azure/event-hubs'
+  Version: 5.11.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes a memory leak [#25426](https://github.com/Azure/azure-sdk-for-js/issues/25426) in the `EventHubBufferedProducerClient` when there is no activity for a longer interval after sending some events.
+    [#26748](https://github.com/Azure/azure-sdk-for-js/pull/26748)
+- Name: '@azure/core-util'
+  Version: 1.5.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.5.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds helper method `cancelablePromiseRace`, an abstraction that leverages `"promise.race()"` and aborts the losers of the race as soon as the first promise settles.
+    [PR #26748](https://github.com/Azure/azure-sdk-for-js/pull/26748)
 
