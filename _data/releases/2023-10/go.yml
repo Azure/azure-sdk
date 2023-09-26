@@ -169,4 +169,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v4.2.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.3.0
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.3.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for Whisper audio APIs for transcription and translation using `GetAudioTranscription` and `GetAudioTranslation`.
+
+    #### Breaking Changes
+    - ChatChoiceContentFilterResults content filtering fields are now all typed as ContentFilterResult, instead of unique types for each field.
+    - `PromptAnnotations` renamed to `PromptFilterResults` in `ChatCompletions` and `Completions`.
 
