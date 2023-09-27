@@ -187,4 +187,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.0-beta.1/sdk/playwrighttesting/arm-playwrighttesting/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.3.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
+    - Added a type `MicrosoftTeamsAppKind`.
+    - Added a method `isMicrosoftTeamsAppIdentifier` to check if the identifier is `MicrosoftTeamsAppIdentifier`.
+    - Added a field `teamsAppId` to `MicrosoftTeamsAppIdentifier`.
+    - With this version, any rawId starting with `28:` will map to MicrosoftTeamsAppIdentifier. Previously it mapped to `UnknownIdentifier`.
 
