@@ -1,0 +1,216 @@
+entries:
+- Name: '@azure/arm-kubernetesconfiguration'
+  Version: 6.1.0
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration/arm-kubernetesconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices-siterecovery'
+  Version: 5.1.0
+  DisplayName: Resource Management - Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicessiterecovery/arm-recoveryservices-siterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 21.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-content-safety'
+  Version: 1.0.0-beta.1
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services Responsible AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0-beta.1/sdk/contentsafety/ai-content-safety-rest/CHANGELOG.md
+  ChangelogContent: '- This is the initial beta release for Azure AI Content Safety, see README.md for details.'
+- Name: '@azure/arm-signalr'
+  Version: 6.0.0-beta.1
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/signalr/arm-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridconnectivity'
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybridconnectivity
+  ServiceName: Hybridconnectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_1.0.0/sdk/hybridconnectivity/arm-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.6
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.6/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Returns `usage` information when available.
+    - Fixes a bug where errors weren't properly being thrown from the streaming methods.
+    - Returns `error` information in `ContentFilterResults` when available.
+    - Fixes parsing of `functionCall` in `ChatMessage` objects.
+
+    #### Features Added
+
+    - Introduces speech to text and translation capabilities for a wide variety of audio file formats.
+    - Adds `getAudioTranscription` and `getAudioTranslation` methods for transcribing and translating audio files. The result can be either a simple JSON structure with just a `text` field or a more detailed JSON structure containing the text alongside additional information. In addition, VTT (Web Video Text Tracks), SRT (SubRip Text), and plain text formats are also supported. The type of the result depends on the `format` parameter if specified, otherwise, a simple JSON output is assumed. The methods could take as input an optional text prompt to guide the model's style or continue a previous audio segment. The language of the prompt should match that of the audio file.
+    - The available model at the time of this release supports the following list of audio file formats: m4a, mp3, wav, ogg, flac, webm, mp4, mpga, mpeg, and oga.
+- Name: '@azure/arm-managedapplications'
+  Version: 3.0.0
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-util'
+  Version: 1.5.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.5.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds helper method `cancelablePromiseRace`, an abstraction that leverages `"promise.race()"` and aborts the losers of the race as soon as the first promise settles.
+    [PR #26748](https://github.com/Azure/azure-sdk-for-js/pull/26748)
+- Name: '@azure/event-hubs'
+  Version: 5.11.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes a memory leak [#25426](https://github.com/Azure/azure-sdk-for-js/issues/25426) in the `EventHubBufferedProducerClient` when there is no activity for a longer interval after sending some events.
+    [#26748](https://github.com/Azure/azure-sdk-for-js/pull/26748)
+- Name: '@azure/arm-sql'
+  Version: 10.1.0-beta.2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 8.0.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iothub'
+  Version: 6.3.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-communication'
+  Version: 4.1.0-beta.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.1.0-beta.1/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.0.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.0.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Avoid dependency telemetry for ingestion endpoint calls.
+    - Add custom AI Sampler to maintain data reliability in Standard Metrics.
+    - Fix issues with SDK version not propagating correctly.
+
+    #### Features Added
+
+    - Add support for Azure Functions programming model v4.
+- Name: '@azure/arm-network'
+  Version: 32.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 11.0.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 11.0.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdbforpostgresql'
+  Version: 1.0.0
+  DisplayName: Resource Management - CosmosDB for PostgreSQL
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_1.0.0/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-playwrighttesting'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Playwrighttesting
+  ServiceName: Playwrighttesting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.0-beta.1/sdk/playwrighttesting/arm-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.3.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
+    - Added a type `MicrosoftTeamsAppKind`.
+    - Added a method `isMicrosoftTeamsAppIdentifier` to check if the identifier is `MicrosoftTeamsAppIdentifier`.
+    - Added a field `teamsAppId` to `MicrosoftTeamsAppIdentifier`.
+    - With this version, any rawId starting with `28:` will map to MicrosoftTeamsAppIdentifier. Previously it mapped to `UnknownIdentifier`.
+- Name: '@azure/search-documents'
+  Version: 11.3.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.3/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix some `SearchIndex` fields being improperly serialized.[#27238](https://github.com/Azure/azure-sdk-for-js/pull/27238)
+
