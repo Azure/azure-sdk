@@ -121,6 +121,16 @@
             }
         }
     },
+        {
+        "Exception":"Library not needed in language",
+        "Service":"Cosmos DB",
+        "SDKs":{
+            "Cosmos Spark 3.4":{
+                "Plane": "data",
+                "Languages":[".NET","Go","JavaScript","Python"]
+            }
+        }
+    },
     {
         "Exception":"Library not needed in language",
         "Service":"Event Hubs",
@@ -444,6 +454,10 @@
             "azure-schemaregistry-spark-avro":{
                 "Plane": "data",
                 "Languages": ["Java"]
+            }, 
+            "Schema Registry - JSON":{
+                "Plane":"data",
+                "Languages":[".NET","Python"]
             }
         }
     },
