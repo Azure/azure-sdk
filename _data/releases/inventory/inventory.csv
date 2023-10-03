@@ -485,7 +485,6 @@ Traffic Manager,0,WindowsAzure Management - Traffic Manager,mgmt,.NET,Microsoft.
 Network,0,WindowsAzure Management - Virtual Networks,mgmt,.NET,Microsoft.WindowsAzure.Management.VirtualNetworks,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzure.Management.WebSites,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.AppService,,4,false,1,
 App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,3,false,1,
-Data Lake Gen2,0,Azure Storage Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,3,false,1,
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventgrid,3,false,1,
@@ -500,9 +499,10 @@ Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.co
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,09/06/2023
-Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,1,false,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,
-Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,1,false,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
-Storage File Share,0,Storage File Share,data,Go,,,11,false,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,
+Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,
+Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,3,false,1,
+Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,
+Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,07/20/2023
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
 IoT,0,IoT Firmware Defense,mgmt,Go,,,11,false,sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,3,false,1,
@@ -512,8 +512,8 @@ Advisor,0,Resource Management - Advisor,mgmt,Go,,,11,false,sdk/resourcemanager/a
 Agrifood,0,Resource Management - Agrifood,mgmt,Go,,,11,false,sdk/resourcemanager/agrifood/armagrifood,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/agrifood/armagrifood,3,false,1,
 Alerts Management,0,Resource Management - Alerts Management,mgmt,Go,,,11,false,sdk/resourcemanager/alertsmanagement/armalertsmanagement,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/alertsmanagement/armalertsmanagement,3,false,1,
 Analysis Services,0,Resource Management - Analysis Services,mgmt,Go,,,11,false,sdk/resourcemanager/analysisservices/armanalysisservices,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/analysisservices/armanalysisservices,10,false,1,04/14/2023
+API Center,0,Resource Management - API Center,mgmt,Go,,,11,false,sdk/resourcemanager/apicenter/armapicenter,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apicenter/armapicenter,3,false,1,
 API Management,0,Resource Management - API Management,mgmt,Go,,,11,false,sdk/resourcemanager/apimanagement/armapimanagement,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement/armapimanagement,10,false,1,08/24/2023
-Apicenter,0,Resource Management - Apicenter,mgmt,Go,,,11,false,sdk/resourcemanager/apicenter/armapicenter,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apicenter/armapicenter,3,false,1,
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,Go,,,11,false,sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation,3,false,1,
 App Configuration,0,Resource Management - App Configuration,mgmt,Go,,,11,false,sdk/resourcemanager/appconfiguration/armappconfiguration,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/appconfiguration/armappconfiguration,10,false,1,04/26/2023
 App Platform,0,Resource Management - App Platform,mgmt,Go,,,11,false,sdk/resourcemanager/appplatform/armappplatform,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/appplatform/armappplatform,10,false,1,04/10/2023
@@ -573,7 +573,7 @@ Datadog,0,Resource Management - Datadog,mgmt,Go,,,11,false,sdk/resourcemanager/d
 Delegated Network,0,Resource Management - Delegated Network,mgmt,Go,,,11,false,sdk/resourcemanager/delegatednetwork/armdelegatednetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/delegatednetwork/armdelegatednetwork,10,false,1,04/14/2023
 Deployment Manager,0,Resource Management - Deployment Manager,mgmt,Go,,,11,false,sdk/resourcemanager/deploymentmanager/armdeploymentmanager,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/deploymentmanager/armdeploymentmanager,3,false,1,
 Deployment Scripts,0,Resource Management - Deployment Scripts,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armdeploymentscripts,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armdeploymentscripts,10,false,1,04/14/2023
-Resources,0,Resource Management - Deploymentstacks,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armdeploymentstacks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armdeploymentstacks,3,false,1,
+Deployment Stacks,0,Resource Management - Deployment Stacks,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armdeploymentstacks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armdeploymentstacks,3,false,1,
 Desktop Virtualization,0,Resource Management - Desktop Virtualization,mgmt,Go,,,11,false,sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization,10,false,1,03/24/2023
 Dev Center,0,Resource Management - Dev Center,mgmt,Go,,,11,false,sdk/resourcemanager/devcenter/armdevcenter,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/devcenter/armdevcenter,10,false,1,05/23/2023
 DevHub,0,Resource Management - DevHub,mgmt,Go,,,11,false,sdk/resourcemanager/devhub/armdevhub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/devhub/armdevhub,3,false,1,
@@ -604,7 +604,7 @@ Guest Configuration,0,Resource Management - Guest Configuration,mgmt,Go,,,11,fal
 HANA on Azure,0,Resource Management - HANA on Azure,mgmt,Go,,,11,false,sdk/resourcemanager/hanaonazure/armhanaonazure,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hanaonazure/armhanaonazure,3,false,1,
 Hardware Security Module,0,Resource Management - Hardware Security Module,mgmt,Go,,,11,false,sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules,10,false,1,03/30/2023
 HDInsight,0,Resource Management - HDInsight,mgmt,Go,,,11,false,sdk/resourcemanager/hdinsight/armhdinsight,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsight/armhdinsight,10,false,1,04/14/2023
-Hdinsightcontainers,0,Resource Management - Hdinsightcontainers,mgmt,Go,,,11,false,sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,3,false,1,
+HDInsight,0,Resource Management - HDInsight Containers,mgmt,Go,,,11,false,sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,3,false,1,
 Health Bot,0,Resource Management - Health Bot,mgmt,Go,,,11,false,sdk/resourcemanager/healthbot/armhealthbot,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/healthbot/armhealthbot,10,false,1,04/14/2023
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,Go,,,11,false,sdk/resourcemanager/healthcareapis/armhealthcareapis,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/healthcareapis/armhealthcareapis,10,false,1,04/14/2023
 Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Go,,,11,false,sdk/resourcemanager/hybridcompute/armhybridcompute,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybridcompute/armhybridcompute,10,false,1,04/14/2023
@@ -733,7 +733,6 @@ Keyvault,0,Key Vault Internal,UNABLE TO BE DETERMINED,Go,sdk/security/keyvault/i
 Key Vault,0,Resource Management - Key Vault,UNABLE TO BE DETERMINED,Go,sdk/arm/keyvault,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/arm/keyvault,3,false,,,1,false,0,
 Internal,0,sdk/resourcemanager/internal,UNABLE TO BE DETERMINED,Go,sdk/resourcemanager/internal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/internal,10,false,,,1,false,0,
 Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,false,,,1,false,0,
-Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,false,,,1,false,0,
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,08/29/2023
@@ -770,7 +769,7 @@ Communication,0,Communication Sms,data,Java,,,11,false,azure-communication-sms,h
 Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-security-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/confidentialledger,10,false,1,09/23/2023
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,09/23/2023
 Cognitive Services Responsible AI,0,Content Safety,data,Java,,,11,false,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,3,false,1,
-Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,09/25/2023
+Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,10/02/2023
 Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
 Dev Center,0,Dev Center,data,Java,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/devcenter,3,false,1,
 IoT,0,Device Update,data,Java,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/deviceupdate,10,false,1,09/23/2023
@@ -1523,7 +1522,7 @@ Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Az
 Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/25/2023
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/13/2023
-Storage,0,Storage - Files Share,data,Python,azure-storage-file,https://github.com/Azure/azure-storage-python/tree/v2.1.0-file/azure-storage-file,1,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/13/2023
+Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/13/2023
 Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/25/2023
 Synapse,0,Synapse - AccessControl,data,Python,,,11,false,azure-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Python,,,11,false,azure-synapse-monitoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
@@ -1777,7 +1776,6 @@ Schema Registry,0,Schema Registry - Avro,data,Go,,,11,false,Missing: Created fro
 Storage,0,Storage - Blobs Batch,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Batch,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Batch,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
-Storage,0,Storage - Files Data Lake,data,Go,,,11,false,Missing: Created from existing package: Azure.Storage.Files.DataLake,,2,false,0,
 Cognitive Services,0,Text Analytics,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.TextAnalytics,,2,false,0,
 Web PubSub,0,Web PubSub,data,Go,,,11,false,Missing: Created from existing package: Azure.Messaging.WebPubSub,,2,false,0,
 Alerts Management,0,Resource Management - Alerts Management,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.AlertsManagement,,2,false,0,
