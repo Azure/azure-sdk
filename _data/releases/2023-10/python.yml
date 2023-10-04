@@ -191,4 +191,18 @@ entries:
     #### Features Added
 
     * Added support for `keyvault_credential`, `keyvault_client_configs`, and `secret_resolver` as `kwargs` instead of using `AzureAppConfigurationKeyVaultOptions`.
+- Name: azure-ai-ml
+  Version: 1.11.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.11.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - [Python 3.7 reached end-of-life on June 27th 2023](https://devguide.python.org/versions/). Consequently, 3.7 will be deprecated in azure-ai-ml starting in October 2023 and azure-ai-ml will end support for 3.7 in February 2024.
+
+    #### Features Added
+    - Now, when you specify `delete_dependent_resources` as True when deleting a workspace, the log analytics resource
+    associated with the workspace application insights resource will also be deleted.
 
