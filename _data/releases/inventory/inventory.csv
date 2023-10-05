@@ -738,7 +738,7 @@ Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,f
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,08/29/2023
-Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,03/27/2023
+Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/04/2023
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/21/2022
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1085,6 +1085,9 @@ IoT,0,IoT Hub - TPM Provider,data,Java,tpm-provider,https://github.com/Azure/azu
 IoT,0,IoT Hub - X509 Provider,data,Java,x509-provider,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 IoT,0,IoT Plug and Play - Device Client,data,Java,iot-device-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,IoT Service Client,data,Java,iot-service-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
+Key Vault,0,Key Vault,data,Java,azure-keyvault,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/microsoft-azure-keyvault,10,true,Exception: API Spec does not map to one set of Libraries,,10,false,1,
+Key Vault,0,Key Vault - Cryptography,data,Java,azure-keyvault-cryptography,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/microsoft-azure-keyvault-cryptography,10,true,Replaced by: com.azure/azure-security-keyvault-key,,4,false,1,
+Key Vault,0,Key Vault - Webkey,data,Java,azure-keyvault-webkey,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/microsoft-azure-keyvault-webkey,10,true,"Replaced by: com.azure/azure-security-keyvault-secrets,com.azure/azure-security-keyvault-certificates,com.azure/azure-security-keyvault-key",,4,false,1,
 Data Explorer,0,Kusto Data,data,Java,kusto-data,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Data Explorer,0,Kusto Ingest,data,Java,kusto-ingest,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Data Explorer,0,Kusto Spark,data,Java,kusto-spark_3.0_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -1497,7 +1500,7 @@ Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certi
 Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,03/16/2023
 Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,03/16/2023
 Load Testing,0,Load Testing,data,Python,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/loadtesting,10,false,1,03/07/2023
-Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,09/18/2023
+Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,10/04/2023
 Synapse,0,Managed Private Endpoints,data,Python,,,11,false,azure-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Maps,0,Maps Geolocation,data,Python,,,11,false,azure-maps-geolocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
 Maps,0,Maps Render,data,Python,,,11,false,azure-maps-render,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
@@ -2198,7 +2201,6 @@ IoT,0,IoT Central,data,Java,,,11,false,Missing: Created from API in specs repo: 
 IoT,0,IoT Central,data,JavaScript,,,11,false,Missing: Created from API in specs repo: iotcentral/data-plane,,2,false,0,
 IoT,0,IoT Central,data,Python,,,11,false,Missing: Created from API in specs repo: iotcentral/data-plane,,2,false,0,
 IoT,0,IoT Central,data,Go,,,11,false,Missing: Created from API in specs repo: iotcentral/data-plane,,2,false,0,
-Key Vault,0,Key Vault,data,Java,,,11,false,Exception: API Spec does not map to one set of Libraries,,10,false,1,
 Key Vault,0,Key Vault,data,Go,,,11,false,Exception: API Spec does not map to one set of Libraries,,10,false,1,
 Liftr Qumulo,0,Resource Management - Liftr Qumulo,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: liftrqumulo/Qumulo.Management,,2,false,0,
 Liftr Qumulo,0,Resource Management - Liftr Qumulo,mgmt,Java,,,11,false,Missing: Created from API in specs repo: liftrqumulo/Qumulo.Management,,2,false,0,
