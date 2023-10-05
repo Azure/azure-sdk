@@ -191,4 +191,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/v0.1.0/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.8.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.8.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes affect only code written against beta versions of `v1.8.0`
+    * The beta features for tracing and fakes have been omitted for this release.
+
+    #### Features Added
+
+    * Added `Claims` and `EnableCAE` fields to `policy.TokenRequestOptions`.
+    * ARM bearer token policy handles CAE challenges.
+    * `messaging/CloudEvent` allows you to serialize/deserialize CloudEvents, as described in the CloudEvents 1.0 specification: [link](https://github.com/cloudevents/spec)
+    * Added functions `FetcherForNextLink` and `EncodeQueryParams` along with `FetcherForNextLinkOptions` to the `runtime` package to centralize creation of `Pager[T].Fetcher` from a next link URL.
+    * Added types `KeyCredential` and `SASCredential` to the `azcore` package.
+    * Includes their respective constructor functions.
+    * Added types `KeyCredentialPolicy` and `SASCredentialPolicy` to the `azcore/runtime` package.
+    * Includes their respective constructor functions and options types.
+
+    #### Bugs Fixed
+
+    * Fixed an issue that could cause some ARM RPs to not be automatically registered.
+    * Block bearer token authentication for non TLS protected endpoints.
 
