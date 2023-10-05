@@ -9,4 +9,17 @@ entries:
   ChangelogContent: |-
     #### Feature Added
     - Added support for [EU Data Boundary(EUDB)](https://blogs.microsoft.com/eupolicy/2021/12/16/eu-data-boundary-for-the-microsoft-cloud-a-progress-report)
+- Name: AzureCommunicationCalling
+  Version: 2.7.0-beta.3
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.7.0-beta.3/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Spotlight Feature.
+    * Added support for CallNetworkOptions that allows setting up proxy address.
+    * Added support for CallDebugInfo.
+    * Various miscellaneous updates.
 
