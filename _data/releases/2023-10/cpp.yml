@@ -1,0 +1,13 @@
+entries:
+- Name: azure-core
+  Version: 1.10.3
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.10.3/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Concurrency issues in `Azure::Core::Diagnostics::_internal::Log::Stream` have been fixed.
+
