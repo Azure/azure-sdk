@@ -218,4 +218,15 @@ entries:
 
     * Fixed an issue that could cause some ARM RPs to not be automatically registered.
     * Block bearer token authentication for non TLS protected endpoints.
+- Name: sdk/azcore
+  Version: 1.9.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.9.0-beta.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * The beta features for tracing and fakes have been reinstated.
 
