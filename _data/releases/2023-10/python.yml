@@ -205,4 +205,12 @@ entries:
     #### Features Added
     - Now, when you specify `delete_dependent_resources` as True when deleting a workspace, the log analytics resource
     associated with the workspace application insights resource will also be deleted.
+- Name: azure-mgmt-redhatopenshift
+  Version: 1.4.0
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift (ARO)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.4.0/sdk/redhatopenshift/azure-mgmt-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
 
