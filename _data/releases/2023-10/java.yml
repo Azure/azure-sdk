@@ -1110,4 +1110,15 @@ entries:
 
     - Fixed a bug where the network connection wasn't being explicitly closed after the response body was consumed.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.10.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.10.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Bug fixes for developer credentials
+  GroupId: com.azure
 
