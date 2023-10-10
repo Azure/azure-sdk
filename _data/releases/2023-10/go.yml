@@ -319,4 +319,40 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * `ManagedIdentityCredential` will now retry when IMDS responds 410 or 503
+- Name: sdk/messaging/azservicebus
+  Version: 1.5.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.5.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `(Queue|Subscription|Topic)Name` fields to appropriate responses in the `admin.Client`. PR#21632
+- Name: sdk/azidentity
+  Version: 1.5.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.5.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Optional persistent token caching for most credentials. Set `TokenCachePersistenceOptions`
+    on a credential's options to enable and configure this. See the package documentation for
+    this version and [TOKEN_CACHING.md](https://aka.ms/azsdk/go/identity/caching) for more
+    details.
+    * `AzureDeveloperCLICredential` authenticates with the Azure Developer CLI (`azd`). This
+    credential is also part of the `DefaultAzureCredential` authentication flow.
+- Name: sdk/azidentity/cache
+  Version: 0.1.0
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.1.0/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Initial release
 
