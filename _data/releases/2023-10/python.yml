@@ -265,4 +265,26 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Exposed `send_request()` method in each client to send custom requests using the client's existing pipeline. ([#32151](https://github.com/Azure/azure-sdk-for-python/issues/32151))
+- Name: azure-storage-blob
+  Version: 12.18.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue when an invalid type was provided for `credential` during client construction, the
+    `__str__` of the object would be present in the exception message and therefore potentially logged.
+- Name: azure-storage-file-share
+  Version: 12.14.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue when an invalid type was provided for `credential` during client construction, the
+    `__str__` of the object would be present in the exception message and therefore potentially logged.
 
