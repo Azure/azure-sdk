@@ -240,4 +240,19 @@ entries:
     - Renamed `vectors` to `vector_queries` in `Search` method.
     - Renamed `azure.search.documents.models.Vector` to `azure.search.documents.models.VectorQuery`.
     - Stopped supporting api version `V2023_07_01_PREVIEW` anymore.
+- Name: azure-appconfiguration
+  Version: 1.5.0b3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.5.0b3/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed parameter `name` in `list_snapshot_configuration_settings()` to `snapshot_name`.
+    - Removed keyword argument `accept_datetime` in `list_snapshot_configuration_settings()`.
+    - Moved operation `list_snapshot_configuration_settings()` to an overload of `list_configuration_settings()`, and moved the parameter `snapshot_name` to keyword.
+    - Published enum `SnapshotStatus`, and accepted the type for `status` parameter in `list_snapshots()` and `status` property in `Snapshot` model.
+    - Renamed model `Snapshot` to `ConfigurationSnapshot`.
+    - Renamed model `ConfigurationSettingFilter` to `ConfigurationSettingsFilter`.
 
