@@ -50,4 +50,26 @@ entries:
     - AMQP moved from a polling model to an asynchronous model.
     - Added a new `MessageReceiver::TryWaitForIncomingMessage` API which allows callers to "peek" at the contents of
     the incoming message queue, returning an already received message or an empty message if none is available.
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.0.0-beta.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs-checkpointstore-blob_1.0.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release. Split from the `azure-messaging-eventubs-cpp` package.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.3/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed all direct dependencies on Azure Blob Storage and moved those dependencies into a helper package (`azure-messaging-eventhubs-checkpointstore-blob-cpp`).
 
