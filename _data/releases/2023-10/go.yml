@@ -309,4 +309,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armsubscriptions/v1.3.0-beta.3/sdk/resourcemanager/resources/armsubscriptions/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.4.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `ManagedIdentityCredential` will now retry when IMDS responds 410 or 503
 
