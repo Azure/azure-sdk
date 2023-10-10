@@ -250,4 +250,14 @@ entries:
     #### Breaking Changes
 
     - Node function "deploy" no longer accepts a fourth optional "rootLocal" string parameter, but an optional "config" object parameter which contains multiple options to configure the function. The "rootLocal" param was moved into the object.
+- Name: '@azure/identity'
+  Version: 3.3.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.3.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Bug fixes for developer credentials
 
