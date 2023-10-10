@@ -1139,4 +1139,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.32.0-beta.1/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.10.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.10.3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.43.0` to version `1.44.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.7` to version `1.13.8`.
+  GroupId: com.azure
 
