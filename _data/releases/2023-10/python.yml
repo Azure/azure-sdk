@@ -255,4 +255,14 @@ entries:
     - Published enum `SnapshotStatus`, and accepted the type for `status` parameter in `list_snapshots()` and `status` property in `Snapshot` model.
     - Renamed model `Snapshot` to `ConfigurationSnapshot`.
     - Renamed model `ConfigurationSettingFilter` to `ConfigurationSettingsFilter`.
+- Name: azure-ai-formrecognizer
+  Version: 3.3.1
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Exposed `send_request()` method in each client to send custom requests using the client's existing pipeline. ([#32151](https://github.com/Azure/azure-sdk-for-python/issues/32151))
 
