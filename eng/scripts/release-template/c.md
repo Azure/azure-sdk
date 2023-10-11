@@ -9,7 +9,7 @@ repository: Azure/azure-sdk-for-c
 No packages released this month.
 
 <!--
-{% include releases/notes/common.md language="c" date="%%yyyy-MM%%" displayDate="%%MMMM yyyy%%" %}
+The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
 #### Stable
 
