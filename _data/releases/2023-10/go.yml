@@ -365,4 +365,29 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Correct dependency versions
+- Name: sdk/storage/azfile
+  Version: 1.1.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.1.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a bug where the `x-ms-file-attributes` header could be set to contain invalid trailing or leading | characters.
+
+    #### Features Added
+
+    * Updated service version to `2022-11-02`.
+- Name: sdk/storage/azblob
+  Version: 1.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.2.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed null pointer exception when `SetImmutabilityPolicyOptions` is passed as `nil`.
 
