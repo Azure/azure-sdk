@@ -22,4 +22,14 @@ entries:
     * Added support for CallNetworkOptions that allows setting up proxy address.
     * Added support for CallDebugInfo.
     * Various miscellaneous updates.
+- Name: AzureCommunicationChat
+  Version: 1.3.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.3.3/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Reverted reference to .cloudEnvironment enum that's only available in AzureCommunicationCommon version 1.2.0-beta.1 onwards. This resolves the issue in releasing AzureCommunicationChat version 1.3.2
 
