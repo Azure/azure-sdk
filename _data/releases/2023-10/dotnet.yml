@@ -314,4 +314,16 @@ entries:
     #### Bugs Fixed
 
     - Added support for the legacy checkpoint format when making scaling decisions.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.16.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.16.2/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where `ActivitySource` activities were not being created even when the experimental
+    flag was set.
 
