@@ -303,4 +303,15 @@ entries:
 
     <!-- LINKS -->
     [read_me]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Messages/README.md
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.0.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.0.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added support for the legacy checkpoint format when making scaling decisions.
 
