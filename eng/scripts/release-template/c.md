@@ -6,6 +6,8 @@ sidebar: releases_sidebar
 repository: Azure/azure-sdk-for-c
 ---
 
+No packages released this month.
+
 <!--
 {% include releases/notes/common.md language="c" date="%%yyyy-MM%%" displayDate="%%MMMM yyyy%%" %}
 
