@@ -287,4 +287,26 @@ entries:
     #### Bugs Fixed
     - Fixed an issue when an invalid type was provided for `credential` during client construction, the
     `__str__` of the object would be present in the exception message and therefore potentially logged.
+- Name: azure-storage-file-datalake
+  Version: 12.13.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue when an invalid type was provided for `credential` during client construction, the
+    `__str__` of the object would be present in the exception message and therefore potentially logged.
+- Name: azure-storage-queue
+  Version: 12.7.3
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.3/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue when an invalid type was provided for `credential` during client construction, the
+    `__str__` of the object would be present in the exception message and therefore potentially logged.
 
