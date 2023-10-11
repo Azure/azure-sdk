@@ -390,4 +390,25 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed null pointer exception when `SetImmutabilityPolicyOptions` is passed as `nil`.
+- Name: sdk/monitor/azingest
+  Version: 0.1.1
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azingest/v0.1.1/sdk/monitor/azingest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added sovereign cloud support
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.1.0-beta.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Enabled spans for distributed tracing.
 
