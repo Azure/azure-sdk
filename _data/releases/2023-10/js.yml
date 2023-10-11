@@ -260,4 +260,53 @@ entries:
   ChangelogContent: |-
     #### Bug Fixes
     - Bug fixes for developer credentials
+- Name: '@azure/core-amqp'
+  Version: 4.0.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.0.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed `TokenProvider` to use native crypto libraries.  This changes the signature from `getToken` from being sync to async.
+
+    #### Breaking Changes
+
+    - The `TokenProvider` and the `getToken` method has been changed to be async as it uses the underlying native crypto which is async.
+- Name: '@azure/app-configuration'
+  Version: 1.5.0-beta.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.5.0-beta.2/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow setting `updateIntervalInMs` in `CreateSnapshotOptions`
+- Name: '@azure/service-bus'
+  Version: 7.9.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.2/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an INTERNAL ERROR due to timing [PR #27308](https://github.com/Azure/azure-sdk-for-js/pull/27308)
+- Name: '@azure/communication-chat'
+  Version: 1.4.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.4.0-beta.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated @azure/communication-common to 2.3.0
+    - Updated @azure/communication-signaling to 1.0.0-beta.21
 
