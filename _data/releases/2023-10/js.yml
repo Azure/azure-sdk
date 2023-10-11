@@ -309,4 +309,33 @@ entries:
 
     - Updated @azure/communication-common to 2.3.0
     - Updated @azure/communication-signaling to 1.0.0-beta.21
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.17
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.17/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update OpenTelemetry dependency packages.
+    - Add support for aadAudience configuration using connection string.
+
+    #### Bugs Fixed
+
+    - Fix issue with credentialScopes setup not being passed to core-client.
+    - Fix Statsbeat metric names.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.1.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.1.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix precedence of JSON config value changes over defaults.
+    - Fix custom MeterReaders not being able to collect metrics for instrumentations.
+    - Fix values for Statsbeat Features and Instrumentations.
 
