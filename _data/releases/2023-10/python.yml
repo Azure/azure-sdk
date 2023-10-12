@@ -229,7 +229,7 @@ entries:
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b10/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Breaking Changes
@@ -320,4 +320,16 @@ entries:
     #### Bugs Fixed
 
     - Fixed a bug where `prefetch_count` was not being passed through correctly and caused messages to not be received as expected when in `RECEIVE_AND_DELETE` mode ([#31712](https://github.com/Azure/azure-sdk-for-python/issues/31712), [#31711](https://github.com/Azure/azure-sdk-for-python/issues/31711)).
+- Name: azure-search-documents
+  Version: 11.4.0b11
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b11/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `vector_filter_mode` support for `Search` method.
+    - Exposed `VectorizableTextQuery` in `azure.search.document.models`.
 
