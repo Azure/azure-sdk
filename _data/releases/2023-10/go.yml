@@ -319,4 +319,106 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * `ManagedIdentityCredential` will now retry when IMDS responds 410 or 503
+- Name: sdk/messaging/azservicebus
+  Version: 1.5.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.5.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `(Queue|Subscription|Topic)Name` fields to appropriate responses in the `admin.Client`. PR#21632
+- Name: sdk/azidentity
+  Version: 1.5.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.5.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Optional persistent token caching for most credentials. Set `TokenCachePersistenceOptions`
+    on a credential's options to enable and configure this. See the package documentation for
+    this version and [TOKEN_CACHING.md](https://aka.ms/azsdk/go/identity/caching) for more
+    details.
+    * `AzureDeveloperCLICredential` authenticates with the Azure Developer CLI (`azd`). This
+    credential is also part of the `DefaultAzureCredential` authentication flow.
+- Name: sdk/azidentity/cache
+  Version: 0.1.0
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.1.0/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Initial release
+- Name: sdk/azidentity/cache
+  Version: 0.2.0
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.2.0/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Correct dependency versions
+- Name: sdk/storage/azfile
+  Version: 1.1.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.1.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a bug where the `x-ms-file-attributes` header could be set to contain invalid trailing or leading | characters.
+
+    #### Features Added
+
+    * Updated service version to `2022-11-02`.
+- Name: sdk/storage/azblob
+  Version: 1.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.2.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed null pointer exception when `SetImmutabilityPolicyOptions` is passed as `nil`.
+- Name: sdk/monitor/azingest
+  Version: 0.1.1
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azingest/v0.1.1/sdk/monitor/azingest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added sovereign cloud support
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.1.0-beta.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Enabled spans for distributed tracing.
+- Name: sdk/data/azappconfig
+  Version: 1.0.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v1.0.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Check for a `Sync-Token` value before updating the cache.
 
