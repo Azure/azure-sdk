@@ -332,4 +332,38 @@ entries:
 
     - Added `vector_filter_mode` support for `Search` method.
     - Exposed `VectorizableTextQuery` in `azure.search.document.models`.
+- Name: azure-identity
+  Version: 1.15.0b2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0b2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `enable_support_logging` as a keyword argument to credentials using MSAL's `PublicClientApplication`. This allows additional support logging which may contain PII. ([#32135](https://github.com/Azure/azure-sdk-for-python/pull/32135))
+
+    #### Bugs Fixed
+
+    - `ManagedIdentityCredential` will now correctly retry when the instance metadata endpoint returns a 410 response.  ([#32200](https://github.com/Azure/azure-sdk-for-python/pull/32200))
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.14.0.
+    > Only code written against a beta version such as 1.15.0b1 may be affected.
+    - Windows Web Account Manager (WAM) Brokered Authentication is moved into another package.
+- Name: azure-keyvault-keys
+  Version: 4.9.0b2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.9.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - The `cryptography` library's `RSAPrivateKey` and `RSAPublicKey` interfaces are now implemented by
+    `KeyVaultRSAPrivateKey` and `KeyVaultRSAPublicKey` classes that can use keys managed by Key Vault
+    - `CryptographyClient` has `create_rsa_private_key` and `create_rsa_public_key` methods that return a
+    `KeyVaultRSAPrivateKey` and `KeyVaultRSAPublicKey`, respectively
 
