@@ -21,8 +21,8 @@ IoT,0,IoT Hub - Device Update,data,C,,,11,false,az_iot_adu,https://github.com/Az
 IoT,0,IoT Provisioning,data,C,,,11,false,az_iot_provisioning,https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/src/azure/iot,10,false,1,01/11/2023
 Storage,0,Storage,data,C,,,11,false,az_storage_blobs,https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/src/azure/storage,10,false,1,
 Attestation,0,Attestation,data,C++,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/attestation,10,false,1,02/08/2023
+Event Hubs,0,Azure Blob Storage Checkpoint Store,data,C++,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
 Event Hubs,0,Event Hubs,data,C++,,,11,false,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
-Event Hubs,0,Event Hubs - Azure Blob Storage Checkpoint Store,data,C++,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
 Identity,0,Identity,data,C++,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity,10,false,1,
 Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,3,false,1,
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
@@ -742,7 +742,7 @@ Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,f
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,
-Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/04/2023
+Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/11/2023
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/21/2022
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1130,7 +1130,7 @@ App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-conf
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,07/31/2020
-Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,09/19/2023
+Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,10/10/2023
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,1,
 Search,0,Cognitive Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,09/27/2023
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/10/2023
@@ -1527,7 +1527,7 @@ Purview,0,Purview Workflow,data,Python,,,11,false,azure-purview-workflow,https:/
 Cognitive Services,0,Question Answering,data,Python,azure-cognitiveservices-knowledge-qnamaker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,1,false,azure-ai-language-questionanswering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,10,false,1,10/13/2022
 Schema Registry,0,Schema Registry,data,Python,,,11,false,azure-schemaregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,
 Schema Registry,0,Schema Registry - Avro,data,Python,,,11,false,azure-schemaregistry-avroencoder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
-Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,09/13/2023
+Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,10/11/2023
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/10/2023
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
