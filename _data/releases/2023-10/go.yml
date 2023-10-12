@@ -411,4 +411,14 @@ entries:
     #### Features Added
 
     * Enabled spans for distributed tracing.
+- Name: sdk/data/azappconfig
+  Version: 1.0.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v1.0.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Check for a `Sync-Token` value before updating the cache.
 
