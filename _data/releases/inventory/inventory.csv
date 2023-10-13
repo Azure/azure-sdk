@@ -49,7 +49,7 @@ Communication JobRouter,0,Communication JobRouter,data,.NET,,,11,false,Azure.Com
 Messages,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/09/2022
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
-Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/06/2023
+Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication SMS,data,.NET,,,11,false,Azure.Communication.Sms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,05/25/2021
 Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,09/12/2023
 Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,05/11/2023
@@ -61,14 +61,13 @@ Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://g
 IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,09/08/2022
 IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
-Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,09/13/2023
+Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,10/12/2023
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,09/12/2023
 Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,09/12/2023
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,.NET,Microsoft.Azure.CognitiveServices.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices/FormRecognizer,3,true,Azure.AI.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer,10,false,1,08/10/2023
 Cognitive Services,0,Health Insights Cancer Profiling,data,.NET,,,11,false,Azure.Health.Insights.CancerProfiling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,.NET,,,11,false,Azure.Health.Insights.ClinicalMatching,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
-Identity,0,Identity,data,.NET,,,11,false,Azure.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity,10,false,1,10/09/2023
 Cognitive Services,0,Image Analysis,data,.NET,,,11,false,Azure.AI.Vision.ImageAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Key Vault,0,Key Vault - Administration,data,.NET,,,11,false,Azure.Security.KeyVault.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,03/14/2023
 Key Vault,0,Key Vault - Certificates,data,.NET,,,11,false,Azure.Security.KeyVault.Certificates,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,03/31/2023
@@ -298,12 +297,7 @@ Storage,0,Data Movement - Blobs,UNABLE TO BE DETERMINED,.NET,Azure.Storage.DataM
 IoT,0,IoT Edge Function,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.IoT.Edge.Function,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,IoT Models Repository,UNABLE TO BE DETERMINED,.NET,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 IoT,0,Microsoft.Azure.Devices.Authentication,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Devices.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-Functions,0,Microsoft.Azure.Functions.Worker.Extensions.Kusto,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Worker.Extensions.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-Functions,0,Microsoft.Azure.Functions.Worker.Extensions.Rpc,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Worker.Extensions.Rpc,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,Microsoft.Azure.IoT.Edge.Module,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.IoT.Edge.Module,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Functions,0,Microsoft.Azure.WebJobs.CosmosDb.ChangeProcessor,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.CosmosDb.ChangeProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Functions,0,Microsoft.Azure.WebJobs.Extensions.Rpc,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.Extensions.Rpc,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Functions,0,Microsoft.Azure.WebJobs.Rpc.Core,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.Rpc.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Web PubSub,0,Microsoft.Azure.WebPubSub.AspNetCore,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebPubSub.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Web PubSub,0,Microsoft.Azure.WebPubSub.Common,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Quantum,0,Quantum Jobs,UNABLE TO BE DETERMINED,.NET,Azure.Quantum.Jobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -312,20 +306,24 @@ Schema Registry,0,Schema Registry - JSON,UNABLE TO BE DETERMINED,.NET,Microsoft.
 IoT,0,Time Series Insights,UNABLE TO BE DETERMINED,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Stack,0,AzureStack Management - Key Vault Admin,data,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
 Batch,0,Batch,data,.NET,Microsoft.Azure.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,,,1,false,0,
 Batch,0,Batch - Apps Cryptography,data,.NET,Microsoft.Azure.Batch.Apps.Cryptography,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Batch,0,Batch - Conventions Files,data,.NET,Microsoft.Azure.Batch.Conventions.Files,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,,,1,false,0,
 Batch,0,Batch - File Staging,data,.NET,Microsoft.Azure.Batch.FileStaging,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch/Microsoft.Azure.Batch.FileStaging,10,false,,,1,false,0,
 Commerce,0,Commerce Usage Aggregates,data,.NET,Microsoft.Azure.Commerce.UsageAggregates,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Configuration Manager,0,Configuration Manager,data,.NET,Microsoft.Azure.ConfigurationManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
+Cognitive Services,0,Custom Image Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingCustomImageSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingCustomImageSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingCustomImageSearch,3,false,,,1,false,0,
+Cognitive Services,0,Custom Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingCustomSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingCustomSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingCustomSearch,3,false,,,1,false,0,
 Data Lake Analytics,0,Data Lake Analytics,data,.NET,Microsoft.Azure.DataLake.USQL.SDK,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,Devices Provisioning Service,data,.NET,Microsoft.Azure.Devices.Provisioning.Service,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 IoT,0,Digital Twins Service,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Service,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
+Cognitive Services,0,Entity Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingEntitySearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingEntitySearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingEntitySearch,3,false,,,1,false,0,
 Event Hubs,0,Event Hubs - Service Fabric Processor,data,.NET,Microsoft.Azure.EventHubs.ServiceFabricProcessor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,3,false,Exception: Track 2 library not needed,,10,false,1,
-App Configuration,0,Feature Management,data,.NET,Microsoft.FeatureManagement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 App Service,0,Gallery,data,.NET,Microsoft.Azure.Gallery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 HDInsight,0,Hadoop Client,data,.NET,Microsoft.Hadoop.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 HDInsight,0,HDInsight - Job,data,.NET,Microsoft.Azure.HDInsight.Job,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight,3,false,,,1,false,0,
+Cognitive Services,0,Image Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingImageSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingImageSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingImageSearch,3,false,,,1,false,0,
 Information Protection,0,Information Protection,data,.NET,Microsoft.InformationProtection.File,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Insights,0,Insights,data,.NET,Microsoft.Azure.Insights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.Monitor,,4,false,1,
 IoT,0,IoT Plug and Play - Devices Client,data,.NET,Microsoft.Azure.Devices.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
@@ -354,6 +352,7 @@ IoT,0,Microsoft.Azure.Devices.Shared,data,.NET,Microsoft.Azure.Devices.Shared,ht
 Mobile Apps,0,Mobile Apps,data,.NET,Microsoft.Azure.Mobile.Server,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mobile Services,0,Mobile Server - Cross Domain,data,.NET,Microsoft.Azure.Mobile.Server.CrossDomain,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mobile Services,0,Mobile Service - Resource Broker,data,.NET,Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
+Cognitive Services,0,News Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingNewsSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingNewsSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingNewsSearch,3,false,,,1,false,0,
 Notification Hubs,0,Notification Hubs,data,.NET,Microsoft.Azure.NotificationHubs,https://github.com/Azure/azure-notificationhubs-dotnet,10,false,,,1,false,0,
 Relay,0,Relay,data,.NET,Microsoft.Azure.Relay,https://github.com/Azure/azure-relay-dotnet/tree/2.0.1,10,false,,,1,false,0,
 Search,0,Search,data,.NET,Microsoft.Azure.Search,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Search_10.1.0/sdk/search/Microsoft.Azure.Search,10,true,Replaced by: Azure.Search.Documents,,4,false,1,
@@ -371,9 +370,12 @@ Cognitive Services,0,Speech,data,.NET,Microsoft.CognitiveServices.Speech,https:/
 Cognitive Services,0,Speech Remote Conversation,data,.NET,Microsoft.CognitiveServices.Speech.Remoteconversation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Cognitive Services,0,Speech Xamarin iOS,data,.NET,Microsoft.CognitiveServices.Speech.Xamarin.iOS,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Synapse,0,Synapse Analytics,data,.NET,Microsoft.Azure.Synapse,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,,,1,false,0,
+Cognitive Services,0,Video Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingVideoSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingVideoSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingVideoSearch,3,false,,,1,false,0,
 Cognitive Services,0,Vision Content Moderator,data,.NET,Microsoft.Azure.CognitiveServices.Vision.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.ContentModerator_2.1.0-preview.1/sdk/cognitiveservices/Vision.ContentModerator,3,false,Exception: Track 2 library not needed,,10,false,1,
+Cognitive Services,0,Visual Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingVisualSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingVisualSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingVisualSearch,3,false,,,1,false,0,
 Storage,0,Wastorage,data,.NET,wastorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.Azure.Storage.CPP,,4,false,1,
 Storage,0,Wastorage - Redist,data,.NET,wastorage.redist,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.Azure.Storage.Common,,4,false,1,
+Cognitive Services,0,Web Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingWebSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingWebSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingWebSearch,3,false,,,1,false,0,
 App Service,0,WebSites - DataProtection,data,.NET,Microsoft.Azure.WebSites.DataProtection,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Configuration Manager,0,WindowsAzure Configuration Manager,data,.NET,Microsoft.WindowsAzure.ConfigurationManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: NA,,4,false,1,
 Media Services,0,WindowsAzure Media Services,data,.NET,windowsazure.mediaservices,https://github.com/Azure/azure-sdk-for-media-services,10,false,,,1,false,0,
@@ -398,7 +400,6 @@ Stack,0,AzureStack Management - Compute Admin,mgmt,.NET,Microsoft.AzureStack.Man
 Stack,0,AzureStack Management - Fabric Admin,mgmt,.NET,Microsoft.AzureStack.Management.Fabric.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack,3,true,Replaced by: NA,,4,false,1,
 Stack,0,AzureStack Management - Gallery Admin,mgmt,.NET,Microsoft.AzureStack.Management.Gallery.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.Gallery.Admin,3,true,Replaced by: NA,,4,false,1,
 Stack,0,AzureStack Management - Infrastructure Insights Admin,mgmt,.NET,Microsoft.AzureStack.Management.InfrastructureInsights.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.InfrastructureInsights.Admin,3,true,Replaced by: NA,,4,false,1,
-Stack,0,AzureStack Management - Key Vault Admin,mgmt,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
 Stack,0,AzureStack Management - Network Admin,mgmt,.NET,Microsoft.AzureStack.Management.Network.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.Network.Admin,3,true,Replaced by: NA,,4,false,1,
 Stack,0,AzureStack Management - Storage,mgmt,.NET,Microsoft.AzureStack.Management.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Stack,0,AzureStack Management - Storage Admin,mgmt,.NET,Microsoft.AzureStack.Management.Storage.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack,3,true,Replaced by: NA,,4,false,1,
@@ -1142,7 +1143,7 @@ Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communi
 Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,JavaScript,,,11,false,@azure/communication-phone-numbers,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
-Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/07/2023
+Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Sms,data,JavaScript,,,11,false,@azure/communication-sms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/29/2021
 Confidential Ledger,0,Confidential Ledger,data,JavaScript,,,11,false,@azure-rest/confidential-ledger,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/confidentialledger/confidential-ledger-rest/,10,false,1,07/19/2022
 Container Registry,0,Container Registry,data,JavaScript,,,11,false,@azure/container-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry,10,false,1,05/11/2023
@@ -1153,7 +1154,7 @@ IoT,0,Device Update,data,JavaScript,,,11,false,@azure-rest/iot-device-update,htt
 IoT,0,Digital Twins - Core,data,JavaScript,,,11,false,@azure/digital-twins-core,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins,10,false,1,07/19/2022
 IoT,0,Digital Twins Definition Language Parser,data,JavaScript,,,11,false,@azure/dtdl-parser,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins,3,false,1,
 Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest/ai-document-translator,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documenttranslator/ai-document-translator-rest/,3,false,1,
-Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,09/14/2023
+Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,10/12/2023
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,09/25/2023
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
@@ -1482,7 +1483,7 @@ Communication,0,Communication Email,data,Python,,,11,false,azure-communication-e
 Communication,0,Communication Identity,data,Python,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/31/2022
 Communication,0,Communication Network Traversal,data,Python,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,Python,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
-Communication,0,Communication Rooms,data,Python,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,06/06/2023
+Communication,0,Communication Rooms,data,Python,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Sms,data,Python,,,11,false,azure-communication-sms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,06/04/2021
 Confidential Ledger,0,Confidential Ledger,data,Python,,,11,false,azure-confidentialledger,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger,10,false,1,08/11/2023
 Container Registry,0,Container Registry,data,Python,,,11,false,azure-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,07/11/2023
@@ -1494,7 +1495,7 @@ Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https:/
 IoT,0,Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
 IoT,0,Digital Twins,data,Python,,,11,false,azure-digitaltwins-core,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,07/12/2022
 Cognitive Services,0,Document Translation,data,Python,,,11,false,azure-ai-translation-document,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,06/07/2022
-Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,09/13/2023
+Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,10/12/2023
 Event Hubs,0,Event Hubs,data,Python,,,11,false,azure-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,08/08/2023
 FarmBeats,0,FarmBeats,data,Python,,,11,false,azure-agrifood-farming,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,10/10/2023
@@ -1506,7 +1507,7 @@ Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certi
 Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,03/16/2023
 Load Testing,0,Load Testing,data,Python,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/loadtesting,10,false,1,03/07/2023
-Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,10/04/2023
+Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,10/12/2023
 Synapse,0,Managed Private Endpoints,data,Python,,,11,false,azure-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Maps,0,Maps Geolocation,data,Python,,,11,false,azure-maps-geolocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
 Maps,0,Maps Render,data,Python,,,11,false,azure-maps-render,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
@@ -1876,6 +1877,7 @@ Cosmos DB,0,Cosmos Spark 3.4,data,.NET,,,11,false,Exception: Library not needed 
 Cosmos DB,0,Cosmos Spark 3.4,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 Cosmos DB,0,Cosmos Spark 3.4,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
 Cosmos DB,0,Cosmos Spark 3.4,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
+Identity,0,Identity,data,.NET,,,11,false,Missing: Created from existing package: azure-identity,,2,false,0,
 Storage,0,Storage - Blobs Cryptography,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Cryptography,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Cryptography,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
