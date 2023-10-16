@@ -370,4 +370,39 @@ entries:
     #### Features Added
 
     - Added support for PSTN dial-out capability
+- Name: '@azure/eventgrid'
+  Version: 4.15.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.15.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`
+    - `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`
+    - `Microsoft.Communication.RouterWorkerDeregistered`
+    - `Microsoft.Communication.RouterWorkerRegistered`
+    - `Microsoft.Communication.RouterJobCancelled`
+    - `Microsoft.Communication.RouterJobClassificationFailed`
+    - `Microsoft.Communication.RouterJobClassified`
+    - `Microsoft.Communication.RouterJobClosed`
+    - `Microsoft.Communication.RouterJobCompleted`
+    - `Microsoft.Communication.RouterJobDeleted`
+    - `Microsoft.Communication.RouterJobExceptionTriggered`
+    - `Microsoft.Communication.RouterJobQueued`
+    - `Microsoft.Communication.RouterJobReceived`
+    - `Microsoft.Communication.RouterJobSchedulingFailed`
+    - `Microsoft.Communication.RouterJobUnassigned`
+    - `Microsoft.Communication.RouterJobWaitingForActivation`
+    - `Microsoft.Communication.RouterJobWorkerSelectorsExpire`
+    - `Microsoft.Communication.RouterWorkerDeleted`
+    - `Microsoft.Communication.RouterWorkerOfferAccepted`
+    - `Microsoft.Communication.RouterWorkerOfferDeclined`
+    - `Microsoft.Communication.RouterWorkerOfferExpired`
+    - `Microsoft.Communication.RouterWorkerOfferIssued`
+    - `Microsoft.Communication.RouterWorkerOfferRevoked`
 
