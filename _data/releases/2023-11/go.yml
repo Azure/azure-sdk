@@ -18,4 +18,15 @@ entries:
     #### Breaking Changes
 
     - Client constructors that take a `key string` parameter for a credential now require an `*azcore.KeyCredential` or `*azcore.SASCredential`.
+- Name: sdk/storage/azdatalake
+  Version: 1.0.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.0.0/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where customers could not capture the raw HTTP response of directory and file GetProperties operations.
+    * Fixed an issue where file/directory renames with source/destination SAS tokens fail with authorization failures.
 
