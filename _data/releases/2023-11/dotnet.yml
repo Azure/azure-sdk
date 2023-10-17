@@ -79,4 +79,16 @@ entries:
   ChangelogContent: |-
     ### Features Added
     - Added documentation for using sovereign cloud
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.13.1
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.13.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the disposal pattern for cached Service Bus clients so that they are disposed only on
+    host shutdown.
 
