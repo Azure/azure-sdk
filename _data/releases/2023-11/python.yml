@@ -67,4 +67,12 @@ entries:
     - Added support for service version 2023-11-03.
     - Added `audience` as an optional keyword that can be specified on APIs that have a `credential` parameter. This
     keyword only has an effect when the credential provided is of type `TokenCredential`.
+- Name: azure-mgmt-keyvault
+  Version: 10.3.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.3.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
 
