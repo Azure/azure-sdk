@@ -61,7 +61,7 @@ Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://g
 IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,09/08/2022
 IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
-Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,10/12/2023
+Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,10/18/2023
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,09/12/2023
 Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,09/12/2023
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
@@ -83,7 +83,7 @@ Media,0,Media Analytics Edge,data,.NET,,,11,false,Azure.Media.Analytics.Edge,htt
 Metrics Advisor,0,Metrics Advisor,data,.NET,,,11,false,Azure.AI.MetricsAdvisor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/metricsadvisor,10,false,1,08/10/2021
 Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,10/17/2023
-Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,05/22/2023
+Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
 Cognitive Services,0,OpenAI Inference,data,.NET,,,11,false,Azure.AI.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,.NET,Microsoft.OpenTelemetry.Exporter.AzureMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Monitor.OpenTelemetry.Exporter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,09/20/2023
@@ -304,6 +304,7 @@ Quantum,0,Quantum Jobs,UNABLE TO BE DETERMINED,.NET,Azure.Quantum.Jobs,https://g
 Schema Registry,0,Schema Registry - Avro,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Schema Registry,0,Schema Registry - JSON,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Json,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 IoT,0,Time Series Insights,UNABLE TO BE DETERMINED,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,System.Net.ClientModel,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Stack,0,AzureStack Management - Key Vault Admin,data,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
@@ -506,7 +507,7 @@ OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azur
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,10/02/2023
 Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,10/11/2023
-Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,3,false,1,
+Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,10/17/2023
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,10/11/2023
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,07/20/2023
@@ -1157,7 +1158,7 @@ Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://gith
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,09/25/2023
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
-Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,10/10/2023
+Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,10/17/2023
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
 Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
 Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,03/13/2023
@@ -1488,7 +1489,7 @@ Confidential Ledger,0,Confidential Ledger,data,Python,,,11,false,azure-confident
 Container Registry,0,Container Registry,data,Python,,,11,false,azure-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,07/11/2023
 Cognitive Services,0,Content Safety,data,Python,azure-cognitiveservices-vision-contentmoderator,https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-vision-contentmoderator_1.0.0/azure-cognitiveservices-vision-contentmoderator/,1,false,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety,3,false,1,
 Cognitive Services,0,Conversational Language Understanding,data,Python,azure-cognitiveservices-language-luis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,1,false,azure-ai-language-conversations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,10,false,1,06/13/2023
-Cosmos DB,0,Cosmos DB,data,Python,pydocumentdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,true,azure-cosmos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,09/13/2023
+Cosmos DB,0,Cosmos DB,data,Python,pydocumentdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,true,azure-cosmos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,
 Defender EASM,0,Defender EASM,data,Python,,,11,false,azure-defender-easm,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devcenter,3,false,1,
 IoT,0,Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
@@ -1637,7 +1638,7 @@ Image Builder,0,Resource Management - Image Builder,mgmt,Python,,,11,false,azure
 IoT,0,Resource Management - IoT Central,mgmt,Python,,,11,false,azure-mgmt-iotcentral,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub,10,false,1,11/11/2021
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,Python,,,11,false,azure-mgmt-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iotfirmwaredefense,3,false,1,
 IoT,0,Resource Management - IoT Hub,mgmt,Python,,,11,false,azure-mgmt-iothub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub,10,false,1,09/19/2023
-Key Vault,0,Resource Management - Key Vault,mgmt,Python,,,11,false,azure-mgmt-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,07/26/2023
+Key Vault,0,Resource Management - Key Vault,mgmt,Python,,,11,false,azure-mgmt-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/18/2023
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,Python,,,11,false,azure-mgmt-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/kubernetesconfiguration,10,false,1,09/19/2023
 Data Explorer,0,Resource Management - Kusto,mgmt,Python,,,11,false,azure-mgmt-kusto,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/kusto,10,false,1,07/24/2023
 Lab Services,0,Resource Management - Lab Services,mgmt,Python,,,11,false,azure-mgmt-labservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/labservices,10,false,1,08/26/2022
