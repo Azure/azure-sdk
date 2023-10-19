@@ -134,4 +134,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - `ManagedIdentityCredential` will now correctly retry when the instance metadata endpoint returns a 410 response. [#28568](https://github.com/Azure/azure-sdk-for-net/issues/28568)
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.4.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.4.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
 
