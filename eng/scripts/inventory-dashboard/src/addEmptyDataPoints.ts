@@ -190,7 +190,7 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         // Determine the plane 
         let plane: Plane = "UNABLE TO BE DETERMINED";
         if (apiSpecDir === 'data-plane') { plane = "data"; }
-        else if (apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
+        else if (apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management' || apiSpecDir === 'control-plane') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
         else {
           // if apiSpecDir ends in .management regardless of case, print out attention log 
           if (apiSpecDir.toLowerCase().endsWith('.management')) {
