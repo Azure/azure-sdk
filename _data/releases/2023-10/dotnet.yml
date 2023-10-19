@@ -289,4 +289,81 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added `LogsIngestionAudience` for multi-cloud support to allow users to select the Azure cloud where the resource is located.
+- Name: Azure.Communication.Messages
+  Version: 1.0.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.0.0-beta.1/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    This is the first Public Preview release of Azure Communication Services for advanced messages. For more information, please see the [README][read_me] and [documentation][documentation].
+
+    This is a Public Preview version, so breaking changes are possible in subsequent releases as we improve the product. To provide feedback, please submit an issue in our [Azure SDK for .NET GitHub repo](https://github.com/Azure/azure-sdk-for-net/issues).
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Messages/README.md
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.0.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Functions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.0.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added support for the legacy checkpoint format when making scaling decisions.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.16.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.16.2/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where `ActivitySource` activities were not being created even when the experimental
+    flag was set.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.13.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Functions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.13.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MaxConcurrentCallsPerSession` to `ServiceBusOptions` to allow configuring the maximum number of concurrent calls per session.
+- Name: Azure.Communication.Rooms
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Rooms_1.1.0-beta.1/sdk/communication/Azure.Communication.Rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for PSTN dial-out capability
+- Name: Azure.ResourceManager.ContainerServiceFleet
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.0.0-beta.2/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid
+  Version: 4.19.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.19.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new system events for Resource Notifications and Azure Communication Services.
 

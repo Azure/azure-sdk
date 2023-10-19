@@ -229,7 +229,7 @@ entries:
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b10/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Breaking Changes
@@ -309,4 +309,27 @@ entries:
     #### Bugs Fixed
     - Fixed an issue when an invalid type was provided for `credential` during client construction, the
     `__str__` of the object would be present in the exception message and therefore potentially logged.
+- Name: azure-servicebus
+  Version: 7.11.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.11.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `prefetch_count` was not being passed through correctly and caused messages to not be received as expected when in `RECEIVE_AND_DELETE` mode ([#31712](https://github.com/Azure/azure-sdk-for-python/issues/31712), [#31711](https://github.com/Azure/azure-sdk-for-python/issues/31711)).
+- Name: azure-search-documents
+  Version: 11.4.0b11
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b11/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `vector_filter_mode` support for `Search` method.
+    - Exposed `VectorizableTextQuery` in `azure.search.document.models`.
 

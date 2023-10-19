@@ -309,4 +309,100 @@ entries:
 
     - Updated @azure/communication-common to 2.3.0
     - Updated @azure/communication-signaling to 1.0.0-beta.21
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.17
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.17/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update OpenTelemetry dependency packages.
+    - Add support for aadAudience configuration using connection string.
+
+    #### Bugs Fixed
+
+    - Fix issue with credentialScopes setup not being passed to core-client.
+    - Fix Statsbeat metric names.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.1.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.1.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix precedence of JSON config value changes over defaults.
+    - Fix custom MeterReaders not being able to collect metrics for instrumentations.
+    - Fix values for Statsbeat Features and Instrumentations.
+- Name: '@azure/search-documents'
+  Version: 12.0.0-beta.4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0-beta.4/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for text based vector queries backed by a vectorizer [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - Added exhaustive k-nearest neighbors search algorithm for vector search [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - Added `SearchOptions.semanticQuery`, which allows for using an independent text query for semantic search features [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - Added support for `AzureOpenAIEmbeddingSkill`, which generates text embeddings through the Azure OpenAI service. [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - Added `SearchIndexerSkillset.IndexProjections`, which specifies additional projections to secondary search indexes. [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+
+    #### Breaking Changes
+
+    - `SearchOptions.vector` has been abstracted into `SearchOptions.vectorQueries` [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - `SearchField.vectorSearchConfiguration` has been abstracted into `SearchField.vectorSearchProfile` [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+    - `VectorSearch.algorithmConfiguration` has been renamed to `VectorSearch.algorithms` [#27338](https://github.com/Azure/azure-sdk-for-js/pull/27338)
+- Name: '@azure/communication-rooms'
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.1.0-beta.1/sdk/communication/communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for PSTN dial-out capability
+- Name: '@azure/eventgrid'
+  Version: 4.15.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.15.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`
+    - `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`
+    - `Microsoft.Communication.RouterWorkerDeregistered`
+    - `Microsoft.Communication.RouterWorkerRegistered`
+    - `Microsoft.Communication.RouterJobCancelled`
+    - `Microsoft.Communication.RouterJobClassificationFailed`
+    - `Microsoft.Communication.RouterJobClassified`
+    - `Microsoft.Communication.RouterJobClosed`
+    - `Microsoft.Communication.RouterJobCompleted`
+    - `Microsoft.Communication.RouterJobDeleted`
+    - `Microsoft.Communication.RouterJobExceptionTriggered`
+    - `Microsoft.Communication.RouterJobQueued`
+    - `Microsoft.Communication.RouterJobReceived`
+    - `Microsoft.Communication.RouterJobSchedulingFailed`
+    - `Microsoft.Communication.RouterJobUnassigned`
+    - `Microsoft.Communication.RouterJobWaitingForActivation`
+    - `Microsoft.Communication.RouterJobWorkerSelectorsExpire`
+    - `Microsoft.Communication.RouterWorkerDeleted`
+    - `Microsoft.Communication.RouterWorkerOfferAccepted`
+    - `Microsoft.Communication.RouterWorkerOfferDeclined`
+    - `Microsoft.Communication.RouterWorkerOfferExpired`
+    - `Microsoft.Communication.RouterWorkerOfferIssued`
+    - `Microsoft.Communication.RouterWorkerOfferRevoked`
 

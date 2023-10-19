@@ -14,7 +14,7 @@ Conventions are the contract between Azure SDK and tracing providers such as Azu
 
 When writing instrumentation in Azure SDK or Core:
 
-{% include requirement/MUST id="general-tracing-convention-use-otel" %} use [OpenTelemetry conventions](https://opentelemetry.io/docs/specs/otel/trace/semantic_conventions/) whenever possible.
+{% include requirement/MUST id="general-tracing-convention-use-otel" %} use [OpenTelemetry conventions](https://opentelemetry.io/docs/specs/semconv/general/trace/) whenever possible.
 
 {% include requirement/MUST id="general-tracing-convention-describe-attributes" %} update [distributed-tracing-conventions.yml](./distributed-tracing-conventions.yml) when adding new attributed.
 
