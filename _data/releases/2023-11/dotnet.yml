@@ -142,4 +142,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.4.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Identity.Broker
+  Version: 1.0.0-beta.5
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.0.0-beta.5/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed the `IsMsaPassthroughEnabled` property on `InteractiveBrowserCredentialBrokerOptions` to `IsLegacyMsaPassthroughEnabled`.
 
