@@ -196,4 +196,15 @@ entries:
     - Upgraded `azure-core` from `1.44.0` to version `1.44.1`.
     - Upgraded `azure-core-http-netty` from `1.13.8` to version `1.13.9`.
   GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.4.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.4.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added new default constructor to existing models for compatible with JDK 21. [#36371](https://github.com/Azure/azure-sdk-for-java/pull/36371/files#diff-97ab179febbd379931e540173f1655dca32fb9794ff5acb90c593e08bca67939R37)
+  GroupId: com.azure
 
