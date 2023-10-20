@@ -75,4 +75,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.3.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.29.5
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.5/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with `multipart/form-data` in the async transport where `data` was not getting encoded into the request body. #32473
 
