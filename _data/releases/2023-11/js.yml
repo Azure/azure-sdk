@@ -155,4 +155,33 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_2.0.0/sdk/storagemover/arm-storagemover/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.12.2
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.12.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Support Cloudflare workers by only setting the available fields in the `Request` class for the Fetch API. [PR #27423](https://github.com/Azure/azure-sdk-for-js/pull/27423)
+    - Add `ENOTFOUND` code to exponential retry policy. [PR #27437](https://github.com/Azure/azure-sdk-for-js/pull/27437)
+    - Wait before stop listening to the abort signal until after the response stream has been drained to allow for aborting prolonged responses [PR #27205](https://github.com/Azure/azure-sdk-for-js/pull/27205)
+- Name: '@azure/core-util'
+  Version: 1.6.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.6.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improved `isNode` to be false when `isDeno` is true due to Deno implementing `process.version.node`
+
+    #### Features Added
+
+    - Add support for hex encoding to `uint8ArrayToString` and `stringToUint8Array`
+    - Fix bug when `uint8ArrayToString` with Base64 encoding would not decode binary data
+    containing bytes which are not valid ISO/IEC 8859-1 (latin1) characters.
 
