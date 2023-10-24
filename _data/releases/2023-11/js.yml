@@ -184,4 +184,15 @@ entries:
     - Add support for hex encoding to `uint8ArrayToString` and `stringToUint8Array`
     - Fix bug when `uint8ArrayToString` with Base64 encoding would not decode binary data
     containing bytes which are not valid ISO/IEC 8859-1 (latin1) characters.
+- Name: '@azure/core-util'
+  Version: 1.6.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.6.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Base64 decode in `stringToUint8Array` in browser so that it supports binary that contains UTF-16 characters which have a continuation token.
 
