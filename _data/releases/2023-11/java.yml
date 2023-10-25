@@ -1768,4 +1768,46 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.13.7` to version `1.13.9`.
     - Upgraded `azure-core` from `1.43.0` to version `1.44.1`.
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.1.11
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.11/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-data-schemaregistry` from `1.3.10` to version `1.4.0`.
+    - Upgraded `azure-core` from `1.43.0` to version `1.44.1`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.4.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.4.0/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.43.0` to version `1.44.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.7` to version `1.13.9`.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.14.5
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.14.5/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the forwardDeadLetteredMessagesTo property position so that the xml payload adheres to the service contract ([36811](https://github.com/Azure/azure-sdk-for-java/issues/36811))
+  GroupId: com.azure
 
