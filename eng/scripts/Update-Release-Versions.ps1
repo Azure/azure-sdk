@@ -318,6 +318,8 @@ function CheckAll($langs)
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
     $csvFile = Get-LangCsvFilePath $lang
     $allClientPackages = Get-PackageListForLanguage $lang
+
+    $displayNames = $allClientPackages.Where({ $_.ServiceName -eq 'Other'}).DisplayName.Where({ $_ })
  
     foreach ($pkg in $allClientPackages){
       if(($pkg.Support -eq "deprecated")) {
@@ -340,6 +342,17 @@ function CheckAll($langs)
           {
             Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
             Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
+            $foundIssues = $true
+          }
+        }
+      }
+
+
+      if ($pkg.ServiceName -eq 'Other' -and $pkg.Hide -ne 'true') {
+        foreach ($displayName in $displayNames) { 
+          if ($displayName -like "$($pkg.DisplayName) -*") {
+            Write-Warning "DisplayName '$($pkg.DisplayName)' for package '$($pkg.Package)' in $csvFile is too generic for ToC (subset of existing entry: $displayName)"
+            Write-Warning "Packages whose Service is 'Other' and whose DisplayName matches a higher level entry in the ToC are not supported in docs ToCs."
             $foundIssues = $true
           }
         }
@@ -402,6 +415,8 @@ function CheckAll($langs)
       Write-Host "        $($pg.Name) [$($pg.Group.Package -join ', ')]"
     }
   }
+
+
 
   if ($foundIssues) {
     Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."
