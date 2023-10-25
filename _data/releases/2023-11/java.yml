@@ -1810,4 +1810,16 @@ entries:
 
     - Fixed the forwardDeadLetteredMessagesTo property position so that the xml payload adheres to the service contract ([36811](https://github.com/Azure/azure-sdk-for-java/issues/36811))
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.13
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.13/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [Fix null ikey for _otelresource_ custom metrics](https://github.com/Azure/azure-sdk-for-java/pull/37352)
+    - [Fix no network statsbeat](https://github.com/Azure/azure-sdk-for-java/pull/37360)
+  GroupId: com.azure
 
