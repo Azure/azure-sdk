@@ -281,4 +281,16 @@ entries:
     #### Features Added
 
     - Adds support for serializing and deserializing for `timestamp-millis` logical type as native `Date` objects.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.7
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.7/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support Cloudflare workers by only setting the available fields in the `Request` class for the Fetch API.
+    - Wait before stop listening to the abort signal until after the response stream has been drained to allow for aborting prolonged responses.
 
