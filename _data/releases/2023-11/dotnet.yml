@@ -165,4 +165,12 @@ entries:
     - Fixed issue where deadlettering a message without specifying properties to modify could throw
     an exception from out of proc extension.
     - Include underlying exception details in RpcException when a failure occurs.
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.5.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.5.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
 
