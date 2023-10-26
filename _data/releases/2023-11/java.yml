@@ -1822,4 +1822,82 @@ entries:
     - [Fix null ikey for _otelresource_ custom metrics](https://github.com/Azure/azure-sdk-for-java/pull/37352)
     - [Fix no network statsbeat](https://github.com/Azure/azure-sdk-for-java/pull/37360)
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.18
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.18/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
+- Name: azure-resourcemanager-resourcehealth
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resourcehealth_1.1.0-beta.2/sdk/resourcehealth/azure-resourcemanager-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-webpubsub
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-webpubsub_1.1.0-beta.2/sdk/webpubsub/azure-resourcemanager-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs
+  Version: 5.16.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.16.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.43.0` to version `1.44.1`.
+    - Upgraded `azure-core-amqp` from `2.8.9` to version `2.8.11`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.17.1
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.17.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.16.0` to version `5.16.1`.
+    - Upgraded `azure-storage-blob` from `12.24.0` to version `12.24.1`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-loganalytics
+  Version: 1.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-loganalytics_1.0.0/sdk/loganalytics/azure-resourcemanager-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-connectedvmware
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected VMware
+  ServiceName: Connected VMware
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-connectedvmware_1.0.0/sdk/connectedvmware/azure-resourcemanager-connectedvmware/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
