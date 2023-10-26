@@ -254,4 +254,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_9.1.0/sdk/search/azure-mgmt-search/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.15.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added bearer token provider.  ([#32655](https://github.com/Azure/azure-sdk-for-python/pull/32655))
+
+    #### Bugs Fixed
+
+    - Fixed issue InteractiveBrowserCredential does not hand over to next credential in chain if no browser is supported.([#32276](https://github.com/Azure/azure-sdk-for-python/pull/32276))
 
