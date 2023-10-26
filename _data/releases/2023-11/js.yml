@@ -293,4 +293,20 @@ entries:
 
     - Support Cloudflare workers by only setting the available fields in the `Request` class for the Fetch API.
     - Wait before stop listening to the abort signal until after the response stream has been drained to allow for aborting prolonged responses.
+- Name: '@azure/arm-webpubsub'
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_2.0.0-beta.2/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-connectedvmware'
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected VMware
+  ServiceName: Connected VMware
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedvmware_1.0.0/sdk/connectedvmware/arm-connectedvmware/CHANGELOG.md
+  ChangelogContent: ""
 
