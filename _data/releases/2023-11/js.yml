@@ -309,4 +309,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedvmware_1.0.0/sdk/connectedvmware/arm-connectedvmware/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.0.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The `redirectUri` is no longer a required option for `InteractiveBrowserCredential` on Node.js. There's no API change, but this is a behavior change.
+
+    #### Features Added
+    - Added `brokerOptions` in `InteractiveBrowserCredential` for authentication broker support such as WAM. This feature works along with the new `@azure/identity-broker` plugin package. Note that this feature is only available in node.
+    - Added support for MSA passthrough in the `brokerOptions` of `InteractiveBrowserCredential`. Note this is only available for legacy 1st party applications.
+    - Added `BrowserCustomizationOptions` for success and error messages in the `InteractiveBrowserCredential`.
 
