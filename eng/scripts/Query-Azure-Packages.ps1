@@ -365,9 +365,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
   # 1) Get the nuget service index
   try
   {
-    $response = Invoke-WebRequest -Uri $nugetServiceIndex -Method Get -ErrorAction SilentlyContinue
-    $responseContent = ConvertFrom-Json $response.Content
-    $statusCode = $response.StatusCode
+    $responseContent = Invoke-RestMethod -Uri $nugetServiceIndex -Method Get -ErrorAction SilentlyContinue
   }
   catch
   {
@@ -410,8 +408,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
       $packageId = "$registrationUrl/$packageName/$($version.ToLowerInvariant()).json"
       try
       {
-        $response = Invoke-WebRequest -Uri $packageIndex -Method Get -ErrorAction SilentlyContinue
-        $responseContent = ConvertFrom-Json $response.Content
+        $responseContent = Invoke-RestMethod -Uri $packageIndex -Method Get -ErrorAction SilentlyContinue
       }
       catch
       {
@@ -420,8 +417,25 @@ function Write-Nuget-Deprecated-Packages($packageList)
         Write-Host "URI: $packageIndex"
         Write-Host "=================================="
       }
+
+      # Get all the items from each of the pages as there could be more then one depending on how many versions there are
+      # See docs at https://learn.microsoft.com/en-us/nuget/api/registration-base-url-resource#registration-page-object
+      $allItems = @()
+      foreach ($regPage in $responseContent.items)
+      {
+        if ($regPage.PSObject.Properties.Name -contains "items")
+        {
+          $allItems += $regPage.items
+        }
+        else
+        {
+            $regPageContent = Invoke-RestMethod $regPage.'@id'
+            $allItems += $regPageContent.items
+        }
+      }
+
       # 3) Use the package index to get the package metadata
-      $metadata = $responseContent.items.items | Where-Object { $_.'@id' -eq "$packageId"}
+      $metadata = $allItems | Where-Object { $_.'@id' -eq "$packageId"}
       # 4) Parse the metadata to see if the package has already been deprecated
       if ( -not ($metadata.catalogEntry | Select-Object -ExpandProperty deprecation -First 1 -ErrorAction SilentlyContinue))
       {
@@ -454,8 +468,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
         $packageContent = "$contentUrl/$packageName/index.json"
         try
         {
-          $response = Invoke-WebRequest -Uri $packageContent -Method Get -ErrorAction SilentlyContinue
-          $responseContent = $response.Content
+          $responseContent = Invoke-RestMethod -Uri $packageContent -Method Get -ErrorAction SilentlyContinue
         }
         catch
         {
@@ -464,7 +477,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
           Write-Host "URI: $packageContent"
           Write-Host "=================================="
         }
-        $versions = (ConvertFrom-Json $responseContent).versions
+        $versions = $responseContent.versions
 
         # Construct the deprecation message
         if ((Get-Date $pkg.EOLDate) -lt (Get-Date))
