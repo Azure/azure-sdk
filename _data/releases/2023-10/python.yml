@@ -101,7 +101,7 @@ entries:
   DisplayName: Resource Management - Hybridconnectivity
   ServiceName: Hybridconnectivity
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_1.0.0b1/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
   ChangelogContent: ""
 - Name: azure-mgmt-recoveryservicessiterecovery
@@ -225,13 +225,18 @@ entries:
 
     - Bug fixes for developer credentials
 - Name: azure-search-documents
-  Version: 11.4.0b10
+  Version: 11.4.0b11
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: true
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b10/sdk/search/azure-search-documents/CHANGELOG.md
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b11/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
+    #### Features Added
+
+    - Added `vector_filter_mode` support for `Search` method.
+    - Exposed `VectorizableTextQuery` in `azure.search.document.models`.
+
     #### Breaking Changes
 
     > These changes do not impact the API of stable versions such as 11.3.0.
@@ -321,15 +326,81 @@ entries:
 
     - Fixed a bug where `prefetch_count` was not being passed through correctly and caused messages to not be received as expected when in `RECEIVE_AND_DELETE` mode ([#31712](https://github.com/Azure/azure-sdk-for-python/issues/31712), [#31711](https://github.com/Azure/azure-sdk-for-python/issues/31711)).
 - Name: azure-search-documents
-  Version: 11.4.0b11
+  Version: 11.4.0b10
   DisplayName: Cognitive Search
   ServiceName: Search
   VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b11/sdk/search/azure-search-documents/CHANGELOG.md
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b10/sdk/search/azure-search-documents/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
 
     - Added `vector_filter_mode` support for `Search` method.
     - Exposed `VectorizableTextQuery` in `azure.search.document.models`.
+- Name: azure-identity
+  Version: 1.15.0b2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0b2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `enable_support_logging` as a keyword argument to credentials using MSAL's `PublicClientApplication`. This allows additional support logging which may contain PII. ([#32135](https://github.com/Azure/azure-sdk-for-python/pull/32135))
+
+    #### Bugs Fixed
+
+    - `ManagedIdentityCredential` will now correctly retry when the instance metadata endpoint returns a 410 response.  ([#32200](https://github.com/Azure/azure-sdk-for-python/pull/32200))
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.14.0.
+    > Only code written against a beta version such as 1.15.0b1 may be affected.
+    - Windows Web Account Manager (WAM) Brokered Authentication is moved into another package.
+- Name: azure-keyvault-keys
+  Version: 4.9.0b2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.9.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - The `cryptography` library's `RSAPrivateKey` and `RSAPublicKey` interfaces are now implemented by
+    `KeyVaultRSAPrivateKey` and `KeyVaultRSAPublicKey` classes that can use keys managed by Key Vault
+    - `CryptographyClient` has `create_rsa_private_key` and `create_rsa_public_key` methods that return a
+    `KeyVaultRSAPrivateKey` and `KeyVaultRSAPublicKey`, respectively
+- Name: azure-eventgrid
+  Version: 4.15.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.15.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Communication Services and Azure Resource Notifications.
+- Name: azure-communication-rooms
+  Version: 1.1.0b1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.1.0b1/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for PSTN dial-out capability
+- Name: azure-ai-ml
+  Version: 1.11.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.11.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - pydash dependency version was upgraded to >=6.0.0 to patch [security vulnerability in versions below 6.0.0](https://github.com/advisories/GHSA-8mjr-6c96-39w8)
 
