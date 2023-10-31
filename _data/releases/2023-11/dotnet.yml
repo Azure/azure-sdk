@@ -264,4 +264,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceHealth_1.1.0-beta.2/sdk/resourcehealth/Azure.ResourceManager.ResourceHealth/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Developer.DevCenter
+  Version: 1.0.0-beta.3
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.DevCenter_1.0.0-beta.3/sdk/devcenter/Azure.Developer.DevCenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `EnvironmentsClient` renamed to `DeploymentEnvironmentsClient`
+    - `DevBoxesClient` and `DeploymentEnvironmentsClient` no longer accepts project as a constructor parameter
+    - `DeploymentEnvironmentsClient` now works with "environment definitions" instead of "catalog items"
+    - Creating a new environment requires passing `environmentDefinitionName` instead of `catalogItemName`
+    - Creating a new environment requires passing an additional parameter `catalogName`
+    - `DevCenterClientOptions` renamed to `AzureDeveloperDevCenterClientOptions`
+    - No more default parameters in the clients. `userId`, `filter`, `maxCount`, `hibernate` and `context` parameters need to be specified in the methods.
+    - `GetAction` renamed to `GetDevBoxAction`
+    - `GetActions` renamed to `GetDevBoxActions`
 
