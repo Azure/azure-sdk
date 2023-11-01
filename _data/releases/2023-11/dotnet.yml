@@ -283,4 +283,39 @@ entries:
     - No more default parameters in the clients. `userId`, `filter`, `maxCount`, `hibernate` and `context` parameters need to be specified in the methods.
     - `GetAction` renamed to `GetDevBoxAction`
     - `GetActions` renamed to `GetDevBoxActions`
+- Name: Azure.ResourceManager.NetworkAnalytics
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Networkanalytics
+  ServiceName: Networkanalytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkAnalytics_1.0.0-beta.1/sdk/networkanalytics/Azure.ResourceManager.NetworkAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.19
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.19/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Fix runNotebook sessionId from int to string
+    - Fix placeholder links causing 404s
+    - Sync expression Support From DataFactory To Synapse
+- Name: Azure.ResourceManager.MobileNetwork
+  Version: 1.1.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MobileNetwork_1.1.0/sdk/mobilenetwork/Azure.ResourceManager.MobileNetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.8.0
+  DisplayName: Resource Management - Resource Manager
+  ServiceName: Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.8.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
 
