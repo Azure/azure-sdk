@@ -351,4 +351,48 @@ entries:
     #### Bugs Fixed
 
     - Fix the bug that commonjs doesn't work
+- Name: '@azure/storage-blob'
+  Version: 12.23.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.23.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated dependency on `@azure/core-http` to `@azure/core-rest-pipeline`.
+- Name: '@azure/storage-queue'
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.22.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated dependency on `@azure/core-http` to `@azure/core-rest-pipeline`.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.22.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated dependency on `@azure/core-http` to `@azure/core-rest-pipeline`.
+- Name: '@azure/storage-file-share'
+  Version: 12.23.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.23.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated dependency on `@azure/core-http` to `@azure/core-rest-pipeline`.
 
