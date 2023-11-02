@@ -142,7 +142,7 @@ Blueprint,0,Resource Management - Blueprint,mgmt,.NET,Microsoft.Azure.Management
 Bot Service,0,Resource Management - Bot Service,mgmt,.NET,Microsoft.Azure.Management.BotService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice/Microsoft.Azure.Management.BotService,3,true,Azure.ResourceManager.BotService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice,10,false,1,03/13/2023
 Change Analysis,0,Resource Management - Change Analysis,mgmt,.NET,Microsoft.Azure.Management.ChangeAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ChangeAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/changeanalysis,10,false,1,02/16/2023
 Chaos,0,Resource Management - Chaos,mgmt,.NET,Microsoft.Azure.Management.Chaos,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Chaos,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/chaos,3,false,1,
-Search,0,Resource Management - Cognitive Search,mgmt,.NET,Microsoft.Azure.Management.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search/Microsoft.Azure.Management.Search,10,true,Azure.ResourceManager.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,03/21/2023
+Search,0,Resource Management - Cognitive Search,mgmt,.NET,Microsoft.Azure.Management.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search/Microsoft.Azure.Management.Search,10,true,Azure.ResourceManager.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,11/02/2023
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,.NET,Microsoft.Azure.Management.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,true,Azure.ResourceManager.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,false,1,06/27/2023
 Communication,0,Resource Management - Communication,mgmt,.NET,,,11,false,Azure.ResourceManager.Communication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Compute,0,Resource Management - Compute,mgmt,.NET,Microsoft.Azure.Management.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,10,true,Azure.ResourceManager.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,10,false,1,09/15/2023
@@ -270,7 +270,7 @@ Service Bus,0,Resource Management - Service Bus,mgmt,.NET,Microsoft.Azure.Manage
 Service Fabric,0,Resource Management - Service Fabric,mgmt,.NET,Microsoft.Azure.Management.ServiceFabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicefabric,10,true,Azure.ResourceManager.ServiceFabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicefabric,10,false,1,02/20/2023
 Service Fabric,0,Resource Management - Service Fabric Managed Clusters,mgmt,.NET,Microsoft.Azure.Management.ServiceFabricManagedClusters,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ServiceFabricManagedClusters,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicefabricmanagedclusters,10,false,1,02/16/2023
 Service Linker,0,Resource Management - Service Linker,mgmt,.NET,,,11,false,Azure.ResourceManager.ServiceLinker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicelinker,10,false,1,02/15/2023
-Service Networking,0,Resource Management - Service Networking,mgmt,.NET,,,11,false,Azure.ResourceManager.ServiceNetworking,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicenetworking,3,false,1,
+Service Networking,0,Resource Management - Service Networking,mgmt,.NET,,,11,false,Azure.ResourceManager.ServiceNetworking,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicenetworking,10,false,1,11/02/2023
 SignalR,0,Resource Management - SignalR,mgmt,.NET,Microsoft.Azure.Management.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,true,Azure.ResourceManager.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,false,1,02/16/2023
 Recovery Services,0,Resource Management - Site Recovery,mgmt,.NET,Microsoft.Azure.Management.RecoveryServices.SiteRecovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-siterecovery,3,true,Azure.ResourceManager.RecoveryServicesSiteRecovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-siterecovery,10,false,1,09/26/2023
 Sphere,0,Resource Management - Sphere,mgmt,.NET,,,11,false,Azure.ResourceManager.Sphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sphere,3,false,1,
@@ -1072,19 +1072,19 @@ Cognitive Services,0,Speech,data,Java,client-sdk,https://github.com/Azure/azure-
 Storage,0,Storage,data,Java,azure-storage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,Replaced by: com.azure/azure-storage-blob,,4,false,1,
 Storage,0,Storage - Java,data,Java,azure-storage-java,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,"Replaced by: com.azure/azure-storage-blob, com.azure/azure-storage-file-datalake, com.azure/azure-storage-file-datalake, com.azure/azure-storage-queue",,4,false,1,
 Synapse,0,synapseml,data,Java,synapseml,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml_2.12,data,Java,synapseml_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml_2.12,data,Java,synapseml_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-cognitive,data,Java,synapseml-cognitive,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-cognitive_2.12,data,Java,synapseml-cognitive_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-cognitive_2.12,data,Java,synapseml-cognitive_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-core,data,Java,synapseml-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-core_2.12,data,Java,synapseml-core_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-core_2.12,data,Java,synapseml-core_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-deep-learning,data,Java,synapseml-deep-learning,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-deep-learning_2.12,data,Java,synapseml-deep-learning_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-deep-learning_2.12,data,Java,synapseml-deep-learning_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-lightgbm,data,Java,synapseml-lightgbm,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-lightgbm_2.12,data,Java,synapseml-lightgbm_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-lightgbm_2.12,data,Java,synapseml-lightgbm_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-opencv,data,Java,synapseml-opencv,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-opencv_2.12,data,Java,synapseml-opencv_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-opencv_2.12,data,Java,synapseml-opencv_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseml-vw,data,Java,synapseml-vw,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Synapse,0,synapseml-vw_2.12,data,Java,synapseml-vw_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Synapse,0,synapseml-vw_2.12,data,Java,synapseml-vw_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseutils,data,Java,synapseutils,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseutils_2.11,data,Java,synapseutils_2.11,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Synapse,0,synapseutils_2.12,data,Java,synapseutils_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -1841,6 +1841,7 @@ Resource Manager,0,Resource Management - Resources,mgmt,Go,,,11,false,Missing: C
 Service Fabric,0,Resource Management - Service Fabric Managed Clusters,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ServiceFabricManagedClusters,,2,false,0,
 Service Fabric,0,Resource Management - Service Fabric Managed Clusters,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ServiceFabricManagedClusters,,2,false,0,
 Service Fabric,0,Resource Management - Service Fabric Managed Clusters,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ServiceFabricManagedClusters,,2,false,0,
+Service Networking,0,Resource Management - Service Networking,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ServiceNetworking,,2,false,0,
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.SqlVirtualMachine,,2,false,0,
 Storage,0,Resource Management - Storage Pool,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.StoragePool,,2,false,0,
 Storage,0,Resource Management - Storage Sync,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.StorageSync,,2,false,0,
