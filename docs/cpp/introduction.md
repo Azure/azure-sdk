@@ -70,6 +70,8 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/SHOULDNOT id="cpp-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
 
+{% include requirement/MUSTNOT id="cpp-design-naming-generic" %} use generic names for member fields in input and output types such as `Value`, `Result,` etc. within models and options.
+
 {% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
 ### Service Client {#cpp-client}
