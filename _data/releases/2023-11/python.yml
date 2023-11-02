@@ -308,4 +308,19 @@ entries:
 
     - Fix runNotebook sessionId from int to string #25210
     - Fix placeholder links causing 404s #26143
+- Name: azure-developer-devcenter
+  Version: 1.0.0b3
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-devcenter_1.0.0b3/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `DevCenterClient.dev_center`, `DevCenterClient.dev_box` and `DevCenterClient.environment` operation groups were removed. Operations are accessed directly through the `DevCenterClient`.
+    -  Environments now works with with "environment definitions" instead of "catalog items". E.g. `DevCenterClient.get_environment` operation returns `environmentDefinitionName` property instead of `catalogItemName`.
+    -  The environment used in `DevCenterClient.begin_create_or_update_environment` requires passing `environmentDefinitionName` and `catalogName` parameters instead of `catalogItemName`.
+    - `user_id` is no longer a parameter with default value.
+    - All `actions` operations have `dev_box` added to their names. E.g. `get_action` operation is updated to `get_dev_box_action`
 
