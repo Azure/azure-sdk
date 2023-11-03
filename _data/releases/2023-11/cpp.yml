@@ -58,4 +58,20 @@ entries:
 
     - Added new extendable enum `QueueAudience`
     - Added new field `Audience` in `QueueClientOptions`
+- Name: azure-core
+  Version: 1.11.0-beta.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.11.0-beta.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5007]](https://github.com/Azure/azure-sdk-for-cpp/issues/5007) Some versions of GCC no longer include stdint.h in cstdint.
+
+    #### Features Added
+
+    - Added TLS 1.3 support to WinHTTP transport.
+    - Environment Log Level Listener now logs the ThreadID for the thread originating the trace.
 
