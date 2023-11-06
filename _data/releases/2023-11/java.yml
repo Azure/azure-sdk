@@ -2356,4 +2356,22 @@ entries:
 
     - Checks for HTTPS requirement when using certain credentials now checks for the protocol not being 'https'. ([#37454](https://github.com/Azure/azure-sdk-for-java/pull/37454))
   GroupId: com.azure
+- Name: azure-analytics-purview-workflow
+  Version: 1.0.0-beta.2
+  DisplayName: Purview Workflow
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-workflow_1.0.0-beta.2/sdk/purview/azure-analytics-purview-workflow/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Split `PurviewWorkflowClient` into `UserRequestsClient`, `WorkflowClient`, `WorkflowRunClient` and `WorkflowTaskClient`.
+
+    #### Features Added
+
+    - Add `/workflows/{id}/validate` API.
+    - Add admin query options to workflow / workflow run APIs.
+    d
+  GroupId: com.azure
 
