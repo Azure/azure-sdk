@@ -395,4 +395,14 @@ entries:
     #### Other Changes
 
     - Migrated dependency on `@azure/core-http` to `@azure/core-rest-pipeline`.
+- Name: '@azure/communication-call-automation'
+  Version: 1.0.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.0.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Await on downloadToPath method will now properly wait untill download completes.
 
