@@ -311,4 +311,15 @@ entries:
     #### Other Changes
 
     * Updated to latest release of `azcore` and cleaned up example.
+- Name: sdk/messaging/azeventhubs
+  Version: 1.0.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.0.2/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Processor now relinquishes ownership of partitions when it shuts down, making them immediately available to other active Processor instances. (PR#21899)
 
