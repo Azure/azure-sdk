@@ -366,4 +366,20 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for service API version `7.5-preview.1`
+- Name: azure-purview-workflow
+  Version: 1.0.0b2
+  DisplayName: Purview Workflow
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-workflow_1.0.0b2/sdk/purview/azure-purview-workflow/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `/workflows/{id}/validate` API.
+    - Add admin query options to workflow / workflow run APIs.
+
+    #### Breaking Changes
+
+    - Add operation groups `workflows`, `workflowruns`, `workflowtasks`, and `userrequest`.
 
