@@ -276,4 +276,39 @@ entries:
     > These changes affect only code written against previous beta versions of `v1.7.0` and `v1.8.0`
     * The function `NewTokenCredential` has been removed from the `fake` package. Use a literal `&fake.TokenCredential{}` instead.
     * The field `TracingNamespace` in `runtime.PipelineOptions` has been replaced by `TracingOptions`.
+- Name: sdk/azidentity
+  Version: 1.5.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.5.0-beta.2/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `DefaultAzureCredential` and `ManagedIdentityCredential` support Azure ML managed identity
+    * Added spans for distributed tracing.
+- Name: sdk/azidentity/cache
+  Version: 0.2.1
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.2.1/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    #### Features Added
+- Name: sdk/tracing/azotel
+  Version: 0.4.0
+  DisplayName: OpenTelemetry
+  ServiceName: Tracing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/tracing/azotel/v0.4.0/sdk/tracing/azotel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Updated to latest release of `azcore` and cleaned up example.
 
