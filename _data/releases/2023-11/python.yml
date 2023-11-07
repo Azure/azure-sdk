@@ -382,4 +382,20 @@ entries:
     #### Breaking Changes
 
     - Add operation groups `workflows`, `workflowruns`, `workflowtasks`, and `userrequest`.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b18
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b18/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Default exception type for blank exceptions
+    ([#32327](https://github.com/Azure/azure-sdk-for-python/pull/32327))
+    - Updated django samples with clearly artificial secret key
+    ([#32698](https://github.com/Azure/azure-sdk-for-python/pull/32698))
+    - Remove metric namespace
+    ([#32897](https://github.com/Azure/azure-sdk-for-python/pull/32897))
 
