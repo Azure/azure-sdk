@@ -446,4 +446,27 @@ entries:
     #### Bugs Fixed
 
     - Throw a retryable error when sending message and link is detached [PR #27557](https://github.com/Azure/azure-sdk-for-js/pull/27557)
+- Name: '@azure/identity'
+  Version: 3.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.4.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Upgraded version of @azure/msal-node to v2.5.0 to support all versions of Node.js - Node 16, Node 18 and Node 20.
+- Name: '@azure/identity'
+  Version: 4.0.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - All the features shipped as part of 4.0.0-beta.1 will be GA with this version. The most important features being the browser customization for success/ error messages and the support of brokered authentication on Windows OS, such as WAM.
+
+    #### Breaking Changes
+    - Starting with v4.0.0 of `@azure/identity`, Node.js v20 will be supported and Node.js v16 will no longer be supported.
 
