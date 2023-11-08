@@ -413,4 +413,82 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.1/sdk/easm/defender-easm-rest/CHANGELOG.md
   ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/event-hubs'
+  Version: 5.11.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.3/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improve event prefetching to not overload the internal queue.
+- Name: '@azure/core-amqp'
+  Version: 4.1.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.1.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add a retryable client error that is thrown when the sender link is not ready.
+- Name: '@azure/service-bus'
+  Version: 7.9.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Throw a retryable error when sending message and link is detached [PR #27557](https://github.com/Azure/azure-sdk-for-js/pull/27557)
+- Name: '@azure/identity'
+  Version: 3.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.4.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Upgraded version of @azure/msal-node to v2.5.0 to support all versions of Node.js - Node 16, Node 18 and Node 20.
+- Name: '@azure/identity'
+  Version: 4.0.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - All the features shipped as part of 4.0.0-beta.1 will be GA with this version. The most important features being the browser customization for success/ error messages and the support of brokered authentication on Windows OS, such as WAM.
+
+    #### Breaking Changes
+    - Starting with v4.0.0 of `@azure/identity`, Node.js v20 will be supported and Node.js v16 will no longer be supported.
+- Name: '@azure/app-configuration'
+  Version: 1.5.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.5.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - To match the input type, change the output representation of `label` and `contentType` from `null` to `undefined` when these properties are empty or not defined in the configuration setting object. [#27622](https://github.com/Azure/azure-sdk-for-js/pull/27622)
+
+    #### Features Added
+
+    - With the new API version `2023-10-01`, the configuration snapshot feature is generally available.
+
+    This feature allows you to create snapshots by specifying key and label filters. These filters help capture the necessary configuration settings from your App Configuration instance, creating an immutable, composed view of the configuration store.
+
+    The filtered configuration settings are stored as a snapshot with the name provided during its creation.
+    `AppConfigurationClient` is enhanced to support new operations such as create, list archive, and recover operations with snapshots.
+
+    See [`snapshot.ts`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1-beta/typescript/src/snapshot.ts) for more information now how to use snapshots.
 
