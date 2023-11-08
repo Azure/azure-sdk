@@ -424,4 +424,26 @@ entries:
     #### Bugs Fixed
 
     - Improve event prefetching to not overload the internal queue.
+- Name: '@azure/core-amqp'
+  Version: 4.1.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.1.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add a retryable client error that is thrown when the sender link is not ready.
+- Name: '@azure/service-bus'
+  Version: 7.9.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.3/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Throw a retryable error when sending message and link is detached [PR #27557](https://github.com/Azure/azure-sdk-for-js/pull/27557)
 
