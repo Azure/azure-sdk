@@ -3118,4 +3118,18 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure-storage-queue_4.13.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-core-amqp
+  Version: 2.8.13
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.13/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.44.1` to `1.45.0` (The version 2.8.12 used earlier azure-core dependency version 1.44.1 instead of latest 1.45.0. This 2.8.13 patch release fixes it).
+  GroupId: com.azure
 
