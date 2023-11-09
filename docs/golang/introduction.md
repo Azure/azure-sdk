@@ -445,7 +445,7 @@ TODO
 
 {% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
 
-{% include requirement/MUST id="golang-errors-pointer" %} return custom errors (such as `azcore.ResponseError`) by pointer. For instance:
+{% include requirement/MUST id="golang-errors-pointer" %} return custom errors (such as `azcore.ResponseError`) as a pointer. For instance:
 
 ```go
 func example() error {
