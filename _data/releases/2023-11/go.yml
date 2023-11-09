@@ -322,4 +322,38 @@ entries:
     #### Bugs Fixed
 
     - Processor now relinquishes ownership of partitions when it shuts down, making them immediately available to other active Processor instances. (PR#21899)
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.1.0-beta.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded service version to `7.5-preview.1`
+    * Updated to latest version of `azcore`.
+    * Enabled spans for distributed tracing.
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.1.0-beta.1/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded service version to `7.5-preview.1`
+    * Updated to latest version of `azcore`.
+    * Enabled spans for distributed tracing.
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.1.0-beta.2
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.1.0-beta.2/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the `HSMPlatform` field to the `KeyAttributes` struct
 
