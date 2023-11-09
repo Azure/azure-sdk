@@ -607,4 +607,16 @@ entries:
     #### Features Added
 
     - Added configuration settings snapshot feature which allow users to create a point-in-time snapshot of their configuration store.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.21.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.21.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new system events for Resource Notifications
+    - Added the `Metadata` property to various Azure Communication Services events.
 
