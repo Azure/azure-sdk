@@ -356,4 +356,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added the `HSMPlatform` field to the `KeyAttributes` struct
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.1.0-beta.1/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Managed Identity can now be used in place of a SAS token to access the blob storage resource when performing backup and restore operations.
 
