@@ -82,9 +82,11 @@ type WidgetClient struct {
 }
 ```
 
+{% include requirement/SHOULD id="golang-client-naming-onlyclient" %} name the client `Client` if the package name provides enough context.
+
 #### Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then the preferred credential type is used instead.  Constructors MUST return the client instance by reference.
+{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor (eg: `NewClient`) MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then the preferred credential type is used instead.  Constructors MUST return the client instance by reference.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.
@@ -442,6 +444,14 @@ TODO
 ### Error Handling
 
 {% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
+
+{% include requirement/MUST id="golang-errors-pointer" %} return custom errors (such as `azcore.ResponseError`) by pointer. For instance:
+
+```go
+func example() error {
+	return &azcore.ResponseError{}
+}
+```
 
 {% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
 
