@@ -26,6 +26,8 @@ When writing instrumentation in Azure SDK or Core:
 
 <!--TODO: move to https://github.com/open-telemetry/semantic-conventions repo-->
 
+# Semantic conventions for Azure SDK spans
+
 **Status**: [Mixed][DocumentStatus]
 
 This document describes tracing semantic conventions adopted by Azure SDK. Instrumentations live in Azure SDK repos and are shipped along with Azure SDK artifacts.
@@ -178,12 +180,12 @@ Azure SDK implements a valid subset of stable part of [OpenTelemetry HTTP spans 
 | `az.schema_url` | string | OpenTelemetry Schema URL including schema version. Only 1.23.0 is supported. | `https://opentelemetry.io/schemas/1.23.0` | Conditionally Required: [2] |
 | `az.service_request_id` | string | Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response. | `3f828ae5-ecb9-40ab-88d9-db0420af30c6` | Conditionally Required: if and only if one was received |
 | `error.type` | string | Describes a class of error the operation ended with. [3] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | Conditionally Required: If request has ended with an error. |
-| [`http.request.method`](../attributes-registry/http.md) | string | HTTP request method. [4] | `GET`; `POST`; `HEAD` | Required |
-| [`http.request.resend_count`](../attributes-registry/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [5] | `3` | Recommended |
-| [`http.response.status_code`](../attributes-registry/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | Conditionally Required: If and only if one was received/sent. |
-| [`server.address`](../general/attributes.md) | string | Host identifier of the ["URI origin"](https://www.rfc-editor.org/rfc/rfc9110.html#name-uri-origin) HTTP request is sent to. [6] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | Required |
-| [`server.port`](../general/attributes.md) | int | Port identifier of the ["URI origin"](https://www.rfc-editor.org/rfc/rfc9110.html#name-uri-origin) HTTP request is sent to. [7] | `80`; `8080`; `443` | Required |
-| [`url.full`](../attributes-registry/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [8] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | Recommended |
+| [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/http.md) | string | HTTP request method. [4] | `GET`; `POST`; `HEAD` | Required |
+| [`http.request.resend_count`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [5] | `3` | Recommended |
+| [`http.response.status_code`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | Conditionally Required: If and only if one was received/sent. |
+| [`server.address`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md) | string | Host identifier of the ["URI origin"](https://www.rfc-editor.org/rfc/rfc9110.html#name-uri-origin) HTTP request is sent to. [6] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | Required |
+| [`server.port`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md) | int | Port identifier of the ["URI origin"](https://www.rfc-editor.org/rfc/rfc9110.html#name-uri-origin) HTTP request is sent to. [7] | `80`; `8080`; `443` | Required |
+| [`url.full`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [8] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | Recommended |
 
 **[1]:** This SHOULD be set as an instrumentation scope attribute when creating a `Tracer` as long as OpenTelemetry in a given language allows to do so.
 
@@ -222,10 +224,10 @@ The following attributes can be important for making sampling decisions and SHOU
 
 * `az.namespace`
 * `az.schema_url`
-* [`http.request.method`](../attributes-registry/http.md)
-* [`server.address`](../general/attributes.md)
-* [`server.port`](../general/attributes.md)
-* [`url.full`](../attributes-registry/url.md)
+* [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/http.md)
+* [`server.address`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md)
+* [`server.port`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md)
+* [`url.full`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/url.md)
 <!-- endsemconv -->
 
 Instrumentation supports [W3C Trace context](https://w3c.github.io/trace-context/) propagation and Azure legacy correlation protocols. Propagator configuration is not supported.
@@ -254,13 +256,13 @@ Messaging SDKs produce three kinds of spans:
 |---|---|---|---|---|
 | `az.namespace` | string | [Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against. [1] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | Required |
 | `az.schema_url` | string | OpenTelemetry Schema URL including schema version. Only 1.23.0 is supported. | `https://opentelemetry.io/schemas/1.23.0` | Conditionally Required: [2] |
-| [`messaging.batch.message_count`](../attributes-registry/messaging.md) | int | The number of messages sent, received, or processed in the scope of the batching operation. [3] | `0`; `1`; `2` | Recommended |
-| [`messaging.destination.name`](../attributes-registry/messaging.md) | string | The message destination name [4] | `MyQueue`; `MyTopic` | Recommended |
-| [`messaging.message.id`](../attributes-registry/messaging.md) | string | A value used by the messaging system as an identifier for the message, represented as a string. | `452a7c7c7c7048c2f887f61572b18fc2` | Recommended |
-| [`messaging.operation`](../attributes-registry/messaging.md) | string | A string identifying the kind of messaging operation. [5] | `publish` | Recommended |
-| [`messaging.system`](../attributes-registry/messaging.md) | string | A string identifying the messaging system. | `eventhubs`; `servicebus` | Recommended |
-| [`server.address`](../general/attributes.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [6] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | Recommended |
-| [`server.port`](../general/attributes.md) | int | Server port number. [7] | `80`; `8080`; `443` | Recommended |
+| [`messaging.batch.message_count`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md) | int | The number of messages sent, received, or processed in the scope of the batching operation. [3] | `0`; `1`; `2` | Recommended |
+| [`messaging.destination.name`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md) | string | The message destination name [4] | `MyQueue`; `MyTopic` | Recommended |
+| [`messaging.message.id`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md) | string | A value used by the messaging system as an identifier for the message, represented as a string. | `452a7c7c7c7048c2f887f61572b18fc2` | Recommended |
+| [`messaging.operation`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md) | string | A string identifying the kind of messaging operation. [5] | `publish` | Recommended |
+| [`messaging.system`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md) | string | A string identifying the messaging system. | `eventhubs`; `servicebus` | Recommended |
+| [`server.address`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [6] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | Recommended |
+| [`server.port`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/server.md) | int | Server port number. [7] | `80`; `8080`; `443` | Recommended |
 
 **[1]:** This SHOULD be set as an instrumentation scope attribute when creating a `Tracer` as long as OpenTelemetry in a given language allows to do so.
 
@@ -281,9 +283,9 @@ The following attributes can be important for making sampling decisions and SHOU
 
 * `az.namespace`
 * `az.schema_url`
-* [`messaging.destination.name`](../attributes-registry/messaging.md)
-* [`messaging.operation`](../attributes-registry/messaging.md)
-* [`messaging.system`](../attributes-registry/messaging.md)
+* [`messaging.destination.name`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md)
+* [`messaging.operation`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md)
+* [`messaging.system`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/attributes-registry/messaging.md)
 <!-- endsemconv -->
 
 [DocumentStatus]: https://github.com/open-telemetry/opentelemetry-specification/tree/v1.26.0/specification/document-status.md

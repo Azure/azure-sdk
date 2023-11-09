@@ -7,6 +7,7 @@ groups:
       - id: namespace
         requirement_level: required
         type: string
+        stability: stable
         brief: '[Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against.'
         examples: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.ServiceBus']
         note: >
@@ -14,103 +15,127 @@ groups:
       - id: schema_url
         requirement_level:
           conditionally_required: if and only if OpenTelemetry in a given language doesn't provide a standard way to set `schema_url` (.NET) # https://github.com/dotnet/runtime/issues/93795
+        stability: stable
         type: string
         brief: 'OpenTelemetry Schema URL including schema version. Only 1.23.0 is supported.'
         examples: ['https://opentelemetry.io/schemas/1.23.0']
       - id: client_request_id
         type: string
+        stability: stable
         requirement_level:
           conditionally_required: only if present.
         brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
       - id: service_request_id
         type: string
+        stability: stable
         requirement_level:
           conditionally_required: if and only if one was received
         brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
       - id: appconfiguration.key
         type: string
+        stability: stable
         brief: 'Value of the Azure Application Configuration property [key](https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value).'
         examples: ['AppName:Service1:ApiEndpoint']
       - id: cognitivelanguage.deployment.name
         type: string
+        stability: stable
         brief: 'Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) deployment.'
         examples: ['production']
       - id: cognitivelanguage.project.name
         type: string
+        stability: stable
         brief: 'Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) project.'
         examples: ['production']
       - id: digitaltwins.twin.id
         type: string
+        stability: stable        
         brief: 'The unique identifier of the [digital twin](https://learn.microsoft.com/azure/digital-twins/concepts-twins-graph).'
         examples: ['edf41622']
       - id: digitaltwins.model.id
         type: string
+        stability: stable
         brief: 'The digital twin model id.'
         examples: ['dtmi:example:Room23;1']
       - id: digitaltwins.job.id
         type: string
+        stability: stable
         brief: 'Digital twin job id.'
         examples: ['test-job']
       - id: digitaltwins.event_route.id
         type: string
+        stability: stable
         brief: 'The [event route](https://learn.microsoft.com/azure/digital-twins/concepts-route-events) identifier used by the digital twin.'
         examples: ['6f8741b1']
       - id: digitaltwins.message.id
         type: string
+        stability: stable
         brief: 'A unique message identifier (in the scope of the digital twin id) used to de-duplicate telemetry messages.'
         examples: ['a40896c5ab954ab1']
       - id: digitaltwins.query
         type: string
+        stability: stable
         brief: 'Digital twin graph query.'
         examples: ['SELECT * FROM DIGITALTWINS WHERE Name = "DSouza"']
       - id: digitaltwins.component.name
         type: string
+        stability: stable
         brief: 'The name of the digital twin component.'
         examples: ['thermostat']
       - id: digitaltwins.relationship.name
         type: string
+        stability: stable
         brief: 'The name of the relationship between twins.'
         examples: ['contains']
       - id: keyvault.certificate.name
         type: string
+        stability: stable
         brief: 'Azure KeyVault certificate name.'
         examples: ['selfSignedCert01']
       - id: keyvault.certificate.version
         type: string
+        stability: stable
         brief: 'Azure KeyVault certificate version.'
         examples: ['c3d31d7b36c942ad83ef36fc0785a4fc']
       - id: keyvault.certificate.issuer.name
         type: string
+        stability: stable
         brief: 'Azure KeyVault certificate version.'
         examples: ['issuer01']
       - id: keyvault.key.id
         type: string
+        stability: stable
         brief: 'Azure KeyVault key id (full URL).'
         examples: ['"https://myvault.vault.azure.net/keys/CreateSoftKeyTest/78deebed173b48e48f55abf87ed4cf71']
       - id: keyvault.key.name
         type: string
+        stability: stable
         brief: 'Azure KeyVault key name.'
         examples: ['test-key']
       - id: keyvault.key.version
         type: string
+        stability: stable
         brief: 'Azure KeyVault key version.'
         examples: ['3d31e6e5c4c14eaf9be8d42c00225088']
       - id: keyvault.secret.name
         type: string
+        stability: stable
         brief: 'Azure KeyVault secret name.'
         examples: ['test-secret']
       - id: keyvault.secret.version
         type: string
+        stability: stable
         brief: 'Azure KeyVault secret version.'
         examples: ['4387e9f3d6e14c459867679a90fd0f79']
       - id: remoterendering.conversion.id
         type: string
+        stability: stable
         brief: 'A conversion id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account.'
         examples: ['contoso-conversion-6fae2bfb754e']
       - id: remoterendering.session.id
         type: string
+        stability: stable
         brief: 'A session id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account.'
         examples: ['contoso-session-8c28813adc28']
 
