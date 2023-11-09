@@ -1,144 +1,257 @@
-# This document describes Azure SDK semantic conventions for tracing in [OpenTelemetry format](https://github.com/open-telemetry/build-tools/blob/main/semantic-conventions/syntax.md).
-# DO NOT add new conventions - use [OpenTelemetry conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/semantic_conventions), but it's ok to extend existing ones.
-# Version: 0.1.0
-
 groups:
-  # common
-  - id: azure-sdk
-    brief: 'Describes Azure SDK spans.'
+  - id: azure.sdk
+    brief: 'Azure SDK attribute registry.'
     type: attribute_group
+    prefix: az
     attributes:
-      - id: az.namespace
+      - id: namespace
         requirement_level: required
         type: string
         brief: '[Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against.'
         examples: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.ServiceBus']
-      - id: az.schema_url
+        note: >
+          This SHOULD be set as an instrumentation scope attribute when creating a `Tracer` as long as OpenTelemetry in a given language allows to do so.
+      - id: schema_url
         requirement_level:
-          conditionally_required: if and only if OpenTelemetry in given language does not provide standard way to set schema_url (i.e. .NET) # https://opentelemetry.io/docs/reference/specification/schemas/#schema-url
+          conditionally_required: if and only if OpenTelemetry in a given language doesn't provide a standard way to set `schema_url` (.NET) # https://github.com/dotnet/runtime/issues/93795
         type: string
-        brief: 'OpenTelemetry Schema URL including schema version. Only 1.17.0 is supported.'
-        examples: ['https://opentelemetry.io/schemas/1.17.0']
-
-  # public API
-  - id: azure-sdk.api
-    type: span
-    span_kind: internal
-    extends: azure-sdk
-    brief: 'Describes Azure SDK API calls spans.'
-    note: > 
-      Represents public surface API calls that wrap an Azure service call.
-
-      Span name SHOULD match `<short-class-name.method>` pattern. Class and method name SHOULD match API user called close enough for users
-      to understand which method span matches to.
-      For example, `BlobClient.Download` could be used for different overloads of download method, it can also coexist with `BlobClient.DownloadToFile` or
-      `BlobClient.DownloadAsync`.  
-
-  # network calls
-  - id: azure-sdk.network
-    type: attribute_group
-    extends: azure-sdk
-    brief: 'Describes Azure SDK client spans.'
-    note: 'Represents calls that include network attributes'
-    attributes:
-      - ref: net.peer.name
-        requirement_level: required
-        sampling_relevant: true
-        type: string
-        brief: 'Fully qualified Azure service endpoint (host name component).'
-        examples: 'http://my-account.servicebus.windows.net/'
-      - ref: net.peer.port
-        requirement_level: 
-          conditionally_required: if not 80 or 443.
-        sampling_relevant: true
-        brief: Port of Azure service endpoint.'
-        type: int        
-        examples: [8080]
-    constraints:
-      - include: network #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/general.yaml
-      
-  # http
-  - id: azure-sdk.http
-    type: span
-    span_kind: client
-    extends: azure-sdk.network
-    brief: 'Describes HTTP client spans created per HTTP request (try).'
-    note: >
-      This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
-      but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
-
-      Span name MUST NOT include dynamic parts and SHOULD follow `HTTP <method>` pattern. E.g. `HTTP GET`.
-    attributes:
-      - ref: http.method
-        requirement_level: required    
-        sampling_relevant: true  
-      - ref: http.url
-        requirement_level: required      
-        sampling_relevant: true
-      - ref: http.status_code
-        requirement_level: required      
-      - ref: http.user_agent
-        type: string
-        brief: 'Value of the HTTP User-Agent or x-ms-user-agent header'
-      - id: az.client_request_id
+        brief: 'OpenTelemetry Schema URL including schema version. Only 1.23.0 is supported.'
+        examples: ['https://opentelemetry.io/schemas/1.23.0']
+      - id: client_request_id
         type: string
         requirement_level:
-          conditionally_required: only if present
+          conditionally_required: only if present.
         brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
-      - id: az.service_request_id
+      - id: service_request_id
         type: string
         requirement_level:
           conditionally_required: if and only if one was received
         brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
-    constraints:
-      - include: http.client #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/http.yaml
+      - id: appconfiguration.key
+        type: string
+        brief: 'Value of the Azure Application Configuration property [key](https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value).'
+        examples: ['AppName:Service1:ApiEndpoint']
+      - id: cognitivelanguage.deployment.name
+        type: string
+        brief: 'Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering) deployment.'
+        examples: ['production']
+      - id: cognitivelanguage.project.name
+        type: string
+        brief: 'Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering) project.'
+        examples: ['production']
+      - id: digitaltwins.twin.id
+        type: string
+        brief: 'The unique identifier of the [digital twin](https://learn.microsoft.com/azure/digital-twins/concepts-twins-graph).'
+        examples: ['edf41622']
+      - id: digitaltwins.model.id
+        type: string
+        brief: 'The digital twin model id.'
+        examples: ['dtmi:example:Room23;1']
+      - id: digitaltwins.job.id
+        type: string
+        brief: 'Digital twin job id.'
+        examples: ['test-job']
+      - id: digitaltwins.event_route.id
+        type: string
+        brief: 'The [event route](https://learn.microsoft.com/azure/digital-twins/concepts-route-events) identifier used by the digital twin.'
+        examples: ['6f8741b1']
+      - id: digitaltwins.message.id
+        type: string
+        brief: 'A unique message identifier (in the scope of the digital twin id) used to de-duplicate telemetry messages.'
+        examples: ['a40896c5ab954ab1']
+      - id: digitaltwins.query
+        type: string
+        brief: 'Digital twin graph query.'
+        examples: ['SELECT * FROM DIGITALTWINS WHERE Name = "DSouza"']
+      - id: digitaltwins.component.name
+        type: string
+        brief: 'The name of the digital twin component.'
+        examples: ['thermostat']
+      - id: digitaltwins.relationship.name
+        type: string
+        brief: 'The name of the relationship between twins.'
+        examples: ['contains']
+      - id: keyvault.certificate.name
+        type: string
+        brief: 'Azure KeyVault certificate name.'
+        examples: ['selfSignedCert01']
+      - id: keyvault.certificate.version
+        type: string
+        brief: 'Azure KeyVault certificate version.'
+        examples: ['c3d31d7b36c942ad83ef36fc0785a4fc']
+      - id: keyvault.certificate.issuer.name
+        type: string
+        brief: 'Azure KeyVault certificate version.'
+        examples: ['issuer01']
+      - id: keyvault.key.id
+        type: string
+        brief: 'Azure KeyVault key id (full URL).'
+        examples: ['"https://myvault.vault.azure.net/keys/CreateSoftKeyTest/78deebed173b48e48f55abf87ed4cf71']
+      - id: keyvault.key.name
+        type: string
+        brief: 'Azure KeyVault key name.'
+        examples: ['test-key']
+      - id: keyvault.key.version
+        type: string
+        brief: 'Azure KeyVault key version.'
+        examples: ['3d31e6e5c4c14eaf9be8d42c00225088']
+      - id: keyvault.secret.name
+        type: string
+        brief: 'Azure KeyVault secret name.'
+        examples: ['test-secret']
+      - id: keyvault.secret.version
+        type: string
+        brief: 'Azure KeyVault secret version.'
+        examples: ['4387e9f3d6e14c459867679a90fd0f79']
+      - id: remoterendering.conversion.id
+        type: string
+        brief: 'A conversion id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account.'
+        examples: ['contoso-conversion-6fae2bfb754e']
+      - id: remoterendering.session.id
+        type: string
+        brief: 'A session id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account.'
+        examples: ['contoso-session-8c28813adc28']
+
+  # public API (logical calls)
+  - id: azure.sdk.api
+    type: span
+    span_kind: internal
+    brief: 'Describes Azure SDK API calls spans.'
+    note: >
+      Represents public surface API calls that wrap an Azure service call.
+
+      Span name SHOULD match `<short-class-name.method>` pattern. Class and method name SHOULD match API user called close enough for users
+      to understand which method span matches to.
+      For example, `BlobClient.Download` could be used for different overloads of download method, it can also coexist with `BlobClient.DownloadToFile` or
+      `BlobClient.DownloadAsync`.
+    attributes:
+      - ref: az.namespace
+      - ref: az.schema_url
+      - ref: error.type
+        examples: ['java.net.UnknownHostException', 'System.Threading.Tasks.OperationCanceledException', 'azure.core.exceptions.ServiceRequestError']
+
+  # HTTP spans
+  - id: azure.sdk.http
+    type: span
+    span_kind: client
+    extends: attributes.http.client
+    brief: 'Describes HTTP client spans created per HTTP request (try).'
+    note: >
+      This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
+      but omits some optional/recommended attributes. It also adds request-id attributes supported by Azure services.
+    attributes:
+      - ref: server.address
+        note: Describes host component of Azure service endpoint.
+        sampling_relevant: true
+      - ref: server.port
+        note: Describes port component of Azure service endpoint.
+        sampling_relevant: true
+      - ref: url.full
+        sampling_relevant: true
+      - ref: http.request.method
+        note: >
+          Azure SDKs support HTTP methods listed in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-methods)
+          and the `PATCH`` method defined in [RFC5789](https://www.rfc-editor.org/rfc/rfc5789.html)
+        sampling_relevant: true          
+      - ref: http.request.resend_count
+      - ref: http.response.status_code
+      - ref: error.type
+      - ref: az.namespace
+        sampling_relevant: true
+      - ref: az.schema_url
+        sampling_relevant: true
+      - ref: az.client_request_id
+      - ref: az.service_request_id
 
   # messaging
-  - id: azure-sdk.messaging
+  - id: azure.sdk.messaging
     type: span
     brief: 'Describes Azure messaging SDKs spans.'
-    extends: azure-sdk.network
     attributes:
       - ref: messaging.system
-        requirement_level: required      
         sampling_relevant: true
         examples: ['eventhubs', 'servicebus']
       - ref: messaging.destination.name
-        requirement_level: required
         sampling_relevant: true
-        brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name. Must not include partition or subscription'
-        examples: ['myqueue', 'myhub']
       - ref: messaging.operation
+        sampling_relevant: true
       - ref: messaging.batch.message_count
-    constraints:
-      - include: messaging #https://github.com/open-telemetry/opentelemetry-specification/blob/main/semantic_conventions/trace/messaging.yaml
+      - ref: messaging.message.id
+      - ref: server.address
+      - ref: server.port
+      - ref: az.namespace
+        sampling_relevant: true
+      - ref: az.schema_url
+        sampling_relevant: true
 
-  - id: azure-sdk.messaging.producer
-    span_kind: producer
-    extends: azure-sdk
-    brief: 'Describes producer span created per message.'
-    note: Span name SHOULD match `<queue/topic_name> message`. E.g. `orders message`. 
+  # appconfiguration
+  - id: azure.sdk.appconfiguration
+    type: span
+    brief: 'Describes Azure AppConfiguration SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.appconfiguration.key
 
-  - id: azure-sdk.messaging.send
-    span_kind: client
-    extends: azure-sdk.messaging
-    brief: 'Describes Azure messaging SDKs producer client spans.'
-    note: >
-      Contains links to all messages contexts being sent.
-      Span name SHOULD match `<queue/topic_name> publish`. E.g. `orders publish`. 
-      
+  # cognitivelanguage
+  - id: azure.sdk.cognitivelanguage
+    type: span
+    brief: 'Describes Azure QuestionAnswering SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.cognitivelanguage.project.name
+      - ref: az.cognitivelanguage.deployment.name
 
-  - id: azure-sdk.messaging.process
-    span_kind: consumer
-    extends: azure-sdk.messaging
-    brief: 'Describes consumption span.'
-    note: >
-      Contains links to all messages contexts being consumed. Each link has attribute `enqueuedTime` (with `long` type)
-      attribute with unix epoch time with milliseconds precision representing when message was enqueued.
-      Span name SHOULD match `<queue/topic_name> process`. E.g. `orders process`. 
+  # digitaltwins
+  - id: azure.sdk.digitaltwins
+    type: span
+    brief: 'Describes Azure DigitalTwins SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.digitaltwins.twin.id
+      - ref: az.digitaltwins.component.name
+      - ref: az.digitaltwins.relationship.name
+      - ref: az.digitaltwins.model.id
+      - ref: az.digitaltwins.job.id
+      - ref: az.digitaltwins.query
+      - ref: az.digitaltwins.event_route.id
+      - ref: az.digitaltwins.message.id
 
-  # db
-  # is being moved here: https://github.com/open-telemetry/opentelemetry-specification/pull/3097
+  # keyvault certificates
+  - id: azure.sdk.keyvault.certificates
+    type: span
+    brief: 'Describes Azure KeyVault Certificates SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.keyvault.certificate.name
+      - ref: az.keyvault.certificate.version
+      - ref: az.keyvault.certificate.issuer.name
 
+  # keyvault keys
+  - id: azure.sdk.keyvault.keys
+    type: span
+    brief: 'Describes Azure KeyVault Keys SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.keyvault.key.name
+      - ref: az.keyvault.key.version
+      - ref: az.keyvault.key.id
+
+  # keyvault secrets
+  - id: azure.sdk.keyvault.secrets
+    type: span
+    brief: 'Describes Azure KeyVault Secrets SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.keyvault.secret.name
+      - ref: az.keyvault.secret.version
+
+  # remote rendering
+  - id: azure.sdk.remoterendering
+    type: span
+    brief: 'Describes Azure KeyVault Secrets SDK spans.'
+    extends: azure.sdk.api
+    attributes:
+      - ref: az.remoterendering.conversion.id
+      - ref: az.remoterendering.session.id
