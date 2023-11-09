@@ -105,8 +105,8 @@ In addition to common attributes listed in the table above, certain Azure client
 <!-- semconv azure.sdk.cognitivelanguage -->
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
-| `az.cognitivelanguage.deployment.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering) deployment. | `production` | Recommended |
-| `az.cognitivelanguage.project.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering) project. | `production` | Recommended |
+| `az.cognitivelanguage.deployment.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) deployment. | `production` | Recommended |
+| `az.cognitivelanguage.project.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) project. | `production` | Recommended |
 <!-- endsemconv -->
 
 ### Azure Digital Twins attributes
