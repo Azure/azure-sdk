@@ -10,22 +10,21 @@ Conventions are the contract between Azure SDK and tracing providers such as Azu
 
 When writing instrumentation in Azure SDK or Core:
 
-{% include requirement/MUST id="general-tracing-convention-use-otel" %} use [Azure SDK semantic conventions](#azure-sdk-semantic-conventions) whenever possible.
+{% include requirement/MUST id="general-tracing-convention-use-otel" %} use existing [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/general/trace/) or [Azure SDK](#azure-sdk-semantic-conventions) semantic conventions whenever possible.
 
-{% include requirement/MUST id="general-tracing-convention-describe-attributes" %} update [Azure SDK semantic conventions](#azure-sdk-semantic-conventions) when adding new attributed.
+{% include requirement/MUST id="general-tracing-convention-describe-attributes" %} update [Azure SDK semantic conventions](#azure-sdk-semantic-conventions) when adding new Azure-specific attributes.
 
-{% include requirement/MUST id="general-tracing-convention-set-schema-version" %} set OpenTelemetry [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/schemas/README.md?plain=1) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer).
+{% include requirement/MUST id="general-tracing-convention-attribute-naming" %} follow [OpenTelemetry attribute naming conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/common/attribute-naming.md) and use the `az.{service-family}.` prefix when adding new Azure-specific attributes.
+
+{% include requirement/MUST id="general-tracing-convention-set-schema-version" %} set OpenTelemetry [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/schemas/README.md) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer).
 
 {% include requirement/SHOULD id="general-tracing-convention-set-library" %} set Azure Client Library name and version [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer).
 
-
 {% include requirement/SHOULD id="general-tracing-convention-new-otel" %} contribute new conventions (or patch existing ones) to OpenTelemetry when there is no suitable one or some scenarios are missing.
 
-{% include requirement/MAY id="general-tracing-convention-add-attributes" %} extend list of attributes on top of OpenTelemetry contentions with Azure-specific ones.
-
-{% include requirement/MUSTNOT id="general-tracing-convention-new-custom" %} add new custom Azure SDK conventions.
-
 # Azure SDK semantic conventions
+
+<!--TODO: move to https://github.com/open-telemetry/semantic-conventions repo-->
 
 **Status**: [Mixed][DocumentStatus]
 
