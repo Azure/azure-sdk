@@ -506,4 +506,16 @@ entries:
     - The `lock_tokens` parameter in `reject_cloud_events`, `release_cloud_events`, and `acknowledge_cloud_events` was renamed to `reject_options`, `release_options`, and `acknowledge_options`.
     - The `binary_mode` keyword argument on `publish_cloud_events` was added to allow for binary mode support when publishing single Cloud Events.
     - Added new models to support these new operations on EventGridClient.
+- Name: azure-schemaregistry
+  Version: 1.3.0b3
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.3.0b3/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `V2023_07_01` has been added to `ApiVersion` and set as the default api version.
+    - `Protobuf` has been added to supported formats in `SchemaFormat`.
 
