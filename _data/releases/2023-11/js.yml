@@ -556,4 +556,26 @@ entries:
     #### Features Added
 
     - Managed Identity can now be used in place of a SAS token to access the blob storage resource when performing backup and restore operations.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.8.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.8.0-beta.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The default service version is now `7.5-preview.1`.
+- Name: '@azure/keyvault-keys'
+  Version: 4.8.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.8.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `hsmPlatform` property to `KeyProperties`.
 
