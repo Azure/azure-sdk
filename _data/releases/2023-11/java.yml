@@ -3347,4 +3347,27 @@ entries:
     - Upgraded `azure-core` from `1.44.1` to version `1.45.0`.
     - Upgraded `azure-core-http-netty` from `1.13.9` to version `1.13.10`.
   GroupId: com.azure
+- Name: azure-resourcemanager-containerregistry
+  Version: 2.33.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.33.0-beta.1/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.14
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.14/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - [Rename build to install](https://github.com/Azure/azure-sdk-for-java/pull/37602)
+
+    #### Bugs Fixed
+    - [Fix null HttpPipeline](https://github.com/Azure/azure-sdk-for-java/pull/37574)
+  GroupId: com.azure
 
