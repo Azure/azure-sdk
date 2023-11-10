@@ -619,4 +619,16 @@ entries:
 
     - Added new system events for Resource Notifications
     - Added the `Metadata` property to various Azure Communication Services events.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.13.4
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.13.4/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Microsoft.Extensions.Azure` to prevent transitive dependency on deprecated version of `Azure.
+    Identity`.
 
