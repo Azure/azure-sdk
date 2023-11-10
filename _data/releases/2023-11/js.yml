@@ -622,4 +622,22 @@ entries:
     #### Features Added
 
     - Includes all features released in 12.16.0-beta.1.
+- Name: '@azure/eventgrid'
+  Version: 5.0.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.0.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In `ResourceNotificationsResourceUpdatedDetails` interface, the data type of property `tags` has been changed from `string` to object. Please refer [PR #27679](https://github.com/Azure/azure-sdk-for-js/pull/27679/) for further details.
+
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ResourceNotifications.Resources.CreatedOrUpdated`
+    - `Microsoft.ResourceNotifications.Resources.Deleted`
 
