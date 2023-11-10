@@ -491,4 +491,19 @@ entries:
 
     - Updated django samples with clearly artificial secret key
     ([#32698](https://github.com/Azure/azure-sdk-for-python/pull/32698))
+- Name: azure-eventgrid
+  Version: 4.17.0b1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.17.0b1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Beta EventGridClient features were added on top of the last GA version of EventGrid.
+    - Added new features to the EventGridClient that supports `publish_cloud_events`, `receive_cloud_events`, `acknowledge_cloud_events` , `release_cloud_events`, and `reject_cloud_events` operations. These features include a `renew_cloud_event_locks` operation, as well as a `release_with_delay` parameter on the `release_cloud_events` operation.
+    - The `lock_tokens` parameter in `reject_cloud_events`, `release_cloud_events`, and `acknowledge_cloud_events` was renamed to `reject_options`, `release_options`, and `acknowledge_options`.
+    - The `binary_mode` keyword argument on `publish_cloud_events` was added to allow for binary mode support when publishing single Cloud Events.
+    - Added new models to support these new operations on EventGridClient.
 
