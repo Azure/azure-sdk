@@ -1,0 +1,54 @@
+entries:
+- Name: azure-search-documents
+  Version: 11.4.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new models:
+    - `VectorSearchAlgorithmMetric`
+    - `IndexProjectionMode`
+    - `SearchIndexerIndexProjections`
+    - `SearchIndexerIndexProjectionSelector`
+    - `SearchIndexerIndexProjectionsParameters`
+    - `BlobIndexerDataToExtract`
+    - `BlobIndexerImageAction`
+    - `BlobIndexerParsingMode`
+    - `CharFilterName`
+    - `CustomEntity`
+    - `CustomEntityAlias`
+    - `DataChangeDetectionPolicy`
+    - `DataDeletionDetectionPolicy`
+    - `DefaultCognitiveServicesAccount`
+    - `HighWaterMarkChangeDetectionPolicy`
+    - `HnswAlgorithmConfiguration`
+    - `IndexerExecutionResult`
+    - `IndexingParameters`
+    - `IndexingParametersConfiguration`
+    - `IndexingSchedule`
+    - `LexicalAnalyzerName`
+    - `LexicalTokenizerName`
+    - `PIIDetectionSkill`
+    - `PIIDetectionSkillMaskingMode`
+    - `ScoringProfile`
+    - `SemanticSearch`
+    - Added `index_projections` support for `SearchIndexerSkillset`
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.3.0.
+    > Only code written against a beta version such as 11.4.0b11 may be affected.
+
+    - Renamed `AnswerResult` to `QueryAnswerResult` and `CaptionResult` to `QueryCaptionResult`.
+    - Renamed `SemanticErrorHandling` to `SemanticErrorMode`.
+    - Renamed `RawVectorQuery` to `VectorizedQuery`.
+    - Renamed `ExhaustiveKnnVectorSearchAlgorithmConfiguration` to `ExhaustiveKnnAlgorithmConfiguration`.
+    - Renamed `PrioritizedFields` to `SemanticPrioritizedFields`.
+    - Renamed `query_caption_highlight` to `query_caption_highlight_enabled`.
+    - `query_language` and `query_speller` are not available for `Search` method in this stable release.
+    - `alias` operations are not available in this stable release.
+
