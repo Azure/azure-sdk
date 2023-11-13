@@ -51,4 +51,15 @@ entries:
     - Renamed `query_caption_highlight` to `query_caption_highlight_enabled`.
     - `query_language` and `query_speller` are not available for `Search` method in this stable release.
     - `alias` operations are not available in this stable release.
+- Name: azure-eventhub
+  Version: 5.11.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.5/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a pyAMQP error where events split across multiple TransferFrames were depleting the link credit by more than 1 credit per message. ([#32767](https://github.com/Azure/azure-sdk-for-python/pull/32767))
 
