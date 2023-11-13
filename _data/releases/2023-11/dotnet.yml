@@ -631,4 +631,105 @@ entries:
 
     - Bump dependency on `Microsoft.Extensions.Azure` to prevent transitive dependency on deprecated version of `Azure.
     Identity`.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.6.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.6.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+
+    #### Breaking Changes
+
+    - Renamed tags reported on `SecretClient` activities to follow OpenTelemetry attribute naming conventions:
+    - `secret` to `az.keyvault.secret.name`
+    - `version` to `az.keyvault.secret.version`
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.6.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.6.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CryptographyClient.CreateRSA` and `CreateRSAAsync` to create an `RSA` implementation backed by Key Vault or Managed HSM.
+    Use this anywhere an `RSA` or `AsymmetricAlgorithm` is required. ([#3545](https://github.com/Azure/azure-sdk-for-net/issues/3545))
+    - Added `KeyProperties.HsmPlatform` to get the underlying HSM platform.
+
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+    - `KeyRotationPolicyAction` performs case-insensitive comparisons since Key Vault and Managed HSM return different cases for "rotate".
+
+    #### Breaking Changes
+
+    - Renamed tags reported on `KeyClient`, `KeyResolver`, `CryptographyClient`, and `RemoteCryptographyClient` activities to follow OpenTelemetry attribute naming conventions:
+    - `key` to `az.keyvault.key.id` or `az.keyvault.key.name` depending on the value being reported
+    - `version` to `az.keyvault.key.version`
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.4.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.4.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartBackup` and `StartBackupAsync`. Managed Identity will be used instead if `sasToken` is null.
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartRestore` and `StartRestoreAsync`. Managed Identity will be used instead if `sasToken` is null.
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartSelectiveKeyRestore` and `StartSelectiveKeyRestoreAsync`. Managed Identity will be used instead if `sasToken` is null.
+
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.6.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.6.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CertificateProperties.X509ThumbprintString` to return the hexadecimal string representation of the SHA-1 hash of the certificate.
+    `CertificateProperties.X509Thumbprint` has been hidden but is still available.
+
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+
+    #### Breaking Changes
+
+    - Renamed tags reported on `CertificateClient` activities to following OpenTelemetry attribute naming conventions:
+    - `certificate` to `az.keyvault.certificate.name`
+    - `version` to `az.keyvault.certificate.version`
+    - `issuer` to `az.keyvault.certificate.issuer.name`
+- Name: Azure.Core
+  Version: 1.36.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.36.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Updated tracing attributes names to conform to OpenTelemetry semantic conventions version 1.23.0.
+    - Suppress client activity creation by Azure clients if it happens in scope of another activity created by an Azure client.
+    - Changed how `ActivitySource` name is constructed for clients that use single-worded activity names (without dot).  We now append provided activity name as is to the client namespace name. Previously, the provided activity name was omitted and the `ActivitySource` name matched the provided client namespace.
+    - Distributed tracing with `ActivitySource` for HTTP and REST-based client libraries is declared stable. [Experimental feature-flag](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md) is no longer required for most of the newly released libraries. Tracing for messaging libraries remains experimental.
+    - Added nullable annotation to `ResourceIdentifier.TryParse` parameter `input`.
+
+    #### Features Added
+
+    - Added `RequiresUnreferencedCode` attribute to `RequestContent.Create(object)` overloads that use reflection to serialize the input object.  This provides support for native AOT compilation when Azure.Core is used for diagnostics.
+    - Use System.Text.Json source generation to deserialize the error response in `RequestFailedException` on `net6.0` and above targets.
 
