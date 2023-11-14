@@ -79,4 +79,15 @@ entries:
     - `EntityRecognitionSkillV3`
     - `PIIDetectionSkill`
     - `SentimentSkillV3`
+- Name: '@azure/core-http'
+  Version: 3.0.4
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.4/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Trim leading and trailing whitespace from header values.
 
