@@ -54,7 +54,7 @@ Azure SDK SHOULD create a span for each call to service methods, that is, public
 - Spans representing public API calls SHOULD have names following `client.method` pattern and are language-specific. In case OpenTelemetry defines semantic convention for span name (for example, in messaging or database conventions), standard OpenTelemetry name SHOULD be used instead.
 - For HTTP-based SDKs, public API spans SHOULD have `INTERNAL` kind.
 
-See [Messaging](#messaging-sdks) section below and [CosmosDB conventions](/docs/database/cosmosdb.md) for non-HTTP semantics.
+See [Messaging](#messaging-sdks) section below and [CosmosDB conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/database/cosmosdb.md) for non-HTTP semantics.
 
 API-level spans produced by Azure SDK have the following attributes:
 
@@ -170,7 +170,7 @@ In addition to common attributes listed in the table above, certain Azure client
 
 **Status**: [Stable][DocumentStatus]
 
-Azure SDK implements a valid subset of stable part of [OpenTelemetry HTTP spans conventions](/docs/http/http-spans.md) and create a span per HTTP call (attempt).
+Azure SDK implements a valid subset of stable part of [OpenTelemetry HTTP spans conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md) and create a span per HTTP call (attempt).
 
 <!-- semconv azure.sdk.http -->
 | Attribute  | Type | Description  | Examples  | Requirement Level |
