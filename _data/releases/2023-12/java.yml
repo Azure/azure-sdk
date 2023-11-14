@@ -35,4 +35,20 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.13.9` to version `1.13.10`.
     -
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.20.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.20.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New SystemEvents for Resource Notification
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.44.1` to version `1.45.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.9` to version `1.13.10`.
+  GroupId: com.azure
 
