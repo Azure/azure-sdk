@@ -572,8 +572,18 @@ switch($language)
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
-    Write-Latest-Versions "java"
-    Write-Latest-Versions "android"
+
+    # Maven search api has lots of reliability issues so keeping this error 
+    # handling here to keep it from failing the pipeline all the time.
+    try {
+      Write-Latest-Versions "java"
+      Write-Latest-Versions "android"
+    }
+    catch { 
+      Write-Host "Exception: $_"
+      Write-Host "Maven search appears to be down currently, so java and android updates might not complete successfully. See https://status.maven.org/ for current status. 
+    }
+    break
   }
   "java" {
     Write-Latest-Versions $language
