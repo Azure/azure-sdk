@@ -30,4 +30,53 @@ entries:
     #### Bugs Fixed
 
     - Fixed regressions introduced by 3.4.0 [#27761](https://github.com/Azure/azure-sdk-for-js/pull/27761)
+- Name: '@azure/search-documents'
+  Version: 12.0.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minor type changes
+    - All nullable optional properties can no longer be assigned `null`. Use `undefined` instead.
+    - Updated specific property types for enhanced precision, replacing `any` with more defined types.
+    - Narrowed some enum property types to the respective string literal union
+    - `BlobIndexerDataToExtract`
+    - `BlobIndexerImageAction`
+    - `BlobIndexerParsingMode`
+    - `BlobIndexerPDFTextRotationAlgorithm`
+    - `CustomEntityLookupSkillLanguage`
+    - `EntityCategory`
+    - `EntityRecognitionSkillLanguage`
+    - `ImageAnalysisSkillLanguage`
+    - `ImageDetail`
+    - `IndexerExecutionEnvironment`
+    - `KeyPhraseExtractionSkillLanguage`
+    - `OcrSkillLanguage`
+    - `RegexFlags`
+    - `SearchIndexerDataSourceType`
+    - `SentimentSkillLanguage`
+    - `SplitSkillLanguage`
+    - `TextSplitMode`
+    - `TextTranslationSkillLanguage`
+    - `VisualFeature`
+    - Removed `KnownLexicalAnalyzerName` as a duplicate of `KnownAnalyzerNames`
+    - Removed `KnownCharFilterName` as a duplicate of `KnownCharFilterNames`
+    - Removed `KnownTokenFilterName` as a duplicate of `KnownTokenFilterNames`
+    - Removed `SearchRequest` as a duplicate of `SearchRequestOptions`
+    - Added type narrowing for response types based on `select`ed fields
+    - For types that are generic on a model type, the model type is now constrained to extend `object`
+
+    #### Features Added
+
+    - Added support for vector search
+    - Added support for semantic search and reranking
+    - New `SearchIndexerSkill`s
+    - `EntityLinkingSkill`
+    - `EntityRecognitionSkillV3`
+    - `PIIDetectionSkill`
+    - `SentimentSkillV3`
 
