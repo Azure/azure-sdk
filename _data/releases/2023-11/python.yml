@@ -531,4 +531,14 @@ entries:
     - Bumped minimum dependency on `azure-core` to `>=1.28.0`.
     - Updated the default `api_version` to "2023-10-01".
     - Removed `etag` keyword documentation in `set_read_only()` as it's not in use.
+- Name: azure-cosmos
+  Version: 4.5.2b3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.5.2b3/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for capturing Index Metrics in query operations. See [PR 33034](https://github.com/Azure/azure-sdk-for-python/pull/33034)
 
