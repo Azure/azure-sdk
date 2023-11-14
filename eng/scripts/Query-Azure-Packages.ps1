@@ -572,8 +572,15 @@ switch($language)
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
-    Write-Latest-Versions "java"
-    Write-Latest-Versions "android"
+
+    # Currently ignoring errors for maven search site until incident is fixed
+    # see https://github.com/Azure/azure-sdk/issues/5368
+    try {
+      Write-Latest-Versions "java"
+      Write-Latest-Versions "android"
+    }
+    catch { }
+    break
   }
   "java" {
     Write-Latest-Versions $language
