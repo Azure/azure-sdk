@@ -573,13 +573,16 @@ switch($language)
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
 
-    # Currently ignoring errors for maven search site until incident is fixed
-    # see https://github.com/Azure/azure-sdk/issues/5368
+    # Maven search api has lots of reliability issues so keeping this error 
+    # handling here to keep it from failing the pipeline all the time.
     try {
       Write-Latest-Versions "java"
       Write-Latest-Versions "android"
     }
-    catch { }
+    catch { 
+      Write-Host "Exception: $_"
+      Write-Host "Maven search appears to be down currently, so java and android updates might not complete successfully. See https://status.maven.org/ for current status. 
+    }
     break
   }
   "java" {
