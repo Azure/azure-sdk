@@ -98,7 +98,7 @@ Purview,0,Purview Workflow,data,.NET,,,11,false,Azure.Analytics.Purview.Workflow
 Cognitive Services,0,Question Answering,data,.NET,Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker_2.0.1/sdk/cognitiveservices/Knowledge.QnAMaker,10,true,Azure.AI.Language.QuestionAnswering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,10/13/2022
 Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,
 Schema Registry,0,Schema Registry - Avro,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,05/12/2022
-Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,10/11/2023
+Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,11/14/2023
 Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
 Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
@@ -503,7 +503,7 @@ Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-
 Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,10/17/2023
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,10/11/2023
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
-Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,07/20/2023
+Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,11/14/2023
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
 Active Directory,0,Resource Management - Active Directory,mgmt,Go,,,11,false,sdk/resourcemanager/aad/armaad,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/aad/armaad,10,false,1,03/28/2023
 Addons,0,Resource Management - Addons,mgmt,Go,,,11,false,sdk/resourcemanager/addons/armaddons,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/addons/armaddons,3,false,1,
@@ -1719,8 +1719,10 @@ Voice Services,0,Resource Management - Voice Services,mgmt,Python,,,11,false,azu
 Web PubSub,0,Resource Management - Web PubSub,mgmt,Python,,,11,false,azure-mgmt-webpubsub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,Python,,,11,false,azure-mgmt-workloadmonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloadmonitor,3,true,1,
 Workloads,0,Resource Management - Workloads,mgmt,Python,,,11,false,azure-mgmt-workloads,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloads,10,false,1,04/20/2023
+AI,0,AI Generative,UNABLE TO BE DETERMINED,Python,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,,,1,false,0,
+AI,0,AI Resources,UNABLE TO BE DETERMINED,Python,azure-ai-resources,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,,,1,false,0,
 Communication,0,azure-communication-administration,UNABLE TO BE DETERMINED,Python,azure-communication-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Machine Learning,0,azureml-fsspec,data,Python,azureml-fsspec,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Batch,0,Batch,data,Python,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,,,1,false,0,
 IoT,0,Device Provisioning Services,data,Python,azure-iot-deviceprovisioning,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -2264,6 +2266,11 @@ Logic,0,Resource Management - Logic,mgmt,Java,,,11,false,Missing: Created from A
 Logic,0,Resource Management - Logic,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: logic/resource-manager,,2,false,0,
 Logic,0,Resource Management - Logic,mgmt,Python,,,11,false,Missing: Created from API in specs repo: logic/resource-manager,,2,false,0,
 Logic,0,Resource Management - Logic,mgmt,Go,,,11,false,Missing: Created from API in specs repo: logic/resource-manager,,2,false,0,
+Machine Learning,0,Azure.AI.ChatProtocol,data,.NET,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
+Machine Learning,0,Azure.AI.ChatProtocol,data,Java,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
+Machine Learning,0,Azure.AI.ChatProtocol,data,JavaScript,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
+Machine Learning,0,Azure.AI.ChatProtocol,data,Python,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
+Machine Learning,0,Azure.AI.ChatProtocol,data,Go,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,Java,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
