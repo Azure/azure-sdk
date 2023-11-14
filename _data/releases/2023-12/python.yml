@@ -62,4 +62,31 @@ entries:
     #### Bugs Fixed
 
     - Fixed a pyAMQP error where events split across multiple TransferFrames were depleting the link credit by more than 1 credit per message. ([#32767](https://github.com/Azure/azure-sdk-for-python/pull/32767))
+- Name: azure-servicebus
+  Version: 7.11.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.11.4/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where a two character count session id was being incorrectly parsed by azure amqp.
+- Name: azure-ai-ml
+  Version: 1.12.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.12.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Workspace Connections had 3 child classes added for open AI, cog search, and cog service connections.
+    - Workspace Connections replaced metadata with tags, and surfaced api_version, api_type, and kind for certain connection types.
+
+
+    #### Bugs Fixed
+    - Workspace Hubs now properly create various endpoints, and surface a variable to select the resource they connect to via the
+    'endpoint_resource_id' kwarg.
 
