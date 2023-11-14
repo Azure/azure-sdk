@@ -581,7 +581,7 @@ switch($language)
     }
     catch { 
       Write-Host "Exception: $_"
-      Write-Host "Maven search appears to be down currently, so java and android updates might not complete successfully. See https://status.maven.org/ for current status. 
+      Write-Host "Maven search appears to be down currently, so java and android updates might not complete successfully. See https://status.maven.org/ for current status."
     }
     break
   }
