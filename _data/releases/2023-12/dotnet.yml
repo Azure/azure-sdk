@@ -184,4 +184,17 @@ entries:
     - Made the ODataType field in the request a required field.
     - Made the errors for JSON payload more descriptive when an invalid character is passed.
     - Added JsonDocument TryParse check to validate payload is JSON format.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    The following breaking changes were made for the experimental support of Open Telemetry:
+    - Change `ActivitySource` name used to report message activity from `Azure.Messaging.ServiceBus` to `Azure.Messaging.ServiceBus.Message`.
+    - Updated tracing attributes names to conform to OpenTelemetry semantic conventions version 1.23.0.
 
