@@ -167,4 +167,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.16.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
   ChangelogContent: '- Distributed tracing with `ActivitySource` is stable and no longer requires the [Experimental feature-flag](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md).'
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.0.0-beta.4
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.4/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated ODataType signature. This was done to make sure the contracts were consistent across all services.
+    - Empty or null response actions will throw a bad response. There should be at lease one action passed as this is the main purpose of the SDK library.
+    - Made the source field in the request a required field.
+    - Made the request validation errors return 500. This way, we can identify that 500 errors as internal and should be marked as failures whereas response object errors should return 400s since they are customer input errors and should be identified as CallerErrors in our service.
+    - Made the ODataType field in the request a required field.
+    - Made the errors for JSON payload more descriptive when an invalid character is passed.
+    - Added JsonDocument TryParse check to validate payload is JSON format.
 
