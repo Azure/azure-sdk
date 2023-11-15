@@ -12,4 +12,17 @@ entries:
 
     #### Bugs Fixed
     * Internal calls in `Client.SubmitTransaction` now honor the caller's context.
+- Name: sdk/storage/azfile
+  Version: 1.1.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.1.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a bug where Optional fields which were mandatory earlier create a failure when passed an older service version
+    * Made SourceContentCRC64 header as optional. Changed the type from uint64 to a generic interface implementation.
+    These changes impact: `file.UploadRangeFromURL()`
 
