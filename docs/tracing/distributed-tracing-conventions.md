@@ -6,7 +6,7 @@ folder: general
 sidebar: general_sidebar
 ---
 
-Conventions are the contract between Azure SDK and tracing providers such as Azure Monitor, Jaeger and others.  They describe and standardize attributes, events and relationships for common span types: HTTP, DB, messaging and others.  Observability vendors use conventions to build visualizations and may be very sensitive to them.  Custom Azure SDK conventions are described in [Azure SDK semantic conventions](#azure-sdk-semantic-conventions) section below.
+Conventions are the contract between Azure SDK and tracing providers such as Azure Monitor, Jaeger, and others.  They describe and standardize attributes, events and relationships for common span types: HTTP, DB, messaging, and others.  Observability vendors use conventions to build visualizations and may be very sensitive to them.  Custom Azure SDK conventions are described in [Azure SDK semantic conventions](#azure-sdk-semantic-conventions) section below.
 
 When writing instrumentation in Azure SDK or Core:
 
