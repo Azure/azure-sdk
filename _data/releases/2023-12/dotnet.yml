@@ -197,4 +197,20 @@ entries:
     The following breaking changes were made for the experimental support of Open Telemetry:
     - Change `ActivitySource` name used to report message activity from `Azure.Messaging.ServiceBus` to `Azure.Messaging.ServiceBus.Message`.
     - Updated tracing attributes names to conform to OpenTelemetry semantic conventions version 1.23.0.
+- Name: Azure.ResourceManager.ConnectedVMwarevSphere
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected VMware vSphere
+  ServiceName: Connected VMware vSphere
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedVMwarevSphere_1.0.0/sdk/connectedvmwarevsphere/Azure.ResourceManager.ConnectedVMwarevSphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Grafana
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Grafana_1.1.0-beta.2/sdk/grafana/Azure.ResourceManager.Grafana/CHANGELOG.md
+  ChangelogContent: ""
 
