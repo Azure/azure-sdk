@@ -263,7 +263,7 @@ Resource Graph,0,Resource Management - Resource Graph,mgmt,.NET,Microsoft.Azure.
 Resource Health,0,Resource Management - Resource Health,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceHealth,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcehealth,10,false,1,
 Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,11/16/2023
 Resource Mover,0,Resource Management - Resource Mover,mgmt,.NET,Microsoft.Azure.Management.Migrate.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemover,10,false,1,09/23/2023
-Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,
+Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,11/17/2023
 Security,0,Resource Management - Security,mgmt,.NET,Microsoft.Azure.Management.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,true,Azure.ResourceManager.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,false,1,
 Security DevOps,0,Resource Management - Security DevOps,mgmt,.NET,,,11,false,Azure.ResourceManager.SecurityDevOps,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitydevops,3,false,1,
 Security Insights,0,Resource Management - Security Insights,mgmt,.NET,,,11,false,Azure.ResourceManager.SecurityInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securityinsights,10,false,1,02/17/2023
@@ -296,7 +296,7 @@ Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,
 Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
 Communication,0,Azure.Communication.CallingServer,UNABLE TO BE DETERMINED,.NET,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.AI.DocumentIntelligence,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Stack,0,AzureStack Management - Key Vault Admin,data,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
@@ -496,7 +496,7 @@ Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/
 Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,10,false,1,
 Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
-Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,05/09/2023
+Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,10/02/2023
@@ -952,7 +952,7 @@ Network,0,Resource Management - Network,mgmt,Java,azure-mgmt-network,https://git
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,Java,,,11,false,azure-resourcemanager-networkcloud,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/networkcloud,10,false,1,08/24/2023
 Network Function,0,Resource Management - Network Function,mgmt,Java,,,11,false,azure-resourcemanager-networkfunction,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/networkfunction,3,false,1,
 New Relic Observability,0,Resource Management - New Relic Observability,mgmt,Java,,,11,false,azure-resourcemanager-newrelicobservability,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/newrelicobservability,10,false,1,05/18/2023
-Nginx,0,Resource Management - Nginx,mgmt,Java,,,11,false,azure-resourcemanager-nginx,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/nginx,3,false,1,
+Nginx,0,Resource Management - Nginx,mgmt,Java,,,11,false,azure-resourcemanager-nginx,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/nginx,10,false,1,11/17/2023
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,Java,,,11,false,azure-resourcemanager-notificationhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/notificationhubs,3,false,1,
 Open Energy Platform,0,Resource Management - Open Energy Platform,mgmt,Java,,,11,false,azure-resourcemanager-oep,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/oep,3,false,1,
 Operations Management,0,Resource Management - Operations Management,mgmt,Java,azure-mgmt-operationsmanagement,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/operationsmanagement/mgmt-v2015_11_01_preview,3,true,azure-resourcemanager-operationsmanagement,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/operationsmanagement,3,false,1,
@@ -1022,8 +1022,8 @@ Purview,0,Purview Administration,UNABLE TO BE DETERMINED,Java,azure-analytics-pu
 Schema Registry,0,Schema Registry - JSON,UNABLE TO BE DETERMINED,Java,azure-schemaregistry-kafka-json,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Toolkit,0,Service Bus Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicebus-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Toolkit,0,Service Linker Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicelinker-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-ai-documentintelligence,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Functions,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-dapr,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-microprofile-bom,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
 Computer Vision,0,Azure AI Vision SDK - Common,data,Java,azure-ai-vision-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon,3,false,,,1,false,0,
 Computer Vision,0,Azure AI Vision SDK - Image Analysis,data,Java,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon,3,false,,,1,false,0,
@@ -1118,6 +1118,7 @@ Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-a
 App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,11/08/2023
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
+Document Intelligence,0,Azure AI Document Intelligence,data,JavaScript,,,11,false,@azure-rest/ai-document-intelligence,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documentintelligence/ai-document-intelligence-rest/,3,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,07/31/2020
 Azure Identity,0,Azure Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,11/07/2023
 Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,11/09/2023
