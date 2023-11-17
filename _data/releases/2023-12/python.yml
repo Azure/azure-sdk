@@ -122,4 +122,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b13/sdk/sql/azure-mgmt-sql/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.12.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.12.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Addressed null value issue with workspace connection kinds
+    - Re-Added workspace connection metadata legacy value to address holdover issues.
+    - Added support for developer-role users to create lean workspaces.
+    - Fix an issue with pipeline deployments
 
