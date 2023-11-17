@@ -25,4 +25,14 @@ entries:
     * Fixed a bug where Optional fields which were mandatory earlier create a failure when passed an older service version
     * Made SourceContentCRC64 header as optional. Changed the type from uint64 to a generic interface implementation.
     These changes impact: `file.UploadRangeFromURL()`
+- Name: sdk/monitor/azquery
+  Version: 1.2.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v1.2.0-beta.1/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `MetricsBatchClient` to support batch querying metrics from Azure resources
 
