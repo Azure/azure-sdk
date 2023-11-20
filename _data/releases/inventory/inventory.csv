@@ -44,7 +44,7 @@ Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/01/2022
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/18/2023
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/11/2022
-Communication JobRouter,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
+Communication JobRouter,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
 Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/09/2022
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
@@ -541,7 +541,7 @@ Chaos,0,Resource Management - Chaos,mgmt,Go,,,11,false,sdk/resourcemanager/chaos
 Search,0,Resource Management - Cognitive Search,mgmt,Go,,,11,false,sdk/resourcemanager/search/armsearch,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/search/armsearch,10,false,1,10/24/2023
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,Go,,,11,false,sdk/resourcemanager/cognitiveservices/armcognitiveservices,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/cognitiveservices/armcognitiveservices,10,false,1,07/24/2023
 Commerce,0,Resource Management - Commerce,mgmt,Go,,,11,false,sdk/resourcemanager/commerce/armcommerce,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/commerce/armcommerce,3,false,1,
-Communication,0,Resource Management - Communication,mgmt,Go,,,11,false,sdk/resourcemanager/communication/armcommunication,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/communication/armcommunication,10,false,1,
+Communication,0,Resource Management - Communication,mgmt,Go,,,11,false,sdk/resourcemanager/communication/armcommunication,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/communication/armcommunication,10,false,1,11/17/2023
 Compute,0,Resource Management - Compute,mgmt,Go,,,11,false,sdk/resourcemanager/compute/armcompute,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/compute/armcompute,10,false,1,
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,Go,,,11,false,sdk/resourcemanager/confidentialledger/armconfidentialledger,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confidentialledger/armconfidentialledger,10,false,1,04/14/2023
 Confluent,0,Resource Management - Confluent,mgmt,Go,,,11,false,sdk/resourcemanager/confluent/armconfluent,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confluent/armconfluent,10,false,1,03/29/2023
@@ -549,7 +549,7 @@ Connected VMWare,0,Resource Management - Connected VMWare,mgmt,Go,,,11,false,sdk
 Consumption,0,Resource Management - Consumption,mgmt,Go,,,11,false,sdk/resourcemanager/consumption/armconsumption,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/consumption/armconsumption,10,false,1,03/30/2023
 Container Apps,0,Resource Management - Container Apps,mgmt,Go,,,11,false,sdk/resourcemanager/appcontainers/armappcontainers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/appcontainers/armappcontainers,10,false,1,08/24/2023
 Container Instances,0,Resource Management - Container Instances,mgmt,Go,,,11,false,sdk/resourcemanager/containerinstance/armcontainerinstance,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerinstance/armcontainerinstance,10,false,1,04/25/2023
-Container Registry,0,Resource Management - Container Registry,mgmt,Go,,,11,false,sdk/resourcemanager/containerregistry/armcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerregistry/armcontainerregistry,10,false,1,
+Container Registry,0,Resource Management - Container Registry,mgmt,Go,,,11,false,sdk/resourcemanager/containerregistry/armcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerregistry/armcontainerregistry,10,false,1,11/17/2023
 Container Service,0,Resource Management - Container Service,mgmt,Go,,,11,false,sdk/resourcemanager/containerservice/armcontainerservice,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerservice/armcontainerservice,10,false,1,10/24/2023
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Go,,,11,false,sdk/resourcemanager/containerservicefleet/armcontainerservicefleet,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet,10,false,1,10/27/2023
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Go,,,11,false,sdk/resourcemanager/cdn/armcdn,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/cdn/armcdn,10,false,1,10/25/2023
@@ -593,7 +593,7 @@ Elastic,0,Resource Management - Elastic,mgmt,Go,,,11,false,sdk/resourcemanager/e
 Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Go,,,11,false,sdk/resourcemanager/elasticsan/armelasticsan,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/elasticsan/armelasticsan,3,false,1,
 Elastics SANs,0,Resource Management - Elastics SANs,mgmt,Go,,,11,false,sdk/resourcemanager/elasticsans/armelasticsans,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/elasticsans/armelasticsans,3,false,1,
 Engagement Fabric,0,Resource Management - Engagement Fabric,mgmt,Go,,,11,false,sdk/resourcemanager/engagementfabric/armengagementfabric,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/engagementfabric/armengagementfabric,3,false,1,
-Event Grid,0,Resource Management - Event Grid,mgmt,Go,,,11,false,sdk/resourcemanager/eventgrid/armeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/eventgrid/armeventgrid,10,false,1,04/14/2023
+Event Grid,0,Resource Management - Event Grid,mgmt,Go,,,11,false,sdk/resourcemanager/eventgrid/armeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/eventgrid/armeventgrid,10,false,1,11/17/2023
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Go,,,11,false,sdk/resourcemanager/eventhub/armeventhub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/eventhub/armeventhub,10,false,1,04/14/2023
 Extended Location,0,Resource Management - Extended Location,mgmt,Go,,,11,false,sdk/resourcemanager/extendedlocation/armextendedlocation,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/extendedlocation/armextendedlocation,10,false,1,04/14/2023
 Features,0,Resource Management - Features,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armfeatures,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armfeatures,10,false,1,03/28/2023
@@ -607,7 +607,7 @@ HDInsight,0,Resource Management - HDInsight,mgmt,Go,,,11,false,sdk/resourcemanag
 HDInsight Containers,0,Resource Management - HDInsight Containers,mgmt,Go,,,11,false,sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers,3,false,1,
 Health Bot,0,Resource Management - Health Bot,mgmt,Go,,,11,false,sdk/resourcemanager/healthbot/armhealthbot,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/healthbot/armhealthbot,10,false,1,04/14/2023
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,Go,,,11,false,sdk/resourcemanager/healthcareapis/armhealthcareapis,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/healthcareapis/armhealthcareapis,10,false,1,04/14/2023
-Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Go,,,11,false,sdk/resourcemanager/hybridcompute/armhybridcompute,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybridcompute/armhybridcompute,10,false,1,04/14/2023
+Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Go,,,11,false,sdk/resourcemanager/hybridcompute/armhybridcompute,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybridcompute/armhybridcompute,10,false,1,11/17/2023
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,Go,,,11,false,sdk/resourcemanager/hybridconnectivity/armhybridconnectivity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybridconnectivity/armhybridconnectivity,10,false,1,09/21/2023
 Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,Go,,,11,false,sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice,3,false,1,
 Hybrid Data Manager,0,Resource Management - Hybrid Data Manager,mgmt,Go,,,11,false,sdk/resourcemanager/hybriddatamanager/armhybriddatamanager,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hybriddatamanager/armhybriddatamanager,10,true,1,04/14/2023
@@ -667,7 +667,7 @@ Policy,0,Resource Management - Policy,mgmt,Go,,,11,false,sdk/resourcemanager/res
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Go,,,11,false,sdk/resourcemanager/policyinsights/armpolicyinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/policyinsights/armpolicyinsights,3,false,1,
 Portal,0,Resource Management - Portal,mgmt,Go,,,11,false,sdk/resourcemanager/portal/armportal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/portal/armportal,3,false,1,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,Go,,,11,false,sdk/resourcemanager/postgresql/armpostgresql,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/postgresql/armpostgresql,10,false,1,04/14/2023
-PostgreSQL,0,Resource Management - PostgreSQL Flexible Server,mgmt,Go,,,11,false,sdk/resourcemanager/postgresql/armpostgresqlflexibleservers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers,10,false,1,
+PostgreSQL,0,Resource Management - PostgreSQL Flexible Server,mgmt,Go,,,11,false,sdk/resourcemanager/postgresql/armpostgresqlflexibleservers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers,10,false,1,11/17/2023
 PostgresSQL,0,Resource Management - PostgreSQL HSC,mgmt,Go,,,11,false,sdk/resourcemanager/postgresqlhsc/armpostgresqlhsc,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/postgresqlhsc/armpostgresqlhsc,3,false,1,
 Power BI Private Links,0,Resource Management - Power BI  Private Links,mgmt,Go,,,11,false,sdk/resourcemanager/powerbiprivatelinks/armpowerbiprivatelinks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/powerbiprivatelinks/armpowerbiprivatelinks,10,false,1,04/14/2023
 Power BI Dedicated,0,Resource Management - Power BI Dedicated,mgmt,Go,,,11,false,sdk/resourcemanager/powerbidedicated/armpowerbidedicated,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/powerbidedicated/armpowerbidedicated,10,false,1,03/30/2023
@@ -1131,6 +1131,7 @@ Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communica
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communication-identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,10/12/2022
 Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
+Communication,0,Communication JobRouter,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,
 Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,JavaScript,,,11,false,@azure/communication-phone-numbers,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
@@ -1472,6 +1473,7 @@ Communication,0,Communication Call Automation,data,Python,,,11,false,azure-commu
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/14/2021
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,Python,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/31/2022
+Communication,0,Communication JobRouter,data,Python,,,11,false,azure-communication-jobrouter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Network Traversal,data,Python,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,Python,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,Python,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
@@ -1498,7 +1500,7 @@ Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certi
 Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Load Testing,0,Load Testing,data,Python,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/loadtesting,10,false,1,03/07/2023
-Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,11/13/2023
+Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,11/17/2023
 Machine Learning,0,Machine Learning - Feature Store,data,Python,,,11,false,azureml-featurestore,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msdata.visualstudio.com/Vienna/_git/sdk-cli-v2?path=/src/azureml-featurestore,3,false,1,
 Synapse,0,Managed Private Endpoints,data,Python,,,11,false,azure-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Maps,0,Maps Geolocation,data,Python,,,11,false,azure-maps-geolocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
@@ -1547,7 +1549,7 @@ API Management,0,Resource Management - API Management,mgmt,Python,,,11,false,azu
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,Python,,,11,false,azure-mgmt-appcomplianceautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appcomplianceautomation,3,false,1,
 App Configuration,0,Resource Management - App Configuration,mgmt,Python,,,11,false,azure-mgmt-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,03/29/2023
 App Platform,0,Resource Management - App Platform,mgmt,Python,,,11,false,azure-mgmt-appplatform,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appplatform,10,false,1,04/20/2023
-App Service,0,Resource Management - App Service,mgmt,Python,,,11,false,azure-mgmt-web,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appservice,10,false,1,04/20/2023
+App Service,0,Resource Management - App Service,mgmt,Python,,,11,false,azure-mgmt-web,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appservice,10,false,1,11/20/2023
 Application Insights,0,Resource Management - Application Insights,mgmt,Python,,,11,false,azure-mgmt-applicationinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/applicationinsights,10,false,1,04/20/2023
 Arc Data,0,Resource Management - Arc Data,mgmt,Python,,,11,false,azure-mgmt-azurearcdata,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurearcdata,10,false,1,10/26/2021
 Attestation,0,Resource Management - Attestation,mgmt,Python,,,11,false,azure-mgmt-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,03/17/2021
@@ -1577,7 +1579,7 @@ Connected VMware,0,Resource Management - Connected VMware,mgmt,Python,,,11,false
 Consumption,0,Resource Management - Consumption,mgmt,Python,,,11,false,azure-mgmt-consumption,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/consumption,10,false,1,06/21/2022
 Container Apps,0,Resource Management - Container Apps,mgmt,Python,,,11,false,azure-mgmt-appcontainers,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appcontainers,10,false,1,08/22/2023
 Container Instances,0,Resource Management - Container Instances,mgmt,Python,,,11,false,azure-mgmt-containerinstance,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerinstance,10,false,1,04/21/2023
-Container Registry,0,Resource Management - Container Registry,mgmt,Python,,,11,false,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,09/19/2023
+Container Registry,0,Resource Management - Container Registry,mgmt,Python,,,11,false,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,11/20/2023
 Container Service,0,Resource Management - Container Service,mgmt,Python,,,11,false,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,10/24/2023
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Python,,,11,false,azure-mgmt-containerservicefleet,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,10/27/2023
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Python,,,11,false,azure-mgmt-cdn,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cdn,10,false,1,10/24/2023
@@ -1642,7 +1644,7 @@ Machine Learning,0,Resource Management - Machine Learning Compute,mgmt,Python,,,
 Machine Learning,0,Resource Management - Machine Learning Services,mgmt,Python,,,11,false,azure-mgmt-machinelearningservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/machinelearning,10,false,1,01/04/2021
 Maintenance,0,Resource Management - Maintenance,mgmt,Python,,,11,false,azure-mgmt-maintenance,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maintenance,10,false,1,
 Managed Applications,0,Resource Management - Managed Applications,mgmt,Python,,,11,false,azure-mgmt-managedapplications,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/managedapplications,3,false,1,
-Grafana,0,Resource Management - Managed Grafana,mgmt,Python,,,11,false,azure-mgmt-dashboard,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/dashboard,10,false,1,08/17/2022
+Grafana,0,Resource Management - Managed Grafana,mgmt,Python,,,11,false,azure-mgmt-dashboard,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/dashboard,10,false,1,11/20/2023
 Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,Python,,,11,false,azure-mgmt-managednetworkfabric,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/managednetworkfabric,10,false,1,07/22/2023
 Managed Service Identity,0,Resource Management - Managed Service Identity,mgmt,Python,,,11,false,azure-mgmt-msi,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,10,false,1,02/02/2023
 Managed Services,0,Resource Management - Managed Services,mgmt,Python,,,11,false,azure-mgmt-managedservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/managedservices,10,false,1,04/23/2021
@@ -1652,7 +1654,7 @@ Maps,0,Resource Management - Maps,mgmt,Python,,,11,false,azure-mgmt-maps,https:/
 Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Python,,,11,false,azure-mgmt-marketplaceordering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/marketplaceordering,10,false,1,03/18/2021
 Media Services,0,Resource Management - Media Services,mgmt,Python,,,11,false,azure-mgmt-media,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,10,false,1,01/17/2023
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Python,,,11,false,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,10,false,1,04/27/2021
-Mobile Network,0,Resource Management - Mobile Network,mgmt,Python,,,11,false,azure-mgmt-mobilenetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mobilenetwork,10,false,1,07/25/2023
+Mobile Network,0,Resource Management - Mobile Network,mgmt,Python,,,11,false,azure-mgmt-mobilenetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mobilenetwork,10,false,1,11/20/2023
 Monitor,0,Resource Management - Monitor,mgmt,Python,azure-monitor,https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor_0.3.1/azure-monitor/,3,true,azure-mgmt-monitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,08/22/2023
 NetApp Files,0,Resource Management - NetApp Files,mgmt,Python,,,11,false,azure-mgmt-netapp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/netapp,10,false,1,10/24/2023
 Network,0,Resource Management - Network,mgmt,Python,,,11,false,azure-mgmt-network,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,09/19/2023
@@ -1675,7 +1677,7 @@ Private DNS,0,Resource Management - Private DNS,mgmt,Python,,,11,false,azure-mgm
 Purview,0,Resource Management - Purview,mgmt,Python,,,11,false,azure-mgmt-purview,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,10,false,1,08/16/2021
 Quantum,0,Resource Management - Quantum,mgmt,Python,,,11,false,azure-mgmt-quantum,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/quantum,3,false,1,
 Qumulo,0,Resource Management - Qumulo,mgmt,Python,,,11,false,azure-mgmt-qumulo,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/qumulo,10,false,1,05/22/2023
-Quota,0,Resource Management - Quota,mgmt,Python,,,11,false,azure-mgmt-quota,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/quota,10,false,1,04/21/2023
+Quota,0,Resource Management - Quota,mgmt,Python,,,11,false,azure-mgmt-quota,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/quota,10,false,1,11/20/2023
 Recovery Services,0,Resource Management - Recovery Services,mgmt,Python,,,11,false,azure-mgmt-recoveryservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,09/05/2023
 Recoveryservicesdatareplication,0,Resource Management - Recoveryservicesdatareplication,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesdatareplication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservicesdatareplication,3,false,1,
 Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,10/07/2023
@@ -1724,7 +1726,7 @@ Web PubSub,0,Resource Management - Web PubSub,mgmt,Python,,,11,false,azure-mgmt-
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,Python,,,11,false,azure-mgmt-workloadmonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloadmonitor,3,true,1,
 Workloads,0,Resource Management - Workloads,mgmt,Python,,,11,false,azure-mgmt-workloads,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloads,10,false,1,04/20/2023
 Communication,0,azure-communication-administration,UNABLE TO BE DETERMINED,Python,azure-communication-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-ai-documentintelligence,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Machine Learning,0,azureml-fsspec,data,Python,azureml-fsspec,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Batch,0,Batch,data,Python,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,,,1,false,0,
 IoT,0,Device Provisioning Services,data,Python,azure-iot-deviceprovisioning,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1760,6 +1762,9 @@ Communication,0,Communication Common,data,Python,,,11,false,Missing: Created fro
 Communication,0,Communication Common,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Common,,2,false,0,
 Communication,0,Communication Email,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Email,,2,false,0,
 Communication,0,Communication Identity,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Identity,,2,false,0,
+Communication JobRouter,0,Communication JobRouter,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
+Communication JobRouter,0,Communication JobRouter,data,Python,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
+Communication JobRouter,0,Communication JobRouter,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
 Communication,0,Communication Network Traversal,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.NetworkTraversal,,2,false,0,
 Communication,0,Communication Phone Numbers,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.PhoneNumbers,,2,false,0,
 Communication,0,Communication Rooms,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Rooms,,2,false,0,
@@ -2040,6 +2045,9 @@ Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,.NET,,,11,false,Except
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
+Communication,0,Communication JobRouter,data,.NET,,,11,false,Missing: Created from existing package: azure-communication-jobrouter,,2,false,0,
+Communication,0,Communication JobRouter,data,Java,,,11,false,Missing: Created from existing package: azure-communication-jobrouter,,2,false,0,
+Communication,0,Communication JobRouter,data,Go,,,11,false,Missing: Created from existing package: azure-communication-jobrouter,,2,false,0,
 Machine Learning,0,Machine Learning,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Machine Learning,0,Machine Learning,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 Machine Learning,0,Machine Learning,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
