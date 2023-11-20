@@ -231,4 +231,44 @@ entries:
     - `JobRouterClient`
     - Add `upsert_job`. Supports `match_condition: Optional[MatchConditions]` which can specify HTTP options for conditional requests based on `etag: Optional[str]` and/or `if_unmodified_since: Optional[~datetime.datetime]`.
     - Add `upsert_worker`. Supports `match_condition: Optional[MatchConditions]` which can specify HTTP options for conditional requests based on `etag: Optional[str]` and/or `if_unmodified_since: Optional[~datetime.datetime]`.
+- Name: azure-mgmt-mobilenetwork
+  Version: 3.1.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mobilenetwork_3.1.0/sdk/mobilenetwork/azure-mgmt-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerregistry
+  Version: 10.3.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_10.3.0/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 7.2.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_7.2.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dashboard
+  Version: 1.1.0
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dashboard_1.1.0/sdk/dashboard/azure-mgmt-dashboard/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-quota
+  Version: 1.1.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quota_1.1.0/sdk/quota/azure-mgmt-quota/CHANGELOG.md
+  ChangelogContent: ""
 
