@@ -133,4 +133,28 @@ entries:
     - Accept an offer.
     - Decline an offer.
     - Get queue statistics.
+- Name: '@azure-rest/core-client'
+  Version: 1.1.5
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.5/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Keeps request body of raw bytes for requests with `application/octet-stream` content type.
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0-beta.3
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.3/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Environments client now works with "environment definitions" instead of "catalog items"
+    - Creating a new environment requires passing `environmentDefinitionName` instead of `catalogItemName`
+    - Creating a new environment requires passing an additional parameter `catalogName`
 
