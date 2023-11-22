@@ -652,4 +652,30 @@ entries:
     - Upgraded `azure-core` from `1.44.1` to version `1.45.0`.
     - Upgraded `azure-communication-common` from `1.2.13` to version `1.2.14`.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.15.0-beta.5
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.15.0-beta.5/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes the need for byte array allocation to track the combined size of messages in the batch. ([37197](https://github.com/Azure/azure-sdk-for-java/issues/37197))
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.9.0-beta.7
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.9.0-beta.7/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.44.1` to `1.45.0`.
+  GroupId: com.azure
 
