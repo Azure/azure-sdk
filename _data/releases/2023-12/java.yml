@@ -678,4 +678,17 @@ entries:
 
     - Upgraded `azure-core` from `1.44.1` to `1.45.0`.
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.3.0-beta.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.3.0-beta.3/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue with `MetricsQueryClient` and `MetricsQueryAsyncClient` where the `listMetricDefinitions` method was returning
+    `MetricsDefinition` objects with null values for `supportedAggregationTypes`.[(#36698)](https://github.com/Azure/azure-sdk-for-java/issues/36698)
+  GroupId: com.azure
 
