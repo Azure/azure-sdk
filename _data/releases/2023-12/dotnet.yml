@@ -365,4 +365,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.0.0-beta.5/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.1.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.1.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Mid-Call actions support overriding callback uri
+    - Cancel Add Participant Invitation
+    - Support transfer a participant in a group call to another participant
+    - Add Custom Calling Context payload to Transfer and AddParticipant API
 
