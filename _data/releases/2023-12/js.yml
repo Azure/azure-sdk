@@ -176,4 +176,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-call-automation'
+  Version: 1.1.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.1.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Mid Call actions support overriding callback url.
+    - Cancel Add Participant Invitation.
+    - Support transfer a participant in a group call to another participant.
+    - Add Custom Context payload to Transfer and AddParticipant API.
 
