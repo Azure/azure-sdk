@@ -367,4 +367,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-paloaltonetworksngfw_2.0.0b1/sdk/paloaltonetworks/azure-mgmt-paloaltonetworksngfw/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-callautomation
+  Version: 1.1.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.1.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Mid Call actions support overriding callback url.
+    - Cancel Add Participant Invitation.
+    - Support transfer a participant in a group call to another participant.
+    - Add Custom Context payload to Transfer and AddParticipant API.
 
