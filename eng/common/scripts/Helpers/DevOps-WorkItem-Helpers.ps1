@@ -154,12 +154,10 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
   else {
     $serviceCondition = "[ServiceName] <> ''"
   }
-
-  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
-
   if($ignoreReleasePlannerTests){
-    $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
+    $serviceCondition += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
   }
+  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
 
   $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent", "System.Tags")
 
@@ -187,10 +185,10 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
 $packageWorkItems = @{}
 $packageWorkItemWithoutKeyFields = @{}
 
-function FindLatestPackageWorkItem($lang, $packageName, $outputCommand = $true)
+function FindLatestPackageWorkItem($lang, $packageName, $outputCommand = $true, $ignoreReleasePlannerTests = $true)
 {
   # Cache all the versions of this package and language work items
-  $null = FindPackageWorkItem $lang $packageName -includeClosed $true -outputCommand $outputCommand
+  $null = FindPackageWorkItem $lang $packageName -includeClosed $true -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
 
   $latestWI = $null
   foreach ($wi in $packageWorkItems.Values)
@@ -256,11 +254,9 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   if ($version) {
     $query += " AND [PackageVersionMajorMinor] = '${version}'"
   }
-
   if($ignoreReleasePlannerTests){
     $query += " AND [Tags] NOT CONTAINS 'Release Planner App Test'"
   }
-
   $workItems = Invoke-Query $fields $query $outputCommand
 
   foreach ($wi in $workItems)
@@ -510,11 +506,12 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $verMajorMinor, $existingIte
   return $workItem
 }
 
-function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName, $outputCommand = $true)
+function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName, $outputCommand = $true, $ignoreReleasePlannerTests = $true)
 {
-  $existingItem = FindParentWorkItem $serviceName $packageDisplayName -outputCommand $outputCommand
+  $existingItem = FindParentWorkItem $serviceName $packageDisplayName -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
   if ($existingItem) {
-    $newparentItem = FindOrCreateServiceParent $serviceName -outputCommand $outputCommand
+    Write-Host "Found existing product work item [$($existingItem.id)]"
+    $newparentItem = FindOrCreateServiceParent $serviceName -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
     UpdateWorkItemParent $existingItem $newParentItem
     return $existingItem
   }
@@ -522,7 +519,8 @@ function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName, $outp
   $fields = @()
   $fields += "`"PackageDisplayName=${packageDisplayName}`""
   $fields += "`"ServiceName=${serviceName}`""
-  $serviceParentItem = FindOrCreateServiceParent $serviceName -outputCommand $outputCommand
+  $fields += "`"Custom.EpicType=Product`""
+  $serviceParentItem = FindOrCreateServiceParent $serviceName -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
   $workItem = CreateWorkItem $packageDisplayName "Epic" "Release" "Release" $fields $null $serviceParentItem.id
 
   $localKey = BuildHashKey $serviceName $packageDisplayName
@@ -531,21 +529,23 @@ function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName, $outp
   return $workItem
 }
 
-function FindOrCreateServiceParent($serviceName, $outputCommand = $true)
+function FindOrCreateServiceParent($serviceName, $outputCommand = $true, $ignoreReleasePlannerTests = $true)
 {
-  $serviceParent = FindParentWorkItem $serviceName -outputCommand $outputCommand
+  $serviceParent = FindParentWorkItem $serviceName -packageDisplayName $null -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests
   if ($serviceParent) {
+    Write-Host "Found existing service work item [$($serviceParent.id)]"
     return $serviceParent
   }
 
   $fields = @()
   $fields += "`"PackageDisplayName=`""
   $fields += "`"ServiceName=${serviceName}`""
+  $fields += "`"Custom.EpicType=Service`""
   $parentId = $null
   $workItem = CreateWorkItem $serviceName "Epic" "Release" "Release" $fields $null $parentId -outputCommand $outputCommand
 
   $localKey = BuildHashKey $serviceName
-  Write-Host "[$($workItem.id)]$localKey - Created"
+  Write-Host "[$($workItem.id)]$localKey - Created service work item"
   $parentWorkItems[$localKey] = $workItem
   return $workItem
 }

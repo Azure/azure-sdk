@@ -1,0 +1,179 @@
+entries:
+- Name: '@azure/eventgrid'
+  Version: 5.1.0-beta.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.0-beta.1/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The interfaces `RequestOptions`, `ReleaseOptions`, `RejectOptions`, `ClientOptions`, `AcknowledgeOptions` have been removed.
+    - In the `FailedLockToken` interface, the properties `errorCode` & `errorDescription` have been removed and replaced with new property `error` of type `ErrorModel`.
+
+    Please refer [PR #27666](https://github.com/Azure/azure-sdk-for-js/pull/27666) for further details.
+
+    #### Features Added
+
+    - In the `EventGridClient` class, a new API `renewCloudEventLocks` has been added.
+    - In the `EventGridClient` class, for the `publishCloudEvent` API, a new option `binaryMode` has been added. This enables the users to send in the binary encoded event.
+    - For the `ReleaseCloudEventsOptions` interface, a new property `releaseDelayInSeconds` has been added.
+- Name: '@azure/identity'
+  Version: 3.4.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.4.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed regressions introduced by 3.4.0 [#27761](https://github.com/Azure/azure-sdk-for-js/pull/27761)
+- Name: '@azure/search-documents'
+  Version: 12.0.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minor type changes
+    - All nullable optional properties can no longer be assigned `null`. Use `undefined` instead.
+    - Updated specific property types for enhanced precision, replacing `any` with more defined types.
+    - Narrowed some enum property types to the respective string literal union
+    - `BlobIndexerDataToExtract`
+    - `BlobIndexerImageAction`
+    - `BlobIndexerParsingMode`
+    - `BlobIndexerPDFTextRotationAlgorithm`
+    - `CustomEntityLookupSkillLanguage`
+    - `EntityCategory`
+    - `EntityRecognitionSkillLanguage`
+    - `ImageAnalysisSkillLanguage`
+    - `ImageDetail`
+    - `IndexerExecutionEnvironment`
+    - `KeyPhraseExtractionSkillLanguage`
+    - `OcrSkillLanguage`
+    - `RegexFlags`
+    - `SearchIndexerDataSourceType`
+    - `SentimentSkillLanguage`
+    - `SplitSkillLanguage`
+    - `TextSplitMode`
+    - `TextTranslationSkillLanguage`
+    - `VisualFeature`
+    - Removed `KnownLexicalAnalyzerName` as a duplicate of `KnownAnalyzerNames`
+    - Removed `KnownCharFilterName` as a duplicate of `KnownCharFilterNames`
+    - Removed `KnownTokenFilterName` as a duplicate of `KnownTokenFilterNames`
+    - Removed `SearchRequest` as a duplicate of `SearchRequestOptions`
+    - Added type narrowing for response types based on `select`ed fields
+    - For types that are generic on a model type, the model type is now constrained to extend `object`
+
+    #### Features Added
+
+    - Added support for vector search
+    - Added support for semantic search and reranking
+    - New `SearchIndexerSkill`s
+    - `EntityLinkingSkill`
+    - `EntityRecognitionSkillV3`
+    - `PIIDetectionSkill`
+    - `SentimentSkillV3`
+- Name: '@azure/core-http'
+  Version: 3.0.4
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.4/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Trim leading and trailing whitespace from header values.
+- Name: '@azure-rest/ai-document-intelligence'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure AI Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0-beta.1/sdk/documentintelligence/ai-document-intelligence-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This marks the first preview of `@azure-rest/ai-document-intelligence` Rest Level Client Library for the Azure AI Document Intelligence service (formerly known as Form Recognizer).
+    Please refer to the [Readme](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/README.md) and samples for more details.
+- Name: '@azure-rest/communication-job-router'
+  Version: 1.0.0
+  DisplayName: Communication JobRouter
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-job-router_1.0.0/sdk/communication/communication-job-router-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This is the initial release of the @azure-rest version of Job Router SDK.
+    There was a previous preview SDK under a different package named @azure/communication-job-router which will be deprecated.
+
+    Using AzureCommunicationRoutingServiceClient:
+
+    - Upsert, get, list and delete DistributionPolicy.
+    - Upsert, get, list and delete RouterQueue.
+    - Upsert, get, list and delete ClassificationPolicy.
+    - Upsert, get, list and delete ExceptionPolicy.
+    - Upsert, get, list and delete RouterJob.
+    - RouterJob can be created and updated with different matching modes: QueueAndMatchMode, ScheduleAndSuspendMode and SuspendMode.
+    - Reclassify a RouterJob.
+    - Close a RouterJob.
+    - Complete a RouterJob.
+    - Cancel a RouterJob.
+    - Unassign a RouterJob.
+    - Get the position of a RouterJob in a queue.
+    - Upsert, get, list and delete RouterWorker.
+    - Accept an offer.
+    - Decline an offer.
+    - Get queue statistics.
+- Name: '@azure-rest/core-client'
+  Version: 1.1.5
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.5/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Keeps request body of raw bytes for requests with `application/octet-stream` content type.
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0-beta.3
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.3/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Environments client now works with "environment definitions" instead of "catalog items"
+    - Creating a new environment requires passing `environmentDefinitionName` instead of `catalogItemName`
+    - Creating a new environment requires passing an additional parameter `catalogName`
+- Name: '@azure/monitor-query'
+  Version: 1.2.0-beta.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0-beta.3/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The Monitor Query service has done some internal changes and we have updated the service versions. A detailed list of changes could be found at [PR #27825](https://github.com/Azure/azure-sdk-for-js/pull/27825/).
+- Name: '@azure/arm-containerservice'
+  Version: 19.5.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+

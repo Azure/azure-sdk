@@ -28,29 +28,43 @@ parameters:
 
 steps:
   - pwsh: |
+      function GetFridayOfReleaseWeek([DateTime]$d)
+      {
+        $firstDayOfMonth = $d.AddDays(-1 * $d.Day + 1)
+        $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
+
+        # Add any overrides for months where the release week isn't the second friday of the month
+        # These entries can be cleaned up after we are more than one month past the exception month.
+        if ($d.Year -eq 2023 -and $d.Month -eq 9)
+        {
+          $secondFridayOfMonth = [DateTime]"2023-09-15"
+        }
+
+        return $secondFridayOfMonth
+      }
+
       $today = Get-Date
-      $firstDayOfMonth = $today.AddDays(-1 * $today.Day + 1)
-      $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
+      $releaseFriday = GetFridayOfReleaseWeek $today
 
       # Move to next month's release period but still collect notes from the second friday fo this month.
-      if ($today -gt $secondFridayOfMonth) {
-        $releasePeriod = $firstDayOfMonth.AddMonths(1)
-        $releaseStartDate = $secondFridayOfMonth
+      if ($today -gt $releaseFriday) {
+        $releasePeriod = $today.AddMonths(1)
+        $releaseStartDate = $releaseFriday
       }
       else {
-        # Take the second friday of last month as start date
-        $firstDayOfLastMonth = $firstDayOfMonth.AddMonths(-1)
-        $secondFridayOfLastMonth = $firstDayOfLastMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfLastMonth.DayOfWeek + 7) % 7 + 7)
-
-        $releasePeriod = $firstDayOfMonth
-        $releaseStartDate = $secondFridayOfLastMonth
+        $releasePeriod = $today
+        $releaseStartDate = GetFridayOfReleaseWeek $today.AddMonths(-1)
       }
 
-      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
-      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+      $releasePeriod = $releasePeriod.ToString('yyyy-MM')
+      # Move one day past the friday as the friday releases should caught by last monthes notes
+      $releaseStartDate = $releaseStartDate.AddDays(1).ToString('yyyy-MM-dd')
 
-      Write-Host "[ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
-      Write-Host "[ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
+      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$releaseStartDate"
+
+      Write-Host "[ReleasePeriod]$releasePeriod"
+      Write-Host "[ReleaseStartDate]$releaseStartDate"
     displayName: Set Release Period Value
 
   - pwsh: |

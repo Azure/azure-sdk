@@ -6,11 +6,11 @@ sidebar: releases_sidebar
 repository: Azure/azure-sdk-for-c
 ---
 
-The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
-
 No packages released this month.
 
 <!--
+The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
+
 #### Stable
 
 - _Add packages_
