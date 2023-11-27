@@ -691,4 +691,270 @@ entries:
     - Fixed the issue with `MetricsQueryClient` and `MetricsQueryAsyncClient` where the `listMetricDefinitions` method was returning
     `MetricsDefinition` objects with null values for `supportedAggregationTypes`.[(#36698)](https://github.com/Azure/azure-sdk-for-java/issues/36698)
   GroupId: com.azure
+- Name: azure-resourcemanager-communication
+  Version: 2.1.0-beta.2
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-communication_2.1.0-beta.2/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.24
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.24/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-communication-callautomation
+  Version: 1.1.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.1.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Mid-Call actions support overriding callback uri
+    - Cancel Add Participant Invitation.
+    - Support transfer a participant in a group call to another participant
+    - Add Custom Context payload to Transfer and AddParticipant API
+  GroupId: com.azure
+- Name: azure-resourcemanager-hybridcontainerservice
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Hybrid Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hybridcontainerservice_1.0.0-beta.3/sdk/hybridcontainerservice/azure-resourcemanager-hybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerinstance
+  Version: 2.33.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerinstance_2.33.0/sdk/resourcemanager/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-msi
+  Version: 2.33.0
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-msi_2.33.0/sdk/resourcemanager/azure-resourcemanager-msi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-search
+  Version: 2.33.0
+  DisplayName: Resource Management - Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-search_2.33.0/sdk/resourcemanager/azure-resourcemanager-search/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservice
+  Version: 2.33.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.33.0/sdk/resourcemanager/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerregistry
+  Version: 2.33.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.33.0/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-network
+  Version: 2.33.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-network_2.33.0/sdk/resourcemanager/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resources
+  Version: 2.33.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources_2.33.0/sdk/resourcemanager/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appservice
+  Version: 2.33.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.33.0/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appplatform
+  Version: 2.33.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appplatform_2.33.0/sdk/resourcemanager/azure-resourcemanager-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-sql
+  Version: 2.33.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.33.0/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager
+  Version: 2.33.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.33.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-monitor
+  Version: 2.33.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-monitor_2.33.0/sdk/resourcemanager/azure-resourcemanager-monitor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-privatedns
+  Version: 2.33.0
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-privatedns_2.33.0/sdk/resourcemanager/azure-resourcemanager-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-eventhubs
+  Version: 2.33.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.33.0/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-servicebus
+  Version: 2.33.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicebus_2.33.0/sdk/resourcemanager/azure-resourcemanager-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-compute
+  Version: 2.33.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-compute_2.33.0/sdk/resourcemanager/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-keyvault
+  Version: 2.33.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-keyvault_2.33.0/sdk/resourcemanager/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cdn
+  Version: 2.33.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cdn_2.33.0/sdk/resourcemanager/azure-resourcemanager-cdn/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-dns
+  Version: 2.33.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dns_2.33.0/sdk/resourcemanager/azure-resourcemanager-dns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storage
+  Version: 2.33.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storage_2.33.0/sdk/resourcemanager/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-trafficmanager
+  Version: 2.33.0
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-trafficmanager_2.33.0/sdk/resourcemanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cosmos
+  Version: 2.33.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmos_2.33.0/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-redis
+  Version: 2.33.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redis_2.33.0/sdk/resourcemanager/azure-resourcemanager-redis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-authorization
+  Version: 2.33.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.33.0/sdk/resourcemanager/azure-resourcemanager-authorization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-servicenetworking
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.0.0/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
