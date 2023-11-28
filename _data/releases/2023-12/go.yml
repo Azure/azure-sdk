@@ -1915,4 +1915,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/deviceprovisioningservices/armdeviceprovisioningservices/v1.2.0/sdk/resourcemanager/deviceprovisioningservices/armdeviceprovisioningservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/messaging/azeventgrid
+  Version: 0.4.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventgrid/v0.4.0/sdk/messaging/azeventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - FailedLockToken, included in the response for settlement functions, has an `Error` field, which contains the data previously
+    in `ErrorDescription` and `ErrorCode`.
+    - Settlement functions (AcknowledgeCloudEvents, ReleaseCloudEvents, RejectCloudEvents) take lock tokens as a parameter.
+
+    #### Features Added
+
+    - New functionality for Event Grid namespaces:
+    - Client.PublishCloudEvent can be used to publish a single `messaging.CloudEvent`.
+    - Client.RenewCloudEventLocks can extend the lock time for a set of events.
+    - Client.ReleaseCloudEvents (via ReleaseCloudEventsOptions.ReleaseDelayInSeconds) can release an event with a
+    server-side delay, allowing the message to remain unavailable for a configured period of time.
 
