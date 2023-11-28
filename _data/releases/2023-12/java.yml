@@ -972,4 +972,13 @@ entries:
     - `VOIP_JOIN` (Access to Calling APIs but without the authorization to start new calls)
     - Added a new API version `CommunicationIdentityServiceVersion.V2023_10_01` that is now the default API version.
   GroupId: com.azure
+- Name: azure-resourcemanager-networkanalytics
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Networkanalytics
+  ServiceName: Networkanalytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkanalytics_1.0.0-beta.1/sdk/networkanalytics/azure-resourcemanager-networkanalytics/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
