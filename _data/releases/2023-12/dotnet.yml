@@ -947,4 +947,14 @@ entries:
     - `ChatJoinLimited` (A more limited version of `ChatJoin` that doesn't allow to add or remove participants)
     - `VoIPJoin` (Access to Calling APIs but without the authorization to start new calls)
     - Added a new API version `ServiceVersion.V2023_10_01` that is now the default API version.
+- Name: Azure.Search.Documents
+  Version: 11.5.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.5.1/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix paging issue for semantic and vector search ([#40137](https://github.com/Azure/azure-sdk-for-net/issues/40137)).
 
