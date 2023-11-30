@@ -722,7 +722,7 @@ dependency.
 
 {% include requirement/MUST id="cpp-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
-{% include requirement/MUST id="cpp-docs-docstrings" %} use [doxygen](http://www.doxygen.nl/index.html) comments for reference documentation.
+{% include requirement/MUST id="cpp-docs-docstrings" %} use [doxygen](https://www.doxygen.nl/index.html) comments for reference documentation.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
@@ -784,7 +784,7 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 **Docstrings**
 
-{% include requirement/MUST id="cpp-docs-doxygen" %} include docstrings compatible with the [doxygen](http://www.doxygen.nl/index.html) tool for generating reference documentation.
+{% include requirement/MUST id="cpp-docs-doxygen" %} include docstrings compatible with the [doxygen](https://www.doxygen.nl/index.html) tool for generating reference documentation.
 
 For example, a (very) simple docstring might look like:
 {% highlight cpp %}

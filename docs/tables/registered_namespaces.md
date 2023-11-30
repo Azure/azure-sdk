@@ -41,4 +41,4 @@ To register a new namespace, contact the [Architecture Board].
 [Form Recognizer]: https://azure.microsoft.com/services/cognitive-services/form-recognizer/
 [Key Vault]: https://azure.microsoft.com/services/key-vault/
 [Service Bus]: https://azure.microsoft.com/services/service-bus/
-[Text Analytics]: http://azure.microsoft.com/services/cognitive-services/text-analytics/
+[Text Analytics]: https://azure.microsoft.com/services/cognitive-services/text-analytics/

@@ -384,7 +384,7 @@ NOTE: If the client method allows the consumer to set arbitrary headers, then an
 
 ## Support for non-HTTP protocols
 
-Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
+Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](https://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
 
 * Per-connection (surrounding when the connection is initiated and terminated)
 * Per-operation (surrounding when an operation is sent through the open connection)
