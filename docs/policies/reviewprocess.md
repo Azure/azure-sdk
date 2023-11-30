@@ -72,7 +72,7 @@ Depending on the situation and service, more than one SDK API review may be need
 | Core Concepts | Good to have | A glossary of nouns & verbs | [Example](https://github.com/Azure/azure-sdk-pr/blob/main/onboarding/Core_Concepts.pdf) |
 
 
-**APIView Note**: If you have a pull request for your changes, then you can use the automatically generated [APIView](http://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](http://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually). 
+**APIView Note**: If you have a pull request for your changes, then you can use the automatically generated [APIView](https://apiview.dev/) reviews from the pull request to discuss the APIs with the Architecture Board. If you do not have a pull request and have a prototype of your APIs, you can generate the API listing in the [APIView](https://apiview.dev/) tool as mentioned [here](https://github.com/Azure/azure-sdk-tools/blob/main/src/dotnet/APIView/APIViewWeb/README.md#how-to-create-an-api-review-manually). 
 
 ## What happens during review
 
@@ -110,7 +110,7 @@ It is expected that SDK API changes are released in beta for a period of time be
 
 ## Getting approval for small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify SDK APIs, the architect in each language can review and approve without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to [APIView](http://apiview.dev/) diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the SDK API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
+For small or targeted changes and bug fixes which modify SDK APIs, the architect in each language can review and approve without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to [APIView](https://apiview.dev/) diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the SDK API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
 
 Remember that **all** changes to an SDK API must be approved by the language architect before a stable release.
 

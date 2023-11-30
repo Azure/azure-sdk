@@ -768,7 +768,7 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 ### Docstrings
 
-{% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
+{% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](https://aka.ms/pydocs) unless explicitly overridden in this document.
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, constants and functions.
 

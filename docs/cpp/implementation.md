@@ -502,7 +502,7 @@ struct Foo {
 
 #### Const and Reference members
 
-{% include requirement/MUSTNOT id="cpp-design-logical-no-const-or-reference-members" %} declare types with const or reference members. Const and reference members artificially make your types non-Regular as they aren't assignable, and have surprising interactions with C++ Core language rules. For example, many accesses to const or reference members would need to involve use of `std::launder` to avoid undefined behavior, but `std::launder` was added in C++17, a later version than the SDKs currently target. See C++ Core Working Group [CWG1116 "Aliasing of union members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1116), [CWG1776 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1776), and [P0137R1 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html) for additional details.
+{% include requirement/MUSTNOT id="cpp-design-logical-no-const-or-reference-members" %} declare types with const or reference members. Const and reference members artificially make your types non-Regular as they aren't assignable, and have surprising interactions with C++ Core language rules. For example, many accesses to const or reference members would need to involve use of `std::launder` to avoid undefined behavior, but `std::launder` was added in C++17, a later version than the SDKs currently target. See C++ Core Working Group [CWG1116 "Aliasing of union members"](https://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1116), [CWG1776 "Replacement of class objects containing reference members"](https://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1776), and [P0137R1 "Replacement of class objects containing reference members"](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html) for additional details.
 
 If you want a type to provide effectively const data except assignment, declare all your member functions const. Const member functions only get a const view of the class' data.
 
@@ -544,7 +544,7 @@ The following integer rules are listed in rough priority order. Integer size sel
 
 #### Secure functions
 
-{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
 > TODO: Verify with the security team, and what are the alternatives?
 
@@ -618,7 +618,7 @@ struct HashComputation {
 
 #### Class Types (including `union`s and `struct`s)
 
-Throughout this section, *class types* includes types with *class-key* `struct` or *class-key* `union`, consistent with the [C++ Standard](http://eel.is/c++draft/class#pre-4).
+Throughout this section, *class types* includes types with *class-key* `struct` or *class-key* `union`, consistent with the [C++ Standard](https://eel.is/c++draft/class#pre-4).
 
 {% include requirement/MUST id="cpp-design-naming-classes" %} name class types with **PascalCase**.
 
@@ -806,7 +806,7 @@ endif()
 
 | Operating System                | Version       | Architectures | Compiler Version                        | Notes
 |---------------------------------|---------------|---------------|-----------------------------------------|------
-| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
+| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](https://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
 | Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
 | Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
 | Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)

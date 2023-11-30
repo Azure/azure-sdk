@@ -255,7 +255,7 @@ Let's take two examples:
 
 ## Testing TypeScript libraries
 
-{% include requirement/SHOULD id="ts-use-mocha-karma" %} use [Mocha](https://mochajs.org/) and [Karma](http://karma-runner.github.io/4.0/index.html) as these tools support build pipelines and work in browsers and node.
+{% include requirement/SHOULD id="ts-use-mocha-karma" %} use [Mocha](https://mochajs.org/) and [Karma](https://karma-runner.github.io/4.0/index.html) as these tools support build pipelines and work in browsers and node.
 
 ## Versioning {#ts-versioning}
 
