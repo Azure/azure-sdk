@@ -404,4 +404,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkanalytics_1.0.0b1/sdk/networkanalytics/azure-mgmt-networkanalytics/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-identity
+  Version: 1.4.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.4.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduction of new scopes for token generation.
+    - `CHAT_JOIN` (Access to Chat APIs but without the authorization to create, delete or update chat threads)
+    - `CHAT_JOIN_LIMITED` (A more limited version of `CHAT_JOIN` that doesn't allow to add or remove participants)
+    - `VOIP_JOIN` (Access to Calling APIs but without the authorization to start new calls)
+    - Added a new API version `ApiVersion.V2023_10_01` that is now the default API version.
 
