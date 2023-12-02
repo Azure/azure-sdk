@@ -1120,4 +1120,43 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.11.9/sdk/core/azure-core-management/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 2.7.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.7.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.53.0`.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.11.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.11.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed Azure Arc Managed Identity token retrieval issue.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.53.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.53.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug resulting in `CosmosDiagnosticsContext.getStatusCode()` always returning `0` for `readMany` operations. - See [PR 37394](https://github.com/Azure/azure-sdk-for-java/pull/37394)
+    * Fixed an issue where PartitionKeyRange request will not do cross region retry. - See [PR 37403](https://github.com/Azure/azure-sdk-for-java/pull/37403)
+    * Fixed an issue where Session consistency was not honored when the consistency level on the `CosmosClientBuilder.consistencyLevel` was not explicitly set to `ConsistencyLevel.SESSION` but the default account consistency level is session. If not enforcing session consistency is the intended behavior, you can set the `CosmsoClientBuilder.consistencyLevel` to `ConsistencyLevel.EVENTUAL`. - See [PR 37377](https://github.com/Azure/azure-sdk-for-java/pull/37377)
+    * Fixed an issue where client level `EndToEndOperationLatencyPolicyConfig.availabilityStrategy` is not being applied for `query` - See [PR 37511](https://github.com/Azure/azure-sdk-for-java/pull/37511)
+    * Fixed an issue where operation is not cancelled based on `CosmosEndToEndOperationLatencyPolicyConfig.endToEndOperationTimeout` when `429` happens - See [PR 37764](https://github.com/Azure/azure-sdk-for-java/pull/37764)
+    * Fixed an issue where `CosmosEndToEndOperationLatencyPolicyConfig.endToEndOperationTimeout` is not applied for `ReadMany` - See [PR 37764](https://github.com/Azure/azure-sdk-for-java/pull/37764)
+    * Fixed an issue with OFFSET and LIMIT query clause returning partial query results when used with DISTINCT - See [PR 37860](https://github.com/Azure/azure-sdk-for-java/pull/37860)
+  GroupId: com.azure
 
