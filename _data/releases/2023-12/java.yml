@@ -981,4 +981,182 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkanalytics_1.0.0-beta.1/sdk/networkanalytics/azure-resourcemanager-networkanalytics/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core-http-netty
+  Version: 1.13.11
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.13.11/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+    - Upgraded `netty-handler` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-handler-proxy` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-buffer` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-codec` from `4.1.100.Final`` to `4.1.101.Final`
+    - Upgraded `netty-codec-http` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-codec-http2` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-transport-native-unix-common` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `netty-common` from `4.1.100.Final` to `4.1.101.Final`.
+    - Upgraded `reactor-netty-http` from `1.0.38` to `1.0.39`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.2.8
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.2.8/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.22.1
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.22.1/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.4.8
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.4.8/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.8.14
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.8.14/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+    - Upgraded Reactor Core from `3.4.33` to `3.4.34`.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.45.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.45.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded Reactor Core from `3.4.33` to `3.4.34`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.11.17
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.17/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to `1.45.1`.
+  GroupId: com.azure
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0-beta.1
+  DisplayName: Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    Version 1.0.0-beta.1 is a preview of our efforts in creating an Azure AI Document Intelligence client library that is developer-friendly
+    and idiomatic to the Java ecosystem. The principles that guide
+    our efforts can be found in the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html).
+
+    For more information about this, and preview releases of other Azure SDK libraries, please visit
+    https://azure.github.io/azure-sdk/releases/latest/java.html.
+
+    - It uses the Document Intelligence service `2023-10-31-preview` API.
+    - Two client design:
+    - `DocumentIntelligenceClient` to analyze fields/values on custom documents, receipts, and document layout
+    - `DocumentIntelligenceAdministrationClient` to build custom models, manage the custom models on your account and build classifiers
+    - Authentication with API key supported using `AzureKeyCredential("<api_key>")` from `com.azure.core.credential`
+    - Reactive streams support using [Project Reactor](https://projectreactor.io/).
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.11.9
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.11.9/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 2.7.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.7.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.53.0`.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.11.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.11.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed Azure Arc Managed Identity token retrieval issue.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.53.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.53.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug resulting in `CosmosDiagnosticsContext.getStatusCode()` always returning `0` for `readMany` operations. - See [PR 37394](https://github.com/Azure/azure-sdk-for-java/pull/37394)
+    * Fixed an issue where PartitionKeyRange request will not do cross region retry. - See [PR 37403](https://github.com/Azure/azure-sdk-for-java/pull/37403)
+    * Fixed an issue where Session consistency was not honored when the consistency level on the `CosmosClientBuilder.consistencyLevel` was not explicitly set to `ConsistencyLevel.SESSION` but the default account consistency level is session. If not enforcing session consistency is the intended behavior, you can set the `CosmsoClientBuilder.consistencyLevel` to `ConsistencyLevel.EVENTUAL`. - See [PR 37377](https://github.com/Azure/azure-sdk-for-java/pull/37377)
+    * Fixed an issue where client level `EndToEndOperationLatencyPolicyConfig.availabilityStrategy` is not being applied for `query` - See [PR 37511](https://github.com/Azure/azure-sdk-for-java/pull/37511)
+    * Fixed an issue where operation is not cancelled based on `CosmosEndToEndOperationLatencyPolicyConfig.endToEndOperationTimeout` when `429` happens - See [PR 37764](https://github.com/Azure/azure-sdk-for-java/pull/37764)
+    * Fixed an issue where `CosmosEndToEndOperationLatencyPolicyConfig.endToEndOperationTimeout` is not applied for `ReadMany` - See [PR 37764](https://github.com/Azure/azure-sdk-for-java/pull/37764)
+    * Fixed an issue with OFFSET and LIMIT query clause returning partial query results when used with DISTINCT - See [PR 37860](https://github.com/Azure/azure-sdk-for-java/pull/37860)
+  GroupId: com.azure
 
