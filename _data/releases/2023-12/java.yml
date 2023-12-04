@@ -1159,4 +1159,98 @@ entries:
     * Fixed an issue where `CosmosEndToEndOperationLatencyPolicyConfig.endToEndOperationTimeout` is not applied for `ReadMany` - See [PR 37764](https://github.com/Azure/azure-sdk-for-java/pull/37764)
     * Fixed an issue with OFFSET and LIMIT query clause returning partial query results when used with DISTINCT - See [PR 37860](https://github.com/Azure/azure-sdk-for-java/pull/37860)
   GroupId: com.azure
+- Name: azure-communication-jobrouter
+  Version: 1.0.0
+  DisplayName: Communication JobRouter
+  ServiceName: Communication JobRouter
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-jobrouter_1.0.0/sdk/communication/azure-communication-jobrouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    ##### RouterAdministrationClient
+    -
+    - `listQueues` returns `PagedIterable<RouterQueue>` rather than `PagedIterable<RouterQueueItem>`
+    - `listDistributionPolicies` returns `PagedIterable<DistributionPolicy>` rather than `PagedIterable<DistributionPolicyItem>`
+    - `listClassificationPolicies` returns `PagedIterable<ClassificationPolicy>` rather than `PagedIterable<ClassificationPolicyItem>`
+    - `listExceptionPolicies` returns `PagedIterable<ExceptionPolicy>` rather than `PagedIterable<ExceptionPolicyItem>`
+
+    - Response objects of create, update, get and list methods are changed to return BinaryData.
+    - update, get, list and delete methods are updated to take RequestOptions in request instead of entity options classes like UpdateClassificationPolicyOptions.
+
+    ##### RouterClient
+    - `listJobs` returns `PagedIterable<RouterJob>` rather than `PagedIterable<RouterJobItem>`
+    - `listWorkers` returns `PagedIterable<RouterWorker>` rather than `PagedIterable<RouterJobWorker>`
+
+    - Response objects of create, update, get and list methods are changed to return BinaryData.
+    - update, get, list and delete methods are updated to take RequestOptions in request instead of entity options classes like UpdateWorkerOptions.
+
+    ###### RouterJobNote
+    - Changed constructor from `RouterJobNote()` to `RouterJobNote(string message)`
+    - Removed setter from `Message`
+
+    ##### RouterWorker && CreateWorkerOptions
+    - Rename property `QueueAssignments` -> `Queues`
+    - `Queues` - Changed `Map<String, RouterQueueAssignment>` -> `List<String>`
+    - Rename property `TotalCapacity` -> `Capacity`
+    - Rename property `ChannelConfigurations` -> `Channels`
+    - `Channels` - Changed `Map<String, ChannelConfiguration>` -> `List<RouterChannel>`
+
+    ##### ClassificationPolicy && CreateClassificationPolicyOptions
+    - Property `List<QueueSelectorAttachment> QueueSelectors` changed to `List<QueueSelectorAttachment> QueueSelectorAttachments`
+    - Property `List<WorkerSelectorAttachment> WorkerSelectors` changed to `List<WorkerSelectorAttachment> WorkerSelectorAttachments`
+
+    ##### ExceptionPolicy && CreateExceptionPolicyOptions
+    - Property `ExceptionRules` - Changed from `Map<String, ExceptionRule>` -> `List<ExceptionRule>`
+
+    ###### ExceptionRule
+    - `Actions` - Changed `Map<String, ExceptionAction>` -> `List<ExceptionAction>`
+
+    ###### CancelExceptionAction
+    - Changed constructor from `CancelExceptionAction(String note = null, String dispositionCode = null)` to `CancelExceptionAction()`
+
+    ###### ReclassifyExceptionAction
+    - Changed constructor from `ReclassifyExceptionAction(String classificationPolicyId, Map<String, LabelValue> labelsToUpsert = null)` to `ReclassifyExceptionAction()`
+    - Removed setter from `LabelsToUpsert`
+
+    ##### BestWorkerMode
+    - Removed constructor `BestWorkerMode(RouterRule scoringRule = null, List<ScoringRuleParameterSelector> scoringParameterSelectors = null, bool allowScoringBatchOfWorkers = false, int? batchSize = null, bool descendingOrder = true, bool bypassSelectors = false)`
+
+    ###### ScoringRuleOptions
+    - Rename property `AllowScoringBatchOfWorkers` -> `IsBatchScoringEnabled`
+
+    ##### FunctionRouterRuleCredential
+    - Removed properties `AppKey` and `FunctionKey`
+
+    ##### OAuth2WebhookClientCredential
+    - Removed property `ClientSecret`
+
+    ##### RouterQueueStatistics
+    - Changed `Map<String, Double> EstimatedWaitTimeMinutes` to `Map<Integer, TimeSpan> EstimatedWaitTimes`
+
+    ##### LabelOperator
+    - Renamed `GreaterThanEqual` to `GreaterThanOrEqual`
+    - Renamed `LessThanEqual` to `LessThanOrEqual`
+
+    ##### Renames
+    - `ChannelConfiguration` -> `RouterChannel`
+    - `Oauth2ClientCredential` -> `OAuth2WebhookClientCredential`
+    - `LabelValue` -> `RouterValue`
+
+    ##### Deletions
+    - `ClassificationPolicyItem`
+    - `DistributionPolicyItem`
+    - `ExceptionPolicyItem`
+    - `RouterQueueItem`
+    - `RouterWorkerItem`
+    - `RouterJobItem`
+    - `RouterQueueAssignment`
+    - `UpdateClassificationPolicyOptions`
+    - `UpdateDistributionPolicyOptions`
+    - `UpdateExceptionPolicyOptions`
+    - `UpdateQueueOptions`
+    - `UpdateWorkerOptions`
+    - `UpdateJobOptions`
+  GroupId: com.azure
 
