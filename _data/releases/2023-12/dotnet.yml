@@ -1820,4 +1820,29 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Internal updates to generated code.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Adjusted retries to consider an unreachable host address as terminal.  Previously, all socket-based errors were considered transient and would be retried.
+    - Updated the `ServiceBusMessage` constructor that takes a `ServiceBusReceivedMessage` to no longer copy over the
+    `x-opt-partition-id` key as this is meant to apply only to the original message.
+    - Drain excess credits when attempting to receive using sessions to ensure FIFO ordering.
+- Name: Azure.Communication.Chat
+  Version: 1.2.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.2.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ChatAttachment` object that contains properties for inline images incoming from Teams Chat Threads.
 
