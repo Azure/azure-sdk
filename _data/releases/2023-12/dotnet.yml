@@ -1845,4 +1845,15 @@ entries:
     #### Features Added
 
     - Added `ChatAttachment` object that contains properties for inline images incoming from Teams Chat Threads.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.13.5
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.13.5/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed cleanup behavior when targeting .NET Framework so that Service Bus clients are properly disposed.
 
