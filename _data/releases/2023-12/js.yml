@@ -387,4 +387,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.4.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.4.0/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ChatAttachment` object that contains properties for inline images incoming from Teams Chat Threads.
+    - Updated to @azure/communication-signaling@1.0.0-beta.22 with inline image support
 
