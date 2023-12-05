@@ -1253,4 +1253,578 @@ entries:
     - `UpdateWorkerOptions`
     - `UpdateJobOptions`
   GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.24.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.24.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.5.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.5.1/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.20.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.20.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-common` from `12.24.0` to version `12.25.0-beta.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.21.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.21.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-common` from `12.24.0` to version `12.24.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.18.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.18.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.25.0` to version `12.26.0-beta.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.5.9
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.5.9/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.2.11
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.2.11/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.5.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.5.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.2.4
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.2.4/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.2.15
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.2.15/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.20.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.20.1/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.20
+  DisplayName: Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.20/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.7.3
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.7.3/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.3.16
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.16/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-serializer-json-jackson` from `1.4.7` to version `1.4.8`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.14
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.14/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.1.13
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.13/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-data-schemaregistry` from `1.4.1` to version `1.5.0-beta.1`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.25
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.25/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-mixedreality-authentication` from `1.2.18` to version `1.2.19`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.8.1
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.8.1/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+  GroupId: com.azure
+- Name: azure-identity-extensions
+  Version: 1.1.11
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.1.11/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.11.0` to version `1.11.1`.
+  GroupId: com.azure
+- Name: azure-developer-loadtesting
+  Version: 1.0.9
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.9/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.20
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.20/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.21.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.21.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.25.0` to version `12.26.0-beta.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.1.4
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.1.4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.1.3
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.1.3/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.20
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.20/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.7.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.7.3/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.4.2
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.4.2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.0.9
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.9/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.25.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.25.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+    - Upgraded `azure-storage-internal-avro` from `12.10.0` to version `12.10.1`.
+    - Upgraded `azure-storage-common` from `12.24.0` to version `12.24.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.2.8
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.2.8/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.10.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.10.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-common` from `12.24.0` to version `12.25.0-beta.1`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.4.3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.4.3/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.18
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.18/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.24.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.24.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.25.0` to version `12.26.0-beta.1`.
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.1.9
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.1.9/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.4.2
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.4.2/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.21
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.21/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.16
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.16/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
 
