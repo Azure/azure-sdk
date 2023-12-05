@@ -23,14 +23,9 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 
 {% include requirement/SHOULDNOT id="ts-no-ie11-support" %} support IE11. If you have a business justification for IE11 support, contact the [Architecture Board].
 
-{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript greater than 3.1.
+{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript that are less than 2 years old. This aligns with the support window of (Definitely Typed)[https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master#support-window], a popular repository of type definitions.
 
-While consumers are fast at adopting new versions of TypeScript, version 3.1 is used by Angular 7, which is still commonly used.  Supporting older versions of TypeScript can be a challenge. There are two general approaches:
-
-1. Don't use new features.
-2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
-
-{% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
+{% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11) even if support isn't required.
 
 ## Namespaces, NPM Scopes, and Distribution Tags {#ts-namespace}
 
