@@ -1856,4 +1856,144 @@ entries:
     #### Bugs Fixed
 
     - Fixed cleanup behavior when targeting .NET Framework so that Service Bus clients are properly disposed.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.18.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-02-04.
+    - Fixed bug where SAS Directory Depth ("sdd") value 10 or over will add 6 to the sdd value
+- Name: Azure.Storage.Common
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.19.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- Fixed bug where parsing the "sdd" value of a SAS would increment the value by 6 if the value was 10 or over.'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.42
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.42/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-02-04.'
+- Name: Azure.Storage.Blobs
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.20.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-02-04.'
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0-beta.4
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0-beta.4/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - [BREAKING CHANGE] Renamed `StorageResourceSingle` to `StorageResourceItem`
+    - [BREAKING CHANGE] Renamed `StorageResource.MaxChunkSize` to `MaxSupportedChunkSize`.
+    - [BREAKING CHANGE] Made the following members `public` to `protected internal` members (including all derived classes):
+    - `StorageResource.IsContainer`
+    - `StorageResourceContainer.GetStorageResourcesAsync`
+    - `StorageResourceItem.Length`
+    - `StorageResourceItem.MaxSupportedChunkSize`
+    - `StorageResourceItem.ResourceId`
+    - `StorageResourceItem.TransferType`
+    - `StorageResourceItem.CompleteTransferAsync`
+    - `StorageResourceItem.CopyBlockFromUriAsync`
+    - `StorageResourceItem.CopyFromUriAsync`
+    - `StorageResourceItem.DeleteIfExistsAsync`
+    - `StorageResourceItem.GetCopyAuthorizationHeaderAsync`
+    - `StorageResourceItem.GetPropertiesAsync`
+    - `StorageResourceItem.ReadStreamAsync`
+    - `StorageResourceItem.WriteFromStreamAsync`
+    - [BREAKING CHANGE] Renamed `DataTransfer.AwaitCompletion` to `DataTransfer.WaitForCompletionAsync`
+    - [BREAKING CHANGE] Renamed `DataTransfer.EnsureCompleted` to `DataTransfer.WaitForCompletion`
+    - [BREAKING CHANGE] Renamed `DataTransfer.PauseIfRunningAsync` to `DataTransfer.PauseAsync`
+    - [BREAKING CHANGE] Removed `Azure.Storage.DataMovement.Models` and moved all classes to the `Azure.Storage.DataMovement` namespace
+    - [BREAKING CHANGE] Removed `Azure.Storage.DataMovement.Models.JobPlan` and replaced with `Azure.Storage.DataMovement.JobPlan` (has no public effect since it's internal)
+    - [BREAKING CHANGE] Removed `DataTransfer.PauseTransferIfRunningAsync(DataTransfer)`
+    - [BREAKING CHANGE] Renamed `DataTransferProperties.SourceScheme`.
+    - [BREAKING CHANGE] Removed `DataTransferProperties.DestinationScheme`.
+    - [BREAKING CHANGE] Removed `StorageResourceType` including removing `StorageResourceProperties.ResourceType`
+    - [BREAKING CHANGE] Removed `ServiceCopyStatus` including removing `StorageResourceProperties.CopyStatus`
+    - [BREAKING CHANGE] Renamed `TransferOptions` to `DataTransferOptions`
+    - [BREAKING CHANGE] Renamed `TransferCheckpointerOptions` to `TransferCheckpointStoreOptions`
+    - [BREAKING CHANGE] Renamed `TransferOptions.TransferFailed` to `DataTransferOptions.ItemTransferFailed`
+    - [BREAKING CHANGE] Renamed `TransferOptions.SingleTransferCompleted` to `DataTransferOptions.ItemTransferCompleted`
+    - [BREAKING CHANGE] Renamed `TransferOptions.TransferSkipped` to `DataTransferOptions.ItemTransferSkipped`
+    - [BREAKING CHANGE] Renamed `TransferOptions.TransferStatus` to `TransferOptions.TransferStatusChanged`
+    - [BREAKING CHANGE] Renamed `SingleTransferCompletedEventArgs` to `TransferItemCompletedEventArgs`
+    - [BREAKING CHANGE] Renamed `TransferItemFailedEventArgs` to `TransferItemFailedEventArgs`
+    - [BREAKING CHANGE] Renamed `TransferItemSkippedEventArgs` to `TransferItemSkippedEventArgs`
+    - [BREAKING CHANGE] Renamed `TransferStatusEventArgs.StorageTransferStatus` to `TransferStatus`
+    - [BREAKING CHANGE] Renamed `StorageResourceItem.WriteFromStreamAsync` to `CopyFromStreamAsync`
+    - [BREAKING CHANGE] Renamed `StorageResourceContainer.GetChildStorageResource` to `StorageResourceContainer.GetStorageResourceReference`
+    - [BREAKING CHANGE] Renamed `ReadStreamStorageResourceResult` to `StorageResourceReadStreamResult`
+    - [BREAKING CHANGE] Changed constructor `StorageResourceReadStreamResult(Stream)` from public to internal
+    - [BREAKING CHANGE] Removed `LocalStorageResourceProvider.MakeResource`. Instead use `LocalFilesStorageResourceProvider.FromFile()` and `.FromDirectory()` to obtain a Local `StorageResource`.
+    - [BREAKING CHANGE] Renamed `ErrorHandlingBehavior` to `DataTransferErrorMode`
+    - [BREAKING CHANGE] Renamed `DataTransferErrorMode.StopOnAllFailures` to `StopOnAnyFailure`
+    - [BREAKING CHANGE] Renamed `TransferType` to `DataTransferOrder`
+    - [BREAKING CHANGE] Renamed `DataTransferOrder.Concurrent` to `Unordered`
+    - [BREAKING CHANGE] Renamed `StorageTransferStatus` to `DataTransferStatus`
+    - [BREAKING CHANGE] Changed `DataTransferStatus` from `enum` to a `class`.
+    - [BREAKING CHANGE] Renamed `StorageResourceCreateMode` to `StorageResourceCreationPreference`.
+    - [BREAKING CHANGE] Renamed `StorageResourceCreationPreference` values from `Fail` to `FailIfExists`, `Overwrite` to `OverwriteIfExists`, `Skip` to `SkipIfExists` and `None` to `Default` which will default to `FailIfExists`.
+    - [BREAKING CHANGE] Renamed `DataTransferOptions.CreateMode` to `CreationPreference`.
+    - [BREAKING CHANGE] Changed `StorageTransferProgress` constructor from `public` to `protected internal`.
+    - [BREAKING CHANGE] Renamed `StorageTransferProgress` to `DataTransferProgress`.
+    - [BREAKING CHANGE] Renamed `StorageTransferEventArgs` to `DataTransferEventArgs`.
+    - [BREAKING CHANGE] Removed `position` parameter from `StorageResourceSingle.WriteFromStreamAsync`. Use `StorageResourceWriteToOffsetOptions.Position` instead.
+    - [BREAKING CHANGE] Made parameter `completeLength` from `StorageResourceSingle.CopyBlockFromUriAsync` mandatory.
+    - [BREAKING CHANGE] Moved `DataTransferOptions.ProgressHandler` to `DataTransferOptions.ProgressHandlerOptions`.
+    - [BREAKING CHANGE] Removed default constructor for `ProgressHandlerOptions`. Use `ProgressHandlerOptions(IProgress<DataTransferProgress>, bool)` instead.
+    - [BREAKING CHANGE] Removed `StorageResource.CanProduceUri` (including it's derived classes).
+    - [BREAKING CHANGE] Removed `StorageResource.Path`, use `StorageResource.Uri` instead.
+    - [BREAKING CHANGE] Moved `DataTransferProperties` to the parent namespace, `Azure.Storage.DataMovement`.
+    - [BREAKING CHANGE] Removed `DataTransferProperties.SourcePath`. Instead use `DataTransferProperties.SourceUri`.
+    - [BREAKING CHANGE] Removed `DataTransferProperties.DestinationPath`. Instead use `DataTransferProperties.DestinationUri`.
+    - [BREAKING CHANGE] Changed `StorageResourceCheckpointData.Serialize()` from `public` to `protected internal`
+    - [BREAKING CHANGE] Made the following from `public` to `internal` (Use `LocalStorageResourceProvider` instead to create `StorageResource`s) :
+    - `LocalDirectoryStorageResourceContainer`
+    - `LocalFileStorageResource`
+
+    #### Features Added
+    - Added support for `TransferManager.ResumeAllTransfersAsync` to resume all transfers that can be resumed.
+
+    #### Bugs Fixed
+    - Fixed bug where if a transfer was in a failed state, and during clean up an exception was thrown the transfer would throw or hang.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.17.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-02-04.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.18.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-02-04.'
+- Name: Azure.Storage.Queues
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.18.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-02-04.'
 
