@@ -5,5 +5,6 @@
 | `aiohttp`      | Asynchronous HTTP                    |
 | `aiodns`       | Asynchronous DNS resolution          |
 | `anyio `       | Asynchronous tooling lib             |
+| `sniffio `     | Asynchronous helper lib             |
 | `cryptography` | Cryptographic recipes and primitives |
 | `certifi`      | Mozilla CA bundle                    |
