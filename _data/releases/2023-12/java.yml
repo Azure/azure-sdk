@@ -1827,4 +1827,16 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.13.10` to version `1.13.11`.
     - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.4.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.4.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ChatAttachment` object that contains properties for inline images incoming from Teams Chat Threads.
+  GroupId: com.azure
 
