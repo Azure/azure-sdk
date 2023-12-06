@@ -23,7 +23,7 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 
 {% include requirement/SHOULDNOT id="ts-no-ie11-support" %} support IE11. If you have a business justification for IE11 support, contact the [Architecture Board].
 
-{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript that are less than 2 years old. This aligns with the support window of (Definitely Typed)[https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master#support-window], a popular repository of type definitions.
+{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript that are less than 2 years old. This aligns with the support window of [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master#support-window), a popular repository of type definitions.
 
 {% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11) even if support isn't required.
 
