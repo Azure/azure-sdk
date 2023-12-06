@@ -491,4 +491,14 @@ entries:
     ([#33305](https://github.com/Azure/azure-sdk-for-python/pull/33305))
     ([#33373](https://github.com/Azure/azure-sdk-for-python/pull/33373))
     ([#33390](https://github.com/Azure/azure-sdk-for-python/pull/33390))
+- Name: azure-storage-queue
+  Version: 12.9.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.9.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
 
