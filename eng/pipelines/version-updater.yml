@@ -67,6 +67,14 @@ steps:
     git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
   displayName: Clone azure-rest-api-specs repo
 
+- task: PowerShell@2
+  displayName: Update Rest Specs
+  inputs:
+    pwsh: true
+    filePath: $(AzureSDKClonePath)/eng/scripts/Update-Spec-Versions.ps1
+    arguments: >
+      -specsRoot $(System.DefaultWorkingDirectory)/azure-rest-api-specs/
+
 - bash: |
     npm install
   workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard

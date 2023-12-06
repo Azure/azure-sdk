@@ -1,5 +1,5 @@
 ---
-title: Azure Rest API Specs(Latest)
+title: Azure Rest API Specs (Latest)
 layout: default
 sidebar: releases_sidebar
 header: true

@@ -8,12 +8,6 @@ $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress d
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
-# spec - json file
-#  path
-#  name
-#  version
-# TODO: map to SDK library via readme.md or tspconfig.yaml
-
 function CreateSpec($jsonFilesInPath, $relSpecPath)
 {
   if ($relSpecPath -notmatch "^(?<serviceFamily>[^/]+)/(?<type>data-plane|resource-manager)/(?<rpPath>.+)?(?<verType>preview|stable)/(?<version>[^/]+)$") { 
@@ -88,7 +82,7 @@ function CreateSpec($jsonFilesInPath, $relSpecPath)
 function FindAllSpecs($specsRoot)
 {
   $potentialSpecs = Get-ChildItem -Recurse -Include *.json $specsRoot
-  #TODO: Map to tspconfig if 
+  #TODO: Map to tspconfig
   #$potentialTypeSpecs = Get-ChildItem -Recurse -Include tspconfig.yaml $specsRoot
 
   $processedPaths = @{}
