@@ -1839,4 +1839,59 @@ entries:
 
     - Added `ChatAttachment` object that contains properties for inline images incoming from Teams Chat Threads.
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.0.1
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.0.1/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.11.0` to version `1.11.1`.
+  GroupId: com.azure
+- Name: azure-communication-rooms
+  Version: 1.0.7
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.0.7/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+    - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.53.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.53.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed high number of PKRangeFeed calls when using BulkExecution without SparkConnector - See [PR 37920](https://github.com/Azure/azure-sdk-for-java/pull/37920)
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.1.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.1.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.2.15`.
+    - Upgraded `azure-core` from `1.44.0` to version `1.45.1`.
+  GroupId: com.azure
 
