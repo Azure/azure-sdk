@@ -110,8 +110,8 @@ function GatherSpecs($specsRoot)
   $speclistFile = Join-Path $releaseFolder "specs.csv"
   Write-Host "Writing $speclistFile"
 
-  $new = @($specs | Where-Object { $_.IsTypeSpec } | Sort-Object ServiceFamily, ResourcePath)
-  $other = @($specs | Where-Object { !$_.IsTypeSpec } |  Sort-Object ServiceFamily, ResourcePath)
+  $new = @($specs | Where-Object { $_.IsTypeSpec } | Sort-Object ServiceFamily, ResourcePath, SpecPath)
+  $other = @($specs | Where-Object { !$_.IsTypeSpec } |  Sort-Object ServiceFamily, ResourcePath, SpecPath)
 
   $sortedSpecs = $new + $other
   $sortedSpecs | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $speclistFile -encoding ascii
