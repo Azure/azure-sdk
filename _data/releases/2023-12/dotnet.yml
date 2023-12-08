@@ -2031,4 +2031,21 @@ entries:
 
     - Azure OpenAI now uses `dall-e-3` model deployments for its image generation API and such a valid deployment must
     be provided into the options for the `GetImageGenerations` method to receive results.
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.11
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.11/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `ChatCompletionsOptions.ResponseFormat` now serializes correctly and will not result in "not of type 'object" errors
+    - `ChatCompletionsOptions.FunctionCall` is fixed to again work with `FunctionDefinition.None` and `FunctionDefinition.Auto` instead of resulting in not finding a named "none" or "auto" function
+    - `ChatCompletionsOptions.ToolChoice` previously defaulted to a `BinaryData` type and has now been corrected to use a custom `ChatCompletionsToolChoice` type that parallels `FunctionDefinition` for older function calling.
+
+    #### Breaking Changes
+
+    - The type of `ChatCompletionsOptions.ToolChoice` has been updated from `BinaryData` to a new `ChatCompletionsToolChoice` type. Please use `ChatCompletionsToolChoice.None`, `ChatCompletionsToolChoice.Auto`, or provide a reference to a function or function tool definition to migrate.
 
