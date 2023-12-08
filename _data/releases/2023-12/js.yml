@@ -436,4 +436,49 @@ entries:
 
     - Adding format fields to number lookup result
     - Support format-only search for number lookup feature
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.13.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.13.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `multipartPolicy` and `MultipartRequestBody` to allow for making multipart requests.
+    - Add `createFile` and `createFileFromStream` to allow creation of `File` objects for `multipart/form-data` requests.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.8
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.8/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `-1106` model feature support for `gpt-35-turbo` and `gpt-4-turbo`, including use of `seed`, `system_fingerprint`, parallel function calling via tools, "JSON mode" for guaranteed function outputs, and more
+    - `dall-e-3` image generation capabilities via `getImages`, featuring higher model quality, automatic prompt revisions by `gpt-4`, and customizable quality/style settings
+    - Greatly expanded "On Your Data" capabilities in Azure OpenAI, including many new data source options and authentication mechanisms
+    - Early support for `gpt-4-vision-preview`, which allows the hybrid use of text and images as input to enable scenarios like "describe this image for me"
+    - Support for Azure enhancements to `gpt-4-vision-preview` results that include grounding and OCR features
+
+    #### Breaking Changes
+
+    `ChatMessage` changes:
+
+    - The singular `ChatMessage` type has been replaced by `ChatRequestMessage` and `ChatResponseMessage`, the former of
+    which is a union of special message structures such as `ChatRequestSystemMessage` and
+    `ChatRequestUserMessage`.
+
+    Dall-e-3:
+
+    - Azure OpenAI now uses `dall-e-3` model deployments for its image generation API and such a valid deployment must
+    be provided to the `GetImageGenerations` method.
+
+    On Your Data:
+
+    - The `AzureExtensionChatConfiguration` type has been updated to inline the parameters of the extension into the
+    configuration object itself.
 
