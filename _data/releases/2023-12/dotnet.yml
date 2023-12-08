@@ -2064,4 +2064,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.7/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.0.0-beta.5
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.5/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated Event Metrics to use Assembly.GetName instead of static dll name.
 
