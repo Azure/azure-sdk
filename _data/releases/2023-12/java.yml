@@ -1955,4 +1955,16 @@ entries:
     - Upgraded `azure-core` from `1.45.0` to version `1.45.1`.
     - Upgraded `azure-core-amqp` from `2.8.13` to version `2.8.14`.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.19
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.19/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
