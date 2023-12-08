@@ -2048,4 +2048,20 @@ entries:
     #### Breaking Changes
 
     - The type of `ChatCompletionsOptions.ToolChoice` has been updated from `BinaryData` to a new `ChatCompletionsToolChoice` type. Please use `ChatCompletionsToolChoice.None`, `ChatCompletionsToolChoice.Auto`, or provide a reference to a function or function tool definition to migrate.
+- Name: Azure.ResourceManager.HealthcareApis
+  Version: 1.2.0
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: Healthcare APIs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HealthcareApis_1.2.0/sdk/healthcareapis/Azure.ResourceManager.HealthcareApis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.7
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.7/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
 
