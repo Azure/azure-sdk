@@ -1,0 +1,13 @@
+entries:
+- Name: sdk/azcore
+  Version: 1.9.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.9.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * The `retry-after-ms` and `x-ms-retry-after-ms` headers weren't being checked during retries.
+
