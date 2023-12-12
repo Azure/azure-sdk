@@ -40,4 +40,38 @@ entries:
     - Azure OpenAI now uses `dall-e-3` model deployments for its image generation API and such a valid deployment must
     be provided into the options for the `getImageGenerations()` method to receive results.
   GroupId: com.azure
+- Name: azure-ai-contentsafety
+  Version: 1.0.0
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-contentsafety_1.0.0/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    Contract change for AnalyzeText, AnalyzeImage, Blocklist management related methods
+    ##### AnalyzeText
+    - AnalyzeTextOptions
+    - Renamed `breakByBlocklists` to `haltOnBlocklistHit`
+    - Added `AnalyzeTextOutputType`
+    - AnalyzeTextResult
+    - Renamed `blocklistsMatchResults` to `blocklistsMatch`
+    - Replaced `TextAnalyzeSeverityResult` by `TextCategoriesAnalysis`
+    ##### AnalyzeImage
+    - AnalyzeImageOptions
+    - Replaced `ImageData` by `ContentSafetyImageData`
+    - Added `AnalyzeImageOutputType`
+    - AnalyzeImageResult
+    - Replaced `ImageAnalyzeSeverityResult` by `ImageCategoriesAnalysis`
+    ##### Blocklist management
+    - Added `BlocklistAsyncClient`
+    - Renamed `AddBlockItemsOptions` to `AddOrUpdateTextBlocklistItemsOptions`
+    - Renamed `AddBlockItemsResult` to `AddOrUpdateTextBlocklistItemsResult`
+    - Renamed `RemoveBlockItemsOptions` to `RemoveTextBlocklistItemsOptions`
+    - Renamed `TextBlockItemInfo` to `TextBlocklistItem`
+
+    #### Features Added
+    - Support Microsoft Entra ID Authentication
+    - Support 8 severity level for AnalyzeText
+  GroupId: com.azure
 
