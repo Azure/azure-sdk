@@ -1,0 +1,42 @@
+entries:
+- Name: azure-ai-contentsafety
+  Version: 1.0.0
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentsafety_1.0.0/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Microsoft Entra ID Authentication
+    - Support 8 severity level for AnalyzeText
+
+    #### Breaking Changes
+
+    Contract change for AnalyzeText, AnalyzeImage, Blocklist management related methods. The changes are listed below:
+
+    ##### AnalyzeText
+
+    - AnalyzeTextOptions
+    - Renamed breakByBlocklists to haltOnBlocklistHit
+    - Added AnalyzeTextOutputType model for the `output_type` property.
+    - AnalyzeTextResult
+    - Renamed TextBlocklistMatchResult to TextBlocklistMatch
+    - Replaced TextAnalyzeSeverityResult by TextCategoriesAnalysis
+
+    ##### AnalyzeImage
+
+    - AnalyzeImageOptions
+    - Added AnalyzeImageOutputType
+    - AnalyzeImageResult
+    - Replaced ImageAnalyzeSeverityResult by ImageCategoriesAnalysis
+
+    ##### Blocklist management
+
+    - Added BlocklistClient
+    - Renamed AddBlockItemsOptions to AddOrUpdateTextBlocklistItemsOptions
+    - Renamed AddBlockItemsResult to AddOrUpdateTextBlocklistItemsResult
+    - Renamed RemoveBlockItemsOptions to RemoveTextBlocklistItemsOptions
+    - Renamed TextBlockItemInfo to TextBlocklistItem
+
