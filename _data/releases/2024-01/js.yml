@@ -7,4 +7,50 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure-rest/ai-content-safety'
+  Version: 1.0.0
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0/sdk/contentsafety/ai-content-safety-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    Contract change for AnalyzeText, AnalyzeImage, Blocklist management related parameters
+
+    ##### AnalyzeText
+
+    - AnalyzeTextOptions
+    - Renamed `breakByBlocklists` to `haltOnBlocklistHit`
+    - Add `outputType`
+    - AnalyzeTextResultOutput
+    - Renamed `blocklistsMatchResults` to `blocklistsMatch`
+    - Replaced `TextAnalyzeSeverityResultOutput` by `TextCategoriesAnalysisOutput`
+
+    ##### AnalyzeImage
+
+    - AnalyzeImageOptions
+    - Add `outputType`
+    - AnalyzeImageResultOutput
+    - Replaced `ImageAnalyzeSeverityResultOutput` by `ImageCategoriesAnalysisOutput`
+
+    ##### Blocklist management
+
+    - Renamed `"/text/blocklists/{blocklistName}:addBlockItems"` to `"/text/blocklists/{blocklistName}:addOrUpdateBlocklistItems"`
+    - Renamed `"/text/blocklists/{blocklistName}:removeBlockItems"` to `"/text/blocklists/{blocklistName}:removeBlocklistItems"`
+    - Renamed `"/text/blocklists/{blocklistName}/blockItems"` to `"/text/blocklists/{blocklistName}/blocklistItems"`
+    - Renamed `"/text/blocklists/{blocklistName}/blockItems/{blockItemId}"` to `"/text/blocklists/{blocklistName}/blocklistItems/{blocklistItemId}"`
+    - Renamed `AddBlockItemsOptions` to `AddOrUpdateTextBlocklistItemsOptions`
+    - Renamed `blockItems` to `blocklistItems`
+    - Renamed `AddBlockItemsResultOutput` to `AddOrUpdateTextBlocklistItemsResultOutput`
+    - Renamed `value` to `blocklistItems`
+    - Renamed `RemoveBlockItemsOptions` to `RemoveTextBlocklistItemsOptions`
+    - Renamed `blockItemIds` to `blocklistItemIds`
+    - Renamed `TextBlockItemInfo` to `TextBlocklistItem`
+
+    #### Features Added
+
+    - Support AAD Authentication
+    - Support 8 severity levels output for Text Analyze
 
