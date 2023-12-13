@@ -99,12 +99,12 @@ Cognitive Services,0,Question Answering,data,.NET,Microsoft.Azure.CognitiveServi
 Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,
 Schema Registry,0,Schema Registry - Avro,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,05/12/2022
 Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,12/04/2023
-Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
-Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
+Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
-Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
-Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,11/13/2023
+Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
 Synapse,0,Synapse - AccessControl,data,.NET,,,11,false,Azure.Analytics.Synapse.AccessControl,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,.NET,,,11,false,Azure.Analytics.Synapse.Artifacts,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Managed Private Endpoints,data,.NET,,,11,false,Azure.Analytics.Synapse.ManagedPrivateEndpoints,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
@@ -156,7 +156,7 @@ Container Apps,0,Resource Management - Container Apps,mgmt,.NET,,,11,false,Azure
 Container Instances,0,Resource Management - Container Instances,mgmt,.NET,Microsoft.Azure.Management.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,true,Azure.ResourceManager.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,false,1,11/27/2023
 Container Registry,0,Resource Management - Container Registry,mgmt,.NET,Microsoft.Azure.Management.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,true,Azure.ResourceManager.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,11/24/2023
 Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,
-Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerServiceFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fleet,3,false,1,
+Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerServiceFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fleet,10,false,1,12/13/2023
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,.NET,Microsoft.Azure.Management.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,true,Azure.ResourceManager.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,false,1,11/24/2023
 Cosmos DB,0,Resource Management - Cosmos DB,mgmt,.NET,Microsoft.Azure.Management.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,true,Azure.ResourceManager.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,false,1,
 Cosmos DB for PostgreSQL,0,Resource Management - Cosmos DB for PostgreSQL,mgmt,.NET,,,11,false,Azure.ResourceManager.CosmosDBForPostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdbforpostgresql,10,false,1,
@@ -739,7 +739,7 @@ Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,f
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Internal,0,sdk/resourcemanager/internal,mgmt,Go,sdk/resourcemanager/internal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/internal,10,false,,,1,false,0,
-Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/03/2023
+Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/11/2023
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/21/2022
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1125,7 +1125,7 @@ Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Document Intelligence,0,Azure AI Document Intelligence,data,JavaScript,,,11,false,@azure-rest/ai-document-intelligence,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documentintelligence/ai-document-intelligence-rest/,3,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,07/31/2020
-Azure Identity,0,Azure Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,11/07/2023
+Identity,0,Azure Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,11/07/2023
 Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,11/09/2023
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,false,1,
 Search,0,Cognitive Search,data,JavaScript,@azure/search,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,11/14/2023
@@ -1135,8 +1135,7 @@ Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communicati
 Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communication-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,09/27/2023
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communication-identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,11/30/2023
-Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
-Communication,0,Communication JobRouter,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,11/18/2023
+Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,11/18/2023
 Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,JavaScript,,,11,false,@azure/communication-phone-numbers,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
@@ -1770,6 +1769,7 @@ Communication,0,Communication Common,data,Python,,,11,false,Missing: Created fro
 Communication,0,Communication Common,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Common,,2,false,0,
 Communication,0,Communication Email,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Email,,2,false,0,
 Communication,0,Communication Identity,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Identity,,2,false,0,
+Communication,0,Communication JobRouter,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
 Communication,0,Communication JobRouter,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
 Communication,0,Communication Network Traversal,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.NetworkTraversal,,2,false,0,
 Communication,0,Communication Phone Numbers,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.PhoneNumbers,,2,false,0,
@@ -1917,10 +1917,10 @@ Communication,0,@azure/communication-react,data,.NET,,,11,false,Missing: Created
 Communication,0,@azure/communication-react,data,Java,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
 Communication,0,@azure/communication-react,data,Python,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
 Communication,0,@azure/communication-react,data,Go,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
-Azure Identity,0,Azure Identity Broker,data,.NET,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
-Azure Identity,0,Azure Identity Broker,data,Java,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
-Azure Identity,0,Azure Identity Broker,data,Python,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
-Azure Identity,0,Azure Identity Broker,data,Go,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
+Identity,0,Azure Identity Broker,data,.NET,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
+Identity,0,Azure Identity Broker,data,Java,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
+Identity,0,Azure Identity Broker,data,Python,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
+Identity,0,Azure Identity Broker,data,Go,,,11,false,Missing: Created from existing package: @azure/identity-broker,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,.NET,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Java,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Go,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
