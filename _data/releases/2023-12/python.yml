@@ -94,7 +94,7 @@ entries:
   DisplayName: AI Generative
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b1/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -404,4 +404,101 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkanalytics_1.0.0b1/sdk/networkanalytics/azure-mgmt-networkanalytics/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-identity
+  Version: 1.4.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.4.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduction of new scopes for token generation.
+    - `CHAT_JOIN` (Access to Chat APIs but without the authorization to create, delete or update chat threads)
+    - `CHAT_JOIN_LIMITED` (A more limited version of `CHAT_JOIN` that doesn't allow to add or remove participants)
+    - `VOIP_JOIN` (Access to Calling APIs but without the authorization to start new calls)
+    - Added a new API version `ApiVersion.V2023_10_01` that is now the default API version.
+- Name: azure-ai-resources
+  Version: 1.0.0b2
+  DisplayName: AI Resources
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b2/sdk/ai/azure-ai-resources/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Dependency improvements.
+- Name: azure-ai-generative
+  Version: 1.0.0b2
+  DisplayName: AI Generative
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b2/sdk/ai/azure-ai-generative/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added new format to export data to in qa generator.
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0b1
+  DisplayName: Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.0b1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: '- This is the first preview of the `azure-ai-documentIntelligence` package, targeting API version 2023-10-31-preview of the Document Intelligence service.'
+- Name: azure-mgmt-eventgrid
+  Version: 10.3.0b3
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventgrid_10.3.0b3/sdk/eventgrid/azure-mgmt-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-chat
+  Version: 1.2.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-chat_1.2.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the support to receive inline images from Microsoft Teams users in an interoperability Chat with new type `ChatAttachment`
+    - Added support for proactive refreshing of tokens
+    - `CommunicationTokenCredential` exposes a new boolean keyword argument `proactive_refresh` that defaults to `False`. If set to `True`, the refreshing of the token will be scheduled in the background ensuring continuous authentication state.
+    - Added disposal function `close` for `CommunicationTokenCredential`.
+    - Added `identifier_from_raw_id` and ensured that `CommunicationIdentifier.raw_id` is populated on creation. Together, these can be used to translate between a `CommunicationIdentifier` and its underlying canonical raw ID representation. Developers can now use the raw ID as an encoded format for identifiers to store in their databases or as stable keys in general.
+
+    #### Bugs Fixed
+
+    - Fixed bug where invalid participants were not being correctly deserialized in the response of `create_chat_thread`.
+- Name: azure-monitor-opentelemetry
+  Version: 1.1.1
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.1.1/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add App Service Resource Detector to Auto-Instrumentation.
+    ([#33340](https://github.com/Azure/azure-sdk-for-python/pull/33340))
+    - Default Resource Detector environment variable to enable configuration.
+    ([#33305](https://github.com/Azure/azure-sdk-for-python/pull/33305))
+    ([#33373](https://github.com/Azure/azure-sdk-for-python/pull/33373))
+    ([#33390](https://github.com/Azure/azure-sdk-for-python/pull/33390))
+- Name: azure-storage-queue
+  Version: 12.9.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.9.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
 
