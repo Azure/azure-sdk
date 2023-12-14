@@ -39,4 +39,15 @@ entries:
     - Renamed AddBlockItemsResult to AddOrUpdateTextBlocklistItemsResult
     - Renamed RemoveBlockItemsOptions to RemoveTextBlocklistItemsOptions
     - Renamed TextBlockItemInfo to TextBlocklistItem
+- Name: azure-core
+  Version: 1.29.6
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.6/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Adjusted `AsyncBearerTokenCredentialPolicy` to work properly with `trio` concurrency mechanisms.   ([#33307](https://github.com/Azure/azure-sdk-for-python/pull/33307))
 
