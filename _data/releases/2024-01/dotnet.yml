@@ -56,4 +56,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.0.0/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where content client `DownloadBlobStreaming()` method would throw for blobs greater than 2GB in size. ([#37113](https://github.com/Azure/azure-sdk-for-net/pull/37113))
+    - Fixed an issue in the ACR client to enable redirects due to the change in Azure.Core 1.33.0, which made redirects disabled by default. ([#39377](https://github.com/Azure/azure-sdk-for-net/issues/39377))
 
