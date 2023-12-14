@@ -68,4 +68,27 @@ entries:
 
     - Fixed an issue where content client `DownloadBlobStreaming()` method would throw for blobs greater than 2GB in size. ([#37113](https://github.com/Azure/azure-sdk-for-net/pull/37113))
     - Fixed an issue in the ACR client to enable redirects due to the change in Azure.Core 1.33.0, which made redirects disabled by default. ([#39377](https://github.com/Azure/azure-sdk-for-net/issues/39377))
+- Name: Microsoft.Azure.Core.NewtonsoftJson
+  Version: 2.0.0
+  DisplayName: Core Newtonsoft Json
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Core.NewtonsoftJson_2.0.0/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+
+    - Update to Newtonsoft.Json 13.0.1
+- Name: System.ClientModel
+  Version: 1.0.0-beta.2
+  DisplayName: System.ClientModel
+  ServiceName: System.ClientModel
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.0.0-beta.2/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `ModelReaderWriter` and `ModelReaderWriterOptions` have moved to System.ClientModel.Primitives namespace
+    - `JsonModelConverter` was removed.
 
