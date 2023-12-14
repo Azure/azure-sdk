@@ -41,7 +41,7 @@ pip install azure-keyvault-administration
 pip install azure-keyvault-certificates
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
-pip install azure-eventhubs
+pip install azure-eventhub
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
