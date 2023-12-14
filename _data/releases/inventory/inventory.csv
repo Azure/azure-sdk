@@ -51,7 +51,7 @@ Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communica
 Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication SMS,data,.NET,,,11,false,Azure.Communication.Sms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,05/25/2021
 Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,09/12/2023
-Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,05/11/2023
+Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,12/13/2023
 Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.AI.ContentSafety,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety,10,false,1,12/12/2023
 Cognitive Services,0,Conversational Language Understanding,data,.NET,,,11,false,Azure.AI.Language.Conversations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,06/14/2023
 Cosmos DB,0,Cosmos DB,data,.NET,Microsoft.Azure.Cosmos,https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos,1,false,Azure.Cosmos,https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3,3,false,1,
@@ -501,7 +501,7 @@ Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.co
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,10/02/2023
-Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,10/11/2023
+Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,12/13/2023
 Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,10/17/2023
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,11/15/2023
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
@@ -2099,6 +2099,11 @@ ai,0,DocumentIntelligence,data,Java,,,11,false,Missing: Created from API in spec
 ai,0,DocumentIntelligence,data,JavaScript,,,11,false,Missing: Created from API in specs repo: ai/DocumentIntelligence,,2,false,0,
 ai,0,DocumentIntelligence,data,Python,,,11,false,Missing: Created from API in specs repo: ai/DocumentIntelligence,,2,false,0,
 ai,0,DocumentIntelligence,data,Go,,,11,false,Missing: Created from API in specs repo: ai/DocumentIntelligence,,2,false,0,
+ai,0,HealthInsights,data,.NET,,,11,false,Missing: Created from API in specs repo: ai/HealthInsights,,2,false,0,
+ai,0,HealthInsights,data,Java,,,11,false,Missing: Created from API in specs repo: ai/HealthInsights,,2,false,0,
+ai,0,HealthInsights,data,JavaScript,,,11,false,Missing: Created from API in specs repo: ai/HealthInsights,,2,false,0,
+ai,0,HealthInsights,data,Python,,,11,false,Missing: Created from API in specs repo: ai/HealthInsights,,2,false,0,
+ai,0,HealthInsights,data,Go,,,11,false,Missing: Created from API in specs repo: ai/HealthInsights,,2,false,0,
 ai,0,ai,data,.NET,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
 ai,0,ai,data,Java,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
 ai,0,ai,data,JavaScript,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
@@ -2130,7 +2135,6 @@ Cloud Shell,0,Resource Management - Cloud Shell,mgmt,JavaScript,,,11,false,Missi
 Cloud Shell,0,Resource Management - Cloud Shell,mgmt,Python,,,11,false,Missing: Created from API in specs repo: cloudshell/resource-manager,,2,false,0,
 Cloud Shell,0,Resource Management - Cloud Shell,mgmt,Go,,,11,false,Missing: Created from API in specs repo: cloudshell/resource-manager,,2,false,0,
 Cognitive Services,0,Anomaly Detector,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/AnomalyDetector,,2,false,0,
-Cognitive Services,0,Health Insights Clinical Matching,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/HealthInsights,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
@@ -2237,6 +2241,11 @@ help,0,Resource Management - help,mgmt,Java,,,11,false,Missing: Created from API
 help,0,Resource Management - help,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: help/resource-manager,,2,false,0,
 help,0,Resource Management - help,mgmt,Python,,,11,false,Missing: Created from API in specs repo: help/resource-manager,,2,false,0,
 help,0,Resource Management - help,mgmt,Go,,,11,false,Missing: Created from API in specs repo: help/resource-manager,,2,false,0,
+Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
+Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Java,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
+Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
+Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Python,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
+Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Go,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
 Hybrid Data Manager,0,Resource Management - Hybrid Data Manager,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: hybriddatamanager/resource-manager,,2,false,0,
 Hybrid Data Manager,0,Resource Management - Hybrid Data Manager,mgmt,Java,,,11,false,Missing: Created from API in specs repo: hybriddatamanager/resource-manager,,2,false,0,
 Hybrid Data Manager,0,Resource Management - Hybrid Data Manager,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: hybriddatamanager/resource-manager,,2,false,0,
