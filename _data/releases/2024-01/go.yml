@@ -35,4 +35,24 @@ entries:
     - `Deployment` has been renamed to `DeploymentName` throughout all APIs.
     - `CreateImage` has been replaced with `GetImageGenerations`.
     - `ChatMessage` has been split into per-role types. The function `ExampleClient_GetChatCompletions` in `example_client_getcompletions_test.go` shows an example of this.
+- Name: sdk/storage/azblob
+  Version: 1.2.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.2.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Exposed GetSASURL from specialized clients
+
+    #### Bugs Fixed
+
+    * Fixed case in Blob Batch API when blob path has / in it. Fixes [#21649](https://github.com/Azure/azure-sdk-for-go/issues/21649).
+    * Fixed SharedKeyMissingError when using client.BlobClient().GetSASURL() method
+    * Fixed an issue that would cause metadata keys with empty values to be omitted when enumerating blobs.
+    * Fixed an issue where passing empty map to set blob tags API was causing panic. Fixes [#21869](https://github.com/Azure/azure-sdk-for-go/issues/21869).
+    * Fixed an issue where downloaded file has incorrect size when not a multiple of block size. Fixes [#21995](https://github.com/Azure/azure-sdk-for-go/issues/21995).
+    * Fixed case where `io.ErrUnexpectedEOF` was treated as expected error in `UploadStream`. Fixes [#21837](https://github.com/Azure/azure-sdk-for-go/issues/21837).
 
