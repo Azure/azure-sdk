@@ -53,4 +53,16 @@ entries:
 
     - Support AAD Authentication
     - Support 8 severity levels output for Text Analyze
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.14
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.14/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Fix runNotebook sessionId from number to string
+    - Fix placeholder links causing 404s
+    - Sync expression Support From DataFactory To Synapse
 
