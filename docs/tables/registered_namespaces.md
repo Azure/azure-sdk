@@ -12,6 +12,7 @@ The following are a list of registered namespaces.
 | `azure.ai.formrecognizer`     | [Form Recognizer]              |
 | `azure.ai.textanalytics`      | [Text Analytics]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
+| `azure.developer.devcenter`   | [Dev Center]                   |
 | `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
 | `azure.messaging.servicebus`  | [Service Bus]                  |
@@ -37,6 +38,7 @@ To register a new namespace, contact the [Architecture Board].
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
 [Azure Search]: https://azure.microsoft.com/services/search/
 [Azure Storage]: https://azure.microsoft.com/services/storage
+[Dev Center]: https://azure.microsoft.com/services/dev-box/
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Form Recognizer]: https://azure.microsoft.com/services/cognitive-services/form-recognizer/
 [Key Vault]: https://azure.microsoft.com/services/key-vault/
