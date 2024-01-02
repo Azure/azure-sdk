@@ -165,4 +165,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.4.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.3.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.3.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub.Client
+  Version: 1.0.0
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Client_1.0.0/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change type of `AckId` and `SequenceId` from `ulong` to `long`
+    - Update `SendMessageFailedException`. Remove `AckMessageError` and add `Code` property
 
