@@ -193,4 +193,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridnetwork_1.0.0-beta.1/sdk/hybridnetwork/arm-hybridnetwork/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.0
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.0/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Use overload for `SendToGroup` and `SendEvent`
 
