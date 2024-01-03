@@ -1,3 +1,16 @@
+resources:
+  repositories:
+    - repository: azure-sdk-tools
+      type: github
+      name: Azure/azure-sdk-tools
+      endpoint: azure
+      ref: refs/tags/azure-sdk-tools_20231130.1
+
+parameters:
+- name: UpdateDeprecated
+  type: boolean
+  default: false
+
 jobs:
 - job:
   pool:
@@ -5,19 +18,6 @@ jobs:
     vmImage: 'ubuntu-22.04'
   
   timeoutInMinutes: 360
-  
-  resources:
-    repositories:
-      - repository: azure-sdk-tools
-        type: github
-        name: Azure/azure-sdk-tools
-        endpoint: azure
-        ref: refs/tags/azure-sdk-tools_20231130.1
-  
-  parameters:
-  - name: UpdateDeprecated
-    type: boolean
-    default: false
   
   variables:
     AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
