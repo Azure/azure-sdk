@@ -204,4 +204,34 @@ entries:
     #### Other Changes
 
     - Use overload for `SendToGroup` and `SendEvent`
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.9
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.9/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `listChatCompletions` and `listCompletions` are renamed to `streamChatCompletions` and `streamCompletions` respectively and their return types are updated to be a `ReadableStream`. For example, `streamChatCompletions` can be used as follows:
+
+    ```js
+    const events = await client.streamChatCompletions(deploymentId, messages);
+    for await (const event of events) {
+    // use event ...
+    }
+    ```
+- Name: '@azure-rest/core-client'
+  Version: 1.1.7
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.1.7/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix serialization of binary data in `multipart/form-data` requests and in binary request bodies.
+    - Fix the issue where onResponse is not called when `asNodeStream` or `asBrowserStream` are called.
 
