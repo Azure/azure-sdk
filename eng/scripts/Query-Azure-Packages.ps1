@@ -1,10 +1,10 @@
+[CmdletBinding()]
 param (
-  [Parameter(ParameterSetName='RunDeprecationOnly')]
-  [switch] $RunDeprecationOnly,
-
+  [string] $language = "all",
   [string] $github_pat = $env:GITHUB_PAT,
   [string] $nuget_pat = $env:NUGET_PAT,
-  [boolean] $updateDeprecated = $false
+  [boolean] $updateDeprecated = $false,
+  [switch] $RunDeprecationOnly
 )
 Set-StrictMode -Version 3
 
