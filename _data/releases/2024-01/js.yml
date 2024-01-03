@@ -234,4 +234,15 @@ entries:
 
     - Fix serialization of binary data in `multipart/form-data` requests and in binary request bodies.
     - Fix the issue where onResponse is not called when `asNodeStream` or `asBrowserStream` are called.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.10
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.10/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix `responseFormat` behavior in `getAudioTranscription` and `getAudioTranslation` methods where request wasn't properly formed if it wasn't specified.
 
