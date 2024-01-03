@@ -12,7 +12,8 @@ parameters:
   default: false
 
 jobs:
-- job:
+- job: 
+  displayName: Update Versions
   pool:
     name: 'azsdk-pool-mms-ubuntu-2204-general'
     vmImage: 'ubuntu-22.04'
