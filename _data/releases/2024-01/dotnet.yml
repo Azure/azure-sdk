@@ -184,4 +184,20 @@ entries:
     #### Breaking Changes
     - Change type of `AckId` and `SequenceId` from `ulong` to `long`
     - Update `SendMessageFailedException`. Remove `AckMessageError` and add `Code` property
+- Name: Azure.ResourceManager.Nginx
+  Version: 1.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.0.0/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesBackup
+  Version: 1.2.0
+  DisplayName: Resource Management - Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesBackup_1.2.0/sdk/recoveryservices-backup/Azure.ResourceManager.RecoveryServicesBackup/CHANGELOG.md
+  ChangelogContent: ""
 
