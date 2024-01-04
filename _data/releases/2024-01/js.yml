@@ -245,4 +245,15 @@ entries:
     #### Bugs Fixed
 
     - Fix `responseFormat` behavior in `getAudioTranscription` and `getAudioTranslation` methods where request wasn't properly formed if it wasn't specified.
+- Name: '@azure/api-management-custom-widgets-scaffolder'
+  Version: 1.0.0-beta.4
+  DisplayName: '@azure/api-management-custom-widgets-scaffolder'
+  ServiceName: API Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-scaffolder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - added a prefix to result of "displayNameToName" function to prevent conflicts in name with existing, build-in widgets
 
