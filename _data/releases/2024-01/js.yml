@@ -256,4 +256,15 @@ entries:
     #### Breaking Changes
 
     - added a prefix to result of "displayNameToName" function to prevent conflicts in name with existing, build-in widgets
+- Name: '@azure/abort-controller'
+  Version: 2.0.0
+  DisplayName: Core - Client - Abort Controller
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_2.0.0/sdk/core/abort-controller/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed our polyfill implementation for `AbortSignal` and `AbortController` as these are now supported across our minimum required runtime environments.
 
