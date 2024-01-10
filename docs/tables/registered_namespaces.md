@@ -11,9 +11,9 @@ The following are a list of registered namespaces.
 | :---------------------------- | :----------------------------- |
 | `azure.ai.formrecognizer`     | [Form Recognizer]              |
 | `azure.ai.textanalytics`      | [Text Analytics]               |
+| `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.data.appconfiguration` | [App Configuration]            |
 | `azure.developer.devcenter`   | [Dev Center]                   |
-| `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
 | `azure.messaging.servicebus`  | [Service Bus]                  |
 | `azure.search.documents`      | [Azure Search]                 |
