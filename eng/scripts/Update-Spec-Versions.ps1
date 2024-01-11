@@ -60,6 +60,9 @@ function CreateSpec($jsonFilesInPath, $relSpecPath)
       $anyTypeSpec = $true
     }
 
+    # Consider getting the date the file was added so that we can know when things were created
+    # git log --diff-filter=A --pretty=format:'%cs' -- $jsonFile
+
     $jsonFileList += $jsonFile.Name
   }
 
