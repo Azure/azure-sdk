@@ -142,14 +142,15 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
 
     if ($tagSplit)
     {
-      $sp = $tagName -split $tagSplit
-      if ($sp.Length -ne 2) {
-        Write-Verbose "Failed to split tag correctly in language '$lang' with tag '$tagName'."
+      $splitIndex = $tagName.LastIndexOf($tagSplit)
+
+      if ($splitIndex -lt 0) {
+        Write-Verbose "Failed to file '$tagSplit' in tag in language '$lang' for tag '$tagName'."
         continue
       }
 
-      $package = $sp[0]
-      $version = $sp[1]
+      $package = $tagName.Substring(0, $splitIndex)
+      $version = $tagName.Substring($splitIndex + $tagSplit.Length)
     }
     else
     {
