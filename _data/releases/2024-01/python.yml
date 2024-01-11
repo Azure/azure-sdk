@@ -196,4 +196,14 @@ entries:
     ([#33667](https://github.com/Azure/azure-sdk-for-python/pull/33667))
     - Readme examples are updated with correct imports
     ([#33691](https://github.com/Azure/azure-sdk-for-python/pull/33691))
+- Name: azure-data-tables
+  Version: 12.5.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.5.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed issue in serializing EntityProperty tuples where a value of None could be serialized as the string "None".
 
