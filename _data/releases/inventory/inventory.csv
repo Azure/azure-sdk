@@ -23,7 +23,7 @@ Storage,0,Storage,data,C,,,11,false,az_storage_blobs,https://github.com/Azure/az
 Attestation,0,Attestation,data,C++,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/attestation,10,false,1,02/08/2023
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,C++,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
 Event Hubs,0,Event Hubs,data,C++,,,11,false,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
-Identity,0,Identity,data,C++,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity,10,false,1,11/11/2023
+Identity,0,Identity,data,C++,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity,10,false,1,
 Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,3,false,1,
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,05/09/2023
@@ -626,6 +626,7 @@ Kusto,0,Resource Management - Kusto,mgmt,Go,,,11,false,sdk/resourcemanager/kusto
 Lab Services,0,Resource Management - Lab Services,mgmt,Go,,,11,false,sdk/resourcemanager/labservices/armlabservices,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/labservices/armlabservices,10,false,1,11/24/2023
 Links,0,Resource Management - Links,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlinks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlinks,10,false,1,11/23/2023
 Load Testing,0,Resource Management - Load Testing,mgmt,Go,,,11,false,sdk/resourcemanager/loadtesting/armloadtesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/loadtesting/armloadtesting,10,false,1,11/24/2023
+Loadtestservice,0,Resource Management - Loadtestservice,mgmt,Go,,,11,false,sdk/resourcemanager/loadtestservice/armloadtestservice,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/loadtestservice/armloadtestservice,10,false,1,
 Locks,0,Resource Management - Locks,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlocks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlocks,10,false,1,11/23/2023
 Log Analytics,0,Resource Management - Log Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/operationalinsights/armoperationalinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationalinsights/armoperationalinsights,10,false,1,11/24/2023
 Logic Apps,0,Resource Management - Logic Apps,mgmt,Go,,,11,false,sdk/resourcemanager/logic/armlogic,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/logic/armlogic,10,false,1,11/24/2023
@@ -729,6 +730,11 @@ Template Specs,0,Resource Management - Template Specs,mgmt,Go,,,11,false,sdk/res
 Test Base,0,Resource Management - Test Base,mgmt,Go,,,11,false,sdk/resourcemanager/testbase/armtestbase,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/testbase/armtestbase,3,false,1,
 Time Series Insights,0,Resource Management - Time Series Insights,mgmt,Go,,,11,false,sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights,10,false,1,11/24/2023
 Traffic Manager,0,Resource Management - Traffic Manager,mgmt,Go,,,11,false,sdk/resourcemanager/trafficmanager/armtrafficmanager,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/trafficmanager/armtrafficmanager,10,false,1,11/24/2023
+Videoanalyzer,0,Resource Management - Videoanalyzer,mgmt,Go,,,11,false,sdk/resourcemanager/videoanalyzer/armvideoanalyzer,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/videoanalyzer/armvideoanalyzer,3,false,1,
+Virtualmachineimagebuilder,0,Resource Management - Virtualmachineimagebuilder,mgmt,Go,,,11,false,sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder,10,false,1,12/20/2023
+Visualstudio,0,Resource Management - Visualstudio,mgmt,Go,,,11,false,sdk/resourcemanager/visualstudio/armvisualstudio,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/visualstudio/armvisualstudio,3,false,1,
+Vmwarecloudsimple,0,Resource Management - Vmwarecloudsimple,mgmt,Go,,,11,false,sdk/resourcemanager/vmwarecloudsimple/armvmwarecloudsimple,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/vmwarecloudsimple/armvmwarecloudsimple,10,false,1,
+Voiceservices,0,Resource Management - Voiceservices,mgmt,Go,,,11,false,sdk/resourcemanager/voiceservices/armvoiceservices,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/voiceservices/armvoiceservices,10,false,1,
 Web,0,Resource Management - Web,mgmt,Go,,,11,false,sdk/resourcemanager/web/armweb,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/web/armweb,3,false,1,
 Web PubSub,0,Resource Management - Web PubSub,mgmt,Go,,,11,false,sdk/resourcemanager/webpubsub/armwebpubsub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/webpubsub/armwebpubsub,10,false,1,11/27/2023
 Window SESU,0,Resource Management - Window SESU,mgmt,Go,,,11,false,sdk/resourcemanager/windowsesu/armwindowsesu,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/windowsesu/armwindowsesu,3,false,1,
@@ -774,7 +780,7 @@ Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledge
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,12/05/2023
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-contentmoderator,1,false,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,10,false,1,12/11/2023
 Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/03/2024
-Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,
+Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/03/2024
 Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
 Defender EASM,0,Defender EASM,data,Java,,,11,false,azure-analytics-defender-easm,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Java,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/devcenter,3,false,1,
@@ -2514,7 +2520,6 @@ voiceservices,0,Resource Management - voiceservices,mgmt,.NET,,,11,false,Missing
 voiceservices,0,Resource Management - voiceservices,mgmt,Java,,,11,false,Missing: Created from API in specs repo: voiceservices/resource-manager,,2,false,0,
 voiceservices,0,Resource Management - voiceservices,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: voiceservices/resource-manager,,2,false,0,
 voiceservices,0,Resource Management - voiceservices,mgmt,Python,,,11,false,Missing: Created from API in specs repo: voiceservices/resource-manager,,2,false,0,
-voiceservices,0,Resource Management - voiceservices,mgmt,Go,,,11,false,Missing: Created from API in specs repo: voiceservices/resource-manager,,2,false,0,
 IoT,0,Resource Management - Windows IoT,mgmt,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 IoT,0,Resource Management - Windows IoT,mgmt,Java,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 IoT,0,Resource Management - Windows IoT,mgmt,JavaScript,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
