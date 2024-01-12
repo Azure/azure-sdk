@@ -268,4 +268,20 @@ entries:
     - Fixed `DelayStrategy` behavior to no longer shift the delay to be used over by one attempt. Previously, the first delay would be what should have been used for the second, and the second was what should have been used for the third, etc. Note, this would only be observed when using `DelayStrategy` outside of a `RetryPolicy` or `RetryOptions`.
     - Do not add the `error.type` attribute twice when tracing is enabled.
     - Do not suppress nested activities when they occur in the context of Consumer/Server activities (e.g. `BlobClient.Download` is no longer suppressed under `EventHubs.Process`).
+- Name: Azure.ResourceManager.Workloads
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Workloads
+  ServiceName: Workloads
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Workloads_1.2.0-beta.1/sdk/workloads/Azure.ResourceManager.Workloads/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.11.0-beta.1
+  DisplayName: Resource Management - Resource Manager
+  ServiceName: Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.11.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
 
