@@ -502,7 +502,7 @@ Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.co
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,10/02/2023
-Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,12/13/2023
+Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,
 Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
@@ -780,7 +780,7 @@ Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledge
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,12/05/2023
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-contentmoderator,1,false,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,10,false,1,12/11/2023
 Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/03/2024
-Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/03/2024
+Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/15/2024
 Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
 Defender EASM,0,Defender EASM,data,Java,,,11,false,azure-analytics-defender-easm,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Java,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/devcenter,3,false,1,
@@ -1577,7 +1577,7 @@ Search,0,Resource Management - Azure AI Search,mgmt,Python,,,11,false,azure-mgmt
 Azure Stack,0,Resource Management - Azure Stack,mgmt,Python,,,11,false,azure-mgmt-azurestack,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestack,10,false,1,04/08/2021
 Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Python,,,11,false,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestackhci,10,false,1,
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Python,,,11,false,azure-mgmt-avs,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,08/25/2023
-Recovery Services,0,Resource Management - Backup,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,09/18/2023
+Recovery Services,0,Resource Management - Backup,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,01/15/2024
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,Python,,,11,false,azure-mgmt-baremetalinfrastructure,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/baremetalinfrastructure,10,false,1,
 Batch,0,Resource Management - Batch,mgmt,Python,,,11,false,azure-mgmt-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,1,12/18/2023
 Billing,0,Resource Management - Billing,mgmt,Python,,,11,false,azure-mgmt-billing,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/billing,10,false,1,05/12/2021
