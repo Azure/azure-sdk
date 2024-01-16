@@ -17,7 +17,10 @@ This page provides an inventory of all Azure Rest API Specifications from [azure
   <li class="nav-item {% if include.type == 'mgmt' %}active{% endif %}">
     <a class="nav-link" href="{{ site.baseurl }}/releases/latest/mgmt/specs.html">Management TypeSpecs{% if include.type == 'mgmt' %} ({{specs.size}}){% endif %}</a>
   </li>
-  <li class="nav-item {% if include.type == 'all' %}active{% endif %}">
+  <li class="nav-item {% if include.type == 'all' and include.previewonly == 'true' %}active{% endif %}">
+    <a class="nav-link" href="{{ site.baseurl }}/releases/latest/all/preview-only-specs.html">Preview Only</a>
+  </li>
+  <li class="nav-item {% if include.type == 'all' and include.previewonly != 'true' %}active{% endif %}">
     <a class="nav-link" href="{{ site.baseurl }}/releases/latest/all/specs.html">All{% if include.type == 'all' %} ({{specs.size}}){% endif %}</a>
   </li>
 </ul>
@@ -36,10 +39,11 @@ This page provides an inventory of all Azure Rest API Specifications from [azure
       {% assign resourceNames = serviceFamily.items | group_by: "ResourcePath" %}
       {% for resourceName in resourceNames %}
         {% assign typeSpecs = resourceName.items | where: 'IsTypeSpec', 'True' %}
+        {% assign stables = resourceName.items | where: 'VersionType', 'stable' %}
+        {% if include.previewonly != 'true' or stables.size == 0 %}
         <tr scope="row">
           <td>{{ serviceFamily.name }} - {{ resourceName.name }} {% if typeSpecs.size > 0 %}<small><i>(TypeSpec)</i></small>{%endif%}</td>
           <td>
-            {% assign stables = resourceName.items | where: 'VersionType', 'stable' %}
             {% include releases/spec_version_summary.md versions=stables %}
           </td>
           <td>
@@ -47,6 +51,7 @@ This page provides an inventory of all Azure Rest API Specifications from [azure
             {% include releases/spec_version_summary.md versions=previews %}
           </td>
         </tr>
+        {% endif %}
       {% endfor %}
     {% endfor %}
     </tbody>
