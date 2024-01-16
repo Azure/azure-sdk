@@ -52,12 +52,12 @@ Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Roo
 Communication,0,Communication SMS,data,.NET,,,11,false,Azure.Communication.Sms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,05/25/2021
 Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,09/12/2023
 Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,12/13/2023
-Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.AI.ContentSafety,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety,10,false,1,12/12/2023
+Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.AI.ContentSafety,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety,10,false,1,12/12/2023
 Cognitive Services,0,Conversational Language Understanding,data,.NET,,,11,false,Azure.AI.Language.Conversations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,06/14/2023
 Storage,0,Data Movement,data,.NET,Microsoft.Azure.Storage.DataMovement,https://github.com/Azure/azure-storage-net-data-movement/tree/v1.3.0,1,false,Azure.Storage.DataMovement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
 Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devcenter,3,false,1,
 IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,09/08/2022
-IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
+IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
 Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,11/08/2023
@@ -855,6 +855,7 @@ Attestation,0,Resource Management - Attestation,mgmt,Java,azure-mgmt-attestation
 Authorization,0,Resource Management - Authorization,mgmt,Java,azure-mgmt-authorization,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/authorization/mgmt-v2018_09_01_preview,3,true,azure-resourcemanager-authorization,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
 Automanage,0,Resource Management - Automanage,mgmt,Java,,,11,false,azure-resourcemanager-automanage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automanage,3,false,1,
 Automation,0,Resource Management - Automation,mgmt,Java,,,11,false,azure-resourcemanager-automation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automation,3,false,1,
+Search,0,Resource Management - Azure AI Search,mgmt,Java,,,11,false,azure-resourcemanager-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
 Azure Stack,0,Resource Management - Azure Stack,mgmt,Java,,,11,false,azure-resourcemanager-azurestack,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/azurestack,3,false,1,
 Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Java,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/azurestackhci,3,false,1,
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Java,azure-mgmt-avs,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/avs/mgmt-v2020_03_20,10,true,azure-resourcemanager-avs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/avs,10,false,1,08/22/2023
@@ -867,7 +868,6 @@ Billing Benefits,0,Resource Management - Billing Benefits,mgmt,Java,,,11,false,a
 Bot Service,0,Resource Management - Bot Service,mgmt,Java,,,11,false,azure-resourcemanager-botservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/botservice,3,false,1,
 Change Analysis,0,Resource Management - Change Analysis,mgmt,Java,,,11,false,azure-resourcemanager-changeanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/changeanalysis,10,false,1,01/12/2023
 Chaos,0,Resource Management - Chaos,mgmt,Java,,,11,false,azure-resourcemanager-chaos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/chaos,10,false,1,11/16/2023
-Search,0,Resource Management - Cognitive Search,mgmt,Java,azure-mgmt-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,Java,azure-mgmt-cognitiveservices,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/cognitiveservices/mgmt-v2017_04_18,10,true,azure-resourcemanager-cognitiveservices,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices,10,false,1,02/24/2023
 Commerce,0,Resource Management - Commerce,mgmt,Java,azure-mgmt-commerce,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-commerce,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/commerce,3,false,1,
 Communication,0,Resource Management - Communication,mgmt,Java,azure-mgmt-communication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-communication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,
@@ -1109,6 +1109,7 @@ Content Delivery Network,0,azure-mgmt-cdn,mgmt,Java,azure-mgmt-cdn,https://githu
 Compute,0,azure-mgmt-compute,mgmt,Java,azure-mgmt-compute,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-compute,,4,false,1,
 Container Instances,0,azure-mgmt-containerinstance,mgmt,Java,azure-mgmt-containerinstance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-containerinstance,,4,false,1,
 Storage,0,azure-mgmt-storagecache,mgmt,Java,azure-mgmt-storagecache,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-storagecache,,4,false,1,
+Search,0,Resource Management - Cognitive Search,mgmt,Java,azure-mgmt-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-search,,4,false,1,
 Stack Edge,0,Resource Management - Data Box Edge,mgmt,Java,azure-mgmt-databoxedge,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/edgegateway/mgmt-v2019_03_01,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-databoxedge,,4,false,1,
 Storage,0,Resource Management - Data Lake Store,mgmt,Java,azure-mgmt-datalake-store,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-datalakestore,,4,false,1,
 Stack Edge,0,Resource Management - DataBoxEdge,mgmt,Java,azure-mgmt-databoxedge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,Replaced by: com.azure.resourcemanager/azure-resourcemanager-databoxedge,,4,false,1,
@@ -1822,7 +1823,6 @@ Analysis,0,Resource Management - Analysis,mgmt,Java,,,11,false,Missing: Created 
 Analysis,0,Resource Management - Analysis,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Analysis,,2,false,0,
 Analysis,0,Resource Management - Analysis,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Analysis,,2,false,0,
 Analysis,0,Resource Management - Analysis,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Analysis,,2,false,0,
-Search,0,Resource Management - Azure AI Search,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Search,,2,false,0,
 Search,0,Resource Management - Azure AI Search,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Search,,2,false,0,
 Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Hci,,2,false,0,
 Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Hci,,2,false,0,
@@ -1918,7 +1918,6 @@ Storage,0,Storage - Internal Avro,data,.NET,,,11,false,Exception: Internal libra
 Storage,0,Storage - Internal Avro,data,JavaScript,,,11,false,Exception: Internal library,,10,false,1,
 Storage,0,Storage - Internal Avro,data,Python,,,11,false,Exception: Internal library,,10,false,1,
 Storage,0,Storage - Internal Avro,data,Go,,,11,false,Exception: Internal library,,10,false,1,
-Search,0,Resource Management - Cognitive Search,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-search,,2,false,0,
 Connected VMware,0,Resource Management - Connected VMware,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-connectedvmware,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
@@ -2454,6 +2453,7 @@ Search,0,Cognitive Search,data,.NET,,,11,false,Missing: Created from API in spec
 Search,0,Cognitive Search,data,Java,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
 Search,0,Cognitive Search,data,Python,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
 Search,0,Cognitive Search,data,Go,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
+Search,0,Resource Management - Cognitive Search,mgmt,Python,,,11,false,Missing: Created from API in specs repo: search/resource-manager,,2,false,0,
 Security and Compliance,0,Resource Management - Security and Compliance,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: securityandcompliance/resource-manager,,2,false,0,
 Security and Compliance,0,Resource Management - Security and Compliance,mgmt,Java,,,11,false,Missing: Created from API in specs repo: securityandcompliance/resource-manager,,2,false,0,
 Security and Compliance,0,Resource Management - Security and Compliance,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: securityandcompliance/resource-manager,,2,false,0,
