@@ -217,4 +217,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder/v2.2.0/sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.4.1
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.4.1/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `AudioTranscriptionOptions.Filename` and `AudioTranslationOptions.Filename` fields are now properly propagated, allowing
+    for disambiguating the format of an audio file when OpenAI can't detect it. (PR#22210)
+- Name: sdk/messaging/azeventhubs
+  Version: 1.0.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.0.3/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Processor distributes partitions optimally, which would result in idle or over-assigned processors. (PR#22153)
 
