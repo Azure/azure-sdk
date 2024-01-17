@@ -254,4 +254,20 @@ entries:
     #### Breaking Changes
     > These changes affect only code written against a beta version such as v1.5.0-beta.1
     * Removed persistent token caching. It will return in v1.6.0-beta.1
+- Name: sdk/messaging/azservicebus
+  Version: 1.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.6.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ReceiverOptions.TimeAfterFirstMessage lets you configure the amount of time, after the first message in a batch is received, before we return messages. (PR#22154)
+
+    #### Bugs Fixed
+
+    - Settling a message (using CompleteMessage, AbandonMessage, etc..) on a different Receiver instance than you received on no
+    longer leaks memory. (PR#22253)
 
