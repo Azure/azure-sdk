@@ -319,4 +319,18 @@ entries:
     - `/reverseGeocode`, `/reverseGeocode:batch`: Turn coordinates to an address. Replace the v1 `/search/address/reverse`, `/search/address/batch/reverse/sync/`.
     - `/search/polygon`: Supplies polygon data of a geographical area outline such as a city or a country region. Replace the v1 `/search/polygon`.
     - Support SAS token authentication.
+- Name: '@azure/eventgrid'
+  Version: 5.1.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.Storage.StorageTaskAssignmentQueued`
+    - `Microsoft.Storage.StorageTaskAssignmentCompleted`
 
