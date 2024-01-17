@@ -270,4 +270,14 @@ entries:
 
     - Settling a message (using CompleteMessage, AbandonMessage, etc..) on a different Receiver instance than you received on no
     longer leaks memory. (PR#22253)
+- Name: sdk/azidentity
+  Version: 1.5.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.5.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `InteractiveBrowserCredential` handles `AdditionallyAllowedTenants` correctly
 
