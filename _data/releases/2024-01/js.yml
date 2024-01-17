@@ -267,4 +267,70 @@ entries:
     #### Breaking Changes
 
     - Removed our polyfill implementation for `AbortSignal` and `AbortController` as these are now supported across our minimum required runtime environments.
+- Name: '@azure-rest/maps-geolocation'
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.3/sdk/maps/maps-geolocation-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS token authentication.
+- Name: '@azure-rest/maps-render'
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_1.0.0-beta.3/sdk/maps/maps-render-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS token authentication.
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.3/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support SAS token authentication.
+- Name: '@azure-rest/maps-search'
+  Version: 2.0.0-beta.1
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_2.0.0-beta.1/sdk/maps/maps-search-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - All the paths in V1 are now deprecated. Please follow the section "Use V1 SDK" in README if you find paths in V1 are still needed.
+
+    #### Features Added
+
+    - Introducing compliant [Maps Search V2](https://learn.microsoft.com/rest/api/maps/search?view=rest-maps-2023-06-01) features:
+    - `/geocode`, `/geocode:batch`: Turn an address to coordinates. Replace the v1 `/search/address`, `/search/address/batch/sync/`.
+    - `/reverseGeocode`, `/reverseGeocode:batch`: Turn coordinates to an address. Replace the v1 `/search/address/reverse`, `/search/address/batch/reverse/sync/`.
+    - `/search/polygon`: Supplies polygon data of a geographical area outline such as a city or a country region. Replace the v1 `/search/polygon`.
+    - Support SAS token authentication.
+- Name: '@azure/eventgrid'
+  Version: 5.1.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.Storage.StorageTaskAssignmentQueued`
+    - `Microsoft.Storage.StorageTaskAssignmentCompleted`
 
