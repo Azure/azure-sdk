@@ -240,4 +240,18 @@ entries:
     #### Bugs Fixed
 
     - Processor distributes partitions optimally, which would result in idle or over-assigned processors. (PR#22153)
+- Name: sdk/azidentity
+  Version: 1.5.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.5.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Credentials now preserve MSAL headers e.g. X-Client-Sku
+
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.5.0-beta.1
+    * Removed persistent token caching. It will return in v1.6.0-beta.1
 
