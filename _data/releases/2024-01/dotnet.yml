@@ -312,4 +312,12 @@ entries:
 
     - Fixed the logic used to set the TimeToLive value of the AmqpMessageHeader for received messages to be based on the difference of the AbsoluteExpiryTime and CreationTime properties of the AmqpMessageProperties.
     - Prevent `NullReferenceException` from being thrown when the `ReceiveMessagesAsync` method is called using a high degree of concurrency.
+- Name: Azure.ResourceManager.HybridContainerService
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Hybrid Container Service
+  ServiceName: Hybrid Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridContainerService_1.0.0-beta.5/sdk/hybridaks/Azure.ResourceManager.HybridContainerService/CHANGELOG.md
+  ChangelogContent: ""
 
