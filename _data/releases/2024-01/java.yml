@@ -1230,4 +1230,20 @@ entries:
 
     - The version 2.9.0 is the stable release for all the features introduced in the 2.9.0-beta.* versions.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.15.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.15.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removes extraneous log messages when deserializing topics or subscriptions. ([32325](https://github.com/Azure/azure-sdk-for-java/issues/32325))
+
+    #### Features Added
+
+    - The version 7.15.0 is the stable release for all the features introduced in the 7.15.0-beta.* versions.
+  GroupId: com.azure
 
