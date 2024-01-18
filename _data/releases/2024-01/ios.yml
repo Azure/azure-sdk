@@ -16,4 +16,26 @@ entries:
     * Added support for ContentSharingCallFeature.
     * Added support for audio filters.
     * Added support for IceServerInfo.
+- Name: AzureCommunicationCalling
+  Version: 2.8.0-beta.2
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.8.0-beta.2/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Renamed `CallNetworkOptions` with `CallNetworkConfigurationOptions`.
+    * Renamed `IceServerInfo` with `IceServerOptions`.
+    * Renamed `CallBase` with `CommonCall`.
+- Name: AzureCommunicationCalling
+  Version: 2.8.0-beta.3
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.8.0-beta.3/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated media proxy feature.
 
