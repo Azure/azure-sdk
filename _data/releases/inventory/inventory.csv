@@ -1,5 +1,5 @@
 Service,ServiceId,SDK,Plane,Language,Track1.Package,Track1.RepoLink,Track1.ColorCode,Track1.Deprecated,Track2.Package,Track2.RepoLink,Track2.ColorCode,Track2.Deprecated,PercentComplete,LatestRelease
-Communication,0,Communication Chat,data,Android,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/communication,10,false,1,10/25/2023
+Communication,0,Communication Chat,data,Android,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/communication,10,false,1,01/19/2024
 Communication,0,Communication Common,data,Android,,,11,false,azure-communication-common,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/communication,10,false,1,10/23/2023
 Core Credential,0,Core Credential,data,Android,,,11,false,azure-core-credential,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core,3,false,1,
 Core HTTP,0,Core HTTP,data,Android,,,11,false,azure-core-http,https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core,3,false,1,
@@ -245,6 +245,7 @@ Notification Hubs,0,Resource Management - Notification Hubs,mgmt,.NET,Microsoft.
 Orbital,0,Resource Management - Orbital,mgmt,.NET,,,11,false,Azure.ResourceManager.Orbital,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/orbital,10,false,1,11/30/2023
 Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,.NET,,,11,false,Azure.ResourceManager.PaloAltoNetworks.Ngfw,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/paloaltonetworks.ngfw,10,false,1,11/23/2023
 Peering,0,Resource Management - Peering,mgmt,.NET,Microsoft.Azure.Management.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,true,Azure.ResourceManager.Peering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/peering,10,false,1,11/30/2023
+Playwrighttesting,0,Resource Management - Playwrighttesting,mgmt,.NET,,,11,false,Azure.ResourceManager.PlaywrightTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,false,1,
 Policy Insights,0,Resource Management - Policy Insights,mgmt,.NET,Microsoft.Azure.Management.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,true,Azure.ResourceManager.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,false,1,11/30/2023
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,.NET,Microsoft.Azure.Management.PostgreSQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql/Microsoft.Azure.Management.PostgreSQL,10,true,Azure.ResourceManager.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql,10,false,1,
 Power BI Dedicated,0,Resource Management - Power BI Dedicated,mgmt,.NET,Microsoft.Azure.Management.PowerBIDedicated,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/powerbidedicated/Microsoft.Azure.Management.PowerBIDedicated,3,true,Azure.ResourceManager.PowerBIDedicated,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/powerbidedicated,3,false,1,
@@ -820,7 +821,7 @@ Purview,0,Purview Workflow,data,Java,,,11,false,azure-analytics-purview-workflow
 Schema Registry,0,Schema Registry,data,Java,,,11,false,azure-data-schemaregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,12/05/2023
 Schema Registry,0,Schema Registry - Avro,data,Java,,,11,false,azure-data-schemaregistry-apacheavro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,12/05/2023
 Schema Registry,0,Schema Registry - JSON,data,Java,,,11,false,azure-data-schemaregistry-jsonschema,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,3,false,1,
-Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,12/07/2023
+Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,01/18/2024
 Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,12/05/2023
 Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,12/05/2023
 Storage,0,Storage - Blobs Changefeed,data,Java,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
@@ -840,7 +841,7 @@ Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalyt
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/videoanalyzer,3,false,1,
 Web PubSub,0,Web PubSub,data,Java,,,11,false,azure-messaging-webpubsub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,12/05/2023
-Web PubSub,0,Web PubSub Client,data,Java,,,11,false,azure-messaging-webpubsub-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,3,false,1,
+Web PubSub,0,Web PubSub Client,data,Java,,,11,false,azure-messaging-webpubsub-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,01/19/2024
 Advisor,0,Resource Management - Advisor,mgmt,Java,azure-mgmt-advisor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-advisor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/advisor,3,false,1,
 AgriFood,0,Resource Management - AgriFood,mgmt,Java,,,11,false,azure-resourcemanager-agrifood,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood,3,false,1,
 Alerts Management,0,Resource Management - Alerts Management,mgmt,Java,,,11,false,azure-resourcemanager-alertsmanagement,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/alertsmanagement,3,false,1,
@@ -1152,7 +1153,7 @@ Communication,0,Communication Sms,data,JavaScript,,,11,false,@azure/communicatio
 Confidential Ledger,0,Confidential Ledger,data,JavaScript,,,11,false,@azure-rest/confidential-ledger,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/confidentialledger/confidential-ledger-rest/,10,false,1,07/19/2022
 Container Registry,0,Container Registry,data,JavaScript,,,11,false,@azure/container-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry,10,false,1,05/11/2023
 Cognitive Services,0,Content Safety,data,JavaScript,@azure/cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-contentmoderator,1,false,@azure-rest/ai-content-safety,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/contentsafety/ai-content-safety-rest/,10,false,1,12/11/2023
-Cosmos DB,0,Cosmos DB,data,JavaScript,documentdb,UNABLE TO DETERMINE REPO LINK,1,false,@azure/cosmos,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb,10,false,1,09/12/2023
+Cosmos DB,0,Cosmos DB,data,JavaScript,documentdb,UNABLE TO DETERMINE REPO LINK,1,false,@azure/cosmos,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb,10,false,1,
 Defender EASM,0,Defender EASM,data,JavaScript,,,11,false,@azure-rest/defender-easm,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/easm/defender-easm-rest/,3,false,1,
 Dev Center,0,Dev Center,data,JavaScript,,,11,false,@azure-rest/developer-devcenter,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/devcenter/developer-devcenter-rest/,3,false,1,
 IoT,0,Device Update,data,JavaScript,,,11,false,@azure-rest/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/deviceupdate/iot-device-update-rest/,10,false,1,09/09/2022
@@ -1484,7 +1485,7 @@ Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://g
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,12/05/2023
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/18/2024
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,11/23/2023
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,12/04/2023
@@ -1712,7 +1713,7 @@ Resource Mover,0,Resource Management - Resource Mover,mgmt,Python,,,11,false,azu
 Resources,0,Resource Management - Resources,mgmt,Python,,,11,false,azure-mgmt-resource,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,10,false,1,05/18/2023
 Scheduler,0,Resource Management - Scheduler,mgmt,Python,,,11,false,azure-mgmt-scheduler,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-scheduler_2.0.0/azure-mgmt-scheduler/,10,false,1,05/23/2018
 Scvmm,0,Resource Management - Scvmm,mgmt,Python,,,11,false,azure-mgmt-scvmm,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/scvmm,3,false,1,
-Security,0,Resource Management - Security,mgmt,Python,,,11,false,azure-mgmt-security,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/security,10,false,1,04/20/2023
+Security,0,Resource Management - Security,mgmt,Python,,,11,false,azure-mgmt-security,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/security,10,false,1,01/19/2024
 Security Insights,0,Resource Management - Security Insights,mgmt,Python,,,11,false,azure-mgmt-securityinsight,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/securityinsight,10,false,1,07/26/2022
 Self Help,0,Resource Management - Self Help,mgmt,Python,,,11,false,azure-mgmt-selfhelp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/selfhelp,10,false,1,
 Serial Console,0,Resource Management - Serial Console,mgmt,Python,,,11,false,azure-mgmt-serialconsole,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/serialconsole,10,false,1,05/21/2021
