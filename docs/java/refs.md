@@ -1,6 +1,7 @@
 <!-- Project Links -->
 [Project Reactor]: https://projectreactor.io
-[reactor-context]: https://projectreactor.io/docs/core/release/reference/#context
+[reactor-context]: https://projectreactor.io 
+<!-- https://projectreactor.io/docs/core/release/reference/#context direct link is 404'ing currently -->
 [RxJava]: https://github.com/ReactiveX/RxJava
 [BlockHound]: https://github.com/reactor/BlockHound
 [OpenTelemetry]: https://opentelemetry.io
