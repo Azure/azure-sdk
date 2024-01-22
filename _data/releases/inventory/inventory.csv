@@ -136,7 +136,7 @@ Automanage,0,Resource Management - Automanage,mgmt,.NET,Microsoft.Azure.Manageme
 Automation,0,Resource Management - Automation,mgmt,.NET,Microsoft.Azure.Management.Automation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/automation/Microsoft.Azure.Management.Automation,3,true,Azure.ResourceManager.Automation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/automation,10,false,1,11/27/2023
 Search,0,Resource Management - Azure AI Search,mgmt,.NET,,,11,false,Azure.ResourceManager.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,12/01/2023
 Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,.NET,,,11,false,Azure.ResourceManager.Hci,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestackhci,10,false,1,11/27/2023
-Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,.NET,Microsoft.Azure.Management.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,true,Azure.ResourceManager.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,false,1,11/27/2023
+Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,.NET,Microsoft.Azure.Management.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,true,Azure.ResourceManager.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,false,1,01/22/2024
 Recovery Services,0,Resource Management - Backup,mgmt,.NET,Microsoft.Azure.Management.BackupServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.RecoveryServicesBackup,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-backup,10,false,1,01/03/2024
 Batch,0,Resource Management - Batch,mgmt,.NET,Microsoft.Azure.Management.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,true,Azure.ResourceManager.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,1,01/18/2024
 Billing,0,Resource Management - Billing,mgmt,.NET,Microsoft.Azure.Management.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,true,Azure.ResourceManager.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,false,1,11/27/2023
@@ -759,7 +759,7 @@ Cognitive Services,0,Anomaly Detector,data,Java,,,11,false,azure-ai-anomalydetec
 App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,12/05/2023
 Attestation,0,Attestation,data,Java,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/attestation,10,false,1,12/05/2023
 Search,0,Azure AI Search,data,Java,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/search,10,false,1,12/07/2023
-Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Java,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,12/07/2023
+Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Java,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,01/19/2024
 Maps,0,Azure Maps Elevation,data,Java,,,11,false,azure-maps-elevation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,true,1,
 Maps,0,Azure Maps Geolocation,data,Java,,,11,false,azure-maps-geolocation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
 Maps,0,Azure Maps TimeZone,data,Java,,,11,false,azure-maps-timezone,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
@@ -791,7 +791,7 @@ IoT,0,Digital Twins,data,Java,,,11,false,azure-digitaltwins-core,https://github.
 Document Intelligence,0,Document Intelligence,data,Java,,,11,false,azure-ai-documentintelligence,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/documentintelligence,3,false,1,
 Cognitive Services,0,Document Translation,data,Java,,,11,false,azure-ai-documenttranslator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,3,false,1,
 Event Grid,0,Event Grid,data,Java,azure-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/microsoft-azure-eventgrid,10,true,azure-messaging-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,12/05/2023
-Event Hubs,0,Event Hubs,data,Java,azure-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs,10,true,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,12/07/2023
+Event Hubs,0,Event Hubs,data,Java,azure-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs,10,true,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,01/19/2024
 FarmBeats,0,FarmBeats,data,Java,,,11,false,azure-verticals-agrifood-farming,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,Java,,,11,false,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer,10,false,1,12/05/2023
 Cognitive Services,0,Health Insights Cancer Profiling,data,Java,,,11,false,azure-health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
@@ -1007,7 +1007,7 @@ Service Networking,0,Resource Management - Service Networking,mgmt,Java,,,11,fal
 SignalR,0,Resource Management - SignalR,mgmt,Java,azure-mgmt-signalr,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/signalr/mgmt-v2020_05_01,3,true,azure-resourcemanager-signalr,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/signalr,3,false,1,
 Recovery Services,0,Resource Management - Site Recovery,mgmt,Java,azure-mgmt-recoveryservices,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/recoveryservicessiterecovery,10,false,1,09/22/2023
 Sphere,0,Resource Management - Sphere,mgmt,Java,,,11,false,azure-resourcemanager-sphere,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/sphere,3,false,1,
-SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
+SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Java,,,11,false,azure-resourcemanager-sqlvirtualmachine,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/sqlvirtualmachine,3,false,1,
 Storage,0,Resource Management - Storage,mgmt,Java,azure-mgmt-storage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-storage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
 Storage,0,Resource Management - Storage Cache,mgmt,Java,azure-mgmt-storagecache,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/storagecache/mgmt-v2020_03_01,3,true,azure-resourcemanager-storagecache,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storagecache,3,false,1,
@@ -1164,7 +1164,8 @@ Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://gith
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,11/07/2023
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
-Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,
+Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,01/22/2024
+Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
 Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,
@@ -1485,7 +1486,7 @@ Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://g
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/18/2024
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/19/2024
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,11/23/2023
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,12/04/2023
@@ -1514,6 +1515,7 @@ Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrec
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/26/2023
+Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,3,false,1,
 Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
@@ -1591,7 +1593,7 @@ Chaos,0,Resource Management - Chaos,mgmt,Python,,,11,false,azure-mgmt-chaos,http
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,Python,,,11,false,azure-mgmt-cognitiveservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,10,false,1,07/24/2023
 Commerce,0,Resource Management - Commerce,mgmt,Python,,,11,false,azure-mgmt-commerce,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/commerce,10,false,1,01/04/2021
 Communication,0,Resource Management - Communication,mgmt,Python,,,11,false,azure-mgmt-communication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
-Compute,0,Resource Management - Compute,mgmt,Python,,,11,false,azure-mgmt-compute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,12/18/2023
+Compute,0,Resource Management - Compute,mgmt,Python,,,11,false,azure-mgmt-compute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,01/22/2024
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,Python,,,11,false,azure-mgmt-confidentialledger,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger,10,false,1,05/30/2022
 Confluent,0,Resource Management - Confluent,mgmt,Python,,,11,false,azure-mgmt-confluent,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confluent,10,false,1,11/21/2023
 Connected VMware,0,Resource Management - Connected VMware,mgmt,Python,,,11,false,azure-mgmt-connectedvmware,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/connectedvmware,10,false,1,10/25/2023
@@ -1599,7 +1601,7 @@ Consumption,0,Resource Management - Consumption,mgmt,Python,,,11,false,azure-mgm
 Container Apps,0,Resource Management - Container Apps,mgmt,Python,,,11,false,azure-mgmt-appcontainers,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appcontainers,10,false,1,08/22/2023
 Container Instances,0,Resource Management - Container Instances,mgmt,Python,,,11,false,azure-mgmt-containerinstance,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerinstance,10,false,1,04/21/2023
 Container Registry,0,Resource Management - Container Registry,mgmt,Python,,,11,false,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry,10,false,1,11/20/2023
-Container Service,0,Resource Management - Container Service,mgmt,Python,,,11,false,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,11/21/2023
+Container Service,0,Resource Management - Container Service,mgmt,Python,,,11,false,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,01/22/2024
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Python,,,11,false,azure-mgmt-containerservicefleet,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,10/27/2023
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Python,,,11,false,azure-mgmt-cdn,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cdn,10,false,1,10/24/2023
 Cosmos DB,0,Resource Management - Cosmos DB,mgmt,Python,azure-mgmt-documentdb,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-documentdb_0.1.3/azure-mgmt-documentdb/,3,true,azure-mgmt-cosmosdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,12/19/2023
@@ -1733,7 +1735,7 @@ Storage,0,Resource Management - Storage Import/Export,mgmt,Python,,,11,false,azu
 Storage,0,Resource Management - Storage Mover,mgmt,Python,,,11,false,azure-mgmt-storagemover,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagemover,10,false,1,10/24/2023
 Storage,0,Resource Management - Storage Pool,mgmt,Python,,,11,false,azure-mgmt-storagepool,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagepool,10,false,1,10/14/2021
 Storage,0,Resource Management - Storage Sync,mgmt,Python,,,11,false,azure-mgmt-storagesync,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,04/08/2021
-Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Python,,,11,false,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics,10,false,1,01/06/2022
+Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Python,,,11,false,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics,10,false,1,
 Subscriptions,0,Resource Management - Subscriptions,mgmt,Python,,,11,false,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/subscription,10,false,1,09/06/2022
 Support,0,Resource Management - Support,mgmt,Python,,,11,false,azure-mgmt-support,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/support,10,false,1,
 Synapse,0,Resource Management - Synapse,mgmt,Python,,,11,false,azure-mgmt-synapse,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,10,false,1,04/07/2021
