@@ -86,7 +86,7 @@ type WidgetClient struct {
 
 #### Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor (eg: `NewClient`) MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then the preferred credential type is used instead.  Constructors MUST return the client instance by reference.
+{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor (eg: `NewClient`) MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then this constructor should not exist.  Constructors MUST return the client instance by reference.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.
