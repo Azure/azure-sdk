@@ -35,4 +35,14 @@ entries:
     - `Microsoft.Storage.StorageTaskAssignmentCompleted`
 
     These system events will be added in the future.
+- Name: '@azure/cosmos'
+  Version: 4.0.1-beta.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.2/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - The earlier release version 4.0.1-beta.1 encountered compatibility issues with certain browser environments due to the disablement of SharedArrayBuffer. This version resolves that issue.
 
