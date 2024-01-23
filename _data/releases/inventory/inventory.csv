@@ -256,7 +256,7 @@ Quantum,0,Resource Management - Quantum,mgmt,.NET,Microsoft.Azure.Management.Qua
 Qumulo,0,Resource Management - Qumulo,mgmt,.NET,,,11,false,Azure.ResourceManager.Qumulo,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/qumulo,10,false,1,11/30/2023
 Quota,0,Resource Management - Quota,mgmt,.NET,Microsoft.Azure.Management.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/quota,10,false,1,
 Recovery Services,0,Resource Management - Recovery Services,mgmt,.NET,Microsoft.Azure.Management.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,3,true,Azure.ResourceManager.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,10,false,1,12/01/2023
-Redis,0,Resource Management - Redis,mgmt,.NET,Microsoft.Azure.Management.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/redis,10,false,1,
+Redis,0,Resource Management - Redis,mgmt,.NET,Microsoft.Azure.Management.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/redis,10,false,1,01/23/2024
 Redis,0,Resource Management - Redis Enterprise,mgmt,.NET,Microsoft.Azure.Management.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/redisenterprise,10,false,1,
 Relay,0,Resource Management - Relay,mgmt,.NET,Microsoft.Azure.Management.Relay,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/relay/Microsoft.Azure.Management.Relay,10,true,Azure.ResourceManager.Relay,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/relay,10,false,1,12/01/2023
 Reservations,0,Resource Management - Reservations,mgmt,.NET,Microsoft.Azure.Management.Reservations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/reservations,3,true,Azure.ResourceManager.Reservations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/reservations,10,false,1,12/01/2023
@@ -748,7 +748,7 @@ Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,f
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Internal,0,sdk/resourcemanager/internal,mgmt,Go,sdk/resourcemanager/internal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/internal,10,false,,,1,false,0,
-Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,
+Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,01/23/2024
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/11/2023
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/21/2022
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -932,7 +932,7 @@ Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,Java,,,11,f
 Container Service,0,Resource Management - Hybrid Container Service,mgmt,Java,,,11,false,azure-resourcemanager-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridcontainerservice,3,false,1,
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,Java,,,11,false,azure-resourcemanager-hybridkubernetes,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridkubernetes,3,false,1,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,Java,,,11,false,azure-resourcemanager-hybridnetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork,10,false,1,11/21/2023
-Image Builder,0,Resource Management - Image Builder,mgmt,Java,,,11,false,azure-resourcemanager-imagebuilder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/imagebuilder,3,false,1,
+Image Builder,0,Resource Management - Image Builder,mgmt,Java,,,11,false,azure-resourcemanager-imagebuilder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/imagebuilder,10,false,1,01/23/2024
 IoT,0,Resource Management - IoT Central,mgmt,Java,azure-mgmt-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/iotcentral/mgmt-v2018_09_01,10,true,azure-resourcemanager-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iotcentral,10,false,1,11/15/2021
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,Java,,,11,false,azure-resourcemanager-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iotfirmwaredefense,3,false,1,
 IoT,0,Resource Management - IoT Hub,mgmt,Java,azure-mgmt-iothub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-iothub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iothub,10,false,1,09/20/2023
@@ -1160,7 +1160,7 @@ IoT,0,Device Update,data,JavaScript,,,11,false,@azure-rest/iot-device-update,htt
 IoT,0,Digital Twins - Core,data,JavaScript,,,11,false,@azure/digital-twins-core,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins,10,false,1,07/19/2022
 IoT,0,Digital Twins Definition Language Parser,data,JavaScript,,,11,false,@azure/dtdl-parser,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins,3,false,1,
 Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest/ai-document-translator,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documenttranslator/ai-document-translator-rest/,3,false,1,
-Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,01/17/2024
+Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,01/23/2024
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,11/07/2023
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
@@ -1925,6 +1925,8 @@ Storage,0,Storage - Internal Avro,data,Go,,,11,false,Exception: Internal library
 Connected VMware,0,Resource Management - Connected VMware,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-connectedvmware,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
+Image Builder,0,Resource Management - Image Builder,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-imagebuilder,,2,false,0,
+Image Builder,0,Resource Management - Image Builder,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-imagebuilder,,2,false,0,
 Data Explorer,0,Resource Management - Kusto,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-kusto,,2,false,0,
 Data Explorer,0,Resource Management - Kusto,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-kusto,,2,false,0,
 Log Analytics,0,Resource Management - Log Analytics,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-loganalytics,,2,false,0,
@@ -2011,8 +2013,6 @@ Hardware Security Modules,0,Resource Management - Hardware Security Modules,mgmt
 Hardware Security Modules,0,Resource Management - Hardware Security Modules,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-hardwaresecuritymodules,,2,false,0,
 Hardware Security Modules,0,Resource Management - Hardware Security Modules,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-hardwaresecuritymodules,,2,false,0,
 Hardware Security Modules,0,Resource Management - Hardware Security Modules,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-hardwaresecuritymodules,,2,false,0,
-Image Builder,0,Resource Management - Image Builder,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-imagebuilder,,2,false,0,
-Image Builder,0,Resource Management - Image Builder,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-imagebuilder,,2,false,0,
 Links,0,Resource Management - Links,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
 Links,0,Resource Management - Links,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
 Links,0,Resource Management - Links,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
