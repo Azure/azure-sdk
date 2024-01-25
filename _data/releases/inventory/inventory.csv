@@ -86,7 +86,7 @@ Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https:/
 Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
 Cognitive Services,0,OpenAI Inference,data,.NET,,,11,false,Azure.AI.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,11/29/2023
-Monitor,0,OpenTelemetry Exporter,data,.NET,Microsoft.OpenTelemetry.Exporter.AzureMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Monitor.OpenTelemetry.Exporter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,11/29/2023
+Monitor,0,OpenTelemetry Exporter,data,.NET,Microsoft.OpenTelemetry.Exporter.AzureMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Monitor.OpenTelemetry.Exporter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,01/24/2024
 Cognitive Services,0,Personalizer,data,.NET,Microsoft.Azure.CognitiveServices.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Personalizer_1.0.0/sdk/cognitiveservices/Personalizer,1,false,Azure.AI.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer,3,false,1,
 Purview,0,Purview Account,data,.NET,,,11,false,Azure.Analytics.Purview.Account,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,false,1,
 Purview,0,Purview Administration,data,.NET,,,11,false,Azure.Analytics.Purview.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,false,1,
@@ -660,7 +660,7 @@ Net App,0,Resource Management - Net App,mgmt,Go,,,11,false,sdk/resourcemanager/n
 Network,0,Resource Management - Network,mgmt,Go,,,11,false,sdk/resourcemanager/network/armnetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/network/armnetwork,10,false,1,12/20/2023
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,Go,,,11,false,sdk/resourcemanager/networkcloud/armnetworkcloud,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkcloud/armnetworkcloud,10,false,1,11/24/2023
 Network Function,0,Resource Management - Network Function,mgmt,Go,,,11,false,sdk/resourcemanager/networkfunction/armnetworkfunction,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkfunction/armnetworkfunction,10,false,1,11/24/2023
-Networkanalytics,0,Resource Management - Networkanalytics,mgmt,Go,,,11,false,sdk/resourcemanager/networkanalytics/armnetworkanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkanalytics/armnetworkanalytics,3,false,1,
+Networkanalytics,0,Resource Management - Networkanalytics,mgmt,Go,,,11,false,sdk/resourcemanager/networkanalytics/armnetworkanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkanalytics/armnetworkanalytics,10,false,1,01/25/2024
 New Relic Observability,0,Resource Management - New Relic Observability,mgmt,Go,,,11,false,sdk/resourcemanager/newrelic/armnewrelicobservability,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/newrelic/armnewrelicobservability,10,false,1,11/24/2023
 Nginx,0,Resource Management - Nginx,mgmt,Go,,,11,false,sdk/resourcemanager/nginx/armnginx,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/nginx/armnginx,10,false,1,11/23/2023
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,Go,,,11,false,sdk/resourcemanager/notificationhubs/armnotificationhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/notificationhubs/armnotificationhubs,10,false,1,11/24/2023
@@ -724,7 +724,7 @@ Storage,0,Resource Management - Storage Pool,mgmt,Go,,,11,false,sdk/resourcemana
 Storage,0,Resource Management - Storage Sync,mgmt,Go,,,11,false,sdk/resourcemanager/storagesync/armstoragesync,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagesync/armstoragesync,10,false,1,11/24/2023
 StorSimple 1200 series,0,Resource Management - StorSimple 1200 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple1200series/armstorsimple1200series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple1200series/armstorsimple1200series,10,true,1,11/24/2023
 StorSimple 8000 series,0,Resource Management - StorSimple 8000 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple8000series/armstorsimple8000series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple8000series/armstorsimple8000series,10,true,1,11/24/2023
-Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/streamanalytics/armstreamanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/streamanalytics/armstreamanalytics,10,false,1,11/24/2023
+Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/streamanalytics/armstreamanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/streamanalytics/armstreamanalytics,10,false,1,
 Subscriptions,0,Resource Management - Subscriptions,mgmt,Go,,,11,false,sdk/resourcemanager/subscription/armsubscription,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/subscription/armsubscription,10,false,1,11/24/2023
 Support,0,Resource Management - Support,mgmt,Go,,,11,false,sdk/resourcemanager/support/armsupport,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/support/armsupport,10,false,1,11/27/2023
 Synapse,0,Resource Management - Synapse Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/synapse/armsynapse,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/synapse/armsynapse,3,false,1,
@@ -914,7 +914,7 @@ Dynatrace,0,Resource Management - Dynatrace,mgmt,Java,,,11,false,azure-resourcem
 Edge Order,0,Resource Management - Edge Order,mgmt,Java,,,11,false,azure-resourcemanager-edgeorder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/edgeorder,3,false,1,
 Education,0,Resource Management - Education,mgmt,Java,,,11,false,azure-resourcemanager-education,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/education,3,false,1,
 Elastic,0,Resource Management - Elastic,mgmt,Java,,,11,false,azure-resourcemanager-elastic,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elastic,3,false,1,
-Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Java,,,11,false,azure-resourcemanager-elasticsan,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elasticsan,3,false,1,
+Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Java,,,11,false,azure-resourcemanager-elasticsan,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elasticsan,10,false,1,01/25/2024
 Event Grid,0,Resource Management - Event Grid,mgmt,Java,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,true,azure-resourcemanager-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Java,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,12/22/2023
 Extended Location,0,Resource Management - Extended Location,mgmt,Java,,,11,false,azure-resourcemanager-extendedlocation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/extendedlocation,3,false,1,
@@ -929,7 +929,7 @@ Health Bot,0,Resource Management - Health Bot,mgmt,Java,,,11,false,azure-resourc
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,Java,,,11,false,azure-resourcemanager-healthcareapis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthcareapis,10,false,1,12/21/2023
 Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Java,azure-mgmt-hybridcompute,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-hybridcompute,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridcompute,3,false,1,
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,Java,,,11,false,azure-resourcemanager-hybridconnectivity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridconnectivity,10,false,1,09/22/2023
-Container Service,0,Resource Management - Hybrid Container Service,mgmt,Java,,,11,false,azure-resourcemanager-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridcontainerservice,3,false,1,
+Container Service,0,Resource Management - Hybrid Container Service,mgmt,Java,,,11,false,azure-resourcemanager-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridcontainerservice,10,false,1,01/25/2024
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,Java,,,11,false,azure-resourcemanager-hybridkubernetes,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridkubernetes,3,false,1,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,Java,,,11,false,azure-resourcemanager-hybridnetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork,10,false,1,11/21/2023
 Image Builder,0,Resource Management - Image Builder,mgmt,Java,,,11,false,azure-resourcemanager-imagebuilder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/imagebuilder,10,false,1,01/23/2024
@@ -1559,7 +1559,7 @@ Cognitive Services,0,Text Translation,data,Python,,,11,false,azure-ai-translatio
 Video Analyzer,0,Video Analyzer Edge,data,Python,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/videoanalyzer,3,false,1,
 Web PubSub,0,Web PubSub,data,Python,,,11,false,azure-messaging-webpubsubservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,02/15/2022
 Dev Center,0,Resource Management -  Dev Center,mgmt,Python,,,11,false,azure-mgmt-devcenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devcenter,10,false,1,
-Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,Python,,,11,false,azure-mgmt-elasticsan,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/elasticsan,3,false,1,
+Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,Python,,,11,false,azure-mgmt-elasticsan,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/elasticsan,10,false,1,01/25/2024
 Security DevOps,0,Resource Management -  Security DevOps,mgmt,Python,,,11,false,azure-mgmt-securitydevops,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/securitydevops,3,false,1,
 Advisor,0,Resource Management - Advisor,mgmt,Python,,,11,false,azure-mgmt-advisor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/advisor,10,false,1,01/04/2021
 Agrifood,0,Resource Management - Agrifood,mgmt,Python,,,11,false,azure-mgmt-agfood,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agfood,3,true,1,
@@ -1646,7 +1646,7 @@ Health Bot,0,Resource Management - Health Bot,mgmt,Python,,,11,false,azure-mgmt-
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,Python,,,11,false,azure-mgmt-healthcareapis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthcareapis,10,false,1,12/20/2023
 Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Python,,,11,false,azure-mgmt-hybridcompute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcompute,10,false,1,
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,Python,,,11,false,azure-mgmt-hybridconnectivity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridconnectivity,10,false,1,09/20/2023
-Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,Python,,,11,false,azure-mgmt-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcontainerservice,3,false,1,
+Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,Python,,,11,false,azure-mgmt-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcontainerservice,10,false,1,01/25/2024
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,Python,,,11,false,azure-mgmt-hybridkubernetes,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridkubernetes,10,false,1,10/20/2021
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,Python,,,11,false,azure-mgmt-hybridnetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridnetwork,10,false,1,11/21/2023
 Image Builder,0,Resource Management - Image Builder,mgmt,Python,,,11,false,azure-mgmt-imagebuilder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,12/18/2023
@@ -1923,6 +1923,13 @@ Storage,0,Storage - Internal Avro,data,JavaScript,,,11,false,Exception: Internal
 Storage,0,Storage - Internal Avro,data,Python,,,11,false,Exception: Internal library,,10,false,1,
 Storage,0,Storage - Internal Avro,data,Go,,,11,false,Exception: Internal library,,10,false,1,
 Connected VMware,0,Resource Management - Connected VMware,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-connectedvmware,,2,false,0,
+Elastic SAN,0,Resource Management - Elastic SAN,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-elasticsan,,2,false,0,
+Elastic SAN,0,Resource Management - Elastic SAN,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-elasticsan,,2,false,0,
+Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-elasticsan,,2,false,0,
+Container Service,0,Resource Management - Hybrid Container Service,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridcontainerservice,,2,false,0,
+Container Service,0,Resource Management - Hybrid Container Service,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridcontainerservice,,2,false,0,
+Container Service,0,Resource Management - Hybrid Container Service,mgmt,Python,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridcontainerservice,,2,false,0,
+Container Service,0,Resource Management - Hybrid Container Service,mgmt,Go,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridcontainerservice,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-hybridnetwork,,2,false,0,
 Image Builder,0,Resource Management - Image Builder,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-imagebuilder,,2,false,0,
@@ -2092,6 +2099,10 @@ Dev Center,0,Resource Management -  Dev Center,mgmt,.NET,,,11,false,Missing: Cre
 Dev Center,0,Resource Management -  Dev Center,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
 Dev Center,0,Resource Management -  Dev Center,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
 Dev Center,0,Resource Management -  Dev Center,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
+Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-elasticsan,,2,false,0,
+Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-elasticsan,,2,false,0,
+Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-elasticsan,,2,false,0,
+Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-elasticsan,,2,false,0,
 Arc Data,0,Resource Management - Arc Data,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-azurearcdata,,2,false,0,
 Arc Data,0,Resource Management - Arc Data,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-azurearcdata,,2,false,0,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-baremetalinfrastructure,,2,false,0,
@@ -2100,6 +2111,7 @@ Custom Providers,0,Resource Management - Custom Providers,mgmt,.NET,,,11,false,M
 Custom Providers,0,Resource Management - Custom Providers,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-customproviders,,2,false,0,
 Custom Providers,0,Resource Management - Custom Providers,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-customproviders,,2,false,0,
 Storage,0,Resource Management - Data Lake Store,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-datalake-store,,2,false,0,
+Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-hybridcontainerservice,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Machine Learning,0,Resource Management - Machine Learning Services,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-machinelearningservices,,2,false,0,
