@@ -1,0 +1,97 @@
+entries:
+- Name: '@azure/identity'
+  Version: 4.0.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Initialize Public Client Application in the Interactive Browser Credential, as required by @azure/msal-browser v3 fixed in [#28292](https://github.com/Azure/azure-sdk-for-js/pull/28292).
+- Name: '@azure-rest/ai-vision-image-analysis'
+  Version: 1.0.0-beta.1
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.1/sdk/vision/ai-vision-image-analysis-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Initial release of Image Analysis SDK. Uses the generally available [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01).
+- Name: '@azure/eventgrid'
+  Version: 5.1.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.1.1/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Removed the System Events:
+
+    - `Microsoft.Storage.StorageTaskAssignmentQueued`
+    - `Microsoft.Storage.StorageTaskAssignmentCompleted`
+
+    These system events will be added in the future.
+- Name: '@azure/cosmos'
+  Version: 4.0.1-beta.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.2/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - The earlier release version 4.0.1-beta.1 encountered compatibility issues with certain browser environments due to the disablement of SharedArrayBuffer. This version resolves that issue.
+- Name: '@azure/identity'
+  Version: 3.4.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_3.4.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Initialize Public Client Application in the Interactive Browser Credential, as required by @azure/msal-browser v3 fixed in [#28292](https://github.com/Azure/azure-sdk-for-js/pull/28292).
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.19
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.19/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Capture WCF as an RPC dependency type.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.2.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.2.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implement browser SDK loader.
+    - Use OpenTelemetry resource detectors for App Service, Functions, and VM.
+    - Add Bunyan Log Instrumentation.
+    - Implement Live Metrics.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.11
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.11/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where `toolChoice` field in the input options to chat completion methods wasn't defined correctly.
+    - Fix a bug where the service returns undefined `choices` in chat completion methods.
+    - Fix a bug in chat completion methods where the returned stream was causing an error in Bun.
+
