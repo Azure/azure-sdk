@@ -81,4 +81,17 @@ entries:
     - Use OpenTelemetry resource detectors for App Service, Functions, and VM.
     - Add Bunyan Log Instrumentation.
     - Implement Live Metrics.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.11
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.11/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix a bug where `toolChoice` field in the input options to chat completion methods wasn't defined correctly.
+    - Fix a bug where the service returns undefined `choices` in chat completion methods.
+    - Fix a bug in chat completion methods where the returned stream was causing an error in Bun.
 
