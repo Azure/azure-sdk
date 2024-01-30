@@ -111,4 +111,16 @@ entries:
 
     * New API for Azure App Configuration Provider, `refresh`, which can be used to refresh the configuration from the Azure App Configuration service. `refresh` by default can check every 30 seconds for changes to specified sentinel keys. If a change is detected then all configurations are reloaded. Sentinel keys can be set by passing a list of `SentinelKey`'s to `refresh_on`.
     * Added new options `on_refresh_success` and `on_refresh_failure` callbacks to the load method. These callbacks are called when the refresh method successfully refreshes the configuration or fails to refresh the configuration.
+- Name: azure-communication-phonenumbers
+  Version: 1.2.0b3
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.2.0b3/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for API version `2023-10-01-preview`, This gives us functionality for Do Not Resell Consent Changes.
+    - Users will now be able to purchase from countries like `IT`, `AT`, `FR`, `NO`, `PT`. They can do so by agreeing not to resell phone numbers by setting consentToNotResellNumbers to true.
+    - Added support for 10DLC changes.
 
