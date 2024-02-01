@@ -183,4 +183,26 @@ entries:
     #### Bugs Fixed
 
     - Fixed certain keyword arguments from being propagated when using `MetricsQueryClient`.
+- Name: azure-ai-generative
+  Version: 1.0.0b4
+  DisplayName: AI Generative
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b4/sdk/ai/azure-ai-generative/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support custom metrics for evaluation
+- Name: azure-ai-resources
+  Version: 1.0.0b4
+  DisplayName: AI Resources
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b4/sdk/ai/azure-ai-resources/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Use openai v1 environment variable
 
