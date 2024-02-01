@@ -205,4 +205,16 @@ entries:
     #### Other Changes
 
     - Use openai v1 environment variable
+- Name: azure-core
+  Version: 1.30.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.30.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support tuple input for file values  to `azure.core.rest.HttpRequest`  #33948
+    - Support tuple input to `files` with duplicate field names  `azure.core.rest.HttpRequest`  #34021
 
