@@ -172,4 +172,15 @@ entries:
     - Added back `AzureOpenAIEmbeddingSkill`, `AzureOpenAIParameters` and `AzureOpenAIVectorizer`.
     - Added back `query_language`, `query_speller`, `semantic_fields` and `debug` for `Search` method.
     - Added `send_request` method for `SearchClient` & `SearchIndexClient` to run a network request using the client's existing pipeline.
+- Name: azure-monitor-query
+  Version: 1.2.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.2.1/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed certain keyword arguments from being propagated when using `MetricsQueryClient`.
 
