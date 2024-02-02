@@ -128,4 +128,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageCache_1.3.0-beta.1/sdk/storagecache/Azure.ResourceManager.StorageCache/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.1.0-beta.1
+  DisplayName: System.ClientModel
+  ServiceName: System.ClientModel
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview release of convenience types in the System.ClientModel namespace, including `ClientResult<T>`, `KeyCredential`, and `ClientResultException`.
+    - Initial preview release of pipeline types, including `ClientPipeline`, `PipelinePolicy`, and `PipelineMessage`.
+- Name: Azure.AI.OpenAI.Assistants
+  Version: 1.0.0-beta.1
+  DisplayName: OpenAI Assistants
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI.Assistants_1.0.0-beta.1/sdk/openai/Azure.AI.OpenAI.Assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This is the initial release of `Azure.AI.OpenAI.Assistants`.
+    - Full support for OpenAI's beta Assistants features is included; see OpenAI's documentation for more: https://platform.openai.com/docs/assistants/overview
+    - [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) does not yet feature an `/assistants` endpoint and this library will thus currently only work with the `api.openapi.com` endpoint. Stay tuned!
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.13
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.13/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue with the public constructor for `ChatCompletionsFunctionToolCall` that failed to set the tool call type in the corresponding request.
+
+    #### Breaking Changes
+
+    - Removed the setter of the `Functions` property of the `ChatCompletionsOptions` class as per the guidelines for collection properties.
 
