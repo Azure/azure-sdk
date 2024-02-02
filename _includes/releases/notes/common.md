@@ -1,7 +1,7 @@
-The Azure SDK team is pleased to announce our {{ include.displayDate }} client library releases.
-
 {% assign allPackages = site.data.releases.[include.date].[include.language].entries %}
 {% if allPackages %}
+The Azure SDK team is pleased to announce our {{ include.displayDate }} client library releases.
+
 {{ allPackages.size }} packages released this month.
 {% assign allPackages = allPackages | where: "Hidden", false | sort: 'ServiceName' %}
 

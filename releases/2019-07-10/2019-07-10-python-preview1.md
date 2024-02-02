@@ -35,7 +35,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Identity
 
-* The new `azure-identity` package simplifies authentication across the Azure Python libraries. It supports token authentication using an Azure Active Directory [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) or [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Additional forms of authentication (e.g. user authentication) will be added shortly.
+* The new `azure-identity` package simplifies authentication across the Azure Python libraries. It supports token authentication using an Azure Active Directory service principal or [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Additional forms of authentication (e.g. user authentication) will be added shortly.
 
 ### Cosmos
 

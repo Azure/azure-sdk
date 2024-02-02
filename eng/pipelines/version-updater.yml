@@ -1,160 +1,173 @@
-pool:
-  name: 'azsdk-pool-mms-ubuntu-2204-general'
-  vmImage: 'ubuntu-22.04'
-
 resources:
   repositories:
     - repository: azure-sdk-tools
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20230607.1
+      ref: refs/tags/azure-sdk-tools_20231130.1
 
 parameters:
 - name: UpdateDeprecated
   type: boolean
   default: false
 
-variables:
-  AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
-  AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
-  AzureSDKToolsScriptsPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
-
-steps:
-- checkout: self
-- checkout: azure-sdk-tools
-
-- task: PowerShell@2
-  displayName: Update packages from package manager
-  inputs:
-    pwsh: true
-    filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
-    arguments: >
-      -github_pat '$(azuresdk-github-pat)'
-      -nuget_pat '$(azure-sdk-nuget-pat)'
-      -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))
-
-- task: PowerShell@2
-  displayName: Update packages from sdk release data
-  inputs:
-    pwsh: true
-    filePath: $(AzureSDKClonePath)/eng/scripts/Update-Release-Versions.ps1
-    arguments: >
-      -github_pat '$(azuresdk-github-pat)'
-
-- task: PowerShell@2
-  displayName: Update release DevOps work-items
-  inputs:
-    pwsh: true
-    filePath: $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1
-    arguments: >
-      -github_pat '$(azuresdk-github-pat)'
-      -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
-
-- pwsh: |
-    # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
-    git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
-  displayName: Setup azure-sdk-fork remote
-  workingDirectory: $(AzureSDKClonePath)
-
-- pwsh: |
-    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
-    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
-  displayName: Setup default branch
-  workingDirectory: $(AzureSDKClonePath)
-
-- pwsh: |
-    git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
-  displayName: Clone azure-rest-api-specs repo
-
-- bash: |
-    npm install
-  workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
-  displayName: Installing Inventory Dashboard Data Scripts Dependencies
-
-- bash: |
-    npm run start $(System.DefaultWorkingDirectory)/azure-rest-api-specs/specification
-  workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
-  displayName: Run Inventory Dashboard Data Scripts
-
-- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-  parameters:
-    BaseBranchName: $(DefaultBranch)
-    RepoName: azure-sdk
-    PRBranchName: PackageVersionUpdates
-    CommitMsg: "Update package index with latest published versions"
-    PRTitle: "Update package index with latest published versions"
-    PushArgs: -f
-    WorkingDirectory: $(AzureSDKClonePath)
-    ScriptDirectory: $(AzureSDKToolsScriptsPath)
-
-- pwsh: |
-    gh pr merge $(Submitted.PullRequest.Number) --auto --squash
-  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
-  displayName: Apply AutoMerge to Pull Request
-  workingDirectory: $(AzureSDKClonePath)
-  env:
-    GH_TOKEN: $(azuresdk-github-pat)
-
-- template: template/steps/generate-releasenotes.yml
-
-- pwsh: |
-    git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-  displayName: Clone azure-dev-docs-pr repo
-
-- task: PowerShell@2
-  displayName: Generate all package index markdown files
-  inputs:
-    pwsh: true
-    filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
-    arguments: >
-      -outputFolder $(System.DefaultWorkingDirectory)/azure-dev-docs-pr/articles/includes/
-
-- pwsh: |
-    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
-    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
-  displayName: Setup default branch
-  workingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-
-- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-  parameters:
-    BaseBranchName: $(DefaultBranch)
-    RepoOwner: MicrosoftDocs
-    RepoName: azure-dev-docs-pr
-    PRBranchName: PackageIndexUpdates
-    CommitMsg: "Update package index with latest published versions"
-    PRTitle: "Update package index with latest published versions"
-    PushArgs: -f
-    WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-    ScriptDirectory: $(AzureSDKToolsScriptsPath)
-
-- pwsh: |
-    git clone https://github.com/dotnet/docs $(System.DefaultWorkingDirectory)/dotnet-docs
-  displayName: Clone dotnet docs repo
-
-- task: PowerShell@2
-  displayName: Generate dotnet package index markdown files
-  inputs:
-    pwsh: true
-    filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
-    arguments: >
-      -language dotnet
-      -outputFolder $(System.DefaultWorkingDirectory)/dotnet-docs/docs/azure/includes/
-
-- pwsh: |
-    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
-    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
-  displayName: Setup default branch
-  workingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
-
-- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-  parameters:
-    BaseBranchName: $(DefaultBranch)
-    RepoOwner: dotnet
-    RepoName: docs
-    PRBranchName: PackageIndexUpdates
-    CommitMsg: "Update package index with latest published versions"
-    PRTitle: "Update package index with latest published versions"
-    PushArgs: -f
-    WorkingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
-    ScriptDirectory: $(AzureSDKToolsScriptsPath)
+jobs:
+- job: 
+  displayName: Update Versions
+  pool:
+    name: 'azsdk-pool-mms-ubuntu-2204-general'
+    vmImage: 'ubuntu-22.04'
+  
+  timeoutInMinutes: 360
+  
+  variables:
+    AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
+    AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
+    AzureSDKToolsScriptsPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+  
+  steps:
+  - checkout: self
+  - checkout: azure-sdk-tools
+  
+  - task: PowerShell@2
+    displayName: Update packages from package manager
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
+      arguments: >
+        -github_pat '$(azuresdk-github-pat)'
+        -nuget_pat '$(azure-sdk-nuget-pat)'
+        -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))
+  
+  - task: PowerShell@2
+    displayName: Update packages from sdk release data
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Update-Release-Versions.ps1
+      arguments: >
+        -github_pat '$(azuresdk-github-pat)'
+  
+  - task: PowerShell@2
+    displayName: Update release DevOps work-items
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1
+      arguments: >
+        -github_pat '$(azuresdk-github-pat)'
+        -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
+  
+  - pwsh: |
+      # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
+      git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+    displayName: Setup azure-sdk-fork remote
+    workingDirectory: $(AzureSDKClonePath)
+  
+  - pwsh: |
+      $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+      echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+    displayName: Setup default branch
+    workingDirectory: $(AzureSDKClonePath)
+  
+  - pwsh: |
+      git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(System.DefaultWorkingDirectory)/azure-rest-api-specs
+    displayName: Clone azure-rest-api-specs repo
+  
+  - task: PowerShell@2
+    displayName: Update Rest Specs
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Update-Spec-Versions.ps1
+      arguments: >
+        -specsRoot $(System.DefaultWorkingDirectory)/azure-rest-api-specs/
+  
+  - bash: |
+      npm install
+    workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
+    displayName: Installing Inventory Dashboard Data Scripts Dependencies
+  
+  - bash: |
+      npm run start $(System.DefaultWorkingDirectory)/azure-rest-api-specs/specification
+    workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
+    displayName: Run Inventory Dashboard Data Scripts
+  
+  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    parameters:
+      BaseBranchName: $(DefaultBranch)
+      RepoName: azure-sdk
+      PRBranchName: PackageVersionUpdates
+      CommitMsg: "Update package index with latest published versions"
+      PRTitle: "Update package index with latest published versions"
+      PushArgs: -f
+      WorkingDirectory: $(AzureSDKClonePath)
+      ScriptDirectory: $(AzureSDKToolsScriptsPath)
+  
+  - pwsh: |
+      gh pr merge $(Submitted.PullRequest.Number) --auto --squash
+    condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+    displayName: Apply AutoMerge to Pull Request
+    workingDirectory: $(AzureSDKClonePath)
+    env:
+      GH_TOKEN: $(azuresdk-github-pat)
+  
+  - template: template/steps/generate-releasenotes.yml
+  
+  - pwsh: |
+      git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
+    displayName: Clone azure-dev-docs-pr repo
+  
+  - task: PowerShell@2
+    displayName: Generate all package index markdown files
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
+      arguments: >
+        -outputFolder $(System.DefaultWorkingDirectory)/azure-dev-docs-pr/articles/includes/
+  
+  - pwsh: |
+      $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+      echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+    displayName: Setup default branch
+    workingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
+  
+  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    parameters:
+      BaseBranchName: $(DefaultBranch)
+      RepoOwner: MicrosoftDocs
+      RepoName: azure-dev-docs-pr
+      PRBranchName: PackageIndexUpdates
+      CommitMsg: "Update package index with latest published versions"
+      PRTitle: "Update package index with latest published versions"
+      PushArgs: -f
+      WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
+      ScriptDirectory: $(AzureSDKToolsScriptsPath)
+  
+  - pwsh: |
+      git clone https://github.com/dotnet/docs $(System.DefaultWorkingDirectory)/dotnet-docs
+    displayName: Clone dotnet docs repo
+  
+  - task: PowerShell@2
+    displayName: Generate dotnet package index markdown files
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
+      arguments: >
+        -language dotnet
+        -outputFolder $(System.DefaultWorkingDirectory)/dotnet-docs/docs/azure/includes/
+  
+  - pwsh: |
+      $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+      echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+    displayName: Setup default branch
+    workingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
+  
+  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    parameters:
+      BaseBranchName: $(DefaultBranch)
+      RepoOwner: dotnet
+      RepoName: docs
+      PRBranchName: PackageIndexUpdates
+      CommitMsg: "Update package index with latest published versions"
+      PRTitle: "Update package index with latest published versions"
+      PushArgs: -f
+      WorkingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
+      ScriptDirectory: $(AzureSDKToolsScriptsPath)

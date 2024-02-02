@@ -1,0 +1,256 @@
+entries:
+- Name: azure-ai-contentsafety
+  Version: 1.0.0
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentsafety_1.0.0/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Microsoft Entra ID Authentication
+    - Support 8 severity level for AnalyzeText
+
+    #### Breaking Changes
+
+    Contract change for AnalyzeText, AnalyzeImage, Blocklist management related methods. The changes are listed below:
+
+    ##### AnalyzeText
+
+    - AnalyzeTextOptions
+    - Renamed breakByBlocklists to haltOnBlocklistHit
+    - Added AnalyzeTextOutputType model for the `output_type` property.
+    - AnalyzeTextResult
+    - Renamed TextBlocklistMatchResult to TextBlocklistMatch
+    - Replaced TextAnalyzeSeverityResult by TextCategoriesAnalysis
+
+    ##### AnalyzeImage
+
+    - AnalyzeImageOptions
+    - Added AnalyzeImageOutputType
+    - AnalyzeImageResult
+    - Replaced ImageAnalyzeSeverityResult by ImageCategoriesAnalysis
+
+    ##### Blocklist management
+
+    - Added BlocklistClient
+    - Renamed AddBlockItemsOptions to AddOrUpdateTextBlocklistItemsOptions
+    - Renamed AddBlockItemsResult to AddOrUpdateTextBlocklistItemsResult
+    - Renamed RemoveBlockItemsOptions to RemoveTextBlocklistItemsOptions
+    - Renamed TextBlockItemInfo to TextBlocklistItem
+- Name: azure-core
+  Version: 1.29.6
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.6/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Adjusted `AsyncBearerTokenCredentialPolicy` to work properly with `trio` concurrency mechanisms.   ([#33307](https://github.com/Azure/azure-sdk-for-python/pull/33307))
+- Name: azure-mgmt-servicefabric
+  Version: 2.1.0
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_2.1.0/sdk/servicefabric/azure-mgmt-servicefabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-deviceupdate
+  Version: 1.1.0
+  DisplayName: Resource Management - Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deviceupdate_1.1.0/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 25.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_25.2.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 1.3.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_1.3.0/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 30.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_30.4.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-rdbms
+  Version: 10.2.0b13
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b13/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-imagebuilder
+  Version: 1.3.0
+  DisplayName: Resource Management - Image Builder
+  ServiceName: Image Builder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-imagebuilder_1.3.0/sdk/compute/azure-mgmt-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-batch
+  Version: 17.2.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-batch_17.2.0/sdk/batch/azure-mgmt-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-communication
+  Version: 2.1.0b2
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-communication_2.1.0b2/sdk/communication/azure-mgmt-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 9.4.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.4.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 1.1.0b3
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.1.0b3/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes issue where the refresh timer only reset after a change was found.
+
+    #### Features Added
+
+    - Added on_refresh_success callback to load method. This callback is called when the refresh method successfully refreshes the configuration.
+    - Added minimum up time. This is the minimum amount of time the provider will try to be up before throwing an error. This is to prevent quick restart loops.
+- Name: azure-mgmt-sql
+  Version: 4.0.0b14
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b14/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-healthcareapis
+  Version: 2.0.0
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: Healthcare APIs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthcareapis_2.0.0/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-selfhelp
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-selfhelp_2.0.0b2/sdk/selfhelp/azure-mgmt-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 12.0.0b1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_12.0.0b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b20
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b20/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Store global instance of `StatsbeatMetric`
+    ([#33432](https://github.com/Azure/azure-sdk-for-python/pull/33432))
+    - Shutdown statsbeat on customer getting 400 error code
+    ([#33489](https://github.com/Azure/azure-sdk-for-python/pull/33489))
+    - Track custom events extension in feature statsbeat
+    ([#33667](https://github.com/Azure/azure-sdk-for-python/pull/33667))
+    - Readme examples are updated with correct imports
+    ([#33691](https://github.com/Azure/azure-sdk-for-python/pull/33691))
+- Name: azure-data-tables
+  Version: 12.5.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.5.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed issue in serializing EntityProperty tuples where a value of None could be serialized as the string "None".
+- Name: azure-mgmt-sql
+  Version: 4.0.0b15
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b15/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 8.0.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_8.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b21
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b21/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update to OTel SKD/API 1.21
+    ([#33864](https://github.com/Azure/azure-sdk-for-python/pull/33864))
+- Name: azure-mgmt-servicefabricmanagedclusters
+  Version: 2.0.0b5
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabricmanagedclusters_2.0.0b5/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.29.7
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.7/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Removed dependency on `anyio`.  #33282
+

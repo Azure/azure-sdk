@@ -221,7 +221,7 @@
             "AnomalyDetector": "Anomaly Detector",
             "ContentSafety": "Content Safety",
             "data-plane": "Cognitive Services",
-            "HealthInsights": "Health Insights",
+            "HealthInsights": "Health Insights Clinical Matching",
             "OpenAI.Authoring": "OpenAI.Authoring",
             "OpenAI.Inference": "OpenAI.Inference",
             "resource-manager": "Cognitive Services"
@@ -244,7 +244,7 @@
     "communication": {
         "service-display-name": "Communication",
         "api-display-names": {
-            "data-plane": "Communication",
+            "data-plane": "Communication Common",
             "resource-manager": "Communication"
         }
     },
@@ -642,11 +642,11 @@
         }
     },
     "hdinsight": {
-        "service-display-name": "HDInsights",
+        "service-display-name": "HDInsight",
         "api-display-names": {
-            "data-plane": "HDInsights",
-            "hdinsight-kafka-rest-proxy": "hdinsight-kafka-rest-proxy",
-            "resource-manager": "HDInsights"
+            "data-plane": "HDInsight",
+            "hdinsight-kafka-rest-proxy": "HDInsight Kafka REST Proxy",
+            "resource-manager": "HDInsight"
         }
     },
     "healthbot": {
@@ -1032,6 +1032,13 @@
             "resource-manager": "Peering"
         }
     },
+    "playwrighttesting": {
+        "service-display-name": "Playwright Testing",
+        "api-display-names": {
+            "PlaywrightTesting": "Platwright Testing",
+            "PlaywrightTesting.Managment":"Playwright Testing"
+        }
+    },
     "policyinsights": {
         "service-display-name": "Policy Insights",
         "api-display-names": {
@@ -1343,8 +1350,8 @@
     "sphere": {
         "service-display-name": "sphere",
         "api-display-names": {
-            "resource-manager": "sphere",
-            "Sphere.Management": "Sphere.Management"
+            "resource-manager": "Sphere",
+            "Sphere.Management": "Sphere"
         }
     },
     "sql": {
@@ -1462,8 +1469,8 @@
     "translation": {
         "service-display-name": "translation",
         "api-display-names": {
-            "Azure.AI.TextTranslation": "Azure.AI.TextTranslation",
-            "data-plane": "translation"
+            "Azure.AI.TextTranslation": "Text Translation",
+            "data-plane": "Text Translation"
         }
     },
     "vi": {
@@ -1486,9 +1493,9 @@
         }
     },
     "vmware": {
-        "service-display-name": "AVS",
+        "service-display-name": "Azure VMware Solution",
         "api-display-names": {
-            "resource-manager": "AVS"
+            "resource-manager": "Azure VMware Solution"
         }
     },
     "vmwarecloudsimple": {

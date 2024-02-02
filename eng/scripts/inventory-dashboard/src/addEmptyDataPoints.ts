@@ -190,7 +190,7 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         // Determine the plane 
         let plane: Plane = "UNABLE TO BE DETERMINED";
         if (apiSpecDir === 'data-plane') { plane = "data"; }
-        else if (apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
+        else if (apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management' || apiSpecDir === 'control-plane') { plane = 'mgmt'; sdkName = `Resource Management - ${sdkName}`; }
         else {
           // if apiSpecDir ends in .management regardless of case, print out attention log 
           if (apiSpecDir.toLowerCase().endsWith('.management')) {
@@ -209,20 +209,21 @@ async function getServicesFromSpecRepo(packages: PackageList, apiSpecsDirPath: s
         }
 
         // Check if stable spec exists 
-        const apiSpecDirContents = fs.readdirSync(path.join(apiSpecsDirPath, serviceDir, apiSpecDir));
-        if (apiSpecDir === 'data-plane' || apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management') {
-          const filteredApiSpecDirContents = apiSpecDirContents.filter(s => s.startsWith('Microsoft.'));
-          if (filteredApiSpecDirContents.length <= 0) { log.warn(`${serviceDir}/${apiSpecDir} has no dir that starts with "Microsoft."`); }
-          else {
-            const microsoftDir = filteredApiSpecDirContents[0];
-            const microsoftDirContents = fs.readdirSync(path.join(apiSpecsDirPath, serviceDir, apiSpecDir, microsoftDir));
-            const filteredMicrosoftDirContents = microsoftDirContents.filter(s => s === "stable");
-            // If no stable api was found skip
-            if (filteredMicrosoftDirContents.length <= 0) { log.info(`No stable API Spec found for ${serviceDir}/${apiSpecDir}`); continue; }
-
+        if (fs.lstatSync(path.join(apiSpecsDirPath, serviceDir, apiSpecDir)).isDirectory()) {
+          const apiSpecDirContents = fs.readdirSync(path.join(apiSpecsDirPath, serviceDir, apiSpecDir));
+          if (apiSpecDir === 'data-plane' || apiSpecDir === 'resource-manager' || apiSpecDir === 'resource-management') {
+            const filteredApiSpecDirContents = apiSpecDirContents.filter(s => s.startsWith('Microsoft.'));
+            if (filteredApiSpecDirContents.length <= 0) { log.warn(`${serviceDir}/${apiSpecDir} has no dir that starts with "Microsoft."`); }
+            else {
+              const microsoftDir = filteredApiSpecDirContents[0];
+              const microsoftDirContents = fs.readdirSync(path.join(apiSpecsDirPath, serviceDir, apiSpecDir, microsoftDir));
+              const filteredMicrosoftDirContents = microsoftDirContents.filter(s => s === "stable");
+              // If no stable api was found skip
+              if (filteredMicrosoftDirContents.length <= 0) { log.info(`No stable API Spec found for ${serviceDir}/${apiSpecDir}`); continue; }
+            }
+          } else {
+            //TODO - check if TypeSpec api has stable version, if not skip
           }
-        } else {
-          //TODO - check if TypeSpec api has stable version, if not skip
         }
 
         // loop through Tier 1 languages and create empty package if it doesn't exist

@@ -1,0 +1,36 @@
+entries:
+- Name: azure-communication-common
+  Version: 1.1.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.1.1/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Updated `android-core` version to `1.0.0-beta.13`.
+    - Updated `android-core-logging` version to `1.0.0-beta.13`.
+  GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 2.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_2.0.1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    Change Trouter EU endpoints for EUDB compliance
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency to `1.0.0-beta.13`.
+    - Updated `azure-core-credential` dependency to `1.0.0-beta.13`.
+    - Updated `azure-core-http` dependency to `1.0.0-beta.13`.
+    - Updated `azure-core-http-okhttp` dependency to `1.0.0-beta.13`.
+    - Updated `azure-core-logging` dependency to `1.0.0-beta.13`.
+    - Updated `azure-core-rest` dependency to `1.0.0-beta.13`.
+    - Updated `azure-communication-common` dependency to `1.1.1`.
+  GroupId: com.azure.android
+

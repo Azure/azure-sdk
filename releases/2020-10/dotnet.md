@@ -234,7 +234,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### New Management Libraries
 A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
 
-To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
+To get started with these new libraries, please see the [quickstart guide here](https://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
 More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
