@@ -217,4 +217,18 @@ entries:
 
     - Support tuple input for file values  to `azure.core.rest.HttpRequest`  #33948
     - Support tuple input to `files` with duplicate field names  `azure.core.rest.HttpRequest`  #34021
+- Name: azure-cosmos
+  Version: 4.5.2b4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.5.2b4/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added **preview** support for Computed Properties on Python SDK (Must be enabled on the account level before it can be used). See [PR 33626](https://github.com/Azure/azure-sdk-for-python/pull/33626).
+
+    #### Bugs Fixed
+    * Made use of `response_hook` thread-safe in the sync client. See [PR 33790](https://github.com/Azure/azure-sdk-for-python/pull/33790).
+    * Fixed bug with the session container not being properly maintained. See [33738](https://github.com/Azure/azure-sdk-for-python/pull/33738).
 
