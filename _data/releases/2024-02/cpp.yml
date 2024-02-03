@@ -14,7 +14,7 @@ entries:
 
     #### Features Added
 
-    The `Close` method on AMQP Message Sender and Message Receiver now blocks until the client receives a `DETACH` response from the remote node.
+    - The `Close` method on AMQP Message Sender and Message Receiver now blocks until the client receives a `DETACH` response from the remote node.
 
     #### Breaking Changes
 
