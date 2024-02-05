@@ -2,24 +2,40 @@
     "name": "Jekyll",
     "dockerFile": "Dockerfile",
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": { 
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "csv-edit.quoteAllFields": true,
-        "csv-edit.quoteEmptyOrNullFields": "true",
-        "csv-edit.readOption_hasHeader": "true",
-        "csv-edit.writeOption_hasHeader": "true"
+    "customizations": {
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "csv-edit.quoteAllFields": true,
+                "csv-edit.quoteEmptyOrNullFields": "true",
+                "csv-edit.readOption_hasHeader": "true",
+                "csv-edit.writeOption_hasHeader": "true"
+            },
+
+            // Extensions we want installed when the container is created.
+            "extensions": [
+                "docsmsft.docs-authoring-pack",
+                "github.vscode-pull-request-github",
+                "janisdd.vscode-edit-csv"
+            ]
+        }
     },
 
-    // Extensions we want installed when the container is created.
-    "extensions": [
-        "docsmsft.docs-authoring-pack",
-        "github.vscode-pull-request-github",
-        "janisdd.vscode-edit-csv"
-    ],
+    "features": {
+        // Use the GitHub CLI to easily push and create PRs from terminal.
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [4000],
+    "portsAttributes": {
+        // Suppress prompt to open browser to wrong address. VSCode will open root site and not /azure-sdk.
+        "4000": {
+            "label": "Site",
+            "onAutoForward": "silent"
+        }
+    },
 
     // Install the bundle after the container is created.
     "postCreateCommand": "bundle install",
