@@ -1,4 +1,5 @@
-FROM debian:10
+# Use Ruby version from https://pages.github.com/versions/
+FROM ruby:2.7.4-buster
 
 # This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
 # this user's GID/UID must match your local user UID/GID to avoid permission issues
@@ -33,12 +34,6 @@ RUN apt-get update \
         git \
         openssh-client \
         less \
-        #
-        # Install ruby
-        make \
-        ruby-full \
-        build-essential \
-        zlib1g-dev \
         locales \
     #
     # Add en_US.UTF-8 locale
@@ -46,11 +41,6 @@ RUN apt-get update \
     #
     # Generate locale files
     && locale-gen \
-    #
-    # Install jekyll
-    && gem install \
-        bundler \
-        jekyll \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -67,3 +57,7 @@ RUN apt-get update \
 
 # Switch back to the non-root user
 USER ${USERNAME}
+SHELL ["/bin/bash", "-c"]
+
+# Speed up subsequent `bundle install`
+RUN echo 'gem: --no-ri --no-rdoc' > /home/${USERNAME}/.gemrc

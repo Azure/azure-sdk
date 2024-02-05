@@ -35,11 +35,15 @@ plugins:
 
 # Files and directories that Jekyll will exclude from the build
 exclude:
-  - .idea/
+  - .devcontainer/
+  - .github/
+  - .gitattributes
   - .gitignore
-  - eng
-  - vendor
+  - .idea/
+  - .vscode/
   - docs/policies/README*
+  - eng/
+  - vendor/
 
 feedback_subject_line: Azure SDK Design Guidelines Feedback
 feedback_email: adparch@microsoft.com
