@@ -247,6 +247,7 @@ function CheckLink ([System.Uri]$linkUri, $allowRetry=$true)
     }
     catch {
       Write-Host $_.Exception.GetType()
+      Write-Host $_.Exception.Message
       
       $responsePresent = $_.Exception.psobject.Properties.name -contains "Response"
       if ($responsePresent) {
@@ -262,7 +263,7 @@ function CheckLink ([System.Uri]$linkUri, $allowRetry=$true)
         
         $errorCodePresent = $false
         if ($innerExceptionPresent -and $_.Exception.InnerException) {
-          $errorCodePresent = $_.Exception.InnerException.psobject.Properties.name -contains "ErrorCode"
+          #$errorCodePresent = $_.Exception.InnerException.psobject.Properties.name -contains "ErrorCode"
         }
 
         if ($errorCodePresent) {
