@@ -44,8 +44,8 @@ steps:
     pwsh: true
     filePath: ./eng/common/scripts/Verify-Links.ps1
     arguments: >
-      -urls ./_site/index.html
+      -urls ./_site/azure-sdk/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
       -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
       -devOpsLogging:$true
-      -baseUrl "file://$PWD/_site/"
+      -baseUrl "file://$PWD/_site/azure-sdk"
