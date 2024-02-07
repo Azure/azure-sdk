@@ -112,7 +112,7 @@ Synapse,0,Synapse - Managed Private Endpoints,data,.NET,,,11,false,Azure.Analyti
 Synapse,0,Synapse - Monitoring,data,.NET,,,11,false,Azure.Analytics.Synapse.Monitoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Spark,data,.NET,,,11,false,Azure.Analytics.Synapse.Spark,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 System.ClientModel,0,System.ClientModel,data,.NET,,,11,false,System.ClientModel,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core,10,false,1,
-Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,11/13/2023
+Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,02/06/2024
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,false,1,
@@ -1202,7 +1202,7 @@ Quantum,0,Quantum Jobs,data,JavaScript,,,11,false,@azure/quantum-jobs,https://gi
 Schema Registry,0,Schema Registry,data,JavaScript,,,11,false,@azure/schema-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,10/11/2022
 Schema Registry,0,Schema Registry - Avro,data,JavaScript,,,11,false,@azure/schema-registry-avro,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,10/25/2023
 Schema Registry,0,Schema Registry - JSON,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,3,false,1,
-Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,11/07/2023
+Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,02/06/2024
 Synapse,0,Spark,data,JavaScript,,,11,false,@azure/synapse-spark,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,11/09/2023
 Storage,0,Storage - Blobs Changefeed,data,JavaScript,,,11,false,@azure/storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,3,false,1,
@@ -1521,7 +1521,7 @@ FarmBeats,0,FarmBeats,data,Python,,,11,false,azure-agrifood-farming,https://gith
 Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,11/07/2023
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
-Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/26/2023
+Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,
 Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,3,false,1,
 Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,
@@ -2163,6 +2163,11 @@ ai,0,ai,data,Java,,,11,false,Missing: Created from API in specs repo: ai/data-pl
 ai,0,ai,data,JavaScript,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
 ai,0,ai,data,Python,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
 ai,0,ai,data,Go,,,11,false,Missing: Created from API in specs repo: ai/data-plane,,2,false,0,
+apicenter,0,Resource Management - ApiCenter.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: apicenter/ApiCenter.Management,,2,false,0,
+apicenter,0,Resource Management - ApiCenter.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: apicenter/ApiCenter.Management,,2,false,0,
+apicenter,0,Resource Management - ApiCenter.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: apicenter/ApiCenter.Management,,2,false,0,
+apicenter,0,Resource Management - ApiCenter.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: apicenter/ApiCenter.Management,,2,false,0,
+apicenter,0,Resource Management - ApiCenter.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: apicenter/ApiCenter.Management,,2,false,0,
 apicenter,0,Resource Management - apicenter,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
 apicenter,0,Resource Management - apicenter,mgmt,Java,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
 apicenter,0,Resource Management - apicenter,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
@@ -2462,6 +2467,11 @@ Purview,0,Purview,data,Java,,,11,false,Missing: Created from API in specs repo: 
 Purview,0,Purview,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Python,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Go,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
+purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,Java,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
