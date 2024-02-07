@@ -5,32 +5,21 @@ pool:
   name: 'azsdk-pool-mms-win-2022-general'
   vmImage: 'windows-2022'
 
-resources:
-  repositories:
-    - repository: azure-sdk-tools
-      type: github
-      name: Azure/azure-sdk-tools
-      endpoint: azure
-
 steps:
-- checkout: self
-- checkout: azure-sdk-tools
 
 - task: PowerShell@2
   displayName: 'Generate Release Structure'
   inputs:
     pwsh: true
-    filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
+    filePath: ./eng/scripts/Generate-Release-Structure.ps1
     arguments: > 
       -ReleaseDateString "$(ReleaseDate)"
       -PublishRelease $$(PublishRelease)
 
-- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+- template: /eng/common/pipelines/templates/steps/create-pull-request.yml
   parameters:
     RepoName: azure-sdk
     PRBranchName: AddReleaseStructure
     CommitMsg: "Add new release folder structure"
     PRTitle: "Add new release folder structure"
     PushArgs: -f
-    WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts

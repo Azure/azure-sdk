@@ -1,14 +1,6 @@
 trigger:
 - master
 
-resources:
-  repositories:
-    - repository: azure-sdk-tools
-      type: github
-      name: Azure/azure-sdk-tools
-      endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20240206.1
-
 pool:
   name: 'azsdk-pool-mms-ubuntu-2204-general'
   vmImage: 'ubuntu-22.04'
@@ -17,8 +9,6 @@ variables:
   BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
 steps:
-- checkout: self
-- checkout: azure-sdk-tools
 
 - task: Cache@2
   inputs:
@@ -32,32 +22,27 @@ steps:
 - script: |
     gem install bundler
   displayName: Install bundler
-  workingDirectory: azure-sdk
 
 - script: |
     bundle install
   displayName: Install project dependencies
-  workingDirectory: azure-sdk
 
 - script: |
     bundle exec jekyll build --future
   displayName: Build Site
-  workingDirectory: azure-sdk
 
 - task: PowerShell@2
   displayName: Verify CSV data contents
   inputs:
     pwsh: true
-    workingDirectory: azure-sdk
-    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1
+    filePath: ./eng/scripts/Update-Release-Versions.ps1
     arguments: "check"
 
 - task: PowerShell@2
   displayName: Verify site links
   inputs:
     pwsh: true
-    workingDirectory: azure-sdk
-    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1
+    filePath: ./eng/common/scripts/Verify-Links.ps1
     arguments: >
       -urls ./_site/azure-sdk/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
