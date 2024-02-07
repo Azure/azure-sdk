@@ -1,5 +1,5 @@
 # Use Ruby version from https://pages.github.com/versions/
-FROM mcr.microsoft.com/devcontainers/ruby:2.7-buster
+FROM ruby:2.7.4-buster
 
 # This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
 # this user's GID/UID must match your local user UID/GID to avoid permission issues
