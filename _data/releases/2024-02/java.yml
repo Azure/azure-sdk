@@ -1331,4 +1331,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-storage-queue_5.9.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-ai-openai-assistants
+  Version: 1.0.0-beta.1
+  DisplayName: OpenAI Assistants
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.1/sdk/openai/azure-ai-openai-assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This is the initial release of `azure-ai-openai-assistants` client library for OpenAI beta Assistants.
+    - Full support for OpenAI's beta Assistants features is included:
+    - [OpenAI's documentation](https://platform.openai.com/docs/assistants/overview)
+    - [Azure OpenAI's documentation](https://learn.microsoft.com/azure/ai-services/openai/assistants-quickstart?tabs=command-line&pivots=programming-language-studio)
+  GroupId: com.azure
 
