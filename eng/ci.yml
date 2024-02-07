@@ -12,7 +12,7 @@ steps:
 
 - task: Cache@2
   inputs:
-    key: 'gems | "$(Agent.OS)" | $(Build.SourcesDirectory)/azure-sdk/Gemfile | $(Build.SourcesDirectory)/azure-sdk/Gemfile.lock'
+    key: 'gems | "$(Agent.OS)" | $(Build.SourcesDirectory)/Gemfile | $(Build.SourcesDirectory)/Gemfile.lock'
     path: $(BUNDLE_PATH)
   displayName: Cache gems
 
@@ -44,8 +44,8 @@ steps:
     pwsh: true
     filePath: ./eng/common/scripts/Verify-Links.ps1
     arguments: >
-      -urls ./_site/azure-sdk/index.html
+      -urls ./_site/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
       -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
       -devOpsLogging:$true
-      -baseUrl "file://$PWD/_site/azure-sdk"
+      -baseUrl "file://$PWD/_site/"
