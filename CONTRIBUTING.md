@@ -1,6 +1,6 @@
 # Azure SDK Contribution Guide
 
-The Azure SDK project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla>.microsoft.com.
+The Azure SDK project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla.microsoft.com>.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
@@ -25,8 +25,8 @@ Codespaces is new technology that allows you to use a container as your developm
 ### GitHub Codespaces
 
 1. From the Azure SDK GitHub repo, click on the `Code` button then `Open with Codespaces`.
-1. Open a timinal pane.
-1. Press `Ctrl+Shift+t` or execute the following command and `Ctrl+Click` the link generated. A new window will open with the Azure SDK website.
+1. Open a terminal pane.
+1. Press `Ctrl+Shift+T` or execute the following command and `Ctrl+Click` the link generated. A new window will open with the Azure SDK website.
 
     ```bash
     bundle exec jekyll serve
@@ -37,7 +37,7 @@ Codespaces is new technology that allows you to use a container as your developm
 1. Install the [VS Code Remote Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 1. When you open the Azure SDK repo in VS Code, it will prompt you to open the project in the Devcontainer. If it does not prompt you, press `F1`, and select `Dev Containers: Open Folder in Container...`/
 1. Open a terminal pane.
-1. Press `Ctrl+Shift+t` or execute the following command and `Ctrl+Click` the link generated. A new window will open with the Azure SDK website.
+1. Press `Ctrl+Shift+T` or execute the following command and `Ctrl+Click` the link generated. A new window will open with the Azure SDK website.
 
     ```bash
     bundle exec jekyll serve
