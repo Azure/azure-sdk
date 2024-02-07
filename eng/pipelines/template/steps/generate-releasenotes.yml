@@ -119,7 +119,7 @@ steps:
           -repoLanguage ${{ repo.value.Language }}
           -github_pat '$(azuresdk-github-pat)'
 
-    - template: ./eng/common/pipelines/templates/steps/create-pull-request.yml
+    - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
         BaseBranchName: $(DefaultBranch)
