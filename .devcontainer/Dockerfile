@@ -1,16 +1,10 @@
-# Use Ruby version from https://pages.github.com/versions/
-FROM ruby:2.7.4-buster
-
-# This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
-# this user's GID/UID must match your local user UID/GID to avoid permission issues
-# with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
-# https://aka.ms/vscode-remote/containers/non-root-user for details.
+# Use Ruby 2.7 version from approved Mirosoft Container Registry.
+# This image already contains the vscode:vscode user:group and sudoers support.
+FROM mcr.microsoft.com/devcontainers/ruby:2.7-buster
 ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-ARG PORT=4000
 
 # The port on which Jekyll will serve the site
+ARG PORT=4000
 EXPOSE ${PORT}
 
 # ENV Variables required by Jekyll
@@ -41,14 +35,6 @@ RUN apt-get update \
     #
     # Generate locale files
     && locale-gen \
-    #
-    # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-    && groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    #
-    # Add sudo support for the non-root user
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
     # Clean up
     && apt-get autoremove -y \
