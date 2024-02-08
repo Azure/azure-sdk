@@ -271,4 +271,32 @@ entries:
     - Guard against unrecognized value types in the form data policy.
     - Form file uploads now have content type `application/octet-stream` if no other content type was specified.
     - Fix `multipart/form-data` requests failing in versions of Node 18 below 18.13 and versions of Node 20 below 20.6.
+- Name: '@azure/identity'
+  Version: 4.1.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.1.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AzureCliCredential`: Added support for the new response field which represents token expiration timestamp as time zone agnostic value. ([#28333](https://github.com/Azure/azure-sdk-for-js/pull/28333))
+
+    #### Bugs Fixed
+
+    - `new DefaultAzureCredential()` will no longer throw when one of the credentials in the chain fails to instantiate. Any creation errors will be logged when `getToken` is called. [#28264](https://github.com/Azure/azure-sdk-for-js/pull/28264)
+- Name: '@azure/service-bus'
+  Version: 7.9.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.4/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Wait for user error handler to finish when possible in session receivers. [PR #27716](https://github.com/Azure/azure-sdk-for-js/pull/27716)
+    - Complete message before requesting the next one in session receivers [PR #27634](https://github.com/Azure/azure-sdk-for-js/pull/27634)
+    - Correct timeToLive calculation to use absolute expiry time.
 
