@@ -128,7 +128,7 @@ jobs:
       CommitMsg: "Update package index with latest published versions"
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
-      WorkingDirectory:$(Pipeline.Workspace)/azure-dev-docs-pr
+      WorkingDirectory: $(Pipeline.Workspace)/azure-dev-docs-pr
   
   - pwsh: |
       git clone https://github.com/dotnet/docs $(Pipeline.Workspace)/dotnet-docs
