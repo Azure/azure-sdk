@@ -75,7 +75,7 @@ steps:
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
   - pwsh: |
-      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
     displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
@@ -114,12 +114,12 @@ steps:
         arguments: >
           -releasePeriod $(ReleasePeriod)
           -releaseStartDate $(ReleaseStartDate)
-          -commonScriptPath $(AzureSDKToolsScriptsPath)
+          -commonScriptPath ./eng/common/scripts
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
           -github_pat '$(azuresdk-github-pat)'
 
-    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
         BaseBranchName: $(DefaultBranch)
@@ -128,7 +128,6 @@ steps:
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
-        ScriptDirectory: $(AzureSDKToolsScriptsPath)
 
     - pwsh: |
         gh pr merge $(Submitted.PullRequest.Number) --auto --squash

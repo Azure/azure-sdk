@@ -1,11 +1,3 @@
-resources:
-  repositories:
-    - repository: azure-sdk-tools
-      type: github
-      name: Azure/azure-sdk-tools
-      endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20240206.1
-
 parameters:
 - name: UpdateDeprecated
   type: boolean
@@ -21,14 +13,13 @@ jobs:
   timeoutInMinutes: 360
   
   variables:
-    AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
-    AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
-    AzureSDKToolsScriptsPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    AzureSDKClonePath: $(Pipeline.Workspace)/azure-sdk
+    AzureSDKReleaseNotesClonePath: $(Pipeline.Workspace)/azure-sdk-notes
   
   steps:
   - checkout: self
-  - checkout: azure-sdk-tools
-  
+    path: azure-sdk
+
   - task: PowerShell@2
     displayName: Update packages from package manager
     inputs:
@@ -90,7 +81,7 @@ jobs:
     workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
     displayName: Run Inventory Dashboard Data Scripts
   
-  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoName: azure-sdk
@@ -99,7 +90,6 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(AzureSDKClonePath)
-      ScriptDirectory: $(AzureSDKToolsScriptsPath)
   
   - pwsh: |
       gh pr merge $(Submitted.PullRequest.Number) --auto --squash
@@ -129,7 +119,7 @@ jobs:
     displayName: Setup default branch
     workingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
   
-  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: MicrosoftDocs
@@ -139,7 +129,6 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-      ScriptDirectory: $(AzureSDKToolsScriptsPath)
   
   - pwsh: |
       git clone https://github.com/dotnet/docs $(System.DefaultWorkingDirectory)/dotnet-docs
@@ -160,7 +149,7 @@ jobs:
     displayName: Setup default branch
     workingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
   
-  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: dotnet
@@ -170,4 +159,3 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
-      ScriptDirectory: $(AzureSDKToolsScriptsPath)
