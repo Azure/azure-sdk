@@ -13,8 +13,8 @@ jobs:
   timeoutInMinutes: 360
   
   variables:
-    AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
-    AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
+    AzureSDKClonePath: $(Pipeline.Workspace)/azure-sdk
+    AzureSDKReleaseNotesClonePath: $(Pipeline.Workspace)/azure-sdk-notes
   
   steps:
   - checkout: self
