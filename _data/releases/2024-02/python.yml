@@ -128,7 +128,7 @@ entries:
   DisplayName: AI Generative
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b3/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
     #### Other Changes
@@ -139,7 +139,7 @@ entries:
   DisplayName: AI Resources
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b3/sdk/ai/azure-ai-resources/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -188,7 +188,7 @@ entries:
   DisplayName: AI Generative
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b4/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -236,7 +236,7 @@ entries:
   DisplayName: AI Generative
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b5/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
     #### Bugs Fixed
@@ -251,7 +251,7 @@ entries:
   DisplayName: AI Resources
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b5/sdk/ai/azure-ai-resources/CHANGELOG.md
   ChangelogContent: |-
     #### Other Changes
@@ -262,7 +262,7 @@ entries:
   DisplayName: AI Resources
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b6/sdk/ai/azure-ai-resources/CHANGELOG.md
   ChangelogContent: |-
     #### Other Changes
@@ -273,7 +273,7 @@ entries:
   DisplayName: AI Generative
   ServiceName: AI
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b6/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
     #### Other Changes
@@ -318,9 +318,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b7/sdk/ai/azure-ai-resources/CHANGELOG.md
   ChangelogContent: |-
-    #### Other Changes
+    #### Bugs Fixed
 
-    - Bug fixes
+    - Fix promptflow evaluation bugs
+
+    #### Features Added
+    - Support for Python 3.12
+    - Support custom metrics for evaluation
+    - Supports evaluate() on chat
 - Name: azure-ai-generative
   Version: 1.0.0b7
   DisplayName: AI Generative
@@ -329,7 +334,8 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b7/sdk/ai/azure-ai-generative/CHANGELOG.md
   ChangelogContent: |-
-    #### Other Changes
+    #### Features Added
 
-    - Bug fixes
+    - AzureOpenAIConnection.set_current_environment supports openai 1.0 and above.
+    - Use openai v1 environment variable
 
