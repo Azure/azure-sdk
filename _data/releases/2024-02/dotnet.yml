@@ -306,4 +306,15 @@ entries:
     * Fixed an issue where tags associated with Exceptions were not being included.
     Now, tags linked to an `ActivityEvent` following the [otel convention for storing exception](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/exceptions/exceptions-spans.md) are correctly exported as Custom Properties.
     ([#41767](https://github.com/Azure/azure-sdk-for-net/pull/41767))
+- Name: Azure.Monitor.OpenTelemetry.LiveMetrics
+  Version: 1.0.0-beta.1
+  DisplayName: AzureMonitor OpenTelemetry LiveMetrics
+  ServiceName: monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.LiveMetrics_1.0.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.LiveMetrics/CHANGELOG.md
+  ChangelogContent: |-
+    * Initial release of Azure Monitor [Live Metrics](https://learn.microsoft.com/azure/azure-monitor/app/live-stream) Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet). This version includes metrics, performance counters, and Sample Telemetry. This version does not include Filtering.
+
+    This is a beta version, so breaking changes are possible in subsequent releases as we improve the product. To provide feedback, please submit an issue in our [Azure SDK for .NET GitHub repo](https://github.com/Azure/azure-sdk-for-net/issues).
 
