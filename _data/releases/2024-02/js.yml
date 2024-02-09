@@ -299,4 +299,30 @@ entries:
     - Wait for user error handler to finish when possible in session receivers. [PR #27716](https://github.com/Azure/azure-sdk-for-js/pull/27716)
     - Complete message before requesting the next one in session receivers [PR #27634](https://github.com/Azure/azure-sdk-for-js/pull/27634)
     - Correct timeToLive calculation to use absolute expiry time.
+- Name: '@azure/eventgrid'
+  Version: 5.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.2.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.Storage.StorageTaskAssignmentQueued`
+    - `Microsoft.Storage.StorageTaskAssignmentCompleted`
+    - `Microsoft.AVS.ScriptExecutionStarted`
+    - `Microsoft.AVS.ScriptExecutionFinished`
+    - `Microsoft.AVS.ScriptExecutionCancelled`
+    - `Microsoft.AVS.ScriptExecutionFailed`
+    - `Microsoft.AVS.PrivateCloudUpdating`
+    - `Microsoft.AVS.PrivateCloudUpdated`
+    - `Microsoft.AVS.PrivateCloudFailed`
+    - `Microsoft.AVS.ClusterCreated`
+    - `Microsoft.AVS.ClusterDeleted`
+    - `Microsoft.AVS.ClusterUpdating`
+    - `Microsoft.AVS.ClusterUpdated`
+    - `Microsoft.AVS.ClusterFailed`
 
