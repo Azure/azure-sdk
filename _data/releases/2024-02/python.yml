@@ -338,4 +338,15 @@ entries:
 
     - AzureOpenAIConnection.set_current_environment supports openai 1.0 and above.
     - Use openai v1 environment variable
+- Name: azure-eventgrid
+  Version: 4.17.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.17.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enums values to `SystemEventNames` related to Azure Storage and Azure VMware Solution.
 
