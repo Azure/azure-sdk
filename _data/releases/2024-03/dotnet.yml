@@ -35,4 +35,48 @@ entries:
     #### Features Added
     - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
     - Introduction of `MicrosoftTeamsAppIdentifier` is a breaking change. It will impact any code that previously depended on the use of UnknownIdentifier with rawIDs starting with `28:orgid:`, `28:dod:`, or `28:gcch:`.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.3.1
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.3.1/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.2
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.2/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.3.3
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.3.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.2.3
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.2.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
 
