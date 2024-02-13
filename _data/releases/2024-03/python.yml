@@ -1,0 +1,12 @@
+entries:
+- Name: azure-eventhub
+  Version: 5.11.6
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.6/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `keep_alive` functionality on EventHubProducerClient to allow for long-living producers. [#33726](https://github.com/Azure/azure-sdk-for-python/issues/33726)
+
