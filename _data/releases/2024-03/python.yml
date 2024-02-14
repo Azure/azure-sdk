@@ -9,4 +9,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added `keep_alive` functionality on EventHubProducerClient to allow for long-living producers. [#33726](https://github.com/Azure/azure-sdk-for-python/issues/33726)
+- Name: azure-ai-vision-imageanalysis
+  Version: 1.0.0b2
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-vision-imageanalysis_1.0.0b2/sdk/vision/azure-ai-vision-imageanalysis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In the previous version, you would call the `analyze` method on the `ImageAnalysisClient` to analyze an image from a publicly accessible URL, or from a memory buffer. To better align with other Azure client libraires, this was changed in this release. Call the new dedicated `analyze_from_url` method to analyze an image from URL. Keep calling the `analyze` method to analyze an image from a memory buffer.
 
