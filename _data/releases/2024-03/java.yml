@@ -124,4 +124,32 @@ entries:
     - new System Events for Azure VMWare Solution, Storage.
     - Add `metadata` property to `AcsChatThreadCreatedEventData`.
   GroupId: com.azure
+- Name: azure-ai-openai-assistants
+  Version: 1.0.0-beta.2
+  DisplayName: OpenAI Assistants
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.2/sdk/openai/azure-ai-openai-assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The following class have been removed:
+    - `FileListResponse`
+    - `OpenAIPageableListOfAssistant`
+    - `OpenAIPageableListOfAssistantFile`
+    - `OpenAIPageableListOfMessageFile`
+    - `OpenAIPageableListOfRunStep`
+    - `OpenAIPageableListOfThreadMessage`
+    - `OpenAIPageableListOfThreadRun`
+
+    - We've introduced `PageableList<T>` these classes were used, except for `FileListResponse` where we simply return `List<OpenAIFile>`.
+    - If you are using `listFilesWithResponse` and need to manually deserialize the `BinaryData` in the response, you can still use `PageableList<T>` like so:
+    ```java
+    client.listFilesWithResponse(requestOptions)
+    .getValue()
+    .toObject(new TypeReference<PageableList<OpenAIFile>>() {})
+    .getData();
+    ```
+  GroupId: com.azure
 
