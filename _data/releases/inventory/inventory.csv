@@ -63,7 +63,7 @@ IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https:/
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
 Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,02/13/2024
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,02/13/2024
-Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,11/08/2023
+Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,02/13/2024
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,.NET,Microsoft.Azure.CognitiveServices.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices/FormRecognizer,3,true,Azure.AI.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer,10,false,1,08/10/2023
 Cognitive Services,0,Health Insights Cancer Profiling,data,.NET,,,11,false,Azure.Health.Insights.CancerProfiling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
@@ -502,10 +502,10 @@ Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/azeventgrid,https://git
 Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,01/08/2024
 Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,01/17/2024
 Identity,0,Identity - Cache,data,Go,,,11,false,sdk/azidentity/cache,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity/cache,3,false,1,
-Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,10,false,1,
-Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/azadmin,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azadmin,10,false,1,
-Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,10,false,1,
-Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,
+Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,10,false,1,02/13/2024
+Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/azadmin,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azadmin,10,false,1,02/13/2024
+Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,10,false,1,02/13/2024
+Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,02/13/2024
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,
 OpenAI,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
@@ -797,7 +797,7 @@ IoT,0,Device Update,data,Java,,,11,false,azure-iot-deviceupdate,https://github.c
 IoT,0,Digital Twins,data,Java,,,11,false,azure-digitaltwins-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins,10,false,1,12/05/2023
 Document Intelligence,0,Document Intelligence,data,Java,,,11,false,azure-ai-documentintelligence,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/documentintelligence,3,false,1,
 Cognitive Services,0,Document Translation,data,Java,,,11,false,azure-ai-documenttranslator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,3,false,1,
-Event Grid,0,Event Grid,data,Java,azure-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/microsoft-azure-eventgrid,10,true,azure-messaging-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,12/05/2023
+Event Grid,0,Event Grid,data,Java,azure-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/microsoft-azure-eventgrid,10,true,azure-messaging-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,02/13/2024
 Event Hubs,0,Event Hubs,data,Java,azure-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs,10,true,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,01/19/2024
 FarmBeats,0,FarmBeats,data,Java,,,11,false,azure-verticals-agrifood-farming,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,Java,,,11,false,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer,10,false,1,12/05/2023
