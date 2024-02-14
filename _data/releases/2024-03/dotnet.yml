@@ -181,4 +181,16 @@ entries:
     - Fixed an issue with event processor validation where an exception for quota exceeded may inappropriately be surfaced when starting the processor.
 
     - In the rare case that an event processor's load balancing and health monitoring task cannot recover from an error, it will now properly surrender ownership when processing stops.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.3/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed draining of credits when prefetch is enabled.
+    - No longer drain credits when using the `ServiceBusSessionProcessor` as it is not necessary unless the `ServiceBusSessionProcessorOptions.SessionIds` property is set.
 
