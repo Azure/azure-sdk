@@ -74,4 +74,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azmetrics/v0.1.0/sdk/monitor/query/azmetrics/CHANGELOG.md
   ChangelogContent: '* This is the initial release of the `azmetrics` module'
+- Name: sdk/storage/azdatalake
+  Version: 1.1.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.1.0/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Escape paths for NewDirectoryClient and NewFileClient in a file system. Fixes [#22281](https://github.com/Azure/azure-sdk-for-go/issues/22281).
 
