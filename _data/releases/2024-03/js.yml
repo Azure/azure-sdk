@@ -9,4 +9,16 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     The type names for AnalyzeFromBuffer* have changed to AnalyzeFromImageData*
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.20
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.20/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added exception handling for reading files to avoid concurrency errors.
+    - Fixed issues with formatting for the duration field.
 
