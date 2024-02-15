@@ -20,4 +20,15 @@ entries:
     #### Breaking Changes
 
     - In the previous version, you would call the `analyze` method on the `ImageAnalysisClient` to analyze an image from a publicly accessible URL, or from a memory buffer. To better align with other Azure client libraires, this was changed in this release. Call the new dedicated `analyze_from_url` method to analyze an image from URL. Keep calling the `analyze` method to analyze an image from a memory buffer.
+- Name: azure-communication-identity
+  Version: 1.5.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.5.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
 
