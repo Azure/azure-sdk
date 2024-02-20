@@ -285,4 +285,12 @@ entries:
     - Renamed tags reported on `KeyClient`, `KeyResolver`, `CryptographyClient`, and `RemoteCryptographyClient` activities to follow OpenTelemetry attribute naming conventions:
     - `key` to `az.keyvault.key.id` or `az.keyvault.key.name` depending on the value being reported
     - `version` to `az.keyvault.key.version`
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.1.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.1.0/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
 
