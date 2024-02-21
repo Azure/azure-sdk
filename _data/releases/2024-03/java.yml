@@ -190,4 +190,62 @@ entries:
 
     - Upgraded `azure-messaging-eventhubs` from `5.18.0` to version `5.18.1`.
   GroupId: com.azure
+- Name: azure-cosmos-spark_3-2_2-12
+  Version: 4.27.0
+  DisplayName: OLTP Spark 3.2 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.2 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-2_2-12_4.27.0/sdk/cosmos/azure-cosmos-spark_3-2_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added an option to retrieve the `CosmosAsyncClient` used by the connector internally to allow Spark applications to reuse the same instance instead of having to instantiate their own `CosmsoAsyncClient` when also using the Cosmos Java SDK besides the Spark connector. - See [PR 38834](https://github.com/Azure/azure-sdk-for-java/pull/38834)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.27.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.27.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added an option to retrieve the `CosmosAsyncClient` used by the connector internally to allow Spark applications to reuse the same instance instead of having to instantiate their own `CosmsoAsyncClient` when also using the Cosmos Java SDK besides the Spark connector. - See [PR 38834](https://github.com/Azure/azure-sdk-for-java/pull/38834)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos
+  Version: 4.56.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.56.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue in QuorumReader when quorum could not be selected even though 1 secondary and Primary are reachable and in sync. - See [PR 38832](https://github.com/Azure/azure-sdk-for-java/pull/38832)
+
+    #### Features Added
+    * Added overloads for `CosmosAsyncContainer.readMany` and `CosmosContainr.readMany` accepting request options via `CosmosReadManyRequestOptions` to allow specifying excluded regions, diagnostics thresholds and end-to-end timeout etc. - See [PR 38821](https://github.com/Azure/azure-sdk-for-java/pull/38821)
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.27.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.27.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added an option to retrieve the `CosmosAsyncClient` used by the connector internally to allow Spark applications to reuse the same instance instead of having to instantiate their own `CosmsoAsyncClient` when also using the Cosmos Java SDK besides the Spark connector. - See [PR 38834](https://github.com/Azure/azure-sdk-for-java/pull/38834)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.27.0
+  DisplayName: OLTP Spark 3.1 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.1 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-1_2-12_4.27.0/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added an option to retrieve the `CosmosAsyncClient` used by the connector internally to allow Spark applications to reuse the same instance instead of having to instantiate their own `CosmsoAsyncClient` when also using the Cosmos Java SDK besides the Spark connector. - See [PR 38834](https://github.com/Azure/azure-sdk-for-java/pull/38834)
+  GroupId: com.azure.cosmos.spark
 
