@@ -83,4 +83,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-springappdiscovery_1.0.0-beta.1/sdk/springappdiscovery/arm-springappdiscovery/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.3.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Renamed field `teamAppId` to `appId` in `SerializedMicrosoftTeamsAppIdentifier` to match the REST specification.
 
