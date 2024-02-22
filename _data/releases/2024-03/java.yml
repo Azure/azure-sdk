@@ -591,4 +591,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicessiterecovery_1.1.0/sdk/recoveryservicessiterecovery/azure-resourcemanager-recoveryservicessiterecovery/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.6.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.6.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+  GroupId: com.azure
 
