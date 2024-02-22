@@ -248,4 +248,320 @@ entries:
     #### Features Added
     * Added an option to retrieve the `CosmosAsyncClient` used by the connector internally to allow Spark applications to reuse the same instance instead of having to instantiate their own `CosmsoAsyncClient` when also using the Cosmos Java SDK besides the Spark connector. - See [PR 38834](https://github.com/Azure/azure-sdk-for-java/pull/38834)
   GroupId: com.azure.cosmos.spark
+- Name: azure-mixedreality-authentication
+  Version: 1.2.21
+  DisplayName: Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.21/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.21
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.21/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.1.5
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.1.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.17
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.17/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.1.4
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.1.4/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.15
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.15/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.21
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.21/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.1.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.1.2/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.15` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-communication-rooms
+  Version: 1.0.8
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.0.8/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.15` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.2.9
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.2.9/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.2.12
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.2.12/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.3.17
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.17/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.4.8` to version `1.4.9`.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.19
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.19/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.26
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.26/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-mixedreality-authentication` from `1.2.19` to version `1.2.20`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-developer-loadtesting
+  Version: 1.0.10
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.10/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.4.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.4.1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.15` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.22
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.22/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.5.2
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.5.2/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.4.3
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.4.3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.0.10
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.10/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+    - Upgraded `azure-communication-common` from `1.2.14` to version `1.3.0`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.5.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.5.2/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
+    - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
+  GroupId: com.azure
 
