@@ -606,4 +606,15 @@ entries:
     - Upgraded `azure-core` from `1.45.1` to version `1.46.0`.
     - Upgraded `azure-core-http-netty` from `1.13.11` to version `1.14.0`.
   GroupId: com.azure
+- Name: azure-health-insights-radiologyinsights
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Health Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/azure-health-insights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Radiology Insights API: Scans radiology reports as text to provide quality checks as feedback on errors and inconsistencies (mismatches). Critical findings are identified and communicated using the full context of the report. Follow-up recommendations and clinical findings with measurements (sizes) documented by the radiologist are also identified.
+  GroupId: com.azure
 
