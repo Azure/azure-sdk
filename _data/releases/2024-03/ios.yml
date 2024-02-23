@@ -1,0 +1,12 @@
+entries:
+- Name: AzureCommunicationCommon
+  Version: 1.2.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCommon_1.2.0/sdk/communication/AzureCommunicationCommon/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`. It will impact any code that previously depended on the use of `UnknownIdentifier` with rawIDs starting with `28:orgid:`, `28:dod:`, or `28:gcch:`.
+
