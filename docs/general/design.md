@@ -370,6 +370,19 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="general-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
 
+### Rehydration for long running operations
+
+After a long running operation initialized, the user might want to rehydrate a client to get the status of the operation in a different process or server.
+And there are circumstances, the user might want to rehydrate the operation with a difference language SDK other than the initialization language SDK.
+To achieve this, we need to return a rehydration token for later cross-language rehydration.
+The rehydration token should contain below information:
+- HeaderSource: Indicates where the NextRequestUri locates in the initial response header, it could be `OperationLocation`, `AzureAsyncOperation`, `Location` or `None`
+- NextRequestUri: The Uri to poll status of the operation
+- InitialUri: The initial Uri of the operation
+- RequestMethod: Http request method of the operation
+- LastKnowLocation: The last known `Location` value in the response header
+- FinalStateVia: Configuration from API spec, it could be `AzureAsyncOperation`, `Location`, `OriginalUri` or `OperationLocation`
+
 ## Repeatable requests
 
 The ability to retry failed requests for which a client never received a response greatly simplifies the ability to write resilient distributed applications. When the method on the service is not idempotent, the service may support safe retry by supporting repeatability headers as defined in [OASIS Repeatable Requests Version 1.0](https://docs.oasis-open.org/odata/repeatable-requests/v1.0/repeatable-requests-v1.0.html).
