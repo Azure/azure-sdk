@@ -9,4 +9,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`. It will impact any code that previously depended on the use of `UnknownIdentifier` with rawIDs starting with `28:orgid:`, `28:dod:`, or `28:gcch:`.
+- Name: AzureCommunicationCalling
+  Version: 2.9.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.9.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated Media Statistics feature.
 
