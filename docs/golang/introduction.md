@@ -60,7 +60,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="golang-general-use-azcore-pipeline" %} use `azcore.Pipeline` to implement all methods that call Azure REST services.
 
-{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is https://golang.org/doc/effective_go.  Do **NOT** simply attempt to translate your language of choice into Go.
+{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is <https://golang.org/doc/effective_go>.  Do **NOT** simply attempt to translate your language of choice into Go.
 
 ### Support for non-HTTP Protocols
 
@@ -515,7 +515,7 @@ Go groups related types in a package.  In Go, the package should be named `<pref
 
 {% include requirement/MUST id="golang-package-name" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure compute management package would be named `armcompute` and the Azure blob storage package would be named `azblob`.
 
-{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
+{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list] for a list of the currently registered packages.
 
 #### Directory Structure
 
