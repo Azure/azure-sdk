@@ -335,4 +335,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.4.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.38.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.38.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `GetRehydrationToken` to `Operation` for rehydration purpose.
 
