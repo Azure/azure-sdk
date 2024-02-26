@@ -94,4 +94,23 @@ entries:
     #### Bugs Fixed
 
     - Renamed field `teamAppId` to `appId` in `SerializedMicrosoftTeamsAppIdentifier` to match the REST specification.
+- Name: '@azure/core-lro'
+  Version: 3.0.0-beta.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.0.0-beta.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    Initial implementation of next-generation for Long Running Operations (LROs) in which we deprecate the `LroEngine` support and change poller creation to a synchronized way.
+
+    - `LroEngine` is deprecated and no long supported
+    - The return type of `createHttpPoller` is changed from `Promise<SimplePollerLike>` to `PollerLike`
+    - Some interfaces are renamed. `SimplePollerLike` is renamed as `PollerLike`, `LroResponse` is renamed as `OperationResponse` and `LroResourceLocationConfig` is to `ResourceLocationConfig`
+    - Functions `getOperationState()`, `getResult()`, `isDone()` and `isStopped()` is changed to read-only attributes `operationState`, `result`, `isDone` and `isStopped`
+    - Deprecated the attributes `requestMethod` and `requestPath` in `LongRunningOperation`
+    - Added a new function `serialize` to help serialize the poller
+    - Added a new function `submitted` to help wait for the poller submitted succesffully
+    - Added a new parameter `TRequest` for `OperationResponse` to accept the raw request
+    - Export the function `deserializeState` to the public
 
