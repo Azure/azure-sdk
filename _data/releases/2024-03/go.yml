@@ -167,4 +167,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redisenterprise/armredisenterprise/v2.0.0/sdk/resourcemanager/redisenterprise/armredisenterprise/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.3.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.3.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Re-enabled `SharedKeyCredential` authentication mode for non TLS protected endpoints.
+    * Use random write in `DownloadFile` method. Fixes [#22426](https://github.com/Azure/azure-sdk-for-go/issues/22426).
 
