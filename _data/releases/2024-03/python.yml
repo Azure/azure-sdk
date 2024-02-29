@@ -163,4 +163,22 @@ entries:
     - Added support for service API version `7.5`
     - (From 4.4.0b2) `KeyVaultBackupClient.begin_backup` and `KeyVaultBackupClient.begin_restore` now accept a
     `use_managed_identity` keyword-only argument to enable authentication via Managed Identity
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b23
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b23/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add device.* to part A fields
+    ([#34229](https://github.com/Azure/azure-sdk-for-python/pull/34229))
+    - Add live metrics exporting functionality
+    ([#34141](https://github.com/Azure/azure-sdk-for-python/pull/34141))
+    - Add application.ver to part A fields
+    ([#34401](https://github.com/Azure/azure-sdk-for-python/pull/34401))
+    - Add `APPLICATIONINSIGHTS_METRIC_NAMESPACE_OPT_IN`
+    ([#34463](https://github.com/Azure/azure-sdk-for-python/pull/34463))
 
