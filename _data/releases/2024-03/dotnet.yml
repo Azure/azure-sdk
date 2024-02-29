@@ -362,4 +362,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Chaos_1.1.0-beta.1/sdk/chaos/Azure.ResourceManager.Chaos/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.Messages
+  Version: 1.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.0.0/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced additional constructors for `MessageTemplateClient` and `NotificationMessagesClient` to support `TokenCredential` authentication methods.
+    - Introduced a variety of Notification Content models such as `MediaNotificationContent`, `TemplateNotificationContent`, and `TextNotificationContent`, enabling more polymorphic notification types.
+    - Introduced a variety of message template value models such as `MessageTemplateDocument`, `MessageTemplateImage`, `MessageTemplateVideo`, etc., enabling more polymorphic message template values.
+    - Added new namespace specific to WhatsApp message templates, including `WhatsAppMessageTemplateBindings`, `WhatsAppMessageTemplateBindingsButton`, and `WhatsAppMessageButtonSubType`, etc.
+    - Updated `CommunicationMessagesClientOptions` to include a new service version `V2024_02_01` and expanded `CommunicationMessagesModelFactory` with factory methods for new model types.
+
+    #### Breaking Changes
+    - Removed the `SendMessageOptions` class in favor of more granular method overloads (`NotificationContent` subclasses) in `NotificationMessagesClient`.
+    - Changed the way to construct MessageTemplate including message template bindings and values.
+    - Changed `MessageTemplateItem` class  to support polymorphism, with the introduction of a child class `WhatsAppMessageTemplateItem` containing WhatsApp-specific template contracts.
+    - Added `GeoPosition`` struct to encapsulate geographic coordinates into a single entity. This change affects any functionality that previously required separate latitude and longitude inputs.
+- Name: System.ClientModel
+  Version: 1.1.0-beta.2
+  DisplayName: System.ClientModel
+  ServiceName: System.ClientModel
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.2/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ExtractResponse` method to `PipelineMessage` to enable returning an undisposed `PipelineResponse` from protocol methods.
+    - Added `CreateAsync` factory method to `ClientResultException` to allow creating exceptions in an async context.
+    - Added an implicit cast from `string` to `ApiKeyCredential`.
+    - Added an implicit cast from `ClientResult<T>` to `T`.
+
+    #### Breaking Changes
+
+    - Changed `HttpClientPipelineTransport.Shared` and `ClientRetryPolicy.Default` from static readonly fields to static properties.
+    - Changed `PipelineResponse.Content` property from abstract to virtual.
+    - Removed the `ResponseBufferingPolicy` and moved response buffering functionality into `PipelineTransport`.
 
