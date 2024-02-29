@@ -47,7 +47,7 @@ Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Co
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/18/2023
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/28/2023
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
-Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
+Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/29/2024
 Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/09/2022
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
@@ -1199,6 +1199,7 @@ Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABL
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,02/17/2023
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,
+Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,JavaScript,@azure/cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer,1,false,@azure-rest/ai-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/personalizer/ai-personalizer-rest/,3,false,1,
@@ -1477,7 +1478,6 @@ Cognitive Services,0,LUIS Runtime,data,JavaScript,@azure/cognitiveservices-luis-
 Maps,0,Maps Drawing Tools,data,JavaScript,azure-maps-drawing-tools,UNABLE TO DETERMINE REPO LINK,10,false,,,1,false,0,
 Media Player,0,Media Player,data,JavaScript,azuremediaplayer,UNABLE TO DETERMINE REPO LINK,10,false,,,1,false,0,
 IoT,0,Node Red Contrib Azure IoT Hub Node,data,JavaScript,node-red-contrib-azureiothubnode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
-Notification Hubs,0,Notification Hubs,data,JavaScript,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
 Purview,0,Purview Sharing,data,JavaScript,@azure-rest/purview-sharing,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-sharing-rest,3,false,,,1,false,0,
 Cognitive Services,0,Question Answering,data,JavaScript,@azure/cognitiveservices-qnamaker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Speech,data,JavaScript,microsoft-cognitiveservices-speech-sdk,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
@@ -1805,6 +1805,10 @@ Communication,0,Communication Email,data,Go,,,11,false,Missing: Created from exi
 Communication,0,Communication Identity,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Identity,,2,false,0,
 Communication,0,Communication JobRouter,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
 Communication,0,Communication JobRouter,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
+Communication,0,Communication Messages,data,Java,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
+Communication,0,Communication Messages,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
+Communication,0,Communication Messages,data,Python,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
+Communication,0,Communication Messages,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
 Communication,0,Communication Network Traversal,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.NetworkTraversal,,2,false,0,
 Communication,0,Communication Phone Numbers,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.PhoneNumbers,,2,false,0,
 Communication,0,Communication Rooms,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Rooms,,2,false,0,
@@ -1988,6 +1992,9 @@ Cognitive Services,0,Language Text,data,.NET,,,11,false,Missing: Created from ex
 Cognitive Services,0,Language Text,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Go,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
+Notification Hubs,0,Notification Hubs,data,Java,,,11,false,Missing: Created from existing package: @azure/notification-hubs,,2,false,0,
+Notification Hubs,0,Notification Hubs,data,Python,,,11,false,Missing: Created from existing package: @azure/notification-hubs,,2,false,0,
+Notification Hubs,0,Notification Hubs,data,Go,,,11,false,Missing: Created from existing package: @azure/notification-hubs,,2,false,0,
 Identity,0,Token Cache Persistence Plugin,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,Token Cache Persistence Plugin,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,Token Cache Persistence Plugin,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
