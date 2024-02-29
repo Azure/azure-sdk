@@ -181,4 +181,15 @@ entries:
     ([#34401](https://github.com/Azure/azure-sdk-for-python/pull/34401))
     - Add `APPLICATIONINSIGHTS_METRIC_NAMESPACE_OPT_IN`
     ([#34463](https://github.com/Azure/azure-sdk-for-python/pull/34463))
+- Name: azure-core
+  Version: 1.30.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.30.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Accept float for `retry_after` header.  #34203
 
