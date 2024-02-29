@@ -156,4 +156,23 @@ entries:
     - Updated `android-core` version to `1.0.0-beta.14`.
     - Updated `android-core-logging` version to `1.0.0-beta.14`.
   GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 2.0.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_2.0.3/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated `targetSdkVersion` and `compileSdkVersion` from `30` to `34`.
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency to `1.0.0-beta.14`.
+    - Updated `azure-core-credential` dependency to `1.0.0-beta.14`.
+    - Updated `azure-core-http` dependency to `1.0.0-beta.14`.
+    - Updated `azure-core-logging` dependency to `1.0.0-beta.14`.
+    - Updated `azure-core-rest` dependency to `1.0.0-beta.14`.
+    - Updated `azure-communication-common` dependency to `1.2.1`.
+  GroupId: com.azure.android
 
