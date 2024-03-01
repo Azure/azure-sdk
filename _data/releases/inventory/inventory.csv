@@ -60,6 +60,7 @@ Storage,0,Data Movement,data,.NET,Microsoft.Azure.Storage.DataMovement,https://g
 Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devcenter,3,false,1,
 IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,09/08/2022
 IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
+Document Intelligence,0,Document Intelligence,data,.NET,,,11,false,Azure.AI.DocumentIntelligence,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence,3,false,1,
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,06/07/2022
 Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,02/13/2024
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,02/13/2024
@@ -208,7 +209,7 @@ Hybrid Data,0,Resource Management - Hybrid Data,mgmt,.NET,Microsoft.Azure.Manage
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,.NET,Microsoft.Azure.Management.Kubernetes,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Kubernetes,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridkubernetes,3,false,1,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,.NET,,,11,false,Azure.ResourceManager.HybridNetwork,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridnetwork,3,false,1,
 IoT,0,Resource Management - IoT Central,mgmt,.NET,Microsoft.Azure.Management.IotCentral,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iotcentral,10,true,Azure.ResourceManager.IotCentral,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iotcentral,10,false,1,
-IoT,0,Resource Management - IoT Firmware Defense,mgmt,.NET,,,11,false,Azure.ResourceManager.IotFirmwareDefense,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iot,3,false,1,
+IoT,0,Resource Management - IoT Firmware Defense,mgmt,.NET,,,11,false,Azure.ResourceManager.IotFirmwareDefense,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iot,10,false,1,03/01/2024
 IoT,0,Resource Management - IoT Hub,mgmt,.NET,Microsoft.Azure.Management.IotHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub,10,true,Azure.ResourceManager.IotHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub,10,false,1,11/30/2023
 Key Vault,0,Resource Management - Key Vault,mgmt,.NET,Microsoft.Azure.Management.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Azure.ResourceManager.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,11/24/2023
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,.NET,Microsoft.Azure.Management.KubernetesConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.KubernetesConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/kubernetesconfiguration,10,false,1,11/30/2023
@@ -268,7 +269,7 @@ Reservations,0,Resource Management - Reservations,mgmt,.NET,Microsoft.Azure.Mana
 Resource Connector,0,Resource Management - Resource Connector,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceConnector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourceconnector,3,false,1,
 Resource Graph,0,Resource Management - Resource Graph,mgmt,.NET,Microsoft.Azure.Management.ResourceGraph,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcegraph,10,true,Azure.ResourceManager.ResourceGraph,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcegraph,10,false,1,
 Resource Health,0,Resource Management - Resource Health,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceHealth,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcehealth,10,false,1,
-Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,01/26/2024
+Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,03/01/2024
 Resource Mover,0,Resource Management - Resource Mover,mgmt,.NET,Microsoft.Azure.Management.Migrate.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemover,10,false,1,
 Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,11/17/2023
 Security,0,Resource Management - Security,mgmt,.NET,Microsoft.Azure.Management.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,true,Azure.ResourceManager.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,false,1,
@@ -302,7 +303,7 @@ Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,
 Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
 Communication,0,Azure.Communication.CallingServer,UNABLE TO BE DETERMINED,.NET,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.AI.DocumentIntelligence,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.Storage.DataMovement.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Stack,0,AzureStack Management - Key Vault Admin,data,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
@@ -785,6 +786,7 @@ Communication,0,Communication Common,data,Java,,,11,false,azure-communication-co
 Communication,0,Communication Email,data,Java,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/21/2024
 Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/21/2024
 Communication,0,Communication JobRouter,data,Java,,,11,false,azure-communication-jobrouter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/23/2024
+Communication,0,Communication Messages,data,Java,,,11,false,azure-communication-messages,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Network Traversal,data,Java,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/11/2022
 Communication,0,Communication Phone Numbers,data,Java,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/23/2024
 Communication,0,Communication Rooms,data,Java,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/21/2024
@@ -1162,6 +1164,7 @@ Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communica
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communication-identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,11/30/2023
 Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,11/18/2023
+Communication,0,Communication Messages,data,JavaScript,,,11,false,@azure-rest/communication-messages,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-messages-rest/,10,false,1,
 Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
 Communication,0,Communication Phone Numbers,data,JavaScript,,,11,false,@azure/communication-phone-numbers,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
@@ -1199,7 +1202,7 @@ Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABL
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,02/17/2023
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,
-Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,
+Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,02/29/2024
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,JavaScript,@azure/cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer,1,false,@azure-rest/ai-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/personalizer/ai-personalizer-rest/,3,false,1,
@@ -1331,6 +1334,7 @@ Key Vault,0,Resource Management - Key Vault,mgmt,JavaScript,azure-arm-keyvault,h
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration/arm-kubernetesconfiguration,10,false,1,09/19/2023
 Kusto,0,Resource Management - Kusto,mgmt,JavaScript,,,11,false,@azure/arm-kusto,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto,10,false,1,10/20/2023
 Lab Services,0,Resource Management - Lab Services,mgmt,JavaScript,azure-arm-labservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-labservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/labservices/arm-labservices,10,false,1,01/29/2023
+Largeinstance,0,Resource Management - Largeinstance,mgmt,JavaScript,,,11,false,@azure/arm-largeinstance,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/largeinstance,3,false,1,
 Links,0,Resource Management - Links,mgmt,JavaScript,,,11,false,@azure/arm-links,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links,10,false,1,04/20/2022
 Load Testing,0,Resource Management - Load Testing,mgmt,JavaScript,,,11,false,@azure/arm-loadtesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/loadtestservice,10,false,1,02/01/2023
 Locks,0,Resource Management - Locks,mgmt,JavaScript,,,11,false,@azure/arm-locks,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks,10,false,1,11/28/2022
@@ -1805,8 +1809,6 @@ Communication,0,Communication Email,data,Go,,,11,false,Missing: Created from exi
 Communication,0,Communication Identity,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Identity,,2,false,0,
 Communication,0,Communication JobRouter,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
 Communication,0,Communication JobRouter,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.JobRouter,,2,false,0,
-Communication,0,Communication Messages,data,Java,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
-Communication,0,Communication Messages,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
 Communication,0,Communication Messages,data,Python,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
 Communication,0,Communication Messages,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.Messages,,2,false,0,
 Communication,0,Communication Network Traversal,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.NetworkTraversal,,2,false,0,
