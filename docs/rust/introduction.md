@@ -10,19 +10,19 @@ sidebar: general_sidebar
 
 ## Introduction
 
-The Rust guidelines are for the benefit of client library designers targeting service applications written in Rust.  You do not have to write a client library for Rust if your service is not normally accessed from Rust.
+The Rust guidelines are for the benefit of client library designers targeting service applications written in Rust. You do not have to write a client library for Rust if your service is not normally accessed from Rust.
 
 ### Design Principles {#rust-principles}
 
 The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:
 
-**Idiomatic**
+#### Idiomatic
 
-* The SDK should follow the general design guidelines and conventions for the target language. It should feel natural to a developer in the target language.
+* The SDK should follow the general [design guidelines and conventions][rust-lang-guidelines] for the Rust language. It should feel natural to a developer in the Rust language.
 * We embrace the ecosystem with its strengths and its flaws.
 * We work with the ecosystem to improve it for all developers.
 
-**Consistent**
+#### Consistent
 
 * Client libraries should be consistent within the language, consistent with the service and consistent between all target languages. In cases of conflict, consistency within the language is the highest priority and consistency between all target languages is the lowest priority.
 * Service-agnostic concepts such as logging, HTTP communication, and error handling should be consistent. The developer should not have to relearn service-agnostic concepts as they move between client libraries.
@@ -31,7 +31,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 * The Azure SDK for each target language feels like a single product developed by a single team.
 * There should be feature parity across target languages. This is more important than feature parity with the service.
 
-**Approachable**
+#### Approachable
 
 * We are experts in the supported technologies so our customers, the developers, don't have to be.
 * Developers should find great documentation (hero tutorial, how to articles, samples, and API documentation) that makes it easy to be successful with the Azure service.
@@ -39,7 +39,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 * The SDK should be easily acquired through the most normal mechanisms in the target language and ecosystem.
 * Developers can be overwhelmed when learning new service concepts. The core use cases should be discoverable.
 
-**Diagnosable**
+#### Diagnosable
 
 * The developer should be able to understand what is going on.
 * It should be discoverable when and under what circumstances a network call is made.
@@ -48,7 +48,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 * Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the consumer to a useful action that they can take.
 * Integrating with the preferred debugger for the target language should be easy.
 
-**Dependable**
+#### Dependable
 
 * Breaking changes are more harmful to a user's experience than most new features and improvements are beneficial.
 * Incompatibilities should never be introduced deliberately without thorough review and very strong justification.
@@ -58,9 +58,13 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="rust-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
+{% include requirement/MUST id="rust-general-pipeline" %} use `azure_core::Pipeline` to implement all methods that call Azure REST services.
+
+{% include requirement/MUST id="rust-general-idiomatic-code" %} write idiomatic Rust code. If you’re not familiar with the language, a great place to start is <https://www.rust-lang.org/learn>. Do __NOT__ simply attempt to translate your language of choice into Rust.
+
 ### Support for non-HTTP Protocols
 
-This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
+This document contains guidelines developed primarily for typical Azure REST services i.e., stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
 ## Azure SDK API Design {#rust-api}
 
@@ -68,9 +72,11 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/MUST id="rust-design-naming-concise" %} use clear, concise, and meaningful names.
 
-{% include requirement/SHOULDNOT id="rust-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
+{% include requirement/MUST id="rust-design-naming-standard" %} follow [Rust naming conventions][rust-lang-naming].
 
-{% include requirement/MUST id="rust-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
+{% include requirement/SHOULDNOT id="rust-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood. For example, `iot` is used since it is a commonly understood industry term; however, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
+
+{% include requirement/MUST id="rust-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of [centrally managed dependencies][rust-lang-dependencies].
 
 ### Service Client {#rust-client}
 
@@ -78,25 +84,37 @@ Service clients are the main starting points for developers calling Azure servic
 
 There exists a distinction that must be made clear with service clients: not all classes that perform HTTP (or otherwise) requests to a service are automatically designated as a service client. A service client designation is only applied to classes that are able to be directly constructed because they are uniquely represented on the service. Additionally, a service client designation is only applied if there is a specific scenario that applies where the direct creation of the client is appropriate. If a resource can not be uniquely identified or there is no need for direct creation of the type, then the service client designation should not apply.
 
-{% include requirement/MUST id="rust-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
+{% include requirement/MUST id="rust-service-client-name" %} name service client types with the _Client_ suffix e.g., `SecretClient`.
 
-{% include requirement/MUST id="rust-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (for example, `Azure::<group>::<service>`). Specialized service clients should be placed in sub-packages.
-
-{% include requirement/MUST id="rust-service-client-type" %} make service clients `classes`, not `structs`.
+{% include requirement/SHOULD id="rust-service-client-namespace" %} place service client types that the consumer is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault`. Specialized service clients should be placed in sub-modules e.g., `azure_security_keyvault::secrets`.
 
 {% include requirement/MUST id="rust-service-client-immutable" %} ensure that all service client classes thread safe (usually by making them immutable and stateless).
 
-{% include requirement/MUST id="rust-service-client-geturl" %} expose a `GetUrl()` method which returns the URL.
+{% include requirement/MUST id="rust-service-client-endpoint" %} define a public `endpoint(&self) -> &azure_core::Url` method to get the endpoint used to create the client.
 
-#### Service Client Constructors {#rust-client-ctor}
+#### Service Client Builders {#rust-client-builder}
 
-{% include requirement/MUST id="rust-service-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
+{% include requirement/MUST id="rust-service-client-builder-name" %} name service client builder types with the _ClientBuilder_ suffix matching the name of the client type e.g., `SecretClientBuilder` that builds a `SecretClient`.
 
-> TODO: Add service client factory pattern examples for connection strings.
+{% include requirement/MUST id="rust-service-client-builder-constructor" %} define a public function `new` that takes parameters required for client construction like an endpoint or connection string and an `Arc<dyn azure_core::TokenCredential>` that returns `Self`:
 
-{% include requirement/MUSTNOT id="rust-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
+```rust
+impl SecretClientBuilder {
+    pub fn new(endpoint: Into<impl azure_core::Url>, credential: std::sync::Arc<dyn azure_core::TokenCredential>) -> Self {
+        todo!()
+    }
+}
+```
 
-{% include requirement/MUST id="rust-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
+{% include requirement/MUST id="rust-service-client-builder-consumes-self" %} consume `self` on all builder methods for immutable state.
+
+{% include requirement/MUST id="rust-service-client-builder-typestate" %} use a typestate builder pattern that keeps track of which required parameters are set if any parameters are mutually exclusive e.g., an endpoint URL or connection string. See [an example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=1eb608df947de5d5b47da0ee6a5a5c6d) in the Rust Playground.
+
+{% include requirement/MUST id="rust-service-client-builder-options-setters" %} define all setters from [`azure_core::ClientOptions`](https://github.com/Azure/azure-sdk-for-rust/blob/main/sdk/core/src/options/mod.rs) on the builder that set all available `ClientOptions` when constructing the client.
+
+{% include requirement/MUST id="rust-service-client-builder-build" %} define a `build(self)` method that consumes `self` and returns the associated client.
+
+{% include requirement/MUST id="rust-service-client-builder-additions" %} define additional client-specific options on the client builder.
 
 ##### Client Configuration
 
@@ -108,24 +126,20 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="rust-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT id="rust-config-defaults-nochange" %} Change the default values of client
-configuration options based on system or program state.
+{% include requirement/MUSTNOT id="rust-config-defaults-nochange" %} change the default values of client configuration options based on system or program state.
 
-{% include requirement/MUSTNOT id="rust-config-defaults-nobuildchange" %} Change default values of
-client configuration options based on how the client library was built.
+{% include requirement/MUSTNOT id="rust-config-defaults-nobuildchange" %} change default values of client configuration options based on how the client library was built.
 
 {% include requirement/MUSTNOT id="rust-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-{% include requirement/MUSTNOT id="rust-config-noruntime" %} use client library specific runtime
-configuration such as environment variables or a config file. Keep in mind that many IoT devices
-won't have a filesystem or an "environment block" to read from.
+{% include requirement/MUSTNOT id="rust-config-noruntime" %} use client library specific runtime configuration such as environment variables or a config file. Keep in mind that many IoT devices won't have a filesystem or an "environment block" to read from.
 
 ##### Using ClientOptions {#rust-usage-options}
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="rust-usage-options-pipeline" %} define an `options: &azure_core::ClientOptions` to construct the `azure_core::Pipeline` (for HTTP requests) field defined by the client type. The `options` parameter should not be retained by the client; the client should copy what it needs to facilitate both immutable clients and reusing client options to construct additional clients.
 
 ##### Service Versions
 
@@ -143,7 +157,7 @@ Use a constructor parameter called `version` on the client options type.
 * The `ServiceVersion` enum must use explicit values starting from 1.
 * `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
 
-##### Mocking
+##### Mocking {#rust-client-mocking}
 
 > TODO: This section needs to be driven by code in the Core library.
 
@@ -177,7 +191,7 @@ The Rust SDK is designed for asynchronous api calls.
 
 The context should be further passed to all calls that take a context. DO NOT check the context manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
 
-##### Mocking
+##### Mocking {#rust-method-mocking}
 
 > TODO: This section needs to be driven by code in the Core library.
 
@@ -197,17 +211,17 @@ The context should be further passed to all calls that take a context. DO NOT ch
 
 ##### Parameter Validation
 
-The service client will have several methods that perform requests on the service.  _Service parameters_ are directly passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
 {% include requirement/MUST id="rust-params-client-validation" %} validate client parameters.
 
-{% include requirement/MUSTNOT id="rust-params-server-validation" %} validate service parameters.  This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+{% include requirement/MUSTNOT id="rust-params-server-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
 
-{% include requirement/MUST id="rust-params-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service.  If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+{% include requirement/MUST id="rust-params-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
 
 #### Methods Returning Collections (Paging) {#rust-paging}
 
-Although object-orientated languages can eschew low-level pagination APIs in favor of high-level abstractions, Rust acts as a lower level language and thus embraces pagination APIs provided by the service.  You should work within the confines of the paging system provided by the service.
+Although object-orientated languages can eschew low-level pagination APIs in favor of high-level abstractions, Rust acts as a lower level language and thus embraces pagination APIs provided by the service. You should work within the confines of the paging system provided by the service.
 
 {% include requirement/MUST id="rust-design-logical-client-pagination-use-paging" %} export the same paging API as the service provides.
 
@@ -221,7 +235,7 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
 
-Azure::Core library exposes an abstract type called `Operation<T>`, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
+Azure::Core library exposes an abstract type called `Operation<T>`, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
 > TODO: This section needs to be driven by code in the Core library.
 
@@ -246,8 +260,7 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 #### Model Types {#rust-model-types}
 
-This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_).  A model type is a representation of a REST service's resource.
-
+This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_). A model type is a representation of a REST service's resource.
 
 {% include requirement/MUST id="rust-design-model-public-getters" %} ensure model public properties are const if they aren't intended to be changed by the user.
 
@@ -271,7 +284,7 @@ See [enumeration-like structure documentation](implementation.md#rust-enums) for
 
 > TODO: Review this section
 
-The `tbd` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
+The `tbd` package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
 
 #### Using Primitive Types
 
@@ -279,21 +292,21 @@ The `tbd` package provides common functionality for client libraries.  Documenta
 
 > TODO: Add section
 
-### Exceptions {#rust-errors}
+### Errors {#rust-errors}
 
 {% include draft.html content="Guidance coming soon ..." %}
 
 > TODO: Add section
 
-#### Rust Exceptions
+#### Rust Errors
 
 ### Authentication {#rust-authentication}
 
 > TODO: Review this section
 
-Azure services use a variety of different authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
+Azure services use a variety of different authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service.
 
-{% include requirement/MUST id="rust-design-logical-client-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side).  C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
+{% include requirement/MUST id="rust-design-logical-client-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side). C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
 
 {% include requirement/MUST id="rust-design-logical-client-use-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
 
@@ -305,10 +318,10 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUSTNOT id="rust-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
 
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
 {% include requirement/MUSTNOT id="rust-implementing-no-persistence-auth" %}
-persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
@@ -317,9 +330,29 @@ include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insec
 never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
 
 {% include requirement/MUST id="rust-implementing-auth-policy" %}
-provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
 
 ### Namespaces {#rust-namespace-naming}
+
+{% include requirement/MUST id="rust-namespace-naming-typespec" %} use namespaces as defined by TypeSpecs for the service using all lowercase characters and underscores:
+
+```typespec
+namespace Azure.Security.KeyVault;
+// crate: azure_security_keyvault
+namespace Azure.Security.KeyVault.Secrets {
+    // module azure_security_leyvault::secrets
+}
+```
+
+{% include requirement/SHOULDNOT id="rust-namespace-naming-internals" %} export modules used only within the crate. You may use `pub(crate)` when declaring these modules to export public types within that module to other types and functions within the crate:
+
+```rust
+// lib.rs
+pub(crate) mod helpers;
+
+// helpers.rs
+pub fn helper() {} // not exported publicly
+```
 
 ### Support for Mocking {#rust-mocking}
 
@@ -329,9 +362,33 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 
 ### Packaging {#rust-packaging}
 
-{% include draft.html content="Guidance coming soon ..." %}
+Packages in Rust are called "crates". Crate names follow the same [general guidance on namespaces][general-design-namespaces] using underscores as a separator e.g., `azure_core`, `azure_security_keyvault`, etc.
 
-> TODO: Add section
+{% include requirement/MUST id="rust-packaging-prefix" %} start the crate name with `azure_` for data plane crates or `azure_mgmt_` for control plane (ARM) crates.
+
+{% include requirement/MUST id="rust-packaging-name" %} construct the crate name with all lowercase characters and underscores. Uppercase characters and dashes are not allowed. For example, `azure_security_keyvault`.
+
+Rust does support dashes in crate names, but it may create confusion with customers to reference a crate like `azure-core` then import a module like `azure_core`. Many older crates do this, but the trend has been to use underscores in both cases to avoid confusion.
+
+{% include requirement/MUST id="rust-packaging-registration" %} register the chosen crate name with the [Architecture Board]. Open an issue to request the crate name. See the [registered package list] for a list of the currently registered packages.
+
+{% include requirement/MUST id="rust-packaging-group" %} package different endpoints within a service together in a single crate but under separate modules as needed.
+
+Using Key Vault as an example and comparing with other languages like [.NET][dotnet-guidelines]:
+
+* `Azure.Security.KeyVault.Secrets` -> `azure_security_keyvault::secrets`
+* `Azure.Security.KeyVault.Keys` -> `azure_security_keyvault::keys`
+* `Azure.Security.KeyVault.Certificates` -> `azure_security_keyvault::certificates`
+
+This makes efficient use of generated client code for each services' TypeSpec or OpenAPI specification in a statically-compiled lanugage like Rust.
+
+#### Directory Structure
+
+{% include requirement/MUST id="directory-structure-root" %} place all crates' source under the `sdk/` root directory using an appropriate service directory name e.g., `sdk/keyvault`. The service directory name will often match what is in the [Azure/azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs) repository and will most often be the same across Azure SDK languages.
+
+{% include requirement/MUST id="directory-structure-crate" %} put all crate source within the service directory e.g., `sdk/keyvault/Cargo.toml`.
+
+If you have cause to release separate crates for a single service, please discuss first with the [Architecture Board].
 
 #### Common Libraries
 
@@ -347,7 +404,7 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 
 {% include requirement/MUST id="rust-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do an API breaking change.
 
-Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
+Breaking changes should happen rarely, if ever. Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
 
 ##### Package Version Numbers {#rust-versionnumbers}
 
@@ -359,7 +416,7 @@ Consistent version number scheme allows consumers to determine what to expect fr
 
 Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
-{% include requirement/MUST id="rust-version-change-on-release" %} change the version number of the client library when **ANYTHING** changes in the client library.
+{% include requirement/MUST id="rust-version-change-on-release" %} change the version number of the client library when __ANYTHING__ changes in the client library.
 
 {% include requirement/MUST id="rust-version-patching" %} increment the patch version when fixing a bug.
 
@@ -378,11 +435,11 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 Dependencies bring in many considerations that are often easily avoided by avoiding the
 dependency.
 
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
-- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
-- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
-- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependencies code base.
+* __Versioning__ - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
+* __Size__ - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+* __Licensing__ - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+* __Compatibility__ - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+* __Security__ - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependencies code base.
 
 {% include draft.html content="Guidance coming soon ..." %}
 
@@ -393,7 +450,6 @@ dependency.
 {% include draft.html content="Guidance coming soon ..." %}
 
 > TODO: Add section
-
 
 ## Repository Guidelines {#rust-repository}
 
@@ -407,18 +463,17 @@ dependency.
 
 > TODO: Add section
 
-
 ### Documentation Style
 
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
-* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][README-EXAMPLE])
+* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information.
 * `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com.
 * `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart.
 * `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer.
 * `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
 
-{% include requirement/MUST id="rust-docs-contentdev" %} include your service's content developer in the Architecture Board review for your library. To find the content developer you should work with, check with your team's Program Manager.
+{% include requirement/MUST id="rust-docs-contentdev" %} include your service's content developer in the [Architecture Board] review for your library. To find the content developer you should work with, check with your team's Program Manager.
 
 {% include requirement/MUST id="rust-docs-contributors-guide" %} follow the [Azure SDK Contributors Guide]. (MICROSOFT INTERNAL)
 
@@ -429,34 +484,31 @@ There are several documentation deliverables that must be included in or as a co
 
 {% include requirement/SHOULD id="rust-docs-to-silence" %} attempt to document your library into silence. Preempt developers' usage questions and minimize GitHub issues by clearly explaining your API in the docstrings. Include information on service limits and errors they might hit, and how to avoid and recover from those errors.
 
-As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your client library, the more time you have to build new features for your service.
+As you write your code, _doc it so you never hear about it again._ The less questions you have to answer about your client library, the more time you have to build new features for your service.
 
-**Docstrings**
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-**Code snippets**
+#### Docstrings
 
 {% include draft.html content="Guidance coming soon ..." %}
 
 > TODO: Add section
 
-
-**Buildsystem integration**
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-
-**Formatting**
+#### Code snippets
 
 {% include draft.html content="Guidance coming soon ..." %}
 
 > TODO: Add section
 
+#### Buildsystem integration
+
+{% include draft.html content="Guidance coming soon ..." %}
+
+> TODO: Add section
+
+#### Formatting
+
+{% include draft.html content="Guidance coming soon ..." %}
+
+> TODO: Add section
 
 ### README {#rust-repository-readme}
 
@@ -474,8 +526,7 @@ The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to fr
 
 ## Commonly Overlooked Rust API Design Guidelines {#rust-appendix-overlookedguidelines}
 
-> TODO: Provide Rust specific API design guidelines.  Example:
-
+> TODO: Provide Rust specific API design guidelines. Example:
 
 <!-- Links -->
 
