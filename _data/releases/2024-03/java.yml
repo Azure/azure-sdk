@@ -2206,4 +2206,43 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.36.1/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.7
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.7/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Text-to-speech using OpenAI TTS models is now supported. See [OpenAI's API reference](https://platform.openai.com/docs/api-reference/audio/createSpeech)
+    or the [Azure OpenAI quickstart](https://learn.microsoft.com/azure/ai-services/openai/text-to-speech-quickstart)
+    for detailed overview and background information. The new method `generateSpeechFromText` exposes this capability on
+    `OpenAIClient` and `OpenAIAsyncClient`. Text-to-speech converts text into lifelike spoken audio in a chosen voice, together with other optional
+    configurations. This method works for both Azure OpenAI and non-Azure `api.openai.com` client configurations.
+    - Added two new authentication options, `OnYourDataEncodedApiKeyAuthenticationOptions` and `OnYourDataAccessTokenAuthenticationOptions`
+    to support the new authentication mechanism for "On Your Data" feature.
+
+    #### Bugs Fixed
+
+    - Fixed `ChatRequestUserMessage` deserialization issue. [#38183](https://github.com/Azure/azure-sdk-for-java/issues/38183)
+
+    #### Breaking Changes
+
+    - Introduced a new type `AzureChatExtensionDataSourceResponseCitation` for a more structured representation of citation data.
+    - Correspondingly, updated `AzureChatExtensionsMessageContext`:
+    - Replaced `messages` with `citations` of type `AzureChatExtensionDataSourceResponseCitation`.
+    - Added `intent` as a string type.
+    - Renamed "AzureCognitiveSearch" to "AzureSearch":
+    - `AzureCognitiveSearchChatExtensionConfiguration` is now `AzureSearchChatExtensionConfiguration`.
+    - `AzureCognitiveSearchIndexFieldMappingOptions` is now `AzureSearchIndexFieldMappingOptions`.
+    - `AzureCognitiveSearchQueryType` is now `AzureSearchQueryType`.
+    - Replaced `String` property `name` by `ChatCompletionsFunctionToolSelection` property `function` in `ChatCompletionsNamedFunctionToolSelection`
+    - Made `embeddingDependency` as a required parameter in `AzureCosmosDBChatExtensionParameters` and `PineconeChatExtensionParameters` class, and removed setter method.
+    - Removed `vectorFields` and `imageVectorFields` from `PineconeFieldMappingOptions` class, and made `contentField` as required parameter.
+    - Removed `getAudioTranscriptionAsPlainTextWithResponse` and `getAudioTranslationAsPlainTextWithResponse` methods from `OpenAIClient` and `OpenAIAsyncClient` classes.
+    - Made `ImageGeneration` constructor as private.
+    - Made `ImageGenerationData` constructor as private and removed setter methods.
+  GroupId: com.azure
 
