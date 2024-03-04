@@ -2197,4 +2197,13 @@ entries:
     #### Bugs Fixed
     * Fixed the UserAgent suffix when using a client retrieved via UDF `CosmosAsyncClientCache.getCosmosClientFuncFromCache` on an executor. - See [PR 39045](https://github.com/Azure/azure-sdk-for-java/pull/39045)
   GroupId: com.azure.cosmos.spark
+- Name: azure-resourcemanager-appservice
+  Version: 2.36.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.36.1/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
