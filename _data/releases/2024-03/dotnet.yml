@@ -426,4 +426,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Defender.Easm_1.0.0-beta.1/sdk/easm/Azure.Analytics.Defender.Easm/CHANGELOG.md
   ChangelogContent: '- Defender Azure EASM (External Attack Surface Management) client library for Java. This package contains Microsoft Azure EASM client library.'
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.14
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.14/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    "On Your Data" changes:
+
+    - Introduced a new type `AzureChatExtensionDataSourceResponseCitation` for a more structured representation of citation data.
+    - Correspondingly, updated `AzureChatExtensionsMessageContext`:
+    - Replaced `Messages` with `Citations` of type `AzureChatExtensionDataSourceResponseCitation`.
+    - Added `Intent` as a string type.
+    - Renamed "AzureCognitiveSearch" to "AzureSearch":
+    - `AzureCognitiveSearchChatExtensionConfiguration` is now `AzureSearchChatExtensionConfiguration`.
+    - `AzureCognitiveSearchIndexFieldMappingOptions` is now `AzureSearchIndexFieldMappingOptions`.
+    - Check the project README for updated code snippets.
+
+    #### Features Added
+
+    - Text-to-speech using OpenAI TTS models is now supported. See [OpenAI's API reference](https://platform.openai.com/docs/api-reference/audio/createSpeech) or the [Azure OpenAI quickstart](https://learn.microsoft.com/azure/ai-services/openai/text-to-speech-quickstart) for detailed overview and background information.
+    - The new method `GenerateSpeechFromText` exposes this capability on `OpenAIClient`.
+    - Text-to-speech converts text into lifelike spoken audio in a chosen voice, together with other optional configurations.
+    - This method works for both Azure OpenAI and non-Azure `api.openai.com` client configurations
 
