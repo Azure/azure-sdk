@@ -243,4 +243,16 @@ entries:
     #### Other Changes
 
     - Update the message of the error thrown from `retry` to include all errors occurred between retries.
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.1.0
+  DisplayName: Token Cache Persistence Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.1.0/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to version `^1.4.0`.
+    - Update `engines` to `"node": ">=18.0.0"`
 
