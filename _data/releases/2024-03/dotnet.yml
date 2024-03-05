@@ -453,4 +453,23 @@ entries:
     - The new method `GenerateSpeechFromText` exposes this capability on `OpenAIClient`.
     - Text-to-speech converts text into lifelike spoken audio in a chosen voice, together with other optional configurations.
     - This method works for both Azure OpenAI and non-Azure `api.openai.com` client configurations
+- Name: Azure.ResourceManager.Batch
+  Version: 1.4.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.4.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the `Microsoft.Azure.Amqp` dependency to 2.6.5, which includes several bug fixes.  A notable fix addresses an obscure race condition when a cancellation token is signaled while service operations are being invoked concurrently which caused those operations to hang.
 
