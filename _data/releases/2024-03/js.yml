@@ -232,4 +232,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-largeinstance_1.0.0-beta.1/sdk/largeinstance/arm-largeinstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-amqp'
+  Version: 4.2.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.2.1/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update the message of the error thrown from `retry` to include all errors occurred between retries.
 
