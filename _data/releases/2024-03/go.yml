@@ -220,4 +220,53 @@ entries:
 
     * Fixed a potential race condition between `NullValue` and `IsNullValue`.
     * `runtime.EncodeQueryParams` will escape semicolons before calling `url.ParseQuery`.
+- Name: sdk/messaging/azservicebus
+  Version: 1.6.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.6.1/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed case where closing a Receiver/Sender after an idle period would take > 20 seconds. (PR#22509)
+    - Fixed a potential memory leak when receiving a message on one receiver and attempting to settle with another. (PR#22431)
+- Name: sdk/ai/azopenai
+  Version: 0.5.0
+  DisplayName: OpenAI
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.5.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updating to the `2024-02-15-preview` API version.
+    - `GetAudioSpeech` enables translating text to speech.
+
+    #### Breaking Changes
+
+    - Citations, previously returned as an unparsed JSON blob, are now deserialized into a real type in `ChatResponseMessage.Citations`.
+    - `AzureCognitiveSearchChatExtensionConfiguration` has been renamed to `AzureSearchChatExtensionConfiguration`.
+    - `AzureCognitiveSearchChatExtensionParameters` has been renamed to `AzureSearchChatExtensionParameters`.
+- Name: sdk/ai/azopenaiassistants
+  Version: 0.1.0
+  DisplayName: Openaiassistants
+  ServiceName: Ai
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiassistants/v0.1.0/sdk/ai/azopenaiassistants/CHANGELOG.md
+  ChangelogContent: '* Initial release of the `azopenaiassistants` library'
+- Name: sdk/messaging/azeventhubs
+  Version: 1.0.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.0.4/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed case where closing a Receiver/Sender after an idle period would take > 20 seconds. (PR#22509)
 
