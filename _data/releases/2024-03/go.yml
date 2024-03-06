@@ -269,4 +269,37 @@ entries:
     #### Bugs Fixed
 
     - Fixed case where closing a Receiver/Sender after an idle period would take > 20 seconds. (PR#22509)
+- Name: sdk/messaging/eventgrid/azeventgrid
+  Version: 0.1.0
+  DisplayName: Eventgrid
+  ServiceName: Eventgrid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azeventgrid/v0.1.0/sdk/messaging/eventgrid/azeventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview for the Event Grid Basic module. This module is the new home the `github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventgrid/publisher` package.
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.1.0
+  DisplayName: Systemevents
+  ServiceName: Eventgrid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.1.0/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview for Event Grid system events.
+- Name: sdk/messaging/eventgrid/aznamespaces
+  Version: 0.4.1
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/aznamespaces/v0.4.1/sdk/messaging/eventgrid/aznamespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - This module has been moved from its previous location in `azeventgrid` to this location (`github.com/Azure/azure-sdk-for-go/sdk/messaging/eventgrid/aznamespaces`).
 
