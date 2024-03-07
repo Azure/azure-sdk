@@ -2305,4 +2305,23 @@ entries:
     ##### Other Changes
     * Reduced the number of `GET Collection` requests - especially when using Spark streaming with many, short-lived micro batches. - See [PR 39076](https://github.com/Azure/azure-sdk-for-java/pull/39076)
   GroupId: com.azure.cosmos.spark
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0-beta.2
+  DisplayName: Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support `retry-header` in `DocumentIntelligenceAdministrationClient` and `DocumentIntelligenceClient` for retrying failed polling operations.
+    - Added a property, `baseClassifierId` to `BuildDocumentClassfiierOptions` to specify the base classifier id to build upon.
+    - Added a property, `baseClassifierId` to `DocumentClassifierDetails` to specify the base classfier if on top of which the classifier was trained.
+    - Added a property, `warnings`, to `DocumentModelDetails` and `DocumentClassifierDetails`, to represent the list of warnings encountered when building the model.
+    - Added a property, `valueSelectionGroup` to `DocumentField` model.
+
+    #### Breaking Changes
+    - The Azure Document Intelligence Client Library, now targets the Azure AI Document Intelligence service API version `"2024-02-29-preview"`.
+    Please note that support for `2023-10-31-preview` has been discontinued.
+  GroupId: com.azure
 
