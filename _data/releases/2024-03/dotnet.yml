@@ -1,0 +1,626 @@
+entries:
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.2.0-beta.1
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.2.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added Azure Container Apps resource detector.
+    ([#41803](https://github.com/Azure/azure-sdk-for-net/pull/41803))
+
+    * Added `Azure.Monitor.OpenTelemetry.LiveMetrics`, enabling the sending of [live
+    metrics
+    data](https://learn.microsoft.com/azure/azure-monitor/app/live-stream).
+    The newly added `EnableLiveMetrics` property is set to `true` by default. This
+    property can be set to `false` to disable live metrics.
+    ([#41872](https://github.com/Azure/azure-sdk-for-net/pull/41872))
+
+    - Added an experimental feature for logs emitted within an active tracing
+    context to follow the Activity's sampling decision. The feature can be enabled
+    by setting `OTEL_DOTNET_AZURE_MONITOR_EXPERIMENTAL_ENABLE_LOG_SAMPLING`
+    environment variable to `true`.
+    ([#41665](https://github.com/Azure/azure-sdk-for-net/pull/41665))
+- Name: Azure.Communication.Common
+  Version: 1.3.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.3.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
+    - Introduction of `MicrosoftTeamsAppIdentifier` is a breaking change. It will impact any code that previously depended on the use of UnknownIdentifier with rawIDs starting with `28:orgid:`, `28:dod:`, or `28:gcch:`.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.3.1
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.3.1/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.2
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.2/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.3.3
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.3.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.2.3
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.2.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix several issues related to ThreadPool starvation for synchronous scenarios
+- Name: Azure.Messaging.EventGrid
+  Version: 4.22.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.22.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new Storage Task Assignment system events.
+    - Added new AVS system events.
+    - Added `Metadata` property to `AcsChatThreadCreatedEventData` system event.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `CheckpointPosition` struct to `Azure.Messaging.EventHubs.Processor` to use when updating a checkpoint. The specified position indicates that an event processor should begin reading from the next event. Added new `UpdateCheckpointAsync` overloads to `CheckpointStore`, `PluggableCheckpointStoreEventProcessor<TPartition` and `EventProcessor<TPartition>` that accept the `CheckpointPosition` struct instead of individual values for offset and sequence number.
+
+    #### Breaking Changes
+
+    - The type of several existing values in the `EventData.SystemProperties` collection have been changed so that they are properly represented as .NET string types.  Previously, the underlying AMQP types were unintentionally returned, forcing callers to call `ToString()` to read the value.
+
+    This is a behavioral breaking change that will impacts only those callers who were explicitly casting system property values to `AmqpAddress` or `AmqpMessageId` before calling `ToString()`.   The affected system properties are:
+    - MessageId
+    - CorrelationId
+    - To
+    - ReplyTo
+
+    - The base implementations of both `UpdateCheckpointAsync` method overloads in `PluggableCheckpointStoreEventProcessor<TPartition>` and `EventProcessor<TPartition>` now choose sequence number over offset when writing a checkpoint and both values are provided. Previously, writing a checkpoint prioritized offset over sequence number.  There is no behavioral change for those using the official checkpoint store implementations.
+
+    #### Bugs Fixed
+
+    - Load balancing is no longer blocked when event processing for a lost partition does not honor the cancellation token.  Previously, long-running processing could cause delays in load balancing that resulted in ownership not being renewed for all partitions.
+
+    - Adjusted retries to consider an unreachable host address as terminal.  Previously, all socket-based errors were considered transient and would be retried.
+
+    - Fixed a race condition that could lead to a synchronization primitive being double-released if `IsRunning` was called concurrently while starting or stopping an event processor.
+
+    - Fixed an issue with event processor validation where an exception for quota exceeded may inappropriately be surfaced when starting the processor.
+
+    - In the rare case that an event processor's load balancing and health monitoring task cannot recover from an error, it will now properly surrender ownership when processing stops.
+
+    - Reduced the timeout for transient service failures when starting the buffered producer. This ixed an issue where the buffered producer appeared to hang for an extended period of time when starting if it had issues querying Event Hub metadata for the first time.
+
+    - Fixed the logic used to set the TimeToLive value of the AmqpMessageHeader for received messages to be based on the difference of the AbsoluteExpiryTime and CreationTime properties of the AmqpMessageProperties.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.1.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.1.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The `SystemProperties` binding will now return certain item as string values instead of an AMQP structure that requires calling `ToString()` to read.  The affected system properties are:
+    - MessageId
+    - CorelationId
+    - To
+    - ReplyTo
+
+    - Avoid race condition when determining whether to checkpoint when the host is in the process of shutting down.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `CheckpointPosition` struct to use when updating a checkpoint. The specified position indicates that an event processor should begin reading from the next event. Added new `UpdateCheckpointAsync` overloads to `EventProcessorClient` and `BlobCheckpointStore` that accept the `CheckpointPosition` struct instead of individual values for offset and sequence number.
+
+    #### Breaking Changes
+
+    - The type of several existing values in the `EventData.SystemProperties` collection have been changed so that they are properly represented as .NET string types.  Previously, the underlying AMQP types were unintentionally returned, forcing callers to call `ToString()` to read the value.
+
+    This is a behavioral breaking change that will impacts only those callers who were explicitly casting system property values to `AmqpAddress` or `AmqpMessageId` before calling `ToString()`.   The affected system properties are:
+    - MessageId
+    - CorelationId
+    - To
+    - ReplyTo
+
+    - The base implementations of both `UpdateCheckpointAsync` method overloads in `PluggableCheckpointStoreEventProcessor<TPartition>` and `EventProcessor<TPartition>` now choose sequence number over offset when writing a checkpoint and both values are provided. Previously, writing a checkpoint prioritized offset over sequence number.  **There is no difference in behavior for normal usage scenarios.**
+
+    #### Bugs Fixed
+
+    - Fixed a race condition that could lead to a synchronization primitive being double-released if `IsRunning` was called concurrently while starting or stopping the processor.
+
+    - Fixed a bug in which cancellation honored by the processor was interpreted as an error surfaced by developer code and a warning was inappropriately emitted to the error handler.
+
+    - Fixed an issue with event processor validation where an exception for quota exceeded may inappropriately be surfaced when starting the processor.
+
+    - In the rare case that an event processor's load balancing and health monitoring task cannot recover from an error, it will now properly surrender ownership when processing stops.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.3/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed draining of credits when prefetch is enabled.
+    - No longer drain credits when using the `ServiceBusSessionProcessor` as it is not necessary unless the `ServiceBusSessionProcessorOptions.SessionIds` property is set.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.6.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.6.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+
+    #### Features Added
+
+    - Added `CertificateProperties.X509ThumbprintString` to return the hexadecimal string representation of the SHA-1 hash of the certificate.
+    `CertificateProperties.X509Thumbprint` has been hidden but is still available.
+
+    #### Breaking Changes
+
+    - Renamed tags reported on `CertificateClient` activities to following OpenTelemetry attribute naming conventions:
+    - `certificate` to `az.keyvault.certificate.name`
+    - `version` to `az.keyvault.certificate.version`
+    - `issuer` to `az.keyvault.certificate.issuer.name`
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.6.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.6.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed tags reported on `SecretClient` activities to follow OpenTelemetry attribute naming conventions:
+    - `secret` to `az.keyvault.secret.name`
+    - `version` to `az.keyvault.secret.version`
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.4.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.4.0/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+
+    #### Features Added
+
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartBackup` and `StartBackupAsync`. Managed Identity will be used instead if `sasToken` is null.
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartRestore` and `StartRestoreAsync`. Managed Identity will be used instead if `sasToken` is null.
+    - The `sasToken` parameter is now optional in `KeyVaultBackupClient.StartSelectiveKeyRestore` and `StartSelectiveKeyRestoreAsync`. Managed Identity will be used instead if `sasToken` is null.
+
+    #### Breaking Changes
+
+    - `KeyVaultBackupOperation`, `KeyVaultRestoreOperation`, and `KeyVaultSelectiveKeyRestoreOperation` now throw a `RequestFailedException` with a different error message - but a raw `Response` with more details - when the service returns an error response. ([#41855](https://github.com/Azure/azure-sdk-for-net/issues/41855))
+- Name: Azure.AI.Vision.ImageAnalysis
+  Version: 1.0.0-beta.2
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/vision/Azure.AI.Vision.ImageAnalysis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    The imageContent parameter for the Analyze(BinaryData imageData, ...) method has been renamed to imageData.
+    The imageContent parameter for the Analyze(Uri imageUri, ...) method has been renamed to imageUri
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.6.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.6.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When a Key Vault is moved to another tenant, the client is reauthenticated.
+    - `KeyRotationPolicyAction` performs case-insensitive comparisons since Key Vault and Managed HSM return different cases for "rotate".
+
+    #### Features Added
+
+    - Added `CryptographyClient.CreateRSA` and `CreateRSAAsync` to create an `RSA` implementation backed by Key Vault or Managed HSM.
+    Use this anywhere an `RSA` or `AsymmetricAlgorithm` is required. ([#3545](https://github.com/Azure/azure-sdk-for-net/issues/3545))
+    - Added `KeyProperties.HsmPlatform` to get the underlying HSM platform.
+
+    #### Breaking Changes
+
+    - Renamed tags reported on `KeyClient`, `KeyResolver`, `CryptographyClient`, and `RemoteCryptographyClient` activities to follow OpenTelemetry attribute naming conventions:
+    - `key` to `az.keyvault.key.id` or `az.keyvault.key.name` depending on the value being reported
+    - `version` to `az.keyvault.key.version`
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.1.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.1.0/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0-beta.4
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0-beta.4/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+    - Added unmerged beta releases
+- Name: Azure.ResourceManager.ResourceMover
+  Version: 1.1.2-beta.1
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceMover_1.1.2-beta.1/sdk/resourcemover/Azure.ResourceManager.ResourceMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Communication
+  Version: 1.2.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.2.0/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesSiteRecovery
+  Version: 1.2.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesSiteRecovery_1.2.0/sdk/recoveryservices-siterecovery/Azure.ResourceManager.RecoveryServicesSiteRecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.4.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.38.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.38.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `GetRehydrationToken` to `Operation` for rehydration purpose.
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.5.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.5.0-beta.1/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Chaos
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Chaos_1.1.0-beta.1/sdk/chaos/Azure.ResourceManager.Chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.Messages
+  Version: 1.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.0.0/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced additional constructors for `MessageTemplateClient` and `NotificationMessagesClient` to support `TokenCredential` authentication methods.
+    - Introduced a variety of Notification Content models such as `MediaNotificationContent`, `TemplateNotificationContent`, and `TextNotificationContent`, enabling more polymorphic notification types.
+    - Introduced a variety of message template value models such as `MessageTemplateDocument`, `MessageTemplateImage`, `MessageTemplateVideo`, etc., enabling more polymorphic message template values.
+    - Added new namespace specific to WhatsApp message templates, including `WhatsAppMessageTemplateBindings`, `WhatsAppMessageTemplateBindingsButton`, and `WhatsAppMessageButtonSubType`, etc.
+    - Updated `CommunicationMessagesClientOptions` to include a new service version `V2024_02_01` and expanded `CommunicationMessagesModelFactory` with factory methods for new model types.
+
+    #### Breaking Changes
+    - Removed the `SendMessageOptions` class in favor of more granular method overloads (`NotificationContent` subclasses) in `NotificationMessagesClient`.
+    - Changed the way to construct MessageTemplate including message template bindings and values.
+    - Changed `MessageTemplateItem` class  to support polymorphism, with the introduction of a child class `WhatsAppMessageTemplateItem` containing WhatsApp-specific template contracts.
+    - Added `GeoPosition`` struct to encapsulate geographic coordinates into a single entity. This change affects any functionality that previously required separate latitude and longitude inputs.
+- Name: System.ClientModel
+  Version: 1.1.0-beta.2
+  DisplayName: System.ClientModel
+  ServiceName: System.ClientModel
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.2/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ExtractResponse` method to `PipelineMessage` to enable returning an undisposed `PipelineResponse` from protocol methods.
+    - Added `CreateAsync` factory method to `ClientResultException` to allow creating exceptions in an async context.
+    - Added an implicit cast from `string` to `ApiKeyCredential`.
+    - Added an implicit cast from `ClientResult<T>` to `T`.
+
+    #### Breaking Changes
+
+    - Changed `HttpClientPipelineTransport.Shared` and `ClientRetryPolicy.Default` from static readonly fields to static properties.
+    - Changed `PipelineResponse.Content` property from abstract to virtual.
+    - Removed the `ResponseBufferingPolicy` and moved response buffering functionality into `PipelineTransport`.
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.0.0/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.10.2
+  DisplayName: Resource Management - Resource Manager
+  ServiceName: Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.10.2/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Defender.Easm
+  Version: 1.0.0-beta.1
+  DisplayName: Defender EASM
+  ServiceName: Defender EASM
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Defender.Easm_1.0.0-beta.1/sdk/easm/Azure.Analytics.Defender.Easm/CHANGELOG.md
+  ChangelogContent: '- Defender Azure EASM (External Attack Surface Management) client library for Java. This package contains Microsoft Azure EASM client library.'
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.14
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.14/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    "On Your Data" changes:
+
+    - Introduced a new type `AzureChatExtensionDataSourceResponseCitation` for a more structured representation of citation data.
+    - Correspondingly, updated `AzureChatExtensionsMessageContext`:
+    - Replaced `Messages` with `Citations` of type `AzureChatExtensionDataSourceResponseCitation`.
+    - Added `Intent` as a string type.
+    - Renamed "AzureCognitiveSearch" to "AzureSearch":
+    - `AzureCognitiveSearchChatExtensionConfiguration` is now `AzureSearchChatExtensionConfiguration`.
+    - `AzureCognitiveSearchIndexFieldMappingOptions` is now `AzureSearchIndexFieldMappingOptions`.
+    - Check the project README for updated code snippets.
+
+    #### Features Added
+
+    - Text-to-speech using OpenAI TTS models is now supported. See [OpenAI's API reference](https://platform.openai.com/docs/api-reference/audio/createSpeech) or the [Azure OpenAI quickstart](https://learn.microsoft.com/azure/ai-services/openai/text-to-speech-quickstart) for detailed overview and background information.
+    - The new method `GenerateSpeechFromText` exposes this capability on `OpenAIClient`.
+    - Text-to-speech converts text into lifelike spoken audio in a chosen voice, together with other optional configurations.
+    - This method works for both Azure OpenAI and non-Azure `api.openai.com` client configurations
+- Name: Azure.ResourceManager.Batch
+  Version: 1.4.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.4.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the `Microsoft.Azure.Amqp` dependency to 2.6.5, which includes several bug fixes.  A notable fix addresses an obscure race condition when a cancellation token is signaled while service operations are being invoked concurrently which caused those operations to hang.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.4/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When creating a new `ServiceBusMessage` from an existing `ServiceBusReceivedMessage`, diagnostic properties will now be properly reset.  Previously, they were incorrectly retained which led to the new message being indistinguishable from the old in traces.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the `Microsoft.Azure.Amqp` dependency to 2.6.5, which includes several bug fixes.  A notable fix addresses an obscure race condition when a cancellation token is signaled while service operations are being invoked concurrently which caused those operations to hang.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.2.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.2.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adjusted checkpointing logic to no longer write a checkpoint when the listener is shutting down.  This was necessary to prevent potential data loss from occurring when shutting down Function retries.  Because the trigger cannot know if the Function host would have retried a failure if it were not shutting down, we cannot assume that it is safe to checkpoint. This change ensures that the batch of events being processed when shut down was requested will be retried by another instance or the next time the Function app is run.
+
+    - Updated the `Azure.Messaging.EventHubs`, which includes a new build of the AMQP transport library.  The notable bug fix addresses an obscure race condition when a cancellation token is signaled while service operations are being invoked concurrently which caused those operations to hang.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.13.6
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.13.6/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the `Azure.Messaging.ServiceBus`, which includes a new build of the AMQP transport library.  One notable but fix addresses an obscure race condition when a cancellation token is signaled while service operations are being invoked concurrently which caused those operations to hang.  Another notable fix is for an obscure race condition that occurred when attempting to complete a message which caused the operation to hang.
+- Name: Azure.Search.Documents
+  Version: 11.6.0-beta.3
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.6.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the `VectorSearch.Compressions` property, which can be utilized to configure options specific to the compression method used during indexing or querying.
+    - Added the `SearchField.IsStored`, `VectorSearchField.IsStored`, and `VectorSearchFieldAttribute.IsStored` property. It represent an immutable value indicating whether the field will be persisted separately on disk to be returned in a search result. This property is applicable only for vector fields.
+    - Added support for `sbyte` and `int16` to `SearchFieldDataType`.
+- Name: Azure.AI.DocumentIntelligence
+  Version: 1.0.0-beta.2
+  DisplayName: Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.DocumentIntelligence_1.0.0-beta.2/sdk/documentintelligence/Azure.AI.DocumentIntelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added property `BaseClassifierId` to `BuildDocumentClassifierContent`.
+    - Added property `BaseClassifierId` to `DocumentClassifierDetails`.
+    - Added property `Warnings` to `DocumentModelDetails`.
+    - Added property `Warnings` to `DocumentClassifierDetails`.
+    - Added property `SelectionGroup` to `DocumentFieldType`.
+    - Added property `ValueSelectionGroup` to `DocumentField`.
+    - Added member `Completed` to `OperationDetails`.
+
+    #### Breaking Changes
+    - `DocumentIntelligenceClient` and `DocumentIntelligenceAdministrationClient` now target service API version `2024-02-29-preview`. Support for `2023-10-31-preview` has been removed.
+    - Renamed class `AIDocumentIntelligenceModelFactory` to `DocumentIntelligenceModelFactory`.
+    - Renamed class `AzureAIDocumentIntelligenceClientOptions` to `DocumentIntelligenceClientOptions`.
+    - Renamed class `AIDocumentIntelligenceClientBuilderExtensions` to `DocumentIntelligenceClientBuilderExtensions`.
+    - In `DocumentField`:
+    - Renamed property `ValueArray` to `ValueList`.
+    - Renamed property `ValueInteger` to `ValueLong`.
+    - Renamed property `ValueNumber` to `ValueDouble`.
+    - Renamed property `ValueObject` to `ValueDictionary`.
+    - In `DocumentFieldType`:
+    - Renamed property `Array` to `List`.
+    - Renamed property `Integer` to `Long`.
+    - Renamed property `Number` to `Double`.
+    - Renamed property `Object` to `Dictionary`.
+    - Renamed class `FontStyle` to `DocumentFontStyle`.
+    - Renamed class `FontWeight` to `DocumentFontWeight`.
+    - In `DocumentClassifierDetails`, renamed properties `CreatedDateTime` and `ExpirationDateTime` to `CreatedOn` and `ExpiresOn`, respectively.
+    - In `DocumentModelDetails`, renamed properties `CreatedDateTime` and `ExpirationDateTime` to `CreatedOn` and `ExpiresOn`, respectively.
+    - In `OperationDetails`, renamed properties `CreatedDateTime` and `LastUpdatedDateTime` to `CreatedOn` and `LastUpdatedOn`, respectively.
+    - In `QuotaDetails`, renamed property `QuotaResetDateTime` to `QuotaResetsOn`.
+    - In `DocumentBarcodeKind`:
+    - Renamed property `EAN13` to `Ean13`.
+    - Renamed property `EAN8` to `Ean8`.
+    - Renamed property `ITF` to `Itf`.
+    - Renamed property `MicroQRCode` to `MicroQrCode`.
+    - Renamed property `PDF417` to `Pdf417`.
+    - Renamed property `QRCode` to `QrCode`.
+    - Renamed property `UPCA` to `Upca`.
+    - Renamed property `UPCE` to `Upce`.
+- Name: Azure.ResourceManager.Support
+  Version: 1.1.0-beta.4
+  DisplayName: Resource Management - Support
+  ServiceName: Support
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Support_1.1.0-beta.4/sdk/support/Azure.ResourceManager.Support/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.OpenAI.Assistants
+  Version: 1.0.0-beta.3
+  DisplayName: OpenAI Assistants
+  ServiceName: OpenAI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI.Assistants_1.0.0-beta.3/sdk/openai/Azure.AI.OpenAI.Assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Incorporates a specification fix for message image file content that caused generated image file IDs (e.g. from the Code Interpreter tool) to not properly appear in messages
+- Name: Azure.Data.AppConfiguration
+  Version: 1.4.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.4.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added property `MatchConditions` to `SettingSelector` which allows specifying request conditions to `GetConfigurationSettings` requests.
+- Name: Azure.ResourceManager.Confluent
+  Version: 1.2.0
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Confluent_1.2.0/sdk/confluent/Azure.ResourceManager.Confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Health.Insights.RadiologyInsights
+  Version: 1.0.0-beta.1
+  DisplayName: Health Insights
+  ServiceName: Health Decision Support
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.RadiologyInsights_1.0.0-beta.1/sdk/healthinsights/Azure.Health.Insights.RadiologyInsights/CHANGELOG.md
+  ChangelogContent: '- Initial preview of the Azure.Health.Insights.RadiologyInsights client library.'
+
