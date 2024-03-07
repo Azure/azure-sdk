@@ -249,4 +249,38 @@ entries:
     #### Features Added
 
     - Support `etag` property for each page of configuration settings. You can give a list of etags through the `etagList` property in the options bag for the `listConfigurationSettings` method to see if the page has been changed. This enables more efficient caching and avoid mid-air collision.
+- Name: '@azure-rest/communication-messages'
+  Version: 1.0.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_1.0.1/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    Using MessagesServiceClient:
+
+    - Send WhatsApp messages.
+    - Get Template List.
+    - Download media file from WhatsApp server for incoming media message.
+
+    #### Other Changes
+
+    - Fixed CI pipeline to publish MS doc.
+- Name: '@azure-rest/communication-messages'
+  Version: 1.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_1.0.0/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This is the initial release of the @azure-rest version of Azure Communication Messages Services.
+
+    Using MessagesServiceClient:
+
+    - Send WhatsApp messages.
+    - Get Template List.
+    - Download media file from WhatsApp server for incoming media message.
 
