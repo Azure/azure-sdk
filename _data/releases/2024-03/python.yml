@@ -323,4 +323,12 @@ entries:
     #### Features Added
 
     - Updated `max_wait_time` on the ServiceBusReceiver constructor allowing users to change the default server timeout of 65 seconds when accepting a session on a Session-Enabled/Queues/Topics if NEXT_AVAILABLE_SESSION is used.
+- Name: azure-purview-datamap
+  Version: 1.0.0b1
+  DisplayName: Microsoft Purview
+  ServiceName: Security Platform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-datamap_1.0.0b1/sdk/purview/azure-purview-datamap/CHANGELOG.md
+  ChangelogContent: '- Initial version for Purview DataMap'
 
