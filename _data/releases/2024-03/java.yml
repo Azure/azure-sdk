@@ -2347,4 +2347,27 @@ entries:
     #### Bugs Fixed
     - [Avoid warning on sporadic connection failures] (https://github.com/Azure/azure-sdk-for-java/pull/39021)
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.20
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.20/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed the 409 status-code error-level log message "TableAlreadyExists" that was printed when calling `TableServiceClient.createTableIfNotExists()` on a table that already exists.
+  GroupId: com.azure
+- Name: azure-analytics-purview-datamap
+  Version: 1.0.0-beta.1
+  DisplayName: Microsoft Purview
+  ServiceName: Security Platform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-datamap_1.0.0-beta.1/sdk/purview/azure-analytics-purview-datamap/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The first beta release for Purview DataMap
+  GroupId: com.azure
 
