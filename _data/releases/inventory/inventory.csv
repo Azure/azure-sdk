@@ -512,6 +512,7 @@ Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,ht
 Key Vault,0,Key Vault - Administration,data,Go,,,11,false,sdk/security/keyvault/azadmin,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azadmin,10,false,1,02/13/2024
 Key Vault,0,Key Vault - Certificates,data,Go,,,11,false,sdk/security/keyvault/azcertificates,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates,10,false,1,02/13/2024
 Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecrets,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets,10,false,1,02/13/2024
+Query,0,Logs,data,Go,,,11,false,sdk/monitor/query/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azlogs,3,false,1,
 Query,0,Metrics,data,Go,,,11,false,sdk/monitor/query/azmetrics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azmetrics,3,false,1,
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,
@@ -829,7 +830,7 @@ Maps,0,Maps Render,data,Java,,,11,false,azure-maps-render,https://github.com/Azu
 Maps,0,Maps Route,data,Java,,,11,false,azure-maps-route,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
 Maps,0,Maps Search,data,Java,,,11,false,azure-maps-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,Java,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor,10,false,1,02/21/2024
-Security Platform,0,Microsoft Purview,data,Java,,,11,false,azure-analytics-purview-datamap,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,1,
+Security Platform,0,Microsoft Purview,data,Java,,,11,false,azure-analytics-purview-datamap,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/purview,3,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,Java,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mixedreality,10,false,1,02/21/2024
 Monitor,0,Monitor Ingestion,data,Java,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,02/21/2024
 Monitor,0,Monitor Query,data,Java,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,02/21/2024
@@ -859,7 +860,7 @@ Synapse,0,Synapse - Artifacts,data,Java,,,11,false,azure-analytics-synapse-artif
 Synapse,0,Synapse - Managed Private Endpoints,data,Java,,,11,false,azure-analytics-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Java,,,11,false,azure-analytics-synapse-monitoring,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Spark,data,Java,,,11,false,azure-analytics-synapse-spark,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
-Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,02/21/2024
+Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,03/07/2024
 Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,02/21/2024
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/videoanalyzer,3,false,1,
@@ -1191,7 +1192,7 @@ Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://gith
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,11/07/2023
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
-Health Decision Support,0,Health Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/NA/health-insights-radiologyinsights-rest/,3,false,1,
+Health Decision Support,0,Health Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,3,false,1,
 Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
