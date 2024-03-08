@@ -354,4 +354,26 @@ entries:
     #### Other Changes
 
     - Relax type checking in `Pipeline` constructors to only check that each user-supplied policy object has either a `send` method or both an `on_request` and `on_response` method. This allows for more flexible policy implementations. [#34296](https://github.com/Azure/azure-sdk-for-python/pull/34296)
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0b2
+  DisplayName: Document Intelligence
+  ServiceName: Document Intelligence
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.0b2/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added model `AnalyzeResultOperation` and `Warning`.
+    - Added property `base_classifier_id` to model `BuildDocumentClassifierRequest`.
+    - Added property `base_classifier_id` and `warnings` to model `DocumentClassifierDetails`.
+    - Added property `warnings` to model `DocumentModelDetails`.
+    - Added property `value_selection_group` to model `DocumentField`.
+    - Added value `selectionGroup` to enum `DocumentFieldType`.
+    - Added value `completed` to enum `OperationStatus`.
+
+    #### Breaking Changes
+
+    - Changed property name from `items` to `items_property` in model `DocumentFieldSchema` and `DocumentList`.
+    - Changed property name from `base64_source` to `bytes_source` in model `AnalyzeDocumentRequest` and `ClassifyDocumentRequest`.
 
