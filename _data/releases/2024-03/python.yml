@@ -331,4 +331,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-datamap_1.0.0b1/sdk/purview/azure-purview-datamap/CHANGELOG.md
   ChangelogContent: '- Initial version for Purview DataMap'
+- Name: corehttp
+  Version: 1.0.0b5
+  DisplayName: Core - Client - Core HTTP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/corehttp_1.0.0b5/sdk/core/corehttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Accept float for `retry_after` header.
+    - Relax type checking in `Pipeline` constructors to only check that each user-supplied policy object has either a `send` method or both an `on_request` and `on_response` method. This allows for more flexible policy implementations. [#34296](https://github.com/Azure/azure-sdk-for-python/pull/34296)
+- Name: corehttp
+  Version: 1.0.0b4
+  DisplayName: Core - Client - Core HTTP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/corehttp_1.0.0b4/sdk/core/corehttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Relax type checking in `Pipeline` constructors to only check that each user-supplied policy object has either a `send` method or both an `on_request` and `on_response` method. This allows for more flexible policy implementations. [#34296](https://github.com/Azure/azure-sdk-for-python/pull/34296)
 
