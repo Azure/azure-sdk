@@ -342,6 +342,7 @@ entries:
     #### Other Changes
 
     - Accept float for `retry_after` header.
+    - Relax type checking in `Pipeline` constructors to only check that each user-supplied policy object has either a `send` method or both an `on_request` and `on_response` method. This allows for more flexible policy implementations. [#34296](https://github.com/Azure/azure-sdk-for-python/pull/34296)
 - Name: corehttp
   Version: 1.0.0b4
   DisplayName: Core - Client - Core HTTP
