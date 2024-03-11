@@ -525,7 +525,7 @@ Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,ht
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,02/29/2024
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
 Eventgrid,0,Systemevents,data,Go,,,11,false,sdk/messaging/eventgrid/azsystemevents,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azsystemevents,3,false,1,
-Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,11/14/2023
+Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,03/11/2024
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
 Active Directory,0,Resource Management - Active Directory,mgmt,Go,,,11,false,sdk/resourcemanager/aad/armaad,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/aad/armaad,10,false,1,11/23/2023
 Addons,0,Resource Management - Addons,mgmt,Go,,,11,false,sdk/resourcemanager/addons/armaddons,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/addons/armaddons,3,false,1,
@@ -845,7 +845,7 @@ Purview,0,Purview Workflow,data,Java,,,11,false,azure-analytics-purview-workflow
 Schema Registry,0,Schema Registry,data,Java,,,11,false,azure-data-schemaregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,02/23/2024
 Schema Registry,0,Schema Registry - Avro,data,Java,,,11,false,azure-data-schemaregistry-apacheavro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,02/23/2024
 Schema Registry,0,Schema Registry - JSON,data,Java,,,11,false,azure-data-schemaregistry-jsonschema,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,3,false,1,
-Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,02/16/2024
+Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,03/11/2024
 Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,02/23/2024
 Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,02/23/2024
 Storage,0,Storage - Blobs Changefeed,data,Java,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
@@ -2459,6 +2459,11 @@ Machine Learning,0,Azure.AI.ChatProtocol,data,Java,,,11,false,Missing: Created f
 Machine Learning,0,Azure.AI.ChatProtocol,data,JavaScript,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
 Machine Learning,0,Azure.AI.ChatProtocol,data,Python,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
 Machine Learning,0,Azure.AI.ChatProtocol,data,Go,,,11,false,Missing: Created from API in specs repo: machinelearning/Azure.AI.ChatProtocol,,2,false,0,
+Machine Learning,0,AzureAI.Assets,data,.NET,,,11,false,Missing: Created from API in specs repo: machinelearningservices/AzureAI.Assets,,2,false,0,
+Machine Learning,0,AzureAI.Assets,data,Java,,,11,false,Missing: Created from API in specs repo: machinelearningservices/AzureAI.Assets,,2,false,0,
+Machine Learning,0,AzureAI.Assets,data,JavaScript,,,11,false,Missing: Created from API in specs repo: machinelearningservices/AzureAI.Assets,,2,false,0,
+Machine Learning,0,AzureAI.Assets,data,Python,,,11,false,Missing: Created from API in specs repo: machinelearningservices/AzureAI.Assets,,2,false,0,
+Machine Learning,0,AzureAI.Assets,data,Go,,,11,false,Missing: Created from API in specs repo: machinelearningservices/AzureAI.Assets,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,Java,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
 managednetworkfabric,0,Resource Management - managednetworkfabric,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/resource-manager,,2,false,0,
