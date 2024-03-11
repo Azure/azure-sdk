@@ -1,0 +1,19 @@
+entries:
+- Name: sdk/data/aztables
+  Version: 1.2.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.2.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue that could cause `Client.NewListEntitiesPager` to skip pages in some cases.
+    * Fixed an issue that could cause unmarshaling empty time values to fail.
+
+    #### Features Added
+    * Methods `Client.AddEntity` and `ServiceClient.NewListTablesPager` now include OData metadata in their responses.
+    * The amount of OData metadata returned has been made configurable for the following methods:
+    * `Client.AddEntity`, `Client.GetEntity`, `Client.NewListEntitiesPager`, and `ServiceClient.NewListTablesPager`.
+    * Use one of the following constants to specify the amount: `MetadataFormatFull`, `MetadataFormatMinimal`, or `MetadataFormatNone`.
+
