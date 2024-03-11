@@ -16,4 +16,14 @@ entries:
     * The amount of OData metadata returned has been made configurable for the following methods:
     * `Client.AddEntity`, `Client.GetEntity`, `Client.NewListEntitiesPager`, and `ServiceClient.NewListTablesPager`.
     * Use one of the following constants to specify the amount: `MetadataFormatFull`, `MetadataFormatMinimal`, or `MetadataFormatNone`.
+- Name: sdk/monitor/ingestion/azlogs
+  Version: 0.2.0
+  DisplayName: Logs
+  ServiceName: Ingestion
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/ingestion/azlogs/v0.2.0/sdk/monitor/ingestion/azlogs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Moved from `sdk/monitor/azingest` to `sdk/monitor/ingestion/azlogs`
 
