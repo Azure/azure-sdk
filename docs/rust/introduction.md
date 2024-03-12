@@ -237,6 +237,8 @@ Some service operations, known as _Long Running Operations_ or _LROs_ take a lon
 
 Azure::Core library exposes an abstract type called `Operation<T>`, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
+> TODO: Add operation details.
+
 > TODO: This section needs to be driven by code in the Core library.
 
 {% include requirement/MUST id="rust-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
@@ -364,15 +366,17 @@ pub fn helper() {} // not exported publicly
 
 Packages in Rust are called "crates". Crate names follow the same [general guidance on namespaces][general-design-namespaces] using underscores as a separator e.g., `azure_core`, `azure_security_keyvault`, etc.
 
-{% include requirement/MUST id="rust-packaging-prefix" %} start the crate name with `azure_` for data plane crates or `azure_mgmt_` for control plane (ARM) crates.
+{% include requirement/MUST id="rust-packaging-prefix" %} start the crate name with `azure_` for data plane crates or `azure_resourcemanager_` for control plane (ARM) crates.
 
-{% include requirement/MUST id="rust-packaging-name" %} construct the crate name with all lowercase characters and underscores. Uppercase characters and dashes are not allowed. For example, `azure_security_keyvault`.
+> TODO: Now that [RFC 3243](https://github.com/rust-lang/rfcs/pull/3243) is merged, having already-reserved `azure_mgmt_*` crates matters less; however, we should revisit using "mgmt" if the RFC hasn't been implemented by the time we need it.
+
+{% include requirement/MUST id="rust-packaging-name" %} construct the crate name with all lowercase characters and underscores in the form `azure_<group>_<service>`. Uppercase characters and dashes are not allowed. For example, `azure_security_keyvault`.
 
 Rust does support dashes in crate names, but it may create confusion with customers to reference a crate like `azure-core` then import a module like `azure_core`. Many older crates do this, but the trend has been to use underscores in both cases to avoid confusion.
 
 {% include requirement/MUST id="rust-packaging-registration" %} register the chosen crate name with the [Architecture Board]. Open an issue to request the crate name. See the [registered package list] for a list of the currently registered packages.
 
-{% include requirement/MUST id="rust-packaging-group" %} package different endpoints within a service together in a single crate but under separate modules as needed.
+{% include requirement/MUST id="rust-packaging-group" %} package different endpoints within a service that version together in a single crate but under separate modules as needed.
 
 Using Key Vault as an example and comparing with other languages like [.NET][dotnet-guidelines]:
 
@@ -380,7 +384,9 @@ Using Key Vault as an example and comparing with other languages like [.NET][dot
 * `Azure.Security.KeyVault.Keys` -> `azure_security_keyvault::keys`
 * `Azure.Security.KeyVault.Certificates` -> `azure_security_keyvault::certificates`
 
-This makes efficient use of generated client code for each services' TypeSpec or OpenAPI specification in a statically-compiled lanugage like Rust.
+This makes efficient use of generated client code for each services' TypeSpec or OpenAPI specification in a statically-compiled language like Rust.
+
+{% include requirement/MUSTNOT id="rust-packaging-independent" %} package multiple service specifications that version independently within the same crate.
 
 #### Directory Structure
 
