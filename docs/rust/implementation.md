@@ -1,7 +1,7 @@
 ---
 title: "Rust Guidelines: Implementation"
 keywords: guidelines rust
-permalink: rust_guidelines.html
+permalink: rust_implementation.html
 folder: rust
 sidebar: general_sidebar
 ---
