@@ -1,7 +1,7 @@
 ---
 title: "Rust Guidelines: Implementation"
 keywords: guidelines rust
-permalink: rust_guidelines.html
+permalink: rust_implementation.html
 folder: rust
 sidebar: general_sidebar
 ---
@@ -12,17 +12,17 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### Service Client
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
-> TODO: add a brief mention of the approach to implementing service clients. 
+> TODO: add a brief mention of the approach to implementing service clients.
 
 #### Service Methods
 
-> TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance.  Mention that much of this is done for you using code generation.
+> TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance. Mention that much of this is done for you using code generation.
 
 ##### HttpPipeline
 
@@ -32,7 +32,7 @@ The following example shows a typical way of using `HttpPipeline` to implement a
 
 ##### HttpPipelinePolicy/Custom Policies
 
-The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
+The HTTP pipeline includes a number of policies that all requests pass through. Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
 
 > TODO: Show how to customize a pipeline
 
@@ -166,7 +166,7 @@ In addition to [general parameter validation guidelines](introduction.md#rust-pa
 
 #### Tooling
 
-We use a common build and test pipeline to provide for automatic distribution of client libraries.  To support this, we use common tooling.
+We use a common build and test pipeline to provide for automatic distribution of client libraries. To support this, we use common tooling.
 
 > TODO: Add section> TODO: Add section
 

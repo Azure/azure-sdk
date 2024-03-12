@@ -17,6 +17,7 @@
 [java-guidelines]: {{ site.baseurl }}{% link docs/java/introduction.md %}
 [python-guidelines]: {{ site.baseurl }}{% link docs/python/design.md %}
 [typescript-guidelines]: {{ site.baseurl }}{% link docs/typescript/introduction.md %}
+[rust-guidelines]: {{ site.baseurl }}{{% link docs/rust/introduction.md %}}
 
 [android-latest-releases]: {{ site.baseurl }}{% link releases/latest/android.md %}
 [dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/dotnet.md %}
