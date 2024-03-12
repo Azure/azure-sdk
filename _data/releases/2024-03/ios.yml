@@ -19,4 +19,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Updated Media Statistics feature.
+- Name: AzureCommunicationChat
+  Version: 1.3.4
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.3.4/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - The SDK now incorporates a more recent Trouter template to prevent IOS devices from receiving duplicate real-time notifications.
 
