@@ -381,7 +381,7 @@ entries:
     - Removed the `SendMessageOptions` class in favor of more granular method overloads (`NotificationContent` subclasses) in `NotificationMessagesClient`.
     - Changed the way to construct MessageTemplate including message template bindings and values.
     - Changed `MessageTemplateItem` class  to support polymorphism, with the introduction of a child class `WhatsAppMessageTemplateItem` containing WhatsApp-specific template contracts.
-    - Added `GeoPosition`` struct to encapsulate geographic coordinates into a single entity. This change affects any functionality that previously required separate latitude and longitude inputs.
+    - Added `GeoPosition` struct to encapsulate geographic coordinates into a single entity. This change affects any functionality that previously required separate latitude and longitude inputs.
 - Name: System.ClientModel
   Version: 1.1.0-beta.2
   DisplayName: System.ClientModel
