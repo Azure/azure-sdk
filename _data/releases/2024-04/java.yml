@@ -69,4 +69,15 @@ entries:
     #### Bugs Fixed
     - [Support stable HTTP semconv url.query](https://github.com/Azure/azure-sdk-for-java/pull/39133)
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.22.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.22.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New System Events for API Center
+  GroupId: com.azure
 
