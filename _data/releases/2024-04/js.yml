@@ -1,0 +1,150 @@
+entries:
+- Name: '@azure/core-util'
+  Version: 1.8.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.8.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-tracing'
+  Version: 1.1.0
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.1.0/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-xml'
+  Version: 1.4.0
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.0/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-http-compat'
+  Version: 2.1.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.1.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/eventgrid'
+  Version: 5.3.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.3.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ApiCenter.ApiDefinitionAdded`
+    - `Microsoft.ApiCenter.ApiDefinitionUpdated`
+- Name: '@azure-rest/core-client'
+  Version: 1.3.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.3.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Set the content-type as `undefined` if it's a non-json string in the body and we are unknown of the content-type, but remain to be `application/json` if it's json string.
+
+    #### Features Added
+
+    - Allow customers to set request content type by `option.contentType` or `content-type` request headers.
+- Name: '@azure/abort-controller'
+  Version: 2.1.0
+  DisplayName: Core - Client - Abort Controller
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_2.1.0/sdk/core/abort-controller/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-client'
+  Version: 1.9.0
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.9.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.15.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.15.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue where files created using `createFileFromStream` were not properly supported in the browser.
+- Name: '@azure/logger'
+  Version: 1.1.0
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.0/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-paging'
+  Version: 1.6.0
+  DisplayName: Core - Paging
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.0/sdk/core/core-paging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+- Name: '@azure/core-auth'
+  Version: 1.7.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.7.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
+
