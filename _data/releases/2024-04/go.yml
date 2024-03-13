@@ -26,4 +26,14 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     * Moved from `sdk/monitor/azingest` to `sdk/monitor/ingestion/azlogs`
+- Name: sdk/monitor/azingest
+  Version: 0.1.2
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azingest/v0.1.2/sdk/monitor/azingest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * This module is now DEPRECATED. The latest supported version of this module is at [github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs)
 
