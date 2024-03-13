@@ -124,4 +124,16 @@ entries:
     ##### Other Changes
     * Reduced noise level in logs with WARN level but added more verbose logs when retries have been re-enqueued. - See [PR 39169](https://github.com/Azure/azure-sdk-for-java/pull/39169)
   GroupId: com.azure.cosmos.spark
+- Name: azure-data-tables
+  Version: 12.4.0-beta.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.4.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `jackson-dataformat-xml` as a dependency.
+  GroupId: com.azure
 
