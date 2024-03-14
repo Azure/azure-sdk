@@ -36,4 +36,12 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     * This module is now DEPRECATED. The latest supported version of this module is at [github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs)
+- Name: sdk/template/aztemplate
+  Version: 0.4.0
+  DisplayName: Template
+  ServiceName: Template
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/template/aztemplate/v0.4.0/sdk/template/aztemplate/CHANGELOG.md
+  ChangelogContent: '* Template package validating release pipeline'
 
