@@ -44,4 +44,29 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/template/aztemplate/v0.4.0/sdk/template/aztemplate/CHANGELOG.md
   ChangelogContent: '* Template package validating release pipeline'
+- Name: sdk/template/aztemplate
+  Version: 0.6.0
+  DisplayName: Template
+  ServiceName: Template
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/template/aztemplate/v0.6.0/sdk/template/aztemplate/CHANGELOG.md
+  ChangelogContent: '* Template package validating release pipeline'
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.2.0
+  DisplayName: Systemevents
+  ServiceName: Eventgrid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.2.0/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Events have been renamed:
+    - APIDefinitionAddedEventData renamed to APICenterAPIDefinitionAddedEventData
+    - APIDefinitionUpdatedEventData renamed to APICenterAPIDefinitionUpdatedEventData
+
+    #### Features Added
+
+    - Added API Center system events under their official names.
 
