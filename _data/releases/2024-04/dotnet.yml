@@ -83,4 +83,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.0.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.MySql
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - MySQL
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.1.0-beta.5/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.14.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.14.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `MaxMessageBatchSize` property to the `ServiceBusTrigger` attribute to allow configuring the maximum number of messages to process in a batch at the function level.
 
