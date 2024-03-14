@@ -1,0 +1,166 @@
+entries:
+- Name: azure-messaging-servicebus
+  Version: 7.15.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.15.2/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.46.0` to `1.47.0`.
+    - Upgraded `azure-core-amqp` from `2.9.1` to `2.9.2`.
+    - Upgraded `azure-identity` from `1.11.2` to `1.11.3`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-cosmos
+  Version: 2.37.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmos_2.37.0-beta.1/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-monitor-ingestion
+  Version: 1.1.5
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.1.5/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the JavaDoc documentation to increase support for our clients.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.14.0` to version `1.14.1`.
+    - Upgraded `azure-core` from `1.46.0` to version `1.47.0`.
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.7.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.7.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced `SearchErrorException` with `ErrorResponseException`
+
+    #### Features Added
+
+    - Added support for the java types `Byte` and `Short` to FieldBuilder.
+    - Added support for "isStored" annotation to FieldBuilder.
+    - Added `VectorSearchCompressionConfiguration` to `VectorSearch`
+  GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.21
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.21/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [Support stable HTTP semconv url.query](https://github.com/Azure/azure-sdk-for-java/pull/39133)
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.22.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.22.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New System Events for API Center
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.28.3
+  DisplayName: OLTP Spark 3.1 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.1 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-1_2-12_4.28.3/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noise level in logs with WARN level but added more verbose logs when retries have been re-enqueued. - See [PR 39169](https://github.com/Azure/azure-sdk-for-java/pull/39169)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.28.3
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.28.3/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noise level in logs with WARN level but added more verbose logs when retries have been re-enqueued. - See [PR 39169](https://github.com/Azure/azure-sdk-for-java/pull/39169)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.28.3
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.28.3/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noise level in logs with WARN level but added more verbose logs when retries have been re-enqueued. - See [PR 39169](https://github.com/Azure/azure-sdk-for-java/pull/39169)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-2_2-12
+  Version: 4.28.3
+  DisplayName: OLTP Spark 3.2 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.2 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-2_2-12_4.28.3/sdk/cosmos/azure-cosmos-spark_3-2_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noise level in logs with WARN level but added more verbose logs when retries have been re-enqueued. - See [PR 39169](https://github.com/Azure/azure-sdk-for-java/pull/39169)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-data-tables
+  Version: 12.4.0-beta.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.4.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `jackson-dataformat-xml` as a dependency.
+  GroupId: com.azure
+- Name: azure-resourcemanager-security
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-security_1.0.0-beta.6/sdk/security/azure-resourcemanager-security/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.27
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.27/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-redisenterprise
+  Version: 2.0.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redisenterprise_2.0.0/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
