@@ -163,4 +163,21 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redisenterprise_2.0.0/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-servicebus
+  Version: 7.16.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.16.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Replaced Jackson Dataformat XML with `azure-xml`.
+
+    #### Breaking Changes
+
+    - Remove Jackson Dataformat XML dependency. If you were depending on this, you will need to add
+    `com.fasterxml.jackson.dataformat:jackson-dataformat-xml` to your project.
+  GroupId: com.azure
 
