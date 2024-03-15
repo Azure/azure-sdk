@@ -102,4 +102,16 @@ entries:
     #### Features Added
 
     - Added the `MaxMessageBatchSize` property to the `ServiceBusTrigger` attribute to allow configuring the maximum number of messages to process in a batch at the function level.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0-beta.5
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0-beta.5/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for number lookup
+    - Format only can be returned for no cost
+    - Additional number details can be returned for a cost
 
