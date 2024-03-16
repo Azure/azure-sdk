@@ -64,11 +64,22 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUSTNOT id="rust-general-version" %} use grammar or features newer than the `rust-version` declared in the root `Cargo.toml` workspace.
 
-{% include requirement/MUSTNOT id="rust-general-dependencies" %} necessarily depend on any particular async runtime or HTTP stack.
+{% include requirement/MUSTNOT id="rust-general-dependencies" %} unconditionally require any particular async runtime or HTTP stack.
+
+{% include requirement/SHOULD id="rust-general-dependencies-default" %} depend on `tokio` (async runtime) and `reqwest` (HTTP stack) in the `default` feature for crates e.g.:
+
+```toml
+[dependencies]
+reqwest = { workspace = true, optional = true }
+
+[features]
+default = [ "reqwest" ]
+reqwest = [ "dep:reqwest" ]
+```
+
+Default features can be ignored by consumers and individual features enabled as desired. This allows consumers to ignore default features and use their own HTTP stack and/or async runtime to implement a client.
 
 {% include requirement/MUSTNOT id="rust-general-unwrap" %} call `unwrap()`, `expect()`, or other functions that may panic unless you are absolutely sure they never will. It's almost always better to use `map()`, `unwrap_or_else()`, or a myriad of related functions to remap errors, return suitable defaults, etc.
-
-{% include requirement/SHOULD id="rust-general-dependencies-default" %} depend on `tokio` (async runtime) and `reqwest` (HTTP stack) in the `default` feature for crates.
 
 ### Support for non-HTTP Protocols
 
@@ -84,6 +95,11 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/SHOULDNOT id="rust-api-naming-abbreviation" %} use abbreviations unless necessary or when they are commonly used and understood. For example, `iot` is used since it is a commonly understood industry term; however, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
 
+With mixed casing like "IoT", consider the following guidelines:
+
+* For module and method names, always use lowercase e.g., `get_iot_device()`.
+* For type names, use PascalCase e.g., `IotClient`.
+
 {% include requirement/MUST id="rust-api-dependencies" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of [centrally managed dependencies][rust-lang-dependencies].
 
 ### Service Client {#rust-client}
@@ -94,7 +110,7 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="rust-client-name" %} name service client types with the _Client_ suffix e.g., `SecretClient`.
 
-Client names are specific to the service to avoid ambiguity when using multiple clients without requiring `as` to change the binding name e.g.,
+Client names are specific to the service to avoid ambiguity when using multiple clients without requiring `as` to change the binding name when importing e.g.,
 
 ```text
 error[E0252]: the name `Client` is defined multiple times
@@ -109,7 +125,7 @@ error[E0252]: the name `Client` is defined multiple times
 
 {% include requirement/SHOULD id="rust-client-namespace" %} place service client types that the consumer is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault`. Specialized service clients should be placed in submodules e.g., `azure_security_keyvault::secrets`.
 
-{% include requirement/MUST id="rust-client-immutable" %} ensure that all service client classes thread safe (usually by making them immutable and stateless).
+{% include requirement/MUST id="rust-client-immutable" %} ensure that all service client methods are thread safe (usually by making them immutable and stateless).
 
 {% include requirement/MUST id="rust-client-endpoint" %} define a public `endpoint(&self) -> &azure_core::Url` method to get the endpoint used to create the client.
 
@@ -133,9 +149,9 @@ impl SecretClient {
 
 {% include requirement/MUST id="rust-client-configuration-name" %} name the client options struct with the same as the client name + "Options" e.g., a `SecretClient` takes a `SecretClientOptions`.
 
-{% include requirement/MUST id="rust-client-configuration-version" %} define a `pub api_version: String` field to pass to the service for all HTTP clients.
+{% include requirement/MUST id="rust-client-configuration-version" %} define a `pub api_version: String` field to pass to the service for the HTTP client.
 
-{% include requirement/MUST id="rust-client-configuration-core" %} define a `pub options: azure_core::ClientOptions` field to define global configuration shared by all HTTP clients.
+{% include requirement/MUST id="rust-client-configuration-core" %} define a `pub options: azure_core::ClientOptions` field on client-specific options to define global configuration shared by any HTTP client.
 
 {% include requirement/MUST id="rust-client-configuration-clone" %} derive `Clone` to support cloning client configuration for other clients.
 
@@ -166,7 +182,7 @@ pub struct SecretClientOptions {
 
 {% include requirement/MUST id="rust-client-api-version-latest" %} call the latest supported service API version by default. Typically this will be the API version from which the client library was generated.
 
-{% include requirement/MUST id="rust-client-api-version-override" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
+{% include requirement/MUST id="rust-client-api-version-override" %} allow the consumer to explicitly set a service API version when instantiating the service client.
 
 ##### Mocking {#rust-client-mocking}
 
@@ -208,16 +224,16 @@ impl SecretClientMethods for SecretClient {
 
 _Service methods_ are the methods on the client that invoke operations on the service.
 
-##### Sync and Async
+##### Sync and Async {#rust-client-methods-async}
 
 The Rust SDK is designed for asynchronous API calls. Customers who need synchronous calls may use something like [`futures::executor::block_on`](https://docs.rs/futures/latest/futures/executor/fn.block_on.html)
 to wait synchronously on a `Future`.
 
 {% include requirement/MUST id="rust-client-methods-async-api" %} provide an asynchronous programming model for service methods.
 
-{% include requirement/MUSTNOT id="rust-client-methods-async-api" %} provide a synchronous programming model for service methods.
+{% include requirement/MUSTNOT id="rust-client-methods-async-nosync" %} provide a synchronous programming model for service methods.
 
-##### Naming
+##### Naming {#rust-client-methods-naming}
 
 {% include requirement/MUST id="rust-client-methods-naming-case" %} use snake_case method names converted from likely either camelCase or PascalCase declared in the service specification e.g., `getResource` would be declared as `get_resource`.
 
@@ -231,35 +247,44 @@ to wait synchronously on a `Future`.
 | `with_` | field setter returning `Self` - typically used in builders | `with_field_name(&mut self, value: FieldType) -> &mut Self` |
 | `set_` | field setter returning nothing or anything else | `set_field_name(&mut self, value: FieldType)` |
 
-#### Service Method Parameters {#rust-parameters}
-
-{% include requirement/MUST id="rust-parameters-self" %} take a `&self` as the first parameter. All service clients must be immutable
-
-{% include requirement/MAY id="rust-parameters-interior-mutability" %} use interior mutability e.g., `std::sync::OnceLock` for single-resource caching e.g., a single key-specific `CryptographyClient` that attempts to download the public key material for subsequent public key operations.
-
-##### Parameter Validation
-
-The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI or a file that needs to be uploaded to storage.
-
-{% include requirement/MUST id="rust-parameters-client-validation" %} validate client parameters.
-
-{% include requirement/MUSTNOT id="rust-parameters-server-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
-
-{% include requirement/MUSTNOT id="rust-parameters-server-defaults" %} encode service parameter default values. These values may change from version to version and may cause unexpected results when calling older versions from a newer client. Let the service apply default parameter values.
-
-{% include requirement/MUST id="rust-parameters-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
-
-##### Operation Options
+##### Operation Options {#rust-client-methods-options}
 
 > TODO: Pass per-call options that affect the pipeline e.g., if Some(T), clone pipeline and modify.
+> See <https://learn.microsoft.com/javascript/api/@azure/core-client/operationrequestoptions> for some ideas.
+> Perhaps not everything can be customized. Do we, for example, allow removing policies or just adding? And which policies with options can be changed?
 
-##### Return Types
+##### Return Types {#rust-client-methods-return}
 
 {% include requirement/MUST id="rust-client-methods-return-result"} return an `azure_core::Result<azure_core::Response>` from an `async fn`.
 
 This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response>>` from an `fn`.
 
 > TODO: Update when LRO and pageable design guidelines.
+
+##### Cancellation {#rust-client-methods-cancellation}
+
+Cancelling an asynchronous method call in Rust is done by dropping the `Future`.
+
+The Rust `std` crate itself does not implement an async runtime, so different async runtimes must be chosen by the caller and may support cancellation different. `tokio` is common and should be the default, but not required.
+Various extensions also exist that the caller may use that may otherwise not work with passing in a cancellation token like in some other Azure SDK languages.
+
+#### Service Method Parameters {#rust-parameters}
+
+{% include requirement/MUST id="rust-parameters-self" %} take a `&self` as the first parameter. All service clients must be immutable
+
+{% include requirement/MAY id="rust-parameters-interior-mutability" %} use interior mutability e.g., `std::sync::OnceLock` for single-resource caching e.g., a single key-specific `CryptographyClient` that attempts to download the public key material for subsequent public key operations.
+
+##### Parameter Validation {#rust-parameters-validation}
+
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI or a file that needs to be uploaded to storage.
+
+{% include requirement/MUST id="rust-parameters-validation-client" %} validate client parameters.
+
+{% include requirement/MUSTNOT id="rust-parameters-validation-server" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+
+{% include requirement/MUSTNOT id="rust-parameters-validation-server-defaults" %} encode service parameter default values. These values may change from version to version and may cause unexpected results when calling older versions from a newer client. Let the service apply default parameter values.
+
+{% include requirement/MUST id="rust-parameters-validation-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
 
 #### Methods Returning Collections (Paging) {#rust-paging}
 
@@ -297,17 +322,6 @@ For example, some subclasses add a constructor allowing to create an operation i
 ##### Conditional Request Methods
 
 > TODO: This section needs to be driven by code in the Core library.
-
-##### Cancellation
-
-Cancelling an asynchronous method call in Rust is done by dropping the `Future`.
-
-The Rust `std` crate itself does not implement an async runtime, so different async runtimes must be chosen by the caller and may support cancellation different. `tokio` is common and should be the default, but not required.
-Various extensions also exist that the caller may use that may otherwise not work with passing in a cancellation token like in some other Azure SDK languages.
-
-##### Thread Safety
-
-{% include requirement/MUST id="rust-client-methods-thread-safety" %} be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
 
 ##### Hierarchical Clients
 
@@ -491,15 +505,26 @@ Cargo.toml
 
 {% include requirement/MUST id="rust-versioning-major-version" %} increase the major semantic version number if an API breaking change is required.
 
-Breaking changes should happen rarely, if ever. Register your intent to do a breaking change with the [Architecture Board]. You'll need to have a discussion with the language architect before approval.
+See <https://semver.org> for more information.
+
+{% include requirement/MUST id="rust-versioning-breaking-change-review" %} discuss breaking changes with the language architect before making changes.
+
+Note there are different types of breaking changes:
+
+1. The service introduced breaking changes that the client library must reflect in code. Approval may still be required, but should not burden code owner(s).
+2. The client library introduced breaking changes for good reason.
+
+Breaking changes introduced by the client library should happen rarely, if ever. Register your intent to make client breaking changes with the [Architecture Board].
 
 ##### Package Version Numbers {#rust-package-versions}
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
-{% include requirement/MUST id="rust-package-versions-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
+{% include requirement/MUST id="rust-package-versions-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the crate.
 
 Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
+
+See <https://semver.org> for more information.
 
 {% include requirement/MUST id="rust-package-versions-change-on-release" %} change the version number of the client library when __ANYTHING__ changes in the client library.
 
@@ -513,8 +538,6 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/SHOULD id="rust-package-versions-major-changes" %} increment the major version when making large feature changes.
 
-{% include requirement/MUST id="rust-package-versions-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
-
 ### Dependencies {#rust-dependencies}
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
@@ -525,7 +548,7 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 * __Compatibility__ - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 * __Security__ - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependencies code base.
 
-{% include requirement/MUST id="rust-dependencies-centralized" %} declare all dependencies in the repository root `Cargo.toml` workspace in the `[dependencies]` section regardless of which type of dependency creates will inherit, e.g.:
+{% include requirement/MUST id="rust-dependencies-centralized" %} declare all dependencies in the repository root `Cargo.toml` workspace in the `[dependencies]` section regardless of which type of dependency crates will inherit, e.g.:
 
 ```toml
 [workspace.dependencies]
@@ -573,7 +596,7 @@ pub struct Secret {
 
 This will impact line numbers, so you should only export APIs publicly from `lib.rs`.
 
-{% include requirement/MUST id="rust-documentation-parameters" %} document all parameters. Prior to [conventional doc comment markdown headers][rust-lang-rustdoc-headings], declare a `Arguments` heading as needed (not needed for `&self`):
+{% include requirement/MUST id="rust-documentation-parameters" %} document all parameters. Prior to [conventional doc comment markdown headers][rust-lang-rustdoc-headings], declare an `Arguments` heading as needed (not needed for `&self`):
 
 ```rust
 /// Sets a secret and returns more information about the secret from the service.
@@ -588,7 +611,7 @@ fn set_secret(&self, name: impl Into<String>, value: impl Into<String>, options:
 
 See [Rust by Example: Documentation][rust-lang-doc-meta] for more information.
 
-{% include requirement/SHOULD id="rust-documentation-tests" %} use testable examples in documentation which not only improves test coverage, but also shows callers runnable examples.
+{% include requirement/SHOULD id="rust-documentation-tests" %} use testable examples in documentation which improve test coverage and show callers runnable examples.
 
 {% include requirement/MAY id="rust-documentation-expect" %} use `expect(&str)` to unwrap a value or panic with an explanation useful to consumers only in doc comments.
 
