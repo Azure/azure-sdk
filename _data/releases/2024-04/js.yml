@@ -269,4 +269,23 @@ entries:
     - Remove `KnownCharFilterName` as a duplicate of `KnownCharFilterNames`
     - Remove `KnownTokenFilterName` as a duplicate of `KnownTokenFilterNames`
     - Remove `SearchRequest` as a duplicate of `SearchRequestOptions`
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.3.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.3.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix detecting Azure Functions and Azure App Service RPs incorrectly in the browser SDK loader.
+    - Fix OpenTelemetry Resource type being used when resource is set on the AzureMonitorOpenTelemetryOptions by resource detector.
+    - Fix Resource typing on the Azure Monitor config.
+    - Fix document duration, dependency duration metric, and default quickpulse endpoint.
+    - Fix issue with miscalculation of Live Metrics request/depdendency duration.
+
+    #### Features Added
+
+    - Allow spanProcessors and logRecordProcessors to be passed as options to useAzureMonitor.
 
