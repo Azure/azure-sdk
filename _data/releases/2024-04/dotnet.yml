@@ -130,4 +130,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quantum_1.0.0-beta.5/sdk/quantum/Azure.ResourceManager.Quantum/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 1.0.0-beta.15
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_1.0.0-beta.15/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `EmbeddingsOptions` now includes the `Dimensions` property, new to Azure OpenAI's `2024-03-01-preview` service API.
+
+    #### Bugs Fixed
+
+    - Several issues with the `ImageGenerations` response object being treated as writeable are fixed:
+    - `ImageGenerations` no longer has an erroneous public constructor
+    - `ImageGenerations.Created` no longer has a public setter
+    - `ImageGenerations.Data` is now an `IReadOnlyList` instead of an `IList`
+    - A corresponding replacement factory method for mocks is added to `AzureOpenAIModelFactory`
 
