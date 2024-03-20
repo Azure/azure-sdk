@@ -288,4 +288,15 @@ entries:
     #### Features Added
 
     - Allow spanProcessors and logRecordProcessors to be passed as options to useAzureMonitor.
+- Name: '@azure/notification-hubs'
+  Version: 1.1.1
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.1.1/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed to allow `FcmV1Notification` as part of the `Notification` and `sendNotification` parameters.
 
