@@ -179,4 +179,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-apimanagement_4.0.1/sdk/apimanagement/azure-mgmt-apimanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.12.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.12.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the client was not retrying when a connection drop happened ([34786](https://github.com/Azure/azure-sdk-for-python/pull/34786))
+    - Fixed a bug where the client would not handle a role instance swap on the service correctly ([34820](https://github.com/Azure/azure-sdk-for-python/pull/34820))
 
