@@ -255,7 +255,7 @@ to wait synchronously on a `Future`.
 
 ##### Return Types {#rust-client-methods-return}
 
-{% include requirement/MUST id="rust-client-methods-return-result"} return an `azure_core::Result<azure_core::Response>` from an `async fn`.
+{% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response>` from an `async fn`.
 
 This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response>>` from an `fn`.
 
