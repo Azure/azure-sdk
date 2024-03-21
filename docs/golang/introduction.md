@@ -74,15 +74,16 @@ Azure services will be exposed to Go developers as one or more _service client_ 
 
 Your API surface consists of one or more service clients that the consumer instantiates to connect to your service, plus a set of supporting types.
 
-{% include requirement/MUST id="golang-client-naming" %} name service client types with the `Client` suffix.
-
+{% include requirement/MUST id="golang-client-naming-onlyclient" %} name the client `Client`. The combination of the package and the type provide enough context.
 ```go
-type WidgetClient struct {
+package widget
+
+type Client struct {
 	// all fields MUST NOT be exported
 }
-```
 
-{% include requirement/SHOULD id="golang-client-naming-onlyclient" %} name the client `Client` if the package name provides enough context.
+// referenced as widget.Client
+```
 
 #### Service Client Constructors
 
