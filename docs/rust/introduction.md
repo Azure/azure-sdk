@@ -145,6 +145,10 @@ impl SecretClient {
 
 {% include requirement/MAY id="rust-client-constructors-credential" %} accept a different credential type if the service does not support AAD authentication.
 
+{% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes a `TokenCredential` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
+
+In cases were different credential types are supported, we want the main pattern to support AAD authentication over other authentication schemes.
+
 ##### Client Configuration {#rust-client-configuration}
 
 {% include requirement/MUST id="rust-client-configuration-name" %} name the client options struct with the same as the client name + "Options" e.g., a `SecretClient` takes a `SecretClientOptions`.
@@ -211,18 +215,29 @@ impl SecretClient {
 
 impl SecretClientMethods for SecretClient {
     fn endpoint(&self) -> &Url {
-        // ...
+        todo!()
     }
 
     async fn set_secret(&self, _name: impl Into<String>, _version: impl Into<String>, _options: Option<SetSecretOptions>) -> azure_core::Result<Response> {
-        // ...
+        todo!()
     }
 }
 ```
 
 #### Service Methods {#rust-client-methods}
 
-_Service methods_ are the methods on the client that invoke operations on the service.
+_Service methods_ are the methods on the client that invoke operations on the service and will follow the form:
+
+```rust
+async fn method_name(
+    &self,
+    mandatory_param1: impl Into<P1>,
+    mandatory_param2: impl Into<P2>,
+    body: impl Into<Bytes>,
+    options: Option<MethodNameOptions>,
+    context: Option<&Context>,
+) -> azure_core::Result<Response>;
+```
 
 ##### Sync and Async {#rust-client-methods-async}
 
@@ -271,6 +286,42 @@ Various extensions also exist that the caller may use that may otherwise not wor
 #### Service Method Parameters {#rust-parameters}
 
 {% include requirement/MUST id="rust-parameters-self" %} take a `&self` as the first parameter. All service clients must be immutable
+
+{% include requirement/MUST id="rust-parameters-into" %} declare parameter types as `impl Into<T>` where `T` is a common `std` type that implements `Into<T>` e.g., `String` when the parameter data will be owned.
+
+This will be most common when the data passed to a function will be stored in a struct e.g.:
+
+```rust
+pub struct SecretClientOptions {
+    api_version: String,
+}
+
+impl SecretClientOptions {
+    pub fn new(api_version: impl Into<String>) -> Self {
+        Self {
+            api_version: api_version.into(),
+        }
+    }
+}
+```
+
+This allows callers to pass a `String` or `str` e.g., `SecretClientOptions::new("7.4")`.
+
+{% include requirement/MUST id="rust-parameter-asref" %} declare parameter types as `impl AsRef<T>` where `T` is a common `std` reference type that implements `AsRef<T>` e.g., `str`, when the parameter data is merely borrowed.
+
+This is useful when the parameter data is temporary, such as allowing a `str` endpoint to be passed that will be parsed into an `azure_core::Url` e.g.:
+
+```rust
+impl SecretClient {
+    pub fn new(endpoint: impl AsRef<str>) -> Result<Self> {
+        let endpoint = azure_core::Url::parse(endpoint.as_ref())?;
+
+        todo!()
+    }
+}
+```
+
+The `endpoint` parameter is never saved so a reference is fine. This also allows callers to pass a `String` or `str` e.g., `SecretClient::new("https://myvault.vault.azure.net")`.
 
 {% include requirement/MAY id="rust-parameters-interior-mutability" %} use interior mutability e.g., `std::sync::OnceLock` for single-resource caching e.g., a single key-specific `CryptographyClient` that attempts to download the public key material for subsequent public key operations.
 
