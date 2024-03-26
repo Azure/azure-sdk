@@ -613,4 +613,17 @@ entries:
     #### Other Changes
 
     - Updated to `@azure/communication-common` 2.3.1.
+- Name: '@azure/monitor-query'
+  Version: 1.2.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new `MetricsClient` to query metrics for multiple resources.
+    - Added `autoAdjustTimegrain`, `rollUpBy` and `validateDimensions` properties to the `MetricsQueryOptions` object.
+    - Added `resourceId` property to the `MetricsQueryResult` object.
 
