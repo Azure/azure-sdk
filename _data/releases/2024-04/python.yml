@@ -250,4 +250,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sphere_1.0.0/sdk/sphere/azure-mgmt-sphere/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-messages
+  Version: 1.0.0
+  DisplayName: azure-communication-messages
+  ServiceName: communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-messages_1.0.0/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Using `NotificationMessagesClient`
+    - Send Text messages
+    - Send Template messages
+    - Send Media messages
+    - Using `MessageTemplateClient`
+    - Get list of all WhatsApp templates.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-messages/README.md
 
