@@ -242,4 +242,12 @@ entries:
     #### Bugs Fixed
     - Changed invalid default value `None` to `False` for property `enabled` in `FeatureFlagConfigurationSetting`.
     - Fixed the issue that `description`, `display_name` and other customer fields are missing when de/serializing `FeatureFlagConfigurationSetting` objects.
+- Name: azure-mgmt-sphere
+  Version: 1.0.0
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sphere_1.0.0/sdk/sphere/azure-mgmt-sphere/CHANGELOG.md
+  ChangelogContent: ""
 
