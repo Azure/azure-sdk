@@ -268,4 +268,29 @@ entries:
 
     <!-- LINKS -->
     [read_me]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-messages/README.md
+- Name: azure-ai-ml
+  Version: 1.15.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.15.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The following classes will still be able to be imported from `azure.ai.ml`, but the import is deprecated and emits a warning. Instead, please import them from `azure.ai.ml.entities`.
+    - `AmlTokenConfiguration`
+    - `ManagedIdentityConfiguration`
+    - `UserIdentityConfiguration`
+    - The following classes will still be able to be imported from `azure.ai.ml.entities`, but the import is deprecated and emits a warning. Instead, please import them from `azure.ai.ml.sweep`.
+    - `Choice`
+    - `Uniform`
+    - `LogUniform`
+    - `QLogUniform`
+    - `QUniform`
+    - `QLogNormal`
+    - `QNormal`
+    - `LogNormal`
+    - `Normal`
+    - `Randint`
 
