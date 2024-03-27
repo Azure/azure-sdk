@@ -253,4 +253,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sphere/armsphere/v1.0.0/sdk/resourcemanager/sphere/armsphere/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/messaging/azeventgrid
+  Version: 0.5.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventgrid/v0.5.0/sdk/messaging/azeventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This module has been split into two separate modules, one for each of the two different Event Grid products.
+    - The **Event Grid Basic** package in *`azeventgrid/publisher`* has been **replaced**
+    with `github.com/Azure/azure-sdk-for-go/sdk/messaging/eventgrid/azeventgrid`
+    - The **Event Grid Namespaces** package in *`azeventgrid`* has been **replaced**
+    with `github.com/Azure/azure-sdk-for-go/sdk/messaging/eventgrid/aznamespaces`
 
