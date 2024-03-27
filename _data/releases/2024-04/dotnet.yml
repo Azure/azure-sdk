@@ -389,4 +389,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceBus_1.1.0-beta.5/sdk/servicebus/Azure.ResourceManager.ServiceBus/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.0.0-beta.6
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.6/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Made the request validation errors return 400 and the response validation errors return 500.
+
+    #### Breaking Changes
+
+    - Removing 'TeantId' from the AuthenticationEventTrigger Attribute API configuration
+    - Adding 'AuthorizedPartyAppId', 'AuthorityUrl' to the AuthenticationEventTrigger Attribute API configuration
+    - Adding 'AuthenticationEvents__ShowPIIDataInLogsKey` (defaults to true) to configuration manager for logging PIIData in logs
+    - Updated the Failed and Completed methods to not be async
+
+    #### Features Added
+
+    - Updated token internal validation to utlizie Microsoft.IdentityModel.Protocols.OpenIdConnect to get OIDC configuration.
 
