@@ -634,4 +634,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0-beta.1/sdk/workloads/arm-workloadssapvirtualinstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 1.2.0
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.2.0/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added overloads to create notifications for ADM, Baidu, Template, Xiaomi and WebPush accepting either a string or a custom object that is transformed into the JSON notification body.
+
+    #### Bugs Fixed
+
+    - Fix ordering of XML `BrowserRegistrationDescription` properties.
 
