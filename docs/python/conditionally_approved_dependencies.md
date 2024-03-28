@@ -2,6 +2,6 @@
 | Package        | Usage                                |
 |----------------|--------------------------------------|
 | `anyio`        | Asynchronous tooling lib             |
-| `isodate`      | Asynchronous HTTP                    |
+| `isodate`      | ISO date handling library            |
 | `websocket-client`       | Sync websocket lib         |
 | `aiohttp`      | Async websocket lib                  |
