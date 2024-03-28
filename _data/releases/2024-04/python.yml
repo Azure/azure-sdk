@@ -309,4 +309,47 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-workloadssapvirtualinstance_1.0.0b1/sdk/workloads/azure-mgmt-workloadssapvirtualinstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-generative
+  Version: 1.0.0b8
+  DisplayName: AI Generative
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b8/sdk/ai/azure-ai-generative/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Bug fixes
+- Name: azure-monitor-query
+  Version: 1.3.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.3.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The following changes are breaking against the previous preview release (i.e. `1.3.0b2`/`1.3.0b1`):
+    - `MetricsBatchQueryClient` has been renamed to `MetricsClient`. ([#33958](https://github.com/Azure/azure-sdk-for-python/pull/33958))
+    - Reordered the arguments for the async `MetricsClient` constructor so that `endpoint` is now the first positional argument. ([#33752](https://github.com/Azure/azure-sdk-for-python/pull/33752))
+    - Positional arguments in `MetricsClient.query_resources` are now required keyword-only arguments. ([#33958](https://github.com/Azure/azure-sdk-for-python/pull/33958))
+    - The `resource_uris` argument in `MetricsClient.query_resources` has been renamed to `resource_ids`. ([#34760](https://github.com/Azure/azure-sdk-for-python/pull/34760))
+
+    #### Features Added
+
+    - Added `roll_up_by` keyword argument to `MetricsClient.query_resources` to support rolling up metrics by dimension. ([#33752](https://github.com/Azure/azure-sdk-for-python/pull/33752))
+- Name: azure-ai-resources
+  Version: 1.0.0b8
+  DisplayName: AI Resources
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b8/sdk/ai/azure-ai-resources/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Connections LIST operation now supports returning data connections via new optional flag: include_data_connections.
+    - Connections have read-only support for 3 new connection types: gen 2, data lake, and azure blob.
+
+    #### Bugs Fixed
+    - Connections docstrings now discuss scope field.
 
