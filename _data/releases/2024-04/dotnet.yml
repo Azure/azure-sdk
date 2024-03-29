@@ -465,4 +465,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.1/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
   ChangelogContent: Initial release of the client.
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.2/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Do not fail the submission of the entry if it responds with HTTP status 202
 
