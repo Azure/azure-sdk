@@ -88,7 +88,7 @@ Security Platform,0,Microsoft Purview,data,.NET,,,11,false,Azure.Analytics.Purvi
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,3,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,10/17/2023
-Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
+Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,03/29/2024
 OpenAI,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Inference,data,.NET,,,11,false,Azure.AI.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
@@ -120,6 +120,7 @@ System.ClientModel,0,System.ClientModel,data,.NET,,,11,false,System.ClientModel,
 Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,02/06/2024
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,3,false,1,
+unknown,0,unknown,data,.NET,,,11,false,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,false,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Web PubSub,0,Web PubSub,data,.NET,,,11,false,Azure.Messaging.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,11/21/2022
@@ -184,6 +185,7 @@ Dev Center,0,Resource Management - Dev Center,mgmt,.NET,,,11,false,Azure.Resourc
 Dev Spaces,0,Resource Management - Dev Spaces,mgmt,.NET,Microsoft.Azure.Management.DevSpaces,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devspaces/Microsoft.Azure.Management.DevSpaces,3,true,Azure.ResourceManager.DevSpaces,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devspaces,3,false,1,
 IoT,0,Resource Management - Device Provisioning Services,mgmt,.NET,Microsoft.Azure.Management.DeviceProvisioningServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceprovisioningservices/Microsoft.Azure.Management.DeviceProvisioningServices,10,true,Azure.ResourceManager.DeviceProvisioningServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceprovisioningservices,10,false,1,11/27/2023
 IoT,0,Resource Management - Device Update,mgmt,.NET,Microsoft.Azure.Management.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,11/27/2023
+Deviceregistry,0,Resource Management - Deviceregistry,mgmt,.NET,,,11,false,Azure.ResourceManager.DeviceRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceregistry,3,false,1,
 DevTest Labs,0,Resource Management - DevTest Labs,mgmt,.NET,Microsoft.Azure.Management.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devtestlabs/Microsoft.Azure.Management.DevTestLabs,10,true,Azure.ResourceManager.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devtestlabs,10,false,1,11/27/2023
 IoT,0,Resource Management - Digital Twins,mgmt,.NET,Microsoft.Azure.Management.DigitalTwins,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,true,Azure.ResourceManager.DigitalTwins,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,11/27/2023
 DNS,0,Resource Management - DNS,mgmt,.NET,Microsoft.Azure.Management.Dns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dns/Microsoft.Azure.Management.Dns,10,true,Azure.ResourceManager.Dns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dns,10,false,1,11/24/2023
@@ -302,11 +304,12 @@ Voice Services,0,Resource Management - Voice Services,mgmt,.NET,,,11,false,Azure
 Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.ResourceManager.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,12/01/2023
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,
+Pool Management Service (PMaaS),0,Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,3,false,1,
+unknown,0,unknown,mgmt,.NET,,,11,false,Azure.ResourceManager.ScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/scvmm,3,false,1,
 Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
-Communication,0,Azure.Communication.CallingServer,UNABLE TO BE DETERMINED,.NET,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.Provisioning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.Storage.DataMovement.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Stack,0,Azure Stack - Azure Consistent Storage,data,.NET,Microsoft.AzureStack.AzureConsistentStorage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Stack,0,AzureStack Management - Key Vault Admin,data,.NET,Microsoft.AzureStack.Management.KeyVault.Admin,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestack/Microsoft.AzureStack.Management.KeyVault.Admin,3,true,Replaced by: NA,,4,false,1,
@@ -330,7 +333,6 @@ HDInsight,0,Hadoop Client,data,.NET,Microsoft.Hadoop.Client,https://github.com/A
 HDInsight,0,HDInsight - Job,data,.NET,Microsoft.Azure.HDInsight.Job,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight,3,false,,,1,false,0,
 Cognitive Services,0,Image Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingImageSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingImageSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingImageSearch,3,false,,,1,false,0,
 IoT,0,IoT Edge Function,data,.NET,Microsoft.Azure.IoT.Edge.Function,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
-IoT,0,IoT Models Repository,data,.NET,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 IoT,0,IoT Plug and Play - Devices Client,data,.NET,Microsoft.Azure.Devices.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Key Vault,0,Key Vault,data,.NET,Microsoft.Azure.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Exception: API Spec does not map to one set of Libraries,,10,false,1,
 Key Vault,0,Key Vault - Core,data,.NET,Microsoft.Azure.KeyVault.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,"Replaced by: Azure.Security.KeyVault.Keys, Azure.Security.KeyVault.Secrets, Azure.Security.KeyVault.Certificates",,4,false,1,
@@ -363,7 +365,6 @@ Mobile Services,0,Mobile Server - Cross Domain,data,.NET,Microsoft.Azure.Mobile.
 Mobile Services,0,Mobile Service - Resource Broker,data,.NET,Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,,4,false,1,
 Cognitive Services,0,News Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingNewsSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingNewsSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingNewsSearch,3,false,,,1,false,0,
 Notification Hubs,0,Notification Hubs,data,.NET,Microsoft.Azure.NotificationHubs,https://github.com/Azure/azure-notificationhubs-dotnet,10,false,,,1,false,0,
-Quantum,0,Quantum Jobs,data,.NET,Azure.Quantum.Jobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Relay,0,Relay,data,.NET,Microsoft.Azure.Relay,https://github.com/Azure/azure-relay-dotnet/tree/2.0.1,10,false,,,1,false,0,
 Schema Registry,0,Schema Registry - JSON,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Json,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Search,0,Search,data,.NET,Microsoft.Azure.Search,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Search_10.1.0/sdk/search/Microsoft.Azure.Search,10,true,Replaced by: Azure.Search.Documents,,4,false,1,
@@ -375,7 +376,6 @@ Cognitive Services,0,Speech,data,.NET,Microsoft.CognitiveServices.Speech,https:/
 Cognitive Services,0,Speech Remote Conversation,data,.NET,Microsoft.CognitiveServices.Speech.Remoteconversation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Cognitive Services,0,Speech Xamarin iOS,data,.NET,Microsoft.CognitiveServices.Speech.Xamarin.iOS,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Synapse,0,Synapse Analytics,data,.NET,Microsoft.Azure.Synapse,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,,,1,false,0,
-IoT,0,Time Series Insights,data,.NET,Azure.IoT.TimeSeriesInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Cognitive Services,0,Video Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingVideoSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingVideoSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingVideoSearch,3,false,,,1,false,0,
 Cognitive Services,0,Vision Content Moderator,data,.NET,Microsoft.Azure.CognitiveServices.Vision.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.ContentModerator_2.1.0-preview.1/sdk/cognitiveservices/Vision.ContentModerator,3,false,Exception: Track 2 library not needed,,10,false,1,
 Cognitive Services,0,Visual Search,data,.NET,Microsoft.Azure.CognitiveServices.Search.BingVisualSearch,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingVisualSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingVisualSearch,3,false,,,1,false,0,
@@ -866,6 +866,7 @@ Synapse,0,Synapse - Spark,data,Java,,,11,false,azure-analytics-synapse-spark,htt
 Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,03/07/2024
 Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,03/22/2024
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,3,false,1,
+unknown,0,unknown,data,Java,,,11,false,azure-core-http-jdk-httpclient,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/videoanalyzer,3,false,1,
 Web PubSub,0,Web PubSub,data,Java,,,11,false,azure-messaging-webpubsub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,03/22/2024
 Web PubSub,0,Web PubSub Client,data,Java,,,11,false,azure-messaging-webpubsub-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,03/22/2024
@@ -1060,7 +1061,6 @@ Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,
 Functions,0,azure-functions-java-library-kusto,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-kusto,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Kusto,0,azure-kusto-log4j,UNABLE TO BE DETERMINED,Java,azure-kusto-log4j,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 MariaDB,0,azure-mariadb-connector-java,UNABLE TO BE DETERMINED,Java,azure-mariadb-connector-java,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Core HTTP,0,Core HTTP JDK Http Client,UNABLE TO BE DETERMINED,Java,azure-core-http-jdk-httpclient,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Functions,0,Java Library Redis,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-redis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Kusto,0,Kusto Spark,UNABLE TO BE DETERMINED,Java,kusto-spark_2.4_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Toolkit,0,Postgre Single Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-postgre-single-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1113,7 +1113,6 @@ Media Services,0,Media Services,data,Java,azure-media,https://github.com/Azure/a
 IoT,0,Provisioning Device Client,data,Java,provisioning-device-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 IoT,0,Provisioning Service Client,data,Java,provisioning-service-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Azure Analytics,0,Purview Sharing,data,Java,azure-analytics-purview-sharing,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Quantum,0,Quantum Jobs,data,Java,azure-quantum-jobs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Cognitive Services,0,Question Answering,data,Java,azure-cognitiveservices-qnamaker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-qnamaker,3,false,,,1,false,0,
 Relay,0,Relay,data,Java,azure-relay,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Search,0,Search,data,Java,azure-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/search,3,true,Replaced by: com.azure/azure-search-documents,,4,false,1,
@@ -1217,7 +1216,7 @@ Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABL
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,02/17/2023
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,03/26/2024
-Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,03/19/2024
+Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,03/28/2024
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,JavaScript,@azure/cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer,1,false,@azure-rest/ai-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/personalizer/ai-personalizer-rest/,3,false,1,
@@ -1373,7 +1372,7 @@ Migrate,0,Resource Management - Migrate,mgmt,JavaScript,,,11,false,@azure/arm-mi
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,JavaScript,,,11,false,@azure/arm-mixedreality,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality,10,false,1,01/20/2022
 Machine Learning,0,Resource Management - ML Web Services,mgmt,JavaScript,,,11,false,@azure/arm-webservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices,10,false,1,12/02/2022
 Mobile Network,0,Resource Management - Mobile Network,mgmt,JavaScript,,,11,false,@azure/arm-mobilenetwork,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mobilenetwork,10,false,1,03/22/2024
-Monitor,0,Resource Management - Monitor,mgmt,JavaScript,azure-arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor,10,false,1,12/21/2021
+Monitor,0,Resource Management - Monitor,mgmt,JavaScript,azure-arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-monitor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor,10,false,1,
 MySQL,0,Resource Management - MySQL,mgmt,JavaScript,azure-arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql,10,false,1,12/06/2022
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,JavaScript,,,11,false,@azure/arm-mysql-flexible,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql,10,false,1,12/22/2022
 NetApp Files,0,Resource Management - NetApp Files,mgmt,JavaScript,,,11,false,@azure/arm-netapp,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp,10,false,1,03/21/2024
@@ -1450,7 +1449,7 @@ VMware Solution by CloudSimple,0,Resource Management - VMware Solution by CloudS
 Voice Services,0,Resource Management - Voice Services,mgmt,JavaScript,,,11,false,@azure/arm-voiceservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/voiceservices,10,false,1,04/19/2023
 Web PubSub,0,Resource Management - Web PubSub,mgmt,JavaScript,,,11,false,@azure/arm-webpubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,JavaScript,,,11,false,@azure/arm-workloads,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/workloads,10,false,1,04/24/2023
-Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,JavaScript,,,11,false,@azure/arm-workloadssapvirtualinstance,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/workloadssapvirtualinstance,3,false,1,
+Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,JavaScript,,,11,false,@azure/arm-workloadssapvirtualinstance,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/workloads,3,false,1,
 Machine Learning,0,Resource Management - Workspaces,mgmt,JavaScript,,,11,false,@azure/arm-workspaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces,10,false,1,12/02/2022
 Graph RBAC,0,Graph RBAC,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @microsoft/microsoft-graph-client,,4,false,1,
 Unable to determine Service Name,0,tmlanguage-generator,UNABLE TO BE DETERMINED,JavaScript,tmlanguage-generator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1526,7 +1525,7 @@ Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-ev
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/07/2021
 Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,03/01/2024
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,1,
-communication,0,azure-communication-messages,data,Python,,,11,false,azure-communication-messages,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
+communication,0,azure-communication-messages,data,Python,,,11,false,azure-communication-messages,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/25/2024
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,11/23/2023
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,12/04/2023
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/31/2023
@@ -1574,7 +1573,7 @@ Metrics Advisor,0,Metrics Advisor,data,Python,,,11,false,azure-ai-metricsadvisor
 Security Platform,0,Microsoft Purview,data,Python,,,11,false,azure-purview-datamap,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,3,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,Python,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,11/07/2023
-Monitor,0,Monitor Query,data,Python,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/31/2024
+Monitor,0,Monitor Query,data,Python,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,03/28/2024
 Monitor,0,OpenTelemetry Exporter,data,Python,azure-opentelemetry-exporter-azuremonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,true,azure-monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,Python,azure-cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,1,false,azure-ai-personalizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/personalizer,3,false,1,
 Purview,0,Purview Account,data,Python,,,11,false,azure-purview-account,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,3,false,1,
@@ -1793,7 +1792,7 @@ Voice Services,0,Resource Management - Voice Services,mgmt,Python,,,11,false,azu
 Web PubSub,0,Resource Management - Web PubSub,mgmt,Python,,,11,false,azure-mgmt-webpubsub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,Python,,,11,false,azure-mgmt-workloadmonitor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloadmonitor,3,true,1,
 Workloads,0,Resource Management - Workloads,mgmt,Python,,,11,false,azure-mgmt-workloads,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloads,10,false,1,04/20/2023
-Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,Python,,,11,false,azure-mgmt-workloadssapvirtualinstance,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloadssapvirtualinstance,3,false,1,
+Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,Python,,,11,false,azure-mgmt-workloadssapvirtualinstance,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/workloads,3,false,1,
 Communication,0,azure-communication-administration,UNABLE TO BE DETERMINED,Python,azure-communication-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Machine Learning,0,azureml-fsspec,data,Python,azureml-fsspec,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Batch,0,Batch,data,Python,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,,,1,false,0,
@@ -2608,6 +2607,11 @@ purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Java,,,11,fa
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+Quantum,0,Quantum.Workspace,data,.NET,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
+Quantum,0,Quantum.Workspace,data,Java,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
+Quantum,0,Quantum.Workspace,data,JavaScript,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
+Quantum,0,Quantum.Workspace,data,Python,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
+Quantum,0,Quantum.Workspace,data,Go,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,Java,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
 Recommendations Service,0,Resource Management - Recommendations Service,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: recommendationsservice/resource-manager,,2,false,0,
@@ -2677,6 +2681,7 @@ Synapse,0,Synapse,data,.NET,,,11,false,Missing: Created from API in specs repo: 
 Synapse,0,Synapse,data,Java,,,11,false,Missing: Created from API in specs repo: synapse/data-plane,,2,false,0,
 Synapse,0,Synapse,data,JavaScript,,,11,false,Missing: Created from API in specs repo: synapse/data-plane,,2,false,0,
 Synapse,0,Synapse,data,Go,,,11,false,Missing: Created from API in specs repo: synapse/data-plane,,2,false,0,
+IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 IoT,0,Time Series Insights,data,Java,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 IoT,0,Time Series Insights,data,JavaScript,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 IoT,0,Time Series Insights,data,Python,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
