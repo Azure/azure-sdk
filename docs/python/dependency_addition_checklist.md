@@ -8,7 +8,7 @@ folder: python
 
 When adding a dependency to a library, it's crucial to ensure that the dependency aligns with the library's goals, technical requirements, and legal constraints.
 
-- You can directly use the library if it's on [approved dependencies list](https://github.com/Azure/azure-sdk/blob/main/docs/python/approved_dependencies.md).
+- You can simply use the library directly if it's on the [approved dependencies list](https://github.com/Azure/azure-sdk/blob/main/docs/python/approved_dependencies.md).
 - You can bypass the checklist for libraries on the [conditionally approved dependencies list](https://github.com/Azure/azure-sdk/blob/main/docs/python/conditionally_approved_dependencies.md), but ensure to consult with the architects about your intended use of the library.
 - The aiohttp library does not require approval for HTTP usage; however, consult with the architects before using it for websocket purposes.
 - If the library does not meet all of these requirements below, you could discuss with the architects about using an optional dependency to enable certain opt-in scenarios.
