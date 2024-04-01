@@ -26,4 +26,4 @@ When adding a dependency to a library, it's crucial to ensure that the dependenc
 - DO be aware of the responsibility that you need to promptly (within days, not months) update your SDK if it becomes incompatible due to a new version of the dependency.
 - DO data protection check: if the dependency handles data, ensure it does so in a manner that complies with global and regional data protection laws applicable to your users.
 - DO performance impact check: evaluate the library's performance impact on your project, considering factors like execution speed and memory consumption.
-- DO recursive check: all the rules also apply to its sub-dependencies.
+- DO recursive check: all these rules also apply to all sub-dependencies.
