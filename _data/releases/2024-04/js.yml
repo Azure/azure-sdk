@@ -657,4 +657,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-sse'
+  Version: 2.1.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.1.1/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add top-level `browser` field to `package.json` as fallback for legacy bundlers that do not support the `exports` field.
+- Name: '@azure/core-sse'
+  Version: 2.1.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.1.0/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated the codebase to ESM. This change is internal and should not affect customers.
+    - Migrated unit tests to vitest.
 
