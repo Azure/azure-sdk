@@ -22,7 +22,7 @@ When adding a dependency to a library, it's crucial to ensure that the dependenc
 - Both synchronous and asynchronous support are necessary. If the library supports only one type, a solution for the other must be identified.
 - The library must be pure Python, or provide wheels for all platforms and environments our SDK supports.
 - The library must be in active development and be actively maintained (by more than a single contributor), with regular updates and patches, and a strong user following.
-- NO dependency conflicts. Users must be able to use all our SDKs in the same environment. (We have some coverage in CI)
+- NO dependency conflicts. Users must be able to use all our SDKs in the same environment. (We have some validation for this in CI.)
 - DO be aware of the responsibility that you need to promptly (within days, not months) update your SDK if it becomes incompatible due to a new version of the dependency.
 - DO data protection check: if the dependency handles data, ensure it does so in a manner that complies with global and regional data protection laws applicable to your users.
 - DO performance impact check: evaluate the library's performance impact on your project, considering factors like execution speed and memory consumption.
