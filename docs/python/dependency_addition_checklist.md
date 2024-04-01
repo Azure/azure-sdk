@@ -17,7 +17,7 @@ When adding a dependency to a library, it's crucial to ensure that the dependenc
 
 - DO work with architects to review the intent of how you want to use it. e.g. sync/async, etc.
 - DO work with LCA team to review the license compatibility (aka.ms/cela -> Find my CELA contact).
-  - MIT is the only one to auto-approve
+  - MIT is the only license that is auto-approved.
 - The library must have stable releases and support the full band of supported Python versions.
 - Both synchronous and asynchronous support are necessary. If the library supports only one type, a solution for the other must be identified.
 - The library must be pure Python, or provide wheels for all platforms and environments our SDK supports.
