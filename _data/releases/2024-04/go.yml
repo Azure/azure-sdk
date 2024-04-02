@@ -286,4 +286,12 @@ entries:
     * Added `StatusCodes` to `arm/policy.RegistrationOptions` to allow supporting non-standard HTTP status codes during registration.
     * Added field `InsecureAllowCredentialWithHTTP` to `azcore.ClientOptions` and dependent authentication pipeline policies.
     * Added type `MultipartContent` to the `streaming` package to support multipart/form payloads with custom Content-Type and file name.
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 5.1.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v5.1.1/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
 
