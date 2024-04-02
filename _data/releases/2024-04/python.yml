@@ -191,4 +191,165 @@ entries:
 
     - Fixed a bug where the client was not retrying when a connection drop happened ([34786](https://github.com/Azure/azure-sdk-for-python/pull/34786))
     - Fixed a bug where the client would not handle a role instance swap on the service correctly ([34820](https://github.com/Azure/azure-sdk-for-python/pull/34820))
+- Name: azure-mgmt-notificationhubs
+  Version: 8.1.0b2
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-notificationhubs_8.1.0b2/sdk/notificationhubs/azure-mgmt-notificationhubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-support
+  Version: 6.1.0b3
+  DisplayName: Resource Management - Support
+  ServiceName: Support
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-support_6.1.0b3/sdk/support/azure-mgmt-support/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storageactions
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Storageactions
+  ServiceName: Storageactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storageactions_1.0.0b1/sdk/storageactions/azure-mgmt-storageactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-quantum
+  Version: 1.0.0b5
+  DisplayName: Resource Management - Quantum
+  ServiceName: Quantum
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quantum_1.0.0b5/sdk/quantum/azure-mgmt-quantum/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 12.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_12.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.6.0b2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.6.0b2/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed invalid default value `None` to `False` for property `enabled` in `FeatureFlagConfigurationSetting`.
+    - Fixed the issue that `description`, `display_name` and other customer fields are missing when de/serializing `FeatureFlagConfigurationSetting` objects.
+- Name: azure-mgmt-sphere
+  Version: 1.0.0
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sphere_1.0.0/sdk/sphere/azure-mgmt-sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-messages
+  Version: 1.0.0
+  DisplayName: azure-communication-messages
+  ServiceName: communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-messages_1.0.0/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Using `NotificationMessagesClient`
+    - Send Text messages
+    - Send Template messages
+    - Send Media messages
+    - Using `MessageTemplateClient`
+    - Get list of all WhatsApp templates.
+
+    <!-- LINKS -->
+    [read_me]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-messages/README.md
+- Name: azure-ai-ml
+  Version: 1.15.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.15.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The following classes will still be able to be imported from `azure.ai.ml`, but the import is deprecated and emits a warning. Instead, please import them from `azure.ai.ml.entities`.
+    - `AmlTokenConfiguration`
+    - `ManagedIdentityConfiguration`
+    - `UserIdentityConfiguration`
+    - The following classes will still be able to be imported from `azure.ai.ml.entities`, but the import is deprecated and emits a warning. Instead, please import them from `azure.ai.ml.sweep`.
+    - `Choice`
+    - `Uniform`
+    - `LogUniform`
+    - `QLogUniform`
+    - `QUniform`
+    - `QLogNormal`
+    - `QNormal`
+    - `LogNormal`
+    - `Normal`
+    - `Randint`
+- Name: azure-mgmt-iotfirmwaredefense
+  Version: 1.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iotfirmwaredefense_1.0.0/sdk/iotfirmwaredefense/azure-mgmt-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-workloadssapvirtualinstance
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Workloadssapvirtualinstance
+  ServiceName: Workloadssapvirtualinstance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-workloadssapvirtualinstance_1.0.0b1/sdk/workloads/azure-mgmt-workloadssapvirtualinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-generative
+  Version: 1.0.0b8
+  DisplayName: AI Generative
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b8/sdk/ai/azure-ai-generative/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Bug fixes
+- Name: azure-monitor-query
+  Version: 1.3.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.3.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The following changes are breaking against the previous preview release (i.e. `1.3.0b2`/`1.3.0b1`):
+    - `MetricsBatchQueryClient` has been renamed to `MetricsClient`. ([#33958](https://github.com/Azure/azure-sdk-for-python/pull/33958))
+    - Reordered the arguments for the async `MetricsClient` constructor so that `endpoint` is now the first positional argument. ([#33752](https://github.com/Azure/azure-sdk-for-python/pull/33752))
+    - Positional arguments in `MetricsClient.query_resources` are now required keyword-only arguments. ([#33958](https://github.com/Azure/azure-sdk-for-python/pull/33958))
+    - The `resource_uris` argument in `MetricsClient.query_resources` has been renamed to `resource_ids`. ([#34760](https://github.com/Azure/azure-sdk-for-python/pull/34760))
+
+    #### Features Added
+
+    - Added `roll_up_by` keyword argument to `MetricsClient.query_resources` to support rolling up metrics by dimension. ([#33752](https://github.com/Azure/azure-sdk-for-python/pull/33752))
+- Name: azure-ai-resources
+  Version: 1.0.0b8
+  DisplayName: AI Resources
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b8/sdk/ai/azure-ai-resources/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Connections LIST operation now supports returning data connections via new optional flag: include_data_connections.
+    - Connections have read-only support for 3 new connection types: gen 2, data lake, and azure blob.
+
+    #### Bugs Fixed
+    - Connections docstrings now discuss scope field.
 

@@ -4,7 +4,6 @@
 | `requests`     | Synchronous HTTP                     |
 | `aiohttp`      | Asynchronous HTTP                    |
 | `aiodns`       | Asynchronous DNS resolution          |
-| `anyio `       | Asynchronous tooling lib             |
-| `sniffio `     | Asynchronous helper lib             |
+| `typing-extensions`       | Backports for Python type hints             |
 | `cryptography` | Cryptographic recipes and primitives |
 | `certifi`      | Mozilla CA bundle                    |

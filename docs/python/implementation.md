@@ -218,7 +218,7 @@ Any other keys that are used should be common across all client libraries for a 
 
 {% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
 
-{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-sdk-for-python/tree/main/tools/azure-devtools) package for scenario tests.
+{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services.
 
 {% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
 
