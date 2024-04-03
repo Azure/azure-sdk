@@ -525,4 +525,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MigrationDiscoverySap_1.0.0-beta.1/sdk/migrationdiscoverysap/Azure.ResourceManager.MigrationDiscoverySap/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Developer.DevCenter
+  Version: 1.0.0
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.DevCenter_1.0.0/sdk/devcenter/Azure.Developer.DevCenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `AzureDeveloperDevCenterClientOptions` back to `DevCenterClientOptions`
+
+    #### Features Added
+
+    - Added models and models serialization for each Dev Center concept
+    - Added methods in the clients returning the serialized model, not only BinaryData
 
