@@ -48,7 +48,7 @@ Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Ema
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
 Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/29/2024
-Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/09/2022
+Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,true,1,02/09/2022
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication SMS,data,.NET,,,11,false,Azure.Communication.Sms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,05/25/2021
@@ -58,7 +58,7 @@ Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.
 Cognitive Services,0,Conversational Language Understanding,data,.NET,,,11,false,Azure.AI.Language.Conversations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,06/14/2023
 Storage,0,Data Movement,data,.NET,Microsoft.Azure.Storage.DataMovement,https://github.com/Azure/azure-storage-net-data-movement/tree/v1.3.0,1,false,Azure.Storage.DataMovement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
 Defender EASM,0,Defender EASM,data,.NET,,,11,false,Azure.Analytics.Defender.Easm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/easm,3,false,1,
-Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devcenter,3,false,1,
+Dev Center,0,Dev Center,data,.NET,,,11,false,Azure.Developer.DevCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devcenter,10,false,1,04/03/2024
 IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,09/08/2022
 IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Document Intelligence,0,Document Intelligence,data,.NET,,,11,false,Azure.AI.DocumentIntelligence,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence,3,false,1,
@@ -305,7 +305,7 @@ Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.Resourc
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,
 Pool Management Service (PMaaS),0,Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,3,false,1,
-unknown,0,unknown,mgmt,.NET,,,11,false,Azure.ResourceManager.ScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/arc-scvmm,3,false,1,
+unknown,0,unknown,mgmt,.NET,,,11,false,Azure.ResourceManager.MigrationDiscoverySap,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/migrationdiscoverysap,3,false,1,
 Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -798,7 +798,7 @@ Communication,0,Communication Email,data,Java,,,11,false,azure-communication-ema
 Communication,0,Communication Identity,data,Java,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,Java,,,11,false,azure-communication-jobrouter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication Messages,data,Java,,,11,false,azure-communication-messages,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
-Communication,0,Communication Network Traversal,data,Java,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,02/11/2022
+Communication,0,Communication Network Traversal,data,Java,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,true,1,02/11/2022
 Communication,0,Communication Phone Numbers,data,Java,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication Rooms,data,Java,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication Sms,data,Java,,,11,false,azure-communication-sms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,03/22/2024
@@ -1176,7 +1176,7 @@ Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communicat
 Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communication-identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/26/2024
 Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,11/18/2023
 Communication,0,Communication Messages,data,JavaScript,,,11,false,@azure-rest/communication-messages,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-messages-rest/,10,false,1,03/06/2024
-Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,false,1,
+Communication,0,Communication Network Traversal,data,JavaScript,,,11,false,@azure/communication-network-traversal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,3,true,1,
 Communication,0,Communication Phone Numbers,data,JavaScript,,,11,false,@azure/communication-phone-numbers,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,JavaScript,,,11,false,@azure/communication-rooms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Sms,data,JavaScript,,,11,false,@azure/communication-sms,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,11/29/2023
@@ -1216,6 +1216,7 @@ Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,03/26/2024
 Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,03/28/2024
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
+Cognitive Services,0,OpenAI Assistants,data,JavaScript,,,11,false,@azure/openai-assistants,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,JavaScript,@azure/cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer,1,false,@azure-rest/ai-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/personalizer/ai-personalizer-rest/,3,false,1,
 Purview,0,Purview Account,data,JavaScript,,,11,false,@azure-rest/purview-account,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-account-rest/,3,true,1,
@@ -1526,7 +1527,7 @@ Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-ch
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/31/2023
 Communication,0,Communication Identity,data,Python,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,02/14/2024
 Communication,0,Communication JobRouter,data,Python,,,11,false,azure-communication-jobrouter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,11/15/2023
-Communication,0,Communication Network Traversal,data,Python,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,3,false,1,
+Communication,0,Communication Network Traversal,data,Python,,,11,false,azure-communication-networktraversal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,3,true,1,
 Communication,0,Communication Phone Numbers,data,Python,,,11,false,azure-communication-phonenumbers,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,Python,,,11,false,azure-communication-rooms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Sms,data,Python,,,11,false,azure-communication-sms,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,06/04/2021
@@ -1835,6 +1836,7 @@ Confidential Ledger,0,Confidential Ledger,data,Go,,,11,false,Missing: Created fr
 Cognitive Services,0,Content Safety,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.ContentSafety,,2,false,0,
 Cognitive Services,0,Conversational Language Understanding,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Language.Conversations,,2,false,0,
 Cognitive Services,0,Conversational Language Understanding,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Language.Conversations,,2,false,0,
+Dev Center,0,Dev Center,data,Go,,,11,false,Missing: Created from existing package: Azure.Developer.DevCenter,,2,false,0,
 IoT,0,Device Update,data,Go,,,11,false,Missing: Created from existing package: Azure.IoT.DeviceUpdate,,2,false,0,
 IoT,0,Digital Twins,data,Go,,,11,false,Missing: Created from existing package: Azure.DigitalTwins.Core,,2,false,0,
 Cognitive Services,0,Document Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Document,,2,false,0,
@@ -2335,7 +2337,6 @@ Dev Center,0,DevCenter,data,Java,,,11,false,Missing: Created from API in specs r
 Dev Center,0,DevCenter,data,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
 Dev Center,0,DevCenter,data,Python,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
 Dev Center,0,DevCenter,data,Go,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,Dev Center,data,Go,,,11,false,Missing: Created from API in specs repo: devcenter/data-plane,,2,false,0,
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,Java,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
