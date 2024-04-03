@@ -851,7 +851,7 @@ As you write your code, _document it so you never hear about it again._ The less
 
 {% include requirement/MUST id="rust-engsys-nightly" %} test all crates impacted by a PR using the latest nightly toolchain.
 
-{% include requirement/MUST id="rust-engsys-async" %} test `azure_core` and any other crates that implement async functions separate from `azure_core::Pipeline` using [`tokio`](https://tokio.rs) and [`monoio`](rust-lang-project-layout) in both single- and multi-threaded configurations. These tests do not necessarily have to run for every PR e.g., they may run nightly or weekly.
+{% include requirement/MUST id="rust-engsys-async" %} test `azure_core` and any other crates that implement async functions separate from `azure_core::Pipeline` using [`tokio`](https://tokio.rs) and [`monoio`](https://github.com/bytedance/monoio) in both single- and multi-threaded configurations. These tests do not necessarily have to run for every PR e.g., they may run nightly or weekly.
 
 {% include requirement/SHOULD id="rust-engsys-partner-policies" %} test some partner `Pipeline` policies in nightly or weekly runs.
 
