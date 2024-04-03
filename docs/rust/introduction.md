@@ -81,7 +81,7 @@ Default features can be ignored by consumers and individual features enabled as 
 
 {% include requirement/MUSTNOT id="rust-general-unwrap" %} call `unwrap()`, `expect()`, or other functions that may panic unless you are absolutely sure they never will. It's almost always better to use `map()`, `unwrap_or_else()`, or a myriad of related functions to remap errors, return suitable defaults, etc.
 
-{% include requirement/MUSTNOT id-"rust-general-prelude" %} define a `prelude` module.
+{% include requirement/MUSTNOT id="rust-general-prelude" %} define a `prelude` module.
 
 These may lead to name collisions, especially when multiple versions of a crate are imported.
 
@@ -722,7 +722,7 @@ tokio = { workspace = true }
 
 ### Code Lints {#rust-linting}
 
-{% requirement/MUST id="rust-linting-centralized" %} centralized general linting rules, whether allowed or denied, into the root workspace `Cargo.toml` e.g.:
+{% include requirement/MUST id="rust-linting-centralized" %} centralized general linting rules, whether allowed or denied, into the root workspace `Cargo.toml` e.g.:
 
 ```toml
 [workspace.lints.rust]
@@ -731,16 +731,16 @@ dead_code = "allow"
 [workspace.lints.clippy]
 ```
 
-{% requirement/MUST id="rust-linting-inherit" %} inherit linting rules from the workspace in each member crate e.g., :
+{% include requirement/MUST id="rust-linting-inherit" %} inherit linting rules from the workspace in each member crate e.g., :
 
 ```toml
 [lints]
 workspace = true
 ```
 
-{% requirement/MAY id="rust-linting-source" %} define source-specific lint rules in `.rs` source files if they can't be mitigated.
+{% include requirement/MAY id="rust-linting-source" %} define source-specific lint rules in `.rs` source files if they can't be mitigated.
 
-{% requirement/SHOULDNOT id="rust-linting-crate" %} define crate-specific lint rules in `Cargo.toml` files since these will apply to all source and should not be so pervasive.
+{% include requirement/SHOULDNOT id="rust-linting-crate" %} define crate-specific lint rules in `Cargo.toml` files since these will apply to all source and should not be so pervasive.
 
 ### Documentation Comments {#rust-documentation}
 
