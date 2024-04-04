@@ -1,4 +1,4 @@
-# Use Ruby 2.7 version from approved Mirosoft Container Registry.
+# Use Ruby 2.7 version from approved Microsoft Container Registry.
 # This image already contains the vscode:vscode user:group and sudoers support.
 FROM mcr.microsoft.com/devcontainers/ruby:2.7-buster
 ARG USERNAME=vscode
