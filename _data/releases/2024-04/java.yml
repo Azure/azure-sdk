@@ -2484,4 +2484,27 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-monitor_1.0.0-beta.5/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-xml
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-xml_1.0.0/sdk/serialization/azure-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `XmlProvider` and `XmlProviders`, use the factory methods on `XmlReader` and `XmlWriter` instead.
+    - Made `XmlReader` and `XmlWriter` final classes instead of abstract classes.
+    - Renamed `ReadValueCallback` to `XmlReadValueCallback`.
+    - Removed checked `IOException` from `XmlReadValueCallback`.
+
+    #### Features Added
+
+    - Added `XmlReader` and `XmlWriter` factory methods to create instances of `XmlReader` and `XmlWriter`.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where the get element methods on `XmlReader` weren't idempotent.
+  GroupId: com.azure
 
