@@ -562,4 +562,33 @@ entries:
     #### Bugs Fixed
     - Fix bug in `LogsQueryClient` constructor where a `NullReferenceException` would be thrown when an options instance isn't passed.
     - Fix bug in `MetricsQueryClient` constructor where a `NullReferenceException` would be thrown when an options instance isn't passed.
+- Name: Azure.Provisioning
+  Version: 0.2.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_0.2.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Split the Azure.Provisioning package into separate packages for each supported Azure service.
+- Name: System.ClientModel
+  Version: 1.1.0-beta.3
+  DisplayName: System.ClientModel
+  ServiceName: System.ClientModel
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.3/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added protected `Apply(PipelineMessage)` method to `RequestOptions` so that derived types can extend its functionality.
+    - Added `Create(Stream)` overload to `BinaryContent`.
+
+    #### Breaking Changes
+
+    - Removed `[Serializable]` attribute and serialization constructor from `ClientResultException`.
+    - Made `value` parameter nullable in `PipelineMessage.SetProperty` method.
+    - Made `options` parameter to `PipelineMessage.Apply` nullable.
 
