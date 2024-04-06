@@ -13,4 +13,16 @@ entries:
     * Added support for `Background Replacement Effect`.
     * Added support for `CallNetworkOptions` that allows setting up proxy address.
     * Added support for setting custom `Time To Live` for push notifications.
+- Name: AzureCommunicationCalling
+  Version: 2.10.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.10.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Various updates for `DataChannelCallFeature`.
+    * Various updates for `MediaStatistics`.
+    * Various updates for start/join call options.
 
