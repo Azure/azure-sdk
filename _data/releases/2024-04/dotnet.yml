@@ -711,4 +711,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.PostgreSql_0.1.0-beta.1/sdk/provisioning/Azure.Provisioning.PostgreSql/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.17.5
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.17.5/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an edge case where a cancellation token signaled while waiting for a throttling delay would cause a failure to reset state and service operations would continue to apply the throttle delay going forward.  ([#42952](https://github.com/Azure/azure-sdk-for-net/issues/42952))
+
+    - Fixed an issue where the `ServiceBusSessionProcessor` was not respecting `ServiceBusSessionProcessorOptions.MaxConcurrentCallsPerSession` when `ServiceBusSessionProcessorOptions.SessionIds` was set to a value. ([#43157](https://github.com/Azure/azure-sdk-for-net/pull/43157))
 
