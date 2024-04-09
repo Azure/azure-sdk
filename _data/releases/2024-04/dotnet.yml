@@ -724,4 +724,28 @@ entries:
     - Fixed an edge case where a cancellation token signaled while waiting for a throttling delay would cause a failure to reset state and service operations would continue to apply the throttle delay going forward.  ([#42952](https://github.com/Azure/azure-sdk-for-net/issues/42952))
 
     - Fixed an issue where the `ServiceBusSessionProcessor` was not respecting `ServiceBusSessionProcessorOptions.MaxConcurrentCallsPerSession` when `ServiceBusSessionProcessorOptions.SessionIds` was set to a value. ([#43157](https://github.com/Azure/azure-sdk-for-net/pull/43157))
+- Name: Azure.Identity
+  Version: 1.11.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.11.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `DefaultAzureCredential` now sends a probe request with no retries for IMDS managed identity environments to avoid excessive retry delays when the IMDS endpoint is not available. This should improve credential chain resolution for local development scenarios. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#1110).
+
+    #### Bugs Fixed
+    - `AzurePowerShellCredential` now handles the case where it falls back to legacy PowerShell without relying on the error message string.
+- Name: Azure.Provisioning
+  Version: 0.2.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_0.2.0-beta.2/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AddDependency` method.
 
