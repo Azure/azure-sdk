@@ -2762,4 +2762,31 @@ entries:
     response.
     Use the new parameter `matchConditions` in the `SettingSelector` to assign the page ETags in the request to service.
   GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.8
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.8/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version, `2024-03-01-preview`.
+    - Added a new property to `EmbeddingOptions`:
+    - `dimensions`, which is only supported in models `text-embedding-3-*` and above.
+    - Added a new method to get base64 encoded string in `EmbeddingItem` class:
+    - `getEmbeddingAsString` method returns the embedding as a base64 encoded string.
+    - Added a new overload `getChatCompletionsStreamWithResponse` that takes `RequestOptions` to provide the flexibility to
+    modify the HTTP request.
+
+    #### Breaking Changes
+
+    - Replace return type `List<Double>` with `List<Float>` of `getEmbedding` method in `EmbeddingItem` class.
+
+    #### Bugs Fixed
+
+    - A bugs fixed in Azure Core SDK that solves where text/event-stream content type wasn't being handled correctly.
+    Replaced content type exact match equal by 'startwith'. ([#39204](https://github.com/Azure/azure-sdk-for-java/pull/39204))
+  GroupId: com.azure
 
