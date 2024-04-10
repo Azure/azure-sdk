@@ -74,4 +74,19 @@ entries:
     #### Features Added
 
     - Updates to models, transactions and other features.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.7
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.7/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `EventDataBatch::TryAddMessage` to `EventDataBatch::TryAdd` to better reflect the method's use.
+
+    #### Bugs Fixed
+
+    - Fixed [#5297](https://github.com/Azure/azure-sdk-for-cpp/issues/5297). The actual fix for this was to use a single management client per connection.
 
