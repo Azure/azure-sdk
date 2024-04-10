@@ -2789,4 +2789,15 @@ entries:
     - A bugs fixed in Azure Core SDK that solves where text/event-stream content type wasn't being handled correctly.
     Replaced content type exact match equal by 'startwith'. ([#39204](https://github.com/Azure/azure-sdk-for-java/pull/39204))
   GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.8.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.8.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where `hsmPlatform` was not being set in `KeyProperties`. ([#39537](https://github.com/Azure/azure-sdk-for-java/pull/39537))
+  GroupId: com.azure
 
