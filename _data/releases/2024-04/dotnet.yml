@@ -770,4 +770,19 @@ entries:
     #### Other Changes
 
     - The `UseOperatingSystemAccount` property on `InteractiveBrowserCredentialBrokerOptions` and `SharedTokenCacheCredentialBrokerOptions` has been renamed to `UseDefaultBrokerAccount`
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.2/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - It is now possible for processors extending `EventProcessor<T>` to disable the batch-level tracing emitted when processing events.  This is intended to allow derived processors dispatching single events or partial batches to emit their own trace information that more accurately correlates to the set of events being processed.  Previously all events in a batch were tracked under a single span regardless of how they were dispatched for processing.
+
+    #### Bugs Fixed
+
+    - Fixed a warning for "too many parameters" that was written to logs when the processor attempted to log load balancing messages due to improper ETW attribute use.
 
