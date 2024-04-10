@@ -809,4 +809,19 @@ entries:
     - The `EventProcessorClient` will now create a unique span for each event emitted to the handler for processing.  Previously a single span was created for all events in a batch.  ([#31922](https://github.com/Azure/azure-sdk-for-net/issues/31922))
 
     - Fixed a parameter ordering error in ETW 22 (EventBatchProcessingError) that caused structured data arguments to be ordered differently than the associated replacement token in the log message.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.4.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.4.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed property `MatchConditions` from `SettingSelector`.
+
+    #### Features Added
+
+    - Added `ConfigurationSettingPageableExtensions` class to support new `Pageable<ConfigurationSetting>.AsPages` and `AsyncPageable<ConfigurationSetting>.AsPages` extension methods. This replaces `SettingSelector.MatchConditions`.
 
