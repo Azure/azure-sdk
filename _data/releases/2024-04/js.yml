@@ -781,4 +781,30 @@ entries:
     #### Features Added
 
     - `InteractiveBrowserCredential`: Added support for using the default broker account. [#28979](https://github.com/Azure/azure-sdk-for-js/pull/28979).
+- Name: '@azure/app-configuration'
+  Version: 1.6.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.6.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `etag` for each page of configuration settings feature is generally available
+- Name: '@azure/eventgrid'
+  Version: 5.4.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.4.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated`
+    - `Microsoft.Communication.AdvancedMessageReceived`
+    - `Microsoft.Communication.RouterWorkerUpdated`
 
