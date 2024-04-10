@@ -508,4 +508,19 @@ entries:
     #### Bugs Fixed
 
     - Fixed a bug where using `EventHubProducerClient` in buffered mode could potentially drop a buffered message without actually sending it. ([#34712](https://github.com/Azure/azure-sdk-for-python/pull/34712))
+- Name: azure-eventgrid
+  Version: 4.19.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.19.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the Api Version was being hardcoded to `2018-01-01` on any request sent to the service.
+
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Communication Services.
 
