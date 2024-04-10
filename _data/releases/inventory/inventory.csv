@@ -305,7 +305,7 @@ Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.Resourc
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,
 Pool Management Service (PMaaS),0,Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,3,false,1,
-unknown,0,unknown,mgmt,.NET,,,11,false,Azure.Provisioning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
+unknown,0,unknown,mgmt,.NET,,,11,false,Azure.Provisioning.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,Azure.Communication.Calling,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.Communication.Calling.WindowsClient,,4,false,1,
 Communication,0,Communication Calling Windows Client,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Calling.WindowsClient,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -826,7 +826,7 @@ Identity,0,Identity Broker,data,Java,,,11,false,azure-identity-broker,https://gi
 Cognitive Services,0,Image Analysis,data,Java,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis,3,false,1,
 Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,03/22/2024
 Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,03/22/2024
-Key Vault,0,Key Vault - Keys,data,Java,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,03/22/2024
+Key Vault,0,Key Vault - Keys,data,Java,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,04/10/2024
 Key Vault,0,Key Vault - Secrets,data,Java,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,03/22/2024
 Load Testing,0,Load Testing,data,Java,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loadtesting,10,false,1,03/22/2024
 Maps,0,Maps Render,data,Java,,,11,false,azure-maps-render,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
@@ -1512,7 +1512,7 @@ Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-opera
 AI,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 AI,0,AI Resources,data,Python,,,11,false,azure-ai-resources,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,Anomaly Detector,data,Python,azure-cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector,3,false,1,
-App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,
+App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,04/09/2024
 App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,01/29/2024
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,
@@ -1546,7 +1546,7 @@ Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.co
 Event Hubs,0,Event Hubs,data,Python,,,11,false,azure-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/12/2024
 Face,0,Face,data,Python,,,11,false,azure-cognitiveservices-vision-face,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,1,
 FarmBeats,0,FarmBeats,data,Python,,,11,false,azure-agrifood-farming,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood,3,false,1,
-Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,11/07/2023
+Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-formrecognizer,3,true,azure-ai-formrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer,10,false,1,04/09/2024
 Health Decision Support,0,Health Insights,data,Python,,,11,false,azure-healthinsights-radiologyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
