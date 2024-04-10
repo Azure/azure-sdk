@@ -469,4 +469,32 @@ entries:
 
     - Added `IndexerExecutionEnvironment`, `IndexingMode`, `LineEnding`, `NativeBlobSoftDeleteDeletionDetectionPolicy`, `ScalarQuantizationCompressionConfiguration`, `ScalarQuantizationParameters`, `SearchServiceCounters`, `SearchServiceLimits`, `SearchServiceStatistics`, `VectorSearchCompressionConfiguration` & `VectorSearchCompressionTargetDataType`.
     - Added `stored` in `SearchField`.
+- Name: azure-ai-formrecognizer
+  Version: 3.3.3
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Added support for Python 3.12.
+    - Python 3.7 is no longer supported. Please use Python version 3.8 or later.
+    - Changed the default polling interval from 5s to 1s.
+- Name: azure-appconfiguration
+  Version: 1.6.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.6.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in consuming "etag" value in sync operation `set_configuration_setting()`.
+    - Changed invalid default value `None` to `False` for property `enabled` in `FeatureFlagConfigurationSetting`.
+    - Fixed the issue that `description`, `display_name` and other customer fields are missing when de/serializing `FeatureFlagConfigurationSetting` objects.
+
+    #### Features Added
+    - Exposed `send_request()` method in each client to send custom requests using the client's existing pipeline.
+    - Supported to get page ETag while iterating `list_configuration_setting()` result by page.
 
