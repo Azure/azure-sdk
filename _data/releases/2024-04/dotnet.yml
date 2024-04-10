@@ -785,4 +785,28 @@ entries:
     #### Bugs Fixed
 
     - Fixed a warning for "too many parameters" that was written to logs when the processor attempted to log load balancing messages due to improper ETW attribute use.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new setting to `EventHubOptions` to allow checkpointing to be disabled for applications that always want to use their `initialOffsetOptions` when starting to process a new partition.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.2
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.2/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The `EventProcessorClient` will now create a unique span for each event emitted to the handler for processing.  Previously a single span was created for all events in a batch.  ([#31922](https://github.com/Azure/azure-sdk-for-net/issues/31922))
+
+    - Fixed a parameter ordering error in ETW 22 (EventBatchProcessingError) that caused structured data arguments to be ordered differently than the associated replacement token in the log message.
 
