@@ -497,4 +497,15 @@ entries:
     #### Features Added
     - Exposed `send_request()` method in each client to send custom requests using the client's existing pipeline.
     - Supported to get page ETag while iterating `list_configuration_setting()` result by page.
+- Name: azure-eventhub
+  Version: 5.11.7
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.7/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where using `EventHubProducerClient` in buffered mode could potentially drop a buffered message without actually sending it. ([#34712](https://github.com/Azure/azure-sdk-for-python/pull/34712))
 
