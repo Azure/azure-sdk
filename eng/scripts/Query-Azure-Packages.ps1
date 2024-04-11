@@ -98,6 +98,19 @@ function Get-dotnet-Packages
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
+
+    # If package starts with Azure.Provisioning. and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.Package -match "^Azure.Provisioning.(?<serviceName>.*?)$" -and $repoTags.ContainsKey($package.Package))
+    {
+      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
+      $package.Type = "mgmt" # provisioning is a special case of mgmt so this is the correct type.
+      $package.New = "true"
+      $package.RepoPath = "provisioning"
+      $package.ServiceName = $serviceName
+      $package.DisplayName = "Provisioning - $serviceName"
+      Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
+    }
   }
 
   return $packages
@@ -327,7 +340,7 @@ function Write-Latest-Versions($lang)
   # Keep package managers up to date with package deprecations
   if($updateDeprecated -eq $true -and $lang -eq 'dotnet')
   {
-   Write-Nuget-Deprecated-Packages($packageList)
+    Write-Nuget-Deprecated-Packages($packageList)
   }
 
   # Clean out packages that are no longer in the query we use for the package manager
