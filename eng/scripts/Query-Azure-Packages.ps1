@@ -361,6 +361,7 @@ function Write-Latest-Versions($lang)
 
 function Write-Nuget-Deprecated-Packages($packageList)
 {
+  $hitException = $false
   # Automatically update nuget.org with deprecation messages for
   # packages that have been marked as deprecated in our CSV files.
   # To do this we have to:
@@ -470,6 +471,7 @@ function Write-Nuget-Deprecated-Packages($packageList)
         Write-Host "NuGet package content query - Exception: $statusCode"
         Write-Host "URI: $packageContent"
         Write-Host "=================================="
+        $hitException = $true
       }
       $versions = $responseContent.versions
 
@@ -551,16 +553,23 @@ function Write-Nuget-Deprecated-Packages($packageList)
         Write-Host "Nuget package deprecation - Exception: $statusCode"
         Write-Host "URI: $deprecationUrl/$packageName/deprecations"
         Write-Host "=================================="
+        $hitException = $true
       }
       Start-Sleep -Seconds 60
     }
   }
+
+  return $hitException
 }
 
 if ($RunDeprecationOnly) {
   $packageList = Get-PackageListForLanguage "dotnet"
-  Write-Nuget-Deprecated-Packages $packageList
-  exit 0
+  if (Write-Nuget-Deprecated-Packages $packageList) {
+    Write-Error "Encounted an exception while deprecating packages. See logs for details" 
+    exit 1
+  } else {
+    exit 0
+  }
 }
 
 switch($language)
