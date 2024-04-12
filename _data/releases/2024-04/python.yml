@@ -523,4 +523,34 @@ entries:
     #### Features Added
 
     - Added new enum values to `SystemEventNames` related to Azure Communication Services.
+- Name: azure-eventgrid
+  Version: 4.20.0b1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.20.0b1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the `AcknowledgeOptions`,`ReleaseOptions`, `RejectOptions`, and `RenewLockOptions` models. `lock_tokens` can now be specified as a `kwarg` on the operation.
+    - Renamed `publish_cloud_events` to `send`.
+
+    #### Features Added
+
+    - This is a Beta of the EventGridClient
+    - EventGridClient `send` can be used for both Event Grid Namespace Resources and Event Grid Basic Resources.
+    - Added a kwarg `level` in the EventGridClient constructor. The default value is `Standard` which creates a client for an Event Grid Namespace Resource.
+- Name: azure-communication-chat
+  Version: 1.3.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-chat_1.3.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated `chat_attachment.attachment_type`to include type `file` to support ACS users to recieve files shared by Teams user.
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
 
