@@ -15,4 +15,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/frontdoor/arm-frontdoor/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.5.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.0/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated `ChatAttachmentType`to include type `file` to support ACS users to recieve files shared by Teams user.
+    - Updated to @azure/communication-signaling@1.0.0-beta.26 with file sharing support
+    - Updated `@azure/communication-common` with support for `MicrosoftTeamsAppIdentifierModel`
 
