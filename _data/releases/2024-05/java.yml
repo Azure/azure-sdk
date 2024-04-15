@@ -17,4 +17,16 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-frontdoor_1.0.0/sdk/frontdoor/azure-resourcemanager-frontdoor/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-communication-chat
+  Version: 1.5.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.5.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Expanded `ChatAttachment` to include new enum `file` to enable communication users to recieve file attachments shared by Teams user in a Teams Interoperbility Chat.
+  GroupId: com.azure
 
