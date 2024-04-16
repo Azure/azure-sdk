@@ -117,4 +117,16 @@ entries:
     Python 3.12.
     - Fixed an issue where authentication errors could raise `AttributeError` instead of `ClientAuthenticationError` when
     using async OAuth credentials.
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0b5
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob-changefeed_12.0.0b5/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    This version and all future versions will require Python 3.8+. Python 3.6 and 3.7 are no longer supported.
+
+    #### Other Changes
+    - Bumped dependency of `azure-storage-blob` to the latest stable release (12.19.0).
 
