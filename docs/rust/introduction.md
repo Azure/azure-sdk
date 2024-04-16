@@ -250,7 +250,7 @@ async fn method_name(
     &self,
     mandatory_param1: impl Into<P1>,
     mandatory_param2: impl Into<P2>,
-    body: impl Into<Bytes>, // elided if no body is defined
+    content: RequestContent<T>, // elided if no body is defined
     options: Option<MethodNameOptions>,
     context: Option<&Context>,
 ) -> azure_core::Result<Response>;
@@ -366,6 +366,10 @@ impl SecretClient {
 ```
 
 The `endpoint` parameter is never saved so a reference is fine. This also allows callers to pass a `String` or `str` e.g., `SecretClient::new("https://myvault.vault.azure.net")`.
+
+{% include requirement/MUST id="rust-parameters-request-content" %} declare a parameter named `content` of type `RequestContent<T>`, where `T` is the service-defined request model.
+
+{% include requirement/MUST id="rust-parameters-request-content-convert" %} support converting to a `RequestContent<T>` from a `T`, `Stream`, or `AsRef<str>`.
 
 {% include requirement/MAY id="rust-parameters-interior-mutability" %} use interior mutability e.g., `std::sync::OnceLock` for single-resource caching e.g., a single key-specific `CryptographyClient` that attempts to download the public key material for subsequent public key operations.
 
