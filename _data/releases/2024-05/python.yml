@@ -12,4 +12,109 @@ entries:
 
     #### Features Added
     - Added the ability specify the API version by an optional `api_version` keyword parameter.
+- Name: azure-mgmt-cdn
+  Version: 13.1.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cdn_13.1.0/sdk/cdn/azure-mgmt-cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-largeinstance
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Largeinstance
+  ServiceName: Largeinstance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-largeinstance_1.0.0b1/sdk/largeinstance/azure-mgmt-largeinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.20.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.20.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-05-04.
+    - The `services` parameter has been added to the `generate_account_sas` API, which enables the ability to generate SAS
+    tokens to be used with multiple services. By default, the SAS token service scope will default to the current service.
+
+    #### Bugs Fixed
+    - Bumped dependency of `typing-extensions` to `>=4.6.0` to avoid potential `TypeError` with `typing.TypeVar` on
+    Python 3.12.
+    - Fixed an issue where authentication errors could raise `AttributeError` instead of `ClientAuthenticationError` when
+    using async OAuth credentials.
+    - Fixed a typing issue which incorrectly typed the `readinto` API. The correct input type is `IO[bytes]`.
+    - Fixed a typo in the initialization of `completion_time` for the `CopyProperties` model.
+    - Fixed a couple of issues with `upload_blob` when using Iterators/Generators as the data input.
+- Name: azure-storage-file-share
+  Version: 12.16.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.16.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `exists` method to `ShareFileClient` to check if a file exists.
+    - Added support for service version 2024-05-04.
+    - The `services` parameter has been added to the `generate_account_sas` API, which enables the ability to generate SAS
+    tokens to be used with multiple services. By default, the SAS token service scope will default to the current service.
+
+    #### Bugs Fixed
+    - Fixed an issue where the `ShareDirectoryClient` returned by `get_subdirectory_client` with a `ShareDirectoryClient`
+    pointing to the root of the file share would raise an `InvalidResourceName` on any operations.
+    - Bumped dependency of `typing-extensions` to `>=4.6.0` to avoid potential `TypeError` with `typing.TypeVar` on
+    Python 3.12.
+    - Fixed an issue where authentication errors could raise `AttributeError` instead of `ClientAuthenticationError` when
+    using async OAuth credentials.
+    - Fixed an issue where parameter `delete_snapshots` to `delete_share` API did not support all possible enums. This change
+    makes `delete_snapshots` now accept string literals 'include' and 'include-leased'.
+    - Fixed an issue where specifying datetime objects with less than 7 digits of precision as input could incorrectly raise
+    `InvalidHeaderValue` due to improper precision parsing.
+- Name: azure-storage-file-datalake
+  Version: 12.15.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.15.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-05-04.
+    - The `services` parameter has been added to the `generate_account_sas` API, which enables the ability to generate SAS
+    tokens to be used with multiple services. By default, the SAS token service scope will default to the current service.
+
+    #### Bugs Fixed
+    - Bumped dependency of `typing-extensions` to `>=4.6.0` to avoid potential `TypeError` with `typing.TypeVar` on
+    Python 3.12.
+    - Fixed an issue where authentication errors could raise `AttributeError` instead of `ClientAuthenticationError` when
+    using async OAuth credentials.
+- Name: azure-mgmt-frontdoor
+  Version: 1.2.0
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-frontdoor_1.2.0/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.10.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.10.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - The `services` parameter has been added to the `generate_account_sas` API, which enables the ability to generate SAS
+    tokens to be used with multiple services. By default, the SAS token service scope will default to the current service.
+
+    #### Bugs Fixed
+    - Bumped dependency of `typing-extensions` to `>=4.6.0` to avoid potential `TypeError` with `typing.TypeVar` on
+    Python 3.12.
+    - Fixed an issue where authentication errors could raise `AttributeError` instead of `ClientAuthenticationError` when
+    using async OAuth credentials.
 
