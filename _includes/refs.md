@@ -5,7 +5,7 @@
 [Microsoft Writing Style Guide]: https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700
 [Microsoft Cloud Style Guide]: https://styleguides.azurewebsites.net/Styleguide/Read?id=2696
 [Acrolinx VS Code extension]: https://aka.ms/azsdk/acrolinx-vscode
-[rest-lro]: https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#13-long-running-operations
+[rest-lro]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md#long-running-operations--jobs
 
 [general-guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
 [android-guidelines]: {{ site.baseurl }}{% link docs/android/design.md %}
