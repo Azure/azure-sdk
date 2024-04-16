@@ -96,4 +96,15 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Updated Microsoft.Identity.Client and related dependencies to version 4.60.3
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.3
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.3/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency `Azure.Identity` to version `1.11.0`.
 
