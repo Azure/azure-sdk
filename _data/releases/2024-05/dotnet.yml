@@ -10,4 +10,72 @@ entries:
     #### Features Added
     - Expanded `ChatAttachment` to include a new enum `file`. This would allow the communication user to recieve files shared by Teams user in a Teams Interoperbility Chat.
     - Added support for a new communication identifier `MicrosoftTeamsAppIdentifierModel`.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.43
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.43/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-05-04.'
+- Name: Azure.Storage.Blobs
+  Version: 12.20.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.20.0-beta.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-05-04.
+    - Fixed bug where BlockBlobClient.Upload() and .UploadAsync() would throw an exception if BlobUploadOptions was null.
+    - Fixed a bug where some valid shared access signatures were improperly parsed, throwing an exception.
+- Name: Azure.Storage.Common
+  Version: 12.19.0-beta.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.19.0-beta.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.17.0-beta.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.17.0-beta.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2023-05-04.
+    - Added support for deleting individual blob versions.
+- Name: Azure.Storage.Queues
+  Version: 12.18.0-beta.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.18.0-beta.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-05-04.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.18.0-beta.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.18.0-beta.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-05-04.
+    - Added ability to retrieve path ACL with DataLakePath/File/DirectoryClient.GetProperties(), .GetPropertiesAsync(), DataLakeFileClient.Read(), and .ReadAsync().
+    - Fixed bug where on `DataLakeDirectoryClient`, `DataLakeFileClient` and `DataLakePathClient`, calling `.Rename(..)` will throw a 403 Authentication Error, if the source storage client was instantiated with a SAS on the `Uri`, will not pass the SAS to the destination- Fixed bug where on `ShareDirectoryClient`, `ShareFileClient` and `DataLakePathClient`, calling `.Rename(..)` will throw a 403 Authentication Error, if the source storage client was instantiated with a SAS on the `Uri`, will not pass the SAS to the destination client, when the destination does not have any credentials.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.18.0-beta.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.18.0-beta.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-05-04.
+    - Added ability to retrieve file handle client name with ShareFile/DirectoryClient.GetHandles() and .GetHandlesAsync().
+    - Added ability to call ShareFileClient.GetRangeListDiff() and .GetRangeListDiffAsync() on a file that has been renamed.
+    - Fixed bug where on `ShareDirectoryClient` and `ShareFileClient`, calling `.Rename(..)` will throw a 403 Authentication Error, if the source storage client was instantiated with a SAS on the `Uri`, will not pass the SAS to the destination client, when the destination does not have any credentials.
 
