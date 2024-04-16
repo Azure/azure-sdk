@@ -64,7 +64,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUSTNOT id="rust-general-version" %} use grammar or features newer than the `rust-version` declared in the root `Cargo.toml` workspace.
 
-{% include requirement/MUSTNOT id="rust-general-dependencies" %} unconditionally require any particular async runtime or HTTP stack.
+{% include requirement/MUSTNOT id="rust-general-dependencies" %} unconditionally depend on any particular async runtime or HTTP stack.
 
 {% include requirement/SHOULD id="rust-general-dependencies-default" %} depend on `tokio` (async runtime) and `reqwest` (HTTP stack) in the `default` feature for crates e.g.:
 
@@ -77,9 +77,13 @@ default = [ "reqwest" ]
 reqwest = [ "dep:reqwest" ]
 ```
 
-Default features can be ignored by consumers and individual features enabled as desired. This allows consumers to ignore default features and use their own HTTP stack and/or async runtime to implement a client.
+Default features can be ignored by consumers and individual features enabled as needed. This allows consumers to ignore default features and use their own HTTP stack and/or async runtime to implement a client.
 
 {% include requirement/MUSTNOT id="rust-general-unwrap" %} call `unwrap()`, `expect()`, or other functions that may panic unless you are absolutely sure they never will. It's almost always better to use `map()`, `unwrap_or_else()`, or a myriad of related functions to remap errors, return suitable defaults, etc.
+
+{% include requirement/MUSTNOT id="rust-general-prelude" %} define a `prelude` module.
+
+These may lead to name collisions, especially when multiple versions of a crate are imported.
 
 ### Support for non-HTTP Protocols
 
@@ -100,7 +104,7 @@ With mixed casing like "IoT", consider the following guidelines:
 * For module and method names, always use lowercase e.g., `get_iot_device()`.
 * For type names, use PascalCase e.g., `IotClient`.
 
-{% include requirement/MUST id="rust-api-dependencies" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of [centrally managed dependencies][rust-lang-dependencies].
+{% include requirement/MUST id="rust-api-dependencies" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of [centrally managed dependencies][rust-lang-workspace-dependencies].
 
 ### Service Client {#rust-client}
 
@@ -138,6 +142,7 @@ impl SecretClient {
     pub fn new(endpoint: impl AsRef<str>, credential: std::sync::Arc<dyn azure_core::TokenCredential>, options: Option<SecretClientOptions>) -> azure_core::Result<Self> {
         let endpoint = azure_core::Url::parse(endpoint.as_ref())?;
         let options = options.unwrap_or_default();
+
         todo!()
     }
 }
@@ -147,7 +152,7 @@ impl SecretClient {
 
 {% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes a `TokenCredential` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
 
-In cases were different credential types are supported, we want the main pattern to support AAD authentication over other authentication schemes.
+In cases when different credential types are supported, we want the primary use case to support AAD authentication over other authentication schemes.
 
 ##### Client Configuration {#rust-client-configuration}
 
@@ -200,7 +205,13 @@ pub trait SecretClientMethods {
         unimplemented!()
     }
 
-    async fn set_secret(&self, _name: impl Into<String>, _version: impl Into<String>, _options: Option<SetSecretOptions>) -> azure_core::Result<Response> {
+    async fn set_secret(
+        &self,
+        _name: impl Into<String>,
+        _version: impl Into<String>,
+        _options: Option<SetSecretOptions>,
+        context: Option<&Context>,
+    ) -> azure_core::Result<Response> {
         std::future::ready(unimplemented!())
     }
 }
@@ -218,7 +229,13 @@ impl SecretClientMethods for SecretClient {
         todo!()
     }
 
-    async fn set_secret(&self, _name: impl Into<String>, _version: impl Into<String>, _options: Option<SetSecretOptions>) -> azure_core::Result<Response> {
+    async fn set_secret(
+        &self,
+        name: impl Into<String>,
+        version: impl Into<String>,
+        options: Option<SetSecretOptions>,
+        context: Option<&Context>,
+    ) -> azure_core::Result<Response> {
         todo!()
     }
 }
@@ -233,7 +250,7 @@ async fn method_name(
     &self,
     mandatory_param1: impl Into<P1>,
     mandatory_param2: impl Into<P2>,
-    body: impl Into<Bytes>,
+    content: RequestContent<T>, // elided if no body is defined
     options: Option<MethodNameOptions>,
     context: Option<&Context>,
 ) -> azure_core::Result<Response>;
@@ -264,17 +281,44 @@ to wait synchronously on a `Future`.
 
 ##### Operation Options {#rust-client-methods-options}
 
-> TODO: Pass per-call options that affect the pipeline e.g., if Some(T), clone pipeline and modify.
-> See <https://learn.microsoft.com/javascript/api/@azure/core-client/operationrequestoptions> for some ideas.
-> Perhaps not everything can be customized. Do we, for example, allow removing policies or just adding? And which policies with options can be changed?
+{% include requirement/MUST id="rust-client-methods-options-separate" %} separate the `Context` containing client method options from service method options. See [example](#rust-client-methods) above.
+
+The `azure_core::Pipeline` is constructed when the service client constructed, and because the clients must be immutable the pipeline cannot be altered directly.
+Any data passed to client methods to alter the pipeline e.g., retry policy options, must be passed to pipeline policies via the `Context`.
+
+{% include requirement/MUST id="rust-client-methods-options-context" %} pass pipeline policy options in the `Context` passed to each pipeline policy.
+
+{% include requirement/MUST id="rust-client-methods-options-pipeline" %} clone the `azure_core::Pipeline` if the list of pipeline policies is altered by a client method e.g., a custom pipeline policy is added per-call.
+
+{% include requirement/MAY id="rust-client-methods-options-api-version" %} allow the caller to change the API version e.g., `api-version` when calling the endpoint.
 
 ##### Return Types {#rust-client-methods-return}
 
-{% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response>` from an `async fn`.
+{% include requirement/MUST id="rust-client-methods-return-pageable" %} return an `azure_core::Result<azure_core::Pager<T>>` from an `async fn` when the service returns a [pageable response](#rust-paging).
 
-This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response>>` from an `fn`.
+{% include requirement/MUST id="rust-client-methods-return-lro" %} return an `azure_core::Result<azure_core::Poller<T>>` from an `async fn` when the service implements the operation a [long-running operation](#rust-lro).
 
-> TODO: Update when LRO and pageable design guidelines.
+{% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response<T>>` from an `async fn` for all other service responses.
+
+{% include requirement/MUST id="rust-client-methods-return-raw-response" %} provide the status code, headers, and self-consuming async raw response stream from all return types e.g.,
+
+``` rust
+impl<T> Response<T> {
+    pub fn status(&self) -> &StatusCode {
+        todo!()
+    }
+
+    pub fn headers(&self) -> &Headers {
+        todo!()
+    }
+
+    pub async fn into_content(self) -> ResponseContent {
+        todo!()
+    }
+}
+```
+
+This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response<T>>>` from an `fn`.
 
 ##### Cancellation {#rust-client-methods-cancellation}
 
@@ -323,6 +367,10 @@ impl SecretClient {
 
 The `endpoint` parameter is never saved so a reference is fine. This also allows callers to pass a `String` or `str` e.g., `SecretClient::new("https://myvault.vault.azure.net")`.
 
+{% include requirement/MUST id="rust-parameters-request-content" %} declare a parameter named `content` of type `RequestContent<T>`, where `T` is the service-defined request model.
+
+{% include requirement/MUST id="rust-parameters-request-content-convert" %} support converting to a `RequestContent<T>` from a `T`, `Stream`, or `AsRef<str>`.
+
 {% include requirement/MAY id="rust-parameters-interior-mutability" %} use interior mutability e.g., `std::sync::OnceLock` for single-resource caching e.g., a single key-specific `CryptographyClient` that attempts to download the public key material for subsequent public key operations.
 
 ##### Parameter Validation {#rust-parameters-validation}
@@ -341,42 +389,51 @@ The service client will have several methods that perform requests on the servic
 
 Rust is a lower-level language but often provides higher-level, zero-cost abstractions such as iterators. Iterators are an idiomatic way to enumerate vectors or streams such as `futures::Stream`.
 
-{% include requirement/MUST id="rust-paging-pageable" %} return an `azure_core::Pageable<T>` from pageable service client methods.
+{% include requirement/MUST id="rust-paging-pageable" %} return an `azure_core::Pager<T>` from pageable service client methods where `T` is model type being enumerated.
 
-{% include requirement/MUST id="rust-paging-pageable-stream" %} implement `futures::Stream` for `azure_core::Pageable<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the consumer has reached the end of the result set. This will enumerate all items for all pages.
+{% include requirement/MUST id="rust-paging-pageable-stream" %} implement `futures::Stream` for `azure_core::Pager<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the consumer has reached the end of the result set. This will enumerate all items for all pages.
 
-{% include requirement/MUST id="rust-paging-pageable-page" %} implement an `to_page(&self) -> &azure_core::Page<T>` for `azure_core::Pageable<T>` that returns the current page of items.
+{% include requirement/MUST id="rust-paging-pageable-page" %} implement an `to_page(&self) -> &azure_core::Page<T>` for `azure_core::Pager<T>` that returns the current page of items.
 
 {% include requirement/MUST id="rust-paging-pageable-page-iter" %} implement `IntoIterator` on `azure_core::Page<T>`. This allows customers to enumerate each page separately, and to enumerate each page of items therein.
 
 {% include requirement/MUST id="rust-paging-pageable-page-iter-size" %} implement `Iterator::size_hint()` on the returned `IntoIterator` for `azure_core::Page<T>`.
 
-#### Methods Invoking Long Running Operations {#rust-lro}
+{% include requirement/MUST id="rust-paging-pageable-restart" %} support reconstructing an `azure_core::Pager<T>` so that a caller can start paging from a previous state.
 
-> TODO: Review this section
+#### Methods Invoking Long-running Operations {#rust-lro}
 
-Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
+Some service operations, known as [_Long-running Operations_][rest-lro] or _LROs_ take a long time to execute - up to hours or even days. Such operations do not return their result immediately but rather are started and their progressed polled until the operation reaches a terminal state including `Succeeded`, `Failed`, or `Canceled`.
 
-Azure::Core library exposes an abstract type called `Operation<T>`, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
+The `azure_core` crate exposes an abstract type called `azure_core::Poller<T>`, which represents LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long-running operation will return an `azure_core::Poller<T>` as described below.
 
-> TODO: Add operation details.
+{% include requirement/MUST id="rust-lro-prefix" %} name all methods that start an LRO with the `begin_` prefix.
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="rust-lro-stream" %} implement `futures::Stream` for `azure_core::Poller<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the polling has terminated.
 
-{% include requirement/MUST id="rust-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
+{% include requirement/MUST id="rust-lro-restart" %} support reconstructing an `azure_core::Poller<T>` so that a caller can start polling from a previous state.
 
-{% include requirement/MUST id="rust-lro-return" %} return a subclass of `Operation<T>` from LRO methods.
+##### Conditional Request Methods {#rust-etag}
 
-{% include requirement/MAY id="rust-lro-subclass" %} add additional APIs to subclasses of `Operation<T>`.
-For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the `IsDone` and `HasValue` states that are present on the base class.
+{% include requirement/MUST id="rust-etag-options" %} define ETag-related options e.g., `if_match`, `if_none_match`, etc., in the service method options e.g.:
 
-##### Conditional Request Methods
+```rust
+#[derive(Clone, Debug)]
+pub struct SetSecretOptions {
+    enabled: Option<bool>,
+    if_match: Option<azure_core::ETag>,
+}
+```
 
-> TODO: This section needs to be driven by code in the Core library.
+##### Hierarchical Clients {#rust-subclients}
 
-##### Hierarchical Clients
+{% include requirement/MAY id="rust-subclients-return" %} return clients from other clients e.g., a `DatabaseClient` from a `CosmosClient`.
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="rust-subclients-suffix" %} name all client methods returning a client with the `_client` suffix e.g., `CosmosClient::database_client()`.
+
+{% include requirement/MUSTNOT id="rust-subclients-noasync" %} define client methods returning a client as asynchronous.
+
+{% include requirement/MUST id="rust-subclients-pipeline" %} clone the parent client `azure_core::Pipeline` so that lifetime parameters and guarantees are not required.
 
 ### Supporting Types
 
@@ -386,75 +443,154 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_). A model type is a representation of a REST service's resource.
 
-{% include requirement/MUST id="rust-design-model-public-getters" %} ensure model public properties are const if they aren't intended to be changed by the user.
+{% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
 
-Most output-only models can be fully read-only. Models that are used as both outputs and inputs (i.e. received from and sent to the service) typically have a mixture of read-only and read-write properties.
+{% include requirement/MUSTNOT id="rust-model-types-required" %} define required fields using `Option<T>`.
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="rust-model-types-optional" %} define optional fields using `Option<T>`.
 
-##### Model Type Naming
+{% include requirement/MUST id="rust-model-types-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the model is input (serializable), output (deserializable), or both.
 
-> TODO: This section needs to be driven by code in the Core library.
+##### Model Type Naming {#rust-model-names}
 
-#### Enumerations
+{% include requirement/MUST id="rust-model-names-type" %} define models using the names from TypeSpec unless those names conflict with keywords or common types from `std`, `futures`, or other common dependencies.
 
-{% include draft.html content="Guidance coming soon ..." %}
+If name collisions are likely and the TypeSpec cannot be changed, you can either use the `@clientName` TypeSpec decorator or update a client `.tsp` file.
 
-> TODO: Add section
+{% include requirement/MUST id="rust-model-names-fields" %} define model fields using "camelCase".
 
-See [enumeration-like structure documentation](implementation.md#rust-enums) for implementation details.
+To facilitate this, attribute the model type:
+
+```rust
+#[derive(serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Example {
+    pub compound_name: String, // -> "compoundName"
+}
+```
+
+{% include requirement/MUSTNOT id="rust-model-names-rename" %} rename fields using the `#[serde]` attribute or by other means. All model changes must only be done in TypeSpec.
+
+##### Builders {#rust-builders}
+
+Builders are an idiomatic pattern in Rust, such as the [typestate builder pattern][rust-lang-typestate] that can help guide developers into constructing a valid type variants.
+
+{% include requirement/MAY id="rust-builders-support" %} implement builders for special cases e.g., URI builders.
+
+{% include requirement/MAY id="rust-builders-self" %} borrow or consume `self` in `with_` setter methods.
+
+{% include requirement/MUST id="rust-builders-return" %} return an owned value from the final `build()` method.
+
+#### Enumerations {#rust-enums}
+
+{% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
+
+{% include requirement/MUST id="rust-enum-fixed" %} implement all fixed enumerations using only defined variants:
+
+```rust
+#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+pub enum FixedEnum {
+    #[serde(rename = "foo")]
+    Foo,
+    #[serde(rename = "bar")]
+    Bar,
+}
+```
+
+{% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
+
+```rust
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub enum ExtensibleEnum {
+    #[serde(rename = "foo")]
+    Foo,
+    #[serde(rename = "bar")]
+    Bar,
+    #[serde(untagged)]
+    UnknownValue(String),
+}
+```
+
+{% include requirement/MAY id="rust-enum-serialize" %} implement `serde::Deserialize`, `serde::Serialize`, or both as appropriate depending on whether the enumeration is found only in responses, requests, or both, respectively.
+
+{% include requirement/SHOULD id="rust-enum-generated-attributes" %} define variant attribute `#[serde(rename = "name")]` for generated code for each variant.
+
+{% include requirement/MAY id="rust-enum-convenience-attributes" %} use container attribute `#[serde(rename_all = "camelCase")]` for convenience layers, or whatever casing is appropriate.
 
 #### Using Azure Core Types {#rust-core-types}
 
-> TODO: Review this section
-
-The `tbd` package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
-
-#### Using Primitive Types
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
+The `azure_core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [Azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
 
 ### Errors {#rust-errors}
 
-{% include draft.html content="Guidance coming soon ..." %}
+{% include requirement/MUST id="rust-errors-core" %} return an `azure_core::Result<T>` which uses `azure_core::Error`.
 
-> TODO: Add section
+{% include requirement/MUST id="rust-errors-core-methods" %} call appropriate methods on `azure_core::Error` to wrap or otherwise convert to an appropriate `azure_core::ErrorKind`.
 
-#### Rust Errors
+{% include requirement/MAY id="rust-errors-into" %} implement `Into<azure_core::Error>` for any other error type returned by functions you call if not already defined to support the `?` operator.
+
+Since your crate will define neither `azure_core::Error` or likely the error being returned to you from another dependency, you will need to use the [newtype][rust-lang-newtype] idiom e.g.:
+
+```rust
+#[derive(Debug)]
+pub struct Error(dependency::Error);
+
+impl std::error::Error for Error {
+    fn source(&self) -> Option<&(dyn Error + 'static)> {
+        self.0.source()
+    }
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        self.0.fmt(f)
+    }
+}
+
+impl Into<azure_core::Error> for Error {
+    fn into(self) -> azure_core::Error {
+        azure_core::Error::new(azure_core::ErrorKind::Other, Box::new(self))
+    }
+}
+```
 
 ### Authentication {#rust-authentication}
 
-> TODO: Review this section
-
 Azure services use a variety of different authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service.
 
-{% include requirement/MUST id="rust-design-logical-client-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side). C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
+{% include requirement/MUST id="rust-authentication-all-supported-schemes" %} support all authentication schemes supported by the service and implemented in `azure_core` and `azure_identity`.
 
-{% include requirement/MUST id="rust-design-logical-client-use-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/SHOULD id="rust-authentication-azure-core" %} use only credentials and authentication policies defined in `azure_core`.
 
-{% include requirement/MUST id="rust-design-logical-client-prefer-token-auth" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+Crates support different types of [dependencies][rust-lang-dependencies] e.g., `[dependencies]` for code linked into applications and `[dev-dependencies]` used for tests, examples, etc.
 
-{% include requirement/MUST id="rust-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
+{% include requirement/MUSTNOT id="rust-authentication-azure-identity-dependency" %} take a dependency on `azure_identity`.
 
-{% include requirement/SHOULDNOT id="rust-design-logical-client-surface-no-connection-strings" %} support providing credential data via a connection string. Connection string interfaces should be provided __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
+{% include requirement/MAY id="rust-authentication-azure-identity-dev-dependency" %} take a development dependency on `azure_identity` for tests and examples.
 
-{% include requirement/MUSTNOT id="rust-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
+{% include requirement/MUST id="rust-authentication-prefer-token-auth" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in `azure_core`.
 
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+{% include requirement/MUST id="rust-authentication-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
 
-{% include requirement/MUSTNOT id="rust-implementing-no-persistence-auth" %}
-persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+{% include requirement/SHOULDNOT id="rust-authentication-connection-strings" %} support providing credential data via a connection string. Connection string interfaces should be provided __ONLY IF__ the service provides a connection string to users via the Portal or other tooling. Use a `with_connection_string()` function to construct a client in that case e.g.:
 
-If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+```rust
+impl ExampleClient {
+    pub fn with_connection_string(connection_string: impl Into<String>, options: Option<ExampleClientOptions>) {
+        todo!()
+    }
+}
+```
 
-{% include requirement/MUST id="rust-implementing-secure-auth-erase" %} Use a "secure" function to zero authentication or authorization credentials as soon as possible once they are no longer needed. Examples of such functions
-include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insecure functions include `memset`. An optimizer may notice that the credentials are
-never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUST id="rust-implementing-auth-policy" %}
-provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
+{% include requirement/MUSTNOT id="rust-authentication-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+
+If your service implements a non-standard credential system - one not supported by `azure_core` - then you need to implement an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+
+{% include requirement/MAY id="rust-authentication-custom" %} implement an authentication policy and credential in a client library crate if the authentication scheme is supported only by the service.
+
+{% include requirement/MUST id="rust-authentication-erase" %} securely free and zero authentication tokens and other credential data as soon as they are no longer needed.
 
 ### Namespaces {#rust-namespace-naming}
 
@@ -464,7 +600,7 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 namespace Azure.Security.KeyVault;
 // crate: azure_security_keyvault
 namespace Azure.Security.KeyVault.Secrets {
-    // module azure_security_leyvault::secrets
+    // module azure_security_keyvault::secrets
 }
 ```
 
@@ -621,6 +757,28 @@ tokio = { workspace = true }
 
 {% include requirement/MAY id="rust-dependencies-features" %} override the features required for a crate.
 
+### Code Lints {#rust-linting}
+
+{% include requirement/MUST id="rust-linting-centralized" %} centralized general linting rules, whether allowed or denied, into the root workspace `Cargo.toml` e.g.:
+
+```toml
+[workspace.lints.rust]
+dead_code = "allow"
+
+[workspace.lints.clippy]
+```
+
+{% include requirement/MUST id="rust-linting-inherit" %} inherit linting rules from the workspace in each member crate e.g., :
+
+```toml
+[lints]
+workspace = true
+```
+
+{% include requirement/MAY id="rust-linting-source" %} define source-specific lint rules in `.rs` source files if they can't be mitigated.
+
+{% include requirement/MUSTNOT id="rust-linting-crate" %} define crate-specific lint rules in `Cargo.toml` files since these will apply to all source and should not be so pervasive.
+
 ### Documentation Comments {#rust-documentation}
 
 Documentation comments in Rust not only support markdown, but can contain examples that are optionally runnable as tests when executing `cargo test`. Read [the rustdoc book][rust-lang-rustdoc] for more information,
@@ -656,8 +814,15 @@ This will impact line numbers, so you should only export APIs publicly from `lib
 ///
 /// * `name` - The name of the secret.
 /// * `value` - The value of the secret.
-/// * `options` - Optional properties of the secret or method call options.
-fn set_secret(&self, name: impl Into<String>, value: impl Into<String>, options: Option<SetSecretOptions>) - Result<Response>;
+/// * `options` - Optional properties of the secret.
+/// * `context` - Optional context to pass to the client.
+async fn set_secret(
+    &self,
+    name: impl Into<String>,
+    value: impl Into<String>,
+    options: Option<SetSecretOptions>,
+    context: Option<&Context>,
+) -> Result<Response>;
 ```
 
 See [Rust by Example: Documentation][rust-lang-doc-meta] for more information.
@@ -697,18 +862,37 @@ There are several documentation deliverables that must be included in or as a co
 
 As you write your code, _document it so you never hear about it again._ The less questions you have to answer about your client library, the more time you have to build new features for your service.
 
-#### Code Snippets {#rust-repo-samples}
+#### Code Snippets {#rust-doc-samples}
 
-{% include requirement/MUST id="rust-repo-samples-examples" %} include runnable examples using common e.g., `AZURE_CLIENT_ID`, and library-specific e.g., `AZURE_KEYVAULT_URL` environment variables in crates' `examples/` directory.
+{% include requirement/SHOULD id="rust-doc-samples-runnable" %} include [runnable examples in documentation][rust-lang-rustdoc-tests] for client methods or convenience layers that may require additional explanation specific to those members.
 
-The example file names are compiled into executes with the same name; thus, they must have unique names throughout the workspace.
-To facilitate this, preface your example name with the client name - converting PascalCase type name to snake_case - or, if still ambiguous, the service directory or crate name e.g., `secret_client_set_secret.rs` or `keyvault_secret_client_set_secret.rs`.
+{% include requirement/MUST id="rust-doc-samples-no-run" %} add `no_run` to the code fence for documentation examples if that code requirements external resources.
 
-#### Build System Integration
+{% include requirement/SHOULD id="rust-doc-samples-unwrap" %} use `unwrap()` or `expect(&str)` in examples and not the [question mark operator `?`][rust-lang-question-mark-operator], which requires additional setup.
 
-{% include draft.html content="Guidance coming soon ..." %}
+{% include requirement/SHOULDNOT id="rust-doc-samples-main" %} include the `main` function in the signature, if even necessary e.g., for showing async examples.
 
-> TODO: Add section
+```rust
+/// ``` no_run
+/// # async fn main() {
+///     let client = SecretClient::new("https://myvault.vault.azure.net", Arc::new(DefaultAzureCredential::default()), None).unwrap();
+///     let secret = client.set_secret("name", "value", None, None).await.unwrap();
+///     println!("{secret:?}");
+/// # }
+/// ```
+```
+
+{% include requirement/MUST id="rust-doc-samples-no-run" %} attribute code fences with `no_run` if the code cannot or should not run when running `cargo test`. There are additional [documentation test attributes][rust-lang-rustdoc-tests-attributes] that may be of interest.
+
+#### Build System Integration {#rust-engsys}
+
+{% include requirement/MUST id="rust-engsys-stable" %} test all crates impacted by a Pull Request (PR) using the minimum supported Rust version (MSRV) from the `stable` channel i.e., `azure_core`'s `rust-version` in its `Cargo.toml`.
+
+{% include requirement/MUST id="rust-engsys-nightly" %} test all crates impacted by a PR using the latest nightly toolchain.
+
+{% include requirement/MUST id="rust-engsys-async" %} test `azure_core` and any other crates that implement async functions separate from `azure_core::Pipeline` using [`tokio`](https://tokio.rs) and [`monoio`](https://github.com/bytedance/monoio) in both single- and multi-threaded configurations. These tests do not necessarily have to run for every PR e.g., they may run nightly or weekly.
+
+{% include requirement/SHOULD id="rust-engsys-partner-policies" %} test some partner `Pipeline` policies in nightly or weekly runs.
 
 #### Formatting {#rust-repo-formatting}
 
@@ -728,9 +912,16 @@ An example of a good `README.md` file can be found [here](https://github.com/Azu
 
 The contributor guide (`CONTRIBUTING.md`) should be a separate file.
 
-### Samples {#rust-samples}
+### Samples {#rust-repo-samples}
 
-> TODO: Provide sample guidelines.
+{% include requirement/MUST id="rust-repo-samples-examples" %} include runnable examples using `azure_identity::DefaultAzureCredential` and library-specific environment variables e.g., `AZURE_KEYVAULT_URL` in crates' `examples/` directory.
+
+{% include requirement/MUST id="rust-repo-samples-unique" %} use unique example file names throughout the workspace.
+
+The example file names are compiled into executes with the same name as the source file; thus, they must have unique names throughout the workspace.
+To facilitate this, preface your example name with the client name - converting PascalCase type name to snake_case - or, if still ambiguous, the service directory or crate name e.g., `secret_client_set_secret.rs` or `keyvault_secret_client_set_secret.rs`.
+
+See Cargo's [project layout][rust-lang-project-layout] for more information about conventional directories.
 
 <!-- Links -->
 
