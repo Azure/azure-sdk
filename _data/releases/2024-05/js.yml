@@ -46,4 +46,15 @@ entries:
     - New `RetentionPolicy` property in `ChatThreadProperties`.
     - Updated `CreateChatThreadOptions` to include `retentionPolicy` .
     - New `updateProperties(...)` to update `ChatThreadProperties` including `retentionPolicy`.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.22
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.22/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for more Azure Monitor part A/tags.
 
