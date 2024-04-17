@@ -129,4 +129,18 @@ entries:
 
     #### Other Changes
     - Bumped dependency of `azure-storage-blob` to the latest stable release (12.19.0).
+- Name: azure-communication-jobrouter
+  Version: 1.1.0b1
+  DisplayName: Communication JobRouter
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-jobrouter_1.1.0b1/sdk/communication/azure-communication-jobrouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `JobRouterClient`
+    - `upsert_worker`
+    - keyword argument `max_concurrent_offers: Optional[int]` added.
+    - `RouterWorker`
+    - Add `max_concurrent_offers`
 
