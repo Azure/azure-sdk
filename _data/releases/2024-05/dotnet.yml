@@ -170,4 +170,17 @@ entries:
     #### Other Changes
 
     - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-wvxc-855f-jvrv), updating the transitive dependency for `Azure.Identity` to v1.11.1 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Azure.Communication.Chat
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.3.0-beta.1/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for Data Retention policies for threads.
+    - Add new RetentionPolicy property in ChatThreadProperties.
+    - Update CreateChatThreadOptions to include RetentionPolicy.
+    - Update UpdateChatThreadRequest to include RetentionPolicy.
 
