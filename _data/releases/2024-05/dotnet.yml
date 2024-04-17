@@ -126,4 +126,48 @@ entries:
     #### Bugs Fixed
 
     - Correct unit mismatch in backoff calculation.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-wvxc-855f-jvrv), updating the transitive dependency for `Azure.Identity` to v1.11.1 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.4.1
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.4.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-wvxc-855f-jvrv), updating the transitive dependency for `Azure.Identity` to v1.11.1 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Microsoft.Azure.WebJobs.Extensions.Tables
+  Version: 1.3.1
+  DisplayName: Functions extension for Azure Tables
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Tables_1.3.1/sdk/tables/Microsoft.Azure.WebJobs.Extensions.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-wvxc-855f-jvrv), updating the transitive dependency for `Azure.Identity` to v1.11.1 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.15.1
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.15.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-wvxc-855f-jvrv), updating the transitive dependency for `Azure.Identity` to v1.11.1 via version bump to `Microsoft.Extensions.Azure`.
 
