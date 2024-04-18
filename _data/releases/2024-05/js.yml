@@ -57,4 +57,19 @@ entries:
     #### Features Added
 
     - Add support for more Azure Monitor part A/tags.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.4.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.4.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle Parsing Nested Objects in Integration Tests.
+
+    #### Features Added
+
+    - Add support for Trace based sampling for logs.
 
