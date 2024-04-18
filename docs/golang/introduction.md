@@ -6,8 +6,6 @@ folder: golang
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The Go Language guidelines are in DRAFT status" %}
-
 ## Introduction
 
 The Go guidelines are for the benefit of client library designers targeting service applications written in [Go](https://golang.org/).
@@ -113,11 +111,11 @@ func NewWidgetClientFromConnectionString(connectionString string, options *Widge
 
 ##### Service Client Configuration
 
-TODO
-
 ##### Setting the Service Version
 
-TODO
+{% include requirement/MUST id="golang-api-service-client-versioning-highest-api" %} call the highest supported service API version by default.
+
+{% include requirement/MUST id="golang-api-service-client-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
 
 ##### Client Immutability
 
@@ -409,11 +407,7 @@ process(w)
 
 ##### Conditional Request Methods
 
-TODO
-
 ##### Hierarchical Clients
-
-TODO
 
 ### Supporting Types
 
@@ -421,11 +415,7 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 #### Model Types
 
-TODO
-
 ##### Model Type Naming
-
-TODO
 
 #### Constants as Enumerations
 
@@ -433,11 +423,7 @@ TODO
 
 #### Azure Core Types
 
-TODO
-
 #### Primitive Types
-
-TODO
 
 ### Error Handling
 
@@ -490,8 +476,6 @@ When implementing authentication, don't open up the consumer to security holes l
 {% include requirement/MUST id="golang-auth-policy-impl" %} provide a suitable authentication policy if your service implements a non-standard authentication system (that is, an authentication system that is not supported by Azure Core).  You also need to produce an authentication policy for the HTTP pipeline that can add credentials to requests given the alternative authentication mechanism provided by the service.  Custom credentials will need to implement the `azcore.Credentials` interface.
 
 ### Package Naming
-
-TODO (namespaces in other languages)
 
 ### Support for Mocking
 
@@ -597,7 +581,9 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 ### Native Code
 
-TODO
+Native dependencies introduce lots of complexities and should be avoided.
+
+{% include requirement/SHOULDNOT id="golang-problems-native-dependencies" %} use native dependencies.
 
 ### Doc Comments
 
@@ -617,7 +603,13 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 ### README
 
-TODO
+{% include requirement/MUST id="golang-docs-readme" %} have a README.md file in the package root folder.
+
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/security/keyvault/azkeys/README.md).
+
+{% include requirement/MUST id="golang-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
+
+The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to from the main component `README.md`.
 
 ### Samples
 
