@@ -143,4 +143,14 @@ entries:
     - keyword argument `max_concurrent_offers: Optional[int]` added.
     - `RouterWorker`
     - Add `max_concurrent_offers`
+- Name: azure-communication-rooms
+  Version: 1.1.0
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.1.0/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for a new communication identifier `MicrosoftTeamsAppIdentifier`.
 
