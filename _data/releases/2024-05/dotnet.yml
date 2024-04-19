@@ -193,4 +193,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed a bug introduced in version 1.3.0 where the `GetConfigurationSetting` method incorrectly logged 304 responses as failures in distributed tracing.
+- Name: Azure.ResourceManager.AppService
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.1.0-beta.5/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
 
