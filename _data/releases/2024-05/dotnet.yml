@@ -247,4 +247,42 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiManagement_1.2.0-beta.1/sdk/apimanagement/Azure.ResourceManager.ApiManagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.0.0-beta.7
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.7/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Consildated namespaces. Removing:
+    - Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents.Framework
+    - Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents.TokenIssuanceStart.Actions
+    - Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents.TokenIssuanceStart.Data
+
+    - Added Prefix WebJobs and WebJobsAuthenticationEvents to objects
+    - ActionableCloudEventResponse -> WebJobsActionableCloudEventResponse
+    - ActionableResponse -> WebJobsActionableResponse
+    - AuthenticationEventAction -> WebJobsAuthenticationEventAction
+    - AuthenticationEventAction -> WebJobsAuthenticationEventAction
+    - AuthenticationEventContext -> WebJobsAuthenticationEventsContext
+    - AuthenticationEventContextClient -> WebJobsAuthenticationEventsContextClient
+    - AuthenticationEventContextServicePrincipal -> WebJobsAuthenticationEventsContextServicePrincipal
+    - AuthenticationEventContextServicePrincipal -> WebJobsAuthenticationEventsContextServicePrincipal
+    - AuthenticationEventContextUser -> WebJobsAuthenticationEventsContextUser
+    - AuthenticationEventData -> WebJobsAuthenticationEventData
+    - AuthenticationEventMetadataAttribute -> WebJobsAuthenticationEventMetadataAttribute
+    - AuthenticationEventRequest -> WebJobsAuthenticationEventRequest
+    - AuthenticationEventResponse -> WebJobsAuthenticationEventResponse
+    - AuthenticationEventWebJobsStartup  -> WebJobsAuthenticationEventWebJobsStartup
+    - CloudEventData -> WebJobsAuthenticationEventsCloudEventRequest
+    - CloudEventData -> WebJobsAuthenticationEventsTypedData
+    - ProvideClaimsForToken -> WebJobsProvideClaimsForToken
+    - RequestStatusType -> WebJobsAuthenticationEventsRequestStatusType
+    - TokenClaim -> WebjobsAuthenticationEventsTokenClaim
+    - TokenIssuanceAction -> WebJobsTokenIssuanceAction
+    - TokenIssuanceStartData -> WebJobsTokenIssuanceStartData
+    - TokenIssuanceStartRequest -> WebJobsTokenIssuanceStartRequest
+    - TokenIssuanceStartResponse -> WebJobsTokenIssuanceStartResponse
 
