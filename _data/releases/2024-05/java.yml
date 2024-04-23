@@ -506,4 +506,21 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-namespaces_1.0.0-beta.1/sdk/eventgrid/azure-messaging-eventgrid-namespaces/CHANGELOG.md
   ChangelogContent: '- Initial beta release of Azure EventGrid Namespaces client library for Java.'
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.16.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.16.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes the ServiceBusProcessorClient to signal intermediate errors to the processor handler. ([#39669](https://github.com/Azure/azure-sdk-for-java/issues/39669))
+    - Fixes the issue of not creating default rule when creating subscription. ([37856](https://github.com/Azure/azure-sdk-for-java/issues/37856))
+
+    #### Features Added
+
+    - Setting the v2 stack as the default for "Session Processor Client" and "Session Reactor Receiver Client". ([39750](https://github.com/Azure/azure-sdk-for-java/pull/39750))
+  GroupId: com.azure
 
