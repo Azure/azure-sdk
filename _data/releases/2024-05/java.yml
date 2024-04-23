@@ -577,4 +577,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-support_1.0.0/sdk/support/azure-resourcemanager-support/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core-test
+  Version: 1.24.2
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.24.2/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added missing sanitizers.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.47.0` to `1.48.0`.
+  GroupId: com.azure
 
