@@ -314,4 +314,14 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - An experimental overload `Authenticate` method on `InteractiveBrowserCredential` now supports the experimental `PopTokenRequestContext` parameter.
+- Name: Azure.Communication.Sms
+  Version: 1.1.0-beta.1
+  DisplayName: Communication SMS
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Sms_1.1.0-beta.1/sdk/communication/Azure.Communication.Sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added optional DeliveryReportTimeoutInSeconds to smsSendOptions.
 
