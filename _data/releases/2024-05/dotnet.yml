@@ -324,4 +324,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added optional DeliveryReportTimeoutInSeconds to smsSendOptions.
+- Name: Azure.Identity.Broker
+  Version: 1.2.0-beta.1
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.2.0-beta.1/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The `IsProofOfPossessionRequired` property on `InteractiveBrowserCredentialBrokerOptions` and `SharedTokenCacheCredentialBrokerOptions` has been removed. This property has moved to the experimental `PopTokenRequestContext` struct.
 
