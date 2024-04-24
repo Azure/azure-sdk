@@ -117,4 +117,16 @@ entries:
 
     - Added support for service version 2024-05-04.
     - Added ability to retrieve path ACL with DataLakePathClient.getProperties(), DataLakeFileClient.getProperties(), DataLakeDirectoryClient.getProperties(), DataLakeFileClient.read().
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.1
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.1/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update the `sequenceAck` logic to make it more efficient when receiving rate is high
+    - Periodically send message to detect the connection alive especially when the connection is idle
 
