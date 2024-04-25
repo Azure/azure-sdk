@@ -8,6 +8,7 @@
 [rust-lang-newtype]: https://doc.rust-lang.org/rust-by-example/generics/new_types.html
 [rust-lang-project-layout]: https://doc.rust-lang.org/cargo/guide/project-layout.html
 [rust-lang-question-mark-operator]: https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator
+[rust-lang-rfc-2008]: https://github.com/rust-lang/rfcs/blob/master/text/2008-non-exhaustive.md
 [rust-lang-rustdoc-headings]: https://rust-lang.github.io/rfcs/1574-more-api-documentation-conventions.html#using-markdown
 [rust-lang-rustdoc-tests-attributes]: https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html#attributes
 [rust-lang-rustdoc-tests]: https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html
