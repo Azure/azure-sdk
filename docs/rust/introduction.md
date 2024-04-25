@@ -451,6 +451,21 @@ This section describes guidelines for the design _model types_ and all their tra
 
 {% include requirement/MUST id="rust-model-types-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the model is input (serializable), output (deserializable), or both.
 
+{% include requirement/MUST id="rust-model-types-non-exhaustive" %} attribute model structs with `#[non_exhaustive]`.
+
+This forces all downstream crates, for example, to use the `..` operator to match any remaining fields that may be added in the future for pattern binding:
+
+```rust
+// struct Example {
+//     pub foo: Option<String>,
+//     pub bar: Option<i32>,
+// }
+
+let { foo, bar, .. } = client.method().await?.try_into()?;
+```
+
+See [RFC 2008][rust-lang-rfc-2008] for more information.
+
 ##### Model Type Naming {#rust-model-names}
 
 {% include requirement/MUST id="rust-model-names-type" %} define models using the names from TypeSpec unless those names conflict with keywords or common types from `std`, `futures`, or other common dependencies.
@@ -485,10 +500,32 @@ Builders are an idiomatic pattern in Rust, such as the [typestate builder patter
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
+{% include requirement/MUST id="rust-enums-non-exhaustive" %} attribute all enums with `#[non_exhaustive]`.
+
+This forces all downstream crates, for example, to use the `_` match arm to match any remaining enums that may be added in the future for pattern binding:
+
+```rust
+// enum Example {
+//     Foo,
+//     Bar,
+// }
+
+let value = match model.kind {
+    Example:Foo => todo!(),
+    Example::Bar => todo!(),
+    _ => todo!(),
+};
+```
+
+This is necessary for both fixed enums and extensible enums since new variants may be added and matched during deserialization.
+
+See [RFC 2008][rust-lang-rfc-2008] for more information.
+
 {% include requirement/MUST id="rust-enum-fixed" %} implement all fixed enumerations using only defined variants:
 
 ```rust
 #[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[non_exhaustive]
 pub enum FixedEnum {
     #[serde(rename = "foo")]
     Foo,
@@ -501,6 +538,7 @@ pub enum FixedEnum {
 
 ```rust
 #[derive(Clone, Debug, Deserialize, Serialize)]
+#[non_exhaustive]
 pub enum ExtensibleEnum {
     #[serde(rename = "foo")]
     Foo,
