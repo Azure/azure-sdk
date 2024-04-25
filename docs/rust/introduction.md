@@ -443,13 +443,17 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_). A model type is a representation of a REST service's resource.
 
-{% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
-
-{% include requirement/MUSTNOT id="rust-model-types-required" %} define required fields using `Option<T>`.
-
-{% include requirement/MUST id="rust-model-types-optional" %} define optional fields using `Option<T>`.
+{% include requirement/MUST id="rust-model-types-derive" %} derive or implement `Clone` and `Default` for all model structs.
 
 {% include requirement/MUST id="rust-model-types-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the model is input (serializable), output (deserializable), or both.
+
+{% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
+
+{% include requirement/MUST id="rust-model-types-optional" %} define all fields using `Option<T>`.
+
+Though uncommon, service definitions do not always match the service implementation when it comes to required fields. Upon the recommendation of the Breaking Change Reviewers, the specification is often changed to reflect the service if the service has already been deployed.
+
+{% include requirement/MUST id="rust-model-types-serde-optional" %} attribute fields with `#[serde(skip_serializing_if = "Option::is_none")]` unless an explicit `null` must be serialized.
 
 {% include requirement/MUST id="rust-model-types-non-exhaustive" %} attribute model structs with `#[non_exhaustive]`.
 
@@ -499,6 +503,12 @@ Builders are an idiomatic pattern in Rust, such as the [typestate builder patter
 #### Enumerations {#rust-enums}
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
+
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums.
+
+{% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
+
+{% include requirement/MUST id="rust-enums-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the enum is used in input (serializable), output (deserializable), or both.
 
 {% include requirement/MUST id="rust-enums-non-exhaustive" %} attribute all enums with `#[non_exhaustive]`.
 
