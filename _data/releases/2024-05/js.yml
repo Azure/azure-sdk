@@ -144,4 +144,15 @@ entries:
     - [#29371](https://github.com/Azure/azure-sdk-for-js/issues/29371)
     - Fixed Firebase query for `listRegistrationsByChannel` to use the correct `channel` query parameter.
     - [#29372](https://github.com/Azure/azure-sdk-for-js/issues/29372)
+- Name: '@azure-rest/core-client'
+  Version: 2.0.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.0.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed the format accepted for `multipart/form-data` requests.
 
