@@ -663,4 +663,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.2.2/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.2
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.2/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with scale metrics computation, potentially causing unnecessary scale-up.
 
