@@ -251,4 +251,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_2.0.0-beta.3/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 1.2.2
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.2.2/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed FirebaseV1 Notification to use the correct `data` and create the wrapper `message`.
+    - [#29404](https://github.com/Azure/azure-sdk-for-js/issues/29404)
+    - [#29371](https://github.com/Azure/azure-sdk-for-js/issues/29371)
 
