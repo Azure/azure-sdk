@@ -6,15 +6,13 @@ folder: cpp
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
-
-> TODO: This section needs to be driven by code in the Core library.
-
 ## API Implementation
 
 This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
 
 ### Service Client
+
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
