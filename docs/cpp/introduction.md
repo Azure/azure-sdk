@@ -90,6 +90,23 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="cpp-service-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
 
+{% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
+
+{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
+
+{% highlight cpp %}
+ExampleClient ExampleClient(
+  const std::string& url,
+  const ExampleClientOptions& options)
+{
+    ...
+
+    return ExampleClient(......, options);
+}
+{% endhighlight %}
+
+% include requirement/MAY id="cpp-service-client-constructor-connectionstring" %} provide a constructor that takes a connection if the service supports it.
+
 {% highlight cpp %}
 ExampleClient ExampleClient::CreateFromConnectionString(
   const std::string& connectionString,
@@ -101,9 +118,7 @@ ExampleClient ExampleClient::CreateFromConnectionString(
 }
 {% endhighlight %}
 
-{% include requirement/MUSTNOT id="cpp-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
-
-{% include requirement/MUST id="cpp-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options via  an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
+% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
 
 ##### Client Configuration
 
