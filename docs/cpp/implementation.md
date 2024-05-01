@@ -8,7 +8,7 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### Service Client
 
@@ -16,45 +16,43 @@ Service clients are the main starting points for developers calling Azure servic
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
-> TODO: add a brief mention of the approach to implementing service clients. 
-
 #### Service Methods
 
-> TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance.  Mention that much of this is done for you using code generation.
+Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
+
+{% include requirement/MUST id="cpp-api-service-http-pipeline" %} use the HTTP pipeline component within `Azure::Core` namespace for communicating to service REST endpoints.
 
 ##### HttpPipeline
 
 The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
 
-> TODO: Show an example of invoking the pipeline
-
 ##### HttpPipelinePolicy/Custom Policies
 
 The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
 
-> TODO: Show how to customize a pipeline
+Some services may require custom policies to be implemented. For example, custom policies may implement fall back to secondary endpoints during retry, request signing, or other specialized authentication techniques.
+
+{% include requirement/MUST id="cpp-pipeline-core-policies" %} use the policy implementations in `Azure::Core` whenever possible.
+
+{% include requirement/MUST id="cpp-custom-policy-review" %} review the proposed policy with the Azure SDK [Architecture Board]. There may already be an existing policy that can be modified/parameterized to satisfy your need.
+
+{% include requirement/MUST id="cpp-custom-policy-thread-safe" %} ensure thread-safety for custom policies. A practical consequence of this is that you should keep any per-request or connection bookkeeping data in the context rather than in the policy instance itself.
+
+{% include requirement/MUST id="cpp-pipeline-document-policies" %} document any custom policies in your package. The documentation should make it clear how a user of your library is supposed to use the policy.
 
 #### Service Method Parameters
 
-> TODO: This section needs to be driven by code in the Core library.
-
 ##### Parameter Validation
 
-In addition to [general parameter validation guidelines](introduction.md#cpp-parameters):
+See [general parameter validation guidelines](introduction.md#cpp-parameters).
 
-> TODO: Briefly show common patterns for parameter validation
+{% include requirement/MUSTNOT id="general-parameter-validation-service" %} validate service parameters.  This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
 
 ### Supporting Types
 
-> TODO: This section needs to be driven by code in the Core library.
-
 #### Serialization {#cpp-usage-json}
 
-> TODO: This section needs to be driven by code in the Core library.
-
 ##### JSON Serialization
-
-> TODO: This section needs to be driven by code in the Core library.
 
 #### Enumeration-like Structs
 
@@ -64,8 +62,6 @@ or to pass back to the service those same or other user-supplied values:
 
 - The value is retrieved and deserialized from service, and may contain a value not supported by the client library.
 - The value is roundtripped: the value is retrieved and deserialized from the service, and may later be serialized and sent back to the server.
-
-> TODO: Content in this section may need a new home.
 
 {% include requirement/MUST id="cpp-design-naming-enum" %} name `enum class`es and enumerators using **PascalCase**.
 
@@ -86,31 +82,61 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 
 {% include requirement/MUST id="cpp-lro-return" %} check the value of `IsDone` in subclass implementations of `PollInternal` and `PollUntilDoneInternal` and immediately return the result of `GetRawResponse` if it is true.
 
-> TODO: Show an example implementation for Operation<T>.
-
 {% include requirement/MUST id="cpp-lro-return" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
 
 - If an underlying service operation call from `Poll` or `PollUntilDone` throws, re-throw `RequestFailedException` or its subtype.
 - If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `Poll` or `PollUntilDone`.
   - Include any relevant error state information in the exception message.
 
-> TODO: Show an example of how to handle errors.
-
 - If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```IsDone``` is true) throw the same exception as the one thrown when the operation failed.
-
-> TODO: Show an example of how to throw in this case.
 
 - If the ```Value``` property is evaluated before the operation is complete (```IsDone``` is false) throw ```TODO: What to throw```.
   - The exception message should be: "The operation has not yet completed."
-
-> TODO: DO we want this behavior.  
-> TODO: Show an example of how to throw in this case.
 
 ### SDK Feature Implementation
 
 #### Configuration
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="cpp-config-global" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+
+{% include requirement/MUST id="cpp-config-client" %} allow different clients of the same type to use different configurations.
+
+{% include requirement/MUST id="cpp-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
+
+{% include requirement/MUST id="cpp-config-global-override" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
+
+{% include requirement/MUSTNOT id="cpp-config-behavior-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
+
+1. Log level, which must take effect immediately across the Azure SDK.
+2. Tracing on/off, which must take effect immediately across the Azure SDK.
+
+#### Configuration via Environment Variables
+
+{% include requirement/MUST id="cpp-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
+
+{% include requirement/MAY id="cpp-envvars-client-prefix" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+
+* `AZURE_SERVICEBUS_CONNECTION_STRING`
+* `AZURE_SERVICEBUS_NAMESPACE`
+* `AZURE_SERVICEBUS_ISSUER`
+* `AZURE_SERVICEBUS_ACCESS_KEY`
+
+Storage could support:
+
+* `AZURE_STORAGE_ACCOUNT`
+* `AZURE_STORAGE_ACCESS_KEY`
+* `AZURE_STORAGE_DNS_SUFFIX`
+* `AZURE_STORAGE_CONNECTION_STRING`
+
+{% include requirement/MUST id="cpp-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable.
+
+{% include requirement/MUST id="cpp-envvars-syntax" %} use this syntax for environment variables specific to a particular Azure service:
+
+* `AZURE_<ServiceName>_<ConfigurationKey>`
+
+Where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
+
+{% include requirement/MUSTNOT id="cpp-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
 #### Logging
 
@@ -119,8 +145,6 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 {% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 ##### C++ Logging specific details
-
-> TODO: This additional logging info may need a new home.
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
@@ -172,13 +196,37 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 #### Distributed Tracing {#cpp-distributedtracing}
 
-{% include draft.html content="Guidance coming soon ..." %}
+{% include requirement/MUST id="cpp-tracing-abstraction" %} abstract the underlying tracing facility, allowing consumers to use the tracing implementation of their choice.
 
-> TODO: Add guidance for distributed tracing implementation
+{% include requirement/MUST id="cpp-tracing-span-per-call" %} create a new trace span for each API call.  New spans must be children of the span that was passed in.
 
 #### Telemetry
 
-> TODO: Add guidance regarding user agent strings
+Client library usage telemetry is used by service teams (not consumers) to monitor what SDK language, client library version, and language/platform info a client is using to call into their service. Clients can prepend additional information indicating the name and version of the client application.
+
+{% include requirement/MUST id="cpp-http-telemetry-useragent" %} send telemetry information in the [User-Agent header] using the following format:
+
+```
+[<application_id> ]azsdk-cpp-<package_name>/<package_version> <platform_info>
+```
+
+- `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "XCopy/10.0.4-Preview"
+- `<package_name>`: client library (distribution) package name as it appears to the developer, replacing slashes with dashes and removing the Azure and cpp indicator.  For example, "azure-security-keyvault-secrets-cpp" would specify "azsdk-cpp-security-keyvault-secrets".
+- `<package_version>`: the version of the package. Note: this is not the version of the service
+- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "MSVC/14.10.0(Windows-10-10.0.19041-SP0)"
+
+{% include requirement/SHOULD id="cpp-http-telemetry-dynamic" %} send additional (dynamic) telemetry information as a semi-colon separated set of key-value types in the `X-MS-AZSDK-Telemetry` header.  For example:
+
+```http
+X-MS-AZSDK-Telemetry: class=BlobClient;method=DownloadFile;blobType=Block
+```
+
+The content of the header is a semi-colon key=value list.  The following keys have specific meaning:
+
+* `class` is the name of the type within the client library that the consumer called to trigger the network operation.
+* `method` is the name of the method within the client library type that the consumer called to trigger the network operation.
+
+Any other keys that are used should be common across all client libraries for a specific service.  **DO NOT** include personally identifiable information (even encoded) in this header.  Services need to configure log gathering to capture the `X-MS-SDK-Telemetry` header in such a way that it can be queried through normal analytics systems.
 
 ### Testing
 
@@ -357,8 +405,6 @@ However, one should consider the tradeoff between increased speed and decreased 
 * Emission or suppression of diagnostics.
 * Emission or supression of debugging asserts.
 * Import declarations. (`__declspec(dllimport)`, `__declspec(dllexport)`)
-
-> TODO: Need to involve Charlie in how we want to talk about import declarations
 
 {% include requirement/MUST id="cpp-design-naming-macros-caps" %} name macros with **ALL_CAPITAL_SNAKE_CASE**.
 
@@ -544,8 +590,6 @@ The following integer rules are listed in rough priority order. Integer size sel
 
 {% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
-> TODO: Verify with the security team, and what are the alternatives?
-
 #### Enumerations
 
 {% include requirement/MUST id="cpp-design-logical-client-enumerations-no-enums" %} use `enum` or `enum class` for values shared "over the wire" with a service, to support future compatibility with the service where additional values are added. Such values should be persisted as strings in client data structures instead.
@@ -599,8 +643,6 @@ namespace Azure { namespace Group { namespace Service {
 {% endhighlight %}
 
 #### Physical Design
-
-> TODO: Move this to implementation or move the headers discussion from implementation here
 
 {% include requirement/SHOULD id="cpp-design-physical-include-quotes" %} include files using quotes (") for files within the same git repository, and angle brackets (<>) for external dependencies.
 
@@ -829,4 +871,3 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | gcc                      | `-Wall -Wextra`  |
 | cpp and XCode            | `-Wall -Wextra`  |
 | MSVC                     | `/W4`            |
-
