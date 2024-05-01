@@ -714,4 +714,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ApplicationInsights_0.1.0/sdk/provisioning/Azure.Provisioning.ApplicationInsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.2.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.2.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Bring Your Own Storage recording option
+    - Support for PauseOnStart recording option
+    - Support for Recording state change with new recording kind's
 
