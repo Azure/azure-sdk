@@ -283,4 +283,17 @@ entries:
     #### Features Added
 
     - Adds support for `getBearerTokenProvider` that returns a callback function to get a token for a given scope. This is useful for scenarios where an explicit Entra token is needed without having to worry about the token refreshing details.
+- Name: '@azure/communication-call-automation'
+  Version: 1.2.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.2.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Bring Your Own Storage recording option
+    - Support for PauseOnStart recording option
+    - Support for Recording state change with new recording kind's
 
