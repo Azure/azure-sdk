@@ -1417,4 +1417,73 @@ entries:
 
     - No changes but only upgrade version to fix Microsoft Doc.
   GroupId: com.azure
+- Name: azure-developer-devcenter
+  Version: 1.0.0
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-devcenter_1.0.0/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `filter` and `top` as optional request parameters to match equivalent update in the API side.
+
+    #### Features Added
+
+    - Added models and models serialization for each Dev Center concept.
+    - DevBox
+    - DevBoxAction
+    - DevBoxActionDelayResult
+    - DevBoxActionDelayStatus
+    - DevBoxActionType
+    - DevBoxHardwareProfile
+    - DevBoxImageReference
+    - DevBoxNextAction
+    - DevBoxOsType
+    - DevBoxPool
+    - DevBoxProvisioningState
+    - DevBoxSchedule
+    - DevBoxStorageProfile
+    - DevCenterCatalog
+    - DevCenterEnvironment
+    - DevCenterEnvironmentType
+    - DevCenterOperationDetails
+    - DevCenterOperationStatus
+    - DevCenterProject
+    - EnvironmentDefinition
+    - EnvironmentDefinitionParameter
+    - EnvironmentDefinitionParameterType
+    - EnvironmentProvisioningState
+    - EnvironmentTypeStatus
+    - HibernateSupport
+    - LocalAdministratorStatus
+    - OsDisk
+    - PoolHealthStatus
+    - PowerState
+    - RemoteConnection
+    - ScheduleFrequency
+    - ScheduleType
+    - SkuName
+    - StopOnDisconnectConfiguration
+    - StopOnDisconnectStatus
+
+    - For each previous client method, added the correspondent method with model return. E.g. for `getDevBoxWithResponse` method, which returns `Response<BinaryData>`, was added a correspondent `getDevBox` method, which returns `DevBox` model.
+    - Added `getDevBoxesClient()` and `getDeploymentEnvironmentsClient()` methods in `DevCenterClient`
+    - Added `getDevBoxesAsyncClient()` and `getDeploymentEnvironmentsAsyncClient()` methods in `DevCenterAsyncClient`
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.2.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.2.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Bring Your Own Storage recording option
+    - Support for PauseOnStart recording option
+    - Support for Recording state change with new recording kind's
+  GroupId: com.azure
 
