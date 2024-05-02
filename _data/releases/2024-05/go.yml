@@ -153,4 +153,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/eventgrid/armeventgrid/v2.3.0-beta.2/sdk/resourcemanager/eventgrid/armeventgrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 1.0.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.0.1/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Reduces minimum required go version to 1.21
 
