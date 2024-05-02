@@ -296,4 +296,15 @@ entries:
     - Support for Bring Your Own Storage recording option
     - Support for PauseOnStart recording option
     - Support for Recording state change with new recording kind's
+- Name: '@azure/communication-sms'
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.1/sdk/communication/communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added DeliveryReportTimeoutInSeconds to smsSendOptions.
 
