@@ -307,4 +307,26 @@ entries:
     #### Features Added
 
     - Added DeliveryReportTimeoutInSeconds to smsSendOptions.
+- Name: '@azure/core-amqp'
+  Version: 4.2.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.2.2/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle translation of ErrorEvent properly [PR #29297](https://github.com/Azure/azure-sdk-for-js/pull/29297)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The FormData global is now a supported request body type in Node in addition to the browser.
 
