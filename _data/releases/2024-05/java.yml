@@ -1486,4 +1486,15 @@ entries:
     - Support for PauseOnStart recording option
     - Support for Recording state change with new recording kind's
   GroupId: com.azure
+- Name: azure-cosmos-kafka-connect
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_1.0.0-beta.2/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added support to create metadata container if not exists when using `Cosmos` as the metadata storage type and using `MasterKey` auth - See [PR 39973](https://github.com/Azure/azure-sdk-for-java/pull/39973)
+  GroupId: com.azure.cosmos.kafka
 
