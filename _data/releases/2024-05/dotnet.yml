@@ -740,4 +740,14 @@ entries:
     - Several issues with direct equality comparisons of function tool definitions have been fixed
     - The mistaken, remain instance of an "Azure not supported" exception has been removed, along with its related
     mentions. This should unblock the use of the the token-based client constructor.
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.0.0-beta.8
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.0.0-beta.8/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated Prefix WebJobs for WebjobsAuthenticationEventsTokenClaim -> WebJobsAuthenticationEventsTokenClaim
 
