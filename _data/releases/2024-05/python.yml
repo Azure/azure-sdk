@@ -336,4 +336,24 @@ entries:
     - Support for Bring Your Own Storage recording option
     - Support for PauseOnStart recording option
     - Support for Recording state change with new recording kind's
+- Name: azure-messaging-webpubsubclient
+  Version: 1.1.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubclient_1.1.0/sdk/webpubsub/azure-messaging-webpubsubclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add Async API with same name of Sync API
+    - Add api `is_connected`
+- Name: azure-mgmt-resource
+  Version: 23.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
 
