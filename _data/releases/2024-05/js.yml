@@ -329,4 +329,15 @@ entries:
     #### Features Added
 
     - The FormData global is now a supported request body type in Node in addition to the browser.
+- Name: '@azure/service-bus'
+  Version: 7.10.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.10.0-beta.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support to delete messages from an entity in batches using receiver method `deleteMessages()`. The target messages can be constrained to a fixed count, limited to only those earlier than a given date, or unconstrained such that all messages are deleted.
 
