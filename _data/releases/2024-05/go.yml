@@ -164,4 +164,15 @@ entries:
     #### Bugs Fixed
 
     * Reduces minimum required go version to 1.21
+- Name: sdk/azidentity/cache
+  Version: 0.2.2
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.2.2/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * On Linux, prevent "permission denied" errors by linking the session keyring
+    to the user keyring so the process possesses any keys it adds
 
