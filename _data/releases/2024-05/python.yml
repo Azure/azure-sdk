@@ -356,4 +356,37 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.6.0b4
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b4/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug that SearchClient failed when both answer count and answer threshold applied.
+
+    #### Features Added
+
+    - Added new models:
+    - `azure.search.documents.models.HybridCountAndFacetMode`
+    - `azure.search.documents.models.HybridSearch`
+    - `azure.search.documents.models.SearchScoreThreshold`
+    - `azure.search.documents.models.VectorSimilarityThreshold`
+    - `azure.search.documents.models.VectorThreshold`
+    - `azure.search.documents.models.VectorThresholdKind`
+    - `azure.search.documents.models.VectorizableImageBinaryQuery`
+    - `azure.search.documents.models.VectorizableImageUrlQuery`
+    - `azure.search.documents.indexes.models.AIServicesVisionParameters`
+    - `azure.search.documents.indexes.models.AIServicesVisionVectorizer`
+    - `azure.search.documents.indexes.models.AIStudioModelCatalogName`
+    - `azure.search.documents.indexes.models.AzureMachineLearningParameters`
+    - `azure.search.documents.indexes.models.AzureMachineLearningVectorizer`
+    - `azure.search.documents.indexes.models.AzureOpenAIModelName`
+    - `azure.search.documents.indexes.models.VectorEncodingFormat`
+    - `azure.search.documents.indexes.models.VisionVectorizeSkill`
+    - Added `hybrid_search` support for `SearchClient.search` method.
+    - Updated default API version to `2024-05-01-preview`.
 
