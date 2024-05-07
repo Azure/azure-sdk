@@ -50,4 +50,15 @@ entries:
     #### Features Added
 
     - Bumped up API version to `2023-11-03`.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.9
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.9/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a potential deadlock where a message receiver Open call could block indefinitely when adding the Link to the Pollables.
 
