@@ -801,4 +801,20 @@ entries:
     - Added support for `AIServicesVisionVectorizer` and `VisionVectorizeSkill` to generate embeddings for an image or text using the Azure AI Services Vision Vectorize API.
     - Added support for `AzureMachineLearningVectorizer`, allowing users to specify an Azure Machine Learning endpoint deployed via the Azure AI Studio Model Catalog to generate vector embeddings of query strings.
     - Added support for `byte` to `SearchFieldDataType`.
+- Name: Azure.AI.Translation.Document
+  Version: 2.0.0-beta.1
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Version `v1.0` is not supported
+    - Renamed property `FormatType` to `FileFormatType`
+
+    #### Features Added
+    - `documenttranslate` is the method added to submit a single/synchronous document translation request to the Document Translation service.
+    - `DocumentTranslateContent` has been added to specify the `documenttranslate` request content.
+    - Added `getSupportedFormats` that returns a list of supported documents and glossaries by the Document Translation service.
 
