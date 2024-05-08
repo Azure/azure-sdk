@@ -438,4 +438,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.1.1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.12.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.12.2/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where WebsocketConnectionClosedException was not being caught when receiving with AmqpOverWebsocket ([34859](https://github.com/Azure/azure-sdk-for-python/pull/34859))
+    - Fixed incorrect dependency on typing-extensions ([34869](https://github.com/Azure/azure-sdk-for-python/issues/34869), thanks @YaroBear).
+- Name: azure-storage-blob
+  Version: 12.20.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.20.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.20.0b1
 
