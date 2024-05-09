@@ -2215,4 +2215,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-storage-queue_4.18.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-messaging-servicebus
+  Version: 7.17.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.17.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes the session message disposition to use management node as fall back. ([#39913](https://github.com/Azure/azure-sdk-for-java/issues/39913))
+    - Fixes the session processor idle timeout to fall back to RetryOptions::tryTimeout. ([#39993](https://github.com/Azure/azure-sdk-for-java/issues/39993))
+  GroupId: com.azure
 
