@@ -340,4 +340,15 @@ entries:
     #### Features Added
 
     - Add support to delete messages from an entity in batches using receiver method `deleteMessages()`. The target messages can be constrained to a fixed count, limited to only those earlier than a given date, or unconstrained such that all messages are deleted.
+- Name: '@azure/identity'
+  Version: 4.3.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introducing a new credential `AzurePipelinesCredential` for supporting workload identity federation in Azure Pipelines with service connections. [#29392](https://github.com/Azure/azure-sdk-for-js/pull/29392)
 
