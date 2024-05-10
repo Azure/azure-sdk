@@ -121,4 +121,15 @@ entries:
     #### Features Added
 
     - Added new features for upcoming Event Hubs service release.
+- Name: azure-core
+  Version: 1.12.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5450]](https://github.com/Azure/azure-sdk-for-cpp/issues/5450) Fixed libcurl connection pool to use `Connection` response header values.
 
