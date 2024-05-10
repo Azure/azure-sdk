@@ -542,7 +542,7 @@ function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName, $outp
 {
   $existingItem = FindParentWorkItem $serviceName $packageDisplayName -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests -tag $tag
   if ($existingItem) {
-    Write-Verbose "Found existing product work item [$($existingItem.id)]"
+    Write-Host "Found existing product work item [$($existingItem.id)]"
     $newparentItem = FindOrCreateServiceParent $serviceName -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests -tag $tag
     UpdateWorkItemParent $existingItem $newParentItem
     return $existingItem
@@ -565,7 +565,7 @@ function FindOrCreateServiceParent($serviceName, $outputCommand = $true, $ignore
 {
   $serviceParent = FindParentWorkItem $serviceName -packageDisplayName $null -outputCommand $outputCommand -ignoreReleasePlannerTests $ignoreReleasePlannerTests -tag $tag
   if ($serviceParent) {
-    Write-Verbose "Found existing service work item [$($serviceParent.id)]"
+    Write-Host "Found existing service work item [$($serviceParent.id)]"
     return $serviceParent
   }
 

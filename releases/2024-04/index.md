@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+Welcome to the April release of the Azure SDK. Read more on our [April Release Blog](https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-april-2024/).
 
 ## Release Notes
 
