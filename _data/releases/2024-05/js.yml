@@ -351,4 +351,28 @@ entries:
     #### Features Added
 
     - Introducing a new credential `AzurePipelinesCredential` for supporting workload identity federation in Azure Pipelines with service connections. [#29392](https://github.com/Azure/azure-sdk-for-js/pull/29392)
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.5.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.5.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow setting log level for winston and bunyan via environment variable.
+    - Add Winston Log instrumentation.
+    - Add log level configuration for Bunyan and Winston loggers.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.23
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.23/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Capture and export measurements when creating log records from the Application Insights 3.X SDK.
 
