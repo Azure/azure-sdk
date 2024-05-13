@@ -1,0 +1,17 @@
+entries:
+- Name: azure-messaging-webpubsubservice
+  Version: 1.1.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.1.0/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Use the correct REST API parameter name `groups` in method `get_client_access_token`
+    - Upgrade dependency package `pyjwt` to `>=2.0.0` which changes the return type of `jwt.encode(...)`. See https://pyjwt.readthedocs.io/en/stable/changelog.html#id30 for detail
+
+    #### Features Added
+    - Add overload signatures for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
+    - Update the type of parameter `content` from `IO` to `Union[IO, str, JSON]` for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
+
