@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "github-pages", ">= 231", group: [:jekyll_plugins]
 
 # Force certain dependencies that may be upgraded to an unsupported version for Ruby 2.7 otherwise.
-gem "nokogiri", "~> 1.15.6"
+gem "nokogiri", "~> 1.16.5"
 gem "webrick", "~> 1.8"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
