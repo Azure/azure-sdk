@@ -10,4 +10,34 @@ entries:
     #### Bugs Fixed
     - [Fix _OTELRESOURCE_ custom metrics with default resources](https://github.com/Azure/azure-sdk-for-java/pull/39380)
   GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.6.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.6.3/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.48.0` to version `1.49.0`.
+    - Upgraded `azure-core-http-netty` from `1.14.2` to version `1.15.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.5.4
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.5.4/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.48.0` to version `1.49.0`.
+    - Upgraded `azure-core-http-netty` from `1.14.2` to version `1.15.0`.
+  GroupId: com.azure
 
