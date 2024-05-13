@@ -133,8 +133,8 @@ function Get-js-Packages
     $from += $npmQuery.objects.Count
   } while ($npmQuery.objects.Count -ne 0);
 
-  $publishedPackages = $npmPackages | Where-Object { $_.publisher.username -eq "azure-sdk" }
-  $otherPackages = $npmPackages | Where-Object { $_.publisher.username -ne "azure-sdk" }
+  $publishedPackages = $npmPackages | Where-Object { $_.publisher.username -eq "azure-sdk" -or $_.publisher.username -eq "microsoft1es" }
+  $otherPackages = $npmPackages | Where-Object { !($_.publisher.username -eq "azure-sdk" -or $_.publisher.username -eq "microsoft1es") }
 
   foreach ($otherPackage in $otherPackages) {
     Write-Verbose "Not updating package $($otherPackage.name) because the publisher is $($otherPackage.publisher.username) and not azure-sdk"
