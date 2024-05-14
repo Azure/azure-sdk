@@ -14,4 +14,20 @@ entries:
     #### Features Added
     - Add overload signatures for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
     - Update the type of parameter `content` from `IO` to `Union[IO, str, JSON]` for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
+- Name: azure-identity
+  Version: 1.17.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added environment variable `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` support for `EnvironmentCredential`.
+    - Introduced a new credential, `AzurePipelinesCredential`, for supporting workload identity federation in Azure Pipelines with service connections ([#35397](https://github.com/Azure/azure-sdk-for-python/pull/35397)).
+
+    #### Bugs Fixed
+
+    - Fixed typing errors when certain credentials are used as context managers. ([#35415](https://github.com/Azure/azure-sdk-for-python/pull/35415))
 
