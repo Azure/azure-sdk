@@ -97,7 +97,7 @@ Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTeleme
 Monitor,0,OpenTelemetry Exporter,data,.NET,Microsoft.OpenTelemetry.Exporter.AzureMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Monitor.OpenTelemetry.Exporter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
 Monitor,0,OpenTelemetry LiveMetrics,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.LiveMetrics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,true,1,
 Cognitive Services,0,Personalizer,data,.NET,Microsoft.Azure.CognitiveServices.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Personalizer_1.0.0/sdk/cognitiveservices/Personalizer,1,false,Azure.AI.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer,3,false,1,
-Programmable Connectivity,0,Programmable Connectivity,data,.NET,,,11,false,Azure.Communication.ProgrammableConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/Communication,3,false,1,
+Programmable Connectivity,0,Programmable Connectivity,data,.NET,,,11,false,Azure.Communication.ProgrammableConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Purview,0,Purview Account,data,.NET,,,11,false,Azure.Analytics.Purview.Account,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,false,1,
 Purview,0,Purview Administration,data,.NET,,,11,false,Azure.Analytics.Purview.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,false,1,
 Purview,0,Purview Catalog,data,.NET,,,11,false,Azure.Analytics.Purview.Catalog,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,true,1,
@@ -110,12 +110,12 @@ Cognitive Services,0,Question Answering,data,.NET,Microsoft.Azure.CognitiveServi
 Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,
 Schema Registry,0,Schema Registry - Avro,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,03/29/2024
 Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,
-Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,05/13/2024
 Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,05/13/2024
+Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,05/13/2024
+Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,05/13/2024
 Synapse,0,Synapse - AccessControl,data,.NET,,,11,false,Azure.Analytics.Synapse.AccessControl,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,.NET,,,11,false,Azure.Analytics.Synapse.Artifacts,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Managed Private Endpoints,data,.NET,,,11,false,Azure.Analytics.Synapse.ManagedPrivateEndpoints,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
@@ -853,10 +853,10 @@ Cognitive Services,0,Health Insights Radiology Insights,data,Java,,,11,false,azu
 Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,05/02/2024
 Identity,0,Identity Broker,data,Java,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,05/02/2024
 Cognitive Services,0,Image Analysis,data,Java,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis,3,false,1,
-Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,04/30/2024
-Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,04/23/2024
-Key Vault,0,Key Vault - Keys,data,Java,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,04/30/2024
-Key Vault,0,Key Vault - Secrets,data,Java,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,04/23/2024
+Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,05/13/2024
+Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,05/13/2024
+Key Vault,0,Key Vault - Keys,data,Java,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,05/13/2024
+Key Vault,0,Key Vault - Secrets,data,Java,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,05/13/2024
 Load Testing,0,Load Testing,data,Java,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/loadtesting,10,false,1,04/23/2024
 Maps,0,Maps Render,data,Java,,,11,false,azure-maps-render,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
 Maps,0,Maps Route,data,Java,,,11,false,azure-maps-route,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps,3,false,1,
@@ -1591,7 +1591,7 @@ Cognitive Services,0,Form Recognizer,data,Python,azure-cognitiveservices-formrec
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,Python,,,11,false,azure-healthinsights-radiologyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
-Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,04/09/2024
+Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,
 Identity,0,Identity Broker,data,Python,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,04/09/2024
 Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,3,false,1,
 Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,02/22/2024
