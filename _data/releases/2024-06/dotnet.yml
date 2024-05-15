@@ -84,4 +84,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed an error that caused connection strings using host names without a scheme to fail parsing and be considered invalid.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an error that caused connection strings using host names without a scheme to fail parsing and be considered invalid.
 
