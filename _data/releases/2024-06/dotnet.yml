@@ -65,4 +65,12 @@ entries:
   ChangelogContent: |-
     - Includes all features from 12.20.0-beta.1 and 12.20.0-beta.2.
     - Fixed bug where `BlobContainerClient` and `BlobBaseClient` did not throw an exception on empty/null container names and blob names, respectively, when constructing a client.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.17.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.17.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.17.0-beta.1 and 12.17.0-beta.2.'
 
