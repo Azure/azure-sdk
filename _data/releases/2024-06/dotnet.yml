@@ -73,4 +73,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.17.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
   ChangelogContent: '- Includes all features from 12.17.0-beta.1 and 12.17.0-beta.2.'
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.3/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an error that caused connection strings using host names without a scheme to fail parsing and be considered invalid.
 
