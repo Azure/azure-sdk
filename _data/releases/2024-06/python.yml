@@ -70,4 +70,16 @@ entries:
     - workspace list operation supports type filtering.
     - Add support for Microsoft Entra token (`aad_token`) auth in `invoke` and `get-credentials` operations.
     - Add experimental support for working with indexes: `ml_client.indexes`
+- Name: azure-monitor-opentelemetry
+  Version: 1.4.2
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.4.2/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add diagnostics for sdk detection and backoff
+    ([#35610](https://github.com/Azure/azure-sdk-for-python/pull/35610))
 
