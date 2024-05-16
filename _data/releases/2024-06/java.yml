@@ -91,4 +91,24 @@ entries:
 
     - Added the support for batch-delete APIs in Receiver client.
   GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.9.0-beta.1
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.9.0-beta.1/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for providing a custom login URI to get access tokens from via the system property `azure.login.uri`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-sql
+  Version: 2.39.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.39.0-beta.1/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
