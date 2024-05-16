@@ -10,4 +10,14 @@ entries:
     #### Features Added
     * `AzurePipelinesCredential` authenticates an Azure Pipeline service connection with
     workload identity federation
+- Name: sdk/storage/azdatalake
+  Version: 1.1.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.1.2/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azidentity` version to `1.5.2`
 
