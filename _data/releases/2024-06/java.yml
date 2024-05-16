@@ -111,4 +111,131 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.39.0-beta.1/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-blob-batch
+  Version: 12.22.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.22.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.22
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.22/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.22.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.22.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+    - Added `clientName` property on `HandleItem` that specifies the name of the client machine where the share is being mounted.
+    - Added rename support for `listRange` API via `supportRename` in `ShareFileListRangesDiffOptions`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.19.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.19.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+    - Added support for owner, group and acl/permission via put APIs for object replication.
+
+    #### Breaking Changes
+    - When creating a `DataLakeFileClient` or `DataLakeDirectoryClient` via `DataLakeFileSystemClient.getDirectoryClient(String directoryName)`,
+    `DataLakeFileSystemClient.getDirectoryClient(String fileName)`, `DataLakeDirectoryClient.getSubDirectoryClient(String blobName)`
+    and `DataLakeDirectoryClient.getSubDirectoryClient(String blobName)`, the path name will be stored exactly as passed in
+    and will not be URL-encoded. For example, if the path name is "test%25test" and is created by calling `DataLakeFileSystemClient.getDirectoryClient("test%25test")`,
+    `DataLakeDirectoryClient.getDirectoryPath()` will return "test%25test" and the path's url will result in
+    “https://account.dfs.core.windows.net/filesystemname/test%25%25test”.
+
+    #### Bugs Fixed
+    - Fixed a bug that did not allow uploading an empty 0 byte file with `DataLakeFileClient.uploadFromFile()`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.26.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.26.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.11.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.11.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.25.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.25.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.25.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.25.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where RequestRetryOptions.tryTimeout adds delay to the client request in the synchronous http client flow.
+
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.21.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.21.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.21
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.21/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2024-02-04 and 2024-05-04.
+  GroupId: com.azure
 
