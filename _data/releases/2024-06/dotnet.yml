@@ -284,4 +284,63 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.1.0-beta.1/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.12.0-beta.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.12.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - ### Major
+
+    The type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API.  The default value for any offset-related data has been changed from `long.MinValue` to `null`.
+
+    Impacted properties:
+    - EventData.Offset
+    - CheckpointPosition.Offset
+    - LastEnqueuedEventProperties.Offset
+    - PartitionProperties.LastEnqueuedOffset
+
+    Impacted methods:
+    - CheckpointPosition constructor
+    - EventPosition.FromOffset
+    - EventHubsModelFactory.EventData
+    - BlobCheckpointStore.UpdateCheckpointAsync _(deprecated overload)_
+    - EventProcessorClient.UpdateCheckpointAsync _(deprecated overload)_
+
+    #### Features Added
+
+    - Preview support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - ### Major
+
+    The type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API.  The default value for any offset-related data has been changed from `long.MinValue` to `null`.
+
+    Impacted properties:
+    - EventData.Offset
+    - LastEnqueuedEventProperties.Offset
+    - PartitionProperties.LastEnqueuedOffset
+    - CheckpointPosition.Offset
+
+    Impacted methods:
+    - EventPosition.FromOffset
+    - EventHubsModelFactory.EventData
+    - CheckpointStore.UpdateCheckpointAsync _(deprecated overload)_
+    - EventProcessor&lt;T&gt;.UpdateCheckpointAsync _(deprecated overload)_
+
+    #### Features Added
+
+    - Preview support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
 
