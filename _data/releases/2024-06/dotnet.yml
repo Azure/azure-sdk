@@ -268,4 +268,20 @@ entries:
     #### Bugs Fixed
     * The success or failure of an incoming HTTP request is now determined by the status code only when the Activity Status is `Unset`
     ([#43594](https://github.com/Azure/azure-sdk-for-net/pull/43594), based on [#41993](https://github.com/Azure/azure-sdk-for-net/issues/41993))
+- Name: Azure.ResourceManager.StorageActions
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storageactions
+  ServiceName: Storageactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageActions_1.0.0-beta.1/sdk/storageactions/Azure.ResourceManager.StorageActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Nginx
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.1.0-beta.1/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
+  ChangelogContent: ""
 
