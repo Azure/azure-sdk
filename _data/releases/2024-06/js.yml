@@ -86,4 +86,15 @@ entries:
   ChangelogContent: |-
     - Added support for Vector Search.
     - Add query feedOption to disable nonStreamingOrderBy query feature
+- Name: '@azure/core-amqp'
+  Version: 4.3.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Moved to ESM core with builds for ESM, CommonJS, React-Native and Browser.
+    - Moved unit tests from mocha to vitest.
 
