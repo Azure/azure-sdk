@@ -20,4 +20,15 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     * Updated `azidentity` version to `1.5.2`
+- Name: sdk/messaging/azeventhubs
+  Version: 1.2.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.2.1/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Emulator strings should allow for hosts other than localhost (PR#22898)
 
