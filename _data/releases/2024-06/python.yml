@@ -181,4 +181,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b17/sdk/sql/azure-mgmt-sql/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-translation-document
+  Version: 1.1.0b1
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.1.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added SingleDocumentTranslationClient that is used to invoke `document_translate` API.
+    - `document_translate` is the method added to submit a single/synchronous document translation request to the Document Translation service.
+    - `DocumentTranslateContent` has been added to specify the `document_translate` request content.
+
+    #### Breaking Changes
+    - Version `v1.0` is not supported.
+    - The service has changed to date-based API versioning and v1.0 service behavior is supported through the new version: 2024-05-01.
 
