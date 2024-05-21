@@ -533,7 +533,7 @@ Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcont
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,05/02/2024
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/eventgrid/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azeventgrid,10,false,1,04/02/2024
 Event Grid,0,Event Grid Namespaces,data,Go,,,11,false,sdk/messaging/eventgrid/aznamespaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/aznamespaces,3,false,1,
-Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,05/07/2024
+Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,05/20/2024
 Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,
 Identity,0,Identity - Cache,data,Go,,,11,false,sdk/azidentity/cache,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity/cache,3,false,1,
 Monitor,0,Ingestion - Logs,data,Go,,,11,false,sdk/monitor/ingestion/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/ingestion/azlogs,10,false,1,04/18/2024
@@ -548,7 +548,7 @@ Cognitive Services,0,OpenAI Assistants,data,Go,,,11,false,sdk/ai/azopenaiassista
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Monitor,0,Query - Logs,data,Go,,,11,false,sdk/monitor/query/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azlogs,10,false,1,04/11/2024
 Monitor,0,Query - Metrics,data,Go,,,11,false,sdk/monitor/query/azmetrics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azmetrics,10,false,1,04/12/2024
-Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,
+Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,05/20/2024
 Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,04/08/2024
 Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,05/16/2024
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,04/08/2024
@@ -837,7 +837,7 @@ Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-co
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-contentmoderator,1,false,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,10,false,1,04/24/2024
 Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,05/20/2024
 Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
-Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,04/28/2024
+Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,05/20/2024
 Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
 Defender EASM,0,Defender EASM,data,Java,,,11,false,azure-analytics-defender-easm,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Java,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/devcenter,10,false,1,04/30/2024
@@ -1227,7 +1227,7 @@ IoT,0,Digital Twins Definition Language Parser,data,JavaScript,,,11,false,@azure
 Cognitive Services,0,Document Intelligence,data,JavaScript,,,11,false,@azure-rest/ai-document-intelligence,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documentintelligence/ai-document-intelligence-rest/,3,false,1,
 Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest/ai-document-translator,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documenttranslator/ai-document-translator-rest/,3,false,1,
 Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,04/10/2024
-Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,03/20/2024
+Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,05/20/2024
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
 Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,3,false,1,
@@ -2281,6 +2281,11 @@ azuredatatransfer,0,Resource Management - azuredatatransfer,mgmt,Java,,,11,false
 azuredatatransfer,0,Resource Management - azuredatatransfer,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azuredatatransfer/resource-manager,,2,false,0,
 azuredatatransfer,0,Resource Management - azuredatatransfer,mgmt,Python,,,11,false,Missing: Created from API in specs repo: azuredatatransfer/resource-manager,,2,false,0,
 azuredatatransfer,0,Resource Management - azuredatatransfer,mgmt,Go,,,11,false,Missing: Created from API in specs repo: azuredatatransfer/resource-manager,,2,false,0,
+azurefleet,0,Resource Management - AzureFleet.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: azurefleet/AzureFleet.Management,,2,false,0,
+azurefleet,0,Resource Management - AzureFleet.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: azurefleet/AzureFleet.Management,,2,false,0,
+azurefleet,0,Resource Management - AzureFleet.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azurefleet/AzureFleet.Management,,2,false,0,
+azurefleet,0,Resource Management - AzureFleet.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: azurefleet/AzureFleet.Management,,2,false,0,
+azurefleet,0,Resource Management - AzureFleet.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: azurefleet/AzureFleet.Management,,2,false,0,
 azurelargeinstance,0,Resource Management - AzureLargeInstance.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/AzureLargeInstance.Management,,2,false,0,
 azurelargeinstance,0,Resource Management - AzureLargeInstance.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/AzureLargeInstance.Management,,2,false,0,
 azurelargeinstance,0,Resource Management - AzureLargeInstance.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/AzureLargeInstance.Management,,2,false,0,
