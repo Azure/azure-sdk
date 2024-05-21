@@ -135,4 +135,16 @@ entries:
     #### Features Added
 
     - Adds support for connecting to the development emulator. The connection string for the development emulator should have the `";UseDevelopmentEmulator=true"` slug.
+- Name: '@azure/notification-hubs'
+  Version: 1.2.3
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.2.3/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added outcome counts to the `NotificationOutcomeDetails` response for browser and FCMV1 notifications.
+    - [#29404](https://github.com/Azure/azure-sdk-for-js/issues/29777)
 
