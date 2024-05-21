@@ -360,4 +360,27 @@ entries:
 
     * Added CustomProperties to LiveMetrics Documents
     ([#43600](https://github.com/Azure/azure-sdk-for-net/pull/43600))
+- Name: Azure.AI.Translation.Text
+  Version: 1.0.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_1.0.0/sdk/translation/Azure.AI.Translation.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed the method `GetLanguages` to `GetSupportedLanguages`.
+    - Changed the name of `Score` property to `Confidence` in `DetectedLanguage`.
+    - Changed the name of `Dir` property to `Directionality` in `Languages` models. Changed the type from `string` to `Azure.AI.Translation.Text.LanguageDirectionality`.
+    - Changed the name of `Azure.AI.Translation.Text.Translation` to `Azure.AI.Translation.Text.TranslationText`.
+    - Changed the name of `SentLen` property to `SentencesLengths` in `BreakSentenceItem`.
+    - Changed type name from `SentenceLength` to `SentenceBoundaries`.
+    - Changed the name of `Proj` property to `Projections` in `TranslatedTextAlignment` type.
+
+    #### Features Added
+
+    - Introduced model factory `Azure.AI.Translation.Text.TextTranslationModelFactory` for mocking.
+    - Added options overloads to Translate and Transliterate. TextTranslationTranslateOptions and TextTranslationTransliterateOptions roll up method parameters into a single object.
+    - Add support for using AAD authentication.
 
