@@ -124,4 +124,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed serialization performance on large payloads [#29597](https://github.com/Azure/azure-sdk-for-js/pull/29597)
+- Name: '@azure/event-hubs'
+  Version: 5.12.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for connecting to the development emulator. The connection string for the development emulator should have the `";UseDevelopmentEmulator=true"` slug.
 
