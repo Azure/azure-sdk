@@ -124,7 +124,7 @@ Synapse,0,Synapse - Monitoring,data,.NET,,,11,false,Azure.Analytics.Synapse.Moni
 Synapse,0,Synapse - Spark,data,.NET,,,11,false,Azure.Analytics.Synapse.Spark,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,02/06/2024
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
-Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,3,false,1,
+Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 unknown,0,unknown,data,.NET,,,11,false,Azure.Core.Expressions.DataFactory,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core,10,false,1,03/08/2024
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,false,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
@@ -1251,7 +1251,7 @@ Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABL
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,02/17/2023
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,03/26/2024
-Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,04/29/2024
+Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,05/21/2024
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,JavaScript,,,11,false,@azure/openai-assistants,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
@@ -1585,7 +1585,7 @@ Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https:/
 IoT,0,Device Update,data,Python,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,09/09/2022
 IoT,0,Digital Twins,data,Python,,,11,false,azure-digitaltwins-core,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,07/12/2022
 Cognitive Services,0,Document Intelligence,data,Python,,,11,false,azure-ai-documentintelligence,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence,3,false,1,
-Cognitive Services,0,Document Translation,data,Python,,,11,false,azure-ai-translation-document,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,06/07/2022
+Cognitive Services,0,Document Translation,data,Python,,,11,false,azure-ai-translation-document,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,
 Event Grid,0,Event Grid,data,Python,,,11,false,azure-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Event Hubs,data,Python,,,11,false,azure-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,05/15/2024
 Face,0,Face,data,Python,,,11,false,azure-cognitiveservices-vision-face,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,1,
@@ -1905,6 +1905,7 @@ Storage,0,Storage - Blobs Batch,data,JavaScript,,,11,false,Exception: Library no
 Storage,0,Storage - Blobs Batch,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
 Storage,0,Storage - Blobs Batch,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
 Cognitive Services,0,Text Analytics,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.TextAnalytics,,2,false,0,
+Cognitive Services,0,Text Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Text,,2,false,0,
 Web PubSub,0,Web PubSub Client,data,Python,,,11,false,Missing: Created from existing package: Azure.Messaging.WebPubSub.Client,,2,false,0,
 Web PubSub,0,Web PubSub Client,data,Go,,,11,false,Missing: Created from existing package: Azure.Messaging.WebPubSub.Client,,2,false,0,
 Alerts Management,0,Resource Management - Alerts Management,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.AlertsManagement,,2,false,0,
