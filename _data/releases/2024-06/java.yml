@@ -415,4 +415,51 @@ entries:
     - `Translation` class renamed to `TranslationText`.
     - `getScore` method renamed to `getConfidence`.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-jedis
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Redis Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-jedis_1.0.0-beta.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-jedis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for persisting replication segment in `Checkpoint`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.20.0-beta.1
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.20.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for persisting replication segment in `Checkpoint`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.19.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.19.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `EventData.getOffset()`, `CheckpointStore.getOffset()`, `EventData.getOffset()`, and `LastEnqueuedEventProperties.getOffset()` are changed from `Long` to `String`.
+
+    #### Bugs Fixed
+
+    - Fixed issue where creating EventProcessorClient instances using the same EventProcessorClientBuilder instance could result in incorrect properties. ([#29875](https://github.com/Azure/azure-sdk-for-java/issues/29875))
+
+    #### Features Added
+
+    - Added support for Geo Disaster recovery.
+    - Added `EventData.getReplicationSegment()`.
+    - Added `getBeginningEnqueuedReplicationSegment()` and `getLastEnqueuedReplicationSegment()` to `PartitionProperties`.
+    - Added `getReplicationSegment()` into `LastEnqueuedEventProperties`.
+  GroupId: com.azure
 
