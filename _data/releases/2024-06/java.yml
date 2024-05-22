@@ -392,4 +392,27 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-selfhelp_1.1.0-beta.4/sdk/selfhelp/azure-resourcemanager-selfhelp/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-ai-translation-text
+  Version: 1.0.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-text_1.0.0/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for AAD authentication for Text Translation endpoints.
+    - Ability to translate strings directly without a need to create instances of objects.
+    - Options pattern used for methods with too many parameters.
+
+    #### Breaking Changes
+
+    - Method `getSentLen` renamed to `getSentencesLengths`.
+    - `String` can be used for translate, transliterate, find sentence boundaries methods instead of `InputTextItem`.
+    - `GetLanguages*` classes and definitions were renamed to `GetSupportedLanguages*`.
+    - `getProj` method renamed to `getProjections`.
+    - `Translation` class renamed to `TranslationText`.
+    - `getScore` method renamed to `getConfidence`.
+  GroupId: com.azure
 
