@@ -462,4 +462,13 @@ entries:
     - Added `getBeginningEnqueuedReplicationSegment()` and `getLastEnqueuedReplicationSegment()` to `PartitionProperties`.
     - Added `getReplicationSegment()` into `LastEnqueuedEventProperties`.
   GroupId: com.azure
+- Name: azure-resourcemanager-recoveryservicesbackup
+  Version: 1.4.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicesbackup_1.4.0/sdk/recoveryservicesbackup/azure-resourcemanager-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
