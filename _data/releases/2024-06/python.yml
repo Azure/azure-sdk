@@ -197,4 +197,22 @@ entries:
     #### Breaking Changes
     - Version `v1.0` is not supported.
     - The service has changed to date-based API versioning and v1.0 service behavior is supported through the new version: 2024-05-01.
+- Name: azure-ai-translation-text
+  Version: 1.0.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-text_1.0.0/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Entra Id authentication.
+
+    #### Breaking Changes
+
+    - All calls to the client using parameter `content` have been changed to use parameter `body`.
+    - Users can call methods using just a string type instead of complex objects.
+    - `get_languages` methods were changed to `get_supported_languages`.
+    - renamed `from_parameter` to `from_language`.
+    - renamed `to` parameter to `to_language`.
 
