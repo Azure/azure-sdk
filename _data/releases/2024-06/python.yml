@@ -294,4 +294,21 @@ entries:
     - [Fixed idle_time_before_shutdown_minutes not appearing in GET calls for Compute Instances.](https://github.com/Azure/azure-sdk-for-python/pull/35763)
     - [Add Dependency as a new rule category](https://github.com/Azure/azure-sdk-for-python/pull/35743)
     - [fixing workspace arm template](https://github.com/Azure/azure-sdk-for-python/pull/35746)
+- Name: azure-appconfiguration-provider
+  Version: 1.2.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.2.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixes issue where loading configurations were slower due to returning a copy of the configurations.
+
+    #### Features Added
+
+    * Enable loading of feature flags with `feature_flag_enabled`
+    * Select Feature Flags to load with `feature_flag_selectors`
+    * Enable/Disable Feature Flag Refresh with `feature_flag_refresh_enabled`
 
