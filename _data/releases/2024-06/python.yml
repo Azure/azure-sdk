@@ -282,4 +282,16 @@ entries:
     - New function names that comply with [Azure Python SDK Design Guidelines](https://azure.github.io/azure-sdk/python_design.html):
     - For example, the method `person_group_person.create()` is changed to `create_person_group_person()`.
     - The Snapshot operations are all removed as [the Snapshot API is no longer supported](https://azure.microsoft.com/updates/facelimitedaccess/).
+- Name: azure-ai-ml
+  Version: 1.16.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.16.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [Fixed idle_time_before_shutdown_minutes not appearing in GET calls for Compute Instances.](https://github.com/Azure/azure-sdk-for-python/pull/35763)
+    - [Add Dependency as a new rule category](https://github.com/Azure/azure-sdk-for-python/pull/35743)
+    - [fixing workspace arm template](https://github.com/Azure/azure-sdk-for-python/pull/35746)
 
