@@ -1378,4 +1378,20 @@ entries:
     - Upgraded `azure-core` from `1.48.0` to version `1.49.0`.
     - Upgraded `azure-core-http-netty` from `1.14.2` to version `1.15.0`.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.24
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.24/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added new library entries to the BOM:
+    - `azure-ai-translation-text`
+    - `azure-developer-devcenter`
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
