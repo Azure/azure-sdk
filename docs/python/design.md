@@ -64,7 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 3.7+.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.8+.
 
 ## Azure SDK API Design
 
@@ -832,7 +832,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.7.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.8.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 
