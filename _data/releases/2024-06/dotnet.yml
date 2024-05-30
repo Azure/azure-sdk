@@ -404,4 +404,15 @@ entries:
     #### Features Added
 
     - Added support for Liveness detection.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding support for `ServiceBusSessionMessageActions` and `RenewMessageLock` use in the isolated worker model.
 
