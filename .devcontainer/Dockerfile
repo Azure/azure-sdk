@@ -1,6 +1,6 @@
-# Use Ruby 2.7 version from approved Microsoft Container Registry.
+# Use Ruby 3.3 version from approved Microsoft Container Registry.
 # This image already contains the vscode:vscode user:group and sudoers support.
-FROM mcr.microsoft.com/devcontainers/ruby:2.7-buster
+FROM mcr.microsoft.com/devcontainers/ruby:dev-3.3
 ARG USERNAME=vscode
 
 # The port on which Jekyll will serve the site
