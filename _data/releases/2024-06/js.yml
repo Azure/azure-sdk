@@ -1,0 +1,243 @@
+entries:
+- Name: '@azure/arm-selfhelp'
+  Version: 2.0.0-beta.4
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_2.0.0-beta.4/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-blob'
+  Version: 12.18.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.18.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.18.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.17.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.17.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2024-05-04.
+- Name: '@azure/storage-file-share'
+  Version: 12.18.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.18.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.18.1-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.17.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.17.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.17.0.
+- Name: '@azure/core-lro'
+  Version: 3.0.0-beta.2
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.0.0-beta.2/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    To migrate the existing applications to v3, please refer to [Migration Guide](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/core-lro/docs/MIGRATION.md).
+
+    Compared with v3.0.0-beta.1 there are following changes.
+
+    #### Other Changes
+
+    - Remove the `isStopped` considering we deprecate `stopPolling`
+    - The return type for `processResult` is changed from `TResult` to `Promise<TResult>`
+    - Rename the property from `initialUrl` to `initialRequestUrl` for `OperationConfig`
+- Name: '@azure/arm-security'
+  Version: 6.0.0-beta.5
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.0.1-beta.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for Vector Search.
+    - Add query feedOption to disable nonStreamingOrderBy query feature
+- Name: '@azure/core-amqp'
+  Version: 4.3.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Moved to ESM core with builds for ESM, CommonJS, React-Native and Browser.
+    - Moved unit tests from mocha to vitest.
+- Name: '@azure/search-documents'
+  Version: 12.1.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0-beta.2/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Fixed an incorrect enum variant in `KnownVectorQueryKind` [#29601](https://github.com/Azure/azure-sdk-for-js/pull/29601)
+
+    #### Features Added
+
+    - Enhance vector search support for image data [#29594](https://github.com/Azure/azure-sdk-for-js/pull/29594)
+    - `AIServicesVisionVectorizer` leverages your Azure AI Vision deployment to generate embeddings from image data or text provided at query ime
+    - `VisionVectorizeSkill` allows for indexers to do the same
+    - Vector queries now have the ability to accept an image in the form of a URL or base64 encoded string
+    - Add support for enrichment of search results with your own ML model [#29594](https://github.com/Azure/azure-sdk-for-js/pull/29594)
+    - `AzureMachineLearningVectorizer` leverages your Azure AI Studio model deployment to generate embeddings for text provided at query time
+    - Add support for search indexers to use OneLake as a data source [#29594](https://github.com/Azure/azure-sdk-for-js/pull/29594)
+    - Add support for search score and vector similarity to be used as a threshold on the results of vector queries [#29594](https://github.com/Azure/azure-sdk-for-js/pull/29594)
+    - Add support for hybrid search [#29594](https://github.com/Azure/azure-sdk-for-js/pull/29594)
+
+    #### Bugs Fixed
+
+    - Fixed serialization performance on large payloads [#29597](https://github.com/Azure/azure-sdk-for-js/pull/29597)
+- Name: '@azure/event-hubs'
+  Version: 5.12.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for connecting to the development emulator. The connection string for the development emulator should have the `";UseDevelopmentEmulator=true"` slug.
+- Name: '@azure/notification-hubs'
+  Version: 1.2.3
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.2.3/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added outcome counts to the `NotificationOutcomeDetails` response for browser and FCMV1 notifications.
+    - [#29404](https://github.com/Azure/azure-sdk-for-js/issues/29777)
+- Name: '@azure/arm-containerservicefleet'
+  Version: 1.1.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_1.1.0/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagecache'
+  Version: 8.0.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 11.0.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-maintenance'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-maintenance_1.0.0-beta.2/sdk/maintenance/arm-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-oracledatabase'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Oracledatabase
+  ServiceName: Oracledatabase
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_1.0.0-beta.1/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices'
+  Version: 6.0.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservices/arm-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesbackup'
+  Version: 13.1.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicesbackup/arm-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-machinelearning'
+  Version: 2.2.0
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-machinelearning_2.2.0/sdk/machinelearning/arm-machinelearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-vision-face'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.1/sdk/face/ai-vision-face-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - This library supports only the Azure AI Face v1.1-preview.1 API, whose data models are not compatible with the v1.0 API used by [@azure/cognitiveservices-face](https://www.npmjs.com/package/@azure/cognitiveservices-face).
+    - This library follows the design of [REST client](https://devblogs.microsoft.com/azure-sdk/azure-rest-libraries-for-javascript/), which is essentially different from [@azure/cognitiveservices-face](https://www.npmjs.com/package/@azure/cognitiveservices-face).
+    - The Snapshot operations are all removed as [the Snapshot API is no longer supported](https://azure.microsoft.com/updates/facelimitedaccess/).
+    #### Features Added
+
+    These are the new features not supported by the old package [@azure/cognitiveservices-face](https://www.npmjs.com/package/@azure/cognitiveservices-face).
+
+    - Added support for Liveness Detection.
+    - Added support for `Person` and `DynamicPersonGroup` operations.
+    - Added support for face recognition with `PersonDirectory` by passing `IdentifyFromPersonDirectoryParameters` or `IdentifyFromDynamicPersonGroupParameters` to `/identify`.
+    - Added support for authentication with Microsoft Entra ID using `DefaultAzureCredential` from `@azure/identity`.
+
