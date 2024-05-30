@@ -32,7 +32,7 @@ Codespaces is new technology that allows you to use a container as your developm
     bundle exec jekyll serve
     ```
 
-> When you click the link in codespaces for the running server, like `http://127.0.0.1:4000/azure-sdk/`, you will be redirected to the codespaces url, which will not contain the url path at the end `azure-sdk/` and will display a `Not Found` error. To fix it, add the `azure-sdk/` path at the end.
+> When you click the link in Codespaces for the running server, like `http://127.0.0.1:4000/azure-sdk/`, you will be redirected to the Codespaces url, which will not contain the URL path at the end `azure-sdk/` and will display a `Not Found` error. To fix it, add the `azure-sdk/` path at the end.
 
 ### VS Code Devcontainer
 
