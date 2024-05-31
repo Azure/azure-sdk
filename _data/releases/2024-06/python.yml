@@ -335,4 +335,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-informaticadatamanagement_1.0.0b1/sdk/informaticadatamanagement/azure-mgmt-informaticadatamanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b26
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b26/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle invalid status codes in std metric payload
+    ([#35762](https://github.com/Azure/azure-sdk-for-python/pull/35762))
+    - Disable distributed tracing for live metrics client calls
+    ([#35822](https://github.com/Azure/azure-sdk-for-python/pull/35822))
 
