@@ -1415,4 +1415,15 @@ entries:
 
     - [Support explicit fixed sampling rate of 100% without ingestion sampling](https://github.com/Azure/azure-sdk-for-java/pull/40338)
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.61.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.61.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue causing `IllegalArgumentException` when using `handleChanges` on change feed processor startup - See [PR 40420](https://github.com/Azure/azure-sdk-for-java/pull/40420)
+  GroupId: com.azure
 
