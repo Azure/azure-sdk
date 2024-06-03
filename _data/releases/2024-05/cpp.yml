@@ -50,4 +50,86 @@ entries:
     #### Features Added
 
     - Bumped up API version to `2023-11-03`.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.9
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.9/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a potential deadlock where a message receiver Open call could block indefinitely when adding the Link to the Pollables.
+- Name: azure-storage-files-datalake
+  Version: 12.10.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.10.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.10.0-beta.1` are now generally available.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `PathItem::EncryptionContext` returned by `DataLakeDirectoryClient::ListPaths` was always null.
+- Name: azure-storage-common
+  Version: 12.6.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.6.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.6.0-beta.1` are now generally available.
+    - Bumped up Account SAS version to `2024-05-04`.
+- Name: azure-storage-blobs
+  Version: 12.11.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.11.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.11.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.9.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.9.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.9.0-beta.1` are now generally available.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.8
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.8/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new features for upcoming Event Hubs service release.
+- Name: azure-core
+  Version: 1.12.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5450]](https://github.com/Azure/azure-sdk-for-cpp/issues/5450) Fixed libcurl connection pool to use `Connection` response header values.
 

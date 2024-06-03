@@ -1,0 +1,117 @@
+entries:
+- Name: azure-messaging-webpubsubservice
+  Version: 1.1.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.1.0/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Use the correct REST API parameter name `groups` in method `get_client_access_token`
+    - Upgrade dependency package `pyjwt` to `>=2.0.0` which changes the return type of `jwt.encode(...)`. See https://pyjwt.readthedocs.io/en/stable/changelog.html#id30 for detail
+
+    #### Features Added
+    - Add overload signatures for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
+    - Update the type of parameter `content` from `IO` to `Union[IO, str, JSON]` for operation `send_to_all` ,`send_to_user` ,`send_to_group` and `send_to_connection`
+- Name: azure-identity
+  Version: 1.17.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added environment variable `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` support for `EnvironmentCredential`.
+    - Introduced a new credential, `AzurePipelinesCredential`, for supporting workload identity federation in Azure Pipelines with service connections ([#35397](https://github.com/Azure/azure-sdk-for-python/pull/35397)).
+
+    #### Bugs Fixed
+
+    - Fixed typing errors when certain credentials are used as context managers. ([#35415](https://github.com/Azure/azure-sdk-for-python/pull/35415))
+- Name: azure-ai-ml
+  Version: 1.16.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.16.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed WorkspaceHubConfig entity, and renamed WorkspaceHub to Hub.
+    - workspace_hub input of Workspace class hidden, renamed to hub_id, and re-surfaced in child class Project.
+    - Removed Workspace Hub Operations from ML Client.
+
+    #### Features Added
+    - Add experimental support for working with Promptflow evaluators: `ml_client.evaluators`.
+    - Many changes to the Connection entity class and its associated operations.
+    - Workspace Connection `list`, `get`, and `create_or_update` operations now include an optional `populate_secrets` input, which causes the operations to try making a secondary call to fill in the returned connections' credential info if possible. Only works with api key-based credentials for now.
+    - Many workspace connection subtypes added. The full list of subclasses is now:
+    - `AzureBlobStoreConnection`
+    - `AzureBlobStoreConnection`
+    - `MicrosoftOneLakeConnection`
+    - `AzureOpenAIConnection`
+    - `AzureAIServicesConnection`
+    - `AzureAISearchConnection`
+    - `AzureContentSafetyConnection`
+    - `AzureSpeechServicesConnection`
+    - `APIKeyConnection`
+    - `OpenAIConnection`
+    - `SerpConnection`
+    - `ServerlessConnection`
+    - Many workspace connections only accept api keys or entra ids for credentials. Since Entra IDs require not inputs, these have been refactored to not required a full credential object. Instead they only accept an api_key as a top-level input, and default to an entra credential otherwise. Their YAML schemas have been similarly altered.
+    - Client-side credential-type validation added for some workspace connection types.
+    - Added new credential type: `AadCredentialConfiguration`
+    - Renamed WorkspaceHub class as Hub.
+    - Added Project entity class and YAML support.
+    - Project and Hub operations supported by workspace operations.
+    - workspace list operation supports type filtering.
+    - Add support for Microsoft Entra token (`aad_token`) auth in `invoke` and `get-credentials` operations.
+    - Add experimental support for working with indexes: `ml_client.indexes`
+- Name: azure-monitor-opentelemetry
+  Version: 1.4.2
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.4.2/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add diagnostics for sdk detection and backoff
+    ([#35610](https://github.com/Azure/azure-sdk-for-python/pull/35610))
+- Name: azure-cosmos
+  Version: 4.6.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.6.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug where change feed query in Async client was not returning all pages due to case-sensitive response headers. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+    * Fixed a bug when a retryable exception occurs in the first page of a query execution causing query to return 0 results. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+
+    #### Features Added
+    * Adds vector embedding policy and vector indexing policy. See [PR 34882](https://github.com/Azure/azure-sdk-for-python/pull/34882).
+    * Adds support for vector search non-streaming order by queries. See [PR 35468](https://github.com/Azure/azure-sdk-for-python/pull/35468).
+    * Adds support for using the start time option for change feed query API. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+- Name: azure-cosmos
+  Version: 4.7.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.7.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug where change feed query in Async client was not returning all pages due to case-sensitive response headers. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+    * Fixed a bug when a retryable exception occurs in the first page of a query execution causing query to return 0 results. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+
+    #### Features Added
+    * Adds vector embedding policy and vector indexing policy. See [PR 34882](https://github.com/Azure/azure-sdk-for-python/pull/34882).
+    * Adds support for vector search non-streaming order by queries. See [PR 35468](https://github.com/Azure/azure-sdk-for-python/pull/35468).
+    * Adds support for using the start time option for change feed query API. See [PR 35090](https://github.com/Azure/azure-sdk-for-python/pull/35090).
+

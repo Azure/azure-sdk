@@ -4,8 +4,10 @@ source "https://rubygems.org"
 gem "github-pages", ">= 231", group: [:jekyll_plugins]
 
 # Force certain dependencies that may be upgraded to an unsupported version for Ruby 2.7 otherwise.
-gem "nokogiri", "~> 1.15.6"
+gem "nokogiri", "~> 1.16.5"
 gem "webrick", "~> 1.8"
+gem 'csv', '~> 3.3'
+gem 'faraday-retry', '~> 2.2', '>= 2.2.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

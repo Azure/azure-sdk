@@ -32,7 +32,9 @@ Codespaces is new technology that allows you to use a container as your developm
     bundle exec jekyll serve
     ```
 
-### VS Code Codespaces
+> When you click the link in Codespaces for the running server, like `http://127.0.0.1:4000/azure-sdk/`, you will be redirected to the Codespaces url, which will not contain the URL path at the end `azure-sdk/` and will display a `Not Found` error. To fix it, add the `azure-sdk/` path at the end.
+
+### VS Code Devcontainer
 
 1. Install the [VS Code Remote Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 1. When you open the Azure SDK repo in VS Code, it will prompt you to open the project in the Devcontainer. If it does not prompt you, press `F1`, and select `Dev Containers: Open Folder in Container...`/
@@ -55,7 +57,7 @@ GitHub instructions can be found at <https://docs.github.com/en/pages/setting-up
 
 Here's how to setup the site locally:
 
-1. [Install Ruby 2.7](https://rubyinstaller.org/downloads/).
+1. [Install Ruby 3.3](https://rubyinstaller.org/downloads/).
 
     You can find complete installation instructions here: <https://jekyllrb.com/docs/installation>.
 
