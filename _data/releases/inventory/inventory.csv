@@ -800,7 +800,7 @@ IoT,0,Resource Management - Windows IoT,mgmt,Go,,,11,false,sdk/resourcemanager/w
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,Go,,,11,false,sdk/resourcemanager/workloadmonitor/armworkloadmonitor,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/workloadmonitor/armworkloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,Go,,,11,false,sdk/resourcemanager/workloads/armworkloads,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/workloads/armworkloads,10,false,1,11/28/2023
 Workloads,0,Resource Management - Workloads SAP Virtual Instance,mgmt,Go,,,11,false,sdk/resourcemanager/workloadssapvirtualinstance/armworkloadssapvirtualinstance,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/workloadssapvirtualinstance/armworkloadssapvirtualinstance,3,false,1,
-unknown,0,unknown,mgmt,Go,,,11,false,sdk/resourcemanager/internal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/internal,10,false,1,
+unknown,0,unknown,mgmt,Go,,,11,false,sdk/resourcemanager/internal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/internal,10,false,1,06/04/2024
 Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,false,,,1,false,0,
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
@@ -999,6 +999,7 @@ Container Service,0,Resource Management - Hybrid Container Service,mgmt,Java,,,1
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,Java,,,11,false,azure-resourcemanager-hybridkubernetes,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridkubernetes,3,false,1,
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,Java,,,11,false,azure-resourcemanager-hybridnetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork,10,false,1,11/21/2023
 Image Builder,0,Resource Management - Image Builder,mgmt,Java,,,11,false,azure-resourcemanager-imagebuilder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/imagebuilder,10,false,1,01/23/2024
+Informaticadatamanagement,0,Resource Management - Informaticadatamanagement,mgmt,Java,,,11,false,azure-resourcemanager-informaticadatamanagement,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/informaticadatamanagement,3,false,1,
 IoT,0,Resource Management - IoT Central,mgmt,Java,azure-mgmt-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/iotcentral/mgmt-v2018_09_01,10,true,azure-resourcemanager-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iotcentral,10,false,1,11/15/2021
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,Java,,,11,false,azure-resourcemanager-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iotfirmwaredefense,10,false,1,03/19/2024
 IoT,0,Resource Management - IoT Hub,mgmt,Java,azure-mgmt-iothub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-iothub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iothub,10,false,1,09/20/2023
@@ -1272,7 +1273,7 @@ Schema Registry,0,Schema Registry - Avro,data,JavaScript,,,11,false,@azure/schem
 Schema Registry,0,Schema Registry - JSON,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,3,false,1,
 Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,
 Synapse,0,Spark,data,JavaScript,,,11,false,@azure/synapse-spark,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
-Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,05/13/2024
+Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,06/04/2024
 Storage,0,Storage - Blobs Changefeed,data,JavaScript,,,11,false,@azure/storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Files Data Lake,data,JavaScript,,,11,false,@azure/storage-file-datalake,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,05/13/2024
 Storage,0,Storage - Files Share,data,JavaScript,@azure/storage-file,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/storage-file-share,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,05/13/2024
@@ -1386,7 +1387,7 @@ Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,J
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,JavaScript,,,11,false,@azure/arm-hybridkubernetes,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridkubernetes,10,false,1,11/30/2022
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,JavaScript,,,11,false,@azure/arm-hybridnetwork,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridnetwork,3,false,1,
 Image Builder,0,Resource Management - Image Builder,mgmt,JavaScript,,,11,false,@azure/arm-imagebuilder,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/imagebuilder,10,false,1,12/21/2023
-Informaticadatamanagement,0,Resource Management - Informaticadatamanagement,mgmt,JavaScript,,,11,false,@azure/arm-informaticadatamanagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/informaticadatamanagement,3,false,1,
+Informaticadatamanagement,0,Resource Management - Informaticadatamanagement,mgmt,JavaScript,,,11,false,@azure/arm-informaticadatamanagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/informatica,3,false,1,
 IoT,0,Resource Management - IoT Central,mgmt,JavaScript,,,11,false,@azure/arm-iotcentral,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral,10,false,1,01/20/2022
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,JavaScript,,,11,false,@azure/arm-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotfirmwaredefense,10,false,1,03/22/2024
 IoT,0,Resource Management - IoT Hub,mgmt,JavaScript,azure-arm-iothub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-iothub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub,10,false,1,09/19/2023
@@ -1785,7 +1786,7 @@ Nginx,0,Resource Management - Nginx,mgmt,Python,,,11,false,azure-mgmt-nginx,http
 Notification Hubs,0,Resource Management - Notification Hubs,mgmt,Python,,,11,false,azure-mgmt-notificationhubs,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/notificationhubs,10,false,1,
 Oep,0,Resource Management - Oep,mgmt,Python,,,11,false,azure-mgmt-oep,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/oep,3,false,1,
 Operations Management,0,Resource Management - Operations Management,mgmt,Python,,,11,false,azure-mgmt-operationsmanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/operationsmanagement,10,false,1,01/04/2021
-Oracledatabase,0,Resource Management - Oracledatabase,mgmt,Python,,,11,false,azure-mgmt-oracledatabase,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/oracledatabase,3,false,1,
+Oracledatabase,0,Resource Management - Oracledatabase,mgmt,Python,,,11,false,azure-mgmt-oracledatabase,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/Oracle,3,false,1,
 Orbital,0,Resource Management - Orbital,mgmt,Python,,,11,false,azure-mgmt-orbital,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/orbital,10,false,1,03/20/2023
 Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation Firewall,mgmt,Python,,,11,false,azure-mgmt-paloaltonetworksngfw,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/paloaltonetworks,10,false,1,
 Peering,0,Resource Management - Peering,mgmt,Python,,,11,false,azure-mgmt-peering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/peering,10,false,1,04/25/2021
@@ -2278,6 +2279,11 @@ apicenter,0,Resource Management - apicenter,mgmt,Java,,,11,false,Missing: Create
 apicenter,0,Resource Management - apicenter,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
 apicenter,0,Resource Management - apicenter,mgmt,Python,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
 apicenter,0,Resource Management - apicenter,mgmt,Go,,,11,false,Missing: Created from API in specs repo: apicenter/resource-manager,,2,false,0,
+App Compliance Automation,0,Resource Management - AppComplianceAutomation.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: appcomplianceautomation/AppComplianceAutomation.Management,,2,false,0,
+App Compliance Automation,0,Resource Management - AppComplianceAutomation.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: appcomplianceautomation/AppComplianceAutomation.Management,,2,false,0,
+App Compliance Automation,0,Resource Management - AppComplianceAutomation.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: appcomplianceautomation/AppComplianceAutomation.Management,,2,false,0,
+App Compliance Automation,0,Resource Management - AppComplianceAutomation.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: appcomplianceautomation/AppComplianceAutomation.Management,,2,false,0,
+App Compliance Automation,0,Resource Management - AppComplianceAutomation.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: appcomplianceautomation/AppComplianceAutomation.Management,,2,false,0,
 App Configuration,0,AppConfiguration,data,.NET,,,11,false,Missing: Created from API in specs repo: appconfiguration/AppConfiguration,,2,false,0,
 App Configuration,0,AppConfiguration,data,Java,,,11,false,Missing: Created from API in specs repo: appconfiguration/AppConfiguration,,2,false,0,
 App Configuration,0,AppConfiguration,data,JavaScript,,,11,false,Missing: Created from API in specs repo: appconfiguration/AppConfiguration,,2,false,0,
@@ -2317,6 +2323,16 @@ azurelargeinstance,0,Resource Management - azurelargeinstance,mgmt,Java,,,11,fal
 azurelargeinstance,0,Resource Management - azurelargeinstance,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/resource-manager,,2,false,0,
 azurelargeinstance,0,Resource Management - azurelargeinstance,mgmt,Python,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/resource-manager,,2,false,0,
 azurelargeinstance,0,Resource Management - azurelargeinstance,mgmt,Go,,,11,false,Missing: Created from API in specs repo: azurelargeinstance/resource-manager,,2,false,0,
+Azure Stack HCI,0,Resource Management - AzureStackHCI.StackHCIVM.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: azurestackhci/AzureStackHCI.StackHCIVM.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - AzureStackHCI.StackHCIVM.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: azurestackhci/AzureStackHCI.StackHCIVM.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - AzureStackHCI.StackHCIVM.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azurestackhci/AzureStackHCI.StackHCIVM.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - AzureStackHCI.StackHCIVM.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: azurestackhci/AzureStackHCI.StackHCIVM.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - AzureStackHCI.StackHCIVM.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: azurestackhci/AzureStackHCI.StackHCIVM.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - Operations.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: azurestackhci/Operations.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - Operations.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: azurestackhci/Operations.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - Operations.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: azurestackhci/Operations.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - Operations.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: azurestackhci/Operations.Management,,2,false,0,
+Azure Stack HCI,0,Resource Management - Operations.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: azurestackhci/Operations.Management,,2,false,0,
 Batch,0,Azure.Batch,data,.NET,,,11,false,Missing: Created from API in specs repo: batch/Azure.Batch,,2,false,0,
 Batch,0,Azure.Batch,data,Java,,,11,false,Missing: Created from API in specs repo: batch/Azure.Batch,,2,false,0,
 Batch,0,Azure.Batch,data,JavaScript,,,11,false,Missing: Created from API in specs repo: batch/Azure.Batch,,2,false,0,
@@ -2763,6 +2779,11 @@ Schema Registry,0,SchemaRegistry,data,Java,,,11,false,Missing: Created from API 
 Schema Registry,0,SchemaRegistry,data,JavaScript,,,11,false,Missing: Created from API in specs repo: schemaregistry/SchemaRegistry,,2,false,0,
 Schema Registry,0,SchemaRegistry,data,Python,,,11,false,Missing: Created from API in specs repo: schemaregistry/SchemaRegistry,,2,false,0,
 Schema Registry,0,SchemaRegistry,data,Go,,,11,false,Missing: Created from API in specs repo: schemaregistry/SchemaRegistry,,2,false,0,
+SCVMM,0,Resource Management - ScVmm.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: scvmm/ScVmm.Management,,2,false,0,
+SCVMM,0,Resource Management - ScVmm.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: scvmm/ScVmm.Management,,2,false,0,
+SCVMM,0,Resource Management - ScVmm.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: scvmm/ScVmm.Management,,2,false,0,
+SCVMM,0,Resource Management - ScVmm.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: scvmm/ScVmm.Management,,2,false,0,
+SCVMM,0,Resource Management - ScVmm.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: scvmm/ScVmm.Management,,2,false,0,
 SCVMM,0,Resource Management - SCVMM,mgmt,Java,,,11,false,Missing: Created from API in specs repo: scvmm/resource-manager,,2,false,0,
 Search,0,Cognitive Search,data,.NET,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
 Search,0,Cognitive Search,data,Java,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
