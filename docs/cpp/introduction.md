@@ -70,6 +70,7 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
+
 ### Service Client {#cpp-client}
 
 Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
@@ -394,6 +395,9 @@ If name collisions are likely and the TypeSpec cannot be changed, you can either
 
 {% include requirement/MUST id="cpp-model-names-fields-casing" %} define model fields using "PascalCase".
 
+{% include requirement/SHOULD id="cpp-design-naming-context" %} consider the context associated with structure fields when naming structure fields. Customers have expressed confusion when they encounter constructs like `secret.Value.Value()` or `options.TransationcalContentHash.Value().Value`.
+
+
 #### Enumerations
 
 {% include requirement/MUST id="cpp-design-enums" %} use an `enum` for parameters, properties, and return types when values are known.
@@ -644,6 +648,37 @@ const int g_privateConstant = 1729;
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
 
+#### Namespace stability contract
+
+##### Public types
+
+Types in the Public API surface (types not in an `_internal` or `_detail` namespace) form the public API surface of an Azure SDK package.
+
+{% include requirement/MUST id="cpp-design-public-types-semver" %} follow [semantic versioning](https://semver.org/) rules.
+
+##### Internal types
+
+Types in the Internal API surface (types in an `_internal` namespace) are not designed to be called from outside the Azure SDK repository.
+
+{% include requirement/MUSTNOT id="cpp-design-internal-types-no-public" %} appear in public Azure SDK headers. 
+
+{% include requirement/MAY id="cpp-design-internal-types-header-location" %} appear in an `internal` directory alongside existing public Azure SDK headers.
+
+{% include requirement/MAY id="cpp-design-internal-types-change" %} introduce breaking changes. There are no stability guarantees associated with "internal" types.
+
+Since these types are typically located in the `azure-core` package, care must be made when introducing breaking changes to these types, and when adding new types. For changes to the types, the `azure-core` implementation typically has to be released *before* any Azure SDK packages can take dependencies on those types.
+
+##### Private types
+Private types  are types located in a `_detail` namespace. Private types are only intended to be called within a single package, and follow the following requirements:
+
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} appear in public Azure SDK headers.
+
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} be consumed outside the package in which they are defined.
+
+{% include requirement/SHOULD id="cpp-design-private-types-private-location" %} be declared and/or defined  under the `private` directory.
+
+{% include requirement/MAY id="cpp-design-private-types-private-no-guarantees" %} be modified without fear of introducing breaking changes.
+
 **Example Namespaces**
 
 Here are some examples of namespaces that meet these guidelines:
@@ -782,6 +817,7 @@ Filenames should be concise, but convey what role the file plays within the libr
         - `inc/` - include files for the component.
         - `src/` - source files for the component.
         - `test/` - tests for the component.
+        - `samples/` - samples for the component.
         - `vcpkg/` - vcpkg package for the component.
 
 {% include requirement/SHOULD id="cpp-docs-source-layout-exception" %} align the `<package namespace group>` element in the hierarchy to roughly conform to the other Azure SDK. For instance, the "eventhubs" service lives under the `messaging` package namespace group, but in most Azure SDKs, the "eventhubs" service client implementation lives in the `eventhubs` directory under the source root.
