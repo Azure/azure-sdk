@@ -118,7 +118,7 @@ ExampleClient ExampleClient::CreateFromConnectionString(
 }
 {% endhighlight %}
 
-% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
+{% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
 
 ##### Client Configuration
 
@@ -549,10 +549,10 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
 
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
 {% include requirement/MUSTNOT id="cpp-implementing-no-persistence-auth" %}
-persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
@@ -561,7 +561,7 @@ include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insec
 never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
 
 {% include requirement/MUST id="cpp-implementing-auth-policy" %}
-provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
 
 ### Namespaces {#cpp-namespace-naming}
 
@@ -768,7 +768,44 @@ Filenames should be concise, but convey what role the file plays within the libr
 
 {% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
 
-{% include requirement/MUSTNOT id="cpp-style-define-non-azure-types" %} declare types in included headers that define types in namespaces other than `Azure`. This requirement precludes Azure headers from including 3rd party headers like `openssl.h` or `windows.h` since all of these headers define types in the global namespace.
+{% include requirement/MUSTNOT id="cpp-style-define-non-azure-types" %} declare types which are not a part of the Azure SDK. This requirement precludes Azure headers from including 3rd party headers like `openssl.h` or `windows.h` since all of these headers define types which are not a part of the Azure SDK.
+
+### Source code layout
+
+{% include requirement/MUST id="cpp-docs-source-layout" %} lay out package source code as follows:
+
+- `<repository root>/sdk/`
+  - `<package namespace group>/`
+    - `<package name>/` - component root folder.
+        - `CHANGELOG.md` - Changelog for the component.
+        - `README.md` - Readme for the component.
+        - `inc/` - include files for the component.
+        - `src/` - source files for the component.
+        - `test/` - tests for the component.
+        - `vcpkg/` - vcpkg package for the component.
+
+{% include requirement/SHOULD id="cpp-docs-source-layout-exception" %} align the `<package namespace group>` element in the hierarchy to roughly conform to the other Azure SDK. For instance, the "eventhubs" service lives under the `messaging` package namespace group, but in most Azure SDKs, the "eventhubs" service client implementation lives in the `eventhubs` directory under the source root.
+
+{% include requirement/MUST id="cpp-docs-source-layout-inc" %} lay out directories under the `inc` directory as follows:
+
+- `inc/`
+    - `azure/`
+        - `<package namespace group>/` - eg `keyvault`, `messaging`, etc.
+            - `<package short name>/` - eg `certificates`, `blobs`, `datalake`, etc.
+                - `<package specific headers>`
+
+{% include requirement/MUST id="cpp-docs-source-layout-src" %} lay out directories under the `src` directory as follows:
+
+- `src/`
+    - `private/` - private headers and source files.
+    - `<package specific source files and headers>` - package implementation files.
+
+{% include requirement/MUST id="cpp-docs-source-layout-test" %} lay out directories under the `test` directory as follows:
+
+- `test/`
+    - `ut/` - unit tests for the package.
+    - `perf/` - performance tests for the package.
+    - `stress/` - stress/reliability tests for the package.
 
 ### Documentation Style
 
