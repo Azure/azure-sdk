@@ -105,7 +105,7 @@ ExampleClient ExampleClient(
 }
 {% endhighlight %}
 
-% include requirement/MAY id="cpp-service-client-constructor-connectionstring" %} provide a constructor that takes a connection if the service supports it.
+{% include requirement/MAY id="cpp-service-client-constructor-connectionstring" %} provide a constructor that takes a connection if the service supports it.
 
 {% highlight cpp %}
 ExampleClient ExampleClient::CreateFromConnectionString(
@@ -208,6 +208,8 @@ namespace _detail {
 
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
 
+{% include requirement/MUSTNOT id="cpp-design-types-or-methods-in-global-namespace" %} create types in the global namespace. All Azure SDK types MUST be in a namespace.
+
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
 
 {% highlight cpp %}
@@ -255,9 +257,11 @@ uint32 MyWeightKg;
 
 ##### Cancellation
 
-{% include requirement/MUST id="cpp-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `Context` parameter called _context_.
+{% include requirement/MUST id="cpp-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, have a final parameter of type `const Azure::Core::Context &` initialized to `= {}`
 
-The context should be further passed to all calls that take a context. DO NOT check the context manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
+The context should be further passed by reference (preferably as a `const` reference) to all calls that take a context. DO NOT check the context manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
+
+Note that cancellation is a *application developer* construct, Azure SDK clients MUST NOT cancel the `Context` object provided by the client. 
 
 ##### Mocking
 
@@ -441,7 +445,7 @@ Note: if your client library needs to be resilient to these kinds of errors you 
 
 {% include requirement/MAY id="cpp-design-logical-errorhandling-prec-check" %} check preconditions on function entry.
 
-{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-disablecheck" %} privide a means to disable precondition checks in release / optimized builds.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-disablecheck" %} provide a means to disable precondition checks in release / optimized builds.
 
 {% include requirement/MUST id="cpp-design-logical-errorhandling-prec-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
@@ -532,6 +536,15 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUST id="cpp-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
 
+#### Service Clients Created after 1/1/2024
+
+{% include requirement/MUSTNOT id="cpp-design-no-connection-strings" %} provide any authentication mechanism other than managed identity.
+
+{% include requirement/MUSTNOT id="cpp-design-no-custom-authentication" %} provide any non-standard authentication mechanism.
+
+
+#### Service Clients Created before 1/1/2024
+
 {% include requirement/SHOULDNOT id="cpp-design-logical-client-surface-no-connection-strings" %} support providing credential data via a connection string. Connection string interfaces should be provided __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
 
 {% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
@@ -601,6 +614,8 @@ Many `management` APIs do not have a data plane because they deal with managemen
 {% include requirement/MUSTNOT id="general-namespaces-similar-names" %} choose similar names for clients that do different things.
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+
+{% include requirement/MUST id="cpp-design-naming-namespaces-internal" %} place types and functions intended for use in other Azure SDK Clients in a `_internal` namespace. Note that this *only* applies to types in the `Azure::Core` namespace.
 
 {% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `_detail` namespace.
 
@@ -752,6 +767,8 @@ Filenames should be concise, but convey what role the file plays within the libr
 {% include requirement/SHOULD id="cpp-style-sub-sdk-header" %} have headers for smaller components that make sense to be used together. For example, `<azure/speech/translation.hpp>`.
 
 {% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
+
+{% include requirement/MUSTNOT id="cpp-style-define-non-azure-types" %} declare types in included headers that define types in namespaces other than `Azure`. This requirement precludes Azure headers from including 3rd party headers like `openssl.h` or `windows.h` since all of these headers define types in the global namespace.
 
 ### Documentation Style
 
@@ -1042,6 +1059,8 @@ The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to fr
 {% include requirement/MUST id="cpp-repo-samples-examples" %} include runnable examples using `Azure::Identity::DefaultAzureCredential` and library-specific environment variables e.g., `AZURE_KEYVAULT_URL`.
 
 {% include requirement/MUST id="cpp-repo-samples-unique" %} use unique example file names within the `samples` folder.
+
+{% include requirement/MUST id="cpp-repo-samples-in-samples" %} locate the sample code within the `samples` folder.
 
 ## Commonly Overlooked C++ API Design Guidelines {#cpp-appendix-overlookedguidelines}
 

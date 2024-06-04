@@ -56,7 +56,7 @@ See [general parameter validation guidelines](introduction.md#cpp-parameters).
 
 #### Enumeration-like Structs
 
-As described in [general enumeration guidelines](introduction.md#cpp-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
+As described in [general enumeration guidelines](introduction.md#cpp-enums), you should use `enum` types whenever passing or deserializing a fixed well-known set of values to or from the service.
 There may be times, however, where a `struct` is necessary to capture an extensible value from the service even if well-known values are defined,
 or to pass back to the service those same or other user-supplied values:
 
@@ -73,6 +73,27 @@ enum class PinState {
     On
 };
 {% endhighlight %}
+
+Note that modifying the enumerators in an enumeration is considered a breaking change, if the enumerators in an enumeration may change over time, using an Extendable Enumeration is preferred.
+
+##### Extendable Enumerations
+
+When the set of values in an enumeration is *not* fixed, the `Azure::Core::_internal::ExtendableEnumeration` template should be used. 
+
+{% highlight cpp %}
+class MyEnumeration final : public ExtendableEnumeration<MyEnumeration> {
+public:
+  explicit MyEnumeration(std::string value) :
+     ExtendableEnumeration(std::move(value)) {}
+   MyEnumeration() = default;
+   static const MyEnumeration Enumerator1;
+   static const MyEnumeration Enumerator2;
+   static const MyEnumeration Enumerator3;
+};
+
+{% endhighlight %}
+
+The ExtendableEnumeration type contains the methods for comparison, copying, and conversion to and from string values.
 
 #### Using Azure Core Types
 
@@ -92,6 +113,13 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 
 - If the ```Value``` property is evaluated before the operation is complete (```IsDone``` is false) throw ```TODO: What to throw```.
   - The exception message should be: "The operation has not yet completed."
+
+##### Azure::Core::Context
+
+{% include requirement/MUST id="cpp-always-pass-context-by-reference" %} always pass `Azure::Core::Context` types by reference, preferably by `const` reference.
+{% include requirement/MUSTNOT id="cpp-must-not-cancel-input" %} cancel the input Context parameter.
+
+The cancellation requirement stems from the nature of an `Azure::Core::Context` object - there may be multiple `Azure::Core::Context` objects which share the same cancellation context - cancelling one cancels all of the shared contexts. To avoid this, a service client should instead create a new `Azure::Core::Context` from the original context using either `Context::WithValue`, `Context::WithDeadline`, or `Context::WithCancel` and cancel that new context.
 
 ### SDK Feature Implementation
 
@@ -357,6 +385,11 @@ else                  { HappyDaysIKnowWhyIAmHere(); }
 
 {% include requirement/MUST id="cpp-include-errorstr" %} include the system error text when reporting system error messages.
 
+{% include requirement/SHOULD id="cpp-use-cpp-core-guidelines" %} follow the [CPP Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) whenever possible, with the following exceptions:
+
+<TBD>
+
+
 #### Complexity Management
 
 {% include requirement/SHOULD id="cpp-init-all-vars" %} Initialize all variables. Only leave them
@@ -576,11 +609,11 @@ public:
 
 The following integer rules are listed in rough priority order. Integer size selections are primarily driven by service future compatibility. For example, just because today a service might have a 2 GiB file size limit does not mean that it will have such a limit forever. We believe 64 bit length limits will be sufficient for sizes an individual program works with for the foreseeable future.
 
-{% include requirement/MUST id="cpp-design-logical-integer-files" %} Represent file sizes with `int64_t`, even on 32 bit platforms.
+{% include requirement/MUST id="cpp-design-logical-integer-files" %} Represent file sizes with `std::int64_t`, even on 32 bit platforms.
 
-{% include requirement/MUST id="cpp-design-logical-integer-memory-buffers" %} Represent memory buffer sizes with `size_t` or `ptrdiff_t` as appropriate for the environment. Between the two, choose the type likely to need the fewest conversions in application. For example, we would prefer signed `ptrdiff_t` in most cases because signed integers behave like programmers expect more consistently, but the SDK will need to transact with `malloc`, `std::vector`, and/or `std::string` which all speak unsigned `size_t`.
+{% include requirement/MUST id="cpp-design-logical-integer-memory-buffers" %} Represent memory buffer sizes with `std::size_t` or `std::ptrdiff_t` as appropriate for the environment. Between the two, choose the type likely to need the fewest conversions in application. For example, we would prefer signed `std::ptrdiff_t` in most cases because signed integers behave like programmers expect more consistently, but the SDK will need to transact with `malloc`, `std::vector`, and/or `std::string` which all speak unsigned `std::size_t`.
 
-{% include requirement/MUST id="cpp-design-logical-integer-service-values" %} Represent any other integral quantity passed over the wire to a service using `int64_t`, even if the service uses a 32 bit constant internally today.
+{% include requirement/MUST id="cpp-design-logical-integer-service-values" %} Represent any other integral quantity passed over the wire to a service using `std::int64_t`, even if the service uses a 32 bit constant internally today.
 
 {% include requirement/MUSTNOT id="cpp-design-logical-integer-not-int" %} Use `int` under any circumstances, including `for` loop indexes. Those should usually use `ptrdiff_t` or `size_t` under the buffer size rule above.
 
@@ -699,6 +732,8 @@ typedef struct IotClient {
     int RetryTimeout;
 } AzIotClient;
 {% endhighlight %}
+
+By convention, C++ Structs {% include requirement/SHOULDNOT id="cpp-structs-no-methods" %} define any methods. If a C++ object needs methods, it should be declared as a `class`.
 
 #### Tooling
 
