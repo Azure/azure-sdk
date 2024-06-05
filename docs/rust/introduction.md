@@ -6,8 +6,6 @@ folder: rust
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The Rust Language guidelines are in DRAFT status" %}
-
 ## Introduction
 
 The Rust guidelines are for the benefit of client library designers targeting service applications written in Rust. You do not have to write a client library for Rust if your service is not normally accessed from Rust.
@@ -162,7 +160,7 @@ In cases when different credential types are supported, we want the primary use 
 
 {% include requirement/MUST id="rust-client-configuration-fields" %} define all client-specific fields of client option structs as private and of type `Option<T>`.
 
-{% include requirement/MUST id="rust-client-configuration-fields-options" %} define an `options: azure_core::ClientOptions` private field.
+{% include requirement/MUST id="rust-client-configuration-fields-options" %} define an `client_options: azure_core::ClientOptions` private field.
 
 {% include requirement/MUST id="rust-client-configuration-clone" %} derive `Clone` to support cloning client configuration for other clients.
 
@@ -172,7 +170,7 @@ In cases when different credential types are supported, we want the primary use 
 
 {% include requirement/MUST id="rust-client-configuration-builder-derive" %} derive `azure_core::ClientOptionsBuilders` to automatically implement builder setters for `azure_core::ClientOptions`.
 
-{% include requirement/MUST id="rust-client-configuration-builder-function" %} define a `builder()` function that returns an instance of its associated builder as defined below.
+{% include requirement/MUST id="rust-client-configuration-builder-function" %} define a `builder()` associated function that does not take `self` and that returns an instance of its associated builder as defined below.
 
 {% include requirement/MUST id="rust-client-configuration-builder" %} implement an client options builder to construct options with the same name as the options struct + "Builder" e.g., `SecretClientOptionsBuilder`.
 
@@ -187,10 +185,10 @@ The requirements above would define an example client options struct like:
 ```rust
 use azure_core::{ClientOptions, ClientOptionsBuilder};
 
-#[derive(ClientOptionsBuilder, Clone, Debug)]
+#[derive(ClientOptions, Clone, Debug)]
 pub struct SecretClientOptions {
     api_version: Option<String>,
-    options: ClientOptions,
+    client_options: ClientOptions,
 }
 
 impl SecretClientOptions {
@@ -303,13 +301,14 @@ impl SecretClientMethods for SecretClient {
 
 {%include requirement/MUST id="rust-client-methods" %} take a `content: RequestContent<T>` if and only if the service method accepts a request body e.g., `POST` or `PUT`.
 
-{% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same as the client method name + "MethodOptions" e.g., a `set_secret` takes an `Option<SetSecretMethodOptions>` as the last parameter.
+{% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
+This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
 
 {% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} place client method option structs in the root module of the client library e.g., `azure_security_keyvault`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets`.
 
 {% include requirement/MUST id="rust-client-methods-configuration-fields" %} define all client method-specific fields of method option structs as private and of type `Option<T>`.
 
-{% include requirement/MUST id="rust-client-methods-configuration-fields-options" %} define an `options: azure_core::ClientMethodOptions` private field.
+{% include requirement/MUST id="rust-client-methods-configuration-fields-options" %} define a `method_options: azure_core::ClientMethodOptions` private field.
 
 {% include requirement/MUST id="rust-client-methods-configuration-clone" %} derive `Clone` to support cloning method configuration for additional client method invocations.
 
@@ -319,9 +318,9 @@ impl SecretClientMethods for SecretClient {
 
 {% include requirement/MUST id="rust-client-methods-configuration-builder-derive" %} derive `azure_core::ClientMethodOptionsBuilders` to automatically implement builder setters for `azure_core::ClientMethodOptions`.
 
-{% include requirement/MUST id="rust-client-methods-configuration-builder-function" %} define a `builder()` function that returns an instance of its associated builder as defined below.
+{% include requirement/MUST id="rust-client-methods-configuration-builder-function" %} define a `builder()` associated function that does not take `self` and that returns an instance of its associated builder as defined below.
 
-{% include requirement/MUST id="rust-client-methods-configuration-builder" %} implement an method options builder to construct options with the same name as the options struct + "Builder" e.g., `SetSecretMethodOptionsBuilder`.
+{% include requirement/MUST id="rust-client-methods-configuration-builder" %} implement an method options builder to construct options with the same name as the options struct + "Builder" e.g., `SecretClientSetSecretOptions`.
 
 {% include requirement/MUST id="rust-client-methods-configuration-builder-namespace" %} place method option builders in submodule of the root named `builders` e.g., `azure_security_keyvault::builders`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets::builders`.
 
@@ -339,35 +338,35 @@ impl SecretClientMethods for SecretClient {
         &self,
         name: impl Into<String>,
         value: impl Into<String>,
-        options: Option<SetSecretMethodOptions>,
+        options: Option<SecretClientSetSecretOptions>,
     ) -> azure_core::Result<Response<KeyVaultSecret>> {
         todo!()
     }
 }
 
-#[derive(ClientMethodOptionsBuilder, Clone, Debug, Default)]
-pub struct SetSecretMethodOptions {
+#[derive(ClientMethodOptions, Clone, Debug, Default)]
+pub struct SecretClientSetSecretOptions {
     enabled: Option<bool>,
-    options: ClientMethodOptions,
+    method_options: ClientMethodOptions,
 }
 
-impl SetSecretMethodOptions {
-    pub fn builder() -> builders::SetSecretMethodOptionsBuilder {
-        builders::SetSecretMethodOptionsBuilder::new()
+impl SecretClientSetSecretOptions {
+    pub fn builder() -> builders::SecretClientSetSecretOptionsBuilder {
+        builders::SecretClientSetSecretOptionsBuilder::new()
     }
 }
 
 pub mod builders {
     use super::*;
 
-    pub struct SetSecretMethodOptionsBuilder {
-        options: SetSecretMethodOptions,
+    pub struct SecretClientSetSecretOptionsBuilder {
+        options: SecretClientSetSecretOptions,
     }
 
-    impl SetSecretMethodOptionsBuilder {
+    impl SecretClientSetSecretOptionsBuilder {
         pub(super) fn new() -> Self {
             Self {
-                options: SetSecretMethodOptions::default(),
+                options: SecretClientSetSecretOptions::default(),
             }
         }
 
@@ -376,7 +375,7 @@ pub mod builders {
             self
         }
 
-        pub fn build(&self) -> SetSecretMethodOptions {
+        pub fn build(&self) -> SecretClientSetSecretOptions {
             self.options.clone()
         }
     }
@@ -426,6 +425,7 @@ Any data passed to client methods to alter the pipeline e.g., retry policy optio
 {% include requirement/MUST id="rust-client-methods-return-lro" %} return an `azure_core::Result<azure_core::Poller<T>>` from an `async fn` when the service implements the operation a [long-running operation](#rust-lro).
 
 {% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response<T>>` from an `async fn` for all other service responses.
+If the service method does not return any content e.g., HTTP 204, the client method should return a `Result<Response<()>>` containing the `()` unit type.
 
 {% include requirement/MUST id="rust-client-methods-return-raw-response" %} provide the status code, headers, and self-consuming async raw response stream from all return types e.g.,
 
