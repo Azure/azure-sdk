@@ -1,5 +1,6 @@
 <!-- General Rust Language links should start with "rust-lang-" -->
 [rust-lang-async-traits]: https://blog.rust-lang.org/2023/12/21/async-fn-rpit-in-traits.html
+[rust-lang-extension-methods]: https://rust-lang.github.io/rfcs/0445-extension-trait-conventions.html
 [rust-lang-dependencies]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html
 [rust-lang-doc-meta]: https://doc.rust-lang.org/rust-by-example/meta/doc.html
 [rust-lang-guidelines]: https://rust-lang.github.io/api-guidelines/about.html

@@ -6,182 +6,85 @@ folder: rust
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The Rust Language guidelines are in DRAFT status" %}
+## Service Clients {#rust-client}
 
-> TODO: This section needs to be driven by code in the Core library.
+Implementation details of [service clients](introduction.md#rust-client).
 
-## API Implementation
+### Convenience Clients {#rust-client-convenience}
 
-This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
+Most service client crates are generated from [TypeSpec](https://aka.ms/typespec). Clients that want to provide convenience methods can choose any or all of the options as appropriate:
 
-### Service Client
+{% include requirement/MAY id="rust-client-convenience-separate" %} implement a separate client that provides features not described in a service specification.
 
-When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
+{% include requirement/MAY id="rust-client-convenience-wrap" %} implement a client which wraps a generated client e.g., using [newtype][rust-lang-newtype], and exposes necessary methods from the underlying client as well as any convenience methods.
 
-> TODO: add a brief mention of the approach to implementing service clients.
+{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] that call existing public methods.
 
-#### Service Methods
+In all options above except if merely re-exposing public APIs without alteration:
 
-> TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance. Mention that much of this is done for you using code generation.
+{% include requirement/MUST id="rust-client-convenience-telemetry" %} must telemeter the convenience client methods just like any service client methods.
 
-##### HttpPipeline
+### Options Builders {#rust-client-options-builders}
 
-The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
+The `azure_core` crate depends on an `azure_core_macros` crate that defines the `ClientOptions` and `ClientMethodOptions` derive macros. These intentionally have the same name as their associated traits in `azure_core` as with `std` crate macros.
+These macros make it easy for code emitters and developers to create standard client options and client method options while maintaining standard builder setters by the `azure_core` developers.
 
-> TODO: Show an example of invoking the pipeline
+Though the derive macros and traits differ in setters and use, they share similar functionality. The following implementation details will focus primarily on `ClientOptions` and `ClientOptionsBuilder`.
 
-##### HttpPipelinePolicy/Custom Policies
+{% include requirement/SHOULD id="rust-client-options-builders-client-options" %} use the `ClientOptions` derive macro for client options.
 
-The HTTP pipeline includes a number of policies that all requests pass through. Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
+{% include requirement/SHOULD id="rust-client-options-builders-client-method-options" %} use the `ClientMethodOptions` derive macro for client method options.
 
-> TODO: Show how to customize a pipeline
+Client options and client method options should follow the form:
 
-#### Service Method Parameters
+```rust
+use azure_core::{ClientOptions, ClientMethodOptions};
 
-> TODO: This section needs to be driven by code in the Core library.
+pub struct SecretClient {
+    // ...
+}
 
-##### Parameter Validation
+#[derive(Clone, Debug, ClientOptions)]
+pub struct SecretClientOptions {
+    api_version: Option<String>,
+    // Other client-specific options ...,
+    client_options: ClientOptions,
+}
 
-In addition to [general parameter validation guidelines](introduction.md#rust-parameters):
+impl SecretClient {
+    pub fn get_secret(
+        &self,
+        name: impl AsRef<str>,
+        options: Option<SecretClientGetSecretOptions>,
+    ) -> Result<Response<KeyVaultSecret>> {
+        todo!()
+    }
+}
 
-> TODO: Briefly show common patterns for parameter validation
+#[derive(Clone, Debug, Default, ClientMethodOptions)]
+pub struct SecretClientGetSecretOptions {
+    // Other client method-specific options ...,
+    method_options: ClientMethodOptions,
+}
+```
 
-### Supporting Types
+If either `client_options` or `method_options` conflicts, you can name the field whatever you want and attribute it with `#[options]` for the derive macro to discover it.
 
-> TODO: This section needs to be driven by code in the Core library.
+## Directory Layout {#rust-directories}
 
-#### Serialization {#rust-usage-json}
+In addition to Cargo's [project layout][rust-lang-project-layout], service clients' source files should be layed out in the following manner:
 
-> TODO: This section needs to be driven by code in the Core library.
-
-##### JSON Serialization
-
-> TODO: This section needs to be driven by code in the Core library.
-
-#### Enumeration-like Structs
-
-> TODO: Add section> TODO: Add section
-
-#### Using Azure Core Types
-
-> TODO: Add section> TODO: Add section
-
-### SDK Feature Implementation
-
-#### Configuration
-
-> TODO: This section needs to be driven by code in the Core library.
-
-#### Logging
-
-> TODO: Add section> TODO: Add section
-
-##### Rust Logging specific details
-
-> TODO: Add section
-
-#### Distributed Tracing {#rust-distributedtracing}
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Telemetry
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-### Testing
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-### Language-specific other
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Complexity Management
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Templates
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Macros
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Type Safety Recommendations
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Const and Reference members
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Integer sizes
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Secure functions
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Enumerations
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Physical Design
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Class Types (including `union`s and `struct`s)
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-> TODO: Add section
-
-#### Tooling
-
-We use a common build and test pipeline to provide for automatic distribution of client libraries. To support this, we use common tooling.
-
-> TODO: Add section> TODO: Add section
-
-## Supported platforms
-
-{% include requirement/MUST id="rust-platform-min" %} support the following platforms and associated compilers when implementing your client library.
-
-### Windows
-
-> TODO: Add support matrix
-
-### Mac
-
-> TODO: Add support matrix
-
-#### Linux
-
-> TODO: Add support matrix
+* Azure/azure-sdk-for-rust/
+  * sdk/
+    * {service client moniker}/
+      * src/
+        * generated/
+          * clients/
+            * foo.rs
+            * bar.rs
+          * enums.rs
+          * models.rs
+        * lib.rs
+        * models.rs
+        * {other modules}
+      * Cargo.toml
