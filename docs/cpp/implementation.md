@@ -74,7 +74,7 @@ enum class PinState {
 };
 {% endhighlight %}
 
-Note that modifying the enumerators in an enumeration is considered a breaking change, if the enumerators in an enumeration may change over time, using an Extendable Enumeration is preferred.
+Note that modifying the enumerators in an enumeration is considered a breaking change, if the enumerators in an enumeration may change over time, use an Extendable Enumeration instead.
 
 ##### Extendable Enumerations
 
