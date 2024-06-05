@@ -18,7 +18,7 @@ Most service client crates are generated from [TypeSpec](https://aka.ms/typespec
 
 {% include requirement/MAY id="rust-client-convenience-wrap" %} implement a client which wraps a generated client e.g., using [newtype][rust-lang-newtype], and exposes necessary methods from the underlying client as well as any convenience methods.
 
-{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods](rust-lang-extension-methods) that call existing public methods.
+{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] that call existing public methods.
 
 In all options above except if merely re-exposing public APIs without alteration:
 
