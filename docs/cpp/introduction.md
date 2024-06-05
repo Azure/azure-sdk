@@ -660,24 +660,34 @@ Types in the Public API surface (types not in an `_internal` or `_detail` namesp
 
 Types in the Internal API surface (types in an `_internal` namespace) are not designed to be called from outside the Azure SDK repository.
 
-{% include requirement/MUSTNOT id="cpp-design-internal-types-no-public" %} appear in public Azure SDK headers. 
+{% include requirement/MUSTNOT id="cpp-design-internal-types-no-public" %} define internal types in public Azure SDK headers. 
 
-{% include requirement/MAY id="cpp-design-internal-types-header-location" %} appear in an `internal` directory alongside existing public Azure SDK headers.
+{% include requirement/MUST id="cpp-design-internal-types-header-location" %} define internal types in headers located in an `internal` directory alongside existing public Azure SDK headers.
 
-{% include requirement/MAY id="cpp-design-internal-types-change" %} introduce breaking changes. There are no stability guarantees associated with "internal" types.
+{% include requirement/MAY id="cpp-design-internal-types-change" %} introduce breaking changes to internal types as long as those breaking changes will not break existing Azure SDK clients.
 
-Since these types are typically located in the `azure-core` package, care must be made when introducing breaking changes to these types, and when adding new types. For changes to the types, the `azure-core` implementation typically has to be released *before* any Azure SDK packages can take dependencies on those types.
+{% include requirement/MAY id="cpp-design-internal-types-public-exception1" %} *reference* internal types in public headers.
+
+{% include requirement/MAY id="cpp-design-internal-types-public-exception2" %} include template specializations for internal templates in public headers to simplify the implementation.
+
+NOTE: Since these types are typically located in the `azure-core` package, care must be made when introducing breaking changes to these types, and when adding new internal types. For changes to the types, the `azure-core` implementation typically has to be released *before* any Azure SDK packages can take dependencies on those types.
+
+In addition, it is critical to realize that the only dependencies between Azure SDK packages is a >= dependency. That means that a particular version of an existing Azure SDK package is expected to work with any future versions of other Azure SDK packages, even of those packages on which it depends. That means that any breaking changes to internal types MUST be upward compatible.
 
 ##### Private types
 Private types  are types located in a `_detail` namespace. Private types are only intended to be called within a single package, and follow the following requirements:
 
-{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} appear in public Azure SDK headers.
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} define private types in public Azure SDK headers.
 
-{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} be consumed outside the package in which they are defined.
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} consume internal types outside the package in which they are defined.
 
-{% include requirement/SHOULD id="cpp-design-private-types-private-location" %} be declared and/or defined  under the `private` directory.
+{% include requirement/SHOULD id="cpp-design-private-types-private-location" %} declare and/or define private types under a `private` directory.
 
-{% include requirement/MAY id="cpp-design-private-types-private-no-guarantees" %} be modified without fear of introducing breaking changes.
+{% include requirement/MAY id="cpp-design-private-types-private-no-guarantees" %} modify private types without fear of introducing breaking changes.
+
+{% include requirement/MAY id="cpp-design-private-types-public-exception1" %} *reference* private types in public headers.
+
+{% include requirement/MAY id="cpp-design-private-types-public-exception2" %} include template specializations for private templates in public headers to simplify the implementation.
 
 **Example Namespaces**
 
