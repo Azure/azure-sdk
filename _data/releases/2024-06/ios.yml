@@ -22,4 +22,15 @@ entries:
   ChangelogContent: |-
     #### Bug Fixes
     * Performance improvements.
+- Name: AzureCommunicationCalling
+  Version: 2.11.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.11.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `CapabilitiesCallFeature` for Rooms/Teams Meeting.
+    * Added `TeamsMeetingIdLocator` for joining Teams.
 
