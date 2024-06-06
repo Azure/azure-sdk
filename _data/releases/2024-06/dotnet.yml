@@ -501,4 +501,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0-beta.5/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.40.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.40.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed User-Agent telemetry so that it properly escapes operating system information if it contains non-ascii characters ([#44386](https://github.com/Azure/azure-sdk-for-net/pull/44386)).
+    - Fixed case where Operation.Id was not being set for incomplete long-running operations ([#44098](https://github.com/Azure/azure-sdk-for-net/pull/44098)).
+
+    #### Features Added
+
+    - Added `RefreshOn` property to `AccessToken` and updated `BearerTokenAuthenticationPolicy` to refresh long-lived credentials according to this value ([#43836](https://github.com/Azure/azure-sdk-for-net/issues/43836)).
 
