@@ -433,4 +433,19 @@ entries:
     - Model LinkedService parameter ServiceNowV2LinkedService update properties
     - Model Pipeline parameter ExecuteDataFlowActivity update new properties computeType
     - Model Pipeline parameter ScriptActivityScriptBlock update properties type
+- Name: azure-core
+  Version: 1.30.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.30.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Raise correct exception if transport is used while already closed  #35559
+
+    #### Features Added
+
+    - Tracing: `DistributedTracingPolicy` will now set an attribute, `http.request.resend_count`, on HTTP spans for resent requests to indicate the resend attempt number.  #35069
 
