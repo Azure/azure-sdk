@@ -310,4 +310,41 @@ entries:
 
     - Includes all features released in 12.22.0-beta.1.
     - Allow HTTP connections
+- Name: '@azure/communication-chat'
+  Version: 1.6.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0-beta.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New `messagingPolicy` property in `ChatThreadProperties` for `textOnlyChat`.
+    - New `policyViolation` property in `ChatMessage` for data loss prevention.
+- Name: '@azure/core-amqp'
+  Version: 4.4.0-beta.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.4.0-beta.1/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exports a constant for the geographic replication feature.
+- Name: '@azure/event-hubs'
+  Version: 5.13.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.13.0-beta.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Geographic replication to enable recovery in case of geographic disasters.
+
+    #### Breaking Changes
+
+    - The `offset` property of event data is now typed as a string instead of as a number.
 
