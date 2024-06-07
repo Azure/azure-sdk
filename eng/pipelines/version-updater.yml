@@ -45,10 +45,8 @@ jobs:
       scriptType: pscore
       scriptLocation: inlineScript
       inlineScript: |
-        $accessToken = az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv
         $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1 `
           -github_pat '$(azuresdk-github-pat)'
-          -accessToken $accessToken
 
   - pwsh: |
       # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes

@@ -3,7 +3,6 @@ param (
   [string] $pkgFilter = $null,
   [bool] $updateAllVersions = $false, # When false only updates the versions in the preview and ga in csv
   [string] $github_pat = $env:GITHUB_PAT,
-  [string] $accessToken = $null,
   [bool] $ignoreReleasePlannerTests = $true
 )
 Set-StrictMode -Version 3
@@ -16,12 +15,10 @@ if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   exit 1
 }
 
-if (!$accessToken) {
-  az account show *> $null
-  if (!$?) {
-    Write-Host 'Running az login...'
-    az login *> $null
-  }
+az account show *> $null
+if (!$?) {
+  Write-Host 'Running az login...'
+  az login *> $null
 }
 
 az extension show -n azure-devops *> $null
