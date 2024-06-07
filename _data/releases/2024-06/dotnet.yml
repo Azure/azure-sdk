@@ -533,4 +533,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.1.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 2.0.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.0.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    **OpenAI parity**: built on the OpenAI .NET library, full parity support is available for the breadth of common features, including:
+
+    - Assistants V2 with streaming
+    - Audio transcription/translation and text-to-speech generation
+    - (Coming soon) Batch
+    - Chat completion
+    - Embeddings
+    - Files
+    - Fine-tuning
+    - Image generation with dall-e-3
+    - Vector stores
+
+    **Azure OpenAI**: updated to the latest `2024-05-01-preview` service API, new features include:
+
+    - Assistants v2 with streaming
+    - Improved configuration for On Your Data
+    - Expanded Responsible AI content filter annotations
+
+    #### Breaking Changes
+
+    Given the nature of this update, breaking changes are extensive. Please see the README and the [OpenAI library README](https://github.com/openai/openai-dotnet/blob/master/README.md) for usage details. OpenAI's library carries forward many of the same design concepts as the Azure.AI.OpenAI library used as a standalone library, but considerable improvements have been made to the surface that will require significant code adjustments.
 
