@@ -448,4 +448,12 @@ entries:
     #### Features Added
 
     - Tracing: `DistributedTracingPolicy` will now set an attribute, `http.request.resend_count`, on HTTP spans for resent requests to indicate the resend attempt number.  #35069
+- Name: azure-mgmt-datafactory
+  Version: 8.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_8.0.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
 
