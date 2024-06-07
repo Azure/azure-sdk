@@ -1,0 +1,24 @@
+entries:
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.10
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.10/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5536]](https://github.com/Azure/azure-sdk-for-cpp/issues/5536) Fixed use-after free in MessageSender and MessageReceiver when opening a connection.
+- Name: azure-core
+  Version: 1.13.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.13.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5589]](https://github.com/Azure/azure-sdk-for-cpp/pull/5589) Fix possible endless loop while polling curl socket.  (A community contribution, courtesy of _[CurtizJ](https://github.com/CurtizJ)_)
+
