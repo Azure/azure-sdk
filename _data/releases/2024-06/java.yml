@@ -2821,4 +2821,131 @@ entries:
     * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
     * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
   GroupId: com.azure.cosmos.spark
+- Name: azure-storage-file-datalake
+  Version: 12.19.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.19.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-blob` from `12.26.0` to version `12.26.1`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.11.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.11.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-storage-common` from `12.25.0` to version `12.25.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.25.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.25.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-blob` from `12.26.0` to version `12.26.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.26.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.26.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-common` from `12.25.0` to version `12.25.1`.
+    - Upgraded `azure-storage-internal-avro` from `12.11.0` to version `12.11.1`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.25.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.25.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.21.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.21.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-common` from `12.25.0` to version `12.25.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.22.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.22.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-blob` from `12.26.0` to version `12.26.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.22.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.22.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+    - Upgraded `azure-storage-common` from `12.25.0` to version `12.25.1`.
+  GroupId: com.azure
 
