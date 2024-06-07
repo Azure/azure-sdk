@@ -2743,4 +2743,82 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-appconfiguration-config_5.13.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-cosmos-spark_3-2_2-12
+  Version: 4.32.1
+  DisplayName: OLTP Spark 3.2 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.2 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-2_2-12_4.32.1/sdk/cosmos/azure-cosmos-spark_3-2_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+    * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.32.1
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.32.1/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+    * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-5_2-12
+  Version: 4.32.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-5_2-12_4.32.1/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+    * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-resourcemanager-redisenterprise
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redisenterprise_2.1.0-beta.1/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-search
+  Version: 2.40.0-beta.1
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-search_2.40.0-beta.1/sdk/resourcemanager/azure-resourcemanager-search/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.32.1
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.32.1/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+    * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.32.1
+  DisplayName: OLTP Spark 3.1 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.1 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-1_2-12_4.32.1/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added retries when retrieving new pages for query or readMany operations are timing out to avoid unbounded awaits. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+    * Ensured that no statistics are reported when custom queries via `spark.cosmos.read.customQuery` are used. - See [PR 40506](https://github.com/Azure/azure-sdk-for-java/pull/40506)
+  GroupId: com.azure.cosmos.spark
 
