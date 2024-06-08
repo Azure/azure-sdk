@@ -2948,4 +2948,16 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
     - Upgraded `azure-storage-common` from `12.25.0` to version `12.25.1`.
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.9.6
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.9.6/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added feature to enable/disable SSL when initially creating connection to support amqp calls on port 5672.
+  GroupId: com.azure
 
