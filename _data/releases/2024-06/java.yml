@@ -2960,4 +2960,42 @@ entries:
 
     - Added feature to enable/disable SSL when initially creating connection to support amqp calls on port 5672.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.12.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.12.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Managed identity bug fixes
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.2
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.2/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.12.1` to version `1.12.2`.
+    - Upgraded `msal4j` from `1.15.0` to version `1.15.1`.
+  GroupId: com.azure
+- Name: azure-compute-batch
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-compute-batch_1.0.0-beta.2/sdk/batch/azure-compute-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that caused `long` properties on models to be deserialized incorrectly.
+  GroupId: com.azure
 
