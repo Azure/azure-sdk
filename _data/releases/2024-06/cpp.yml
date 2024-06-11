@@ -21,4 +21,55 @@ entries:
     #### Bugs Fixed
 
     - [[#5589]](https://github.com/Azure/azure-sdk-for-cpp/pull/5589) Fix possible endless loop while polling curl socket.  (A community contribution, courtesy of _[CurtizJ](https://github.com/CurtizJ)_)
+- Name: azure-data-tables
+  Version: 1.0.0-beta.3
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.3/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the `TableServiceClient` was not correctly handling the `nextPartitionKey` and `nextRowKey` continuation tokens when iterating over tables.
+    - Fixed an issue around InsertReplace transactions.
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0-beta.2
+  DisplayName: 'Key Vault - Secrets '
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.3.0-beta.2/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Relocated samples to the `samples` directory.
+    - Updated the `README.md` file with the latest information.
+    - Updated samples.
+- Name: azure-security-keyvault-certificates
+  Version: 4.3.0-beta.2
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.3.0-beta.2/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Relocated samples to the `samples` directory.
+    - Updated the `README.md` file with the latest information.
+    - Updated samples.
+- Name: azure-security-keyvault-keys
+  Version: 4.5.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.5.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Deprecated `KeyEncryptionAlgorithm::CKM_RSA_AES_KEY_WRAP` in favor of `KeyEncryptionAlgorithm::CkmRsaAesKeyWrap`.
+    - Deprecated `KeyEncryptionAlgorithm::RSA_AES_KEY_WRAP_256` in favor of `KeyEncryptionAlgorithm::RsaAesKeyWrap256`.
+    - Deprecated `KeyEncryptionAlgorithm::RSA_AES_KEY_WRAP_384` in favor of `KeyEncryptionAlgorithm::RsaAesKeyWrap384`.
 
