@@ -655,4 +655,40 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.20.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
   ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.2.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.2.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Disabled support for log collection from Azure SDKs.
+    This will be re-enabled in our next Beta while we experiment with options to enable log filtering.
+    ([#44479](https://github.com/Azure/azure-sdk-for-net/pull/44479))
+
+    * Disabled trace-based log sampling experimental feature.
+    This will be re-enabled in our next Beta while we experiment with options to enable log filtering.
+    ([#44479](https://github.com/Azure/azure-sdk-for-net/pull/44479))
+- Name: Azure.Identity
+  Version: 1.12.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.12.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Bug fixes for `AzurePipelinesCredential`
+    - Managed identity bug fixes.
+
+    #### Features Added
+    - `OnBehalfOfCredential` now supports client assertion callbacks for acquiring tokens on behalf of a user.
+    - All credentials now support setting RefreshOn value if received from MSAL.
+    - ManagedIdentityCredential sets RefreshOn value of half the token lifetime for AccessTokens with an ExpiresOn value greater than 2 hours in the future.
+
+    #### Breaking Changes
+    - The constructor of `AzurePipelinesCredential` now includes additional required parameters for the Azure Pipelines service connection.
 
