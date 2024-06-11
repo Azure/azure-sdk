@@ -3069,4 +3069,22 @@ entries:
     #### Features Added
     - Added support for a client assertion in `OnBehalfOfCredential` [#40552](https://github.com/Azure/azure-sdk-for-java/pull/40552/files)
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.4.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.4.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrating `azure-monitor-query` to stream-style serialization.
+
+    ##### Dependency Updates
+
+    - Added `azure-json` dependency to support JSON serialization and deserialization.
+    - Upgraded `azure-core` from `1.49.0` to version `1.49.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.1`.
+  GroupId: com.azure
 
