@@ -493,4 +493,202 @@ entries:
     - Model LinkedService has a new parameter SnowflakeV2LinkedService
     - Model LinkedService has a new parameter WarehouseLinkedService
     - Model LinkedService has a new parameter WarehouseLinkedService
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0-beta.5/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.40.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.40.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed User-Agent telemetry so that it properly escapes operating system information if it contains non-ascii characters ([#44386](https://github.com/Azure/azure-sdk-for-net/pull/44386)).
+    - Fixed case where Operation.Id was not being set for incomplete long-running operations ([#44098](https://github.com/Azure/azure-sdk-for-net/pull/44098)).
+
+    #### Features Added
+
+    - Added `RefreshOn` property to `AccessToken` and updated `BearerTokenAuthenticationPolicy` to refresh long-lived credentials according to this value ([#43836](https://github.com/Azure/azure-sdk-for-net/issues/43836)).
+- Name: Azure.ResourceManager.HybridCompute
+  Version: 1.0.0-beta.9
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridCompute_1.0.0-beta.9/sdk/hybridcompute/Azure.ResourceManager.HybridCompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.1.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.1.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 2.0.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.0.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    **OpenAI parity**: built on the OpenAI .NET library, full parity support is available for the breadth of common features, including:
+
+    - Assistants V2 with streaming
+    - Audio transcription/translation and text-to-speech generation
+    - (Coming soon) Batch
+    - Chat completion
+    - Embeddings
+    - Files
+    - Fine-tuning
+    - Image generation with dall-e-3
+    - Vector stores
+
+    **Azure OpenAI**: updated to the latest `2024-05-01-preview` service API, new features include:
+
+    - Assistants v2 with streaming
+    - Improved configuration for On Your Data
+    - Expanded Responsible AI content filter annotations
+
+    #### Breaking Changes
+
+    Given the nature of this update, breaking changes are extensive. Please see the README and the [OpenAI library README](https://github.com/openai/openai-dotnet/blob/master/README.md) for usage details. OpenAI's library carries forward many of the same design concepts as the Azure.AI.OpenAI library used as a standalone library, but considerable improvements have been made to the surface that will require significant code adjustments.
+- Name: Azure.Identity
+  Version: 1.11.4
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.11.4/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Managed identity bug fixes
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.3.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.3.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Includes all changes from 1.3.0-beta.1 and 1.3.0-beta.2
+    * Changed `AzureMonitorLogExporter` to be internal.
+    This will be changed back to public in our next Beta while we experiment with options to enable log filtering.
+    ([#44479](https://github.com/Azure/azure-sdk-for-net/pull/44479))
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.18.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-08-04.'
+- Name: Azure.Storage.Queues
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.19.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-08-04.
+    - This package will now respect the QueueClientOptions.ServiceVersion specified by the customer, or default to the latest version.
+    - Added more detailed messaging for authorization failure cases.
+- Name: Azure.Storage.Blobs
+  Version: 12.21.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-08-04.
+    - Added BlobContainerClient.GetAccountInfo(), .GetAccountInfoAsync(), BlobBaseClient.GetAccountInfo(), and .GetAccountInfoAsync() APIs.
+    - Added more detailed messaging for authorization failure cases.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.19.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-08-04.
+    - Added more detailed messaging for authorization failure cases.
+    - Added support for snapshot management on NFS shares.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.45
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.45/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2024-08-04.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.19.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2024-08-04.
+    - Added more detailed messaging for authorization failure cases.
+- Name: Azure.Storage.Common
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.20.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.2.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.2.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Disabled support for log collection from Azure SDKs.
+    This will be re-enabled in our next Beta while we experiment with options to enable log filtering.
+    ([#44479](https://github.com/Azure/azure-sdk-for-net/pull/44479))
+
+    * Disabled trace-based log sampling experimental feature.
+    This will be re-enabled in our next Beta while we experiment with options to enable log filtering.
+    ([#44479](https://github.com/Azure/azure-sdk-for-net/pull/44479))
+- Name: Azure.Identity
+  Version: 1.12.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.12.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Bug fixes for `AzurePipelinesCredential`
+    - Managed identity bug fixes.
+
+    #### Features Added
+    - `OnBehalfOfCredential` now supports client assertion callbacks for acquiring tokens on behalf of a user.
+    - All credentials now support setting RefreshOn value if received from MSAL.
+    - ManagedIdentityCredential sets RefreshOn value of half the token lifetime for AccessTokens with an ExpiresOn value greater than 2 hours in the future.
+
+    #### Breaking Changes
+    - The constructor of `AzurePipelinesCredential` now includes additional required parameters for the Azure Pipelines service connection.
 
