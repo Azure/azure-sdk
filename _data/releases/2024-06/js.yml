@@ -430,4 +430,67 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/eventgrid-namespaces'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Released V1.0 GA Version. Refer [PR #29764](https://github.com/Azure/azure-sdk-for-js/pull/29764/) for further details.
+- Name: '@azure/eventgrid'
+  Version: 5.5.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.5.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.Communication.ChatThreadCreated`
+    - `Microsoft.Communication.ChatThreadDeleted`
+    - `Microsoft.Communication.ChatThreadPropertiesUpdated`
+- Name: '@azure/monitor-query'
+  Version: 1.3.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `audience` support for all the clients to specify the audience for the authentication token. This is useful when working in sovereign clouds. Refer to [#28821](https://github.com/Azure/azure-sdk-for-js/issues/28821) for further details.
+- Name: '@azure/monitor-ingestion'
+  Version: 1.1.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.1.0/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - React-Native support for `zlib` via the `pako` package.
+
+    #### Features Added
+
+    - Added `audience` support for the logs ingestion client to specify the audience for the authentication token. This feature is necessary to use a sovereign cloud. Refer to [#27280](https://github.com/Azure/azure-sdk-for-js/issues/27280) for further details.
+- Name: '@azure/eventgrid-system-events'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure EventGrid System Events
+  ServiceName: Eventgrid System Events
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.1/sdk/eventgrid/eventgrid-system-events/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Released System Events related to Eventgrid service.
 
