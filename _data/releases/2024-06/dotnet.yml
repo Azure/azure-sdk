@@ -691,4 +691,14 @@ entries:
 
     #### Breaking Changes
     - The constructor of `AzurePipelinesCredential` now includes additional required parameters for the Azure Pipelines service connection.
+- Name: Azure.Monitor.Query
+  Version: 1.4.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.4.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add sovereign cloud support to `MetricsClient` for US Gov and China clouds
 
