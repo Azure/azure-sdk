@@ -3212,4 +3212,17 @@ entries:
     - Added authorization error details in responses.
     - Added support for service version 2024-08-04.
   GroupId: com.azure
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0-beta.3
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.3/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Modified the final result of `beginAnalyzeDocument` API in `DocumentIntelligenceClient` to `AnalyzeResult` class.
+    - Modified the final result of `beginClassifyDocument` API in `DocumentIntelligenceClient` to `AnalyzeResult` class.
+  GroupId: com.azure
 
