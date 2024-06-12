@@ -91,7 +91,7 @@ Metrics Advisor,0,Metrics Advisor,data,.NET,,,11,false,Azure.AI.MetricsAdvisor,h
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,10,false,1,05/22/2024
 Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,04/03/2024
-Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,04/03/2024
+Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,06/12/2024
 Cognitive Services,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Inference,data,.NET,,,11,false,Azure.AI.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,06/11/2024
@@ -1234,6 +1234,7 @@ IoT,0,Digital Twins Definition Language Parser,data,JavaScript,,,11,false,@azure
 Cognitive Services,0,Document Intelligence,data,JavaScript,,,11,false,@azure-rest/ai-document-intelligence,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documentintelligence/ai-document-intelligence-rest/,3,false,1,
 Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest/ai-document-translator,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/documenttranslator/ai-document-translator-rest/,3,false,1,
 Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,06/10/2024
+Event Grid,0,Event Grid Namespaces,data,JavaScript,,,11,false,@azure/eventgrid-namespaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,06/10/2024
 Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,05/20/2024
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
@@ -1284,7 +1285,7 @@ Tables,0,Tables,data,JavaScript,,,11,false,@azure/data-tables,https://github.com
 Cognitive Services,0,Text Analytics,data,JavaScript,@azure/cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-text-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics,10,false,1,07/07/2021
 Cognitive Services,0,Text Translation,data,JavaScript,,,11,false,@azure-rest/ai-translation-text,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/translation/ai-translation-text-rest/,10,false,1,06/03/2024
 Identity,0,Token Cache Persistence Plugin,data,JavaScript,,,11,false,@azure/identity-cache-persistence,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,06/10/2024
-unknown,0,unknown,data,JavaScript,,,11,false,@azure/eventgrid-namespaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,06/10/2024
+unknown,0,unknown,data,JavaScript,,,11,false,@azure/core-sse,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core,10,false,1,04/10/2024
 Video Analyzer,0,Video Analyzer Edge,data,JavaScript,,,11,false,@azure/video-analyzer-edge,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/videoanalyzer,3,false,1,
 Identity,0,VS Code Authentication Plugin,data,JavaScript,,,11,false,@azure/identity-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,10/15/2021
 Web PubSub,0,Web PubSub,data,JavaScript,azure-web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,01/03/2023
@@ -2061,6 +2062,7 @@ IoT,0,Digital Twins - Core,data,.NET,,,11,false,Missing: Created from existing p
 IoT,0,Digital Twins - Core,data,Java,,,11,false,Missing: Created from existing package: @azure/digital-twins-core,,2,false,0,
 IoT,0,Digital Twins - Core,data,Python,,,11,false,Missing: Created from existing package: @azure/digital-twins-core,,2,false,0,
 IoT,0,Digital Twins - Core,data,Go,,,11,false,Missing: Created from existing package: @azure/digital-twins-core,,2,false,0,
+Event Grid,0,Event Grid Namespaces,data,Python,,,11,false,Missing: Created from existing package: @azure/eventgrid-namespaces,,2,false,0,
 Cognitive Services,0,Language Text,data,.NET,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
 Cognitive Services,0,Language Text,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-language-text,,2,false,0,
