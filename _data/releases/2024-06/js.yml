@@ -504,4 +504,15 @@ entries:
     #### Bugs Fixed
 
     - Fix an issue where `rhea-promise` receivers are not properly closed in `MessageSession.createRheaLink()` [PR #29954](https://github.com/Azure/azure-sdk-for-js/pull/29954)
+- Name: '@azure/communication-chat'
+  Version: 1.5.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated @azure/core-client and @azure/core-rest-pipeline version.
 
