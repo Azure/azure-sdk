@@ -3225,4 +3225,16 @@ entries:
     - Modified the final result of `beginAnalyzeDocument` API in `DocumentIntelligenceClient` to `AnalyzeResult` class.
     - Modified the final result of `beginClassifyDocument` API in `DocumentIntelligenceClient` to `AnalyzeResult` class.
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.4.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.4.2/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed [the bug](https://github.com/Azure/azure-sdk-for-java/pull/40392) where the deserialization of TableEntity was inconsistent between `ListEntities` and `getEntity` methods.
+  GroupId: com.azure
 
