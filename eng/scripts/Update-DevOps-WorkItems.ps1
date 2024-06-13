@@ -3,7 +3,6 @@ param (
   [string] $pkgFilter = $null,
   [bool] $updateAllVersions = $false, # When false only updates the versions in the preview and ga in csv
   [string] $github_pat = $env:GITHUB_PAT,
-  [string] $devops_pat = $env:DEVOPS_PAT,
   [bool] $ignoreReleasePlannerTests = $true
 )
 Set-StrictMode -Version 3
@@ -16,12 +15,10 @@ if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   exit 1
 }
 
-if (!$devops_pat) {
-  az account show *> $null
-  if (!$?) {
-    Write-Host 'Running az login...'
-    az login *> $null
-  }
+az account show *> $null
+if (!$?) {
+  Write-Host 'Running az login...'
+  az login *> $null
 }
 
 az extension show -n azure-devops *> $null
@@ -184,7 +181,6 @@ function UpdateShippedPackageVersions($pkgWorkItem, $versionsFromTags)
 
 function RefreshItems()
 {
-  LoginToAzureDevops $devops_pat
   InitializeVersionInformation
   InitializeWorkItemCache
   $allPackageWorkItems = GetCachedPackageWorkItems
@@ -221,14 +217,14 @@ function RefreshItems()
     $versions = $null
 
     # If the csv entry is marked as "Needs Review" we want to prefer the data in the workitem over the data in csv
-    if ($pkgInfo -and $pkgInfo.PackageInfo.Notes -ne "Needs Review") 
+    if ($pkgInfo -and $pkgInfo.PackageInfo.Notes -ne "Needs Review")
     {
       if ($pkgInfo.VersionGroups.ContainsKey($verMajorMinor)) {
         $versions = $pkgInfo.VersionGroups[$verMajorMinor].Versions
       }
       $pkg = $pkgInfo.PackageInfo
     }
-    else 
+    else
     {
       $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({ $pkgName -eq $_.Package })
 
@@ -237,7 +233,7 @@ function RefreshItems()
         $pkgFromCsv = $pkgFromCsv.Where({ $_.GroupId -like "com.azure*" })
       }
 
-      if ($pkgFromCsv.Count -ne 0) 
+      if ($pkgFromCsv.Count -ne 0)
       {
         if ($pkgFromCsv.Count -gt 1) {
           Write-Warning "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package with multiple matching package names in the csv, so skipping it."
