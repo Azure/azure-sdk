@@ -720,4 +720,15 @@ entries:
     #### Features Added
 
     - Initial GA release of Azure.Messaging.EventGrid.Namespaces.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.4
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.4/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency `Azure.Identity` to version `1.11.4`.
 
