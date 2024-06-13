@@ -1,0 +1,163 @@
+entries:
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.10
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.10/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5536]](https://github.com/Azure/azure-sdk-for-cpp/issues/5536) Fixed use-after free in MessageSender and MessageReceiver when opening a connection.
+- Name: azure-core
+  Version: 1.13.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.13.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5589]](https://github.com/Azure/azure-sdk-for-cpp/pull/5589) Fix possible endless loop while polling curl socket.  (A community contribution, courtesy of _[CurtizJ](https://github.com/CurtizJ)_)
+- Name: azure-data-tables
+  Version: 1.0.0-beta.3
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.3/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the `TableServiceClient` was not correctly handling the `nextPartitionKey` and `nextRowKey` continuation tokens when iterating over tables.
+    - Fixed an issue around InsertReplace transactions.
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0-beta.2
+  DisplayName: 'Key Vault - Secrets '
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.3.0-beta.2/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Relocated samples to the `samples` directory.
+    - Updated the `README.md` file with the latest information.
+    - Updated samples.
+- Name: azure-security-keyvault-certificates
+  Version: 4.3.0-beta.2
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.3.0-beta.2/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Relocated samples to the `samples` directory.
+    - Updated the `README.md` file with the latest information.
+    - Updated samples.
+- Name: azure-security-keyvault-keys
+  Version: 4.5.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.5.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Deprecated `KeyEncryptionAlgorithm::CKM_RSA_AES_KEY_WRAP` in favor of `KeyEncryptionAlgorithm::CkmRsaAesKeyWrap`.
+    - Deprecated `KeyEncryptionAlgorithm::RSA_AES_KEY_WRAP_256` in favor of `KeyEncryptionAlgorithm::RsaAesKeyWrap256`.
+    - Deprecated `KeyEncryptionAlgorithm::RSA_AES_KEY_WRAP_384` in favor of `KeyEncryptionAlgorithm::RsaAesKeyWrap384`.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.9
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.9/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed eventhub connection properties to better align with the names used by other Azure SDKs.
+- Name: azure-identity
+  Version: 1.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.8.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Managed identity bug fixes.
+
+    #### Features Added
+
+    - [[#4474]](https://github.com/Azure/azure-sdk-for-cpp/issues/4474) Enable proactive renewal of Managed Identity tokens.
+    - [[#5116]](https://github.com/Azure/azure-sdk-for-cpp/issues/5116) `AzureCliCredential`: Added support for the new response field which represents token expiration timestamp as time zone agnostic value.
+- Name: azure-storage-files-shares
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.10.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2024-08-04`.
+    - Added more detailed messaging for authorization failure cases.
+    - Added support for snapshot management on NFS shares.
+- Name: azure-storage-queues
+  Version: 12.3.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.3.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2024-08-04`.
+    - Added more detailed messaging for authorization failure cases.
+- Name: azure-storage-blobs
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.12.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2024-08-04`.
+    - Added `BlobContainerClient::GetAccountInfo()` and `BlobClient::GetAccountInfo` APIs.
+    - Added more detailed messaging for authorization failure cases.
+- Name: azure-storage-common
+  Version: 12.7.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.7.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2024-08-04`.
+- Name: azure-storage-files-datalake
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.11.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2024-08-04`.
+    - Added more detailed messaging for authorization failure cases.
+
