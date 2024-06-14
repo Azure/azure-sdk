@@ -619,4 +619,16 @@ entries:
     - Model LinkedService parameter ServiceNowV2LinkedService update properties
     - Model Pipeline parameter ExecuteDataFlowActivity update new properties computeType
     - Model Pipeline parameter ScriptActivityScriptBlock update properties type
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.24
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.24/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue with `disableOfflineStorage` being set sending error messages to customer apps.
+    - Fix issue with `disableOfflineStorage` not applying to Statsbeat senders.
 
