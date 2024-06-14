@@ -631,4 +631,17 @@ entries:
 
     - Fix issue with `disableOfflineStorage` being set sending error messages to customer apps.
     - Fix issue with `disableOfflineStorage` not applying to Statsbeat senders.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.6.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.6.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Setting the sampling ratio to 0 now correctly applies the value instead of defaulting to 1.
+    - Fixed standard metrics reported success/failure status for dependencies/requests.
+    - 3xx level response codes on request telemetry is no longer counted as a request failure in standard metrics.
 
