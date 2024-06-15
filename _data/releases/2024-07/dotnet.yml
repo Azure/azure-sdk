@@ -1,0 +1,21 @@
+entries:
+- Name: Azure.AI.OpenAI
+  Version: 2.0.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.0.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In support of `CancellationToken`s in methods, an overriden method signature for streaming chat completions was changed and a new minimum version dependency of 2.0.0-beta.5 is established for the OpenAI dependency. These styles of breaks will be extraordinarily rare.
+
+    #### Bugs Fixed
+
+    - See breaking changes: when streaming chat completions, an error of "Unrecognized request argument supplied: stream_options" is introduced when using Azure.AI.OpenAI 2.0.0-beta.1 with OpenAI 2.0.0-beta.5+. This is fixed with the new version.
+
+    #### Features Added
+
+    - Per changes to the [OpenAI .NET client library](https://github.com/openai/openai-dotnet), most convenience methods now provide the direct ability to provide optional `CancellationTokens`, removing the need to use protocol methods
+
