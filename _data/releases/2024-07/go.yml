@@ -1,0 +1,13 @@
+entries:
+- Name: sdk/data/azcosmos
+  Version: 1.0.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.0.3/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed data race on clientRetryPolicy. See [PR 23061](https://github.com/Azure/azure-sdk-for-go/pull/23061)
+
