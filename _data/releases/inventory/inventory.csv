@@ -530,7 +530,7 @@ Network,0,WindowsAzure Management - Virtual Networks,mgmt,.NET,Microsoft.Windows
 App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzure.Management.WebSites,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.AppService,,4,false,1,
 App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
-Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,06/11/2024
+Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,06/17/2024
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/eventgrid/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azeventgrid,10,false,1,04/02/2024
 Event Grid,0,Event Grid Namespaces,data,Go,,,11,false,sdk/messaging/eventgrid/aznamespaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/aznamespaces,10,false,1,06/11/2024
 Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,05/20/2024
@@ -901,7 +901,7 @@ Synapse,0,Synapse - Managed Private Endpoints,data,Java,,,11,false,azure-analyti
 Synapse,0,Synapse - Monitoring,data,Java,,,11,false,azure-analytics-synapse-monitoring,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Spark,data,Java,,,11,false,azure-analytics-synapse-spark,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,06/13/2024
-Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,05/29/2024
+Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/c948408cf37320162cf6fcaeb38e687f215a7dde/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,05/29/2024
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,10,false,1,05/21/2024
 unknown,0,unknown,data,Java,,,11,false,azure-xml,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization,10,false,1,04/04/2024
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/videoanalyzer,3,false,1,
@@ -1115,7 +1115,7 @@ Service Bus,0,Service Bus -JMS,UNABLE TO BE DETERMINED,Java,azure-servicebus-jms
 Toolkit,0,Service Bus Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicebus-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Toolkit,0,Service Linker Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicelinker-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Functions,0,Unknown Display Name,UNABLE TO BE DETERMINED,Java,azure-functions-java-library-dapr,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
-Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
+Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/e07dca8dc24970503df9e8838fb2f4b2d662497b/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
 Computer Vision,0,Azure AI Vision SDK - Common,data,Java,azure-ai-vision-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon,3,false,,,1,false,0,
 Computer Vision,0,Azure AI Vision SDK - Internal,data,Java,azure-ai-vision-common-internal,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon,3,false,,,1,false,0,
 Communication,0,azure-communication-administration,data,Java,azure-communication-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
