@@ -142,7 +142,7 @@ jobs:
       filePath: $(AzureSDKClonePath)/eng/scripts/Update-Spec-Versions.ps1
       arguments: >
         -specsRoot $(Pipeline.Workspace)/azure-rest-api-specs-pr/
-        -mergeWithExisting
+        -mergeWithExisting $true
 
   - task: AzurePowerShell@5
     displayName: 'Upload specs info to blob storage'
