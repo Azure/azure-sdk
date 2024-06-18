@@ -152,7 +152,7 @@ jobs:
       azurePowerShellVersion: LatestVersion 
       pwsh: true
       Inline: |
-        azcopy copy '$(AzureSDKClonePath)\_data\releases\latest\specs.csv' 'https://azuresdkartifacts.blob.core.windows.net/service-adoption'
+        azcopy copy '$(AzureSDKClonePath)/_data/releases/latest/specs.csv' 'https://azuresdkartifacts.blob.core.windows.net/service-adoption'
     env: 
       AZCOPY_AUTO_LOGIN_TYPE: 'PSCRED'
 
