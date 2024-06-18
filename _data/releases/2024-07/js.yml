@@ -1,0 +1,13 @@
+entries:
+- Name: '@azure/identity'
+  Version: 4.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential` for supporting workload identity federation in Azure Pipelines with service connections.
+
