@@ -31,4 +31,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.2.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.17.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.16.0.
+    > Only code written against a beta version such as 1.17.0b1 is affected.
+    - `AzurePipelinesCredential` now has a required keyword argument `system_access_token`.  ([#35858](https://github.com/Azure/azure-sdk-for-python/pull/35858))
+
+    #### Bugs Fixed
+
+    - Allow credential chains to continue when an IMDS probe request returns a non-JSON response in `ManagedIdentityCredential`. ([#36016](https://github.com/Azure/azure-sdk-for-python/pull/36016))
 
