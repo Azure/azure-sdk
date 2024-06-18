@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param (
-  [string]$specsRoot
+  [string]$specsRoot,
+  [bool]$mergeWithExisting = $false
 )
 
 Set-StrictMode -Version 3
@@ -12,6 +13,18 @@ function GetJsonFiles($relSpecPath)
 {
   # Assumes that working directory is the root of the repo, we might want to harden this assumption
   return Get-ChildItem "specification/$relSpecPath" *.json
+}
+
+function GetServiceLifeCycle($allSpecs, $serviceFamily, $resourcePath)
+{
+  $stableSpecs = $allSpecs.Where({ 
+    $_.ServiceFamily -eq $serviceFamily -and $_.ResourcePath -eq $resourcePath -and $_.VersionType -eq "stable" -and $_.IsTypeSpec -ne "True"
+  })
+
+  if ($stableSpecs.Count -eq 0) {
+    return "Greenfield"
+  }
+  return "Brownfield"
 }
 
 function GetJsonFileListString($jsonFilesInPath)
@@ -98,6 +111,7 @@ function DiscoverSpec($relSpecPath)
     VersionType = $verType
     Type = $specType
     IsTypeSpec = ""
+    ServiceLifeCycle = "" # Brownfield, Greenfield
     DateCreated = ""
     JsonFiles = GetJsonFileListString (GetJsonFiles $relSpecPath)
   }
@@ -153,13 +167,26 @@ function GatherSpecs($specsRoot)
         $spec = $discoveredSpec
       }
 
-      # If json file ist changes or missing date created query that data
+      # If json file has changes or is missing a date created query that data
       if ($spec.JsonFiles -ne $discoveredSpec.JsonFiles -or $spec.DateCreated -eq "")
       {
         $spec = UpdateSpecMetadata $spec
       }
 
+      $spec.ServiceLifeCycle = GetServiceLifeCycle $specs $spec.ServiceFamily $spec.ResourcePath
+
       $newSpecsToWrite += $spec
+    }
+
+    if ($mergeWithExisting) 
+    {
+      foreach ($existingSpec in $specs)
+      {
+        $foundSpecs = $newSpecsToWrite.Where({ $_.SpecPath -eq $existingSpec.SpecPath })
+        if ($foundSpecs.Count -eq 0) {
+          $newSpecsToWrite += $existingSpec
+        }
+      }
     }
   }
   finally {

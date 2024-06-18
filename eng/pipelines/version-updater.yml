@@ -132,6 +132,31 @@ jobs:
       WorkingDirectory: $(Pipeline.Workspace)/azure-dev-docs-pr
 
   - pwsh: |
+      git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs-pr $(Pipeline.Workspace)/azure-rest-api-specs-pr --branch RPSaaSMaster
+    displayName: Clone azure-rest-api-specs-pr repo
+
+  - task: PowerShell@2
+    displayName: Update Rest Specs
+    inputs:
+      pwsh: true
+      filePath: $(AzureSDKClonePath)/eng/scripts/Update-Spec-Versions.ps1
+      arguments: >
+        -specsRoot $(Pipeline.Workspace)/azure-rest-api-specs-pr/
+        -mergeWithExisting
+
+  - task: AzurePowerShell@5
+    displayName: 'Upload specs info to blob storage'
+    inputs:
+      azureSubscription: 'Azure SDK Artifacts'
+      ScriptType: 'InlineScript'
+      azurePowerShellVersion: LatestVersion 
+      pwsh: true
+      Inline: |
+        azcopy copy '$(AzureSDKClonePath)\_data\releases\latest\specs.csv' 'https://azuresdkartifacts.blob.core.windows.net/service-adoption'
+    env: 
+      AZCOPY_AUTO_LOGIN_TYPE: 'PSCRED'
+
+  - pwsh: |
       git clone https://github.com/dotnet/docs $(Pipeline.Workspace)/dotnet-docs
     displayName: Clone dotnet docs repo
 
