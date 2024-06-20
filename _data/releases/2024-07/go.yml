@@ -10,4 +10,19 @@ entries:
     #### Bugs Fixed
 
     * Fixed data race on clientRetryPolicy. See [PR 23061](https://github.com/Azure/azure-sdk-for-go/pull/23061)
+- Name: sdk/azidentity
+  Version: 1.7.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.7.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `AzurePipelinesCredential` authenticates an Azure Pipelines service connection with
+    workload identity federation
+
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.7.0-beta.1
+    * Removed the persistent token caching API. It will return in v1.8.0-beta.1
 
