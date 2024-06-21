@@ -19,4 +19,29 @@ entries:
     #### Features Added
     - Initial GA release
   GroupId: com.azure
+- Name: azure-ai-translation-document
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-document_1.0.0-beta.2/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Re-release of 1.0.0-beta.1
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.13.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA for `AzurePipelinesCredential`
+
+    #### Bugs Fixed
+    - Fixed an issue which may block `AzurePowershellCredential` from functioning correctly. [#40552](https://github.com/Azure/azure-sdk-for-java/pull/40552/files)
+  GroupId: com.azure
 
