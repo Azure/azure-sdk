@@ -82,4 +82,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_1.0.0b2/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b27
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b27/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Default missing/invalid status codes to "0" for standard metrics/trace payloads, change
+    success criteria to `False` for those invalid cases, change success criteria to status_code < 400 for
+    both client and server standard metrics
+    ([#36079](https://github.com/Azure/azure-sdk-for-python/pull/36079))
+
+    #### Features Added
+
+    - Implement redirect for live metrics
+    ([#35910](https://github.com/Azure/azure-sdk-for-python/pull/35910))
 
