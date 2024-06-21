@@ -299,7 +299,9 @@ impl SecretClientMethods for SecretClient {
 
 #### Service Methods {#rust-client-methods}
 
-{%include requirement/MUST id="rust-client-methods" %} take a `content: RequestContent<T>` if and only if the service method accepts a request body e.g., `POST` or `PUT`.
+{% include requirement/MUST id="rust-client-methods" %} take a `body: RequestContent<T>` if and only if the service method accepts a request body e.g., `POST` or `PUT`.
+
+{% include requirement/MUST id="rust-client-methods-params" %} use the service specified name of all parameters.
 
 {% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
 This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
