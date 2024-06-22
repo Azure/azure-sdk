@@ -101,4 +101,15 @@ entries:
 
     - Implement redirect for live metrics
     ([#35910](https://github.com/Azure/azure-sdk-for-python/pull/35910))
+- Name: azure-identity
+  Version: 1.17.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Continue to attempt requesting token if the probing request receives non-json response. ([#36184](https://github.com/Azure/azure-sdk-for-python/pull/36184))
 
