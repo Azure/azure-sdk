@@ -128,4 +128,14 @@ entries:
     #### Features Added
 
     Add `model` as an optional input argument to the `complete` method of `ChatCompletionsClient`.
+- Name: azure-ai-translation-text
+  Version: 1.0.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-text_1.0.1/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where Entra Id authentication couldn't be used with custom endpoint.
 
