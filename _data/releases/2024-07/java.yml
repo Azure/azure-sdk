@@ -158,4 +158,16 @@ entries:
     - Fixes the sender API that takes `Iterable` to not drop messages that cannot be fit in the batch. ([#40462](https://github.com/Azure/azure-sdk-for-java/pull/40462))
     - Fixed issue where the scheduled enqueue time was not cleared when creating a new message from a received message.([#44585](https://github.com/Azure/azure-sdk-for-net/pull/44585))
   GroupId: com.azure
+- Name: azure-cosmos-kafka-connect
+  Version: 1.0.0-beta.3
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_1.0.0-beta.3/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Changed to only disable `PartitionKeyRangeGoneRetryPolicy` when enable `disableSplitHandling` in `ChangeFeedRequestOptions`. - See [PR 40738](https://github.com/Azure/azure-sdk-for-java/pull/40738)
+    * Fixed an issue where the task will fail due to single `RequestRateTooLarge` exception - See [PR 40738](https://github.com/Azure/azure-sdk-for-java/pull/40738)
+  GroupId: com.azure.cosmos.kafka
 
