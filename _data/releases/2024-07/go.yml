@@ -97,4 +97,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v3.0.0/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenaiassistants
+  Version: 0.2.0
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiassistants/v0.2.0/sdk/ai/azopenaiassistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Now supports the Assistants V2 API, with support for vector stores as well as streaming.
+
+    #### Breaking Changes
+
+    - Assistants V1 is no longer supported in this library. For information about how to migrate between V1 and V2, see OpenAI's migration documentation: [(link)](https://platform.openai.com/docs/assistants/migration).
+    - Types that were suffixed with `Options` have been changed, if their name would conflict with the options for a method. For example: `AssistantsThreadCreationOptions`, the main argument for `CreateThread()`, has been changed to `CreateThreadBody`.
 
