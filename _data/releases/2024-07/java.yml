@@ -481,4 +481,37 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.40.0/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.19.5
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.19.5/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.18.4` to version `5.18.5`.
+    - Upgraded `azure-storage-blob` from `12.26.0` to version `12.26.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.18.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.18.5/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Use endpoint address's port when specified in connection string. (#40415)[https://github.com/Azure/azure-sdk-for-java/pull/40415]
+    - Fix parsing of `customEndpointAddress` to match one used in connection string. (#40415)[https://github.com/Azure/azure-sdk-for-java/pull/40415]
+    - Fixed issue where creating EventProcessorClient instances using the same EventProcessorClientBuilder instance could result in incorrect properties. ([#29875](https://github.com/Azure/azure-sdk-for-java/issues/29875))
+
+    #### Features Added
+
+    - Add support for local emulator.
+  GroupId: com.azure
 
