@@ -159,4 +159,26 @@ entries:
     #### Bugs Fixed
 
     - Fix the definition of the earliest event position.
+- Name: '@azure-rest/core-client'
+  Version: 2.1.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.1.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `onResponse` callback will now be called when the underlying request results in an error. In this scenario, the error to be thrown will be provided as the second argument to the callback.
+- Name: '@azure/core-lro'
+  Version: 3.0.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.0.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This is the first stable version for core-lro v3. To migrate the existing applications to v3, please refer to [Migration Guide](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/core-lro/docs/MIGRATION.md).
 
