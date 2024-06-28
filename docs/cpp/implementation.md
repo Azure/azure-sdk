@@ -119,7 +119,7 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 {% include requirement/MUST id="cpp-always-pass-context-by-reference" %} always pass `Azure::Core::Context` types by reference, preferably by `const` reference.
 {% include requirement/MUSTNOT id="cpp-must-not-cancel-input" %} cancel the input Context parameter.
 
-The cancellation requirement stems from the nature of an `Azure::Core::Context` object - there may be multiple `Azure::Core::Context` objects which share the same cancellation context - cancelling one cancels all of the shared contexts. To avoid this, a service client should instead create a new `Azure::Core::Context` from the original context using either `Context::WithValue`, `Context::WithDeadline`, or `Context::WithCancel` and cancel that new context.
+The cancellation requirement stems from the nature of an `Azure::Core::Context` object - there may be multiple `Azure::Core::Context` objects which share the same cancellation context - cancelling one cancels all of the shared contexts. To avoid this, a service client should instead create a new `Azure::Core::Context` from the original context using either `Context::WithValue`, `Context::WithDeadline` and cancel that new context.
 
 ### SDK Feature Implementation
 
