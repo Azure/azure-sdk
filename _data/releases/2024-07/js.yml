@@ -207,4 +207,14 @@ entries:
     - Added support for Cancel Translation - [cancel translation API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/cancel-translation)
     - Added support for Get Supported Document Formats - [get supported document formats API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-supported-document-formats)
     - Added support for Get Supported Glossary Formats - [get supported glossary formats API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-supported-glossary-formats)
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.1
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.1/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This is the initial beta release for the Azure AI Inference SDK, which is a common API supporting Azure AI Inference models.
 
