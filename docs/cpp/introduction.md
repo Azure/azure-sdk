@@ -70,6 +70,7 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
+
 ### Service Client {#cpp-client}
 
 Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
@@ -105,7 +106,7 @@ ExampleClient ExampleClient(
 }
 {% endhighlight %}
 
-% include requirement/MAY id="cpp-service-client-constructor-connectionstring" %} provide a constructor that takes a connection if the service supports it.
+{% include requirement/MAY id="cpp-service-client-constructor-connectionstring" %} provide a constructor that takes a connection if the service supports it.
 
 {% highlight cpp %}
 ExampleClient ExampleClient::CreateFromConnectionString(
@@ -118,7 +119,7 @@ ExampleClient ExampleClient::CreateFromConnectionString(
 }
 {% endhighlight %}
 
-% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
+{% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
 
 ##### Client Configuration
 
@@ -208,6 +209,8 @@ namespace _detail {
 
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
 
+{% include requirement/MUSTNOT id="cpp-design-types-or-methods-in-global-namespace" %} create types in the global namespace. All Azure SDK types MUST be in a namespace.
+
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
 
 {% highlight cpp %}
@@ -255,9 +258,11 @@ uint32 MyWeightKg;
 
 ##### Cancellation
 
-{% include requirement/MUST id="cpp-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `Context` parameter called _context_.
+{% include requirement/MUST id="cpp-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, have a final parameter of type `const Azure::Core::Context &` initialized to `= {}`
 
-The context should be further passed to all calls that take a context. DO NOT check the context manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
+The context should be further passed by reference (preferably as a `const` reference) to all calls that take a context. DO NOT check the context manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
+
+Note that cancellation is a *application developer* construct, Azure SDK clients MUST NOT cancel the `Context` object provided by the client. 
 
 ##### Mocking
 
@@ -390,6 +395,9 @@ If name collisions are likely and the TypeSpec cannot be changed, you can either
 
 {% include requirement/MUST id="cpp-model-names-fields-casing" %} define model fields using "PascalCase".
 
+{% include requirement/SHOULD id="cpp-design-naming-context" %} consider the context associated with structure fields when naming structure fields. Customers have expressed confusion when they encounter constructs like `secret.Value.Value()` or `options.TransationcalContentHash.Value().Value`.
+
+
 #### Enumerations
 
 {% include requirement/MUST id="cpp-design-enums" %} use an `enum` for parameters, properties, and return types when values are known.
@@ -441,7 +449,7 @@ Note: if your client library needs to be resilient to these kinds of errors you 
 
 {% include requirement/MAY id="cpp-design-logical-errorhandling-prec-check" %} check preconditions on function entry.
 
-{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-disablecheck" %} privide a means to disable precondition checks in release / optimized builds.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-disablecheck" %} provide a means to disable precondition checks in release / optimized builds.
 
 {% include requirement/MUST id="cpp-design-logical-errorhandling-prec-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
@@ -532,14 +540,23 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUST id="cpp-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
 
+#### Service Clients Created after 1/1/2024
+
+{% include requirement/MUSTNOT id="cpp-design-no-connection-strings" %} provide any authentication mechanism other than managed identity.
+
+{% include requirement/MUSTNOT id="cpp-design-no-custom-authentication" %} provide any non-standard authentication mechanism.
+
+
+#### Service Clients Created before 1/1/2024
+
 {% include requirement/SHOULDNOT id="cpp-design-logical-client-surface-no-connection-strings" %} support providing credential data via a connection string. Connection string interfaces should be provided __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
 
 {% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
 
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
 {% include requirement/MUSTNOT id="cpp-implementing-no-persistence-auth" %}
-persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
@@ -548,7 +565,7 @@ include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insec
 never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
 
 {% include requirement/MUST id="cpp-implementing-auth-policy" %}
-provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
 
 ### Namespaces {#cpp-namespace-naming}
 
@@ -602,6 +619,8 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
+{% include requirement/MUST id="cpp-design-naming-namespaces-internal" %} place types and functions intended for use in other Azure SDK Clients in a `_internal` namespace. Note that this *only* applies to types in the `Azure::Core` namespace.
+
 {% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `_detail` namespace.
 
 {% highlight cpp %}
@@ -628,6 +647,47 @@ struct HashComputation {
 const int g_privateConstant = 1729;
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
+
+#### Namespace stability contract
+
+##### Public types
+
+Types in the Public API surface (types not in an `_internal` or `_detail` namespace) form the public API surface of an Azure SDK package.
+
+{% include requirement/MUST id="cpp-design-public-types-semver" %} follow [semantic versioning](https://semver.org/) rules.
+
+##### Internal types
+
+Types in the Internal API surface (types in an `_internal` namespace) are not designed to be called from outside the Azure SDK repository.
+
+{% include requirement/MUSTNOT id="cpp-design-internal-types-no-public" %} define internal types in public Azure SDK headers. 
+
+{% include requirement/MUST id="cpp-design-internal-types-header-location" %} define internal types in headers located in an `internal` directory alongside existing public Azure SDK headers.
+
+{% include requirement/MAY id="cpp-design-internal-types-change" %} introduce breaking changes to internal types as long as those breaking changes will not break existing Azure SDK clients.
+
+{% include requirement/MAY id="cpp-design-internal-types-public-exception1" %} *reference* internal types in public headers.
+
+{% include requirement/MAY id="cpp-design-internal-types-public-exception2" %} include template specializations for internal templates in public headers to simplify the implementation.
+
+NOTE: Since these types are typically located in the `azure-core` package, care must be made when introducing breaking changes to these types, and when adding new internal types. For changes to the types, the `azure-core` implementation typically has to be released *before* any Azure SDK packages can take dependencies on those types.
+
+In addition, it is critical to realize that the only dependencies between Azure SDK packages is a >= dependency. That means that a particular version of an existing Azure SDK package is expected to work with any future versions of other Azure SDK packages, even of those packages on which it depends. That means that any breaking changes to internal types MUST be upward compatible.
+
+##### Private types
+Private types  are types located in a `_detail` namespace. Private types are only intended to be called within a single package, and follow the following requirements:
+
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} define private types in public Azure SDK headers.
+
+{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} consume internal types outside the package in which they are defined.
+
+{% include requirement/SHOULD id="cpp-design-private-types-private-location" %} declare and/or define private types under a `private` directory.
+
+{% include requirement/MAY id="cpp-design-private-types-private-no-guarantees" %} modify private types without fear of introducing breaking changes.
+
+{% include requirement/MAY id="cpp-design-private-types-public-exception1" %} *reference* private types in public headers.
+
+{% include requirement/MAY id="cpp-design-private-types-public-exception2" %} include template specializations for private templates in public headers to simplify the implementation.
 
 **Example Namespaces**
 
@@ -752,6 +812,46 @@ Filenames should be concise, but convey what role the file plays within the libr
 {% include requirement/SHOULD id="cpp-style-sub-sdk-header" %} have headers for smaller components that make sense to be used together. For example, `<azure/speech/translation.hpp>`.
 
 {% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
+
+{% include requirement/MUSTNOT id="cpp-style-define-non-azure-types" %} declare types which are not a part of the Azure SDK. This requirement precludes Azure headers from including 3rd party headers like `openssl.h` or `windows.h` since all of these headers define types which are not a part of the Azure SDK.
+
+### Source code layout
+
+{% include requirement/MUST id="cpp-docs-source-layout" %} lay out package source code as follows:
+
+- `<repository root>/sdk/`
+  - `<package namespace group>/`
+    - `<package name>/` - component root folder.
+        - `CHANGELOG.md` - Changelog for the component.
+        - `README.md` - Readme for the component.
+        - `inc/` - include files for the component.
+        - `src/` - source files for the component.
+        - `test/` - tests for the component.
+        - `samples/` - samples for the component.
+        - `vcpkg/` - vcpkg package for the component.
+
+{% include requirement/SHOULD id="cpp-docs-source-layout-exception" %} align the `<package namespace group>` element in the hierarchy to roughly conform to the other Azure SDK. For instance, the "eventhubs" service lives under the `messaging` package namespace group, but in most Azure SDKs, the "eventhubs" service client implementation lives in the `eventhubs` directory under the source root.
+
+{% include requirement/MUST id="cpp-docs-source-layout-inc" %} lay out directories under the `inc` directory as follows:
+
+- `inc/`
+    - `azure/`
+        - `<package namespace group>/` - eg `keyvault`, `messaging`, etc.
+            - `<package short name>/` - eg `certificates`, `blobs`, `datalake`, etc.
+                - `<package specific headers>`
+
+{% include requirement/MUST id="cpp-docs-source-layout-src" %} lay out directories under the `src` directory as follows:
+
+- `src/`
+    - `private/` - private headers and source files.
+    - `<package specific source files and headers>` - package implementation files.
+
+{% include requirement/MUST id="cpp-docs-source-layout-test" %} lay out directories under the `test` directory as follows:
+
+- `test/`
+    - `ut/` - unit tests for the package.
+    - `perf/` - performance tests for the package.
+    - `stress/` - stress/reliability tests for the package.
 
 ### Documentation Style
 
@@ -1042,6 +1142,8 @@ The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to fr
 {% include requirement/MUST id="cpp-repo-samples-examples" %} include runnable examples using `Azure::Identity::DefaultAzureCredential` and library-specific environment variables e.g., `AZURE_KEYVAULT_URL`.
 
 {% include requirement/MUST id="cpp-repo-samples-unique" %} use unique example file names within the `samples` folder.
+
+{% include requirement/MUST id="cpp-repo-samples-in-samples" %} locate the sample code within the `samples` folder.
 
 ## Commonly Overlooked C++ API Design Guidelines {#cpp-appendix-overlookedguidelines}
 
