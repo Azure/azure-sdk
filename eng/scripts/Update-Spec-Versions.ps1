@@ -123,13 +123,15 @@ function FindAllSpecs($specsRoot)
   #TODO: Map to tspconfig
   #$potentialTypeSpecs = Get-ChildItem -Recurse -Include tspconfig.yaml $specsRoot
 
+  $specificationRoot = (Join-Path $specsRoot "specification") -replace "\\", "/"
+
   $processedPaths = @{}
   foreach ($potentialSpec in $potentialSpecs)
   {
     $specPath = $potentialSpec -replace "\\", "/"
 
     if ($specPath -match "/(examples|scenarios|restler|common|common-types)/") { continue }
-    if ($specPath -notmatch "specification/(?<relSpecPath>[^/]+/(data-plane|resource-manager).*?/(preview|stable)/([^/]+))/[^/]+\.json$") { continue }
+    if ($specPath -notmatch "$specificationRoot/(?<relSpecPath>[^/]+/(data-plane|resource-manager).*?/(preview|stable)/([^/]+))/[^/]+\.json$") { continue }
 
     $relSpecPath = $matches["relSpecPath"]
 
