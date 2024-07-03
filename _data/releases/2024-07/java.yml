@@ -1079,4 +1079,19 @@ entries:
     #### Features Added
     * Added support for changing some request options dynamically without the need of restarting the application. - See [PR 40061](https://github.com/Azure/azure-sdk-for-java/pull/40061)
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.25
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.25/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added new library entries to the BOM:
+    - `azure-messaging-eventgrid-namespaces`
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
