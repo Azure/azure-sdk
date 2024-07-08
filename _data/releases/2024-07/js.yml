@@ -243,4 +243,48 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0-beta.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added output types:
+    - DevBoxActionDelayResultStatusOutput
+    - DevBoxActionTypeOutput
+    - DevBoxProvisioningStateOutput
+    - EnvironmentProvisioningStateOutput
+    - EnvironmentTypeEnableStatusOutput
+    - HibernateSupportOutput
+    - LocalAdminStatusOutput
+    - OperationStateOutput
+    - OsTypeOutput
+    - ParameterTypeOutput
+    - PoolHealthStatusOutput
+    - PowerStateOutput
+    - ScheduledFrequencyOutput
+    - ScheduledTypeOutput
+    - SkuNameOutput
+    - StopOnDisconnectEnableStatusOutput
+
+    #### Breaking Changes
+
+    - Rename interfaces to match operation names in Dev Center API documentation
+    - ListSchedules was renamed to ListSchedulesByPool
+    - GetSchedule was renamed to GetScheduleByPool
+    - ListDevBoxes was renamed to ListDevBoxesByUser
+    - GetDevBox was renamed to GetDevBoxByUser
+    - ListDevBoxActions was renamed to ListActions
+    - GetDevBoxAction was renamed to GetAction
+    - DelayAllActions was renamed to DelayActions
+    - ListAllEnvironments was renamed to ListEnvironments
+    - ListEnvironments was renamed to ListEnvironmentsByUser
+    - GetEnvironment was renamed to GetEnvironmentByUser
+    - CreateOrUpdateEnvironment was renamed to CreateOrReplaceEnvironment
+    - ListCatalogs was renamed to ListCatalogsByProject
+    - ListEnvironmentDefinitions was renamed to listEnvironmentDefinitionsByProject
 
