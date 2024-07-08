@@ -197,4 +197,28 @@ entries:
     #### Bugs Fixed
     - Workspace Create operation works without an application insights being provided, and creates a default appIn resource for normal workspaces in that case.
     - Project create operations works in general.
+- Name: azure-mgmt-appplatform
+  Version: 9.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_9.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgezones
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Edgezones
+  ServiceName: Edgezones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgezones_1.0.0b1/sdk/edgezones/azure-mgmt-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-oracledatabase
+  Version: 1.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_1.0.0/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
 
