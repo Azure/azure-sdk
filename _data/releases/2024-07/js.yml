@@ -287,4 +287,42 @@ entries:
     - CreateOrUpdateEnvironment was renamed to CreateOrReplaceEnvironment
     - ListCatalogs was renamed to ListCatalogsByProject
     - ListEnvironmentDefinitions was renamed to listEnvironmentDefinitionsByProject
+- Name: '@azure/core-util'
+  Version: 1.9.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.9.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Address React-Native regression after ESM migration [Issue #30065](https://github.com/Azure/azure-sdk-for-js/issues/30065)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.2
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix TypeError on some platforms when retrieving browser user agent data. [PR #30194](https://github.com/Azure/azure-sdk-for-js/pull/30194)
+    - Fix `ERR_INVALID_URL` error thrown from sanitizer [PR #30151](https://github.com/Azure/azure-sdk-for-js/pull/30151)
+
+    #### Features Added
+
+    - Add EdgeRuntime telemetry information [PR #30239](https://github.com/Azure/azure-sdk-for-js/pull/30239)
+- Name: '@azure/logger'
+  Version: 1.1.3
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.3/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding react-native logger support [PR #30076](https://github.com/Azure/azure-sdk-for-js/pull/30076)
 
