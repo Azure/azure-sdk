@@ -1553,4 +1553,22 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-storage-file-share_5.14.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-security-keyvault-jca
+  Version: 2.9.0-beta.2
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.9.0-beta.2/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the new system property `azure.keyvault.disable-challenge-resource-verification`, which can be set to `true` to disable challenge resource verification when authenticating against the Azure Key Vault service. For more information, please refer to [this link](https://devblogs.microsoft.com/azure-sdk/guidance-for-applications-using-the-key-vault-libraries/).
+
+    #### Breaking Changes
+    - Removed support for providing a custom login URI to get access tokens from via the system property `azure.login.uri`.
+
+    #### Bugs Fixed
+    - Fix bug: AccessTokenUtil does not urlencode its parameters when getting an access token. ([#40616](https://github.com/Azure/azure-sdk-for-java/issues/40616))
+    - Changed the authentication mechanism to allow for discovering the login URI for a given Azure Key Vault instance by requesting an authentication challenge from the service, as opposed to using a hard-coded list of URIs to choose from depending on a vault's URI. This should add support for customers using Azure Stack instances, for example.
+  GroupId: com.azure
 
