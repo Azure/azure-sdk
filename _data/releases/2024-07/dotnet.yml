@@ -242,4 +242,16 @@ entries:
     #### Features Added
 
     - Added `AsyncPageCollection<T>` and `PageCollection<T>` types as return types from paginated service operations, and `ContinuationToken` type for resuming collection state across processes.
+- Name: Azure.Core
+  Version: 1.41.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.41.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue that could result in `BearerTokenAuthenticationPolicy` fails to refresh a token, resulting in a `OperationCanceledException` ([#44882](https://github.com/Azure/azure-sdk-for-net/pull/44882)).
+    - Fixed case where a GeoJSON string could not be deserialized when the BoundingBox JSON value ("bbox") was set explicitly to null ([#44835](https://github.com/Azure/azure-sdk-for-net/pull/44835)).
 
