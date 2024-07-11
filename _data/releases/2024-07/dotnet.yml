@@ -231,4 +231,15 @@ entries:
 
     - Consumers can now provide their own value for the Operation ID when sending emails.
     New overloads have been added to `EmailClient` with the `operationId` parameter.
+- Name: System.ClientModel
+  Version: 1.1.0-beta.5
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.5/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AsyncPageCollection<T>` and `PageCollection<T>` types as return types from paginated service operations, and `ContinuationToken` type for resuming collection state across processes.
 
