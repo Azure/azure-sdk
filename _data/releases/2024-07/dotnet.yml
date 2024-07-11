@@ -219,4 +219,16 @@ entries:
 
     #### Bugs Fixed
     - SourceInput options which is a part of TranslationInput is now public. This allows users to enter source language, source storage, and document filter prefix and suffix.
+- Name: Azure.Communication.Email
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Email_1.1.0-beta.1/sdk/communication/Azure.Communication.Email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Consumers can now provide their own value for the Operation ID when sending emails.
+    New overloads have been added to `EmailClient` with the `operationId` parameter.
 
