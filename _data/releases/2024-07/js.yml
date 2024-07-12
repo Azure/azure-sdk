@@ -333,4 +333,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.1.0-beta.1/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure-rest/core-client'
+  Version: 2.2.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.2.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update serialization to not serialize Uint8Array if the content type is "application/json".
 
