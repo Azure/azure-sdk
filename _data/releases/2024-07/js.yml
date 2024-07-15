@@ -352,4 +352,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-informaticadatamanagement_1.0.0/sdk/informatica/arm-informaticadatamanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.6.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.6.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Parse the correct `etag` for the corresponding page in the `listConfigurationSettings` method.
 
