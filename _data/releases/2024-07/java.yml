@@ -1571,4 +1571,13 @@ entries:
     - Fix bug: AccessTokenUtil does not urlencode its parameters when getting an access token. ([#40616](https://github.com/Azure/azure-sdk-for-java/issues/40616))
     - Changed the authentication mechanism to allow for discovering the login URI for a given Azure Key Vault instance by requesting an authentication challenge from the service, as opposed to using a hard-coded list of URIs to choose from depending on a vault's URI. This should add support for customers using Azure Stack instances, for example.
   GroupId: com.azure
+- Name: azure-resourcemanager-informaticadatamanagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Informatica Data Management
+  ServiceName: Informatica Data Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-informaticadatamanagement_1.0.0/sdk/informaticadatamanagement/azure-resourcemanager-informaticadatamanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
