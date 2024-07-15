@@ -1580,4 +1580,108 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-informaticadatamanagement_1.0.0/sdk/informaticadatamanagement/azure-resourcemanager-informaticadatamanagement/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core
+  Version: 1.50.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.50.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `SyncRestProxy` to return `InputStream` instead of `Mono<InputStream>`. ([#40982](https://github.com/Azure/azure-sdk-for-java/pull/40982))
+
+    #### Features Added
+    - Added support for `getRefreshAt()` functionality to `AccessToken` to get the time at which the token should be refreshed. ([#40982](https://github.com/Azure/azure-sdk-for-java/pull/41038))
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.12.1
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.12.1/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to `1.50.0`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.15.2
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.15.2/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded Netty version logging (#40733)[https://github.com/Azure/azure-sdk-for-java/pull/40733]
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.26.1
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.26.1/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to `1.50.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.15.1
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.15.1/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.9.7
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.9.7/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removing duplicate ReactorSession::closeAsync call in session-endpoint error-handler. (#40667)[https://github.com/Azure/azure-sdk-for-java/pull/40667]
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.2.14
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.2.14/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to `1.50.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.4.14
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.4.14/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to `1.50.0`.
+  GroupId: com.azure
 
