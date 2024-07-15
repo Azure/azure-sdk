@@ -254,4 +254,20 @@ entries:
 
     - Fixed an issue that could result in `BearerTokenAuthenticationPolicy` fails to refresh a token, resulting in a `OperationCanceledException` ([#44882](https://github.com/Azure/azure-sdk-for-net/pull/44882)).
     - Fixed case where a GeoJSON string could not be deserialized when the BoundingBox JSON value ("bbox") was set explicitly to null ([#44835](https://github.com/Azure/azure-sdk-for-net/pull/44835)).
+- Name: Azure.ResourceManager.Redis
+  Version: 1.4.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Redis_1.4.0/sdk/redis/Azure.ResourceManager.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NewRelicObservability
+  Version: 1.1.0
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NewRelicObservability_1.1.0/sdk/newrelicobservability/Azure.ResourceManager.NewRelicObservability/CHANGELOG.md
+  ChangelogContent: ""
 
