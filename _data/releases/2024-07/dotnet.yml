@@ -368,4 +368,14 @@ entries:
 
     #### Bugs Fixed
     - Fixed bug where storage clients when constructed with URLs with '#' character would truncate the path at the '#'.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.46
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.46/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
 
