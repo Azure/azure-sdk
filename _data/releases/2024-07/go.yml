@@ -187,4 +187,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt/v1.0.0/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.13.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.13.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added runtime.NewRequestFromRequest(), allowing for a policy.Request to be created from an existing *http.Request.
 
