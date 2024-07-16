@@ -280,4 +280,92 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Updated README.md to reflect the latest changes
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.4.0-beta.1
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `LoggerProviderBuilder.AddAzureMonitorLogExporter` registration extension.
+    ([#44617](https://github.com/Azure/azure-sdk-for-net/pull/44617))
+
+    #### Bugs Fixed
+
+    * Added the `LogRecord.CategoryName` field to log and exception telemetry.
+    Previously the `CategoryName` field was omitted, which was inconsistent with
+    expected `ILogger` behavior, and with Application Insights classic behavior.
+    ([#44754](https://github.com/Azure/azure-sdk-for-net/pull/44754))
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.18.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.18.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.18.0-beta.1.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.19.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.19.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.19.0-beta.1.
+
+    #### Bugs Fixed
+    - Fixed bug where storage clients when constructed with URLs with '#' character would truncate the path at the '#'.
+- Name: Azure.Storage.Queues
+  Version: 12.19.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.19.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.19.0-beta.1.
+- Name: Azure.Storage.Blobs
+  Version: 12.21.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1.
+
+    #### Bugs Fixed
+    - Fixed bug where storage clients when constructed with URLs with '#' character would truncate the blob name at the '#'.
+- Name: Azure.Storage.Common
+  Version: 12.20.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.20.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.20.0-beta.1.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.19.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.19.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.19.0-beta.1.
+
+    #### Bugs Fixed
+    - Fixed bug where storage clients when constructed with URLs with '#' character would truncate the path at the '#'.
 
