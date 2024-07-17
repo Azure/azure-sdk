@@ -401,4 +401,70 @@ entries:
     `LogRecord.EventId` or `LogRecord.EventName`, preventing the `LogRecord` from
     being dropped.
     ([#44748](https://github.com/Azure/azure-sdk-for-net/pull/44748))
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.0.0-beta.2
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.0.0-beta.2/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `DownloadTransferValidationOptions` and `UploadTransferValidationOptions` from `ShareFileStorageResourceOptions`.
+    - Removed `ShareFileStorageResourceOptions.SmbProperties`, use the following instead:
+    - `ShareFileStorageResourceOptions.FilePermissionKey`
+    - `ShareFileStorageResourceOptions.FileAttributes`
+    - `ShareFileStorageResourceOptions.FileCreatedOn`
+    - `ShareFileStorageResourceOptions.FileLastWrittenOn`
+    - `ShareFileStorageResourceOptions.FileChangedOn`
+    - Removed `ShareFileStorageResourceOptions.HttpHeaders`, use the following instead:
+    - `ShareFileStorageResourceOptions.ContentType`
+    - `ShareFileStorageResourceOptions.ContentLanguage`
+    - `ShareFileStorageResourceOptions.ContentEncoding`
+    - `ShareFileStorageResourceOptions.ContentDisposition`
+    - `ShareFileStorageResourceOptions.CacheControl`
+    - Changed `ShareFileStorageResourceOptions.FileMetadata` and `DirectoryMetadata` to be wrapped by `DataTransferProperty` type to allow preserving.
+    - Removed `ShareFileStorageResourceOptions.FilePermissionKey` and `FilePermissions` use `ShareFileStorageResourceOptions.FilePermissions` instead.`
+
+    #### Features Added
+    - Improved upload and copying chunking strategy for large Share Files to improve speed
+    - Added ability to preserve Share File Metadata, properties, and Permissions on Share File to Share File copy.
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0-beta.5
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0-beta.5/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where `ChannelClosedException` could occur and be sent as an event to `ItemTransferFailed` when there was a failure during a transfer.
+
+    #### Breaking Changes
+    - Renamed `StorageResourceProperties` to `StorageResourceItemProperties`
+    - Renamed `StorageResourceReadStreamResult.ContentRange` to `Range`
+    - Removed the following members from `StorageResourceReadStreamResult`:
+    - `AcceptRanges`
+    - `RangeContentHash`
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.0.0-beta.5
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.0.0-beta.5/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `BlobStorageResourceOptions` members to be wrapped by `DataTransferProperty` type to allow preserving. The following members are affected:
+    - `BlobStorageResourceOptions.ContentType`
+    - `BlobStorageResourceOptions.ContentLanguage`
+    - `BlobStorageResourceOptions.ContentEncoding`
+    - `BlobStorageResourceOptions.ContentDisposition`
+    - `BlobStorageResourceOptions.CacheControl`
+    - `BlobStorageResourceOptions.Metadata`
+    - Changed `BlobStorageResourceContainerOptions.BlobType` from `Azure.Storage.Blobs.Models.BlobType` to `DataTransferProperty<Azure.Storage.Blobs.Models.BlobType>`
+
+    #### Features Added
+    - Added ability to preserve Blob Metadata and properties on Blob to Blob copy.
+    - Added ability to preserve Blob Type on Blob Container to Blob Container copy.
 
