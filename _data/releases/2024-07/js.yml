@@ -400,4 +400,14 @@ entries:
     #### Bugs Fixed
 
     - Fixed deserialization bugs in `AcsEmailEngagementTrackingReportReceivedEventData` and `AcsEmailDeliveryReportReceivedEventData` system events that caused the `DeliveryAttemptTimestamp` and `UserActionTimeStamp` properties to be null.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.2
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.2/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for text and image embeddings.
 
