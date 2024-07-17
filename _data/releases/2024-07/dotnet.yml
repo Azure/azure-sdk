@@ -467,4 +467,28 @@ entries:
     #### Features Added
     - Added ability to preserve Blob Metadata and properties on Blob to Blob copy.
     - Added ability to preserve Blob Type on Blob Container to Blob Container copy.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.1
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.1/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Rely on PeekMessagesAsync when calculating message queue length
+    - Fixing target base scale instance concurrency for queues
+    - Bumped version of Azure.Storage.Blobs to resolve issue where Blob Path was being truncated at '#' character.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.1
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.1/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Rely on PeekMessagesAsync when calculating message queue length
+    - Fixing target base scale instance concurrency for queues
+    - When grabbing Queue Metrics for amount of messages, will now use the QueueTriggerMetrics.QueueLength instead of the ApproximateMessagesCount for less stale metrics.
 
