@@ -1718,4 +1718,15 @@ entries:
     #### Features Added
     - Added support in `EnvironmentCredential` (and thus `DefaultAzureCredential` when it chooses `EnvironmentCredential`) for using subject name / issuer authentication with client certificates by setting `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` to `1` or `true`. [#40013](https://github.com/Azure/azure-sdk-for-java/issues/40013)
   GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.8.2
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.8.2/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix bug: AccessTokenUtil does not urlencode its parameters when getting an access token. ([40616](https://github.com/Azure/azure-sdk-for-java/issues/40616))
+  GroupId: com.azure
 
