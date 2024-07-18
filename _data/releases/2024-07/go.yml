@@ -198,4 +198,36 @@ entries:
     #### Features Added
 
     - Added runtime.NewRequestFromRequest(), allowing for a policy.Request to be created from an existing *http.Request.
+- Name: sdk/azidentity
+  Version: 1.8.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.7.0-beta.1
+    * Redesigned the persistent caching API. Encryption is now required in all cases
+    and persistent cache construction is separate from credential construction.
+    The `PersistentUserAuthentication` example in the package docs has been updated
+    to demonstrate the new API.
+
+    #### Features Added
+    * Restored persistent token caching feature
+- Name: sdk/azidentity/cache
+  Version: 0.3.0
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.0/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Removed optional fallback to plaintext storage. `azidentity/cache` now
+    always returns an error when it can't encrypt a persistent cache.
+
+    #### Features Added
+    * Added `New`, a constructor for persistent caches. See `azidentity` docs,
+    in particular the `PersistentUserAuthentication` example, for usage details.
 
