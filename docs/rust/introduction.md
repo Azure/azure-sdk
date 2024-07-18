@@ -831,7 +831,7 @@ This makes efficient use of generated client code for each services' TypeSpec or
 
 {% include requirement/MUST id="directory-structure-root" %} place all service directories under the `sdk/` root directory e.g., `sdk/keyvault`. The service directory name will often match what is in the [Azure/azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs) repository and will most often be the same across Azure SDK languages.
 
-{% include requirement/MUST id="directory-structure-crate" %} put all crate source under the service directory in a subdirectory using the name of the crate e.g., `sdk/keyvault/azure_security_keyvault_secrets/Cargo.toml`.
+{% include requirement/MUST id="directory-structure-crate" %} put all crate source under the service directory in a subdirectory using the name of the crate e.g., `sdk/keyvault/azure_security_keyvault_secrets/Cargo.toml`. This crate directory should correspond to a TypeSpec project and the crate name configured in the TypeSpec project's [`tspconfig.yaml`][rust-lang-typespec-config].
 
 {% include requirement/SHOULD id="directory-structure-lib" %} only export public APIs from the crate `lib.rs` and define all other types in suitable [modules][rust-lang-modules]:
 
