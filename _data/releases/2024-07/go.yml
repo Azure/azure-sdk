@@ -230,4 +230,26 @@ entries:
     #### Features Added
     * Added `New`, a constructor for persistent caches. See `azidentity` docs,
     in particular the `PersistentUserAuthentication` example, for usage details.
+- Name: sdk/storage/azblob
+  Version: 1.4.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.4.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * GetProperties() was called twice in DownloadFile method. Enhanced to call it only once, reducing latency.
+    * Updated `azcore` version to `1.13.0`
+- Name: sdk/storage/azfile
+  Version: 1.3.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.3.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * GetProperties() was called twice in DownloadFile method. Enhanced to call it only once, reducing latency.
+    * Updated `azcore` version to `1.13.0`
 
