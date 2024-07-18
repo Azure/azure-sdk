@@ -566,4 +566,58 @@ entries:
     - Fixed an error that prevented relative URIs from being used with [application properties](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-application-properties) in the `EventData.Properties` collection.
 
     - Fixed an error with ETW logs which caused structured arguments for Id 105 (Event Processor position determined) to be out-of-order with the message format.  This also caused the date to render incorrectly for some captures.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.4
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.4/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an error that prevented relative URIs from being used with [application properties](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-application-properties) in the `EventData.Properties` collection.
+
+    - Fixed an error with ETW logs which caused structured arguments for Id 105 (Event Processor position determined) to be out-of-order with the message format.  This also caused the date to render incorrectly for some captures.
+- Name: Microsoft.WCF.Azure.StorageQueues
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.WCF.Azure.StorageQueues_1.0.0-beta.1/sdk/extension-wcf/Microsoft.WCF.Azure.StorageQueues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to enable WCF clients to be able to send requests to a CoreWCF service which uses Azure Queue Storage as a transport as a modern replacement to using MSMQ.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.18.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.18.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue that caused connection strings using host names without a scheme to fail parsing and be considered invalid.
+
+    - Fixed an issue where the scheduled enqueue time was not cleared when creating a new message from a received message.
+
+    - Fixed an issue that prevented relative URIs from being used with [application properties](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-application-properties) in the `ServiceBusMessage.ApplicationProperties` and `ServiceBusReceivedMessage.ApplicationProperties` collections.
+
+    - Fixed an issue that caused `ServiceBusMessageBatch` to accept more than the allowed 1mb batch limit when sending to Service Bus entities with large message sizes enabled.
+
+    - Fixed issue where the `SupportOrdering` property was not being respected when set on `CreateTopicOptions`.
+- Name: Microsoft.CoreWCF.Azure.StorageQueues
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.CoreWCF.Azure.StorageQueues_1.0.0-beta.1/sdk/extension-wcf/Microsoft.CoreWCF.Azure.StorageQueues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to CoreWCF service for Azure Queue Storage to receive requests from clients as a modern replacement to using MSMQ.
 
