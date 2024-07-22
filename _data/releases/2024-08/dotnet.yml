@@ -7,4 +7,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.1.0-beta.2/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.9.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.9.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Overload the `DeleteEntity` method to allow an `ITableEntity` object as parameter.
+
+    #### Bugs Fixed
+    - Fixed an issue where custom models decorated with the `DataMemberAttribute` that didn't explicitly set a name caused the query filter to be malformed.
 
