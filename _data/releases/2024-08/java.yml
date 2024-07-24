@@ -44,4 +44,16 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.3.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-monitor-query
+  Version: 1.5.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.5.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added sovereign cloud support for `MetricsClient` and `MetricsAsyncClient`.
+  GroupId: com.azure
 
