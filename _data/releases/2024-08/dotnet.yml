@@ -122,4 +122,20 @@ entries:
     #### Other Changes
 
     - When the trigger's connection property is set to a valid connection string instead of an informational name, the mistake will be detected and sensitive information will be redacted from the error message to avoid accidental capture in logs and similar mechanisms.
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.2.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.0.0-beta.1/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
 
