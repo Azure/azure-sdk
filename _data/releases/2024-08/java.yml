@@ -304,4 +304,21 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.41.0/sdk/resourcemanager/azure-resourcemanager-authorization/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-ai-textanalytics
+  Version: 5.5.0
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.5.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Removed remaining `jackson-databind` usages and dependency from the project.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to version `1.50.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.1` to version `1.15.2`.
+  GroupId: com.azure
 
