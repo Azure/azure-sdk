@@ -321,4 +321,16 @@ entries:
     - Upgraded `azure-core` from `1.49.1` to version `1.50.0`.
     - Upgraded `azure-core-http-netty` from `1.15.1` to version `1.15.2`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.6.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.6.3/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    Fixed `FeatureFlagConfigurationSetting`'s `setKey()` which should always add the feature flag prefix `.appconfig.featureflag/` before the input key. ([#33332](https://github.com/Azure/azure-sdk-for-java/issues/33332))
+  GroupId: com.azure
 
