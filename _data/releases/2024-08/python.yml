@@ -111,4 +111,15 @@ entries:
     * Allow setting default chat completions configuration in the `ChatCompletionsClient` constructor.
     * Allow setting default embeddings configuration in the `EmbeddingsClient` constructor.
     * Add `model` as an optional input argument to the `embed` method of `EmbeddingsClient`.
+- Name: azure-health-deidentification
+  Version: 1.0.0b1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-health-deidentification_1.0.0b1/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Azure Health Deidentification client library
 
