@@ -341,4 +341,36 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed an issue where blob etag casing is different in the Path List API Spec is different from backend. Fixes [#29233](https://github.com/Azure/azure-rest-api-specs/issues/29233)
+- Name: sdk/storage/azfile
+  Version: 1.3.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.3.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add Rename Support to List Ranges API
+    * Updated service version to `2024-05-04`
+- Name: sdk/storage/azdatalake
+  Version: 1.2.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.2.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added ACL response headers in GetBlobProperties API for Files.
+    * Updated service version to `2024-05-04`
+- Name: sdk/storage/azblob
+  Version: 1.4.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.4.0-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated service version to `2024-05-04`.
 
