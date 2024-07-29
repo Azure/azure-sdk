@@ -850,4 +850,19 @@ entries:
     `XmlSerializable.toXml(XmlWriter, String)` with a null string as the second argument, as the `String` argument was
     always considered optional.
   GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.2.3
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.2.3/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.1` to version `1.50.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.1` to version `1.15.2`.
+  GroupId: com.azure
 
