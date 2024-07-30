@@ -929,4 +929,15 @@ entries:
     - Upgraded `azure-json` from `1.1.0` to version `1.2.0`.
     - Upgraded `azure-core` from `1.49.1` to version `1.50.0`.
   GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.9.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.9.0-beta.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a new configuration flag to cryptography clients to defer all cryptographic operations to the Key Vault service. ([#40384](https://github.com/Azure/azure-sdk-for-java/pull/40384))
+  GroupId: com.azure
 
