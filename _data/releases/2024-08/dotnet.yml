@@ -157,4 +157,16 @@ entries:
     #### Features Added
 
     - Azure Health Deidentification client library
+- Name: Azure.Core.Amqp
+  Version: 1.3.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.3.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of binary application properties.
+    - Fixed the logic used to set the `TimeToLive` value of the `AmqpMessageHeader` for received messages to be based on the difference of the `AbsoluteExpiryTime` and `CreationTime` properties of the `AmqpMessageProperties`.
 
