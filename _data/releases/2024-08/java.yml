@@ -940,4 +940,16 @@ entries:
     #### Features Added
     - Added a new configuration flag to cryptography clients to defer all cryptographic operations to the Key Vault service. ([#40384](https://github.com/Azure/azure-sdk-for-java/pull/40384))
   GroupId: com.azure
+- Name: azure-health-deidentification
+  Version: 1.0.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Azure Deidentification client library for Java. This package contains Microsoft Azure Deidentification client library.
+  GroupId: com.azure
 
