@@ -207,4 +207,16 @@ entries:
     #### Features Added
 
     - Azure Deidentification client library for JS. This package contains Microsoft Azure Deidentification client library.
+- Name: '@azure/identity'
+  Version: 4.4.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.4.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improved error messages for `AzurePipelinesCredential` for Authentication Failed scenarios. [#30387](https://github.com/Azure/azure-sdk-for-js/pull/30387)
+    - Improved token parsing for `AzurePowerShellCredential` even with warning messages. [#30508](https://github.com/Azure/azure-sdk-for-js/pull/30508)
 
