@@ -1000,4 +1000,29 @@ entries:
     - Upgraded `azure-core` from `1.49.1` to version `1.50.0`.
     - Upgraded `azure-core-http-netty` from `1.15.1` to version `1.15.2`.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.23.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.23.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    - New ACS Router events
+    - Fix serialization bug in `AcsEmailDeliveryReportReceivedEventData` and `AcsEmailEngagementTrackingReportReceivedEventData`
+  GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.26
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.26/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
