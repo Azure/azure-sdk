@@ -12,4 +12,21 @@ entries:
     - Added `ClientAssertionCredential` to enable applications to authenticate with custom client assertions.
     - Added support for providing a Resource ID to `ManagedIdentityCredential`.
     - Added support for customizing the IMDS endpoint within `ManagedIdentityCredential`.
+- Name: azure-core
+  Version: 1.14.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new constructor for `Azure::Core::Context` that takes a `std::chrono::system_clock::time_point` deadline. This enables creating a new context directly with a deadline.
+
+    #### Breaking Changes
+
+    - Deprecated the `Azure::Core::Context::ApplicationContext` object.
+    - If customer code is using `Azure::Core::Context::ApplicationContext`, the customer should instead create their own root context object which is used
+    wherever the customer would have previously used `Azure::Core::Context::ApplicationContext`, i.e. `Azure::Core::Context(deadline)` instead of `Azure::Core::Context::ApplicationContext.WithDeadline(deadline)`.
 
