@@ -6,6 +6,8 @@ ESTS-R was originally added as an optional parameter in Azure Identity; however,
 
 Support for ESTS-R is provided today via the `AZURE_REGIONAL_AUTHORITY_NAME` environment variable. When provided, the following credentials will pass the regional authority to MSAL when issuing token requests:
 
+> Note: Only the credentials listed here support ESTS-R. The environment variable is essentially ignored for other credentials. Support for ESTS-R on other credentials requires an ask from MSAL to accept the `azureRegion` parameter.
+
 - ClientSecretCredential
 - ClientAssertionCredential
 - ClientCertificateCredential
