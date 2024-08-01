@@ -1,0 +1,205 @@
+entries:
+- Name: Azure.ResourceManager.Quota
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.1.0-beta.2/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.9.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.9.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Overload the `DeleteEntity` method to allow an `ITableEntity` object as parameter.
+
+    #### Bugs Fixed
+    - Fixed an issue where custom models decorated with the `DataMemberAttribute` that didn't explicitly set a name caused the query filter to be malformed.
+- Name: Azure.Identity
+  Version: 1.13.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.13.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Previously, if a clientID or ResourceID was specified for Cloud Shell managed identity, which is not supported, the clientID or resourceID would be silently ignored. Now, an exception will be thrown if a clientID or resourceID is specified for Cloud Shell managed identity.
+- Name: Azure.Storage.Common
+  Version: 12.20.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.20.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.47
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.47/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.19.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.19.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Files.Shares
+  Version: 12.19.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.19.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.18.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.18.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs
+  Version: 12.21.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Queues
+  Version: 12.19.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.19.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.4
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When the trigger's connection property is set to a valid connection string instead of an informational name, the mistake will be detected and sensitive information will be redacted from the error message to avoid accidental capture in logs and similar mechanisms.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.2
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.2/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When the trigger's connection property is set to a valid connection string instead of an informational name, the mistake will be detected and sensitive information will be redacted from the error message to avoid accidental capture in logs and similar mechanisms.
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.2.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.0.0-beta.1/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppService
+  Version: 1.2.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.2.0/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Health.Deidentification
+  Version: 1.0.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Deidentification_1.0.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Azure Health Deidentification client library
+- Name: Azure.Core.Amqp
+  Version: 1.3.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.3.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of binary application properties.
+    - Fixed the logic used to set the `TimeToLive` value of the `AmqpMessageHeader` for received messages to be based on the difference of the `AbsoluteExpiryTime` and `CreationTime` properties of the `AmqpMessageProperties`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.4.2
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.4.2/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-m5vv-6r4h-3vj9), updating the transitive dependency for `Azure.Identity` to v1.11.4 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.18.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.18.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Core.Amqp` dependency to 1.3.1, which includes a fix to serialization of binary application properties.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.5/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Core.Amqp` dependency to 1.3.1, which includes a fix to serialization of binary application properties.
+
