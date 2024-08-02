@@ -254,4 +254,49 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0-beta.1/sdk/computefleet/arm-computefleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-xml'
+  Version: 1.4.3
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.3/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30493](https://github.com/Azure/azure-sdk-for-js/pull/30493)
+- Name: '@azure/logger'
+  Version: 1.1.4
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.4/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+- Name: '@azure/core-util'
+  Version: 1.9.2
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.9.2/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.3
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.3/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The `request` and `response` properties on `RestError` are now non-enumerable.
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
 
