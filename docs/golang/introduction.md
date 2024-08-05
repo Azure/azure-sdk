@@ -72,17 +72,20 @@ Azure services will be exposed to Go developers as one or more _service client_ 
 
 Your API surface consists of one or more service clients that the consumer instantiates to connect to your service, plus a set of supporting types.
 
-{% include requirement/MUST id="golang-client-naming" %} name service client types with the `Client` suffix.
-
+{% include requirement/MUST id="golang-client-naming-onlyclient" %} name the client `Client`. The combination of the package and the type provide enough context.
 ```go
-type WidgetClient struct {
+package widget
+
+type Client struct {
 	// all fields MUST NOT be exported
 }
+
+// referenced as widget.Client
 ```
 
 #### Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then the preferred credential type is used instead.  Constructors MUST return the client instance by reference.
+{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor (eg: `NewClient`) MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then this constructor should not exist.  Constructors MUST return the client instance by reference.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.
@@ -428,6 +431,14 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 ### Error Handling
 
 {% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
+
+{% include requirement/MUST id="golang-errors-pointer" %} return custom errors (such as `azcore.ResponseError`) as a pointer. For instance:
+
+```go
+func example() error {
+	return &azcore.ResponseError{}
+}
+```
 
 {% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
 
