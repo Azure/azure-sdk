@@ -6,4 +6,3 @@
 | `process`           | Node Process polyfill (though you should prefer to use small stubs) |
 | `rhea`              | Library for talking over AMQP |
 | `rhea-promise`      | Promisified version of `rhea` |
-| `tough-cookie`      | Support cookies, even in Node |
