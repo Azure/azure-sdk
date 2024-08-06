@@ -29,4 +29,27 @@ entries:
     - Deprecated the `Azure::Core::Context::ApplicationContext` object.
     - If customer code is using `Azure::Core::Context::ApplicationContext`, the customer should instead create their own root context object which is used
     wherever the customer would have previously used `Azure::Core::Context::ApplicationContext`, i.e. `Azure::Core::Context(deadline)` instead of `Azure::Core::Context::ApplicationContext.WithDeadline(deadline)`.
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential` for authenticating an Azure Pipelines service connection with workload identity federation.
+    - Added `ClientAssertionCredential` to enable applications to authenticate with custom client assertions.
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0-beta.5
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-administration_4.0.0-beta.5/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Backup/Restore operations for Key Vault HSM.
 
