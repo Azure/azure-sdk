@@ -326,4 +326,16 @@ entries:
     - Support for the audio streaming
     - Expose original PSTN number target from incoming call event in call connection properties
     - Support for VoIP to PSTN transfer scenario
+- Name: '@azure/communication-chat'
+  Version: 1.5.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.28 with React Native support.
+    - Updated @azure/core-client and @azure/core-rest-pipeline version.
 
