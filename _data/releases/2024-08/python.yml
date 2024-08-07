@@ -183,4 +183,40 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
+- Name: azure-storage-file-share
+  Version: 12.18.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.18.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+    - Added support for Entra ID authentication for all data plane file operations that were previously not enabled.
+    - Added support to set `paid_bursting_enabled`, `paid_bursting_bandwidth_mibps`, and `paid_bursting_iops` for Share's
+    `create_share` and `set_share_properties` APIs, and also retrieve them on the `get_share_properties` API.
+    - Added `file_permission_format` to specify permission format for Share's `create_permission_for_share` and
+    `get_permission_for_share` APIs; File's `create_file`, `rename_file`, and `set_http_headers` APIs; and
+    Directory's `rename_directory` and `set_http_headers` APIs.
+- Name: azure-storage-queue
+  Version: 12.12.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.12.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+- Name: azure-storage-blob
+  Version: 12.23.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.23.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
 
