@@ -114,4 +114,15 @@ entries:
     * Azure ML (when a resource ID is specified; client IDs are supported)
     * Cloud Shell
     * Service Fabric
+- Name: sdk/azcore
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.14.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added field `Attributes` to `runtime.StartSpanOptions` to simplify creating spans with attributes.
 
