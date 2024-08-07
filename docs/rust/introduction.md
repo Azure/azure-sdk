@@ -980,6 +980,22 @@ pub struct Secret {
 
 This will impact line numbers, so you should only export APIs publicly from `lib.rs`.
 
+{% include requirement/MAY id="rust-documentation-module-readme" %} include a separate `README.md` for a module as module documentation e.g., for module `http` defined in `http/mod.rs`:
+
+```rust
+#![doc = include_str!("README.md")]`
+```
+
+This would include the contents of `http/README.md`, which would render documentation for developers browing in the GitHub web UI, as well as compile and potentially run any tests you have defined as examples in the `README.md` e.g.,
+
+````markdown
+This is how you would construct a client:
+
+```rust no_run
+let client = SecretClient::new(...);
+```
+````
+
 {% include requirement/MUST id="rust-documentation-parameters" %} document all parameters. Prior to [conventional doc comment markdown headers][rust-lang-rustdoc-headings], declare an `Arguments` heading as needed (not needed for `&self`):
 
 ```rust
