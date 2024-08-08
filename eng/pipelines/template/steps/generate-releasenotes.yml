@@ -43,6 +43,10 @@ steps:
         {
           $secondFridayOfMonth = [DateTime]"2024-07-19"
         }
+        elseif ($d.Year -eq 2024 -and $d.Month -eq 9)
+        {
+          $secondFridayOfMonth = [DateTime]"2024-09-20"
+        }
 
         return $secondFridayOfMonth
       }
