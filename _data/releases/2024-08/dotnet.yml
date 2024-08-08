@@ -409,4 +409,25 @@ entries:
     - 2022-05-01
     - 2023-04-01
     - 2023-11-15-preview
+- Name: Azure.Storage.Blobs
+  Version: 12.21.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] WrapKeyInternal to correctly call WrapKey in sync flow #42160
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.4
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.4/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.ServiceBus` to 7.18.1. Previous release still depended on 7.17.5.
 
