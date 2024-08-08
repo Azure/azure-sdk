@@ -498,4 +498,35 @@ entries:
     ##### Dropped Support for TypeScript 4.1
 
     - We have opted to discontinue support for TypeScript version 4.1. Consequently, the minimum supported TypeScript version has been elevated to 4.2. Kindly ensure that your environment is promptly updated to align with these changes.
+- Name: '@azure/app-configuration'
+  Version: 1.7.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.7.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `listLabels` method to list all the labels in the configuration setting store.
+
+    Example:
+
+    ```typescript
+    const allLabels = client.listLabels();
+    ```
+
+    See [`listLabels.ts`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/typescript/src/listLabels.ts) for more information now how to use this feature
+
+    - Add `tagsFilter` in the option bag for `listConfigurationSettings` method. This feature allows you to filter configuration settings by specifying tags.
+
+    Example:
+
+    ```typescript
+    const allProdTags = client.listConfigurationSettings({
+    tagsFilter: ["production=prod*"],
+    });
+    ```
+    See [`listConfigurationSettings.ts`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/typescript/src/listConfigurationSettings.ts) for more information now how to use this feature.
+    - Add `tagsFilter` in `ConfigurationSettingsFilter` so that you can create snapshot by filtering configuration settings tags.
 
