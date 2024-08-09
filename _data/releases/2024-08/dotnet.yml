@@ -430,4 +430,17 @@ entries:
     #### Other Changes
 
     - Bump dependency on `Azure.Messaging.ServiceBus` to 7.18.1. Previous release still depended on 7.17.5.
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.4.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.4.0/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added method overloads `serviceClient.GetClientAccessUri`, `serviceClient.GetClientAccessUri` for MQTT clients.
+    - Added method `serviceClient.AddConnectionsToGroups` to add filtered connections to specified multiple groups.
+    - Added method `serviceClient.RemoveConnectionsFromGroups` to remove filtered connections from specified multiple groups.
 
