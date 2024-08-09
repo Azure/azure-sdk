@@ -1888,4 +1888,16 @@ entries:
     - Added a new property `tagsFilter` to `SettingSelector` to support filtering settings or revisions with tags filter.
     - Added a new property `tags` to `ConfigurationSettingsFilter` to support filtering settings with tags filter for snapshot.
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.28
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.28/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - [Migrate LiveMetric and VM metadata data models to azure-json](https://github.com/Azure/azure-sdk-for-java/pull/41458)
+    - [Enable spotless code formatting](https://github.com/Azure/azure-sdk-for-java/pull/41462)
+  GroupId: com.azure
 
