@@ -249,6 +249,17 @@ pub mod builders {
 
 {% include requirement/MUST id="rust-client-api-version-override" %} allow the consumer to explicitly set a service API version when instantiating the service client.
 
+{% include requirement/MUST id="rust-client-api-version-format" %} define an enum with values for each supported service API version in the following format:
+
+* Starts with a "V".
+* Periods are replaced with "_".
+* The first letter of each word is capitalized.
+
+Examples:
+
+* "7.6-preview.1" -> `V7_6_Preview_1`
+* "2024-08-07-preview" -> `V2024_08_07_Preview`
+
 ##### Mocking {#rust-client-mocking}
 
 {% include requirement/MUST id="rust-client-mocking-trait-name" %} define a trait named after the client name + "Methods" e.g., `SecretClientMethods`.
