@@ -1,0 +1,38 @@
+entries:
+- Name: azure-maps-render
+  Version: 2.0.0b1
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-render_2.0.0b1/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Render API `2024-04-01`
+- Name: azure-maps-search
+  Version: 2.0.0b1
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-search_2.0.0b1/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Removed Methods**
+    - Removed the `fuzzy_search` method.
+    - Removed the `search_point_of_interest` method.
+    - Removed the `search_address` method.
+    - Removed the `search_nearby_point_of_interest` method.
+    - Removed the `search_point_of_interest_category` method.
+    - Removed the `search_structured_address` method.
+    - Removed the `get_geometries` method.
+    - Removed the `get_point_of_interest_categories` method.
+    - Removed the `reverse_search_address` method.
+    - Removed the `reverse_search_cross_street_address` method.
+    - Removed the `search_inside_geometry` method.
+    - Removed the `search_along_route` method.
+    - Removed the `fuzzy_search_batch` method.
+    - Removed the `search_address_batch` method.
+
