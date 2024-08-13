@@ -35,4 +35,25 @@ entries:
     - Removed the `search_along_route` method.
     - Removed the `fuzzy_search_batch` method.
     - Removed the `search_address_batch` method.
+- Name: azure-messaging-webpubsubservice
+  Version: 1.2.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.2.1/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix endpoint parsing issues
+- Name: azure-ai-ml
+  Version: 1.19.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.19.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Workspace update no longer broken for older workspaces due to deprecated tags.
+    - Support credential-less fileshare datastore
 
