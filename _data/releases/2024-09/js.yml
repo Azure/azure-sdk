@@ -32,4 +32,15 @@ entries:
     #### Bugs Fixed
 
     - Group call now support the audio streaming
+- Name: '@azure/core-sse'
+  Version: 2.1.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.1.3/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes a bug when running in NodeJS where we attempt to close the underlying socket despite it being set to null when the stream has been consumed [BUG [#30414](https://github.com/Azure/azure-sdk-for-js/issues/30414)].
 
