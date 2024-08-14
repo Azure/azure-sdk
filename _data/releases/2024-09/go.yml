@@ -1,0 +1,13 @@
+entries:
+- Name: sdk/ai/azopenai
+  Version: 0.6.1
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.6.1/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Client now respects the `InsecureAllowCredentialWithHTTP` flag for allowing non-HTTPS connections. Thank you @ukrocks007!  (PR#23188)
+
