@@ -60,4 +60,15 @@ entries:
 
     - Added support in `EnvironmentCredential` and `DefaultAzureCredential` for `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` environment variable to configure subject name / issuer authentication. [#30570](https://github.com/Azure/azure-sdk-for-js/pull/30570)
     - Added support for `AsSecureString` in `AzurePowerShellCredential`. [#30720](https://github.com/Azure/azure-sdk-for-js/pull/30720)
+- Name: '@azure-rest/batch'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.1/sdk/batch/batch-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This is the initial beta release for the Azure Batch SDK, which is a common API supporting Azure Batch services.
 
