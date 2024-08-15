@@ -172,4 +172,15 @@ entries:
     #### Other Changes
 
     - Updated reference to `Azure.Security.KeyVault.Secrets` v4.6.0 to mitigate a reported SSRF vulnerability.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.5
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.5/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency `Azure.Core` to version `1.42.0`.
 
