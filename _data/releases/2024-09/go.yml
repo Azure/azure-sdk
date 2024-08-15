@@ -18,4 +18,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/healthdataaiservices/armhealthdataaiservices/v0.1.0/sdk/resourcemanager/healthdataaiservices/armhealthdataaiservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/messaging/azeventhubs
+  Version: 1.2.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.2.2/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that where a short context deadline could prevent recovery from ever happening. The end result would be a broken PartitionClient/ConsumerClient that would never recover from the underlying failure. (PR#23337)
 
