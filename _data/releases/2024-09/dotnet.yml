@@ -150,4 +150,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppComplianceAutomation_1.0.0/sdk/appcomplianceautomation/Azure.ResourceManager.AppComplianceAutomation/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.2.4
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.2.4/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated reference to `Azure.Security.KeyVault.Keys` v4.6.0 to mitigate a reported SSRF vulnerability.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.3.2
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.3.2/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated reference to `Azure.Security.KeyVault.Secrets` v4.6.0 to mitigate a reported SSRF vulnerability.
 
