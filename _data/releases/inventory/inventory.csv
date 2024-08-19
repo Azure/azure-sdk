@@ -28,10 +28,10 @@ Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvau
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,
 Key Vault,0,Key Vault - Secrets ,data,C++,,,11,false,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,
-Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/17/2024
-Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/17/2024
-Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/17/2024
-Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/17/2024
+Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,
 Tables,0,Tables,data,C++,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables,3,false,1,
 AI,0,AI Model Inference,data,.NET,,,11,false,Azure.AI.Inference,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,Anomaly Detector,data,.NET,Microsoft.Azure.CognitiveServices.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.AnomalyDetector_1.0.0-preview.1/sdk/cognitiveservices/AnomalyDetector,1,false,Azure.AI.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector,3,false,1,
@@ -77,7 +77,7 @@ Extensions,0,Functions Extensions - WebPubSub,data,.NET,,,11,false,Microsoft.Azu
 Health Deidentification,0,Health Deidentification,data,.NET,,,11,false,Azure.Health.Deidentification,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices,3,false,1,
 Cognitive Services,0,Health Insights Cancer Profiling,data,.NET,,,11,false,Azure.Health.Insights.CancerProfiling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,.NET,,,11,false,Azure.Health.Insights.ClinicalMatching,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
-Cognitive Services,0,Health Insights Radiology Insights,data,.NET,,,11,false,Azure.Health.Insights.RadiologyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
+Cognitive Services,0,Health Insights Radiology Insights,data,.NET,,,11,false,Azure.Health.Insights.RadiologyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,10,false,1,08/16/2024
 Cognitive Services,0,Image Analysis,data,.NET,,,11,false,Azure.AI.Vision.ImageAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/vision,3,false,1,
 Key Vault,0,Key Vault - Administration,data,.NET,,,11,false,Azure.Security.KeyVault.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,02/14/2024
 Key Vault,0,Key Vault - Certificates,data,.NET,,,11,false,Azure.Security.KeyVault.Certificates,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,02/14/2024
@@ -696,7 +696,7 @@ Large Instance,0,Resource Management - Large Instance,mgmt,Go,,,11,false,sdk/res
 Links,0,Resource Management - Links,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlinks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlinks,10,false,1,11/23/2023
 Load Testing,0,Resource Management - Load Testing,mgmt,Go,,,11,false,sdk/resourcemanager/loadtesting/armloadtesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/loadtesting/armloadtesting,10,false,1,11/24/2023
 Locks,0,Resource Management - Locks,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armlocks,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlocks,10,false,1,11/23/2023
-Log Analytics,0,Resource Management - Log Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/operationalinsights/armoperationalinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationalinsights/armoperationalinsights,10,false,1,11/24/2023
+Log Analytics,0,Resource Management - Log Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/operationalinsights/armoperationalinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/operationalinsights/armoperationalinsights,10,false,1,
 Logic Apps,0,Resource Management - Logic Apps,mgmt,Go,,,11,false,sdk/resourcemanager/logic/armlogic,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/logic/armlogic,10,false,1,11/24/2023
 Logz,0,Resource Management - Logz,mgmt,Go,,,11,false,sdk/resourcemanager/logz/armlogz,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/logz/armlogz,10,false,1,11/24/2023
 M365 Security and Compliance,0,Resource Management - M365 Security and Compliance,mgmt,Go,,,11,false,sdk/resourcemanager/m365securityandcompliance/armm365securityandcompliance,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/m365securityandcompliance/armm365securityandcompliance,3,false,1,
@@ -906,15 +906,15 @@ Schema Registry,0,Schema Registry,data,Java,,,11,false,azure-data-schemaregistry
 Schema Registry,0,Schema Registry - Avro,data,Java,,,11,false,azure-data-schemaregistry-apacheavro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,07/27/2024
 Schema Registry,0,Schema Registry - JSON,data,Java,,,11,false,azure-data-schemaregistry-jsonschema,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,3,false,1,
 Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,07/27/2024
-Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/208df4bf9a11d5d40d498fff0129d9cdeb06f8fc/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
+Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/208df4bf9a11d5d40d498fff0129d9cdeb06f8fc/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Blobs Changefeed,data,Java,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Blobs Cryptography,data,Java,,,11,false,azure-storage-blob-cryptography,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
+Storage,0,Storage - Blobs Cryptography,data,Java,,,11,false,azure-storage-blob-cryptography,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Blobs NIO,data,Java,,,11,false,azure-storage-blob-nio,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,Java,azure-data-lake-store-sdk,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Files Share,data,Java,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Internal Avro,data,Java,,,11,false,azure-storage-internal-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Queues,data,Java,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,07/18/2024
+Storage,0,Storage - Files Data Lake,data,Java,azure-data-lake-store-sdk,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,Java,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Internal Avro,data,Java,,,11,false,azure-storage-internal-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Queues,data,Java,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
 Synapse,0,Synapse - AccessControl,data,Java,,,11,false,azure-analytics-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,Java,,,11,false,azure-analytics-synapse-artifacts,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Managed Private Endpoints,data,Java,,,11,false,azure-analytics-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
@@ -1055,7 +1055,7 @@ Mongocluster,0,Resource Management - Mongocluster,mgmt,Java,,,11,false,azure-res
 Monitor,0,Resource Management - Monitor,mgmt,Java,azure-mgmt-monitor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-monitor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,07/25/2024
 MySQL,0,Resource Management - MySQL,mgmt,Java,azure-mgmt-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mysql,10,false,1,01/24/2022
 MySQL,0,Resource Management - MySQL Flexible Server,mgmt,Java,,,11,false,azure-resourcemanager-mysqlflexibleserver,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mysqlflexibleserver,3,false,1,
-NetApp Files,0,Resource Management - NetApp Files,mgmt,Java,azure-mgmt-netapp,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/netapp/mgmt-v2019_06_01,10,true,azure-resourcemanager-netapp,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/netapp,10,false,1,07/24/2024
+NetApp Files,0,Resource Management - NetApp Files,mgmt,Java,azure-mgmt-netapp,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/netapp/mgmt-v2019_06_01,10,true,azure-resourcemanager-netapp,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/netapp,10,false,1,08/19/2024
 Network,0,Resource Management - Network,mgmt,Java,azure-mgmt-network,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-network,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager,10,false,1,07/25/2024
 Network Analytics,0,Resource Management - Network Analytics,mgmt,Java,,,11,false,azure-resourcemanager-networkanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/networkanalytics,10,false,1,01/24/2024
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,Java,,,11,false,azure-resourcemanager-networkcloud,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/networkcloud,10,false,1,08/24/2023
@@ -1265,7 +1265,7 @@ Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://git
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
 Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@azure-rest/health-deidentification,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthdataaiservices/azure-health-deidentification/,3,false,1,
-Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,3,false,1,
+Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,10,false,1,08/16/2024
 Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,07/31/2024
 Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,06/10/2024
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
@@ -1676,9 +1676,9 @@ Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,08/06/2024
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,07/18/2024
-Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,07/18/2024
+Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
 Synapse,0,Synapse - AccessControl,data,Python,,,11,false,azure-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse Analytics,0,Synapse - Artifacts,data,Python,,,11,false,azure-synapse-artifacts,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Python,,,11,false,azure-synapse-monitoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
@@ -1948,6 +1948,7 @@ Extensions,0,Functions Extensions - WebPubSub,data,Java,,,11,false,Missing: Crea
 Extensions,0,Functions Extensions - WebPubSub,data,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
 Extensions,0,Functions Extensions - WebPubSub,data,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
 Extensions,0,Functions Extensions - WebPubSub,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
+Cognitive Services,0,Health Insights Radiology Insights,data,Go,,,11,false,Missing: Created from existing package: Azure.Health.Insights.RadiologyInsights,,2,false,0,
 Key Vault,0,Key Vault - Keys,data,Go,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Keys,,2,false,0,
 Load Testing,0,Load Testing,data,Go,,,11,false,Missing: Created from existing package: Azure.Developer.LoadTesting,,2,false,0,
 Metrics Advisor,0,Metrics Advisor,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.MetricsAdvisor,,2,false,0,
