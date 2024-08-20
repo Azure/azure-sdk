@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+* Welcome to the October release of the Azure SDK. Read more on our [October Release Blog](https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-october-2023/). 
 
 ## Release Notes
 

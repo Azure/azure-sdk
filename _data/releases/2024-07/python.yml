@@ -1,0 +1,261 @@
+entries:
+- Name: azure-mgmt-mobilenetwork
+  Version: 3.3.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mobilenetwork_3.3.0/sdk/mobilenetwork/azure-mgmt-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagemover
+  Version: 2.1.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_2.1.0/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 7.3.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_7.3.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 21.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.2.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.17.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.16.0.
+    > Only code written against a beta version such as 1.17.0b1 is affected.
+    - `AzurePipelinesCredential` now has a required keyword argument `system_access_token`.  ([#35858](https://github.com/Azure/azure-sdk-for-python/pull/35858))
+
+    #### Bugs Fixed
+
+    - Allow credential chains to continue when an IMDS probe request returns a non-JSON response in `ManagedIdentityCredential`. ([#36016](https://github.com/Azure/azure-sdk-for-python/pull/36016))
+- Name: azure-ai-ml
+  Version: 1.17.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.17.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Issues with workspace connections fixed.
+- Name: azure-mgmt-cosmosdb
+  Version: 9.5.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.5.1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-imagebuilder
+  Version: 1.4.0
+  DisplayName: Resource Management - Image Builder
+  ServiceName: Image Builder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-imagebuilder_1.4.0/sdk/compute/azure-mgmt-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-oracledatabase
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_1.0.0b2/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b27
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b27/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Default missing/invalid status codes to "0" for standard metrics/trace payloads, change
+    success criteria to `False` for those invalid cases, change success criteria to status_code < 400 for
+    both client and server standard metrics
+    ([#36079](https://github.com/Azure/azure-sdk-for-python/pull/36079))
+
+    #### Features Added
+
+    - Implement redirect for live metrics
+    ([#35910](https://github.com/Azure/azure-sdk-for-python/pull/35910))
+- Name: azure-identity
+  Version: 1.17.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.17.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Continue to attempt requesting token if the probing request receives non-json response. ([#36184](https://github.com/Azure/azure-sdk-for-python/pull/36184))
+- Name: azure-ai-inference
+  Version: 1.0.0b2
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-inference_1.0.0b2/sdk/ai/azure-ai-inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    The field `input_tokens` was removed from class `EmbeddingsUsage`, as this was never defined in the
+    REST API and the service never returned this value.
+
+    #### Features Added
+
+    Add `model` as an optional input argument to the `complete` method of `ChatCompletionsClient`.
+- Name: azure-ai-translation-text
+  Version: 1.0.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-text_1.0.1/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where Entra Id authentication couldn't be used with custom endpoint.
+- Name: azure-mgmt-redisenterprise
+  Version: 3.1.0b1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_3.1.0b1/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-scvmm
+  Version: 1.0.0
+  DisplayName: Resource Management - Scvmm
+  ServiceName: Scvmm
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-scvmm_1.0.0/sdk/scvmm/azure-mgmt-scvmm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appcomplianceautomation
+  Version: 1.0.0
+  DisplayName: Resource Management - App Compliance Automation
+  ServiceName: App Compliance Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcomplianceautomation_1.0.0/sdk/appcomplianceautomation/azure-mgmt-appcomplianceautomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 21.2.1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.2.1/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-avs
+  Version: 9.0.0b1
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-avs_9.0.0b1/sdk/compute/azure-mgmt-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mongocluster
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Mongocluster
+  ServiceName: Mongocluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.0.0b1/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.17.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.17.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Workspace Create operation works without an application insights being provided, and creates a default appIn resource for normal workspaces in that case.
+    - Project create operations works in general.
+- Name: azure-mgmt-appplatform
+  Version: 9.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_9.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgezones
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Edgezones
+  ServiceName: Edgezones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgezones_1.0.0b1/sdk/edgezones/azure-mgmt-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-oracledatabase
+  Version: 1.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_1.0.0/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-informaticadatamanagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Informatica Data Management
+  ServiceName: Informatica Data Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-informaticadatamanagement_1.0.0/sdk/informaticadatamanagement/azure-mgmt-informaticadatamanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b18
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b18/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.18.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.18.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    - Fixed the issue that `SharedTokenCacheCredential` was not picklable.
+
+    #### Other Changes
+
+    - The synchronous `ManagedIdentityCredential` was updated to use MSAL (Microsoft Authentication Library) for handling most of the underlying managed identity implementations.
+- Name: azure-mgmt-keyvault
+  Version: 10.3.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.3.1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+

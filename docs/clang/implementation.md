@@ -571,7 +571,7 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 }
 {% endhighlight %}
 
-{% include requirement/MUSTNOT id="clang-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html). Unit tests and e2e tests are valgrind verified at the gate.
+{% include requirement/MUSTNOT id="clang-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](https://www.valgrind.org/downloads/current.html). Unit tests and e2e tests are valgrind verified at the gate.
 
 {% include requirement/MUST id="clang-testing-unittests" %} unit test your API with [ccputest](https://cpputest.github.io/), a unit testing and mocking framework for C and C++.
 
@@ -664,7 +664,7 @@ generate_export_header(appconf
     EXPORT_FILE_NAME az/appconf_export.h)
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-tooling-clang-format" %} use [clang-format](http://clang.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
+{% include requirement/MUST id="clang-tooling-clang-format" %} use [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
 
 {% highlight bash %}
 clang-format -style=file -i <file> ...
@@ -711,7 +711,7 @@ endif()
 
 ## Formatting
 
-{% include requirement/MUST id="clang-format-clang" %} use [clang-format](http://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `clang-format` options from Engineering Systems.
+{% include requirement/MUST id="clang-format-clang" %} use [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `clang-format` options from Engineering Systems.
 
 In general, clang-format will format your code correctly and ensure consistency. However, these are few additional  rules to keep in mind.
 
@@ -859,7 +859,7 @@ do so using user-overridable functions.
 
 ## Secure functions
 
-{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
+{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
 
 > TODO: Verify with the security team, and what are the alternatives?
 

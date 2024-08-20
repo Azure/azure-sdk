@@ -1,0 +1,25 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.12.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.12.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for`Call Survey`.
+    * Added `OutgoingVideoConstraints` feature.
+    * Added `didChangeActiveCaptionsType` event for `CaptionsCallFeature`.
+    * Added support for `CommunicationCaptions`.
+- Name: AzureCommunicationCalling
+  Version: 2.13.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.13.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    * Added event didUpdateStartTime to track start time changes of a call.
+

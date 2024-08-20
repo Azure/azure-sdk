@@ -8,15 +8,13 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-TODO
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### The Service Client
 
-TODO
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
 
 #### Service Methods
-
-TODO
 
 ##### Using azcore.Pipeline
 
@@ -40,27 +38,15 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 ##### Using azcore.Policy
 
-TODO
-
 #### Service Method Parameters
-
-TODO
 
 ##### Parameter validation
 
-TODO
-
 ### Supporting Types
-
-TODO
 
 #### Model Types
 
-TODO
-
 ##### Serialization
-
-TODO
 
 #### Constants as Enumerations
 
@@ -90,8 +76,6 @@ func PossibleWidgetColorValues() []WidgetColor {
 ```
 
 ## SDK Feature Implementation
-
-TODO
 
 ### Configuration
 
@@ -160,8 +144,4 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 ### Telemetry
 
-TODO
-
 ### Testing
-
-TODO

@@ -1,0 +1,583 @@
+entries:
+- Name: '@azure/openai'
+  Version: 2.0.0-beta.1
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0-beta.1/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds subpath `@azure/openai/types` which exports types for Azure On Your Data and Azure content filtering. Checkout the [samples folder](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai/samples) for examples of how to import it.
+
+    #### Breaking Changes
+
+    - `OpenAIClient` has been deleted. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/MIGRATION.md) to use `AzureOpenAI` from the official [OpenAI client library for JavaScript](https://www.npmjs.com/package/openai) instead.
+- Name: '@azure/storage-queue'
+  Version: 12.23.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.23.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.23.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Correct content-length header with request body length. (#30138)
+- Name: '@azure/storage-file-datalake'
+  Version: 12.23.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.23.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.23.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Correct content-length header with request body length. (#30138)
+- Name: '@azure/storage-file-share'
+  Version: 12.24.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.24.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.24.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Correct content-length header with request body length. (#30138)
+- Name: '@azure/arm-edgezones'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Edgezones
+  ServiceName: Edgezones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0-beta.1/sdk/edgezones/arm-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-blob'
+  Version: 12.24.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.24.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.24.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Correct content-length header with request body length. (#30138)
+- Name: '@azure/arm-containerservice'
+  Version: 20.1.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 12.1.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for text queries against vector fields [#30494](https://github.com/Azure/azure-sdk-for-js/pull/29597)
+    - Create text queries against vector fields with the `VectorizedTextQuery` variant of `VectorQuery`. Such queries are supported by configuring the corresponding index field with a `VectorSearchVectorizer`. This configuration describes a delegate, which the service uses to generate vector embeddings for the query text.
+    - Added `AzureOpenAIEmbeddingSkill` to allow for `SearchIndexer`s to populate embedding fields at index-time.
+    - Added index configuration for vector quantization through `VectorSearchCompression`
+
+    #### Bugs Fixed
+
+    - Improved serialization performance on large payloads [#29597](https://github.com/Azure/azure-sdk-for-js/pull/29597)
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Servicefabricmanagedclusters
+  ServiceName: Servicefabricmanagedclusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.1/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-qumulo'
+  Version: 2.0.0
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-qumulo_2.0.0/sdk/liftrqumulo/arm-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 22.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-redhatopenshift'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Redhatopenshift
+  ServiceName: Redhatopenshift
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redhatopenshift_1.0.0-beta.1/sdk/redhatopenshift/arm-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridcompute'
+  Version: 4.0.0-beta.3
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.0.0-beta.3/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-search'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 8.1.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dataprotection'
+  Version: 2.1.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_2.1.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 33.3.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/health-deidentification'
+  Version: 1.0.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Azure Deidentification client library for JS. This package contains Microsoft Azure Deidentification client library.
+- Name: '@azure/identity'
+  Version: 4.4.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.4.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improved error messages for `AzurePipelinesCredential` for Authentication Failed scenarios. [#30387](https://github.com/Azure/azure-sdk-for-js/pull/30387)
+    - Improved token parsing for `AzurePowerShellCredential` even with warning messages. [#30508](https://github.com/Azure/azure-sdk-for-js/pull/30508)
+- Name: '@azure/monitor-query'
+  Version: 1.3.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the `audience` values for `MetricsQueryClient` and `MetricsClient`.
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Mongocluster
+  ServiceName: Mongocluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0-beta.2/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-edgezones'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Edgezones
+  ServiceName: Edgezones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0-beta.2/sdk/edgezones/arm-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computefleet'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computefleet
+  ServiceName: Computefleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0-beta.1/sdk/computefleet/arm-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-xml'
+  Version: 1.4.3
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.3/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30493](https://github.com/Azure/azure-sdk-for-js/pull/30493)
+- Name: '@azure/logger'
+  Version: 1.1.4
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.4/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+- Name: '@azure/core-util'
+  Version: 1.9.2
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.9.2/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.3
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.3/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The `request` and `response` properties on `RestError` are now non-enumerable.
+    - Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)
+- Name: '@azure/core-amqp'
+  Version: 4.3.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.2/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: '- Adding React-Native support at top level [PR #30521](https://github.com/Azure/azure-sdk-for-js/pull/30521)'
+- Name: '@azure/communication-call-automation'
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.3.0-beta.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Support for the real time transcription
+    - Monetization for real-time transcription and audio streaming
+    - Hold and Unhold the participant
+    - Support to manage the rooms/servercall/group call using connect API
+    - Support for the audio streaming
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
+- Name: '@azure/communication-chat'
+  Version: 1.5.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.28 with React Native support.
+    - Updated @azure/core-client and @azure/core-rest-pipeline version.
+- Name: '@azure/arm-appcontainers'
+  Version: 2.1.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_2.1.0/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.1.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.1.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Vector Search: This feature introduces vector indexes, vector embedding policy and vector queries to enable vector similarity search in JS SDK. [docs](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search)
+    - All versions and deletes mode in change feed: The All versions and deletes mode is added in change feed mode which captures every version and every change (create, update, and delete) made to items. [docs](https://learn.microsoft.com/azure/cosmos-db/nosql/change-feed-modes?tabs=all-versions-and-deletes#all-versions-and-deletes-change-feed-mode-preview)
+    - Bypassing integrated cache: The option to bypass integrated cache is now available in `RequestOptions`. [docs](https://learn.microsoft.com/azure/cosmos-db/integrated-cache#bypass-the-integrated-cache-preview)
+    - Computed Properties: Support for adding Computed Properties in items is added. [docs](https://learn.microsoft.com/azure/cosmos-db/nosql/query/computed-properties?tabs=dotnet#creating-computed-properties)
+    - Composite Indexing: The JS SDK now supports including composite indexes in the indexing policy, improving query performance on multiple fields. [docs](https://learn.microsoft.com/azure/cosmos-db/index-overview#composite-indexes)
+    - Correlated Activity Id: Correlated Activity Id is added in header of every query request on Items. This helps in troubleshooting by linking all requests for a query that involves multiple server interactions and partitions. Correlated Activity Id can be accessed through query response headers or `response.correlatedActivityId`.
+    - Split proof Bulk API: Earlier, whenever Bulk API encountered a partition split during processing, it would return an error message. Now, JS SDK ensures that the Bulk API is resistant to partition split. [#18682](https://github.com/Azure/azure-sdk-for-js/issues/18682)
+    - Improved samples: The samples have been updated in this release, now organized into two folders: `v3` for features up to the v3 release, and `v4` for features up to the v4 release.
+    - Added support for MakeList and MakeSet query aggregators
+
+    ##### Vector Search
+
+    - The following sample shows how to create a container with vector embedding and indexing policies.
+
+    ```js
+    // define vector indexing policy
+    const vectorEmbeddingPolicy = {
+    vectorEmbeddings: [
+    {
+    path: "/vector1",
+    dataType: VectorEmbeddingDataType.UInt8,
+    dimensions: 1000,
+    distanceFunction: VectorEmbeddingDistanceFunction.Euclidean,
+    },
+    {
+    path: "/vector2",
+    dataType: VectorEmbeddingDataType.Int8,
+    dimensions: 200,
+    distanceFunction: VectorEmbeddingDistanceFunction.DotProduct,
+    },
+    {
+    path: "/vector3",
+    dataType: VectorEmbeddingDataType.UInt8,
+    dimensions: 400,
+    distanceFunction: VectorEmbeddingDistanceFunction.Cosine,
+    },
+    ],
+    };
+
+    // add vector indexes in Indexing Policy
+    const indexingPolicy = {
+    automatic: true,
+    indexingMode: "consistent",
+    vectorIndexes: [
+    { path: "/vector1", type: VectorIndexType.Flat },
+    { path: "/vector2", type: VectorIndexType.QuantizedFlat },
+    { path: "/vector3", type: VectorIndexType.DiskANN },
+    ],
+    };
+
+    // define and create container with vector Embedding Policy
+    const containerDefinition = {
+    id: containerId,
+    partitionKey: { paths: ["/id"] },
+    indexingPolicy: indexingPolicy,
+    vectorEmbeddingPolicy: vectorEmbeddingPolicy,
+    };
+    await database.containers.createIfNotExists(containerDefinition);
+    ```
+
+    - Vector Search queries without TOP or LIMIT+OFFSET are blocked by default, with an option to disable this check using `allowUnboundedNonStreamingQueries` in query FeedOptions. Also added an internal buffer size check to prevent excessive memory consumption, throwing errors if the buffer size exceeds the default. The max buffer size can be increased using the `vectorSearchBufferSize` option from query FeedOptions.
+
+    ##### Change Feed - All versions and deletes mode
+
+    - The AllVersionsAndDeletes mode is only supported with `ChangeFeedStartFrom.Now` and `ChangeFeedStartFrom.Continuation`.
+    - To read from the change feed in all versions and deletes mode, include `changeFeedMode` in changeFeedIteratorOptions:
+
+    ```js
+    const changeFeedIteratorOptions: ChangeFeedIteratorOptions = {
+    maxItemCount: 5,
+    changeFeedStartFrom: ChangeFeedStartFrom.Now(),
+    changeFeedMode: ChangeFeedMode.AllVersionsAndDeletes,
+    };
+    const iterator = container.items.getChangeFeedIterator(changeFeedIteratorOptions);
+    ```
+
+    ##### Bypassing Integrated Cache
+
+    - Here is a sample showing how to enable `bypassIntegratedCache` in RequestOptions.
+
+    ```js
+    const options: RequestOptions = {bypassIntegratedCache: true};
+    const response = await container.item("1").read(options);
+    ```
+
+    ##### Computed Properties
+
+    - The following snippet configures computed properties for a container:
+
+    ```js
+    const computedProperties: ComputedProperty[] = [{
+    name: "lowerLastName",
+    query:
+    "SELECT VALUE LOWER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+    },];
+    const { resource: containerdef } = await database.containers.createIfNotExists({
+    id: containerName,
+    computedProperties: computedProperties,
+    indexingPolicy: indexingPolicy,
+    });
+    const container: Container = database.container(containerdef.id);
+    ```
+
+    ##### Composite Indexing
+
+    - Here's a sample of adding composite indexes for a container:
+
+    ```js
+    const containerDefinition: ContainerDefinition = {
+    id: "containerWithCompositeIndexingPolicy",
+    indexingPolicy: {
+    automatic: true,
+    indexingMode: IndexingMode.consistent,
+    includedPaths: [
+    {
+    path: "/*",
+    },
+    ],
+    excludedPaths: [],
+    compositeIndexes: [
+    [
+    { path: "/key", order: "ascending" },
+    { path: "/field", order: "ascending" },
+    ],
+    ],
+    },
+    };
+    await database.containers.create(containerDefinition);
+    ```
+
+    - Added support for passing a custom `HttpClient` when constructing a `CosmosClient`.
+
+    #### Bugs Fixed
+
+    - Fix Bulk operations(Read, Delete, and Patch) failing due to wrong format of partition key in non-partitioned container.
+
+
+    #### Breaking Changes
+
+    ##### Dropped Support for TypeScript 4.1
+
+    - We have opted to discontinue support for TypeScript version 4.1. Consequently, the minimum supported TypeScript version has been elevated to 4.2. Kindly ensure that your environment is promptly updated to align with these changes.
+- Name: '@azure/app-configuration'
+  Version: 1.7.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.7.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `listLabels` method to list all the labels in the configuration setting store.
+
+    Example:
+
+    ```typescript
+    const allLabels = client.listLabels();
+    ```
+
+    See [`listLabels.ts`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/typescript/src/listLabels.ts) for more information now how to use this feature
+
+    - Add `tagsFilter` in the option bag for `listConfigurationSettings` method. This feature allows you to filter configuration settings by specifying tags.
+
+    Example:
+
+    ```typescript
+    const allProdTags = client.listConfigurationSettings({
+    tagsFilter: ["production=prod*"],
+    });
+    ```
+    See [`listConfigurationSettings.ts`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/typescript/src/listConfigurationSettings.ts) for more information now how to use this feature.
+    - Add `tagsFilter` in `ConfigurationSettingsFilter` so that you can create snapshot by filtering configuration settings tags.
+- Name: '@azure/storage-file-share'
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.25.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2024-11-04.
+    - Added support for token-based authentication for all APIs.
+    - Added support for paid bursting on premium file share accounts.
+    - Added support for binary format for file permissions.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.24.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: '@azure/storage-queue'
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.24.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: '@azure/storage-blob'
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.25.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+

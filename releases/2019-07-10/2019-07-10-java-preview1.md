@@ -66,7 +66,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 * Designed based on the [Azure SDK Design Guidelines for Java][java-guidelines], resulting in a consistent API design and common feature set such as HTTP retries, logging, transport protocols, authentication protocols, etc.
 * Modernized API making use of Java 8 features such as streams, new date / time, functional interfaces, etc, to offer an improved and more productive developer experience.
-* Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](http://projectreactor.io).
+* Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](https://projectreactor.io).
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).

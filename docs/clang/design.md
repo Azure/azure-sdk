@@ -1046,7 +1046,7 @@ Filenames should be concise, but convey what role the file plays within the libr
 
 ### Documentation Style
 
-{% include requirement/MUST id="clang-docs-doxygen" %} include docstrings compatible with the [doxygen](http://www.doxygen.nl/index.html) tool for generating reference documentation.
+{% include requirement/MUST id="clang-docs-doxygen" %} include docstrings compatible with the [doxygen](https://www.doxygen.nl/index.html) tool for generating reference documentation.
 
 For example, a (very) simple docstring might look like:
 {% highlight c %}

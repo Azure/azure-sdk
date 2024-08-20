@@ -17,6 +17,8 @@ export default async function collectCSVData(): Promise<any[]> {
   // Get CSV contents from all files and convert to JSON
   const packagesJSONArr: any[] = []; // Array to contain all CSV contents
   for (let csv of csvFiles) {
+    // Ignore the specs index for now
+    if (csv === "specs.csv") { continue; }
     // Convert csv file to json arr
     const jsonContent = await csvToJSON().fromFile(path.join(csvDirPath, csv));
     // Add Language property to each pkg object 

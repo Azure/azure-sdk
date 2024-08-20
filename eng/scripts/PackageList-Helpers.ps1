@@ -237,6 +237,38 @@ function Add-NewFieldToLanguage($lang, $field, $afterField = $null, $fieldDefaul
   Set-PackageListForLanguage $lang $updatedPackageList
 }
 
+function Add-NewFieldToSpecs($field, $afterField = $null, $fieldDefaultValue="")
+{
+  $speclistFile = Join-Path $releaseFolder "specs.csv"
+  $packageList = Get-Content $speclistFile | ConvertFrom-Csv
+
+  $updatedPackageList = @()
+  foreach ($pkg in $packageList)
+  {
+    $orderedPkg = [ordered]@{ }
+
+    foreach ($prop in $pkg.PSObject.Properties.Name)
+    {
+      $orderedPkg[$prop] = $pkg.$prop
+      if ($afterField -eq $prop)
+      {
+        $orderedPkg[$field] = $fieldDefaultValue
+      }
+    }
+    if (!$afterField) {
+      $orderedPkg[$field] = $fieldDefaultValue
+    }
+
+    $updatedPackageList += [pscustomobject]$orderedPkg
+  }
+
+  $new = @($updatedPackageList | Where-Object { $_.IsTypeSpec -eq "True" } | Sort-Object ServiceFamily, ResourcePath, SpecPath)
+  $other = @($updatedPackageList | Where-Object { $_.IsTypeSpec -ne "True" } |  Sort-Object ServiceFamily, ResourcePath, SpecPath)
+
+  $sortedSpecs = $new + $other
+  $sortedSpecs | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $speclistFile -encoding ascii
+}
+
 function PackageEqual($pkg1, $pkg2)
 {
   if ($pkg1.Package -ne $pkg2.Package) {

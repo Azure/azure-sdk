@@ -72,11 +72,11 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [azure-sdk-for-js Repository]: https://github.com/Azure/azure-sdk-for-js
 [azure-sdk-for-python Repository]: https://github.com/Azure/azure-sdk-for-python
 
-[Official Azure Documentation]: http://aka.ms/azure-sdk-docs
-[.NET Documentation]: http://aka.ms/net-docs
-[Go Documentation]: http://aka.ms/go-docs
-[Java Documentation]: http://aka.ms/java-docs
-[JavaScript Documentation]: http://aka.ms/js-docs
+[Official Azure Documentation]: https://aka.ms/azure-sdk-docs
+[.NET Documentation]: https://aka.ms/net-docs
+[Go Documentation]: https://aka.ms/go-docs
+[Java Documentation]: https://aka.ms/java-docs
+[JavaScript Documentation]: https://aka.ms/js-docs
 [Python Documentation]: https://aka.ms/python-docs
 [C Documentation]: https://aka.ms/c-docs
 [C++ Documentation]: https://aka.ms/cpp-docs

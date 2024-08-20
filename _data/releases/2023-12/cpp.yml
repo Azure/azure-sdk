@@ -1,0 +1,27 @@
+entries:
+- Name: azure-identity
+  Version: 1.6.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.6.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Add `WorkloadIdentityCredential` to the `DefaultAzureCredential`.
+
+    #### Bugs Fixed
+
+    - Do not throw an exception during `AzureCliCredential` construction, but rather delay it to the `GetToken()` call.
+    - Harden checks for the tenant ID.
+    - Disallow space character when validating tenant id and scopes as input for `AzureCliCredential`.
+    - Add authority host url validation to reject non-HTTPS schemes.
+    - [[#4084]](https://github.com/Azure/azure-sdk-for-cpp/issues/4084) Remove OpenSSL dependency on Windows. (A community contribution, courtesy of _[teo-tsirpanis](https://github.com/teo-tsirpanis)_)
+
+    #### Features Added
+
+    - Added `WorkloadIdentityCredential`.
+    - When one of the credentials within `DefaultAzureCredential` is successful, it gets re-used during all subsequent attempts to get the token.
+    - Updated `ClientSecretCredentialOptions` and `ClientCertificateCredentialOptions` to read the default value for the authority host option from the environment variable first.
+

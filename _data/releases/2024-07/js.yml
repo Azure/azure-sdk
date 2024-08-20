@@ -1,0 +1,435 @@
+entries:
+- Name: '@azure/identity'
+  Version: 4.3.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential` for supporting workload identity federation in Azure Pipelines with service connections.
+- Name: '@azure/arm-appservice'
+  Version: 15.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mysql-flexible'
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - MySQL Flexible
+  ServiceName: Mysql-Flexible
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_4.0.0-beta.2/sdk/mysql/arm-mysql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mobilenetwork'
+  Version: 6.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_6.0.0/sdk/mobilenetwork/arm-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.0.0-beta.8
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-imagebuilder'
+  Version: 4.1.0
+  DisplayName: Resource Management - Image Builder
+  ServiceName: Image Builder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_4.1.0/sdk/imagebuilder/arm-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 33.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-avs'
+  Version: 5.0.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcesdeploymentstacks'
+  Version: 1.0.0
+  DisplayName: Resource Management - Deployment Stacks
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesdeploymentstacks_1.0.0/sdk/resourcesdeploymentstacks/arm-resourcesdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.6.0-beta.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0-beta.3/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updating with hotfix from version 1.5.1
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Tracing spans will now correctly sanitize query parameters in the http.url span attribute. [#29606](https://github.com/Azure/azure-sdk-for-js/pull/29606)
+    - Improve robustness of tokenCycler [PR #29638](https://github.com/Azure/azure-sdk-for-js/pull/29638)
+    - Fix platform specific data [PR #30011](https://github.com/Azure/azure-sdk-for-js/pull/30011)
+    - Fix react-native issue [#30065](https://github.com/Azure/azure-sdk-for-js/issues/30065)
+    - Improve browser telemetry [PR# 30096](https://github.com/Azure/azure-sdk-for-js/pull/30096), [PR #30128](https://github.com/Azure/azure-sdk-for-js/pull/30128)
+- Name: '@azure/arm-storagemover'
+  Version: 2.1.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_2.1.0/sdk/storagemover/arm-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-scvmm'
+  Version: 1.0.0
+  DisplayName: Resource Management - Scvmm
+  ServiceName: Scvmm
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0/sdk/scvmm/arm-scvmm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-oracledatabase'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_1.0.0-beta.2/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appcomplianceautomation'
+  Version: 1.0.0
+  DisplayName: Resource Management - App Compliance Automation
+  ServiceName: App Compliance Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcomplianceautomation_1.0.0/sdk/appcomplianceautomation/arm-appcomplianceautomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-selfhelp'
+  Version: 2.0.0-beta.5
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-selfhelp_2.0.0-beta.5/sdk/selfhelp/arm-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.13.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.13.0-beta.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix the definition of the earliest event position.
+- Name: '@azure-rest/core-client'
+  Version: 2.1.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.1.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `onResponse` callback will now be called when the underlying request results in an error. In this scenario, the error to be thrown will be provided as the second argument to the callback.
+- Name: '@azure/core-lro'
+  Version: 3.0.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.0.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This is the first stable version for core-lro v3. To migrate the existing applications to v3, please refer to [Migration Guide](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/core-lro/docs/MIGRATION.md).
+- Name: '@azure/arm-storage'
+  Version: 18.3.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-translation-document'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0-beta.1/sdk/translation/ai-translation-document-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Synchronous document translation - [translate-document API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/translate-document)
+    - Added support for Batch Translation - [start Translation API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/start-batch-translation)
+    - Added support for Get Translations Status - [get translations status API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-translations-status)
+    - Added support for Get Translation Status - [get translation status API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-translation-status)
+    - Added support for Get Documents Status - [get documents status API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-documents-status)
+    - Added support for Get Document Status - [get document status API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-document-status)
+    - Added support for Cancel Translation - [cancel translation API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/cancel-translation)
+    - Added support for Get Supported Document Formats - [get supported document formats API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-supported-document-formats)
+    - Added support for Get Supported Glossary Formats - [get supported glossary formats API](https://learn.microsoft.com/azure/ai-services/translator/document-translation/reference/get-supported-glossary-formats)
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.1
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.1/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This is the initial beta release for the Azure AI Inference SDK, which is a common API supporting Azure AI Inference models.
+- Name: '@azure-rest/ai-translation-document'
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0-beta.2/sdk/translation/ai-translation-document-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Re-release of 1.0.0-beta.1 as the SDK package was released without types
+- Name: '@azure/arm-oracledatabase'
+  Version: 1.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_1.0.0/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Mongocluster
+  ServiceName: Mongocluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0-beta.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/developer-devcenter'
+  Version: 1.0.0
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0/sdk/devcenter/developer-devcenter-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added output types:
+    - DevBoxActionDelayResultStatusOutput
+    - DevBoxActionTypeOutput
+    - DevBoxProvisioningStateOutput
+    - EnvironmentProvisioningStateOutput
+    - EnvironmentTypeEnableStatusOutput
+    - HibernateSupportOutput
+    - LocalAdminStatusOutput
+    - OperationStateOutput
+    - OsTypeOutput
+    - ParameterTypeOutput
+    - PoolHealthStatusOutput
+    - PowerStateOutput
+    - ScheduledFrequencyOutput
+    - ScheduledTypeOutput
+    - SkuNameOutput
+    - StopOnDisconnectEnableStatusOutput
+
+    #### Breaking Changes
+
+    - Rename interfaces to match operation names in Dev Center API documentation
+    - ListSchedules was renamed to ListSchedulesByPool
+    - GetSchedule was renamed to GetScheduleByPool
+    - ListDevBoxes was renamed to ListDevBoxesByUser
+    - GetDevBox was renamed to GetDevBoxByUser
+    - ListDevBoxActions was renamed to ListActions
+    - GetDevBoxAction was renamed to GetAction
+    - DelayAllActions was renamed to DelayActions
+    - ListAllEnvironments was renamed to ListEnvironments
+    - ListEnvironments was renamed to ListEnvironmentsByUser
+    - GetEnvironment was renamed to GetEnvironmentByUser
+    - CreateOrUpdateEnvironment was renamed to CreateOrReplaceEnvironment
+    - ListCatalogs was renamed to ListCatalogsByProject
+    - ListEnvironmentDefinitions was renamed to listEnvironmentDefinitionsByProject
+- Name: '@azure/core-util'
+  Version: 1.9.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.9.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Address React-Native regression after ESM migration [Issue #30065](https://github.com/Azure/azure-sdk-for-js/issues/30065)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.16.2
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.16.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix TypeError on some platforms when retrieving browser user agent data. [PR #30194](https://github.com/Azure/azure-sdk-for-js/pull/30194)
+    - Fix `ERR_INVALID_URL` error thrown from sanitizer [PR #30151](https://github.com/Azure/azure-sdk-for-js/pull/30151)
+
+    #### Features Added
+
+    - Add EdgeRuntime telemetry information [PR #30239](https://github.com/Azure/azure-sdk-for-js/pull/30239)
+- Name: '@azure/logger'
+  Version: 1.1.3
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.3/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding react-native logger support [PR #30076](https://github.com/Azure/azure-sdk-for-js/pull/30076)
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 3.1.0-beta.1
+  DisplayName: Resource Management - Redis Enterprise Cache
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.1.0-beta.1/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/core-client'
+  Version: 2.2.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.2.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update serialization to not serialize Uint8Array if the content type is "application/json".
+- Name: '@azure/arm-informaticadatamanagement'
+  Version: 1.0.0
+  DisplayName: Resource Management - Informatica Data Management
+  ServiceName: Informatica Data Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-informaticadatamanagement_1.0.0/sdk/informatica/arm-informaticadatamanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.6.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.6.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Parse the correct `etag` for the corresponding page in the `listConfigurationSettings` method.
+- Name: '@azure/identity'
+  Version: 4.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.4.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `OnBehalfOfCredential` now supports taking clientAssertion callback `getAssertion`. [#29711](https://github.com/Azure/azure-sdk-for-js/pull/29711)
+
+    #### Bugs Fixed
+
+    - Fixed an issue where cross-tenant federation did not honor the request's tenant ID. [#30266](https://github.com/Azure/azure-sdk-for-js/pull/30266)
+- Name: '@azure/eventgrid-system-events'
+  Version: 1.0.0-beta.2
+  DisplayName: Event Grid System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.2/sdk/eventgrid/eventgrid-system-events/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Regenerated SDK with latest commit. Refer [#30399](https://github.com/Azure/azure-sdk-for-js/pull/30399) for further details.
+- Name: '@azure/eventgrid'
+  Version: 5.5.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.5.1/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed deserialization bugs in `AcsEmailEngagementTrackingReportReceivedEventData` and `AcsEmailDeliveryReportReceivedEventData` system events that caused the `DeliveryAttemptTimestamp` and `UserActionTimeStamp` properties to be null.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.2
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.2/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for text and image embeddings.
+- Name: '@azure/identity'
+  Version: 4.5.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.5.0-beta.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - `ManagedIdentityCredential` migrated to use [MSAL](https://www.npmjs.com/package/@azure/msal-node) for handling the majority of the managed identity implementation. [#30172](https://github.com/Azure/azure-sdk-for-js/pull/30172)
+- Name: '@azure/core-amqp'
+  Version: 4.3.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.1/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Address React-Native regression after ESM migration [Issue #30065](https://github.com/Azure/azure-sdk-for-js/issues/30065)
+

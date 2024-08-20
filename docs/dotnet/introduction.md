@@ -956,7 +956,7 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.md) in the GitHub repository.
+For more details on mocking, see [Unit testing and mocking with the Azure SDK for .NET](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking).
 
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 

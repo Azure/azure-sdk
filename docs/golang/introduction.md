@@ -6,8 +6,6 @@ folder: golang
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The Go Language guidelines are in DRAFT status" %}
-
 ## Introduction
 
 The Go guidelines are for the benefit of client library designers targeting service applications written in [Go](https://golang.org/).
@@ -60,7 +58,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="golang-general-use-azcore-pipeline" %} use `azcore.Pipeline` to implement all methods that call Azure REST services.
 
-{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is https://golang.org/doc/effective_go.  Do **NOT** simply attempt to translate your language of choice into Go.
+{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is <https://golang.org/doc/effective_go>.  Do **NOT** simply attempt to translate your language of choice into Go.
 
 ### Support for non-HTTP Protocols
 
@@ -113,11 +111,11 @@ func NewWidgetClientFromConnectionString(connectionString string, options *Widge
 
 ##### Service Client Configuration
 
-TODO
-
 ##### Setting the Service Version
 
-TODO
+{% include requirement/MUST id="golang-api-service-client-versioning-highest-api" %} call the highest supported service API version by default.
+
+{% include requirement/MUST id="golang-api-service-client-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
 
 ##### Client Immutability
 
@@ -409,11 +407,7 @@ process(w)
 
 ##### Conditional Request Methods
 
-TODO
-
 ##### Hierarchical Clients
-
-TODO
 
 ### Supporting Types
 
@@ -421,11 +415,7 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 #### Model Types
 
-TODO
-
 ##### Model Type Naming
-
-TODO
 
 #### Constants as Enumerations
 
@@ -433,11 +423,7 @@ TODO
 
 #### Azure Core Types
 
-TODO
-
 #### Primitive Types
-
-TODO
 
 ### Error Handling
 
@@ -491,8 +477,6 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ### Package Naming
 
-TODO (namespaces in other languages)
-
 ### Support for Mocking
 
 One of the key things we want to support is to allow consumers of the package to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
@@ -515,7 +499,7 @@ Go groups related types in a package.  In Go, the package should be named `<pref
 
 {% include requirement/MUST id="golang-package-name" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure compute management package would be named `armcompute` and the Azure blob storage package would be named `azblob`.
 
-{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
+{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list] for a list of the currently registered packages.
 
 #### Directory Structure
 
@@ -597,7 +581,9 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 ### Native Code
 
-TODO
+Native dependencies introduce lots of complexities and should be avoided.
+
+{% include requirement/SHOULDNOT id="golang-problems-native-dependencies" %} use native dependencies.
 
 ### Doc Comments
 
@@ -617,7 +603,13 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 ### README
 
-TODO
+{% include requirement/MUST id="golang-docs-readme" %} have a README.md file in the package root folder.
+
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/security/keyvault/azkeys/README.md).
+
+{% include requirement/MUST id="golang-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
+
+The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to from the main component `README.md`.
 
 ### Samples
 

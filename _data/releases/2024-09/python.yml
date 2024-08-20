@@ -1,0 +1,106 @@
+entries:
+- Name: azure-maps-render
+  Version: 2.0.0b1
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-render_2.0.0b1/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Render API `2024-04-01`
+- Name: azure-maps-search
+  Version: 2.0.0b1
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-search_2.0.0b1/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Removed Methods**
+    - Removed the `fuzzy_search` method.
+    - Removed the `search_point_of_interest` method.
+    - Removed the `search_address` method.
+    - Removed the `search_nearby_point_of_interest` method.
+    - Removed the `search_point_of_interest_category` method.
+    - Removed the `search_structured_address` method.
+    - Removed the `get_geometries` method.
+    - Removed the `get_point_of_interest_categories` method.
+    - Removed the `reverse_search_address` method.
+    - Removed the `reverse_search_cross_street_address` method.
+    - Removed the `search_inside_geometry` method.
+    - Removed the `search_along_route` method.
+    - Removed the `fuzzy_search_batch` method.
+    - Removed the `search_address_batch` method.
+- Name: azure-messaging-webpubsubservice
+  Version: 1.2.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.2.1/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix endpoint parsing issues
+- Name: azure-ai-ml
+  Version: 1.19.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.19.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Workspace update no longer broken for older workspaces due to deprecated tags.
+    - Support credential-less fileshare datastore
+- Name: azure-mgmt-healthdataaiservices
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Healthdataaiservices
+  ServiceName: Healthdataaiservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthdataaiservices_1.0.0b1/sdk/healthdataaiservices/azure-mgmt-healthdataaiservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.7.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.7.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added operation `list_labels()` for listing configuration setting labels.
+    - Supported filtering by configuration setting tags in `list_configuration_settings()` and `list_revisions()`.
+    - Added a new property tags to ConfigurationSettingsFilter to support filtering settings with tags filter for snapshot.
+
+    #### Bugs Fixed
+    - Fixed a bug where the `feature_id` of `FeatureFlagConfigurationSetting` will be different from `id` customer field, and may overwrite the original customer-defined value if different from the `FeatureFlagConfigurationSetting` key suffix.
+- Name: azure-mgmt-datafactory
+  Version: 9.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_9.0.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 7.3.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_7.3.1/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 13.2.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_13.2.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+
