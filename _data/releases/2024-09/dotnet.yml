@@ -223,4 +223,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Insights.RadiologyInsights_1.0.0/sdk/healthinsights/Azure.Health.Insights.RadiologyInsights/CHANGELOG.md
   ChangelogContent: '- Initial preview of the Azure.Health.Insights.RadiologyInsights client library.'
+- Name: Azure.Monitor.Query
+  Version: 1.5.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.5.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix bug in `LogsQueryClient` that defaulted to `Azure.PublicCloud`. `Audience` is now determined from the `endpoint` parameter.
 
