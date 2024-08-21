@@ -174,4 +174,28 @@ entries:
     - Added tests for all Inference types
     - Rename param endpoint to endpointParam
     - Rename const baseUrl to endpointUrl
+- Name: '@azure/eventgrid'
+  Version: 5.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.6.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The properties `api`, `blobType`, `clientRequestId`, `contentLength`, `contentOffset`, `contentType`, `eTag`, `identity`, `requestId`, `sequencer`, `storageDiagnostics` & `url` in `StorageBlobCreatedEventData` have been made optional.
+    - The properties `api`, `blobType`, `clientRequestId`, `contentLength`, `contentType`,`identity`, `requestId`, `sequencer`, `storageDiagnostics` & `url` in `StorageBlobTierChangedEventData` have been made optional.
+- Name: '@azure/eventgrid-system-events'
+  Version: 1.0.0-beta.3
+  DisplayName: Event Grid System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.3/sdk/eventgrid/eventgrid-system-events/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - A new field `accessTier` is added to the `StorageBlobCreatedEventData` object.
+    - Two new fields `accessTier` & `previousTier` are added to the StorageBlobTierChangedEventData object.
 
