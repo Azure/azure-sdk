@@ -233,4 +233,16 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fix bug in `LogsQueryClient` that defaulted to `Azure.PublicCloud`. `Audience` is now determined from the `endpoint` parameter.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.25.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.25.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AccessTier` and `PreviousTier` properties to `StorageBlobTierChangedEventData` system event.
+    - Added `AccessTier` to `StorageBlobCreatedEventData` system event.
 
