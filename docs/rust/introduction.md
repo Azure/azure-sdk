@@ -1059,7 +1059,7 @@ As you write your code, _document it so you never hear about it again._ The less
 
 {% include requirement/SHOULDNOT id="rust-doc-samples-main" %} include the `main` function in the signature, if even necessary e.g., for showing async examples.
 
-```rust
+````rust
 /// ``` no_run
 /// # async fn main() {
 ///     let client = SecretClient::new("https://myvault.vault.azure.net", Arc::new(DefaultAzureCredential::default()), None).unwrap();
@@ -1067,7 +1067,7 @@ As you write your code, _document it so you never hear about it again._ The less
 ///     println!("{secret:?}");
 /// # }
 /// ```
-```
+````
 
 {% include requirement/MUST id="rust-doc-samples-no-run" %} attribute code fences with `no_run` if the code cannot or should not run when running `cargo test`. There are additional [documentation test attributes][rust-lang-rustdoc-tests-attributes] that may be of interest.
 
