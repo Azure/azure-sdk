@@ -105,15 +105,16 @@ In addition to Cargo's [project layout][rust-lang-project-layout], service clien
 
 * Azure/azure-sdk-for-rust/
   * sdk/
-    * {service client moniker}/
-      * src/
-        * generated/
-          * clients/
-            * foo.rs
-            * bar.rs
-          * enums.rs
+    * {service directory}/
+      * {service client crate}/
+        * src/
+          * generated/
+            * clients/
+              * foo.rs
+              * bar.rs
+            * enums.rs
+            * models.rs
+          * lib.rs
           * models.rs
-        * lib.rs
-        * models.rs
-        * {other modules}
-      * Cargo.toml
+          * {other modules}
+        * Cargo.toml
