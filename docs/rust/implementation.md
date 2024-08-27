@@ -118,3 +118,8 @@ In addition to Cargo's [project layout][rust-lang-project-layout], service clien
           * models.rs
           * {other modules}
         * Cargo.toml
+
+<!-- Links -->
+
+{% include refs.md %}
+{% include_relative refs.md %}
