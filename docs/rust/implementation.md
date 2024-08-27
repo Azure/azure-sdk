@@ -18,11 +18,38 @@ Most service client crates are generated from [TypeSpec](https://aka.ms/typespec
 
 {% include requirement/MAY id="rust-client-convenience-wrap" %} implement a client which wraps a generated client e.g., using [newtype][rust-lang-newtype], and exposes necessary methods from the underlying client as well as any convenience methods.
 
-{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] that call existing public methods.
+{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] in a trait that call existing public methods, e.g.,
+
+```rust
+pub trait SecretClientExt {
+    async fn deserialize_secret<T: serde::de::DeserializeOwned>(
+        &self,
+        name: impl AsRef<str>,
+        version: Option<impl AsRef<str>>,
+    ) -> Result<Response<T>>;
+}
+
+impl SecretClientExt for SecretClient {
+    async fn deserialize_secret<T: serde::de::DeserializeOwned>(
+        &self,
+        name: impl AsRef<str>,
+        version: Option<impl AsRef<str>>,
+    ) -> Result<T> {
+        let value = self.get_secret(name, version).await?;
+        serde_json::from_str(&value).map_err(Error::from)
+    }
+}
+```
+
+* The trait **MUST** be exported from the crate root.
+* The trait **MUST** use the name of the client it extends with an "Ext" suffix e.g., "SecretClientExt".
+* The trait **MAY** extend the [service client methods trait for mocking](introduction.md#rust-client-mocking-trait-name) e.g., `pub trait SecretClientExt: SecretClientMethods {}`.
+
+#### Convenience Client Telemetry {#rust-client-convenience-telemetry}
 
 In all options above except if merely re-exposing public APIs without alteration:
 
-{% include requirement/MUST id="rust-client-convenience-telemetry" %} must telemeter the convenience client methods just like any service client methods.
+{% include requirement/MUST id="rust-client-convenience-telemetry-telemeter" %} must telemeter the convenience client methods just like any service client methods.
 
 ### Options Builders {#rust-client-options-builders}
 
