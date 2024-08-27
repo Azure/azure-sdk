@@ -120,12 +120,12 @@ error[E0252]: the name `Client` is defined multiple times
    |
 1  |     use azure_storage_blob::Client;
    |         ----------- previous import of the type `Client` here
-2  |     use azure_security_keyvault::secrets::Client;
+2  |     use azure_security_keyvault_secrets::Client;
    |         ^^^^^^^^^^^ `Client` reimported here
    |
 ```
 
-{% include requirement/SHOULD id="rust-client-namespace" %} place service client types that the consumer is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault`. Specialized service clients should be placed in submodules e.g., `azure_security_keyvault::secrets`.
+{% include requirement/SHOULD id="rust-client-namespace" %} place service client types that the consumer is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault_secrets`.
 
 {% include requirement/MUST id="rust-client-immutable" %} ensure that all service client methods are thread safe (usually by making them immutable and stateless).
 
@@ -156,7 +156,7 @@ In cases when different credential types are supported, we want the primary use 
 
 {% include requirement/MUST id="rust-client-configuration-name" %} define a client options struct with the same as the client name + "Options" e.g., a `SecretClient` takes a `SecretClientOptions`.
 
-{% include requirement/SHOULD id="rust-client-configuration-namespace" %} place client option structs in the root module of the client library e.g., `azure_security_keyvault`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets`.
+{% include requirement/SHOULD id="rust-client-configuration-namespace" %} place client option structs in the root module of the client library e.g., `azure_security_keyvault_secrets`.
 
 {% include requirement/MUST id="rust-client-configuration-fields" %} define all client-specific fields of client option structs as private and of type `Option<T>`.
 
@@ -174,7 +174,7 @@ In cases when different credential types are supported, we want the primary use 
 
 {% include requirement/MUST id="rust-client-configuration-builder" %} implement an client options builder to construct options with the same name as the options struct + "Builder" e.g., `SecretClientOptionsBuilder`.
 
-{% include requirement/MUST id="rust-client-configuration-builder-namespace" %} place client option builders in submodule of the root named `builders` e.g., `azure_security_keyvault::builders`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets::builders`.
+{% include requirement/MUST id="rust-client-configuration-builder-namespace" %} place client option builders in submodule of the root named `builders` e.g., `azure_security_keyvault_secrets::builders`.
 
 {% include requirement/MUST id="rust-client-configuration-builder-methods" %} define builder setters using the "with_" prefix, take a `mut self`, and return `Self`.
 
@@ -253,7 +253,7 @@ pub mod builders {
 
 {% include requirement/MUST id="rust-client-mocking-trait-name" %} define a trait named after the client name + "Methods" e.g., `SecretClientMethods`.
 
-{% include requirement/MUST id="rust-client-mocking-trait-namespace" %} place these traits in the root module e.g., `azure_storage_blobs` or `azure_security_keyvault::secrets` so they are automatically discoverable by the Language Server Protocol (LSP).
+{% include requirement/MUST id="rust-client-mocking-trait-namespace" %} place these traits in the root module e.g., `azure_storage_blobs` or `azure_security_keyvault_secrets` so they are automatically discoverable by the Language Server Protocol (LSP).
 
 {% include requirement/MUST id="rust-client-mocking-trait-methods" %} implement all methods of the client methods trait on the client which have the body `unimplemented!()` or `std::future::ready(unimplemented!())` for async methods e.g.,
 
@@ -306,7 +306,7 @@ impl SecretClientMethods for SecretClient {
 {% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
 This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
 
-{% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} place client method option structs in the root module of the client library e.g., `azure_security_keyvault`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets`.
+{% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} place client method option structs in the root module of the client library e.g., `azure_security_keyvault_secrets`.
 
 {% include requirement/MUST id="rust-client-methods-configuration-fields" %} define all client method-specific fields of method option structs as private and of type `Option<T>`.
 
@@ -324,7 +324,7 @@ This is required even if the service method does not currently take any options 
 
 {% include requirement/MUST id="rust-client-methods-configuration-builder" %} implement an method options builder to construct options with the same name as the options struct + "Builder" e.g., `SecretClientSetSecretOptions`.
 
-{% include requirement/MUST id="rust-client-methods-configuration-builder-namespace" %} place method option builders in submodule of the root named `builders` e.g., `azure_security_keyvault::builders`. Specialized clients options should be placed in submodules e.g., `azure_security_keyvault::secrets::builders`.
+{% include requirement/MUST id="rust-client-methods-configuration-builder-namespace" %} place method option builders in submodule of the root named `builders` e.g., `azure_security_keyvault_secrets::builders`.
 
 {% include requirement/MUST id="rust-client-methods-configuration-builder-methods" %} define builder setters using the "with_" prefix, take a `mut self`, and return `Self`.
 
@@ -777,7 +777,7 @@ If your service implements a non-standard credential system - one not supported 
 namespace Azure.Security.KeyVault;
 // crate: azure_security_keyvault
 namespace Azure.Security.KeyVault.Secrets {
-    // module azure_security_keyvault::secrets
+    // module azure_security_keyvault_secrets
 }
 ```
 
@@ -815,15 +815,13 @@ Rust does support dashes in crate names, but it may create confusion with custom
 
 {% include requirement/MUST id="rust-packaging-registration" %} register the chosen crate name with the [Architecture Board]. Open an issue to request the crate name. See the [registered package list] for a list of the currently registered packages.
 
-{% include requirement/MUST id="rust-packaging-group" %} package different endpoints within a service that version together in a single crate but under separate modules as needed.
+{% include requirement/MUST id="rust-packaging-project" %} define a separate crate for each [TypeSpec project][rust-lang-typespec-config] within a service directory e.g.,
 
-Using Key Vault as an example and comparing with other languages like [.NET][dotnet-guidelines]:
+* `specification/keyvault/data-plane/Microsoft.KeyVault/Security.KeyVault.Secrets` -> `sdk/keyvault/azure_security_keyvault_secrets`
+* `specification/keyvault/data-plane/Microsoft.KeyVault/Security.KeyVault.Keys` -> `sdk/keyvault/azure_security_keyvault_keys`
+* `specification/keyvault/data-plane/Microsoft.KeyVault/Security.KeyVault.Certificates` -> `sdk/keyvault/azure_security_keyvault_certificates`
 
-* `Azure.Security.KeyVault.Secrets` -> `azure_security_keyvault::secrets`
-* `Azure.Security.KeyVault.Keys` -> `azure_security_keyvault::keys`
-* `Azure.Security.KeyVault.Certificates` -> `azure_security_keyvault::certificates`
-
-This makes efficient use of generated client code for each services' TypeSpec or OpenAPI specification in a statically-compiled language like Rust.
+{% include requirement/MAY id="rust-packaging-common-project" %} define a common crate under the service directory that all service client crates use. Unless there's a name conflict, this should use the "common" suffix e.g., `azure_security_keyvault_common`. The API must be public but you **MAY** document that those APIs are not intended for public use, similar to some other languages' common libraries.
 
 {% include requirement/MUSTNOT id="rust-packaging-independent" %} package multiple service specifications that version independently within the same crate.
 
