@@ -473,13 +473,9 @@ Your `tsconfig.json` should look similar to the following example:
 
 Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).
 
-{% include requirement/MUST id="ts-pagination-provide-list" %} provide a `list` method that returns a `PagedAsyncIterableIterator` from the module `@azure/core-paging`.
-
-{% include requirement/MUST id="ts-pagination-provide-bypage-settings" %} provide page-related settings to the `byPage()` iterator and not the per-item iterator.
+{% include requirement/MUST id="ts-pagination-provide-list" %} provide a `list` method that returns a `PagedAsyncIterableIterator`.
 
 {% include requirement/MUST id="ts-pagination-take-continuationToken" %} take a `continuationToken` option in the `byPage()` method. You must rename other parameters that perform a similar function (for example, `nextMarker`).  If your page type has a continuation token, it must be named `continuationToken`.
-
-{% include requirement/MUST id="ts-pagination-take-maxpagesize" %} take a `maxPageSize` option in the `byPage()` method.
 
 An example of a paginating client:
 <a name="ts-example-pagination"></a>
@@ -491,7 +487,10 @@ for await (const item of client.listItems()) {
     console.log(item);
 }
 
-for await (const page of client.listItems().byPage({ maxPageSize: 50 })) {
+// usage of continuationToken with byPage
+const previousPage = client.listItems().byPage().next();
+const continuationToken = previousPage.value.continuationToken
+for await (const page of client.listItems().byPage({ continuationToken })) {
     console.log(page);
 }
 
@@ -500,44 +499,56 @@ interface Item {
     name: string;
 }
 
-interface Page {
-    continuationToken: string;
-    items: Item[];
+type ContinuablePage<TElement, TPage = TElement[]> = TPage & {
+  /**
+   * The token that keeps track of where to continue the iterator
+   */
+  continuationToken?: string;
+};
+/**
+ * An interface that allows async iterable iteration both to completion and by page.
+ */
+interface PagedAsyncIterableIterator<
+  TElement,
+  TPage = TElement[],
+  TPageSettings extends PageSettings = PageSettings,
+> {
+  /**
+   * The next method, part of the iteration protocol
+   */
+  next(): Promise<IteratorResult<TElement>>;
+  /**
+   * The connection to the async iterator, part of the iteration protocol
+   */
+  [Symbol.asyncIterator](): PagedAsyncIterableIterator<TElement, TPage, TPageSettings>;
+  /**
+   * Return an AsyncIterableIterator that works a page at a time
+   */
+  byPage: (settings?: TPageSettings) => AsyncIterableIterator<ContinuablePage<TElement, TPage>>;
 }
 
 class ServiceClient {
     /* ... */
-    listItems(): PagedAsyncIterableIterator<Item, Page> {
-        async function* pages () { /* ... */ }
-        async function* items () {
-            for (const page of pages()) {
-                for (const item of page.items) {
-                    yield item;
-                }
-            }
-        }
-
-        const itemIter = items();
-
-        return {
-            next() {
-                return itemIter.next();
-                /* ... */
-            },
-            byPage() {
-                return pages();
-            },
-            [Symbol.asyncIterator]() { return this }
-        }
+    listItems(): PagedAsyncIterableIterator<Item> {
+      return buildPagedAsyncIterator(
+        context,
+        () =>
+          _listItemsSend(
+            context,
+            options,
+          ),
+        _listItemsDeserialize,
+        { itemName: "value", nextLinkName: "nextLink" },
+      );
     }
 }
 ```
 
-{% include requirement/MUST id="general-pagination-paginate-lists" %} expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
-
 {% include requirement/MUST id="general-pagination-distinct-types" %} use different types for entities returned from a `list` endpoint and a `get` endpoint if the returned entities have a different shape.  If both entities are the same form, use the same type.
 
 {% include note.html content="Services should return the same shape for entities from a <code>list</code> endpoint vs. a <code>get</code> endpoint unless there's a good reason for the difference.  Using the same type for both operations will make the API surface in the client library simpler." %}
+
+{% include requirement/MUSTNOT id="ts-pagination-provide-bypage-settings" %} provide page-related settings other than the `continuationToken` to the `byPage()` iterator and not the per-item iterator.
 
 {% include requirement/MUSTNOT id="general-pagination-no-item-iterators" %} expose an iterator over individual items if it causes additional service requests.  Some services charge on a per-request basis. One `GET` per item is often too expensive when the data isn't used.
 
