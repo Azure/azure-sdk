@@ -95,6 +95,7 @@ Maps,0,Maps Search,data,.NET,,,11,false,Azure.Maps.Search,https://github.com/Azu
 Media,0,Media Analytics Edge,data,.NET,,,11,false,Azure.Media.Analytics.Edge,https://github.com/Azure/azure-sdk-for-net/tree/Azure.Media.Analytics.Edge_1.0.0-beta.1/sdk/mediaservices/Azure.Media.Analytics.Edge,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,.NET,,,11,false,Azure.AI.MetricsAdvisor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/metricsadvisor,10,false,1,08/10/2021
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,10,false,1,07/15/2024
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,04/03/2024
@@ -411,7 +412,6 @@ IoT,0,Microsoft.Azure.Devices.Provisioning.Transport.Mqtt,data,.NET,Microsoft.Az
 IoT,0,Microsoft.Azure.Devices.Shared,data,.NET,Microsoft.Azure.Devices.Shared,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 IoT,0,Microsoft.Azure.IoT.Edge.Module,data,.NET,Microsoft.Azure.IoT.Edge.Module,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Web PubSub,0,Microsoft.Azure.WebPubSub.AspNetCore,data,.NET,Microsoft.Azure.WebPubSub.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mobile Apps,0,Mobile Apps,data,.NET,Microsoft.Azure.Mobile.Server,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mobile Services,0,Mobile Server - Cross Domain,data,.NET,Microsoft.Azure.Mobile.Server.CrossDomain,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Mobile Services,0,Mobile Service - Resource Broker,data,.NET,Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Replaced by: Microsoft.WindowsAzure.Mobile.Service.ResourceBroker,,4,false,1,
@@ -573,7 +573,7 @@ Monitor,0,Query - Logs,data,Go,,,11,false,sdk/monitor/query/azlogs,https://githu
 Monitor,0,Query - Metrics,data,Go,,,11,false,sdk/monitor/query/azmetrics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azmetrics,10,false,1,06/12/2024
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,05/20/2024
 Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,
-Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,07/19/2024
+Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,05/09/2023
 Event Grid,0,System Events,data,Go,,,11,false,sdk/messaging/eventgrid/azsystemevents,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azsystemevents,3,false,1,
@@ -830,7 +830,7 @@ Workloads,0,Resource Management - Workloads SAP Virtual Instance,mgmt,Go,,,11,fa
 Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,false,,,1,false,0,
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
-Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,07/30/2024
+Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,06/18/2024
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,02/22/2024
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1147,7 +1147,7 @@ Functions,0,Java Library Redis,UNABLE TO BE DETERMINED,Java,azure-functions-java
 Kusto,0,Kusto Spark,UNABLE TO BE DETERMINED,Java,kusto-spark_2.4_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Toolkit,0,Postgre Single Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-postgre-single-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Schema Registry,0,Schema Registry - JSON,UNABLE TO BE DETERMINED,Java,azure-schemaregistry-kafka-json,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
-Service Bus,0,Service Bus -JMS,UNABLE TO BE DETERMINED,Java,azure-servicebus-jms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
+Service Bus,0,Service Bus -JMS,UNABLE TO BE DETERMINED,Java,azure-servicebus-jms,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,,,1,false,0,
 Toolkit,0,Service Bus Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicebus-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Toolkit,0,Service Linker Library,UNABLE TO BE DETERMINED,Java,azure-toolkit-servicelinker-lib,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 Identity,0,Authentication - Managed Service Identity Token Provider,data,Java,azure-authentication-msi-token-provider,https://github.com/Azure/azure-sdk-for-java/tree/e07dca8dc24970503df9e8838fb2f4b2d662497b/sdk/authorization/microsoft-azure-authentication-msi-token-provider,3,true,Replaced by: azure-identity,,4,false,1,
@@ -1281,7 +1281,7 @@ Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@az
 Cognitive Services,0,Health Insights Cancer Profiling,data,JavaScript,,,11,false,@azure-rest/health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-cancerprofiling-rest/,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,JavaScript,,,11,false,@azure-rest/health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-clinicalmatching-rest/,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,10,false,1,08/16/2024
-Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,07/31/2024
+Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,
 Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,06/10/2024
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
@@ -1784,7 +1784,7 @@ Edge Zones,0,Resource Management - Edge Zones,mgmt,Python,,,11,false,azure-mgmt-
 Education,0,Resource Management - Education,mgmt,Python,,,11,false,azure-mgmt-education,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/education,3,false,1,
 Elastic,0,Resource Management - Elastic,mgmt,Python,,,11,false,azure-mgmt-elastic,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/elastic,10,false,1,08/04/2021
 Event Grid,0,Resource Management - Event Grid,mgmt,Python,,,11,false,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,
-Event Hubs,0,Resource Management - Event Hubs,mgmt,Python,,,11,false,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,04/14/2023
+Event Hubs,0,Resource Management - Event Hubs,mgmt,Python,,,11,false,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,09/03/2024
 Extended Location,0,Resource Management - Extended Location,mgmt,Python,,,11,false,azure-mgmt-extendedlocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/extendedlocation,10,false,1,07/12/2022
 Fluid Relay,0,Resource Management - Fluid Relay,mgmt,Python,,,11,false,azure-mgmt-fluidrelay,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/fluidrelay,10,false,1,08/04/2022
 Front Door,0,Resource Management - Front Door,mgmt,Python,,,11,false,azure-mgmt-frontdoor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,04/15/2024
@@ -1973,6 +1973,10 @@ AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,d
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,,2,false,0,
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,,2,false,0,
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,,2,false,0,
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Java,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
 Mixed Reality,0,Mixed Reality Authentication,data,Go,,,11,false,Missing: Created from existing package: Azure.MixedReality.Authentication,,2,false,0,
 Monitor,0,OpenTelemetry AspNetCore,data,Java,,,11,false,Missing: Created from existing package: Azure.Monitor.OpenTelemetry.AspNetCore,,2,false,0,
 Monitor,0,OpenTelemetry AspNetCore,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.Monitor.OpenTelemetry.AspNetCore,,2,false,0,
