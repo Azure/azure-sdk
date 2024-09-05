@@ -1275,4 +1275,17 @@ entries:
 
     - Removed `finish_details` field from `ChatChoice` class since service API version, `2024-07-01-preview`, does not return this field.
   GroupId: com.azure
+- Name: azure-ai-vision-imageanalysis
+  Version: 1.0.0-beta.3
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Add support for Entra ID authentication.
+    * Migrate to stream-style serialization using the `azure-json` package. This is a new dependency introduced by `azure-core`.
+  GroupId: com.azure
 
