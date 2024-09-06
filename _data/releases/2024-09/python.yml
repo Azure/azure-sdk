@@ -232,4 +232,45 @@ entries:
 
     - Update OTel sdk and instrumentations to fix fastapi bug
     ([#37206](https://github.com/Azure/azure-sdk-for-python/pull/37206))
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0b4
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.0b4/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed support for extracting lists from analyzed documents:
+    - Removed models `DocumentList` and `DocumentListItem`.
+    - Removed property `lists` from model `AnalyzeResult`.
+    - Changes to the Compose Document API:
+    - Removed model `ComponentDocumentModelDetails`.
+    - Removed property `component_models` from model `ComposeDocumentModelRequest`.
+    - `ComposeDocumentModelRequest` now requires a dictionary of `DocumentTypeDetails` instances and a classifier ID to be constructed.
+    - Removed model `QuotaDetails`.
+    - Removed property `custom_neural_document_model_builds` from model `ResourceDetails`.
+    - Changed the _required_ property `field_schema` from `DocumentTypeDetails` to be _optional_.
+
+    #### Features Added
+    - Added support for the Analyze Batch Documents API:
+    - Added LRO operation `begin_analyze_batch_documents()` to `DocumentIntelligenceClient`.
+    - Added models `AnalyzeBatchDocumentsRequest`, `AnalyzeBatchResult` and `AnalyzeBatchOperationDetail`.
+    - Added support for different kinds of output in the Analyze Document API:
+    - Added operations `get_analyze_result_figure()` and `get_analyze_result_pdf()` to `DocumentIntelligenceClient`.
+    - Added optional kwarg `output` to LRO operation `begin_analyze_document()` overloads in `DocumentIntelligenceClient`.
+    - Added enum `AnalyzeOutputOption` to specify output kind, either `pdf` or `figures`.
+    - Added property `id` to model `DocumentFigure`.
+    - Added support for the Copy Classifier API:
+    - Added operations `authorize_classifier_copy()` and `begin_copy_classifier_to()` to `DocumentIntelligenceAdministrationClient`.
+    - Added models `AuthorizeClassifierCopyRequest` and `ClassifierCopyAuthorization`.
+    - Added optional kwarg `pages` to LRO operation `begin_classify_document()` overloads in `DocumentIntelligenceClient`.
+    - Added new kind `GENERATIVE` to enum `DocumentBuildMode`.
+    - Added property `warnings` to model `AnalyzeResult`.
+    - Added properties `classifier_id`, `split`, and `training_hours` to model `DocumentModelDetails`.
+    - Added properties `model_id`, `confidence_threshold`, `features`, `query_fields` and `max_documents_to_analyze` to model `DocumentTypeDetails`.
+    - Added property `allow_overwrite` to model `BuildDocumentClassifierRequest`.
+    - Added properties `allow_overwrite` and `max_training_hours` to model `BuildDocumentModelRequest`.
+    - Added properties `classifier_id`, `split` and `doc_types` to model `ComposeDocumentModelRequest`.
+    - Added support for getting `operation_id` via `details` property in the new return types `AnalyzeDocumentLROPoller` and `AsyncAnalyzeDocumentLROPoller` in operation `begin_analyze_document()`.
 
