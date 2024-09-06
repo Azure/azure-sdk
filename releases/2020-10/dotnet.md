@@ -236,7 +236,7 @@ A new set of management libraries that follow the [Azure SDK Design Guidelines f
 
 To get started with these new libraries, please see the [quickstart guide here](https://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
-More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://devblogs.microsoft.com/azure-sdk/october-2020-management-ga/)
 
 ## Latest Releases
 
