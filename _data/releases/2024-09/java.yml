@@ -1288,4 +1288,13 @@ entries:
     * Add support for Entra ID authentication.
     * Migrate to stream-style serialization using the `azure-json` package. This is a new dependency introduced by `azure-core`.
   GroupId: com.azure
+- Name: azure-resourcemanager-billing
+  Version: 1.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-billing_1.0.0/sdk/billing/azure-resourcemanager-billing/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
