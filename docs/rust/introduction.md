@@ -813,6 +813,10 @@ Packages in Rust are called "crates". Crate names follow the same [general guida
 
 Rust does support dashes in crate names, but it may create confusion with customers to reference a crate like `azure-core` then import a module like `azure_core`. Many older crates do this, but the trend has been to use underscores in both cases to avoid confusion.
 
+{% include requirement/MUST id="rust-packaging-feature-name" %} use underscores, when necessary, in feature names e.g., `reqwest_rustls` to enable the `reqwest`-based HTTP client with `rustls` support for TLS.
+
+Dashes are supported in feature names as well as crate names, but using underscores in both crate names and feature names provides a consistent experience for developers.
+
 {% include requirement/MUST id="rust-packaging-registration" %} register the chosen crate name with the [Architecture Board]. Open an issue to request the crate name. See the [registered package list] for a list of the currently registered packages.
 
 {% include requirement/MUST id="rust-packaging-project" %} define a separate crate for each [TypeSpec project][rust-lang-typespec-config] within a service directory e.g.,
