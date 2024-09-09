@@ -488,13 +488,13 @@ for await (const item of client.listItems()) {
 }
 
 // usage of continuationToken with byPage
-const previousPage = client.listItems().byPage().next();
+const previousPage = await client.listItems().byPage().next();
 const continuationToken = previousPage.value.continuationToken
 for await (const page of client.listItems().byPage({ continuationToken })) {
     console.log(page);
 }
 
-// implementation
+// interface 
 interface Item {
     name: string;
 }
@@ -506,7 +506,7 @@ type ContinuablePage<TElement, TPage = TElement[]> = TPage & {
   continuationToken?: string;
 };
 /**
- * An interface that allows async iterable iteration both to completion and by page.
+ * An iterator that enables iteration over both items and pages of items.
  */
 interface PagedAsyncIterableIterator<
   TElement,
@@ -522,25 +522,9 @@ interface PagedAsyncIterableIterator<
    */
   [Symbol.asyncIterator](): PagedAsyncIterableIterator<TElement, TPage, TPageSettings>;
   /**
-   * Return an AsyncIterableIterator that works a page at a time
+   * Return an iterator over pages of items.
    */
   byPage: (settings?: TPageSettings) => AsyncIterableIterator<ContinuablePage<TElement, TPage>>;
-}
-
-class ServiceClient {
-    /* ... */
-    listItems(): PagedAsyncIterableIterator<Item> {
-      return buildPagedAsyncIterator(
-        context,
-        () =>
-          _listItemsSend(
-            context,
-            options,
-          ),
-        _listItemsDeserialize,
-        { itemName: "value", nextLinkName: "nextLink" },
-      );
-    }
 }
 ```
 
@@ -548,7 +532,7 @@ class ServiceClient {
 
 {% include note.html content="Services should return the same shape for entities from a <code>list</code> endpoint vs. a <code>get</code> endpoint unless there's a good reason for the difference.  Using the same type for both operations will make the API surface in the client library simpler." %}
 
-{% include requirement/MUSTNOT id="ts-pagination-provide-bypage-settings" %} provide page-related settings other than the `continuationToken` to the `byPage()` iterator and not the per-item iterator.
+{% include requirement/MUSTNOT id="ts-pagination-provide-bypage-settings" %} provide page-related settings other than the `continuationToken` to the `byPage()` method.
 
 {% include requirement/MUSTNOT id="general-pagination-no-item-iterators" %} expose an iterator over individual items if it causes additional service requests.  Some services charge on a per-request basis. One `GET` per item is often too expensive when the data isn't used.
 
