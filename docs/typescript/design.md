@@ -501,7 +501,7 @@ interface Item {
 
 type ContinuablePage<TElement, TPage = TElement[]> = TPage & {
   /**
-   * The token that keeps track of where to continue the iterator
+   * A token that identifies a certain page.
    */
   continuationToken?: string;
 };
