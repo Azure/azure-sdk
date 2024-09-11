@@ -558,7 +558,11 @@ pub struct SetSecretOptions {
 
 {% include requirement/MAY id="rust-subclients-return" %} return clients from other clients e.g., a `DatabaseClient` from a `CosmosClient`.
 
+{% include requirement/MUSTNOT id="rust-subclients-create" %} define constructors on subclients. They must be constructed only from other clients.
+
 {% include requirement/MUST id="rust-subclients-suffix" %} name all client methods returning a client with the `_client` suffix e.g., `CosmosClient::database_client()`.
+
+{% include requirement/MUSTNOT id="rust-subclients-export" %} export subclients from the crate root.
 
 {% include requirement/MUSTNOT id="rust-subclients-noasync" %} define client methods returning a client as asynchronous.
 
