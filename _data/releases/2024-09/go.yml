@@ -231,4 +231,30 @@ entries:
 
     - Added support for the `FileSearch` tool definition.
     - Added `ChunkingStrategy` to vector store creation APIs.
+- Name: sdk/messaging/azservicebus
+  Version: 1.7.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.7.2/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where cancelling RenewMessageLock() calls could cause hangs in future RenewMessageLock calls. (PR#23400)
+- Name: sdk/data/azcosmos
+  Version: 1.1.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.1.0/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for OpenTelemetry trace spans. See [PR 23268](https://github.com/Azure/azure-sdk-for-go/pull/23268)
+    * Added support for MaxIntegratedCacheStaleness option See [PR 23406](https://github.com/Azure/azure-sdk-for-go/pull/23406)
+
+    #### Bugs Fixed
+    * Fixed sending `Prefer` header with `return=minimal` value on metadata operations. See [PR 23335](https://github.com/Azure/azure-sdk-for-go/pull/23335)
+    * Fixed routing metadata requests to satellite regions when using ClientOptions.PreferredRegions and multiple write region accounts. See [PR 23339](https://github.com/Azure/azure-sdk-for-go/pull/23339)
 
