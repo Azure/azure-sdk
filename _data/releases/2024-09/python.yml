@@ -315,4 +315,21 @@ entries:
     ([#36363](https://github.com/Azure/azure-sdk-for-python/pull/36363))
     - Support AAD Auth for live metrics
     ([#37258](https://github.com/Azure/azure-sdk-for-python/pull/37258))
+- Name: azure-healthinsights-radiologyinsights
+  Version: 1.0.0
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-healthinsights-radiologyinsights_1.0.0/sdk/healthinsights/azure-healthinsights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Unique ID required to be added in the request parameters
+    - models.PatientInfo renamed into models.PatientDetails
+    - models.Encounter renamed into models.PatientEncounter
+    - models.RadiologyInsightsResult renamed into models.RadiologyInsightsJob
+    - PatientDocument.created_date_time renamed into PatientDocument.created_at
+    - FollowupCommunication.datetime renamed into FollowupCommunication.communicated_at
+    - FollowupRecommendation.effective_date_time renamed into FollowupRecommendation.effective_at
 
