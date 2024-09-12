@@ -332,4 +332,17 @@ entries:
     - PatientDocument.created_date_time renamed into PatientDocument.created_at
     - FollowupCommunication.datetime renamed into FollowupCommunication.communicated_at
     - FollowupRecommendation.effective_date_time renamed into FollowupRecommendation.effective_at
+- Name: azure-ai-ml
+  Version: 1.20.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.20.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - When a workspace is created with `managed_network` enabled or has `public_network_access` set to disabled, the resources created with the workspace (Key Vault, Storage Account) will be set to have restricted network access settings. This is only applicable when the user does not specify existing resources.
+    - Added support of `fqdns` property for managed network `PrivateEndpointDestination` outbound rule objects. Enabling the support of Application Gateway as a Private Endpoint target in the workspace managed network.
+    - Added support of `address_prefixes` property for managed network `ServiceTagDestination` outbound rule objects.
+    - Removed experimental tag from `managed_network` which is a GA feature.
 
