@@ -580,6 +580,18 @@ This section describes guidelines for the design _model types_ and all their tra
 
 {% include requirement/MUST id="rust-model-types-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the model is input (serializable), output (deserializable), or both.
 
+{% include requirement/MUST id="rust-model-types-serde" %} derive or implement `azure_core::Model` for HTTP response models. Your crate must also have a direct dependency on `typespec_client_core`.
+
+{% include requirement/MUST id="rust-model-types-serde" %} attribute models with `#[typespec(format = "...")]` if the response containing the model uses a format **other** than JSON.
+
+```rust
+#[derive(azure_core::Model)]
+#[typespec(format = "xml")]
+struct Example {
+    pub foo: String
+}
+```
+
 {% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
 
 {% include requirement/MUST id="rust-model-types-optional" %} define all fields using `Option<T>`.
