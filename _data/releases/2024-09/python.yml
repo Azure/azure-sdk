@@ -345,4 +345,15 @@ entries:
     - Added support of `fqdns` property for managed network `PrivateEndpointDestination` outbound rule objects. Enabling the support of Application Gateway as a Private Endpoint target in the workspace managed network.
     - Added support of `address_prefixes` property for managed network `ServiceTagDestination` outbound rule objects.
     - Removed experimental tag from `managed_network` which is a GA feature.
+- Name: azure-appconfiguration-provider
+  Version: 2.0.0b1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.0b1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added support for feature flag telemetry.
 
