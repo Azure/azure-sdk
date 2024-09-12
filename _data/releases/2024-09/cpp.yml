@@ -1,0 +1,31 @@
+entries:
+- Name: azure-core
+  Version: 1.14.0-beta.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.0-beta.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Throw `std::invalid_argument` if the value of `TimeFractionFormat` enum passed in to `DateTime::ToString()` is invalid.
+    - `Azure::Core::Uuid::ToString()` is now `const`.
+
+    #### Features Added
+
+    - Request logs to now include the `accept-range`, `content-range`, `range`, `WWW-Authenticate`, `x-ms-date`, `x-ms-error-code`, `x-ms-range`, and `x-ms-version` headers.
+    - Added default constructor, `Parse()`, and equality comparison operators to `Azure::Core::Uuid`.
+    - Added an `Azure::Core::ResourceIdentifier` type.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.11
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.11/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated vendored copy of uAMQP to reflect upstream changes.
+
