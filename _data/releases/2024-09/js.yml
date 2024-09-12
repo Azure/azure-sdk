@@ -333,4 +333,15 @@ entries:
     - Adds `CompletionChoice` interface with content filter result.
     - Updates the `license` property to be optional in `ContentFilterCitedDetectionResultOutput`.
     - Updates `custom_blocklists` type in `ContentFilterResultsForChoiceOutput` to `ContentFilterDetailedResults`.
+- Name: '@azure/core-auth'
+  Version: 1.8.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.8.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AccessToken` now has an optional `refreshAfterTimestamp` attribute that can be used to specify when the token should be refreshed. #30402
 
