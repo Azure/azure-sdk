@@ -344,4 +344,38 @@ entries:
     #### Features Added
 
     - `AccessToken` now has an optional `refreshAfterTimestamp` attribute that can be used to specify when the token should be refreshed. #30402
+- Name: '@azure/core-lro'
+  Version: 3.1.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.1.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Add the `operation-location` support in resourceLocationConfig option.
+- Name: '@azure/core-util'
+  Version: 1.10.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.10.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `calculateRetryDelay` helper that can be used to calculate the next delay interval for exponential delay with jitter. [#30572](https://github.com/Azure/azure-sdk-for-js/pull/30572)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.17.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.17.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The token cycler of `BearerTokenCredentialPolicy` now checks the `refreshAfterTimestamp` attribute in the `AccessToken` when determining if a token request should be made in the `shouldRefresh` method. #30402
+    - Added support for automatic span propagation and HTTP tracing for consumers using Rest Level Clients. [#31019](https://github.com/Azure/azure-sdk-for-js/pull/31019)
 
