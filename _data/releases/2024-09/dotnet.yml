@@ -511,4 +511,18 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     Security patch, update to Azure.Core to 1.42.0.
+- Name: Azure.Core
+  Version: 1.43.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.43.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded `System.Text.Json` package dependency to 6.0.9 ([#45416](https://github.com/Azure/azure-sdk-for-net/pull/45416)).
+    - Added a new constructor on `AzureEventSourceListener` for callers that don't need the formatted message ([#45191](https://github.com/Azure/azure-sdk-for-net/pull/45191)).
+    - Remove unused callback from `HttpRequestMessage` options in `HttpClientTransport` transport ([#45696](https://github.com/Azure/azure-sdk-for-net/pull/45696)).
+    - Added `RequiresUnreferencedCode` and `RequiresDynamicCode` attributes to `ToDynamicFromJson` extension methods and `DynamicData` APIs to support AOT scenarios ([#45417](https://github.com/Azure/azure-sdk-for-net/pull/45417)).
 
