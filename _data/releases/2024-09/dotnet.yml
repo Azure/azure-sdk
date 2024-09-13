@@ -525,4 +525,12 @@ entries:
     - Added a new constructor on `AzureEventSourceListener` for callers that don't need the formatted message ([#45191](https://github.com/Azure/azure-sdk-for-net/pull/45191)).
     - Remove unused callback from `HttpRequestMessage` options in `HttpClientTransport` transport ([#45696](https://github.com/Azure/azure-sdk-for-net/pull/45696)).
     - Added `RequiresUnreferencedCode` and `RequiresDynamicCode` attributes to `ToDynamicFromJson` extension methods and `DynamicData` APIs to support AOT scenarios ([#45417](https://github.com/Azure/azure-sdk-for-net/pull/45417)).
+- Name: Azure.ResourceManager.Billing
+  Version: 1.2.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Billing_1.2.0/sdk/billing/Azure.ResourceManager.Billing/CHANGELOG.md
+  ChangelogContent: ""
 
