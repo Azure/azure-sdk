@@ -572,4 +572,17 @@ entries:
 
     #### Features Added
     - `ManagedIdentityCredential` now supports specifying a user-assigned managed identity by object ID.
+- Name: System.ClientModel
+  Version: 1.1.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Removed implicit cast from `string` to `ApiKeyCredential` ([#45554](https://github.com/Azure/azure-sdk-for-net/pull/45554)).
+    - Upgraded `System.Text.Json` package dependency to 6.0.9 ([#45416](https://github.com/Azure/azure-sdk-for-net/pull/45416)).
+    - Removed `PageCollection<T>` and related types in favor of using `CollectionResult<T>` and related types as the return values from paginated service endpoints ([#45961](https://github.com/Azure/azure-sdk-for-net/pull/45961)).
 
