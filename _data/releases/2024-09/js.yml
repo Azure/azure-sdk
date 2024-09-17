@@ -422,4 +422,26 @@ entries:
     #### Bugs Fixed
 
     - Return content type string in the format field for `Schema` when calling `getSchema` with unsupported schema format.
+- Name: '@azure/openai-assistants'
+  Version: 1.0.0-beta.6
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai-assistants_1.0.0-beta.6/sdk/openai/openai-assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecation notice: The Azure OpenAI Assistants client library for JavaScript beta will be retired on January 14th, 2025. Please migrate to the stable OpenAI SDK for JavaScript using the [migration guide](https://aka.ms/oai/js/asst/migrate) before that date.
+- Name: '@azure/openai'
+  Version: 1.0.0-beta.13
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.13/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecation notice: The Azure OpenAI client library for JavaScript beta will be retired on January 14th, 2025. Please migrate to the stable OpenAI SDK for JavaScript using the [migration guide](https://aka.ms/oai/js/migrate) before that date.
 
