@@ -149,7 +149,7 @@ Synapse,0,Synapse - Managed Private Endpoints,data,.NET,,,11,false,Azure.Analyti
 Synapse,0,Synapse - Monitoring,data,.NET,,,11,false,Azure.Analytics.Synapse.Monitoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Spark,data,.NET,,,11,false,Azure.Analytics.Synapse.Spark,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Event Grid,0,System Events,data,.NET,,,11,false,Azure.Messaging.EventGrid.SystemEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,3,false,1,
-Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,07/22/2024
+Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,09/16/2024
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
@@ -1315,7 +1315,7 @@ Purview,0,Purview Workflow,data,JavaScript,,,11,false,@azure-rest/purview-workfl
 Quantum,0,Quantum Jobs,data,JavaScript,,,11,false,@azure/quantum-jobs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/quantum/quantum-jobs,3,false,1,
 Schema Registry,0,Schema Registry,data,JavaScript,,,11,false,@azure/schema-registry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,09/16/2024
 Schema Registry,0,Schema Registry - Avro,data,JavaScript,,,11,false,@azure/schema-registry-avro,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,10/25/2023
-Schema Registry,0,Schema Registry - JSON,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,
+Schema Registry,0,Schema Registry - JSON,data,JavaScript,,,11,false,@azure/schema-registry-json,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/schemaregistry,10,false,1,09/17/2024
 Service Bus,0,Service Bus,data,JavaScript,azure-sb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/service-bus,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus,10,false,1,06/11/2024
 Synapse,0,Spark,data,JavaScript,,,11,false,@azure/synapse-spark,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,JavaScript,,,11,false,@azure/storage-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage,10,false,1,
@@ -1693,10 +1693,10 @@ Schema Registry,0,Schema Registry,data,Python,,,11,false,azure-schemaregistry,ht
 Schema Registry,0,Schema Registry - Avro,data,Python,,,11,false,azure-schemaregistry-avroencoder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
 Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
-Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/17/2024
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
-Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,09/17/2024
 Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,
 Synapse,0,Synapse - AccessControl,data,Python,,,11,false,azure-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse Analytics,0,Synapse - Artifacts,data,Python,,,11,false,azure-synapse-artifacts,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
@@ -2920,6 +2920,11 @@ programmableconnectivity,0,Azure.ProgrammableConnectivity,data,Java,,,11,false,M
 programmableconnectivity,0,Azure.ProgrammableConnectivity,data,JavaScript,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/Azure.ProgrammableConnectivity,,2,false,0,
 programmableconnectivity,0,Azure.ProgrammableConnectivity,data,Python,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/Azure.ProgrammableConnectivity,,2,false,0,
 programmableconnectivity,0,Azure.ProgrammableConnectivity,data,Go,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/Azure.ProgrammableConnectivity,,2,false,0,
+programmableconnectivity,0,Resource Management - ProgrammableConnectivity.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/ProgrammableConnectivity.Management,,2,false,0,
+programmableconnectivity,0,Resource Management - ProgrammableConnectivity.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/ProgrammableConnectivity.Management,,2,false,0,
+programmableconnectivity,0,Resource Management - ProgrammableConnectivity.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/ProgrammableConnectivity.Management,,2,false,0,
+programmableconnectivity,0,Resource Management - ProgrammableConnectivity.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/ProgrammableConnectivity.Management,,2,false,0,
+programmableconnectivity,0,Resource Management - ProgrammableConnectivity.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/ProgrammableConnectivity.Management,,2,false,0,
 programmableconnectivity,0,programmableconnectivity,data,.NET,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/data-plane,,2,false,0,
 programmableconnectivity,0,programmableconnectivity,data,Java,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/data-plane,,2,false,0,
 programmableconnectivity,0,programmableconnectivity,data,JavaScript,,,11,false,Missing: Created from API in specs repo: programmableconnectivity/data-plane,,2,false,0,
