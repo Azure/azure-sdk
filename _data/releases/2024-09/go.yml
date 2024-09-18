@@ -296,4 +296,14 @@ entries:
     #### Features Added
     * Added crc64 response header to Put Blob.
     * Upgraded service version to `2024-08-04`.
+- Name: sdk/monitor/query/azlogs
+  Version: 1.1.0-beta.1
+  DisplayName: Query - Logs
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azlogs/v1.1.0-beta.1/sdk/monitor/query/azlogs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added batch query functionality
 
