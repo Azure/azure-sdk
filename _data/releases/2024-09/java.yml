@@ -2063,4 +2063,136 @@ entries:
     - Upgraded `azure-json` from `1.2.0` to version `1.3.0`.
     - Upgraded `msal4j` from `1.16.2` to version `1.17.1`.
   GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.27.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.27.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a new `EncryptionVersion.V2_1` that allows encrypted blobs to be uploaded using a configurable authenticated region length.
+    - Added configuration to allow encrypted blobs to be uploaded using a configurable authenticated region length via
+    `BlobClientSideEncryptionOptions`. The region length can be configured to range between 16 bytes to 1GB. The region
+    length can be set via `BlobClientSideEncryptionOptions.setAuthenticatedRegionDataLengthInBytes(long authenticatedRegionDataLength)`.
+    Note: This change only applies to `EncryptionVersion.V2_1`. Also, only applies to upload operations, this does not directly
+    change the authenticated region length used to download and decrypt blobs.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.26
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.26/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.21.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.21.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.23.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.23.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.13.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.13.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.25
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.25/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.28.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.28.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-resourcemanager-cosmos
+  Version: 2.43.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmos_2.43.0-beta.1/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-blob-batch
+  Version: 12.24.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.24.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.27.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.27.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.24.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.24.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for token-based authentication for all APIs.
+    - Added support for paid bursting on premium file share accounts.
+    - Added support for binary format for file permissions.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Added support for service version 2024-11-04.
+  GroupId: com.azure
 
