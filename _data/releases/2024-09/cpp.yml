@@ -28,4 +28,21 @@ entries:
     #### Bugs Fixed
 
     - Updated vendored copy of uAMQP to reflect upstream changes.
+- Name: azure-identity
+  Version: 1.10.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.10.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for providing an object ID to `ManagedIdentityCredential`.
+    - Added support for passing in the x509 certificate and its corresponding private key directly to `ClientCertificateCredential`, rather than reading from a pem file.
+    - Added support for sending an x5c parameter in `ClientCertificateCredential`.
+
+    #### Breaking Changes
+
+    - Previously, if a clientId was specified for Cloud Shell managed identity, which is not supported, the clientId was passed into the request body. Now, an exception will be thrown if a clientId is specified for Cloud Shell managed identity.
 
