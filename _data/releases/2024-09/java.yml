@@ -2195,4 +2195,19 @@ entries:
     - Added ability to retrieve SAS string to sign for debugging purposes.
     - Added support for service version 2024-11-04.
   GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.3.7
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.3.7/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.15.3` to version `1.15.4`.
+    - Upgraded `azure-core` from `1.51.0` to version `1.52.0`.
+  GroupId: com.azure
 
