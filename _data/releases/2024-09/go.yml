@@ -306,4 +306,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added batch query functionality
+- Name: sdk/containers/azcontainerregistry
+  Version: 0.2.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/containers/azcontainerregistry/v0.2.2/sdk/containers/azcontainerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add `AuthenticationClient` enabling third party libraries to interact with container and artifact registries
 
