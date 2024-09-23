@@ -55,4 +55,15 @@ entries:
     - Removed the optional `purpose` parameter from `FileClient.GetFilesAsync` and `FileClient.GetFiles` methods, and added overloads where `purpose` is required. ([2ab1a94](https://github.com/openai/openai-dotnet/commit/2ab1a94269125e6bed45d134a402ad8addd8fea4))
     - Renamed `ModerationClient`'s `ClassifyTextInput` methods to `ClassifyText`. ([2ab1a94](https://github.com/openai/openai-dotnet/commit/2ab1a94269125e6bed45d134a402ad8addd8fea4))
     - Removed duplicated `Created` property from `GeneratedImageCollection`. ([2ab1a94](https://github.com/openai/openai-dotnet/commit/2ab1a94269125e6bed45d134a402ad8addd8fea4))
+- Name: Azure.Maps.Search
+  Version: 2.0.0-beta.3
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Search_2.0.0-beta.3/sdk/maps/Azure.Maps.Search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Hide unnecessary GeoJson interfaces and replace with `Azure.Core.GeoJson` types
 
