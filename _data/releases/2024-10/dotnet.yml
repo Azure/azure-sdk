@@ -100,4 +100,12 @@ entries:
     - Added support for `VectorQuery.FilterOverride`, which allows vector queries to override the broader `SearchOptions.Filter`, enabling more specific configurations for vector queries.
     - `SplitSkill` now supports tokenization.
     - `DocumentDebugInfo` is extended with vector scores for the results.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.9.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.9.0/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
 
