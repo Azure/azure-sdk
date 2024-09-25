@@ -33,4 +33,40 @@ entries:
     - `VectorQuery` now supports `filterOverride` which allow for vector queries to override the broader SearchRequest.filter to allow for vector queries to have more specific configurations
     - `DocumentDebugInfo` is extended with vector scores for the result.
   GroupId: com.azure
+- Name: azure-resourcemanager-desktopvirtualization
+  Version: 1.2.0
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-desktopvirtualization_1.2.0/sdk/desktopvirtualization/azure-resourcemanager-desktopvirtualization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-elasticsan
+  Version: 1.1.0
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-elasticsan_1.1.0/sdk/elasticsan/azure-resourcemanager-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-computeschedule
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computeschedule_1.0.0-beta.1/sdk/computeschedule/azure-resourcemanager-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-standbypool
+  Version: 1.0.0
+  DisplayName: Resource Management - Standby Pool
+  ServiceName: Standby Pool
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-standbypool_1.0.0/sdk/standbypool/azure-resourcemanager-standbypool/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
