@@ -45,7 +45,6 @@ entries:
     #### Breaking Changes
 
     - Previously, if a clientId was specified for Cloud Shell managed identity, which is not supported, the clientId was passed into the request body. Now, an exception will be thrown if a clientId is specified for Cloud Shell managed identity.
-entries:
 - Name: azure-storage-files-datalake
   Version: 12.12.0
   DisplayName: Storage - Files Data Lake
