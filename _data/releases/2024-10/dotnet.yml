@@ -175,4 +175,12 @@ entries:
 
     - Consumers can now provide a value for the `ContentId` property when sending emails with attachments.
     This allows consumers to reference attachments in the email body using the `cid` scheme. The `ContentId` property can be set on the `EmailAttachment` object.
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.0.0-beta.1/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
 
