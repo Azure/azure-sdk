@@ -137,4 +137,12 @@ entries:
 
     - Consumers can now provide a value for the `contentId` property when sending emails with attachments.
     This allows consumers to reference attachments in the email body using the `cid` scheme. The `contentId` property can be set on the `EmailAttachment` object.
+- Name: azure-mgmt-mongocluster
+  Version: 1.0.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.0.0/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
 
