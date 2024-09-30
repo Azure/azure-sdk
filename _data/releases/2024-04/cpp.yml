@@ -10,7 +10,7 @@ entries:
     #### Bugs Fixed
 
     - [[#5450]](https://github.com/Azure/azure-sdk-for-cpp/issues/5450) Reverted libcurl connection pool to use more conservative caching strategy.
-    - [[#4352]](https://github.com/Azure/azure-sdk-for-cpp/pull/5371) Fixed compilation error on Visual Studio 2017. (A community contribution, courtesy of _[morten-ofstad](https://github.com/morten-ofstad)_)
+    - [[#5371]](https://github.com/Azure/azure-sdk-for-cpp/pull/5371) Fix use of namespace qualifiers that have not been explicitly introduced. (A community contribution, courtesy of _[morten-ofstad](https://github.com/morten-ofstad)_)
 - Name: azure-security-keyvault-keys
   Version: 4.5.0-beta.1
   DisplayName: Key Vault - Keys
@@ -88,7 +88,7 @@ entries:
 
     #### Bugs Fixed
 
-    - Fixed [#5297](https://github.com/Azure/azure-sdk-for-cpp/issues/5297). The actual fix for this was to use a single management client per connection.
+    - Fixed [[#5297]](https://github.com/Azure/azure-sdk-for-cpp/issues/5297). The actual fix for this was to use a single management client per connection.
 - Name: azure-core
   Version: 1.12.0-beta.1
   DisplayName: Core
