@@ -965,4 +965,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.1.0-beta.1/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-sdk-bom
+  Version: 1.2.28
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.28/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added new library entries to the BOM:
+    - `azure-data-schemaregistry-jsonschema`
+    - `azure-health-deidentification`
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
