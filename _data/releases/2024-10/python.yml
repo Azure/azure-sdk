@@ -161,4 +161,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-trustedsigning_1.0.0b1/sdk/trustedsigning/azure-mgmt-trustedsigning/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.0.0b2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.0b2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `data` and `evaluators` are now required keywords in `evaluate`.
 
