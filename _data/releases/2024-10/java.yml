@@ -956,4 +956,13 @@ entries:
     - Added span for update checkpoint call.
     - Added partitionId and consumer group (when available) to span and metric attributes.
   GroupId: com.azure
+- Name: azure-resourcemanager-servicenetworking
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.1.0-beta.1/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
