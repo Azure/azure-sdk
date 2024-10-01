@@ -956,4 +956,224 @@ entries:
     - Added span for update checkpoint call.
     - Added partitionId and consumer group (when available) to span and metric attributes.
   GroupId: com.azure
+- Name: azure-resourcemanager-servicenetworking
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicenetworking_1.1.0-beta.1/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-sdk-bom
+  Version: 1.2.28
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.28/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added new library entries to the BOM:
+    - `azure-data-schemaregistry-jsonschema`
+    - `azure-health-deidentification`
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.50
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.50/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.27.0-beta.2
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.27.0-beta.2/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.23
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-metrics-opentelemetry_1.0.0-beta.23/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+    - Upgraded `opentelemetr-api` from `1.41.0` to `1.42.1`.
+  GroupId: com.azure
+- Name: azure-core-http-vertx
+  Version: 1.0.0-beta.22
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-vertx_1.0.0-beta.22/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `VertxAsyncHttpClient` to `VertxHttpClient`, `VertxAsyncHttpClientBuilder` to `VertxHttpClientBuilder`, and
+    `VertxAsyncHttpClientProvider` to `VertxHttpClientProvider`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.12.4
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.12.4/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.3.2
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.3.2/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.15.4
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.15.4/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.53.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.53.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow setting `SharedExecutorService`'s backing `ExecutorService` to allow for external configuration to manage the
+    shared thread pool. ([#41885](https://github.com/Azure/azure-sdk-for-java/pull/41885))
+    - Change `SharedExecutorService` from implementing `ExecutorService` to `ScheduledExecutorService` to allow
+    scheduled-based execution. ([#41885](https://github.com/Azure/azure-sdk-for-java/pull/41885))
+    - Allow passing `schemaUrl` when creating a `Meter` or `Tracer` using `MeterProvider` and `TracerProvider`. ([#41789](https://github.com/Azure/azure-sdk-for-java/pull/41789))
+    - Added `Binary.writeTo(JsonWriter)` to enable `BinaryData` to better integrate with `azure-json`. ([#42107](https://github.com/Azure/azure-sdk-for-java/pull/42107))
+    - Added `ProofOfPossessionOptions` and a field to `TokenRequestContext` to indicate its use. ([#41852](https://github.com/Azure/azure-sdk-for-java/pull/41852))
+  GroupId: com.azure
+- Name: azure-core-http-jdk-httpclient
+  Version: 1.0.0-beta.17
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-jdk-httpclient_1.0.0-beta.17/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Change the default `ExecutorService` used by `JdkHttpClientBuilder` from using what the JDK `HttpClient` instatiates
+    to using `SharedExecutorService` if `JdkHttpClientBuilder.executor` isn't set.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.54
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.54/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.5.2
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.5.2/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.9.10
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.9.10/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.15.5
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.15.5/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.50
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.50/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
+    - Upgraded `opentelemetry-api` from `1.41.0` to `1.42.1`.
+  GroupId: com.azure
 
