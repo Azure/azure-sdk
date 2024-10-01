@@ -172,4 +172,67 @@ entries:
     #### Breaking Changes
 
     - `data` and `evaluators` are now required keywords in `evaluate`.
+- Name: azure-ai-evaluation
+  Version: 1.0.0b3
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.0b3/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where Entra ID authentication was not working with `AzureOpenAIModelConfiguration`
+
+    #### Features Added
+
+    - Added `type` field to `AzureOpenAIModelConfiguration` and `OpenAIModelConfiguration`
+    - The following evaluators now support `conversation` as an alternative input to their usual single-turn inputs:
+    - `ViolenceEvaluator`
+    - `SexualEvaluator`
+    - `SelfHarmEvaluator`
+    - `HateUnfairnessEvaluator`
+    - `ProtectedMaterialEvaluator`
+    - `IndirectAttackEvaluator`
+    - `CoherenceEvaluator`
+    - `RelevanceEvaluator`
+    - `FluencyEvaluator`
+    - `GroundednessEvaluator`
+    - Surfaced `RetrievalScoreEvaluator`, formally an internal part of `ChatEvaluator` as a standalone conversation-only evaluator.
+
+    #### Breaking Changes
+
+    - Removed `ContentSafetyChatEvaluator` and `ChatEvaluator`
+    - The `evaluator_config` parameter of `evaluate` now maps in evaluator name to a dictionary `EvaluatorConfig`, which is a `TypedDict`. The
+    `column_mapping` between `data` or `target` and evaluator field names should now be specified inside this new dictionary:
+
+    Before:
+    ```python
+    evaluate(
+    ...,
+    evaluator_config={
+    "hate_unfairness": {
+    "query": "${data.question}",
+    "response": "${data.answer}",
+    }
+    },
+    ...
+    )
+    ```
+
+    After
+    ```python
+    evaluate(
+    ...,
+    evaluator_config={
+    "hate_unfairness": {
+    "column_mapping": {
+    "query": "${data.question}",
+    "response": "${data.answer}",
+    }
+    }
+    },
+    ...
+    )
+    ```
 
