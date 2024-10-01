@@ -205,4 +205,28 @@ entries:
     #### Bugs Fixed
 
     - Fix the issue where `Iso` is always `null` in the `GetReverseGeocoding` response
+- Name: Azure.AI.OpenAI
+  Version: 2.0.0
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.0.0/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AzureOpenAIClient` constructors accepting `AzureKeyCredential` have been removed; please use the `ApiKeyCredential` constructors, instead. Note that `AzureKeyCredential` will inherit from `ApiKeyCredential` in a future update and that `AzureKeyCredential` has [a non-browsable Key property](https://github.com/Azure/azure-sdk-for-net/blob/448d80d80ad0f3df69b96df080da6cf8b537e9d2/sdk/core/Azure.Core/src/AzureKeyCredential.cs#L19) that may be used for conversion in the interim.
+    - The `AzureOpenAIClientOptions` `ApplicationId` has been renamed to a more descriptive `UserAgentApplicationId`.
+
+    **From OpenAI 2.0.0 stable**
+
+    - Implemented `ChatMessageContent` to encapsulate the representation of content parts in `ChatMessage`, `ChatCompletion`, and `StreamingChatCompletionUpdate`. (commit_hash)
+    - Changed the representation of function arguments to `BinaryData` in `ChatToolCall`, `StreamingChatToolCallUpdate`, `ChatFunctionCall`, and `StreamingChatFunctionCallUpdate`. (commit_hash)
+    - Renamed `OpenAIClientOptions`'s `ApplicationId` to `UserAgentApplicationId` (commit_hash)
+    - Renamed `StreamingChatToolCallUpdate`'s `Id` to `ToolCallId` (commit_hash)
+    - Renamed `StreamingChatCompletionUpdate`'s `Id` to `CompletionId` (commit_hash)
+    - Replaced `Auto` and `None` in the deprecated `ChatFunctionChoice` with `CreateAutoChoice()` and `CreateNoneChoice()` (commit_hash)
+    - Replaced the deprecated `ChatFunctionChoice(ChatFunction)` constructor with `CreateNamedChoice(string functionName)` (commit_hash)
+    - Renamed `FileClient` to `OpenAIFileClient` and the corresponding `GetFileClient()` method in `OpenAIClient` to `GetOpenAIFileClient()`. (commit_hash)
+    - Renamed `ModelClient` to `OpenAIModelClient` and the corresponding `GetModelClient()` method in `OpenAIClient` to `GetOpenAIModelClient()`. (commit_hash)
 
