@@ -61,6 +61,7 @@ See [Messaging](#messaging-libraries) section below and [CosmosDB conventions](h
 API-level spans produced by Azure SDK have the following attributes:
 
 <!-- semconv azure.sdk.api(full) -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.namespace` | string | [Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against. [1] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | Required |
@@ -92,6 +93,7 @@ it's RECOMMENDED to:
 | Value  | Description |
 |---|---|
 | `_OTHER` | A fallback error value to be used when the instrumentation doesn't define a custom value. |
+
 <!-- endsemconv -->
 
 ## HTTP Client spans
@@ -101,6 +103,7 @@ it's RECOMMENDED to:
 Azure SDK implements a valid subset of stable part of [OpenTelemetry HTTP spans conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md) and create a span per HTTP call (attempt).
 
 <!-- semconv azure.sdk.http -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.client_request_id` | string | Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client. | `eb178587-c05a-418c-a695-ae9466c5303c` | Conditionally Required: only if present. |
@@ -179,6 +182,7 @@ Messaging libraries produce three kinds of spans:
 ### Messaging attributes
 
 <!-- semconv azure.sdk.messaging -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.namespace` | string | [Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against. [1] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | Required |
@@ -222,23 +226,28 @@ In addition to common attributes listed in the [Public API calls](#public-api-ca
 ### Azure Application Configuration attributes
 
 <!-- semconv azure.sdk.appconfiguration -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.appconfiguration.key` | string | Value of the Azure Application Configuration property [key](https://learn.microsoft.com/azure/azure-app-configuration/concept-key-value). | `AppName:Service1:ApiEndpoint` | Recommended |
+
 <!-- endsemconv -->
 
 ### Azure Cognitive Language Question Answering SDK attributes
 
 <!-- semconv azure.sdk.cognitivelanguage -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.cognitivelanguage.deployment.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) deployment. | `production` | Recommended |
 | `az.cognitivelanguage.project.name` | string | Name of the [Azure Questions Answering](https://learn.microsoft.com/azure/ai-services/language-service/question-answering/overview) project. | `production` | Recommended |
+
 <!-- endsemconv -->
 
 ### Azure Digital Twins attributes
 
 <!-- semconv azure.sdk.digitaltwins -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.digitaltwins.component.name` | string | The name of the digital twin component. | `thermostat` | Recommended |
@@ -256,39 +265,47 @@ In addition to common attributes listed in the [Public API calls](#public-api-ca
 #### Azure KeyVault Certificates attributes
 
 <!-- semconv azure.sdk.keyvault.certificates -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.keyvault.certificate.issuer.name` | string | Azure KeyVault certificate version. | `issuer01` | Recommended |
 | `az.keyvault.certificate.name` | string | Azure KeyVault certificate name. | `selfSignedCert01` | Recommended |
 | `az.keyvault.certificate.version` | string | Azure KeyVault certificate version. | `c3d31d7b36c942ad83ef36fc0785a4fc` | Recommended |
+
 <!-- endsemconv -->
 
 #### Azure KeyVault Keys attributes
 
 <!-- semconv azure.sdk.keyvault.keys -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.keyvault.key.id` | string | Azure KeyVault key id (full URL). | `"https://myvault.vault.azure.net/keys/CreateSoftKeyTest/78deebed173b48e48f55abf87ed4cf71` | Recommended |
 | `az.keyvault.key.name` | string | Azure KeyVault key name. | `test-key` | Recommended |
 | `az.keyvault.key.version` | string | Azure KeyVault key version. | `3d31e6e5c4c14eaf9be8d42c00225088` | Recommended |
+
 <!-- endsemconv -->
 
 #### Azure KeyVault Secrets attributes
 
 <!-- semconv azure.sdk.keyvault.secrets -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.keyvault.secret.name` | string | Azure KeyVault secret name. | `test-secret` | Recommended |
 | `az.keyvault.secret.version` | string | Azure KeyVault secret version. | `4387e9f3d6e14c459867679a90fd0f79` | Recommended |
+
 <!-- endsemconv -->
 
 #### Azure Mixed Reality Remote Rendering attributes
 
 <!-- semconv azure.sdk.remoterendering -->
+
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | `az.remoterendering.conversion.id` | string | A conversion id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account. | `contoso-conversion-6fae2bfb754e` | Recommended |
 | `az.remoterendering.session.id` | string | A session id uniquely identifying the conversion for the given [Azure Remote Rendering](https://learn.microsoft.com/windows/mixed-reality/develop/mixed-reality-cloud-services#azure-remote-rendering) account. | `contoso-session-8c28813adc28` | Recommended |
+
 <!-- endsemconv -->
 
 [DocumentStatus]: https://github.com/open-telemetry/opentelemetry-specification/tree/v1.26.0/specification/document-status.md
