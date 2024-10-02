@@ -258,6 +258,7 @@ In addition to common attributes listed in the [Public API calls](#public-api-ca
 | `az.digitaltwins.query` | string | Digital twin graph query. | `SELECT * FROM DIGITALTWINS WHERE Name = "DSouza"` | Recommended |
 | `az.digitaltwins.relationship.name` | string | The name of the relationship between twins. | `contains` | Recommended |
 | `az.digitaltwins.twin.id` | string | The unique identifier of the [digital twin](https://learn.microsoft.com/azure/digital-twins/concepts-twins-graph). | `edf41622` | Recommended |
+
 <!-- endsemconv -->
 
 ### Azure KeyVault attributes
