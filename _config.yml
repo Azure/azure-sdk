@@ -65,6 +65,11 @@ blog_url: https://devblogs.microsoft.com/azure-sdk/
 # Various plugin settings
 highlighter: rouge
 markdown: GFM
+kramdown:
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
 
 timezone: "US/Pacific"
 
