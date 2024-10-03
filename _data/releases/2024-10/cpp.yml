@@ -54,4 +54,31 @@ entries:
     #### Features Added
 
     - New features in `12.4.0-beta.1` are now generally available.
+- Name: azure-core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new constructor for `Azure::Core::Context` that takes an `Azure::DateTime` deadline. This enables creating a new context directly with a deadline.
+    - Request logs to now include the `accept-range`, `content-range`, `range`, `WWW-Authenticate`, `x-ms-date`, `x-ms-error-code`, `x-ms-range`, and `x-ms-version` headers.
+    - Added default constructor, `Parse()`, and equality comparison operators to `Azure::Core::Uuid`.
+    - Added an `Azure::Core::ResourceIdentifier` type.
+
+    #### Breaking Changes
+
+    - Deprecated the `Azure::Core::Context::ApplicationContext` object.
+    - If customer code is using `Azure::Core::Context::ApplicationContext`, the customer should instead create their own root context object which is used
+    wherever the customer would have previously used `Azure::Core::Context::ApplicationContext`, i.e. `Azure::Core::Context(deadline)` instead of `Azure::Core::Context::ApplicationContext.WithDeadline(deadline)`.
+
+    #### Bugs Fixed
+
+    - Throw `std::invalid_argument` if the value of `TimeFractionFormat` enum passed in to `DateTime::ToString()` is invalid.
+    - `Azure::Core::Uuid::ToString()` is now `const`.
+    - Make the HTTP transport behavior consistent between WinHTTP and libcurl by disabling automatically following redirects on Windows.
+    - Added basic input validation to `Azure::Core::ResourceIdentifier` to ensure the prefix match what is expected.
 
