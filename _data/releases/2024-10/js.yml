@@ -239,4 +239,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-trustedsigning_1.0.0-beta.1/sdk/trustedsigning/arm-trustedsigning/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-tracing'
+  Version: 1.2.0
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.2.0/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for attaching events to a span. [#31162](https://github.com/Azure/azure-sdk-for-js/pull/31162)
 
