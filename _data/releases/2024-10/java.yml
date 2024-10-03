@@ -1176,4 +1176,28 @@ entries:
     - Upgraded `azure-core` from `1.52.0` to `1.53.0`.
     - Upgraded `opentelemetry-api` from `1.41.0` to `1.42.1`.
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.29
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.29/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [Fix a race condition RejectedExecutionException](https://github.com/Azure/azure-sdk-for-java/pull/41927)
+    - [Fix a bug where post requests to Live Metrics returned http 400 due to malformed json](https://github.com/Azure/azure-sdk-for-java/pull/42147)
+
+    #### Breaking Changes
+
+    ⚠️⚠️ The `AzureMonitorExporterBuilder` class has been replaced with the `AzureMonitorExporter` class ([41705](https://github.com/Azure/azure-sdk-for-java/pull/41705) and [42134](https://github.com/Azure/azure-sdk-for-java/pull/42134)):
+
+    ```java
+    AutoConfiguredOpenTelemetrySdkBuilder sdkBuilder = AutoConfiguredOpenTelemetrySdk.builder();
+    AzureMonitorExporter.customize(sdkBuilder);
+    OpenTelemetry openTelemetry = sdkBuilder.build().getOpenTelemetrySdk();
+    ```
+
+    See the [Readme](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter) for more details
+  GroupId: com.azure
 
