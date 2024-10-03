@@ -1200,4 +1200,24 @@ entries:
 
     See the [Readme](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter) for more details
   GroupId: com.azure
+- Name: azure-ai-inference
+  Version: 1.0.0-beta.2
+  DisplayName: Azure AI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-inference_1.0.0-beta.2/sdk/ai/azure-ai-inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - #42036: illegal char exception for newline in prompt
+    - Fixed key authentication issue with non-Azure OpenAI models
+
+    #### Features Added
+
+    - getModelInfo() API added for ChatCompletionsClient and EmbeddingsClient, along with sample
+    - ChatRequestMessage.fromContentItems() static constructor added for image chat scenarios
+    - ChatMessageImageContentItem(Path, string) constructor for image file chat scenario
+    - getChoice() API added to ChatCompletions and StreamingChatMessageResponseUpdate
+  GroupId: com.azure
 
