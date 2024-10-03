@@ -245,4 +245,14 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Implemented backpressure for  async consumer  to address a memory leak issue. ([#36398](https://github.com/Azure/azure-sdk-for-python/issues/36398))
+- Name: azure-communication-sms
+  Version: 1.1.0
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-sms_1.1.0/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.7 or later. For more details, please read our page on [Azure SDK for Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy).
 
