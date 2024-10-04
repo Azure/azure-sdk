@@ -269,4 +269,15 @@ entries:
     - `AccessToken` added the `TokenType` property to support distinguishing Bearer tokens from Proof of Possession (PoP) tokens ([45134](https://github.com/Azure/azure-sdk-for-net/pull/45134)).
     - Moved implementation of `Azure.AzureKeyCredential` into `System.ClientModel.ApiKeyCredential` and made `ApiKeyCredential` the base type for `AzureKeyCredential` ([#46128](https://github.com/Azure/azure-sdk-for-net/pull/46128)).
     - `BearerTokenAuthenticationPolicy` now will attempt to handle Continuous Access Evaluation (CAE) challenges, if present, by default ([#46277](https://github.com/Azure/azure-sdk-for-net/pull/46277)).
+- Name: Microsoft.Extensions.Azure
+  Version: 1.7.6
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.7.6/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved the efficiency of `AzureEventSourceLogForwarder` by eliminating message formatting. ([#46202](https://github.com/Azure/azure-sdk-for-net/pull/46202))
 
