@@ -244,4 +244,29 @@ entries:
     - This is a very early version of the convenience surface and thus subject to significant change
     - Documentation and samples will arrive soon; in the interim, see the scenario test files (in `/tests`) for basic usage
     - You can also find an external sample employing this client, together with Azure OpenAI support, at https://github.com/Azure-Samples/aoai-realtime-audio-sdk/tree/main/dotnet/samples/console
+- Name: System.ClientModel
+  Version: 1.2.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.2.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded `System.Memory.Data` package dependency to 6.0.0 ([#46134](https://github.com/Azure/azure-sdk-for-net/pull/46134)).
+- Name: Azure.Core
+  Version: 1.44.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.44.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `TokenRequestContext` added the `IsProofOfPossessionEnabled`, `ResourceRequestMethod`, and `ResourceRequestUri` properties to support Proof of Possession tokens ([45134](https://github.com/Azure/azure-sdk-for-net/pull/45134)).
+    - `AccessToken` added the `TokenType` property to support distinguishing Bearer tokens from Proof of Possession (PoP) tokens ([45134](https://github.com/Azure/azure-sdk-for-net/pull/45134)).
+    - Moved implementation of `Azure.AzureKeyCredential` into `System.ClientModel.ApiKeyCredential` and made `ApiKeyCredential` the base type for `AzureKeyCredential` ([#46128](https://github.com/Azure/azure-sdk-for-net/pull/46128)).
+    - `BearerTokenAuthenticationPolicy` now will attempt to handle Continuous Access Evaluation (CAE) challenges, if present, by default ([#46277](https://github.com/Azure/azure-sdk-for-net/pull/46277)).
 
