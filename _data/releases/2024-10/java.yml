@@ -1220,4 +1220,38 @@ entries:
     - ChatMessageImageContentItem(Path, string) constructor for image file chat scenario
     - getChoice() API added to ChatCompletions and StreamingChatMessageResponseUpdate
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.6
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.6/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-identity` from `1.13.3` to `1.14.0`
+    - Upgraded `msal4j` from `1.17.1` to `1.17.2`
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.14.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.14.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Breaking changes generally available from previous betas:
+    - Removed support in `IntelliJCredential` for legacy Azure Toolkit for IntelliJ versions. Please upgrade to latest if you are using 3.52 or below.
+
+    #### Bugs Fixed
+    - Fixed the request sent in `AzurePipelinesCredential` so it doesn't result in a redirect response when an invalid system access token is provided.
+
+    #### Features Added
+    - Features now generally available from previous betas:
+    - Added object id support in `ManagedIdentityCredential`. It can be configured via `ManagedIdentityCredentialBuilder`.
+    - Added support for a client assertion in `OnBehalfOfCredential` [#40552](https://github.com/Azure/azure-sdk-for-java/pull/40552/files)
+  GroupId: com.azure
 
