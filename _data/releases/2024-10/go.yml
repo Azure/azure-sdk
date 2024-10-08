@@ -185,4 +185,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v6.2.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * `AzurePipelinesCredential` sets an additional OIDC request header so that it
+    receives a 401 instead of a 302 after presenting an invalid system access token
+    * Allow logging of debugging headers for `AzurePipelinesCredential` and include
+    them in error messages
 
