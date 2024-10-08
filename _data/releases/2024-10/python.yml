@@ -287,4 +287,36 @@ entries:
     #### Bugs Fixed
 
     - Fixed the issue that `encryptionKey` in `SearchIndexer` was lost during serialization.  #37521
+- Name: azure-storage-file-share
+  Version: 12.19.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.19.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
+- Name: azure-identity-broker
+  Version: 1.2.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity-broker_1.2.0/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release for the Proof-of-Possession (PoP) token support to `InteractiveBrowserBrokerCredential`.
+- Name: azure-identity
+  Version: 1.19.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.19.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the request sent in `AzurePipelinesCredential` so it doesn't result in a redirect response when an invalid system access token is provided. ([#37510](https://github.com/Azure/azure-sdk-for-python/pull/37510))
 
