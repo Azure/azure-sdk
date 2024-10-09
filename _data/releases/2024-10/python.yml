@@ -333,4 +333,16 @@ entries:
 
     #### Features Added
     - Cross subscription storage account support for workspace and feature store. Developer can provide a storage account from another subscription while creating a workspace or storage account.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b31
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b31/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow tracking of whether in a Azure Functions attach scenario
+    ([#37717](https://github.com/Azure/azure-sdk-for-python/pull/37717))
 
