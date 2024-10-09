@@ -319,4 +319,18 @@ entries:
     #### Bugs Fixed
 
     - Fixed the request sent in `AzurePipelinesCredential` so it doesn't result in a redirect response when an invalid system access token is provided. ([#37510](https://github.com/Azure/azure-sdk-for-python/pull/37510))
+- Name: azure-ai-ml
+  Version: 1.21.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.21.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - #35820 - using compute location attribute to fill compute location to align the experience with UI.
+
+
+    #### Features Added
+    - Cross subscription storage account support for workspace and feature store. Developer can provide a storage account from another subscription while creating a workspace or storage account.
 
