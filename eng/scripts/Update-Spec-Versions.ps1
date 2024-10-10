@@ -45,11 +45,11 @@ function UpdateSpecMetadata($spec)
     $specContent = Get-Content $jsonFile | ConvertFrom-Json -AsHashtable
     Write-Verbose "Processing $jsonFile"
     
-    if (!$specContent) { Write-Verbose "Failed to read $specPath"; continue }
+    if (!$specContent) { Write-Verbose "Failed to read $jsonFile"; continue }
     if (!$specContent.ContainsKey("info") -or !$specContent.info.ContainsKey("version")) { Write-Verbose "Skipping: '$jsonFile' doesn't contain info.version"; continue }
 
     if ($spec.Type -eq "mgmt" -and $specContent.ContainsKey("host") -and $specContent.host -ne "management.azure.com") {
-      Write-Verbose "Found mgmt spec at $specPath without management.azure.com as the host"
+      Write-Verbose "Found mgmt spec at $jsonFile without management.azure.com as the host"
     }
 
     if (!$version) { $version = $specContent.info.version }
