@@ -1926,4 +1926,28 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-automanage_1.0.0-beta.2/sdk/automanage/azure-resourcemanager-automanage/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventgrid-namespaces
+  Version: 1.1.0
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-namespaces_1.1.0/sdk/eventgrid/azure-messaging-eventgrid-namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `withResponse` methods to sender and receiver clients. [#41879](https://github.com/Azure/azure-sdk-for-java/pull/41879)
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.26.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.26.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `onBehalfOfCommunicationIdentifier` field to `AcsIncomingCallEventData`. [#42211](https://github.com/azure/azure-sdk-for-java/issues/42211)
+  GroupId: com.azure
 
