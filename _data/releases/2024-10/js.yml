@@ -294,4 +294,15 @@ entries:
     #### Bugs Fixed
 
     - The producer now verifies that the input message follows the expected structure.
+- Name: '@azure-rest/core-client'
+  Version: 2.3.1
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.1/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow `number` path parameters. PR [#31352](https://github.com/Azure/azure-sdk-for-js/pull/31352/files)
 
