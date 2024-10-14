@@ -1,0 +1,13 @@
+entries:
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.4.3
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.4.3/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New field has been added to ACSIncomingCallEventData: OnBehalfOfCallee.
+
