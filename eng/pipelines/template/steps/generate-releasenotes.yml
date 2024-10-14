@@ -54,7 +54,7 @@ steps:
       $today = Get-Date
       $releaseFriday = GetFridayOfReleaseWeek $today
 
-      # Move to next month's release period but still collect notes from the second friday fo this month.
+      # Move to next month's release period but still collect notes from the second friday for this month.
       if ($today -gt $releaseFriday) {
         $releasePeriod = $today.AddMonths(1)
         $releaseStartDate = $releaseFriday
@@ -122,7 +122,6 @@ steps:
         arguments: >
           -releasePeriod $(ReleasePeriod)
           -releaseStartDate $(ReleaseStartDate)
-          -commonScriptPath ./eng/common/scripts
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
           -github_pat '$(azuresdk-github-pat)'

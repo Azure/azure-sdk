@@ -2,9 +2,10 @@
 param (
   [string]$releasePeriod,
   [DateTime]$releaseStartDate,
+  [DateTime]$releaseEndDate,
   [string]$repoLanguage,
-  [string]$commonScriptPath,
-  [string]$releaseDirectory = (Resolve-Path "$PSScriptRoot\..\..\_data\releases"),
+  [string]$commonScriptPath = (Resolve-Path "$PSScriptRoot/../common/scripts"),
+  [string]$releaseDirectory = (Resolve-Path "$PSScriptRoot/../../_data\releases"),
   [string]$github_pat = $env:GITHUB_PAT
 )
 
@@ -186,6 +187,11 @@ foreach ($packageName in $updatedPackageSet.Keys)
 
   foreach ($packageVersion in $updatedPackageSet[$packageName].Versions)
   {
+    if ($releaseEndDate -and $packageVersion.Date -gt $releaseEndDate)
+    {
+      Write-Host "Skipped package '$packageName' because it '$($packageVersion.Date)' > '$releaseEndDate'"
+      continue
+    }
     $presentKey = $existingYamlContent.entries.Where({ ($_.name -eq $packageName) -and ($_.version -eq $packageVersion.RawVersion) })
     if ($presentKey.Count -eq 0)
     {
