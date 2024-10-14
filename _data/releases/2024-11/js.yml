@@ -18,4 +18,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.0.0/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 2.0.0
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.0/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added `pushChannelExpired` and `pushVariables` to the `Installation` type.
+    - [#30439](https://github.com/Azure/azure-sdk-for-js/issues/30439)
+
+    #### Breaking Changes
+
+    - Moving from `@azure/core-lro` v2 to v3 for long running operations.  For APIs such as `beginSubmitNotificationHubJob`, this is a breaking change as it uses the new `PollerLike` interface instead of the old `SimplePollerLike` interface.  See the [Polling API](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-lro/docs/MIGRATION.md#poller-api) migration guide for more information.
+    - Sending broadcast notifications are now separated into `sendBroadcastNotification` for immediate sends and `scheduleBroadcastNotification` for scheduled sends.  The `sendNotification` method now only supports direct sends and tag based sends, and the `scheduleNotification` method now only supports scheduled tag based sends.
+
+    #### Features Added
+
+    - Added `scheduledBroadcastNotification` to send a scheduled broadcast notification.
+    - Added `sendBroadcastNotification` to send a broadcast notification.
+    - Moved to `@azure/core-lro` v3 for long running operations.
 
