@@ -69,7 +69,7 @@ IoT,0,Device Update,data,.NET,,,11,false,Azure.IoT.DeviceUpdate,https://github.c
 IoT,0,Digital Twins,data,.NET,Microsoft.Azure.Devices.DigitalTwin.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.DigitalTwins.Core,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,07/08/2022
 Cognitive Services,0,Document Intelligence,data,.NET,,,11,false,Azure.AI.DocumentIntelligence,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence,3,false,1,
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,
-Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,09/20/2024
+Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,10/13/2024
 Event Grid,0,Event Grid Namespaces,data,.NET,,,11,false,Azure.Messaging.EventGrid.Namespaces,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,06/13/2024
 Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,07/31/2024
 Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,08/14/2024
@@ -124,10 +124,10 @@ Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry
 Schema Registry,0,Schema Registry - Avro,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,03/29/2024
 Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,10/08/2024
 Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/11/2024
-Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/19/2024
+Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/11/2024
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Files Data Lake,data,.NET,Microsoft.Azure.DataLake.Store,https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha,1,false,Azure.Storage.Files.DataLake,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/11/2024
-Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/19/2024
+Storage,0,Storage - Files Share,data,.NET,Microsoft.Azure.Storage.File,https://github.com/Azure/azure-storage-net/tree/master/File,10,true,Azure.Storage.Files.Shares,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/11/2024
 Storage,0,Storage - Queues,data,.NET,Microsoft.Azure.Storage.Queue,https://github.com/Azure/azure-storage-net/tree/master/Queue,10,true,Azure.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/11/2024
 Synapse,0,Synapse - AccessControl,data,.NET,,,11,false,Azure.Analytics.Synapse.AccessControl,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,.NET,,,11,false,Azure.Analytics.Synapse.Artifacts,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/synapse,3,false,1,
@@ -180,7 +180,7 @@ API Management,0,Resource Management - API Management,mgmt,.NET,Microsoft.Azure.
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,.NET,,,11,false,Azure.ResourceManager.AppComplianceAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appcomplianceautomation,10,false,1,08/15/2024
 App Configuration,0,Resource Management - App Configuration,mgmt,.NET,,,11,false,Azure.ResourceManager.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,05/07/2024
 App Platform,0,Resource Management - App Platform,mgmt,.NET,,,11,false,Azure.ResourceManager.AppPlatform,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appplatform,10,false,1,04/28/2024
-App Service,0,Resource Management - App Service,mgmt,.NET,,,11,false,Azure.ResourceManager.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/websites,10,false,1,07/29/2024
+App Service,0,Resource Management - App Service,mgmt,.NET,,,11,false,Azure.ResourceManager.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/websites,10,false,1,
 Application Insights,0,Resource Management - Application Insights,mgmt,.NET,Microsoft.Azure.Management.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,3,true,Azure.ResourceManager.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights,10,false,1,04/30/2024
 Arc ScVmm,0,Resource Management - Arc ScVmm,mgmt,.NET,,,11,false,Azure.ResourceManager.ArcScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/arc-scvmm,3,true,1,
 Astro,0,Resource Management - Astro,mgmt,.NET,,,11,false,Azure.ResourceManager.Astro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/astronomer,3,false,1,
@@ -899,7 +899,7 @@ Cognitive Services,0,Form Recognizer,data,Java,,,11,false,azure-ai-formrecognize
 Health Deidentification,0,Health Deidentification,data,Java,,,11,false,azure-health-deidentification,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthdataaiservices,3,false,1,
 Cognitive Services,0,Health Insights Cancer Profiling,data,Java,,,11,false,azure-health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Java,,,11,false,azure-health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
-Cognitive Services,0,Health Insights Radiology Insights,data,Java,,,11,false,azure-health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
+Cognitive Services,0,Health Insights Radiology Insights,data,Java,,,11,false,azure-health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,10,false,1,10/14/2024
 Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,10/03/2024
 Identity,0,Identity Broker,data,Java,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,10/03/2024
 Cognitive Services,0,Image Analysis,data,Java,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis,3,false,1,
@@ -1292,7 +1292,7 @@ Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest
 Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,09/23/2024
 Event Grid,0,Event Grid Namespaces,data,JavaScript,,,11,false,@azure/eventgrid-namespaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,06/10/2024
 Event Grid,0,Event Grid System Events,data,JavaScript,,,11,false,@azure/eventgrid-system-events,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,3,false,1,
-Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,10/08/2024
+Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,10/12/2024
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,08/09/2023
 Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@azure-rest/health-deidentification,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthdataaiservices/azure-health-deidentification/,3,false,1,
@@ -1447,7 +1447,7 @@ HDInsight Containers,0,Resource Management - HDInsight Containers,mgmt,JavaScrip
 Health Bot,0,Resource Management - Health Bot,mgmt,JavaScript,,,11,false,@azure/arm-healthbot,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/healthbot,10,false,1,11/30/2022
 Health Data AI Services,0,Resource Management - Health Data AI  Services,mgmt,JavaScript,,,11,false,@azure/arm-healthdataaiservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/healthdataaiservices,3,false,1,
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,JavaScript,,,11,false,@azure/arm-healthcareapis,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/healthcareapis,10,false,1,04/26/2024
-Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,JavaScript,,,11,false,@azure/arm-hybridcompute,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridcompute,10,false,1,
+Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,JavaScript,,,11,false,@azure/arm-hybridcompute,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridcompute,10,false,1,10/12/2024
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,JavaScript,,,11,false,@azure/arm-hybridconnectivity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridconnectivity,10,false,1,09/19/2023
 Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,JavaScript,,,11,false,@azure/arm-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridcontainerservice,10,false,1,01/26/2024
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,JavaScript,,,11,false,@azure/arm-hybridkubernetes,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hybridkubernetes,10,false,1,11/30/2022
@@ -1580,7 +1580,7 @@ Graph RBAC,0,Graph RBAC,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://g
 Microsoft Playwright Testing,0,Microsoft Playwright Testing,UNABLE TO BE DETERMINED,JavaScript,@azure/microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Purview,0,Purview Data Map,UNABLE TO BE DETERMINED,JavaScript,@azure-rest/purview-datamap,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Unable to determine Service Name,0,tmlanguage-generator,UNABLE TO BE DETERMINED,JavaScript,tmlanguage-generator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,JavaScript,@typespec/events,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,JavaScript,@azure-tools/typespec-rust,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Web PubSub,0,Web PubSub Tunnel Tool,UNABLE TO BE DETERMINED,JavaScript,@azure/web-pubsub-tunnel-tool,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Cognitive Services,0,microsoft-speech-browser-sdk,data,JavaScript,microsoft-speech-browser-sdk,UNABLE TO DETERMINE REPO LINK,1,false,Replaced by: microsoft-cognitiveservices-speech-sdk,,4,false,1,
 Key Vault,0,@azure/keyvault,data,JavaScript,@azure/keyvault,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/keyvault-keys,,4,false,1,
@@ -1824,7 +1824,7 @@ HDInsight Containers,0,Resource Management - HDInsight Containers,mgmt,Python,,,
 Health Bot,0,Resource Management - Health Bot,mgmt,Python,,,11,false,azure-mgmt-healthbot,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthbot,3,false,1,
 Health Data AI Services,0,Resource Management - Health Data AI Services,mgmt,Python,,,11,false,azure-mgmt-healthdataaiservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthdataaiservices,3,false,1,
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,Python,,,11,false,azure-mgmt-healthcareapis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthcareapis,10,false,1,04/22/2024
-Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Python,,,11,false,azure-mgmt-hybridcompute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcompute,10,false,1,
+Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,Python,,,11,false,azure-mgmt-hybridcompute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcompute,10,false,1,10/14/2024
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,Python,,,11,false,azure-mgmt-hybridconnectivity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridconnectivity,10,false,1,09/20/2023
 Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,Python,,,11,false,azure-mgmt-hybridcontainerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridcontainerservice,10,false,1,01/25/2024
 Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,Python,,,11,false,azure-mgmt-hybridkubernetes,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/hybridkubernetes,10,false,1,10/20/2021
