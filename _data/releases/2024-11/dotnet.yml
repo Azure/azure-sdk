@@ -69,4 +69,20 @@ entries:
     #### Breaking Changes
     - Changed `FromContainer(string containerUri, BlobStorageResourceContainerOptions options = default)` to `FromContainer(Uri containerUri, BlobStorageResourceContainerOptions options = default)`
     - Changed `FromBlob(string blobUri, BlobStorageResourceOptions options = default)` to `FromBlob(Uri blobUri, BlobStorageResourceOptions options = default)`
+- Name: Azure.Identity
+  Version: 1.13.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.13.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - If `DefaultAzureCredential` attempts to authenticate with the `MangagedIdentityCredential` and it receives either a failed response that is not json, it will now fall through to the next credential in the chain. [#45184](https://github.com/Azure/azure-sdk-for-net/issues/45184)
+    - Fixed the request sent in `AzurePipelinesCredential` so it doesn't result in a redirect response when an invalid system access token is provided.
+    - Updated to version 4.65.0 of Microsoft.Identity.Client to address a bug preventing the use of alternate authority types such as dStS ([4927](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/4927)) .
+
+    #### Features Added
+    - `ManagedIdentityCredential` now supports specifying a user-assigned managed identity by object ID.
 
