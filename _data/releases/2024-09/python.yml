@@ -474,4 +474,34 @@ entries:
 
     - All credentials now implement the `SupportsTokenInfo` or `AsyncSupportsTokenInfo` protocol. Each credential now has a `get_token_info` method which returns an `AccessTokenInfo` object. The `get_token_info` method is an alternative method to `get_token` that improves support for more complex authentication scenarios. ([#36882](https://github.com/Azure/azure-sdk-for-python/pull/36882))
     - Information on when a token should be refreshed is now saved in `AccessTokenInfo` (if available).
+- Name: azure-servicebus
+  Version: 7.12.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.12.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where token refreshes were not happening on long running operations ([35717](https://github.com/Azure/azure-sdk-for-python/issues/35717))
+    - Fixed a bug where using TokenCredential to create a subscription with forwarding caused a `ResourceNotFoundError` ([36545](https://github.com/Azure/azure-sdk-for-python/pull/36545))
+    - Fixed a bug where messages received on one receiver could not be settled on another receiver over mgmt link ([35304](https://github.com/Azure/azure-sdk-for-python/issues/35304))
+    - Addressed a bug where excess Link Credits were being allocated when large messages were being received ([34270](https://github.com/Azure/azure-sdk-for-python/issues/34270))
+- Name: azure-search-documents
+  Version: 11.6.0b5
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b5/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `SearchIndexClient`.`get_search_client` inherits the API version.
+
+    #### Bugs Fixed
+
+    - Fixed the issue that we missed ODATA header when using Entra ID auth.
+    - Fixed the issue that `encryptionKey` was lost during serialization.  #37251
 
