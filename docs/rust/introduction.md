@@ -649,7 +649,7 @@ Builders are an idiomatic pattern in Rust, such as the [typestate builder patter
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums.
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Debug`, `Eq`, and `PartialEq` for all enums.
 
 {% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
 
@@ -679,7 +679,7 @@ See [RFC 2008][rust-lang-rfc-2008] for more information.
 {% include requirement/MUST id="rust-enum-fixed" %} implement all fixed enumerations using only defined variants:
 
 ```rust
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Deserialize, Serialize)]
 #[non_exhaustive]
 pub enum FixedEnum {
     #[serde(rename = "foo")]
@@ -692,7 +692,7 @@ pub enum FixedEnum {
 {% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
 
 ```rust
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
 #[non_exhaustive]
 pub enum ExtensibleEnum {
     #[serde(rename = "foo")]
