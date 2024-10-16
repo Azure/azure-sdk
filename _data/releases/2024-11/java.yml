@@ -141,4 +141,89 @@ entries:
 
     First stable release. No changes compared to previous beta release (1.0.0-beta.3).
   GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.6.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.6.0/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.7.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.7.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.9.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.9.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the new system property `azure.keyvault.disable-challenge-resource-verification`, which can be set to `true` to disable challenge resource verification when authenticating against the Azure Key Vault service. For more information, please refer to [this link](https://devblogs.microsoft.com/azure-sdk/guidance-for-applications-using-the-key-vault-libraries/). ([#40560](https://github.com/Azure/azure-sdk-for-java/pull/40560))
+    - Added support for obtaining a Managed Identity access token on a Container App, which is achieved by setting the system properties `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, [see here](https://learn.microsoft.com/azure/container-apps/managed-identity?tabs=portal%2Chttp#rest-endpoint-reference). ([#42024](https://github.com/Azure/azure-sdk-for-java/pull/42024)).
+
+    #### Bugs Fixed
+    - Fix bug: `AccessTokenUtil` does not URL-encode its parameters when getting an access token. ([#40616](https://github.com/Azure/azure-sdk-for-java/issues/40616))
+    - Changed the authentication mechanism to allow for discovering the login URI for a given Azure Key Vault instance by requesting an authentication challenge from the service, as opposed to using a hard-coded list of URIs to choose from depending on a vault's URI. This should add support for customers using Azure Stack instances, for example.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.9.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    - Added a new configuration flag to cryptography clients that allows deferring all cryptographic operations to the Key Vault service. ([#40384](https://github.com/Azure/azure-sdk-for-java/pull/40384))
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.9.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
 
