@@ -26,4 +26,20 @@ entries:
     #### Other Changes
 
     First stable release. No changes compared to previous beta release (1.0.0b3).
+- Name: azure-ai-evaluation
+  Version: 1.0.0b4
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.0b4/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `numpy` dependency. All NaN values returned by the SDK have been changed to from `numpy.nan` to `math.nan`.
+    - `credential` is now required to be passed in for all content safety evaluators and `ProtectedMaterialsEvaluator`. `DefaultAzureCredential` will no longer be chosen if a credential is not passed.
+    - Changed package extra name from "pf-azure" to "remote".
+
+    #### Bugs Fixed
+    - Adversarial Conversation simulations would fail with `Forbidden`. Added logic to re-fetch token in the exponential retry logic to retrive RAI Service response.
 
