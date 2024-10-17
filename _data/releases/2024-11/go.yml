@@ -18,4 +18,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcompute/armhybridcompute/v2.0.0/sdk/resourcemanager/hybridcompute/armhybridcompute/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.16.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * `BearerTokenPolicy` now rewinds request bodies before retrying
+
+    #### Features Added
+
+    * Added field `Kind` to `runtime.StartSpanOptions` to allow a kind to be set when starting a span.
 
