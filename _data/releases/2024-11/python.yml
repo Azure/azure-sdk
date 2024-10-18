@@ -110,4 +110,17 @@ entries:
     #### Bugs Fixed
     - Typing errors from using Key Vault clients as context managers have been fixed
     ([#34744](https://github.com/Azure/azure-sdk-for-python/issues/34744))
+- Name: azure-communication-messages
+  Version: 1.1.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-messages_1.1.0/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Using `NotificationMessagesClient`
+    - Send Video messages
+    - Send Audio messages
+    - Send Document messages
 
