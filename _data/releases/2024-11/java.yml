@@ -451,4 +451,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-delegatednetwork_1.0.0-beta.3/sdk/delegatednetwork/azure-resourcemanager-delegatednetwork/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-data-tables
+  Version: 12.4.6
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.4.6/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `createTableIfNotExists` now returns a table client for the table that already exists instead of null when the table is
+    present within the service.
+  GroupId: com.azure
 
