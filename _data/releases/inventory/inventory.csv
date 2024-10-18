@@ -49,7 +49,7 @@ Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Co
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
-Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,02/29/2024
+Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/18/2024
 Communication,0,Communication Network Traversal,data,.NET,,,11,false,Azure.Communication.NetworkTraversal,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,true,1,02/09/2022
 Communication,0,Communication Phone Numbers,data,.NET,,,11,false,Azure.Communication.PhoneNumbers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,
 Communication,0,Communication Rooms,data,.NET,,,11,false,Azure.Communication.Rooms,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,09/04/2024
@@ -212,6 +212,7 @@ Container Instances,0,Resource Management - Container Instances,mgmt,.NET,Micros
 Container Registry,0,Resource Management - Container Registry,mgmt,.NET,Microsoft.Azure.Management.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,true,Azure.ResourceManager.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,
 Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,06/17/2024
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerServiceFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fleet,10,false,1,
+Containerorchestratorruntime,0,Resource Management - Containerorchestratorruntime,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerOrchestratorRuntime,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerorchestratorruntime,3,false,1,
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,.NET,Microsoft.Azure.Management.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,true,Azure.ResourceManager.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,false,1,04/29/2024
 Cosmos DB,0,Resource Management - Cosmos DB,mgmt,.NET,Microsoft.Azure.Management.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,true,Azure.ResourceManager.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,false,1,
 Cosmos DB for PostgreSQL,0,Resource Management - Cosmos DB for PostgreSQL,mgmt,.NET,,,11,false,Azure.ResourceManager.CosmosDBForPostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdbforpostgresql,10,false,1,
@@ -260,7 +261,7 @@ HDInsight Containers,0,Resource Management - HDInsight Containers,mgmt,.NET,,,11
 Health Bot,0,Resource Management - Health Bot,mgmt,.NET,Microsoft.Azure.Management.Healthbot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.HealthBot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthbot,10,false,1,11/30/2023
 Health Data AI Services,0,Resource Management - Health Data AI Services,mgmt,.NET,,,11,false,Azure.ResourceManager.HealthDataAIServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices,3,false,1,
 Healthcare APIs,0,Resource Management - Healthcare APIs,mgmt,.NET,,,11,false,Azure.ResourceManager.HealthcareApis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthcareapis,10,false,1,03/30/2024
-Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,.NET,Microsoft.Azure.Management.HybridCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridcompute,3,true,Azure.ResourceManager.HybridCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridcompute,3,false,1,
+Hybrid Compute,0,Resource Management - Hybrid Compute,mgmt,.NET,Microsoft.Azure.Management.HybridCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridcompute,3,true,Azure.ResourceManager.HybridCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridcompute,10,false,1,10/18/2024
 Hybrid Connectivity,0,Resource Management - Hybrid Connectivity,mgmt,.NET,,,11,false,Azure.ResourceManager.HybridConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridconnectivity,3,false,1,
 Hybrid Container Service,0,Resource Management - Hybrid Container Service,mgmt,.NET,,,11,false,Azure.ResourceManager.HybridContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridaks,10,false,1,01/31/2024
 Hybrid Data,0,Resource Management - Hybrid Data,mgmt,.NET,Microsoft.Azure.Management.HybridData,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.HybridData_1.0.1/sdk/hybriddatamanager/Microsoft.Azure.Management.HybridDataManager,10,true,Azure.ResourceManager.HybridData,https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridData_1.1.0-beta.1/sdk/hybriddatamanager/Azure.ResourceManager.HybridData,10,true,1,02/17/2023
@@ -934,20 +935,20 @@ Schema Registry,0,Schema Registry - Avro,data,Java,,,11,false,azure-data-schemar
 Schema Registry,0,Schema Registry - JSON,data,Java,,,11,false,azure-data-schemaregistry-jsonschema,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry,10,false,1,09/26/2024
 Service Bus,0,Service Bus,data,Java,azure-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/microsoft-azure-servicebus,10,true,azure-messaging-servicebus,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus,10,false,1,10/16/2024
 Storage,0,Storage - Blobs,data,Java,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/208df4bf9a11d5d40d498fff0129d9cdeb06f8fc/sdk/storage/microsoft-azure-storage-blob,10,true,azure-storage-blob,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,10/08/2024
-Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,09/17/2024
+Storage,0,Storage - Blobs Batch,data,Java,,,11,false,azure-storage-blob-batch,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
 Storage,0,Storage - Blobs Changefeed,data,Java,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Blobs Cryptography,data,Java,,,11,false,azure-storage-blob-cryptography,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,10/08/2024
 Storage,0,Storage - Blobs NIO,data,Java,,,11,false,azure-storage-blob-nio,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,3,false,1,
-Storage,0,Storage - Files Data Lake,data,Java,azure-data-lake-store-sdk,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,09/17/2024
-Storage,0,Storage - Files Share,data,Java,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,09/17/2024
-Storage,0,Storage - Internal Avro,data,Java,,,11,false,azure-storage-internal-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,09/17/2024
-Storage,0,Storage - Queues,data,Java,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,09/17/2024
+Storage,0,Storage - Files Data Lake,data,Java,azure-data-lake-store-sdk,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Files Share,data,Java,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Internal Avro,data,Java,,,11,false,azure-storage-internal-avro,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
+Storage,0,Storage - Queues,data,Java,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-storage-queue,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storage,10,false,1,
 Synapse,0,Synapse - AccessControl,data,Java,,,11,false,azure-analytics-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Artifacts,data,Java,,,11,false,azure-analytics-synapse-artifacts,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Managed Private Endpoints,data,Java,,,11,false,azure-analytics-synapse-managedprivateendpoints,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Java,,,11,false,azure-analytics-synapse-monitoring,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Spark,data,Java,,,11,false,azure-analytics-synapse-spark,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/synapse,3,false,1,
-Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,09/28/2024
+Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,10/17/2024
 Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/c948408cf37320162cf6fcaeb38e687f215a7dde/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,09/28/2024
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,10,false,1,05/21/2024
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/videoanalyzer,3,false,1,
@@ -1684,10 +1685,10 @@ Cognitive Services,0,Health Insights Radiology Insights,data,Python,,,11,false,a
 Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/07/2024
 Identity,0,Identity Broker,data,Python,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/07/2024
 Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,10,false,1,10/14/2024
-Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,02/22/2024
-Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,02/22/2024
-Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,02/22/2024
-Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,02/22/2024
+Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/17/2024
+Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/17/2024
+Key Vault,0,Key Vault - Keys,data,Python,,,11,false,azure-keyvault-keys,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/17/2024
+Key Vault,0,Key Vault - Secrets,data,Python,,,11,false,azure-keyvault-secrets,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/17/2024
 Load Testing,0,Load Testing,data,Python,,,11,false,azure-developer-loadtesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/loadtesting,10,false,1,03/07/2023
 Machine Learning,0,Machine Learning,data,Python,azureml-sdk,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-ai-ml,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ml,10,false,1,10/08/2024
 Machine Learning,0,Machine Learning - Feature Store,data,Python,,,11,false,azureml-featurestore,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msdata.visualstudio.com/Vienna/_git/sdk-cli-v2?path=/src/azureml-featurestore,10,false,1,12/29/2023
@@ -3243,6 +3244,11 @@ Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Java,,,11,false,Missing
 Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,JavaScript,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Python,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Go,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
+ews,0,Resource Management - SecretSyncController.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: ews/SecretSyncController.Management,,2,false,0,
+ews,0,Resource Management - SecretSyncController.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: ews/SecretSyncController.Management,,2,false,0,
+ews,0,Resource Management - SecretSyncController.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: ews/SecretSyncController.Management,,2,false,0,
+ews,0,Resource Management - SecretSyncController.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: ews/SecretSyncController.Management,,2,false,0,
+ews,0,Resource Management - SecretSyncController.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: ews/SecretSyncController.Management,,2,false,0,
 fabric,0,Resource Management - Microsoft.Fabric.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: fabric/Microsoft.Fabric.Management,,2,false,0,
 fabric,0,Resource Management - Microsoft.Fabric.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: fabric/Microsoft.Fabric.Management,,2,false,0,
 fabric,0,Resource Management - Microsoft.Fabric.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: fabric/Microsoft.Fabric.Management,,2,false,0,
