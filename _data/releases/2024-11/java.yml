@@ -1,0 +1,602 @@
+entries:
+- Name: azure-resourcemanager-education
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Education
+  ServiceName: Education
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-education_1.0.0-beta.4/sdk/education/azure-resourcemanager-education/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-securityinsights
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Security Insights
+  ServiceName: Security Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-securityinsights_1.0.0-beta.5/sdk/securityinsights/azure-resourcemanager-securityinsights/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-attestation
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-attestation_1.0.0-beta.3/sdk/attestation/azure-resourcemanager-attestation/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurearcdata
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Arc Data
+  ServiceName: Arc Data
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurearcdata_1.0.0-beta.4/sdk/azurearcdata/azure-resourcemanager-azurearcdata/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-policyinsights
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-policyinsights_1.0.0-beta.4/sdk/policyinsights/azure-resourcemanager-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-billingbenefits
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Billing Benefits
+  ServiceName: Billing Benefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-billingbenefits_1.0.0-beta.2/sdk/billingbenefits/azure-resourcemanager-billingbenefits/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-health-insights-radiologyinsights
+  Version: 1.0.0
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-radiologyinsights_1.0.0/sdk/healthinsights/azure-health-insights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Request changes:
+    - POST call replaced with PUT (this change is taken care of automatically by the SDK)
+    - Method `RadiologyInsightsClient.beginInferRadiologyInsights()` expects a String specifying a unique job id as well as a RadiologyInsightsJob (wrapping a RadiologyInsightsData object) instead of a RadiologyInsightsData object
+    - Method `RadiologyInsightsAsyncClient.beginInferRadiologyInsights()` expects a String specifying a unique job id as well as a RadiologyInsightsJob (wrapping a RadiologyInsightsData object) instead of a RadiologyInsightsData object
+    - Class `Encounter` renamed into `PatientEncounter`
+    - Class `FhirR4Extendible` renamed into `OrderedProcedure`
+    - Method `PatientDocument.setCreatedDateTime()` renamed into `PatientDocument.setCreatedAt()`
+    - Method `PatientRecord.setPatientInfo()` renamed into `PatientRecord.setPatientDetails()`
+    - Response changes:
+    - Class `FhirR4Extendible1` renamed into `RadiologyInsightsInference`
+    - Method `FollowupCommunicationInference.getDateTime()` renamed into `FollowupCommunicationInference.getCommunicatedAt()`
+    - Method `FollowupCommunicationInference.isWasAcknowledged()` renamed into `FollowupCommunicationInference.isAcknowledged()`
+    - Method `FollowupRecommendationInference.getEffectiveDateTime()` renamed into `FollowupRecommendationInference.getEffectiveAt()`
+    - Method `RadiologyInsightsJob.getCreatedDateTime()` renamed into `RadiologyInsightsJob.getCreatedAt()`
+    - Method `RadiologyInsightsJob.getExpirationDateTime()` renamed into `RadiologyInsightsJob.getExpiresAt()`
+    - Method `RadiologyInsightsJob.getLastUpdateDateTime()` renamed into `RadiologyInsightsJob.getUpdatedAt()`
+
+    #### Features Added
+
+    - Added sample code for all Inference types
+    - Added tests for all Inference types
+  GroupId: com.azure
+- Name: azure-resourcemanager-networkfunction
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Network Function
+  ServiceName: Network Function
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkfunction_1.0.0-beta.3/sdk/networkfunction/azure-resourcemanager-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-advisor
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-advisor_1.0.0-beta.3/sdk/advisor/azure-resourcemanager-advisor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-cosmos
+  Version: 4.63.4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.63.4/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where holding onto a `CosmosException` instance would hold a strong reference to a `RxDocumentClientImpl` instance preventing garbage collection of the `RxDocumentClientImpl` instance. - See [PR 42178](https://github.com/Azure/azure-sdk-for-java/pull/42178)
+    * Fixed an issue when a `Batch` operation hitting end-to-end timeout would not capture diagnostics correctly. - See [PR 42178](https://github.com/Azure/azure-sdk-for-java/pull/42178)
+    * Fixed an issue where a `NullPointerException` was thrown with circuit breaker enabled and partition split / merge scenarios. - See [PR 42178](https://github.com/Azure/azure-sdk-for-java/pull/42178)
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.17.5
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.17.5/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes the thread unsafe use of javax.crypto.Mac instance in ServiceBusSharedKeyCredential. ([42353](https://github.com/Azure/azure-sdk-for-java/pull/42353))
+    - Fixed issue where `SubscriptionProperties.UserMetadata` was set to `null` when updating its value. ([#42332](https://github.com/Azure/azure-sdk-for-java/pull/42332))
+  GroupId: com.azure
+- Name: azure-ai-vision-imageanalysis
+  Version: 1.0.0
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    First stable release. No changes compared to previous beta release (1.0.0-beta.3).
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.6.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.6.0/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.7.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.7.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    ### Features Added
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 2.9.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.9.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the new system property `azure.keyvault.disable-challenge-resource-verification`, which can be set to `true` to disable challenge resource verification when authenticating against the Azure Key Vault service. For more information, please refer to [this link](https://devblogs.microsoft.com/azure-sdk/guidance-for-applications-using-the-key-vault-libraries/). ([#40560](https://github.com/Azure/azure-sdk-for-java/pull/40560))
+    - Added support for obtaining a Managed Identity access token on a Container App, which is achieved by setting the system properties `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, [see here](https://learn.microsoft.com/azure/container-apps/managed-identity?tabs=portal%2Chttp#rest-endpoint-reference). ([#42024](https://github.com/Azure/azure-sdk-for-java/pull/42024)).
+
+    #### Bugs Fixed
+    - Fix bug: `AccessTokenUtil` does not URL-encode its parameters when getting an access token. ([#40616](https://github.com/Azure/azure-sdk-for-java/issues/40616))
+    - Changed the authentication mechanism to allow for discovering the login URI for a given Azure Key Vault instance by requesting an authentication challenge from the service, as opposed to using a hard-coded list of URIs to choose from depending on a vault's URI. This should add support for customers using Azure Stack instances, for example.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.9.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    - Added a new configuration flag to cryptography clients that allows deferring all cryptographic operations to the Key Vault service. ([#40384](https://github.com/Azure/azure-sdk-for-java/pull/40384))
+    - Added support for Continuous Access Evaluation (CAE). ([#41814](https://github.com/Azure/azure-sdk-for-java/pull/41814))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.9.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-vmwarecloudsimple
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - VMware Solution by CloudSimple
+  ServiceName: VMware Solution by CloudSimple
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-vmwarecloudsimple_1.0.0-beta.3/sdk/vmwarecloudsimple/azure-resourcemanager-vmwarecloudsimple/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-logic
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Logic Apps
+  ServiceName: Logic Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-logic_1.0.0-beta.3/sdk/logic/azure-resourcemanager-logic/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-fabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-fabric_1.0.0/sdk/fabric/azure-resourcemanager-fabric/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-peering
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-peering_1.0.0-beta.3/sdk/peering/azure-resourcemanager-peering/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-purview
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-purview_1.0.0-beta.3/sdk/purview/azure-resourcemanager-purview/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datalakeanalytics
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Data Lake Analytics
+  ServiceName: Data Lake Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datalakeanalytics_1.0.0-beta.3/sdk/datalakeanalytics/azure-resourcemanager-datalakeanalytics/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-logz
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Logz
+  ServiceName: Logz
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-logz_1.0.0-beta.3/sdk/logz/azure-resourcemanager-logz/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-operationsmanagement
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Operations Management
+  ServiceName: Operations Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-operationsmanagement_1.0.0-beta.3/sdk/operationsmanagement/azure-resourcemanager-operationsmanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurestack
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Azure Stack
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurestack_1.0.0-beta.3/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-hanaonazure
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - HANA on Azure
+  ServiceName: HANA on Azure
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hanaonazure_1.0.0-beta.3/sdk/hanaonazure/azure-resourcemanager-hanaonazure/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storagepool
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Storage Pool
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storagepool_1.0.0-beta.3/sdk/storagepool/azure-resourcemanager-storagepool/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-mariadb
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - MariaDB
+  ServiceName: MariaDB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mariadb_1.0.0-beta.3/sdk/mariadb/azure-resourcemanager-mariadb/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datalakestore
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Data Lake Store
+  ServiceName: Data Lake Store
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datalakestore_1.0.0-beta.3/sdk/datalakestore/azure-resourcemanager-datalakestore/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-hybridkubernetes
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hybridkubernetes_1.0.0-beta.4/sdk/hybridkubernetes/azure-resourcemanager-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-subscription
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Subscriptions
+  ServiceName: Subscriptions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-subscription_1.0.0-beta.3/sdk/subscription/azure-resourcemanager-subscription/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-customerinsights
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Customer Insights
+  ServiceName: Customer Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-customerinsights_1.0.0-beta.3/sdk/customerinsights/azure-resourcemanager-customerinsights/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-mixedreality
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Mixed Reality
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mixedreality_1.0.0-beta.3/sdk/mixedreality/azure-resourcemanager-mixedreality/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datamigration
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datamigration_1.0.0-beta.3/sdk/datamigration/azure-resourcemanager-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storageimportexport
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Storage Import/Export
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storageimportexport_1.0.0-beta.3/sdk/storageimportexport/azure-resourcemanager-storageimportexport/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-devspaces
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Dev Spaces
+  ServiceName: Dev Spaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-devspaces_1.0.0-beta.3/sdk/devspaces/azure-resourcemanager-devspaces/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-powerbidedicated
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-powerbidedicated_1.0.0-beta.3/sdk/powerbidedicated/azure-resourcemanager-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-databoxedge
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Data Box Edge
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-databoxedge_1.0.0-beta.3/sdk/databoxedge/azure-resourcemanager-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.1.0-beta.1/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservicefleet
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservicefleet_1.2.0-beta.1/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-delegatednetwork
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Delegated Network
+  ServiceName: Delegated Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-delegatednetwork_1.0.0-beta.3/sdk/delegatednetwork/azure-resourcemanager-delegatednetwork/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-data-tables
+  Version: 12.4.6
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.4.6/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `createTableIfNotExists` now returns a table client for the table that already exists instead of null when the table is
+    present within the service.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.25.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the provisioned V2 billing model.
+    - Added support for specifying the binary file permission format for ShareFileClient.beginCopy and
+    ShareFileAsyncClient.beginCopy
+    - Added ShareAccessTier Premium value.
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.22.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - When creating a `DataLakeFileClient` or `DataLakeDirectoryClient` via `DataLakePathClientBuilder.pathName(String pathName)`,
+    the path name will be stored exactly as passed in and will not be URL-encoded. For example, if the path name is
+    "foo/bar" and `DataLakeDirectoryClient` is created via `DataLakePathClientBuilder.pathName("foo/bar")`,
+    `DataLakeDirectoryClient.getDirectoryPath()` will return "foo/bar" and the path's url will result in
+    “https://account.dfs.core.windows.net/filesystemname/foo%2Fbar”.
+
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.27
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.27/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.29.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where you couldn't set an immutability policy on a blob version or blob snapshot.
+    - Fixed an issue where you couldn't set a legal hold on a blob version.
+
+    #### Features Added
+    - Added BlobErrorCode BlobAccessTierNotSupportedForAccountType value.
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.24.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.26
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.26/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-resourcemanager-servicefabricmanagedclusters
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicefabricmanagedclusters_1.0.0-beta.2/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-internal-avro
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.14.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.28.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.28.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.25.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-01-05.
+  GroupId: com.azure
+
