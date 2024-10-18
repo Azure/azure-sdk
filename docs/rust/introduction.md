@@ -251,51 +251,7 @@ pub mod builders {
 
 ##### Mocking {#rust-client-mocking}
 
-{% include requirement/MUST id="rust-client-mocking-trait-name" %} define a trait named after the client name + "Methods" e.g., `SecretClientMethods`.
-
-{% include requirement/MUST id="rust-client-mocking-trait-namespace" %} place these traits in the root module e.g., `azure_storage_blobs` or `azure_security_keyvault_secrets` so they are automatically discoverable by the Language Server Protocol (LSP).
-
-{% include requirement/MUST id="rust-client-mocking-trait-methods" %} implement all methods of the client methods trait on the client which have the body `unimplemented!()` or `std::future::ready(unimplemented!())` for async methods e.g.,
-
-```rust
-pub trait SecretClientMethods {
-    fn endpoint(&self) -> &Url {
-        unimplemented!()
-    }
-
-    async fn set_secret(
-        &self,
-        _name: impl Into<String>,
-        _version: impl Into<String>,
-        _options: Option<SetSecretMethodOptions>,
-    ) -> azure_core::Result<Response> {
-        std::future::ready(unimplemented!())
-    }
-}
-
-pub struct SecretClient {
-    // ...
-}
-
-impl SecretClient {
-    // pub fn new(..) -> Result<Self>
-}
-
-impl SecretClientMethods for SecretClient {
-    fn endpoint(&self) -> &Url {
-        todo!()
-    }
-
-    async fn set_secret(
-        &self,
-        name: impl Into<String>,
-        version: impl Into<String>,
-        options: Option<SetSecretMethodOptions>,
-    ) -> azure_core::Result<Response> {
-        todo!()
-    }
-}
-```
+> We are reevaluating options for mocking to provide the best experience for API consumers whether or not they plan to utilize mocks or fakes.
 
 #### Service Methods {#rust-client-methods}
 
@@ -806,14 +762,6 @@ pub(crate) mod helpers;
 // helpers.rs
 pub fn helper() {} // not exported publicly
 ```
-
-### Support for Mocking {#rust-mocking}
-
-In addition to [mocking clients](#rust-client-mocking):
-
-{% include requirement/MUST id="rust-mocking-model-fields" %} declare all model fields public.
-
-{% include requirement/MUST id="rust-mocking-helpers" %} define a `from()` method for all helper types like pageables and LROs that allow callers to return those types from client mocks.
 
 ## Azure SDK Library Design
 
