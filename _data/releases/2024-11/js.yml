@@ -1,0 +1,207 @@
+entries:
+- Name: '@azure/event-hubs'
+  Version: 5.12.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The desired capabilities array should be omitted if it is empty.
+- Name: '@azure/arm-hybridcompute'
+  Version: 4.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.0.0/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 2.0.0
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.0/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added `pushChannelExpired` and `pushVariables` to the `Installation` type.
+    - [#30439](https://github.com/Azure/azure-sdk-for-js/issues/30439)
+
+    #### Breaking Changes
+
+    - Moving from `@azure/core-lro` v2 to v3 for long running operations.  For APIs such as `beginSubmitNotificationHubJob`, this is a breaking change as it uses the new `PollerLike` interface instead of the old `SimplePollerLike` interface.  See the [Polling API](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-lro/docs/MIGRATION.md#poller-api) migration guide for more information.
+    - Sending broadcast notifications are now separated into `sendBroadcastNotification` for immediate sends and `scheduleBroadcastNotification` for scheduled sends.  The `sendNotification` method now only supports direct sends and tag based sends, and the `scheduleNotification` method now only supports scheduled tag based sends.
+
+    #### Features Added
+
+    - Added `scheduledBroadcastNotification` to send a scheduled broadcast notification.
+    - Added `sendBroadcastNotification` to send a broadcast notification.
+    - Moved to `@azure/core-lro` v3 for long running operations.
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 3.1.0-beta.2
+  DisplayName: Resource Management - Redis Enterprise Cache
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.1.0-beta.2/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-datalake'
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.25.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added generateUserDelegationSasUrl() for DataLakeFileSystemClient, DataLakeFileClient, and DataLakeDirectoryClient.
+- Name: '@azure/storage-file-share'
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.26.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added support for the provisioned V2 billing model.
+    - Added support for specifying the binary file permission format for ShareFileClient.startCopy().
+    - Added ShareAccessTier.Premium enum value.
+- Name: '@azure/storage-blob'
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.26.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added generateUserDelegationSasUrl() to BlobClient and ContainerClient.
+    - Added BlobErrorCode.BlobAccessTierNotSupportedForAccountType enum value.
+- Name: '@azure/keyvault-common'
+  Version: 2.0.0
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.0.0/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE).
+    - To take advantage of this support, the newly added `keyVaultAuthenticationPolicy` should be used in place of `bearerTokenAuthenticationPolicy`.
+
+    #### Breaking Changes
+
+    - Removed `createKeyVaultChallengeCallbacks`, which was used to add Key Vault specific handling to Core's `bearerTokenAuthenticationPolicy`. The new `keyVaultAuthenticationPolicy` should be used instead.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.9.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.9.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/keyvault-admin'
+  Version: 4.6.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.6.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/core-util'
+  Version: 1.11.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.11.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `HttpMethods` type
+- Name: '@azure/keyvault-keys'
+  Version: 4.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.9.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/keyvault-secrets'
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.9.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/core-auth'
+  Version: 1.9.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.9.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for `TokenCredential`. #30961
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.5.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.5.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the request sent in AzurePipelinesCredential so it doesn't result in a redirect response when an invalid system access token is provided #31209.
+
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for native broker scenarios in `InteractiveBrowserCredential` to be used with plugin `@azure/identity-broker` #30961.
+- Name: '@azure/identity-broker'
+  Version: 1.1.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.1.0/sdk/identity/identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for `InteractiveBrowserCredential` native broker scenarios. #30961
+
