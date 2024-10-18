@@ -242,4 +242,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerOrchestratorRuntime_1.0.0-beta.1/sdk/containerorchestratorruntime/Azure.ResourceManager.ContainerOrchestratorRuntime/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.Messages
+  Version: 1.1.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.1.0/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for additional media message types: documents, videos, and audio.
+    - Introduced the following new models for enhanced media notifications:
+    - `DocumentNotificationContent`: for sending document notifications.
+    - `VideoNotificationContent`: for sending video notifications.
+    - `AudioNotificationContent`: for sending audio notifications.
+    - `ImageNotificationContent`: for sending image notifications.
 
