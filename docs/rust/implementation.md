@@ -43,7 +43,6 @@ impl SecretClientExt for SecretClient {
 
 * The trait **MUST** be exported from the crate root.
 * The trait **MUST** use the name of the client it extends with an "Ext" suffix e.g., "SecretClientExt".
-* The trait **MAY** extend the [service client methods trait for mocking](introduction.md#rust-client-mocking-trait-name) e.g., `pub trait SecretClientExt: SecretClientMethods {}`.
 
 You might consider this approach if the generated methods are sufficient but you want to add convenience methods.
 
