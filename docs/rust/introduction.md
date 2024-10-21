@@ -1061,7 +1061,7 @@ This prevents noisy subsequent pull requests if another maintainer formats sourc
 
 {% include requirement/MUST id="rust-repository-readme-file" %} have a `README.md` file in the component root folder.
 
-An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-rust/blob/main/sdk/core/README.md).
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-rust/blob/main/sdk/core/azure_core/README.md).
 
 {% include requirement/MUST id="rust-repository-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
 
