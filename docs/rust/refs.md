@@ -15,7 +15,7 @@
 [rust-lang-rustdoc-tests]: https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html
 [rust-lang-rustdoc]: https://doc.rust-lang.org/rustdoc/index.html
 [rust-lang-tests]: https://doc.rust-lang.org/cargo/reference/cargo-targets.html#tests
-[rust-lang-typespec-config]: https://typespec.io/docs/handbook/configuration
+[rust-lang-typespec-config]: https://typespec.io/docs/handbook/configuration/configuration
 [rust-lang-typestate]: https://docs.rust-embedded.org/book/static-guarantees/typestate-programming.html
 [rust-lang-workspace-dependencies]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
 
