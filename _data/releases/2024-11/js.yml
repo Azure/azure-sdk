@@ -214,4 +214,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Adds support for instrumentation using OpenTelemetry for chat completion without streaming.
+- Name: '@azure/communication-chat'
+  Version: 1.5.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.3/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Supported getting real-time notification configuration from Chat Gateway.
+    - Updated to @azure/communication-signaling@1.0.0-beta.29 with TrouterConfigClient support.
 
