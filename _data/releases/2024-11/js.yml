@@ -226,4 +226,23 @@ entries:
 
     - Supported getting real-time notification configuration from Chat Gateway.
     - Updated to @azure/communication-signaling@1.0.0-beta.29 with TrouterConfigClient support.
+- Name: '@azure-rest/communication-messages'
+  Version: 2.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_2.0.0/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ImageNotificationContent to send image messgae.
+    - Added DocumentNotificationContent to send document message.
+    - Added VideoNotificationContent to send video message.
+    - Added AudioNotificationContent to  send audio message.
+    - Deprecated MediaNotificationContent.
+
+    #### Breaking Changes
+
+    - MediaNotificationContent interface kind field is update with value "image_v0" from "image".
 
