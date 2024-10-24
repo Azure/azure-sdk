@@ -204,4 +204,64 @@ entries:
     #### Features Added
 
     - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for `InteractiveBrowserCredential` native broker scenarios. #30961
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.3
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.3/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for instrumentation using OpenTelemetry for chat completion without streaming.
+- Name: '@azure/communication-chat'
+  Version: 1.5.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.3/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Supported getting real-time notification configuration from Chat Gateway.
+    - Updated to @azure/communication-signaling@1.0.0-beta.29 with TrouterConfigClient support.
+- Name: '@azure-rest/communication-messages'
+  Version: 2.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_2.0.0/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ImageNotificationContent to send image messgae.
+    - Added DocumentNotificationContent to send document message.
+    - Added VideoNotificationContent to send video message.
+    - Added AudioNotificationContent to  send audio message.
+    - Deprecated MediaNotificationContent.
+
+    #### Breaking Changes
+
+    - MediaNotificationContent interface kind field is update with value "image_v0" from "image".
+- Name: '@azure/arm-computefleet'
+  Version: 1.0.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.5.4
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.4/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated the @azure/communication-chat version in UserAgentPrefix.
 
