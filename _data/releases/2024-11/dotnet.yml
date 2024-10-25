@@ -358,4 +358,15 @@ entries:
     - `ChatCompletionsFunctionToolSelection` has been replaced with `ChatCompletionsNamedToolChoiceFunction`.
     - `StreamingChatCompletionsUpdate.AuthorName` has been removed
     - Removed `extraParams` from the `complete` and `completeAsync` methods. It is now set implicitly if `additionalProperties` is provided in the options object.
+- Name: Azure.Provisioning
+  Version: 1.0.0
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.0.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The new Azure.Provisioning experience.
 
