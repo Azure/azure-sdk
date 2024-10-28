@@ -1473,4 +1473,19 @@ entries:
     - Upgraded `azure-core` from `1.52.0` to version `1.53.0`.
     - Upgraded `azure-core-http-netty` from `1.15.4` to version `1.15.5`.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.29
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.29/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added new library entries to the BOM:
+    - `azure-ai-vision-imageanalysis`
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
