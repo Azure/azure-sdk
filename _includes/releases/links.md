@@ -1,10 +1,5 @@
 {% assign version = item[include.version] %}
 
-<!-- For deprecated packages we just want whichever version we have it doesn't matter if it is GA or preview -->
-{% if version == "" and item.Support == "deprecated" %}
-    {% assign version = item.VersionPreview %}
-{% endif %}
-
 {% if version != "" %}
     {% assign url = package_url | replace: 'item.Version', version  %}
     <div>
