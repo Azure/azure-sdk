@@ -246,7 +246,7 @@ groups:
   # keyvault certificates
   - id: azure.sdk.keyvault.certificates
     type: span
-    brief: 'Describes Azure KeyVault Certificates SDK spans.'
+    brief: 'Describes Azure Key Vault Certificates SDK spans.'
     extends: azure.sdk.api
     attributes:
       - ref: az.keyvault.certificate.name
@@ -256,7 +256,7 @@ groups:
   # keyvault keys
   - id: azure.sdk.keyvault.keys
     type: span
-    brief: 'Describes Azure KeyVault Keys SDK spans.'
+    brief: 'Describes Azure Key Vault Keys SDK spans.'
     extends: azure.sdk.api
     attributes:
       - ref: az.keyvault.key.name
@@ -266,7 +266,7 @@ groups:
   # keyvault secrets
   - id: azure.sdk.keyvault.secrets
     type: span
-    brief: 'Describes Azure KeyVault Secrets SDK spans.'
+    brief: 'Describes Azure Key Vault Secrets SDK spans.'
     extends: azure.sdk.api
     attributes:
       - ref: az.keyvault.secret.name
@@ -275,7 +275,7 @@ groups:
   # remote rendering
   - id: azure.sdk.remoterendering
     type: span
-    brief: 'Describes Azure KeyVault Secrets SDK spans.'
+    brief: 'Describes Azure Remote Rendering SDK spans.'
     extends: azure.sdk.api
     attributes:
       - ref: az.remoterendering.conversion.id
