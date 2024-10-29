@@ -78,7 +78,7 @@ Note that modifying the enumerators in an enumeration is considered a breaking c
 
 ##### Extendable Enumerations
 
-When the set of values in an enumeration is *not* fixed, the `Azure::Core::_internal::ExtendableEnumeration` template should be used. 
+When the set of values in an enumeration is *not* fixed, the `Azure::Core::_internal::ExtendableEnumeration` template should be used.
 
 {% highlight cpp %}
 class MyEnumeration final : public ExtendableEnumeration<MyEnumeration> {
@@ -107,6 +107,7 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 
 - If an underlying service operation call from `Poll` or `PollUntilDone` throws, re-throw `RequestFailedException` or its subtype.
 - If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `Poll` or `PollUntilDone`.
+
   - Include any relevant error state information in the exception message.
 
 - If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```IsDone``` is true) throw the same exception as the one thrown when the operation failed.
@@ -262,7 +263,7 @@ We believe testing is a part of the development process, so we expect unit and i
 
 All code should contain, at least, requirements, unit tests, end-to-end tests, and samples.
 
-Tests should be written using the [Google Test][] library.
+Tests should be written using the [Google Test][https://google.github.io/googletest/] library.
 
 ### Language-specific other
 
@@ -336,6 +337,7 @@ void Example()
     #endif
 
     more code
+
 }
 {% endhighlight %}
 
@@ -387,8 +389,7 @@ else                  { HappyDaysIKnowWhyIAmHere(); }
 
 {% include requirement/SHOULD id="cpp-use-cpp-core-guidelines" %} follow the [CPP Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) whenever possible, with the following exceptions:
 
-<TBD>
-
+- List TBD.
 
 #### Complexity Management
 
@@ -414,6 +415,7 @@ inline bool StringEqual(char *a, char *b) {
 {% endhighlight %}
 
 ~ Should
+
 {% include requirement/SHOULDNOT id="cpp-embedded-assign" %} use embedded assignments.  There is a time and a place for embedded assignment statements.  In some constructs, there is no better way to accomplish the results without making the code bulkier and less readable.
 
 {% highlight cpp %}
@@ -497,7 +499,6 @@ void TheCustomerCode() {
                              // undefined behavior if anyone calls d.Next()
 }
 {% endhighlight %}
-
 
 {% include requirement/MUST id="cpp-design-logical-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
@@ -605,6 +606,10 @@ public:
 };
 {% endhighlight %}
 
+#### Parameter passing rules
+
+In general, all method parameters that are not POD should be passed by `const reference`.
+
 #### Integer sizes
 
 The following integer rules are listed in rough priority order. Integer size selections are primarily driven by service future compatibility. For example, just because today a service might have a 2 GiB file size limit does not mean that it will have such a limit forever. We believe 64 bit length limits will be sufficient for sizes an individual program works with for the foreseeable future.
@@ -661,6 +666,7 @@ public:
     const static KeyType Rsa;
     const static KeyType RsaHsm;
     const static KeyType Oct;
+
 };
 }}} // namespace Azure::Group::Service
 
@@ -835,13 +841,14 @@ set(DOXYGEN_SIMPLE_STRUCTS YES)
 set(DOXYGEN_TYPEDEF_HIDES_STRUCT NO)
 
 doxygen_add_docs(doxygen
-	${PROJECT_SOURCE_DIR}/inc
-	${PROJECT_SOURCE_DIR}/src
-	${PROJECT_SOURCE_DIR}/doc
-	COMMENT "generate docs")
+       ${PROJECT_SOURCE_DIR}/inc
+       ${PROJECT_SOURCE_DIR}/src
+       ${PROJECT_SOURCE_DIR}/doc
+       COMMENT "generate docs")
 {% endhighlight %}
 
 Notice that:
+
 * We use `find_package()` to find doxygen
 * We use the `DOXYGEN_<PREF>` CMake variables instead of writing your own `doxyfile`.
 * We set `OPTIMIZE_OUTPUT_FOR_C` in order to get more C appropriate output.
@@ -863,35 +870,32 @@ endif()
 
 ### Windows
 
-| Operating System     | Version       | Architectures | Compiler Version                        | Notes
-|----------------------|---------------|---------------|-----------------------------------------|------
-| Windows Client       | 7 SP1+, 8.1   | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1607+ | x64, x86, ARM | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1909+ | ARM64         | MSVC 14.20x                             |
-| Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
-| Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+| Operating System | Version                   | Architectures | Compiler Version | Notes |
+| ---------------- | ------------------------- | ------------- | ---------------- | ----- |
+| Windows Client   | Current Supported Version | x64, x86, ARM | MSVC 16+         |
+| Nano Server      | Current Supported Version | x64, ARM32    | MSVC 16+         |
+| Windows Server   | Current Supported Version | x64, ARM64    | MSVC 16+         |
 
 ### Mac
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
+| Operating System | Version                    | Architectures | Compiler Version | Notes |
+| ---------------- | -------------------------- | ------------- | ---------------- | ----- |
+| macOS            | Current supported versions | x64           | XCode 9.4.1      |
 
 #### Linux
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](https://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
-| Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
-| Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
-| Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)
-| openSUSE                        | 15+           | x64           | gcc-7.5                                 | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)
-| SUSE Enterprise Linux (SLES)    | 12 SP2+       | x64           | gcc-4.8                                 | [SUSE lifecycle](https://www.suse.com/lifecycle/)
+| Operating System                                       | Version             | Architectures | Compiler Version | Notes                                                                                                                                                                                                                                             |
+| ------------------------------------------------------ | ------------------- | ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux | 7+                  | x64           | gcc-4.8          | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](https://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf) |
+| Debian                                                 | 9+                  | x64           | gcc-6.3          | [Debian lifecycle](https://wiki.debian.org/DebianReleases)                                                                                                                                                                                        |
+| Ubuntu                                                 | 22.04, LTS versions | x64           | gcc-7.3          | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)                                                                                                                                                                                              |
+| Linux Mint                                             | 18+                 | x64           | gcc-7.3          | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)                                                                                                                                                                                |
+| openSUSE                                               | 15+                 | x64           | gcc-7.5          | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)                                                                                                                                                                                            |
+| SUSE Enterprise Linux (SLES)                           | 12 SP2+             | x64           | gcc-4.8          | [SUSE lifecycle](https://www.suse.com/lifecycle/)                                                                                                                                                                                                 |
 
 {% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
 
-
-{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
+{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions. Examples of extensions to avoid include:
 
 * [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
 * [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
@@ -901,8 +905,8 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 
 {% include requirement/MUST id="cpp-cpp-options" %} use compiler flags to identify warnings:
 
-| Compiler                 | Compiler Flags   |
-|:-------------------------|------------------|
-| gcc                      | `-Wall -Wextra`  |
-| cpp and XCode            | `-Wall -Wextra`  |
-| MSVC                     | `/W4`            |
+| Compiler      | Compiler Flags  |
+| :------------ | --------------- |
+| gcc           | `-Wall -Wextra` |
+| cpp and XCode | `-Wall -Wextra` |
+| MSVC          | `/W4`           |
