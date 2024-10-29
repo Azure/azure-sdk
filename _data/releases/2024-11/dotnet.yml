@@ -521,4 +521,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DnsResolver_1.2.0-beta.1/sdk/dnsresolver/Azure.ResourceManager.DnsResolver/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.3.0-beta.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.3.0-beta.2/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added CreateCallFailed event to signify when create call API fails to establish a call
 
