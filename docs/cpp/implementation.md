@@ -404,6 +404,8 @@ not escape from the innermost lexical scope.
 
 {% include requirement/MUST id="cpp-use-explicit-compares" %} use explicit comparisons when testing for failure.  Use `if (FAIL != f())` rather than `if (f())`, even though FAIL may have the value 0 which C considers to be false.  An explicit test will help you out later when somebody decides that a failure return should be -1 instead of 0.
 
+{% include requirement/MUSTNOT id="cpp-do-not-compare-booleans-against-true" %} compare boolean values with explicit comparisons. Rather than writing `if (f() == true)`, write `if (f())` - the result is clearer and more succinct. The same applies to objects that implement `operator bool()`
+
 Explicit comparison should be used even if the comparison value will never change.  e.g. `if (!(bufsize % sizeof(int)))` should be written as `if (0 == (bufsize % sizeof(int))` to reflect the numeric (not boolean) nature of the test.
 
 A frequent trouble spot is using `strcmp` to test for string equality.  You should **never** use a default action.  The preferred approach is to use an inline function:
@@ -536,7 +538,7 @@ public:
         return m_size;
     }
     void AddData(int i) noexcept {
-        m_data\[m_size++\] = i;
+        m_data[m_size++] = i;
     }
 };
 
@@ -561,7 +563,7 @@ public:
 {% highlight cpp %}
 // Bad
 struct Foo {
-    int A; // the compiler will insert 4 bytes of padding after A to align B
+    int A; // the compiler will insert up to 4 bytes of padding after A to align B
     char *B;
     int C;
     char *D;
@@ -866,32 +868,23 @@ endif()
 
 ## Supported platforms
 
-{% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
+{% include requirement/MUST id="cpp-platform-min" %} support at least the following platforms and associated compilers when implementing your client library:
 
-### Windows
+- Windows
+- Unix-like operating systems (Linux, Unix, etc)
+- OSX/iOS
 
-| Operating System | Version                   | Architectures | Compiler Version | Notes |
-| ---------------- | ------------------------- | ------------- | ---------------- | ----- |
-| Windows Client   | Current Supported Version | x64, x86, ARM | MSVC 16+         |
-| Nano Server      | Current Supported Version | x64, ARM32    | MSVC 16+         |
-| Windows Server   | Current Supported Version | x64, ARM64    | MSVC 16+         |
+As of 10/2024, the Azure SDK for C++ is currently tested against the following platforms:
 
-### Mac
+| Operating System | Versions   | Architectures| Compiler | Compiler Version | Notes |
+|------------------|------------|--------------|----------|-------------------|-------|
+| Windows          | 2019, 2022 | x32, x64     | MSVC     | MSVC 16, MSVC 17  |       |
+| OSX              | 14         | x64          | XCODE    | 15.4              |       |
+| Linux - Ubuntu   | 2020.04, 2022.04 | x64    | GCC      | 8, 9              |       | 
+| Linux - Ubuntu   | 2020.04, 2022.04 | x64    | clang    | 11, 13, 15        |       |
 
-| Operating System | Version                    | Architectures | Compiler Version | Notes |
-| ---------------- | -------------------------- | ------------- | ---------------- | ----- |
-| macOS            | Current supported versions | x64           | XCode 9.4.1      |
+For a current list of supported platforms, see the [platform matrix](https://github.com/Azure/azure-sdk-for-cpp/blob/main/eng/pipelines/templates/stages/platform-matrix.json).
 
-#### Linux
-
-| Operating System                                       | Version             | Architectures | Compiler Version | Notes                                                                                                                                                                                                                                             |
-| ------------------------------------------------------ | ------------------- | ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux | 7+                  | x64           | gcc-4.8          | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](https://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf) |
-| Debian                                                 | 9+                  | x64           | gcc-6.3          | [Debian lifecycle](https://wiki.debian.org/DebianReleases)                                                                                                                                                                                        |
-| Ubuntu                                                 | 22.04, LTS versions | x64           | gcc-7.3          | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)                                                                                                                                                                                              |
-| Linux Mint                                             | 18+                 | x64           | gcc-7.3          | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)                                                                                                                                                                                |
-| openSUSE                                               | 15+                 | x64           | gcc-7.5          | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)                                                                                                                                                                                            |
-| SUSE Enterprise Linux (SLES)                           | 12 SP2+             | x64           | gcc-4.8          | [SUSE lifecycle](https://www.suse.com/lifecycle/)                                                                                                                                                                                                 |
 
 {% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
 
