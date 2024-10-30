@@ -261,40 +261,40 @@ In addition to common attributes listed in the [Public API calls](#public-api-ca
 
 <!-- endsemconv -->
 
-### Azure KeyVault attributes
+### Azure Key Vault attributes
 
-#### Azure KeyVault Certificates attributes
+#### Azure Key Vault Certificates attributes
 
 <!-- semconv azure.sdk.keyvault.certificates -->
 
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
-| `az.keyvault.certificate.issuer.name` | string | Azure KeyVault certificate version. | `issuer01` | Recommended |
-| `az.keyvault.certificate.name` | string | Azure KeyVault certificate name. | `selfSignedCert01` | Recommended |
-| `az.keyvault.certificate.version` | string | Azure KeyVault certificate version. | `c3d31d7b36c942ad83ef36fc0785a4fc` | Recommended |
+| `az.keyvault.certificate.issuer.name` | string | Azure Key Vault certificate version. | `issuer01` | Recommended |
+| `az.keyvault.certificate.name` | string | Azure Key Vault certificate name. | `selfSignedCert01` | Recommended |
+| `az.keyvault.certificate.version` | string | Azure Key Vault certificate version. | `c3d31d7b36c942ad83ef36fc0785a4fc` | Recommended |
 
 <!-- endsemconv -->
 
-#### Azure KeyVault Keys attributes
+#### Azure Key Vault Keys attributes
 
 <!-- semconv azure.sdk.keyvault.keys -->
 
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
-| `az.keyvault.key.id` | string | Azure KeyVault key id (full URL). | `"https://myvault.vault.azure.net/keys/CreateSoftKeyTest/78deebed173b48e48f55abf87ed4cf71` | Recommended |
-| `az.keyvault.key.name` | string | Azure KeyVault key name. | `test-key` | Recommended |
-| `az.keyvault.key.version` | string | Azure KeyVault key version. | `3d31e6e5c4c14eaf9be8d42c00225088` | Recommended |
+| `az.keyvault.key.id` | string | Azure Key Vault key id (full URL). | `"https://myvault.vault.azure.net/keys/CreateSoftKeyTest/78deebed173b48e48f55abf87ed4cf71` | Recommended |
+| `az.keyvault.key.name` | string | Azure Key Vault key name. | `test-key` | Recommended |
+| `az.keyvault.key.version` | string | Azure Key Vault key version. | `3d31e6e5c4c14eaf9be8d42c00225088` | Recommended |
 
 <!-- endsemconv -->
 
-#### Azure KeyVault Secrets attributes
+#### Azure Key Vault Secrets attributes
 
 <!-- semconv azure.sdk.keyvault.secrets -->
 
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
-| `az.keyvault.secret.name` | string | Azure KeyVault secret name. | `test-secret` | Recommended |
-| `az.keyvault.secret.version` | string | Azure KeyVault secret version. | `4387e9f3d6e14c459867679a90fd0f79` | Recommended |
+| `az.keyvault.secret.name` | string | Azure Key Vault secret name. | `test-secret` | Recommended |
+| `az.keyvault.secret.version` | string | Azure Key Vault secret version. | `4387e9f3d6e14c459867679a90fd0f79` | Recommended |
 
 <!-- endsemconv -->
 
