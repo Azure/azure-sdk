@@ -1403,7 +1403,7 @@ Container Instances,0,Resource Management - Container Instances,mgmt,JavaScript,
 Container Registry,0,Resource Management - Container Registry,mgmt,JavaScript,azure-arm-containerregistry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-containerregistry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry,10,false,1,
 Container Service,0,Resource Management - Container Service,mgmt,JavaScript,azure-arm-containerservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-containerservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice,10,false,1,10/25/2024
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,JavaScript,,,11,false,@azure/arm-containerservicefleet,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice,10,false,1,
-Containerorchestratorruntime,0,Resource Management - Containerorchestratorruntime,mgmt,JavaScript,,,11,false,@azure/arm-containerorchestratorruntime,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerorchestratorruntime,3,false,1,
+Containerorchestratorruntime,0,Resource Management - Containerorchestratorruntime,mgmt,JavaScript,,,11,false,@azure/arm-containerorchestratorruntime,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesruntime,3,false,1,
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,JavaScript,azure-arm-cdn,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-cdn,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn,10,false,1,04/15/2024
 Cosmos DB,0,Resource Management - Cosmos DB,mgmt,JavaScript,azure-arm-cosmosdb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-cosmosdb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb,10,false,1,10/25/2024
 Cosmos DB,0,Resource Management - CosmosDB for PostgreSQL,mgmt,JavaScript,,,11,false,@azure/arm-cosmosdbforpostgresql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosforpostgresql,10,false,1,
@@ -1750,7 +1750,7 @@ Alerts Management,0,Resource Management - Alerts Management,mgmt,Python,,,11,fal
 API Center,0,Resource Management - API Center,mgmt,Python,,,11,false,azure-mgmt-apicenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apicenter,10,false,1,02/22/2024
 API Management,0,Resource Management - API Management,mgmt,Python,,,11,false,azure-mgmt-apimanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement,10,false,1,03/19/2024
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,Python,,,11,false,azure-mgmt-appcomplianceautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appcomplianceautomation,10,false,1,06/27/2024
-App Configuration,0,Resource Management - App Configuration,mgmt,Python,,,11,false,azure-mgmt-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,10/21/2024
+App Configuration,0,Resource Management - App Configuration,mgmt,Python,,,11,false,azure-mgmt-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,10/30/2024
 App Platform,0,Resource Management - App Platform,mgmt,Python,,,11,false,azure-mgmt-appplatform,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appplatform,10,false,1,10/29/2024
 App Service,0,Resource Management - App Service,mgmt,Python,,,11,false,azure-mgmt-web,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appservice,10,false,1,08/20/2024
 Application Insights,0,Resource Management - Application Insights,mgmt,Python,,,11,false,azure-mgmt-applicationinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/applicationinsights,10,false,1,04/20/2023
@@ -1793,7 +1793,7 @@ Cosmos DB,0,Resource Management - Cosmos DB,mgmt,Python,azure-mgmt-documentdb,ht
 Cosmos DB for PostgreSQL,0,Resource Management - Cosmos DB for PostgreSQL,mgmt,Python,,,11,false,azure-mgmt-cosmosdbforpostgresql,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmosdbforpostgresql,10,false,1,
 Cost Management,0,Resource Management - Cost Management,mgmt,Python,,,11,false,azure-mgmt-costmanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/costmanagement,10,false,1,07/19/2023
 Custom Providers,0,Resource Management - Custom Providers,mgmt,Python,,,11,false,azure-mgmt-customproviders,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/customproviders,10,false,1,04/09/2021
-Data Box,0,Resource Management - Data Box,mgmt,Python,,,11,false,azure-mgmt-databox,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databox,10,false,1,05/25/2023
+Data Box,0,Resource Management - Data Box,mgmt,Python,,,11,false,azure-mgmt-databox,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databox,10,false,1,10/30/2024
 Data Box Edge,0,Resource Management - Data Box Edge,mgmt,Python,,,11,false,azure-mgmt-databoxedge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databoxedge,10,false,1,04/26/2021
 Data Factory,0,Resource Management - Data Factory,mgmt,Python,,,11,false,azure-mgmt-datafactory,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/datafactory,10,false,1,08/20/2024
 Storage,0,Resource Management - Data Lake Analytics,mgmt,Python,,,11,false,azure-mgmt-datalake-analytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datalake-analytics_0.6.0/azure-mgmt-datalake-analytics/,3,false,1,
@@ -1812,17 +1812,17 @@ Device Registry,0,Resource Management - Device Registry,mgmt,Python,,,11,false,a
 IoT,0,Resource Management - Device Update,mgmt,Python,,,11,false,azure-mgmt-deviceupdate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/deviceupdate,10,false,1,12/18/2023
 DevOps Infrastructure,0,Resource Management - DevOps Infrastructure,mgmt,Python,,,11,false,azure-mgmt-devopsinfrastructure,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devopsinfrastructure,3,false,1,
 DevTest Labs,0,Resource Management - DevTest Labs,mgmt,Python,,,11,false,azure-mgmt-devtestlabs,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devtestlabs,10,false,1,01/04/2021
-IoT,0,Resource Management - Digital Twins,mgmt,Python,,,11,false,azure-mgmt-digitaltwins,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,03/20/2023
+IoT,0,Resource Management - Digital Twins,mgmt,Python,,,11,false,azure-mgmt-digitaltwins,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins,10,false,1,10/30/2024
 DNS,0,Resource Management - DNS,mgmt,Python,,,11,false,azure-mgmt-dns,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,10/21/2024
 DNS Resolver,0,Resource Management - DNS Resolver,mgmt,Python,,,11,false,azure-mgmt-dnsresolver,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/dnsresolver,10,false,1,
 Dynatrace,0,Resource Management - Dynatrace,mgmt,Python,,,11,false,azure-mgmt-dynatrace,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/dynatrace,10,false,1,08/22/2023
-Edge Order,0,Resource Management - Edge Order,mgmt,Python,,,11,false,azure-mgmt-edgeorder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/edgeorder,10,false,1,12/23/2021
+Edge Order,0,Resource Management - Edge Order,mgmt,Python,,,11,false,azure-mgmt-edgeorder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/edgeorder,10,false,1,10/30/2024
 Edge Zones,0,Resource Management - Edge Zones,mgmt,Python,,,11,false,azure-mgmt-edgezones,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/edgezones,3,false,1,
 Education,0,Resource Management - Education,mgmt,Python,,,11,false,azure-mgmt-education,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/education,3,false,1,
 Elastic,0,Resource Management - Elastic,mgmt,Python,,,11,false,azure-mgmt-elastic,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/elastic,10,false,1,
 Event Grid,0,Resource Management - Event Grid,mgmt,Python,,,11,false,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid,10,false,1,
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Python,,,11,false,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,09/03/2024
-Extended Location,0,Resource Management - Extended Location,mgmt,Python,,,11,false,azure-mgmt-extendedlocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/extendedlocation,10,false,1,07/12/2022
+Extended Location,0,Resource Management - Extended Location,mgmt,Python,,,11,false,azure-mgmt-extendedlocation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/extendedlocation,10,false,1,10/30/2024
 Fabric,0,Resource Management - Fabric,mgmt,Python,,,11,false,azure-mgmt-fabric,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/fabric,10,false,1,10/24/2024
 Fluid Relay,0,Resource Management - Fluid Relay,mgmt,Python,,,11,false,azure-mgmt-fluidrelay,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/fluidrelay,10,false,1,08/04/2022
 Front Door,0,Resource Management - Front Door,mgmt,Python,,,11,false,azure-mgmt-frontdoor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,04/15/2024
@@ -1903,7 +1903,7 @@ Recovery Services,0,Resource Management - Recovery Services,mgmt,Python,,,11,fal
 Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,04/22/2024
 Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesdatareplication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservicesdatareplication,3,false,1,
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,Python,,,11,false,azure-mgmt-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,02/22/2024
-Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,07/23/2024
+Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,10/30/2024
 Redis,0,Resource Management - Redis,mgmt,Python,,,11,false,azure-mgmt-redis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redis,10,false,1,07/23/2024
 Redis,0,Resource Management - Redis Enterprise,mgmt,Python,,,11,false,azure-mgmt-redisenterprise,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redisenterprise,10,false,1,
 Region Move,0,Resource Management - Region Move,mgmt,Python,,,11,false,azure-mgmt-regionmove,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/regionmove,3,true,1,
