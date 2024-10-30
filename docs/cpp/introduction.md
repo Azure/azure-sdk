@@ -675,6 +675,7 @@ NOTE: Since these types are typically located in the `azure-core` package, care 
 In addition, it is critical to realize that the only dependencies between Azure SDK packages is a >= dependency. That means that a particular version of an existing Azure SDK package is expected to work with any future versions of other Azure SDK packages, even of those packages on which it depends. That means that any breaking changes to internal types MUST be upward compatible.
 
 ##### Private types
+
 Private types  are types located in a `_detail` namespace. Private types are only intended to be called within a single package, and follow the following requirements:
 
 {% include requirement/MUSTNOT id="cpp-design-private-types-private" %} define private types in public Azure SDK headers.
@@ -839,6 +840,12 @@ Filenames should be concise, but convey what role the file plays within the libr
         - `<package namespace group>/` - eg `keyvault`, `messaging`, etc.
             - `<package short name>/` - eg `certificates`, `blobs`, `datalake`, etc.
                 - `<package specific headers>`
+
+{% include requirement/MUST id="cpp-client-name" %} base the file name for the service client on the name of the service client.
+
+For example, the class declaration for the `AttestationClient` class should be contained in a file named `attestation_client.hpp`.
+
+{% include requirement/SHOULD id="cpp-docs-file-contents-exception" %} have at most one service client declaration per include file.
 
 {% include requirement/MUST id="cpp-docs-source-layout-src" %} lay out directories under the `src` directory as follows:
 

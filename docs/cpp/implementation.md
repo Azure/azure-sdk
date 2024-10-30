@@ -78,7 +78,7 @@ Note that modifying the enumerators in an enumeration is considered a breaking c
 
 ##### Extendable Enumerations
 
-When the set of values in an enumeration is *not* fixed, the `Azure::Core::_internal::ExtendableEnumeration` template should be used. 
+When the set of values in an enumeration is *not* fixed, the `Azure::Core::_internal::ExtendableEnumeration` template should be used.
 
 {% highlight cpp %}
 class MyEnumeration final : public ExtendableEnumeration<MyEnumeration> {
@@ -107,6 +107,7 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 
 - If an underlying service operation call from `Poll` or `PollUntilDone` throws, re-throw `RequestFailedException` or its subtype.
 - If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `Poll` or `PollUntilDone`.
+
   - Include any relevant error state information in the exception message.
 
 - If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```IsDone``` is true) throw the same exception as the one thrown when the operation failed.
@@ -262,7 +263,7 @@ We believe testing is a part of the development process, so we expect unit and i
 
 All code should contain, at least, requirements, unit tests, end-to-end tests, and samples.
 
-Tests should be written using the [Google Test][] library.
+Tests should be written using the [Google Test][https://google.github.io/googletest/] library.
 
 ### Language-specific other
 
@@ -336,6 +337,7 @@ void Example()
     #endif
 
     more code
+
 }
 {% endhighlight %}
 
@@ -387,8 +389,7 @@ else                  { HappyDaysIKnowWhyIAmHere(); }
 
 {% include requirement/SHOULD id="cpp-use-cpp-core-guidelines" %} follow the [CPP Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) whenever possible, with the following exceptions:
 
-<TBD>
-
+- List TBD.
 
 #### Complexity Management
 
@@ -403,6 +404,8 @@ not escape from the innermost lexical scope.
 
 {% include requirement/MUST id="cpp-use-explicit-compares" %} use explicit comparisons when testing for failure.  Use `if (FAIL != f())` rather than `if (f())`, even though FAIL may have the value 0 which C considers to be false.  An explicit test will help you out later when somebody decides that a failure return should be -1 instead of 0.
 
+{% include requirement/MUSTNOT id="cpp-do-not-compare-booleans-against-true" %} compare boolean values with explicit comparisons. Rather than writing `if (f() == true)`, write `if (f())` - the result is clearer and more succinct. The same applies to objects that implement `operator bool()`
+
 Explicit comparison should be used even if the comparison value will never change.  e.g. `if (!(bufsize % sizeof(int)))` should be written as `if (0 == (bufsize % sizeof(int))` to reflect the numeric (not boolean) nature of the test.
 
 A frequent trouble spot is using `strcmp` to test for string equality.  You should **never** use a default action.  The preferred approach is to use an inline function:
@@ -414,6 +417,7 @@ inline bool StringEqual(char *a, char *b) {
 {% endhighlight %}
 
 ~ Should
+
 {% include requirement/SHOULDNOT id="cpp-embedded-assign" %} use embedded assignments.  There is a time and a place for embedded assignment statements.  In some constructs, there is no better way to accomplish the results without making the code bulkier and less readable.
 
 {% highlight cpp %}
@@ -498,7 +502,6 @@ void TheCustomerCode() {
 }
 {% endhighlight %}
 
-
 {% include requirement/MUST id="cpp-design-logical-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
 // Good - no restrictions on values
@@ -535,7 +538,7 @@ public:
         return m_size;
     }
     void AddData(int i) noexcept {
-        m_data\[m_size++\] = i;
+        m_data[m_size++] = i;
     }
 };
 
@@ -560,7 +563,7 @@ public:
 {% highlight cpp %}
 // Bad
 struct Foo {
-    int A; // the compiler will insert 4 bytes of padding after A to align B
+    int A; // the compiler will insert up to 4 bytes of padding after A to align B
     char *B;
     int C;
     char *D;
@@ -604,6 +607,10 @@ public:
     }
 };
 {% endhighlight %}
+
+#### Parameter passing rules
+
+In general, all method parameters that are not POD should be passed by `const reference`.
 
 #### Integer sizes
 
@@ -661,6 +668,7 @@ public:
     const static KeyType Rsa;
     const static KeyType RsaHsm;
     const static KeyType Oct;
+
 };
 }}} // namespace Azure::Group::Service
 
@@ -835,13 +843,14 @@ set(DOXYGEN_SIMPLE_STRUCTS YES)
 set(DOXYGEN_TYPEDEF_HIDES_STRUCT NO)
 
 doxygen_add_docs(doxygen
-	${PROJECT_SOURCE_DIR}/inc
-	${PROJECT_SOURCE_DIR}/src
-	${PROJECT_SOURCE_DIR}/doc
-	COMMENT "generate docs")
+       ${PROJECT_SOURCE_DIR}/inc
+       ${PROJECT_SOURCE_DIR}/src
+       ${PROJECT_SOURCE_DIR}/doc
+       COMMENT "generate docs")
 {% endhighlight %}
 
 Notice that:
+
 * We use `find_package()` to find doxygen
 * We use the `DOXYGEN_<PREF>` CMake variables instead of writing your own `doxyfile`.
 * We set `OPTIMIZE_OUTPUT_FOR_C` in order to get more C appropriate output.
@@ -859,39 +868,27 @@ endif()
 
 ## Supported platforms
 
-{% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
+{% include requirement/MUST id="cpp-platform-min" %} support at least the following platforms and associated compilers when implementing your client library:
 
-### Windows
+- Windows
+- Unix-like operating systems (Linux, Unix, etc)
+- OSX/iOS
 
-| Operating System     | Version       | Architectures | Compiler Version                        | Notes
-|----------------------|---------------|---------------|-----------------------------------------|------
-| Windows Client       | 7 SP1+, 8.1   | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1607+ | x64, x86, ARM | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1909+ | ARM64         | MSVC 14.20x                             |
-| Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
-| Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+As of 10/2024, the Azure SDK for C++ is currently tested against the following platforms:
 
-### Mac
+| Operating System | Versions   | Architectures| Compiler | Compiler Version | Notes |
+|------------------|------------|--------------|----------|-------------------|-------|
+| Windows          | 2019, 2022 | x32, x64     | MSVC     | MSVC 16, MSVC 17  |       |
+| OSX              | 14         | x64          | XCODE    | 15.4              |       |
+| Linux - Ubuntu   | 2020.04, 2022.04 | x64    | GCC      | 8, 9              |       | 
+| Linux - Ubuntu   | 2020.04, 2022.04 | x64    | clang    | 11, 13, 15        |       |
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
+For a current list of supported platforms, see the [platform matrix](https://github.com/Azure/azure-sdk-for-cpp/blob/main/eng/pipelines/templates/stages/platform-matrix.json).
 
-#### Linux
-
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://www.centos.org/centos-linux-eol/) <br> [Oracle Linux lifecycle](https://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
-| Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
-| Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
-| Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)
-| openSUSE                        | 15+           | x64           | gcc-7.5                                 | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)
-| SUSE Enterprise Linux (SLES)    | 12 SP2+       | x64           | gcc-4.8                                 | [SUSE lifecycle](https://www.suse.com/lifecycle/)
 
 {% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
 
-
-{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
+{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions. Examples of extensions to avoid include:
 
 * [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
 * [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
@@ -901,8 +898,8 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 
 {% include requirement/MUST id="cpp-cpp-options" %} use compiler flags to identify warnings:
 
-| Compiler                 | Compiler Flags   |
-|:-------------------------|------------------|
-| gcc                      | `-Wall -Wextra`  |
-| cpp and XCode            | `-Wall -Wextra`  |
-| MSVC                     | `/W4`            |
+| Compiler      | Compiler Flags  |
+| :------------ | --------------- |
+| gcc           | `-Wall -Wextra` |
+| cpp and XCode | `-Wall -Wextra` |
+| MSVC          | `/W4`           |
