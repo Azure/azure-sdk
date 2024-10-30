@@ -220,8 +220,8 @@ pub mod builders {
             }
         }
 
-        pub fn with_api_version(mut self , api_version: impl Into<String>) -> Self {
-            self.options.api_version = Some(api_version.into());
+        pub fn with_api_version(mut self , api_version: String) -> Self {
+            self.options.api_version = Some(api_version);
             self
         }
 
@@ -294,8 +294,8 @@ use azure_core::{ClientMethodOptions, ClientMethodOptionsBuilder};
 impl SecretClientMethods for SecretClient {
     async fn set_secret(
         &self,
-        name: impl Into<String>,
-        value: impl Into<String>,
+        name: &str,
+        value: String,
         options: Option<SecretClientSetSecretOptions>,
     ) -> azure_core::Result<Response<KeyVaultSecret>> {
         todo!()
@@ -416,7 +416,7 @@ Various extensions also exist that the caller may use that may otherwise not wor
 
 {% include requirement/MUST id="rust-parameters-self" %} take a `&self` as the first parameter. All service clients must be immutable
 
-{% include requirement/MUST id="rust-parameters-into" %} declare parameter types as `impl Into<T>` where `T` is a common `std` type that implements `Into<T>` e.g., `String` when the parameter data will be owned.
+{% include requirement/MUST id="rust-parameters-into" %} declare parameter types as concrete types e.g., `String` (or any type `T`) when the data will be owned e.g., a field in a request model; or `&str` (or any reference to type `&T`)` when the data only needs to be borrowed e.g., a URL parameter.
 
 This will be most common when the data passed to a function will be stored in a struct e.g.:
 
@@ -426,9 +426,9 @@ pub struct SecretClientOptions {
 }
 
 impl SecretClientOptions {
-    pub fn new(api_version: impl Into<String>) -> Self {
+    pub fn new(api_version: String) -> Self {
         Self {
-            api_version: api_version.into(),
+            api_version,
         }
     }
 }
@@ -725,7 +725,7 @@ Crates support different types of [dependencies][rust-lang-dependencies] e.g., `
 
 ```rust
 impl ExampleClient {
-    pub fn with_connection_string(connection_string: impl Into<String>, options: Option<ExampleClientOptions>) {
+    pub fn with_connection_string(connection_string: &str, options: Option<ExampleClientOptions>) {
         todo!()
     }
 }
@@ -974,8 +974,8 @@ let client = SecretClient::new(...);
 /// * `options` - Optional properties of the secret.
 async fn set_secret(
     &self,
-    name: impl Into<String>,
-    value: impl Into<String>,
+    name: &str,
+    value: String,
     options: Option<SetSecretMethodOptions>,
 ) -> Result<Response>;
 ```
