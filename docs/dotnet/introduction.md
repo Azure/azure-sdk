@@ -642,8 +642,10 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
 
+{% include requirement/MUST id="dotnet-lro-waituntil" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
+
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
-For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
+For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID.  Some service operations have intermediate states they pass through prior to completion.  These can be represented with an added ```Status``` property to augment the ```HasCompleted``` property on the base ```Operation``` type.
 
 {% include requirement/MUST id="dotnet-lro-constructor" %} provide a public constructor on subclasses of ```Operation<T>``` to allow users to access an existing LRO.
 
