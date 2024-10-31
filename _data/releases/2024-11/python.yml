@@ -421,4 +421,27 @@ entries:
     #### Other Changes
 
     - This package has been deprecated and will no longer be maintained after 2024-02-24.
+- Name: azure-mgmt-core
+  Version: 1.5.0
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-core_1.5.0/sdk/core/azure-mgmt-core/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.32.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.32.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a default implementation to handle token challenges in `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy`.
+
+    #### Bugs Fixed
+
+    - Fixed an issue where the `tracing_attributes` keyword argument wasn't being handled at the request/method level. #38164
 
