@@ -513,6 +513,8 @@ Builders are an idiomatic pattern in Rust, such as the [typestate builder patter
 
 {% include requirement/MAY id="rust-builders-support" %} implement builders for special cases e.g., URI builders.
 
+If you do implement a builder, it must be defined according to the following guidelines:
+
 {% include requirement/MUST id="rust-builders-factory" %} define a `builder()` factory method on the type to be constructed that returns a struct with the same as the type + "Builder" e.g., `Model::builder()` returns a `ModelBuilder`.
 
 {% include requirement/MUST id="rust-builders-self" %} consume `mut self` in `with_` setter methods and return `Self` except in the final `build(&self)` method.
