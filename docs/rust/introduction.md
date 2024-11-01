@@ -131,6 +131,8 @@ error[E0252]: the name `Client` is defined multiple times
 
 {% include requirement/MUST id="rust-client-endpoint" %} define a public `endpoint(&self) -> &azure_core::Url` method to get the endpoint used to create the client.
 
+{% include requirement/MUST id="rust-client-internal-fields" %} define all fields within a client struct with `pub(crate)` accessibility. This allows the fields e.g., the `pipeline`, to be used in [convenience clients' extension methods][rust-client-convenience].
+
 #### Service Client Constructors {#rust-client-constructors}
 
 {% include requirement/MUST id="rust-client-constructors-new" %} define a public function `new` that takes the following form and returns `Self` or `azure_core::Result<Self>` if the function may fail.

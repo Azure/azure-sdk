@@ -18,7 +18,7 @@ Most service client crates are generated from [TypeSpec](https://aka.ms/typespec
 
 {% include requirement/MAY id="rust-client-convenience-wrap" %} implement a client which wraps a generated client e.g., using [newtype][rust-lang-newtype], and exposes necessary methods from the underlying client as well as any convenience methods. You might consider this approach if you want to effectively hide most generated methods and define replacements. You are responsible for transposing documentation and following all guidelines herein.
 
-{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] in a trait that call existing public methods, e.g.,
+{% include requirement/MAY id="rust-client-convenience-extension" %} define [extension methods][rust-lang-extension-methods] in a trait that call existing public methods or directly on the `pipeline`, e.g.,
 
 ```rust
 pub trait SecretClientExt {
@@ -50,7 +50,7 @@ You might consider this approach if the generated methods are sufficient but you
 
 In all options above except if merely re-exposing public APIs without alteration:
 
-{% include requirement/MUST id="rust-client-convenience-telemetry-telemeter" %} must telemeter the convenience client methods just like any service client methods.
+{% include requirement/MUST id="rust-client-convenience-telemetry-telemeter" %} telemeter the convenience client methods just like any service client methods.
 
 ### Tests {#rust-client-tests}
 
