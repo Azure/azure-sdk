@@ -440,4 +440,24 @@ entries:
     - New liveness session operation: [Get Session Image](https://learn.microsoft.com/rest/api/face/liveness-session-operations/get-session-image?view=rest-face-v1.2-preview.1).
     - New properties `enableSessionImage?: boolean`, `livenessSingleModalModel?: LivenessModel` to `CreateLivenessSessionContent`.
     - New model `CreateLivenessWithVerifySessionJsonContent` for liveness session operations [Create Liveness With Verify Session](https://learn.microsoft.com/rest/api/face/liveness-session-operations/create-liveness-with-verify-session?view=rest-face-v1.2-preview.1) and [Create Liveness With Verify Session With Verify Image](https://learn.microsoft.com/rest/api/face/liveness-session-operations/create-liveness-with-verify-session-with-verify-image?view=rest-face-v1.2-preview.1).
+- Name: '@azure/openai'
+  Version: 2.0.0-beta.3
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0-beta.3/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove the Azure ML connection in Azure On Your Data.
+    - Remove the enhancements feature from chat completions.
+    - Remove the now deprecated `finish_details` field in chat completion responses. Use `finish_reason` instead.
+    - Remove the `role_information` field from the On Your Data request models.
+
+    #### Features Added
+
+    - Add support for connecting to MongoDB in Azure On Your Data.
+    - Add support for citation information in Azure On Your Data responses.
+    - Add support for content filtering in image generation.
 
