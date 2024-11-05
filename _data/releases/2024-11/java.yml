@@ -1878,4 +1878,15 @@ entries:
 
     - Upgraded `azure-core` from `1.53.0` to `1.54.0`.
   GroupId: com.azure
+- Name: azure-cosmos-kafka-connect
+  Version: 2.0.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_2.0.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Improved error message when the database provided in the config does not exist - See [PR 42599](https://github.com/Azure/azure-sdk-for-java/pull/42599)
+  GroupId: com.azure.cosmos.kafka
 
