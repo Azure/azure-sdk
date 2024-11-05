@@ -499,4 +499,17 @@ entries:
 
     - Enable Azure AI Inference instrumentation
     ([#38071](https://github.com/Azure/azure-sdk-for-python/pull/38071))
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b32
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b32/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Serialize complex objects provided as log or event bodies to JSON and
+    fall back to string representation if they are not serializable.
+    ([#37694](https://github.com/Azure/azure-sdk-for-python/pull/37694))
 
