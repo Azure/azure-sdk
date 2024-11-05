@@ -621,4 +621,15 @@ entries:
     Via `OpenAI 2.0.0-beta.2`:
 
     - Fixed serialization and deserialization of ConversationToolChoice literal values (such as "required").
+- Name: Microsoft.Extensions.Azure
+  Version: 1.8.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.8.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for constructing a `ManagedIdentityCredential` from config by setting the `managedIdentityObjectId` key.
 
