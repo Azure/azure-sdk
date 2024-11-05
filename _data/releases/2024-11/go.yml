@@ -259,4 +259,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime/v0.1.0/sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity/cache
+  Version: 0.3.1
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.1/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `New` no longer returns an error when called simultaneously in two processes
 
