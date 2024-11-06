@@ -484,4 +484,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-trustedsigning_1.0.0-beta.2/sdk/trustedsigning/arm-trustedsigning/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.8.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `apiVersion` in `AppConfigurationClientOptions` so that customers can specify the API version instead of using the default.
 
