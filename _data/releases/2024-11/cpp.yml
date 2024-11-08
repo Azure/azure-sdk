@@ -45,4 +45,15 @@ entries:
     #### Bugs Fixed
 
     - [[#6064]](https://github.com/Azure/azure-sdk-for-cpp/issues/6064) Utilize new telemetry features from Azure Core.
+- Name: azure-identity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.10.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix overflow issue in token cache.
 
