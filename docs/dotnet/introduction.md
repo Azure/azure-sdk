@@ -522,8 +522,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 {% include requirement/MAY id="dotnet-params-options" %} name the _options parameter_ type with the 'Options' suffix.
 
 In some cases, the _Options class_ may contain all values needed to create the service request content.  In this case, the _Options class_ may be a model type and implement `IPersistableModel<T>`.  
-In other cases, the service request content may be composed from a combination of values from the _Options class_ and other parameters to the service method.  In this case, the _Options type_ should not implement `IPersistableModel<T>`.
-
+In other cases, the service request content may be composed from a combination of values from the _Options class_ and other parameters to the service method, or it may contain values needed to create the request that are not part of the request body.  In this case, the _Options type_ should not implement `IPersistableModel<T>`.
 
 ##### Parameter Validation
 
@@ -819,6 +818,10 @@ The `Azure.Core` package provides common functionality for client libraries.  Do
 The `Azure.ETag` type is located in `Azure.Core` package.
 
 {% include requirement/MUST id="dotnet-primitives-uri" %} use `System.Uri` to represent URIs.
+
+#### Other naming considerations
+
+{% include requirement/MAY id="dotnet-models-options-suffix" %} consider naming model types with the `Options` suffix that do not appear in service method signatures so that they do not have a name of the format `<ServiceMethod>Options`, for service methods on clients in the assembly.  This will prevent naming conflicts with types intended to implement the [options parameter](#dotnet-parameters) pattern.
 
 ### Exceptions {#dotnet-errors}
 
