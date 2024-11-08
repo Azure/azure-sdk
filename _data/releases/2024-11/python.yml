@@ -583,4 +583,23 @@ entries:
 
     - Fixed bug caused by migration from pkg_resources to importlib-metadata
     ([#38371](https://github.com/Azure/azure-sdk-for-python/pull/38371))
+- Name: azure-maps-route
+  Version: 1.0.0b2
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-route_1.0.0b2/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Updated `get_route_matrix` to accept a `RouteMatrixQuery` object instead of a dictionary.
+- Name: azure-mgmt-containerservice
+  Version: 33.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_33.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
