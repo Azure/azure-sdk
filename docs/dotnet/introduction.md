@@ -469,14 +469,14 @@ For more information, see [Model Types](#dotnet-model-types)
 
 Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
 
-- Service Methods with Simple Inputs, _simple methods_ for short
-- Service Methods with Complex Inputs, _complex methods_ for short
+- Service Methods with simple inputs, _simple methods_ for short
+- Service Methods with complex inputs, _complex methods_ for short
 
-_Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
+_Simple methods_ are methods that take up to six parameters, where most of the parameters are simple BCL primitives. _Complex methods_ are methods that take a large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard [.NET Framework Design Guidelines](https://aka.ms/fxdg3) for parameter list and overload design.
+_Simple methods_ should follow standard [.NET Framework Design Guidelines](https://aka.ms/fxdg3) for their parameter list and overload design.
 
-_Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
+_Complex methods_ should use an _option parameter_ to represent the request payload, and consider providing simple convenience overloads for the most common scenarios.
 
 ```csharp
 public class BlobContainerClient {
@@ -499,15 +499,16 @@ public class BlobCreateOptions {
 }
 ```
 
-The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties.
+The _Options class_ is designed similarly to .NET custom attributes.  Specifically, an _Options class_ takes values that would otherwise be modeled as required service method parameters as required constructor parameters and exposes them as get-only properties on the type.
+Values that would otherwise be modeled as optional service method parameters are not included in constructor signatures, and are exposed as get-set properties on the type.
 
-{% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
+{% include requirement/MUST id="dotnet-params-complex" %} use the _options parameter_ pattern for complex service methods.
 
-{% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+{% include requirement/MAY id="dotnet-params-complex-grow" %} use the _options parameter_ pattern for simple service methods that are expected to "grow" in the future, that is, where it is expected that the service API will add values over time such that the number of parameters in the method signature will eventually exceed the threshold for a _complex method_.
 
-{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern.
+{% include requirement/MAY id="dotnet-params-complex-overloads" %} add simple overloads of methods using the _options parameter_ pattern.
 
-If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
+If in common scenarios, users are likely to pass just a small subset of what the _options parameter_ represents, consider adding an overload with a parameter list representing just this subset.  For example:
 
 ```csharp
     // main overload taking the options property bag
@@ -518,7 +519,11 @@ If in common scenarios, users are likely to pass just a small subset of what the
 }
 ```
 
-{% include requirement/MAY id="dotnet-params-options" %} name the _option parameter_ type with the 'Options' suffix.
+{% include requirement/MAY id="dotnet-params-options" %} name the _options parameter_ type with the 'Options' suffix.
+
+In some cases, the _Options class_ may contain all values needed to create the service request content.  In this case, the _Options class_ may be a model type and implement `IPersistableModel<T>`.  
+In other cases, the service request content may be composed from a combination of values from the _Options class_ and other parameters to the service method.  In this case, the _Options type_ should not implement `IPersistableModel<T>`.
+
 
 ##### Parameter Validation
 
@@ -642,7 +647,7 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
 
-{% include requirement/MUST id="dotnet-lro-waituntil" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
+{% include requirement/MUST id="dotnet-lro-subclient-methods" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID.  Some service operations have intermediate states they pass through prior to completion.  These can be represented with an added ```Status``` property to augment the ```HasCompleted``` property on the base ```Operation``` type.
