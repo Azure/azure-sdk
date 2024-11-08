@@ -506,4 +506,16 @@ entries:
     #### Other Changes
 
     - Updated README.
+- Name: '@azure/core-amqp'
+  Version: 4.3.3
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.3/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Move the constant for the geographic replication feature to Event Hubs.
+    - Remove request from `RequestResponseLink` logging.
 
