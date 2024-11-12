@@ -1,0 +1,40 @@
+entries:
+- Name: azure-eventhub
+  Version: 5.13.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.13.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ssl_context` parameter to the clients to allow users to pass in the SSL context, in which case, `connection_verify` will be ignored if specified.
+- Name: azure-servicebus
+  Version: 7.13.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.13.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a broken f-string present in a `ValueError` when using the async client. ([37695](https://github.com/Azure/azure-sdk-for-python/issues/37695))
+    - Fixed a bug with the incorrect error being raised for larger than allowed batch size. ([38260](https://github.com/Azure/azure-sdk-for-python/issues/38260))
+    - Fixed a bug with an error being raised when the fully-qualified namespace included a port, rather than ignoring the port. ([37547](https://github.com/Azure/azure-sdk-for-python/issues/37547))
+
+    #### Features Added
+
+    - Added `ssl_context` parameter to the clients to allow users to pass in the SSL context, in which case, `connection_verify` will be ignored if specified.([#37246](https://github.com/Azure/azure-sdk-for-python/issues/37246))
+- Name: azure-ai-translation-document
+  Version: 1.1.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.1.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
+
