@@ -1,0 +1,17 @@
+entries:
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue in `isStreamComplete` where the method never resolves if the stream is not readable.
+
+    #### Features Added
+
+    - `BearerTokenAuthenticationPolicy` will handle CAE claims challenge by default. [PR #31501](https://github.com/Azure/azure-sdk-for-js/pull/31501/)
+
