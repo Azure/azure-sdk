@@ -14,4 +14,14 @@ entries:
     #### Features Added
 
     - `BearerTokenAuthenticationPolicy` will handle CAE claims challenge by default. [PR #31501](https://github.com/Azure/azure-sdk-for-js/pull/31501/)
+- Name: '@azure-rest/ai-translation-document'
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
 
