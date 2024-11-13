@@ -99,4 +99,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Includes all features from 12.21.0-beta.1 and 12.21.0-beta.2.
+- Name: Azure.AI.Translation.Document
+  Version: 2.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_2.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
 
