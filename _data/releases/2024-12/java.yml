@@ -337,4 +337,21 @@ entries:
 
     - Upgraded `azure-core` from `1.54.0` to `1.54.1`.
   GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.4.0
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.4.0/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed Jackson annotations from models and removed custom serializer for raw JSON fields.
+
+    #### Features Added
+
+    - Migrated serialization to `azure-json` which offers implementation agnostic serialization, providing support for
+    more serialization frameworks than just Jackson.
+  GroupId: com.azure
 
