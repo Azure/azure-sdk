@@ -146,4 +146,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - **#38493** - Fix error NoneType object is not subscriptable
+- Name: azure-appconfiguration-provider
+  Version: 2.0.0b3
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.0b3/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Allocation Id value changed so other providers can match the value.
 
