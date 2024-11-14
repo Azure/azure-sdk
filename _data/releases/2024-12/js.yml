@@ -1,0 +1,27 @@
+entries:
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue in `isStreamComplete` where the method never resolves if the stream is not readable.
+
+    #### Features Added
+
+    - `BearerTokenAuthenticationPolicy` will handle CAE claims challenge by default. [PR #31501](https://github.com/Azure/azure-sdk-for-js/pull/31501/)
+- Name: '@azure-rest/ai-translation-document'
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
+
