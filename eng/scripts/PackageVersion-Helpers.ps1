@@ -71,6 +71,7 @@ function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::Utc
 
       foreach ($tagNode in $response.data.repository.refs.nodes)
       {
+        $annotatedTag = $false
         # Capture the dates as datetimeoffset as they are usually utc and we mostly only care about the date part and not the time
         if ($tagNode.target.psobject.members.name -contains "committedDate")
         {
@@ -80,6 +81,7 @@ function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::Utc
         else {
           # For annotated tags the target is one more level deep from the commit
           $tagDate = [DateTimeOffset]$tagNode.target.target.committedDate
+          $annotatedTag = $true
         }
 
         if ($tagDate -ge $afterDate) {
@@ -92,9 +94,12 @@ function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::Utc
           }
         }
         else {
-          Write-Verbose "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
-          $done = $true
-          break
+          # Don't break to loop on annotated tags as they can point at really old commits
+          if (!$annotatedTag) {
+            Write-Warning "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
+            $done = $true
+            break
+          }
         }
       }
     } until ($done)
