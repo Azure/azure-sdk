@@ -3,11 +3,11 @@
 ## Go
 
 {% if include.type == "all" %}
-  {% assign packages = site.data.releases.latest.go-packages %}
+  {% assign packages = site.data.releases.latest.go-packages | where_exp: 'item', "item.Support <> 'deprecated'" %}
 {% elsif include.type == "deprecated" %}
   {% assign packages = site.data.releases.latest.go-packages | where: 'Support', 'deprecated' %}
 {% else %}
-  {% assign packages = site.data.releases.latest.go-packages | where: 'Type', include.type | where: 'New', 'true' %}
+  {% assign packages = site.data.releases.latest.go-packages | where: 'Type', include.type | where: 'New', 'true' | where_exp: 'item', "item.Support <> 'deprecated'" %}
 {% endif %}
 
 {{ description | replace: 'PackageCount', packages.size }}
