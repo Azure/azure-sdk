@@ -136,4 +136,14 @@ entries:
     - Fix `evaluate` function not producing aggregated metrics if ANY values to be aggregated were None, NaN, or
     otherwise difficult to process. Such values are ignored fully, so the aggregated metric of `[1, 2, 3, NaN]`
     would be 2, not 1.5.
+- Name: azure-ai-ml
+  Version: 1.22.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - **#38493** - Fix error NoneType object is not subscriptable
 
