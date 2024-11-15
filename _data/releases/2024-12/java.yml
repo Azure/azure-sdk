@@ -354,4 +354,21 @@ entries:
     - Migrated serialization to `azure-json` which offers implementation agnostic serialization, providing support for
     more serialization frameworks than just Jackson.
   GroupId: com.azure
+- Name: azure-ai-translation-text
+  Version: 1.1.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-text_1.1.0/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Removed `JsonCreator` and `JsonProperty` annotation and replaced them with new methods `toJson` and `fromJson` using stream-style serialization.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.49.0` to version `1.54.1`.
+    - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.7`.
+  GroupId: com.azure
 
