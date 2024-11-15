@@ -165,4 +165,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b1/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.0.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `[remote]` extra to be needed only when tracking results in Azure AI Studio.
+    - Removing `azure-ai-inference` as dependency.
 
