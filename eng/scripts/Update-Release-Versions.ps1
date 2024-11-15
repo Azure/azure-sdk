@@ -281,7 +281,9 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if (!$pkg.FirstGADate) {
         $pkg.FirstGADate = GetFirstGADate $pkg $gaVersions
       }
-      $pkg.LatestGADate = $latestGADate
+      if ($latestGADate) {
+        $pkg.LatestGADate = $latestGADate
+      }
     }
 
     if (!$pkg.FirstPreviewDate) {
