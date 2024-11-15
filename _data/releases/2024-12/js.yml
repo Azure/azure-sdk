@@ -24,4 +24,78 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
+- Name: '@azure/cosmos'
+  Version: 4.2.0-beta.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.2.0-beta.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for Full text search and Hybrid Ranking.
+
+    - Addition of full text policy.
+
+    - We have implemented support for Request Unit (RU) caps in Query operations. Clients can now seamlessly integrate RU caps into their fetch functions by specifying the desired cap within the operation options. If the specified RU cap is surpassed during the operation, clients will promptly receive an error notification, providing enhanced control and transparency over resource consumption.
+- Name: '@azure-rest/maps-search'
+  Version: 2.0.0-beta.2
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_2.0.0-beta.2/sdk/maps/maps-search-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+- Name: '@azure/arm-hybridcompute'
+  Version: 4.1.0-beta.1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.1.0-beta.1/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/maps-geolocation'
+  Version: 1.0.0-beta.4
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.4/sdk/maps/maps-geolocation-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+- Name: '@azure-rest/maps-render'
+  Version: 2.0.0-beta.1
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_2.0.0-beta.1/sdk/maps/maps-render-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The API endpoint for `GetMapStaticImage` has been updated. The `format` parameter has been removed from the path, changing the usage from `(path: "/map/static/{format}", format: "png")` to `(path: "/map/static")`.
+    - Replaced `layer` and `style` parameters with `tilesetId` in `RenderGetMapStaticImageQueryParamProperties`, which now supports more detailed map and traffic visualization.
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+
+
+    #### Features Added
+
+    - Added support for `trafficLayer` in the `RenderGetMapStaticImage` endpoint, allowing for new traffic visualization options.
 
