@@ -371,4 +371,28 @@ entries:
     - Upgraded `azure-core` from `1.49.0` to version `1.54.1`.
     - Upgraded `azure-core-http-netty` from `1.15.0` to version `1.15.7`.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.14.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.14.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue in Managed Identity scopes [#42934](https://github.com/Azure/azure-sdk-for-java/pull/42934)
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.8
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.8/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-identity` from `1.14.1` to `1.14.2`
+  GroupId: com.azure
 
