@@ -404,4 +404,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.6.0-beta.1/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventgrid
+  Version: 4.27.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.27.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - New `ResourceNotificationsContainerServiceEventResourcesScheduledEventData` event, new `StorageLifecyclePolicyrunSummary` field on `StorageLifecyclePolicyCompletedEventData`. [#42966](https://github.com/Azure/azure-sdk-for-java/pull/42966)
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid-namespaces
+  Version: 1.1.1
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-namespaces_1.1.1/sdk/eventgrid/azure-messaging-eventgrid-namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.15.5` to version `1.15.7`.
+    - Upgraded `azure-core` from `1.53.0` to version `1.54.1`.
+  GroupId: com.azure
 
