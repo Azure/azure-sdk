@@ -98,4 +98,15 @@ entries:
     #### Features Added
 
     - Added support for `trafficLayer` in the `RenderGetMapStaticImage` endpoint, allowing for new traffic visualization options.
+- Name: '@azure/openai'
+  Version: 2.0.0
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Models related to features still in preview have been removed.
 
