@@ -154,4 +154,16 @@ entries:
 
     - Support for Proof of Possession (PoP) tokens for `InteractiveBrowserCredential` has migrated out of Azure.Core.Experimental to Azure.Core. This feature is enabled via the `IsProofOfPossessionEnabled` property on `TokenRequestContext`.
     - Updating package dependencies.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.28.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.28.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ResourceNotificationsContainerServiceEventResourcesScheduledEventData` event.
+    - Added `PolicyRunSummary` property to `StorageLifecyclePolicyCompletedEventData` event.
 
