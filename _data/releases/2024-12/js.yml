@@ -109,4 +109,15 @@ entries:
     #### Breaking Changes
 
     - Models related to features still in preview have been removed.
+- Name: '@azure/data-tables'
+  Version: 13.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.0/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Entra ID credentials when targeting a Cosmos endpoint.
 
