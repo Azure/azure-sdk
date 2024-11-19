@@ -450,4 +450,19 @@ entries:
     - Added a new skill: `DocumentIntelligenceLayoutSkill` that extracts content and layout information (as markdown), via Azure AI Services, from files within the enrichment pipeline.
     - Added 2 subtypes of `CognitiveServiceAccounts`: `AzureCognitiveServiceAccount` and `AzureCognitiveServiceAccountKey`.
   GroupId: com.azure
+- Name: azure-ai-translation-document
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed `document_translate` API of SingleDocumentTranslationClient to `translate`.
+    - Renamed `GetTranslationsStatus` API to `ListTranslationStatuses`.
+    - Renamed `GetDocumentsStatus` API to `ListDocumentStatuses`.
+    - Encapsulated all API parameters for `ListTranslationStatuses` into a dedicated options class named `ListTranslationStatusesOptions`.
+    - Encapsulated all API parameters for `ListDocumentStatuses` into a dedicated options class named `ListDocumentStatusesOptions`.
+  GroupId: com.azure
 
