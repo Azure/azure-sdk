@@ -430,4 +430,24 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.15.5` to version `1.15.7`.
     - Upgraded `azure-core` from `1.53.0` to version `1.54.1`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.8.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `FacetResults` is now a recursive data structure to support hierarchical aggregation and facet filtering.
+    - `QueryAnswer` now supports a `maxCharLength` option to limit the character length of the answer.
+    - `QueryCaption` now supports a `maxCharLength` option to limit the character length of the caption.
+    - `VectorizableTextQuery` now supports a `queryRewrites` option to specify the number query rewrites the service will generate.
+    - `SemanticSearchOptions` now supports a `queryRewrites` option to specify the number query rewrites the service will generate.
+    - `VectorSearchCompression` now supports configuring the `rescoringOptoins`.
+    - `IndexingParametersConfiguration` now supports two additional options for `MarkdownParsingSubmode` and `MarkdownHeaderDepth`.
+    - Added a new skill: `DocumentIntelligenceLayoutSkill` that extracts content and layout information (as markdown), via Azure AI Services, from files within the enrichment pipeline.
+    - Added 2 subtypes of `CognitiveServiceAccounts`: `AzureCognitiveServiceAccount` and `AzureCognitiveServiceAccountKey`.
+  GroupId: com.azure
 
