@@ -3,7 +3,7 @@ name: Architecture Board - Management Plane Namespace Review
 about: Request for Namespace Review of Azure Management Plane (ARM) library. 
 title: 'Board Review: Management Plane Namespace Review <client library name>'
 labels: architecture, board-review, mgmt-namespace-review
-assignees: kyle-patterson, ronniegeraghty
+assignees: ronniegeraghty, ArthurMa1978
 ---
 
 Thank you for submitting this review request. Thorough review of your management library namespaces ensures that your library names are consistent with the guidelines and the consumers of your management library have a consistently good experience when using Azure.
