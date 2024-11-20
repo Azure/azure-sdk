@@ -6,6 +6,32 @@ folder: rust
 sidebar: general_sidebar
 ---
 
+## Safety {#rust-safety}
+
+The following guidelines are to foster secure code not only within Azure SDK for Rust, but on behalf of our customers.
+
+### Debug Trait {#rust-safety-debug}
+
+{% include requirement/MAY id="rust-safety-debug-derive" %} derive or implement `Debug` on types as long as you guarantee no PII may be leaked.
+
+To elide some fields from `Debug` output, you may use `finish_non_exhaustive()` like so:
+
+```rust
+use std::fmt;
+
+impl fmt::Debug for MyModel {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("MyModel")
+            .field("id", &self.id)
+            .finish_non_exhaustive()
+    }
+}
+```
+
+{% include requirement/SHOULD id="rust-safety-debug-safedebug" %} derive or implement `azure_core::fmt::SafeDebug` on types if you need a `Debug` implementation but cannot reasonably guarantee no PII may be leaked.
+
+`SafeDebug` will only output the name of the type or, if information is available in TypeSpec, show only fields that have been declared safe from leaking PII.
+
 ## Service Clients {#rust-client}
 
 Implementation details of [service clients](introduction.md#rust-client).

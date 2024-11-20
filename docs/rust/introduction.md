@@ -168,16 +168,16 @@ Client options should be plain old data structures to allow easy, idiomatic crea
 
 {% include requirement/MUST id="rust-client-configuration-clone" %} derive `Clone` to support cloning client configuration for other clients.
 
-{% include requirement/MUST id="rust-client-configuration-debug" %} derive `Debug` to support printing members for diagnostics purposes.
+{% include requirement/SHOULDNOT id="rust-client-configuration-debug" %} derive `Debug` since this may inadvertently leak PII. Derive [`azure_core::fmt::SafeDebug`][rust-safety-debug] instead.
 
 {% include requirement/MUST id="rust-client-configuration-default" %} implement `Default` to support creating default client configuration including the default `api_version` used when calling into the service.
 
 The requirements above would define an example client options struct like:
 
 ```rust
-use azure_core::ClientOptions;
+use azure_core::{ClientOptions, fmt::SafeDebug};
 
-#[derive(Clone, Debug)]
+#[derive(Clone, SafeDebug)]
 pub struct SecretClientOptions {
     pub api_version: String,
     pub client_options: ClientOptions,
@@ -220,7 +220,7 @@ impl Default for SecretClientOptions {
 
 {% include requirement/MUST id="rust-client-methods-params" %} use the service specified name of all parameters.
 
-{% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
+{% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same name as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
 This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
 
 {% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} export client method option structs from the root module of the client library e.g., `azure_security_keyvault_secrets`.
@@ -231,14 +231,14 @@ This is required even if the service method does not currently take any options 
 
 {% include requirement/MUST id="rust-client-methods-configuration-clone" %} derive `Clone` to support cloning method configuration for additional client method invocations.
 
-{% include requirement/MUST id="rust-client-methods-configuration-debug" %} derive `Debug` to support printing members for diagnostics purposes.
+{% include requirement/MUST id="rust-client-methods-configuration-debug" %} derive `Debug` since this may inadvertently leak PII. Derive [`azure_core::fmt::SafeDebug`][rust-safety-debug] instead.
 
 {% include requirement/MUST id="rust-client-methods-configuration-default" %} derive or implement `Default` to support creating default method configuration.
 
 The requirements above would define an example client options struct like:
 
 ```rust
-use azure_core::ClientMethodOptions;
+use azure_core::{ClientMethodOptions, fmt::SafeDebug};
 
 impl SecretClientMethods for SecretClient {
     async fn set_secret(
@@ -251,7 +251,7 @@ impl SecretClientMethods for SecretClient {
     }
 }
 
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, SafeDebug, Default)]
 pub struct SecretClientSetSecretOptions {
     pub enabled: Option<bool>,
     pub method_options: ClientMethodOptions,
@@ -421,7 +421,9 @@ The `azure_core` crate exposes an abstract type called `azure_core::Poller<T>`, 
 {% include requirement/MUST id="rust-etag-options" %} define ETag-related options e.g., `if_match`, `if_none_match`, etc., in the service method options e.g.:
 
 ```rust
-#[derive(Clone, Debug)]
+use azure_core::SafeDebug;
+
+#[derive(Clone, SafeDebug)]
 pub struct SetSecretOptions {
     enabled: Option<bool>,
     if_match: Option<azure_core::ETag>,
@@ -527,7 +529,9 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Debug`, `Eq`, and `PartialEq` for all enums.
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Eq`, and `PartialEq` for all enums.
+
+{% include requirement/SHOULDNOT id="rust-enums-debug" %} derive `Debug` since this may inadvertently leak PII. Derive [`azure_core::fmt::SafeDebug`][rust-safety-debug] instead.
 
 {% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
 
@@ -557,7 +561,9 @@ See [RFC 2008][rust-lang-rfc-2008] for more information.
 {% include requirement/MUST id="rust-enum-fixed" %} implement all fixed enumerations using only defined variants:
 
 ```rust
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Deserialize, Serialize)]
+use azure_core::SafeDebug;
+
+#[derive(Clone, Copy, SafeDebug, Eq, PartialEq, Deserialize, Serialize)]
 #[non_exhaustive]
 pub enum FixedEnum {
     #[serde(rename = "foo")]
@@ -570,7 +576,9 @@ pub enum FixedEnum {
 {% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
 
 ```rust
-#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
+use azure_core::SafeDebug;
+
+#[derive(Clone, SafeDebug, Eq, PartialEq, Deserialize, Serialize)]
 #[non_exhaustive]
 pub enum ExtensibleEnum {
     #[serde(rename = "foo")]
