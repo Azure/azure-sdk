@@ -279,4 +279,14 @@ entries:
     #### Features Added
 
     - Added new enum values to `SystemEventNames` related to Azure Resource Notifications.
+- Name: azure-ai-ml
+  Version: 1.22.3
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.3/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix error message while resolving mlflow url in get workspace details
 
