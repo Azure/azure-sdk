@@ -152,7 +152,7 @@ class ExampleClient {
 
 The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
 
-{% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively.
+{% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively. The only exception is when a method does not have any operation-specific options, in which case, the type `OperationOptions` from Azure Core can be used.
 
 {% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
 
