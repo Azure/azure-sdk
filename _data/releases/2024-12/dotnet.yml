@@ -196,4 +196,40 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HealthDataAIServices_1.0.0/sdk/healthdataaiservices/Azure.ResourceManager.HealthDataAIServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Developer.MicrosoftPlaywrightTesting.NUnit
+  Version: 1.0.0-beta.3
+  DisplayName: NUnit ? Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.NUnit_1.0.0-beta.3/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the upload buffer and upload file methods were not awaited, which sometimes resulted in 404 errors in the web application.
+    - Fixed a bug where the authentication error occurred when the scalable scenario was disabled in Playwright testing.
+    - Fixed a bug where the GetConnectOptionsAsync method did not use the runsetting defaults in Playwright testing.
+
+    #### Features Added
+
+    - Added a runName field which allows customers to customize the display name when using the reporting feature.
+    - Added stacktrace into error list.
+- Name: Azure.Developer.MicrosoftPlaywrightTesting.TestLogger
+  Version: 1.0.0-beta.3
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger_1.0.0-beta.3/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the upload buffer and upload file methods were not awaited, which sometimes resulted in 404 errors in the web application.
+    - Fixed a bug where the authentication error occurred when the scalable scenario was disabled in Playwright testing.
+    - Fixed a bug where the GetConnectOptionsAsync method did not use the runsetting defaults in Playwright testing.
+
+    #### Features Added
+
+    - Added a runName field which allows customers to customize the display name when using the reporting feature.
+    - Added stacktrace into error list.
 
