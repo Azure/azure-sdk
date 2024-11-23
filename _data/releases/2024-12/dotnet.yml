@@ -240,4 +240,33 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0-beta.2/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for ConnectAPI to enable streaming and real-time transcription
+    - Enhanced media streaming with bidirectional capabilities, enabling support for audio formats in both directions. Currently, it supports sample rates of 24kHz and 16kHz
+- Name: Azure.Communication.CallAutomation
+  Version: 1.3.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.3.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Hold and Unhold the participant
+    - CallDisconnected now includes more information on why the call has ended
+    - Support to manage the rooms/servercall/group call using connect API
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
 
