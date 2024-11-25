@@ -299,4 +299,28 @@ entries:
 
     #### Features Added
     - Test Release Pipeline
+- Name: '@azure/search-documents'
+  Version: 12.2.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.2/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the type of `SearchResult.documentDebugInfo` to not erroneously describe it as an array [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+
+    #### Features Added
+
+    - Added generative query rewriting for semantic and vectorized text queries [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Use the new `queryRewrites` field in `SemanticSearchOptions` and `VectorizedTextQuery`.
+    - Added hierarchical aggregation and facet filtering [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - `FacetResult` now includes a recursive `facets` field.
+    - Added configuration for storing vectors in their uncompressed state for rescoring [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Configure through `VectorSearchCompression.rescoringOptions`.
+    - Added Markdown parsing mode for indexers [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Configure through the `markdownParsingSubmode` and `markdownHeaderDepth` properties of `IndexingParametersConfiguration`.
+    - Added `DocumentIntelligenceLayoutSkill` [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Added subdomain billing for skillsets [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
 
