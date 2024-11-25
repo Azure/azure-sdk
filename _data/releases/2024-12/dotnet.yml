@@ -1,0 +1,272 @@
+entries:
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.6.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.6.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Maps.Geolocation
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Geolocation_1.0.0-beta.3/sdk/maps/Azure.Maps.Geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Various minor fixes related to AutoRest integration and code generation stability.
+- Name: Azure.ResourceManager.AppService
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.3.0-beta.2/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Blobs
+  Version: 12.23.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.23.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where network download streams were not properly disposed.
+    - Fixed bug where DownloadToAsync() did not dispose all its network streams on error in some cases.
+
+    #### Features Added
+    - Includes all features from 12.23.0-beta.1 and 12.23.0-beta.2
+- Name: Azure.Storage.Common
+  Version: 12.22.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.22.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.21.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.21.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1 and 12.21.0-beta..
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.20.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.20.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.20.0-beta.1 and 12.20.0-beta.2.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.21.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.21.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1 and 12.21.0-beta.2.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.52
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.52/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Queues
+  Version: 12.21.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.21.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1 and 12.21.0-beta.2.
+- Name: Azure.AI.Translation.Document
+  Version: 2.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_2.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+- Name: Azure.ResourceManager.ServiceFabricManagedClusters
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0-beta.1/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NeonPostgres
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Neonpostgres
+  ServiceName: Neonpostgres
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NeonPostgres_1.0.0-beta.1/sdk/neonpostgres/Azure.ResourceManager.NeonPostgres/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.4.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.4.0/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppService
+  Version: 1.3.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.3.0/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity.Broker
+  Version: 1.2.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.2.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Support for Proof of Possession (PoP) tokens for `InteractiveBrowserCredential` has migrated out of Azure.Core.Experimental to Azure.Core. This feature is enabled via the `IsProofOfPossessionEnabled` property on `TokenRequestContext`.
+    - Updating package dependencies.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.28.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.28.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ResourceNotificationsContainerServiceEventResourcesScheduledEventData` event.
+    - Added `PolicyRunSummary` property to `StorageLifecyclePolicyCompletedEventData` event.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.4.3
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.4.3/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Return correct `WebHook-Allowed-Origin` response header for CloudEvent schema subscriptions for gov cloud.
+    - Prevent DateTime values from being translated by NewtonSoft when parsing payloads. They are now treated as strings.
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.1
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.1/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial release
+- Name: Azure.ResourceManager.HealthDataAIServices
+  Version: 1.0.0
+  DisplayName: Resource Management - Health Data AI Services
+  ServiceName: Health Data AI Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HealthDataAIServices_1.0.0/sdk/healthdataaiservices/Azure.ResourceManager.HealthDataAIServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Developer.MicrosoftPlaywrightTesting.NUnit
+  Version: 1.0.0-beta.3
+  DisplayName: NUnit ? Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.NUnit_1.0.0-beta.3/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the upload buffer and upload file methods were not awaited, which sometimes resulted in 404 errors in the web application.
+    - Fixed a bug where the authentication error occurred when the scalable scenario was disabled in Playwright testing.
+    - Fixed a bug where the GetConnectOptionsAsync method did not use the runsetting defaults in Playwright testing.
+
+    #### Features Added
+
+    - Added a runName field which allows customers to customize the display name when using the reporting feature.
+    - Added stacktrace into error list.
+- Name: Azure.Developer.MicrosoftPlaywrightTesting.TestLogger
+  Version: 1.0.0-beta.3
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger_1.0.0-beta.3/sdk/playwrighttesting/Azure.Developer.MicrosoftPlaywrightTesting.TestLogger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the upload buffer and upload file methods were not awaited, which sometimes resulted in 404 errors in the web application.
+    - Fixed a bug where the authentication error occurred when the scalable scenario was disabled in Playwright testing.
+    - Fixed a bug where the GetConnectOptionsAsync method did not use the runsetting defaults in Playwright testing.
+
+    #### Features Added
+
+    - Added a runName field which allows customers to customize the display name when using the reporting feature.
+    - Added stacktrace into error list.
+- Name: Azure.ResourceManager.ServiceFabricManagedClusters
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0-beta.2/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for ConnectAPI to enable streaming and real-time transcription
+    - Enhanced media streaming with bidirectional capabilities, enabling support for audio formats in both directions. Currently, it supports sample rates of 24kHz and 16kHz
+- Name: Azure.Communication.CallAutomation
+  Version: 1.3.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.3.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Hold and Unhold the participant
+    - CallDisconnected now includes more information on why the call has ended
+    - Support to manage the rooms/servercall/group call using connect API
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
+
