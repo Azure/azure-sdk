@@ -28,6 +28,7 @@ Service teams should schedule reviews of their client libraries with the Azure S
    - A Maven package for a Java library
    - An npm package for a JavaScript library
    - A Python wheel for a Python library
+   - A Go module for a Go library
 
 # Contributing
 
