@@ -290,4 +290,20 @@ entries:
     - `IndexingParametersConfiguration` now supports two additional options for `MarkdownParsingSubmode` and `MarkdownHeaderDepth`.
     - Added a new skill: `DocumentIntelligenceLayoutSkill` that extracts content and layout information (as markdown), via Azure AI Services, from files within the enrichment pipeline.
     - Added 2 subtypes of `CognitiveServiceAccounts`: `AzureCognitiveServiceAccount` and `AzureCognitiveServiceAccountKey`.
+- Name: Azure.ResourceManager.Maps
+  Version: 1.1.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maps_1.1.0/sdk/maps/Azure.ResourceManager.Maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridConnectivity
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridConnectivity_1.0.0/sdk/hybridconnectivity/Azure.ResourceManager.HybridConnectivity/CHANGELOG.md
+  ChangelogContent: ""
 
