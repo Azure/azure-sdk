@@ -269,4 +269,25 @@ entries:
     - Support to manage the rooms/servercall/group call using connect API
     - Expose original PSTN number target from incoming call event in call connection properties
     - Support for VoIP to PSTN transfer scenario
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in the `SearchResult.DocumentDebugInfo` property by changing its type from `IReadOnlyList<DocumentDebugInfo>` to `DocumentDebugInfo`. ([#46958](https://github.com/Azure/azure-sdk-for-net/issues/46958))
+
+    #### Features Added
+    - `FacetResults` is now a recursive data structure to support hierarchical aggregation and facet filtering.
+    - `QueryAnswer` now supports a `MaxCharLength` option to limit the character length of the answer.
+    - `QueryCaption` now supports a `MaxCharLength` option to limit the character length of the caption.
+    - `VectorizableTextQuery` now supports a `QueryRewrites` option to specify the number query rewrites the service will generate.
+    - `SemanticSearchOptions` now supports a `QueryRewrites` option to specify the number query rewrites the service will generate.
+    - `VectorSearchCompression` now supports configuring the `RescoringOptions`.
+    - `IndexingParametersConfiguration` now supports two additional options for `MarkdownParsingSubmode` and `MarkdownHeaderDepth`.
+    - Added a new skill: `DocumentIntelligenceLayoutSkill` that extracts content and layout information (as markdown), via Azure AI Services, from files within the enrichment pipeline.
+    - Added 2 subtypes of `CognitiveServiceAccounts`: `AzureCognitiveServiceAccount` and `AzureCognitiveServiceAccountKey`.
 
