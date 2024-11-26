@@ -627,4 +627,28 @@ entries:
     - Added support for ConnectAPI to enable streaming and real-time transcription
     - Enhanced media streaming with bidirectional capabilities, enabling support for audio formats in both directions. Currently, it supports sample rates of 24kHz and 16kHz
   GroupId: com.azure
+- Name: azure-maps-render
+  Version: 2.0.0-beta.1
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_2.0.0-beta.1/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support Rendering API `2024-04-01`
+  GroupId: com.azure
+- Name: azure-maps-route
+  Version: 1.0.0-beta.2
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-route_1.0.0-beta.2/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies
+  GroupId: com.azure
 
