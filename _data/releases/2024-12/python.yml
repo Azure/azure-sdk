@@ -389,4 +389,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedcache_1.0.0b1/sdk/connectedcache/azure-mgmt-connectedcache/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-maps-geolocation
+  Version: 1.0.0b2
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-geolocation_1.0.0b2/sdk/maps/azure-maps-geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Remove python 3.6 support
+    - Fix API version error
+    - Fix Sphinx errors
+    - Fix mypy typing errors for mypy version 1.6.1
 
