@@ -350,4 +350,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix `this` not being bound correctly for `ChallengeCallbacks` implementations in `bearerTokenAuthenticationPolicy`. [PR #31961](https://github.com/Azure/azure-sdk-for-js/pull/31961)
 
