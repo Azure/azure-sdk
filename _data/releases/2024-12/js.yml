@@ -369,4 +369,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedcache_1.0.0-beta.1/sdk/connectedcache/arm-connectedcache/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-devopsinfrastructure'
+  Version: 1.0.0
+  DisplayName: Resource Management - DevOps Infrastructure
+  ServiceName: DevOps Infrastructure
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devopsinfrastructure_1.0.0/sdk/devopsinfrastructure/arm-devopsinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/microsoft-playwright-testing'
+  Version: 1.0.0-beta.6
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.6/sdk/playwrighttesting/microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Missing type generation for some functions and interfaces.
+
+    #### Features Added
+
+    - Added support for multiple global setup and teardown files introduced in playwright v1.49.
 
