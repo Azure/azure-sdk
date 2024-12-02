@@ -24,4 +24,14 @@ entries:
     * Fix a crash when trying to send raw audio with `.hz16000` sample rate.
     * Fix a crash when attempting to mute others with captions on.
     * Fix a bug where the video from remote participant may appear frozen after application going to background and coming back to foreground while on hold.
+- Name: AzureCommunicationCalling
+  Version: 2.14.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.14.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fix a crash at load time when trying to run in calling SDK in the simulator.
 
