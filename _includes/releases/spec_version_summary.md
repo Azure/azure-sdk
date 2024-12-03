@@ -7,7 +7,8 @@
   </summary>
   <ul>  
   {% for spec in sortedVersions %}
-    <li><a href="https://github.com/Azure/azure-rest-api-specs/blob/main/specification/{{ spec.SpecPath }}">{{ spec.SpecPath }}</a><small> - <i>Created on {{ spec.DateCreated }}</i></small></li>
+    <li><a href="https://github.com/Azure/azure-rest-api-specs/blob/main/specification/{{ spec.SpecPath }}">{{ spec.SpecPath }}{% if spec.SpecReadmeTag <> '' %}[ {{ spec.SpecReadmeTag }} ]{%endif%}</a> {% if spec.DateCreated <> '' %}<small> - <i>Created on {{ spec.DateCreated }}</i></small>{% endif %}
+    </li>
   {% endfor %}
   </ul>
 </details>
