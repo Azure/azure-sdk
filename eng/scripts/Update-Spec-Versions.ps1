@@ -2,15 +2,16 @@
 param (
   [string]$specsRoot,
   [bool]$mergeWithExisting = $false,
-  [string]$specValidationIssues = "spec-validation-issues.txt"
+  [string]$specValidationIssues = ""
 )
 
 Set-StrictMode -Version 3
 $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
+. (Join-Path $PSScriptRoot .. common scripts Helpers PSModule-Helpers.ps1)
 
-Install-Module "powershell-yaml" -MinimumVersion "0.4.7" -Repository PSGallery | Import-Module
+Install-ModuleIfNotInstalled "powershell-yaml" "0.4.7" | Import-Module
 
 $specsGitFolder = (Join-Path $specsRoot ".git")
 $specificationRoot = (Join-Path $specsRoot "specification") -replace "\\", "/"
