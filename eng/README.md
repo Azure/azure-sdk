@@ -36,6 +36,29 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 - `MSDocService` - This field is the value of docs.ms metadata `ms.service`. If it is empty, then ms.service assigns to service directory. The value is defined [here](https://review.docs.microsoft.com/en-us/help/contribute/metadata-taxonomies?branch=main#msservice).
 - `Notes` - This is an open field that can be used to add any particular notes for a given package.
 
+### Spec CSV Fields
+
+- `SpecPath` - Either the path to the `README.md` file that defines the spec files or the folder that contains all the spec files.
+- `SpecReadmeTag` - If configured via a `README.md` the tag (usually default tag) used to find spec file set. Empty if not based on a `README.md`.
+- `SpecValidationErrors` - Can contain a list of potential errors detected while indexing the specs. The possible errors can be:
+    - `SpecFileDoesNotExist` - The references spec file cannot be found to read.
+    - `SpecFileIsNotUnderServiceFolder` - The referenced spec file is outside of the service folder referencing it or the path does not match the standard format.
+    - `SpecTypeMismatchBetweenSpecFiles` - There is a conflict between the type of referenced spec files. Some are `data` and some are `mgmt`.
+    - `VersionTypeMismatchBetweenSpecFiles` - There is conflict between the version type of the referenced spec files. Some are `preview` and some are `stable`.
+    - `SpecPathMismatchBetweenSpecFiles` - There are specs coming from different folder paths, which often means they are from different versions.
+    - `VersionMismatchBetweenSpecFiles` - There are specs files that have conflicting versions. See `Version` field to see a list of versions.
+    - `VersionMismatchBetweenPathAndSpec` - The version in the spec doesn't match the version in the file path where the spec lives.
+- `ServiceFamily` - The folder directly under the specification folder computed by path containing the specs. If there are conflicts the first one is used.
+- `ResourcePath` - The folder between `ServiceFamily` and version computed by the path containing the specs. If there are conflicts the first one is used.
+- `Version` - Version number based on the path containing the specs. If there are conflicting versions it will contain `Varies: <list of versions>`. 
+- `VersionType` - `preview` or `stable` based on the path containing the specs.
+- `Type` - `data` or `mgmt` based on the path containing the specs.
+- `IsTypeSpec` - At least one of the json files contains the `x-typespec-generated` tag.
+- `ServiceLifeCycle` - `Greenfield` if the resource provider hasn't shipped a previous stable verison. Otherwise `Brownfield`.
+- `DateCreated` - Currently this field is unused as we don't have a great way to calculate it. If we figure out a good way we will populate it again.
+- `JsonFiles` - Path to all json spec files relative to the `SpecPath` field.
+
+
 ## Link templates
 
 In order to produce standard links without storing them all in the csv file we use [link templates](https://github.com/Azure/azure-sdk/tree/main/_includes/releases/variables) for each language in variable md files used by our jekyll site.

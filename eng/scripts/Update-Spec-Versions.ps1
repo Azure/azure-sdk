@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param (
   [string]$specsRoot,
-  [bool]$mergeWithExisting = $false
+  [bool]$mergeWithExisting = $false,
+  [string]$specValidationIssues = "spec-validation-issues.txt"
 )
 
 Set-StrictMode -Version 3
@@ -9,10 +10,28 @@ $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress d
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
-function GetJsonFiles($relSpecPath)
+Install-Module "powershell-yaml" -MinimumVersion "0.4.7" -Repository PSGallery | Import-Module
+
+$specsGitFolder = (Join-Path $specsRoot ".git")
+$specificationRoot = (Join-Path $specsRoot "specification") -replace "\\", "/"
+$validationIssues = @()
+function LogSpecValidationIssue($issue, $message)
 {
-  # Assumes that working directory is the root of the repo, we might want to harden this assumption
-  return Get-ChildItem "specification/$relSpecPath" *.json
+  $script:validationIssues += "${issue}: ${message}"
+  return $issue
+}
+function NormalizedParent($path)
+{
+  return $path -replace "/[^/]+$"
+}
+function MakeRelativeToSpecFolder($path)
+{
+  return ($path -replace "\\", "/") -replace "^$specificationRoot/", ""
+}
+function ResolveToSpecFolder($specPath, $jsonPath)
+{
+  if ($jsonPath) { $specPath = Join-Path $specPath $jsonPath }
+  return Join-Path $specificationRoot $specPath
 }
 
 function GetServiceLifeCycle($allSpecs, $serviceFamily, $resourcePath)
@@ -27,23 +46,45 @@ function GetServiceLifeCycle($allSpecs, $serviceFamily, $resourcePath)
   return "Brownfield"
 }
 
-function GetJsonFileListString($jsonFilesInPath)
-{
-  return ($jsonFilesInPath.Name | Sort-Object) -join "|"
-}
-
 function UpdateSpecMetadata($spec)
 {
   $version = ""
   $anyTypeSpec = $false
-  $inconsistentVersion = $false
+  $inconsistentVersion = @()
+  $jsonFiles = @($spec.JsonFiles.Split("|") | ForEach-Object { ResolveToSpecFolder $spec.SpecPath $_ })
 
-  $jsonFilesInPath = GetJsonFiles $spec.SpecPath
-  
-  foreach ($jsonFile in $jsonFilesInPath) 
+  $specFolderPath = ""
+  $validationErrors = @()
+    
+  foreach ($jsonFile in $jsonFiles)
   {
+    if (-not (Test-Path $jsonFile)) {
+      $validationErrors += LogSpecValidationIssue "SpecFileDoesNotExist" "'$jsonFile' under '$($spec.SpecPath)' doesn't exist."
+      continue
+    }
+
     $specContent = Get-Content $jsonFile | ConvertFrom-Json -AsHashtable
-    Write-Verbose "Processing $jsonFile"
+    Write-Verbose "Reading '$jsonFile' for metadata"
+
+    $jsonFile = MakeRelativeToSpecFolder $jsonFile
+    $specPathInfo = ParseSpecPath $jsonFile
+    if (!$specPathInfo) { 
+      $validationErrors += LogSpecValidationIssue "SpecFileIsNotUnderServiceFolder" "'$jsonFile' in '$($spec.SpecPath)' doesn't match standard path format." 
+      continue
+    }
+
+    if ($spec.Type -ne $specPathInfo.Type) {
+      $validationErrors += LogSpecValidationIssue "SpecTypeMismatchBetweenSpecFiles" "'$($specPathInfo.Type)' != '$($spec.Type)' for '$jsonFile'"
+    }
+
+    if ($spec.VersionType -ne $specPathInfo.VersionType) {
+      $validationErrors += LogSpecValidationIssue "VersionTypeMismatchBetweenSpecFiles" "'$($specPathInfo.VersionType)' != '$($spec.VersionType)' for '$jsonFile'"
+    }
+
+    if (!$specFolderPath) { $specFolderPath = $specPathInfo.SpecFolderPath }
+    if ($specFolderPath -ne $specPathInfo.SpecFolderPath) {
+      $validationErrors += LogSpecValidationIssue "SpecPathMismatchBetweenSpecFiles" "'$specFolderPath' != '$($specPathInfo.SpecFolderPath)' for '$jsonFile'"
+    }
     
     if (!$specContent) { Write-Verbose "Failed to read $jsonFile"; continue }
     if (!$specContent.ContainsKey("info") -or !$specContent.info.ContainsKey("version")) { Write-Verbose "Skipping: '$jsonFile' doesn't contain info.version"; continue }
@@ -55,17 +96,14 @@ function UpdateSpecMetadata($spec)
     if (!$version) { $version = $specContent.info.version }
 
     if ($version -ne $specContent.info.version) {
-      if ($spec.ServiceFamily -ne "network") {
-        Write-Verbose "VersionMismatchBetweenOtherSpecs: '$($specContent.info.version)' != '$version' for '$jsonFile'."
-      }
-      $inconsistentVersion = $true
+      $validationErrors += LogSpecValidationIssue "VersionMismatchBetweenSpecFiles" "'$($specContent.info.version)' != '$version' for '$jsonFile'."
+      $inconsistentVersion += $version
+      $inconsistentVersion += $specContent.info.version
     }
 
     # Ignore differences with version starting with v or ending in -preview
     if (($spec.Version -replace "v|-preview") -ne ($specContent.info.version -replace "v|-preview")) {
-      if ($spec.ServiceFamily -ne "network") {
-        Write-Verbose "VersionMismatchBetweenPathAndSpec: '$($spec.Version)' != '$($specContent.info.version)' for '$jsonFile'"
-      }
+      $validationErrors += LogSpecValidationIssue "VersionMismatchBetweenPathAndSpec" "'$($spec.Version)' != '$($specContent.info.version)' for '$jsonFile'"
     }
 
     # TODO: Find TypeSpec project
@@ -75,24 +113,30 @@ function UpdateSpecMetadata($spec)
   }
 
   if ($inconsistentVersion) {
-    $version = "Varies"
+    $version = "Varies: " + ($inconsistentVersion | Sort-Object -Unique | Join-String -Sep ",")
   }
 
-  # Get the first date a file was checked into the spec version folder
-  $dateCreated = git log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/$($spec.SpecPath)" | Select-Object -First 1
+  if ($jsonFiles.Count -eq 1 -and (Test-Path $specsGitFolder)) {
+    # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
+    # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
+    $jsonPath = MakeRelativeToSpecFolder $jsonFiles[0]    
+    $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
+  }
+  else {
+    $spec.DateCreated = ""
+  }
 
   $spec.Version = $version
   $spec.IsTypeSpec = $anyTypeSpec
-  $spec.DateCreated = $dateCreated
-  $spec.JsonFiles = GetJsonFileListString $jsonFilesInPath
+  $spec.SpecValidationErrors = ($validationErrors | Sort-Object -Unique | Join-String -Sep ",")
 
   return $spec
 }
 
-function DiscoverSpec($relSpecPath)
+function ParseSpecPath($specFilePath)
 {
-  if ($relSpecPath -notmatch "^(?<serviceFamily>[^/]+)/(?<type>data-plane|resource-manager)/(?<rpPath>.+)?(?<verType>preview|stable)/(?<version>[^/]+)$") { 
-    Write-Verbose "Skipping: '$relSpecPath' doesn't match the standard directory path regex"
+  if ($specFilePath -notmatch "^(?<serviceFamily>[^/]+)/(?<type>data-plane|resource-manager)(?<rpPath>.+)?/(?<verType>preview|stable)/(?<version>[^/]+).*?/[^/]+\.json$") { 
+    Write-Verbose "Skipping: '$specFilePath' doesn't match the standard directory path regex"
     return $null
   }
   $serviceFamily = $matches["serviceFamily"]
@@ -104,95 +148,229 @@ function DiscoverSpec($relSpecPath)
   if ($specType -eq "resource-manager") { $specType = "mgmt" }
 
   return [PSCustomObject][ordered]@{
-    SpecPath = $relSpecPath
+    SpecFilePath = $specFilePath
+    SpecFolderPath = NormalizedParent $specFilePath
     ServiceFamily = $serviceFamily
     ResourcePath = $rpPath
     Version = $versionFromPath
     VersionType = $verType
     Type = $specType
+  }
+}
+
+function DiscoverSpec($specPathInfo, $specConfig)
+{
+  $specReadmeTag = ""
+  if ($specConfig) 
+  {
+    $specPath = $specConfig.ReadmePath 
+    $specReadmeTag = $specConfig.tag
+    $jsonFiles = $specConfig["input-file"]
+  }
+  else 
+  {
+    $specPath = $relSpecPath
+    $jsonFiles = Get-ChildItem (ResolveToSpecFolder $specPath) *.json | Split-Path -Leaf
+  }
+
+  $jsonFilesString = $jsonFiles | Sort-Object | Join-String -Sep "|"
+
+  $spec = [PSCustomObject][ordered]@{
+    SpecPath = $specPath
+    SpecReadmeTag = $specReadmeTag
+    SpecValidationErrors = ""
+    ServiceFamily = $specPathInfo.ServiceFamily
+    ResourcePath = $specPathInfo.ResourcePath
+    Version = $specPathInfo.Version
+    VersionType = $specPathInfo.VersionType
+    Type = $specPathInfo.Type
     IsTypeSpec = ""
     ServiceLifeCycle = "" # Brownfield, Greenfield
     DateCreated = ""
-    JsonFiles = GetJsonFileListString (GetJsonFiles $relSpecPath)
+    JsonFiles = $jsonFilesString
   }
+
+  return UpdateSpecMetadata $spec
 }
 
-function FindAllSpecs($specsRoot)
+function FindAllSpecs($specsPath)
 {
-  $potentialSpecs = Get-ChildItem -Recurse -Include *.json $specsRoot
   #TODO: Map to tspconfig
-  #$potentialTypeSpecs = Get-ChildItem -Recurse -Include tspconfig.yaml $specsRoot
+  #$potentialTypeSpecs = Get-ChildItem -Recurse -Include tspconfig.yaml $specsPath
 
-  $specificationRoot = (Join-Path $specsRoot "specification") -replace "\\", "/"
+  $potentialReadmes = @(Get-ChildItem -Recurse -Include "README.md" $specsPath)
 
+  Write-Host "Found $($potentialReadmes.Count) README.md files"
+  $specToReadmeMap = @{}
+  $readmeCount = 0
+
+  foreach ($readmeFile in $potentialReadmes)
+  {
+    $specConfig = ParseReadme $readmeFile    
+    if (!$specConfig) { continue }
+
+    $readmeCount++
+    $readmePath = MakeRelativeToSpecFolder $readmeFile.DirectoryName
+    $specConfig = $specConfig | Add-Member -MemberType NoteProperty -Name "ReadmePath" -Value $readmePath -PassThru
+    #$specConfig = $specConfig | Add-Member -MemberType NoteProperty -Name "ReadmeFileName" -Value $readmeFile.Name -PassThru
+
+    foreach ($inputFile in $specConfig["input-file"])
+    {
+      $specRelPath = (Join-Path $readmePath $inputFile) -replace "\\", "/"
+      $specToReadmeMap[$specRelPath] = $specConfig
+    }
+  }
+  Write-Host "Found $readmeCount README.md files with yaml blocks"
+
+  $potentialSpecs = Get-ChildItem -Recurse -Include *.json $specsPath
+
+  Write-Host "Found $($potentialSpecs.Count) potential spec files"
+  $specCount = 0
   $processedPaths = @{}
   foreach ($potentialSpec in $potentialSpecs)
   {
-    $specPath = $potentialSpec -replace "\\", "/"
+    $specPath = MakeRelativeToSpecFolder $potentialSpec
 
+    # Skip files under common, examples, scenarios, restler, common-types 
     if ($specPath -match "/(examples|scenarios|restler|common|common-types)/") { continue }
-    if ($specPath -notmatch "$specificationRoot/(?<relSpecPath>[^/]+/(data-plane|resource-manager).*?/(preview|stable)/([^/]+))/[^/]+\.json$") { continue }
 
-    $relSpecPath = $matches["relSpecPath"]
+    $specPathInfo = ParseSpecPath $specPath
+    if (!$specPathInfo) { continue }
 
-    if ($processedPaths.ContainsKey($relSpecPath)) { continue }
+    $specCount++
 
-    $processedPaths[$relSpecPath] = DiscoverSpec $relSpecPath
+    $relSpecPath = NormalizedParent $specPath
+    $specConfig = $specToReadmeMap[$specPath]
+    $pathKey = $relSpecPath
+    if ($specConfig) { $pathKey = $specConfig.ReadmePath }
+
+    if ($processedPaths.ContainsKey($pathKey)) { continue }
+    
+    $processedPaths[$pathKey] = DiscoverSpec $specPathInfo $specConfig
   }
+  Write-Host "Discovered $specCount spec files"
   
-  return $processedPaths.Values
+  return $processedPaths.Values | Where-Object { $_ }
 }
 
-function GatherSpecs($specsRoot)
+function CombineHashTables ($ht1, $ht2) 
 {
-  $newSpecsToWrite = @()
-  try
+  if (!$ht2) { return $ht1 }
+  #Write-Host $ht2
+  foreach ($key in $ht2.Keys) 
   {
-    Push-Location $specsRoot
-    $discoveredSpecs = FindAllSpecs $specsRoot | Where-Object { $_ }
-
-    $speclistFile = Join-Path $releaseFolder "specs.csv"
-    $specs = Get-Content $speclistFile | ConvertFrom-Csv
-
-    foreach ($discoveredSpec in $discoveredSpecs)
-    {
-      $foundSpecs = $specs.Where({ $_.SpecPath -eq $discoveredSpec.SpecPath })
-
-      if ($foundSpecs.Count -gt 1) { 
-        Write-Host "Found more than one spec with path $($discoveredSpec.SpecPath) that should never happen but only taking the first one."
+    if ($ht1.ContainsKey($key)) {
+      if ($ht1[$key] -is [Hashtable] -and $ht2[$key] -is [Hashtable]) {
+        $ht1[$key] = CombineHashTables $ht1[$key] $ht2[$key]
+      } else {
+      $ht1[$key] = $ht1[$key] + $ht2[$key]
       }
-      if ($foundSpecs.Count -eq 1) {
-        $spec = $foundSpecs[0]
-      }
-      else {
-        # Add new one
-        $spec = $discoveredSpec
-      }
-
-      # If json file has changes or is missing a date created query that data
-      if ($spec.JsonFiles -ne $discoveredSpec.JsonFiles -or $spec.DateCreated -eq "")
-      {
-        $spec = UpdateSpecMetadata $spec
-      }
-
-      $spec.ServiceLifeCycle = GetServiceLifeCycle $specs $spec.ServiceFamily $spec.ResourcePath
-
-      $newSpecsToWrite += $spec
-    }
-
-    if ($mergeWithExisting) 
-    {
-      foreach ($existingSpec in $specs)
-      {
-        $foundSpecs = $newSpecsToWrite.Where({ $_.SpecPath -eq $existingSpec.SpecPath })
-        if ($foundSpecs.Count -eq 0) {
-          $newSpecsToWrite += $existingSpec
-        }
-      }
+    } else {
+      $ht1[$key] = $ht2[$key]
     }
   }
-  finally {
-    Pop-Location
+  return $ht1
+}
+function ParseReadme($readme)
+{
+  try {
+  $readmeContent = Get-Content $readme -Raw
+
+  $yamlRegex = '(?s)```\s*yaml(?<con>.*?)\n(?<yaml>.*?)\s*```'
+
+  $yms = [regex]::Matches($readmeContent, $yamlRegex) 
+
+  if ($yms.Count -eq 0) {
+    Write-Verbose "No yaml blocks found in $readme"
+    return $null
+  }
+
+  $yamlContent = @{}
+
+  $yamlBlocksNoConditions = $yms | Where-Object { $_.Groups["con"].Value -eq "" }
+
+  foreach ($yb in $yamlBlocksNoConditions)  {
+    $ybc = $yb.Groups["yaml"].Value | ConvertFrom-Yaml
+    $yamlContent = CombineHashTables $yamlContent $ybc
+  }
+
+  if (!$yamlContent.ContainsKey("tag")) {
+    Write-Verbose "No default tag found in $readme"
+    return $null
+  }
+
+  $defaultTag = $yamlContent.tag
+  $yamlBlocksWitConditions = $yms | Where-Object { $_.Groups["con"].Value -ne "" }
+
+  foreach ($yb in $yamlBlocksWitConditions)
+  {
+    $condition = $yb.Groups["con"].Value.Trim()
+    if ($condition) {
+      $expectedCondition = "\`$\(tag\)\s*==\s*'${defaultTag}'"
+      #Write-Host "[$condition] == [$expectedCondition]"
+      if ($condition -notmatch $expectedCondition) {
+        continue
+      }
+    }
+
+    $ybc = $yb.Groups["yaml"].Value | ConvertFrom-Yaml
+    $yamlContent = CombineHashTables $yamlContent $ybc
+  } 
+  }
+  catch {
+    Write-Host "Failed to parse $readme"
+    throw
+    return $null
+  }
+ 
+  return $yamlContent
+}
+
+function UpdateSpecIndex()
+{
+  $newSpecsToWrite = @()
+  $discoveredSpecs = FindAllSpecs $specificationRoot
+
+  $speclistFile = Join-Path $releaseFolder "specs.csv"
+  $specs = Get-Content $speclistFile | ConvertFrom-Csv
+
+  Write-Host "Updating metadata for $($discoveredSpecs.Count) discovered specs"
+  foreach ($discoveredSpec in $discoveredSpecs)
+  {
+    $foundSpecs = $specs.Where({ $_.SpecPath -eq $discoveredSpec.SpecPath })
+
+    if ($foundSpecs.Count -gt 1) { 
+      Write-Host "Found more than one spec with path $($discoveredSpec.SpecPath) that should never happen but only taking the first one."
+    }
+    if ($foundSpecs.Count -eq 1) {
+      $spec = $foundSpecs[0]
+    }
+    else {
+      # Add new one
+      $spec = $discoveredSpec
+    }
+
+    $spec.SpecValidationErrors = $discoveredSpec.SpecValidationErrors
+    $spec.SpecReadmeTag = $discoveredSpec.SpecReadmeTag
+    $spec.JsonFiles = $discoveredSpec.JsonFiles
+    $spec.Version = $discoveredSpec.Version
+    $spec.IsTypeSpec = $discoveredSpec.IsTypeSpec
+    $spec.DateCreated = $discoveredSpec.DateCreated
+
+    $spec.ServiceLifeCycle = GetServiceLifeCycle $specs $spec.ServiceFamily $spec.ResourcePath
+
+    $newSpecsToWrite += $spec
+  }
+
+  if ($mergeWithExisting) 
+  {
+    foreach ($existingSpec in $specs)
+    {
+      $foundSpecs = $newSpecsToWrite.Where({ $_.SpecPath -eq $existingSpec.SpecPath })
+      if ($foundSpecs.Count -eq 0) {
+        $newSpecsToWrite += $existingSpec
+      }
+    }
   }
 
   Write-Host "Writing $speclistFile"
@@ -201,6 +379,19 @@ function GatherSpecs($specsRoot)
 
   $sortedSpecs = $new + $other
   $sortedSpecs | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $speclistFile -encoding ascii
+ 
+  $specsFromReadme = $sortedSpecs | Where-Object { $_.SpecReadmeTag -ne "" }
+  Write-Host "Found $($specsFromReadme.Count) specs from readme files"
+
+  if ($validationIssues.Count -gt 0) {
+    $specsWithErrors = $sortedSpecs | Where-Object { $_.SpecValidationErrors }
+    
+    Write-Host "Found $($validationIssues.Count) validation issues across $($specsWithErrors.Count) specs. See $specValidationIssues for all the details."
+    if ($specValidationIssues) {
+      $validationIssues | Out-File $specValidationIssues
+    }
+    exit 1
+  }
 }
 
-GatherSpecs $specsRoot
+UpdateSpecIndex
