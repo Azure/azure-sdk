@@ -118,10 +118,12 @@ function UpdateSpecMetadata($spec)
   }
 
   if ($jsonFiles.Count -eq 1 -and (Test-Path $specsGitFolder)) {
-    # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
-    # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
-    $jsonPath = MakeRelativeToSpecFolder $jsonFiles[0]    
-    $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
+    if (!$spec.DateCreated) {
+      # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
+      # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
+      $jsonPath = MakeRelativeToSpecFolder $jsonFiles[0]    
+      $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
+    }
   }
   else {
     $spec.DateCreated = ""
