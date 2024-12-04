@@ -411,4 +411,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-neonpostgres_1.0.0b1/sdk/neonpostgres/azure-mgmt-neonpostgres/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.0.0b2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix a bug in the `.inference` operations when Entra ID authentication is used by the default connection.
+    * Fixed bugs occurring during streaming in function tool calls by asynchronous agents.
+    * Fixed bugs that were causing issues with tracing agent asynchronous functionality.
+    * Fix a bug causing warning about unclosed session, shown when using asynchronous credentials to create agent.
+    * Fix a bug that would cause agent function tool related function names and parameters to be included in traces even when content recording is not enabled.
 
