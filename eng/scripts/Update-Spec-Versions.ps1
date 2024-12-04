@@ -14,6 +14,7 @@ $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress d
 Install-ModuleIfNotInstalled "powershell-yaml" "0.4.7" | Import-Module
 
 $specsGitFolder = (Join-Path $specsRoot ".git")
+$specsGitFolderExists = (Test-Path $specsGitFolder) 
 $specificationRoot = (Join-Path $specsRoot "specification") -replace "\\", "/"
 $validationIssues = @()
 function LogSpecValidationIssue($issue, $message)
@@ -115,18 +116,6 @@ function UpdateSpecMetadata($spec)
 
   if ($inconsistentVersion) {
     $version = "Varies: " + ($inconsistentVersion | Sort-Object -Unique | Join-String -Sep ",")
-  }
-
-  if ($jsonFiles.Count -eq 1 -and (Test-Path $specsGitFolder)) {
-    if (!$spec.DateCreated) {
-      # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
-      # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
-      $jsonPath = MakeRelativeToSpecFolder $jsonFiles[0]    
-      $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
-    }
-  }
-  else {
-    $spec.DateCreated = ""
   }
 
   $spec.Version = $version
@@ -358,7 +347,13 @@ function UpdateSpecIndex()
     $spec.JsonFiles = $discoveredSpec.JsonFiles
     $spec.Version = $discoveredSpec.Version
     $spec.IsTypeSpec = $discoveredSpec.IsTypeSpec
-    $spec.DateCreated = $discoveredSpec.DateCreated
+
+    if ($specsGitFolderExists -and !$spec.DateCreated -and !$spec.JsonFiles.Contains("|")) {
+      # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
+      # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
+      $jsonPath = Join-Path $spec.SpecPath $spec.JsonFiles
+      $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
+    }
 
     $spec.ServiceLifeCycle = GetServiceLifeCycle $specs $spec.ServiceFamily $spec.ResourcePath
 
