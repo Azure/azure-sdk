@@ -366,4 +366,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.1.0-beta.1/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.Query
+  Version: 1.6.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.6.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add 'StartTime' and 'EndTime' parameters to 'MetricsQueryResourcesOptions' to allow for querying a specific time range
+    #### Bugs Fixed
+    - Fix bug in 'MetricsClient' QueryResourceAsync method where the 'QueryTimeRange' parameter was incorrectly set
 
