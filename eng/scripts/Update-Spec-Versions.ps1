@@ -387,11 +387,12 @@ function UpdateSpecIndex()
   if ($validationIssues.Count -gt 0) {
     $specsWithErrors = $sortedSpecs | Where-Object { $_.SpecValidationErrors }
     
-    Write-Host "Found $($validationIssues.Count) validation issues across $($specsWithErrors.Count) specs. See $specValidationIssues for all the details."
+    Write-Host "Found $($validationIssues.Count) validation issues across $($specsWithErrors.Count) specs."
     if ($specValidationIssues) {
+      Write-Host "See $specValidationIssues for all the details."
       $validationIssues | Out-File $specValidationIssues
+      exit 1
     }
-    exit 1
   }
 }
 
