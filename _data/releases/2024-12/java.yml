@@ -1704,4 +1704,43 @@ entries:
 
     - Updated Azure SDK dependency versions to the latest releases.
   GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.13
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.13/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API versions `2024-09-01-preview` and `2024-10-01-preview`.
+    - Added support for `max_completion_tokens`, `stream_options`, and `parallel_tool_calls` in `ChatCompletionsOptions` class.
+    New class `ChatCompletionStreamOptions` introduced.
+    - Added new overload streaming methods `getChatCompletionsStream` and `getCompletionsStream` that take `ChatCompletionStreamOptions streamOptions`.
+    - Added support for `stream_options` in `CompletionsOptions` class.
+    - Added support for `prompt_tokens_details` and `completion_tokens_details` in `CompletionsUsage` class.
+    New classes `CompletionsUsagePromptTokensDetails` and `CompletionsUsageCompletionTokensDetails` introduced.
+    - Added support for `ungrounded_material` in `ContentFilterResultsForChoice` class.
+    New classes `ContentFilterCompletionTextSpanResult`, `ContentFilterCompletionTextSpan` introduced.
+
+    #### Bugs Fixed
+    - Fixed the issue to reduce the log pollution when using Server Sent Event Streaming API. ([#41164](https://github.com/Azure/azure-sdk-for-java/issues/41164))
+
+    #### Breaking Changes
+    - Removed public method `setStream` in `ChatCompletionsOptions` and `CompletionsOptions` classes.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.25.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.25.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `ShareFileClient.downloadToFile()` now retries for a maximum of 5 times when the download fails due to a network error.
+    Previously, the maximum number of retries was unintentionally higher (maximum of 15), which could lead to writing in
+    incorrect positions in the file when retried more than 5 times.
+  GroupId: com.azure
 
