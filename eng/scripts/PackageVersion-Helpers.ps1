@@ -96,7 +96,7 @@ function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::Utc
         else {
           # Don't break to loop on annotated tags as they can point at really old commits
           if (!$annotatedTag) {
-            Write-Warning "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
+            Write-Verbose "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
             $done = $true
             break
           }
