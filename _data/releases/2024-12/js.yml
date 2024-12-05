@@ -429,4 +429,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-healthdataaiservices_1.0.0/sdk/healthdataaiservices/arm-healthdataaiservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-rooms'
+  Version: 1.1.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.1.1/sdk/communication/communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Bug fix for 'addOrUpdateParticipants' and 'removeParticipants' methods to wait for the operation to complete before returning
 
