@@ -703,19 +703,19 @@ Example: Azure Gizmos service has two clients, GadgetClient and WidgetClient.
 ```
 inc/
   azure/
-    gizmos.hpp <-- includes all public .hpp files
+    gizmos.hpp <-- includes all public .hpp files.
     gizmos/
-      gizmos_models.hpp
+      gizmos_models.hpp <-- all models for the Gizmos service.
       gadget_client.hpp
-      gadget_client_options.hpp
-      gadget_client_operations.hpp
-      gadget_client_paged_responses.hpp
+      gadget_client_options.hpp <-- all options for the Gadget client, both Client Options and operation (method) options.
+      gadget_client_operations.hpp <-- all GadgetClient LROs.
+      gadget_client_paged_responses.hpp <-- all GadgetClient Pagers.
       widget_client.hpp
       widget_client_options.hpp
       widget_client_operations.hpp
       widget_client_paged_responses.hpp
-      dll_import_export.hpp
-      rtti.hpp
+      dll_import_export.hpp <-- AZURE_GIZMOS_DLLEXPORT macro definition.
+      rtti.hpp  <-- AZURE_GIZMOS_RTTI macro definition.
 ```
 
 #### Class Types (including `union`s and `struct`s)
