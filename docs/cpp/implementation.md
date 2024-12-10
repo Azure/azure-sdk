@@ -699,21 +699,21 @@ struct HashComputation {
 
 #### Client Library Public Header Structure
 
-Example: Azure Gizmos service has two clients, GadgetClient and WidgetClient.
+Example: Azure Fantastic Gizmos service has two clients, AmazingGadgetClient and AwesomeWidgetClient.
 ```
 inc/
   azure/
-    gizmos.hpp <-- includes all public .hpp files.
-    gizmos/
-      gizmos_models.hpp <-- all models for the Gizmos service.
-      gadget_client.hpp
-      gadget_client_options.hpp <-- all options for the Gadget client, both Client Options and operation (method) options.
-      gadget_client_operations.hpp <-- all GadgetClient LROs.
-      gadget_client_paged_responses.hpp <-- all GadgetClient Pagers.
-      widget_client.hpp
-      widget_client_options.hpp
-      widget_client_operations.hpp
-      widget_client_paged_responses.hpp
+    fantasticgizmos.hpp <-- includes all public .hpp files.
+    fantasticgizmos/
+      fantasticgizmos_models.hpp <-- all models for the Gizmos service.
+      amazing_gadget_client.hpp
+      amazing_gadget_client_options.hpp <-- all options for the Amazing Gadget client, both Client Options and operation (method) options.
+      amazing_gadget_client_operations.hpp <-- all AmazingGadgetClient LROs.
+      amazing_gadget_client_paged_responses.hpp <-- all AmazingGadgetClient Pagers.
+      awesome_widget_client.hpp
+      awesome_widget_client_options.hpp
+      awesome_widget_client_operations.hpp
+      awesome_widget_client_paged_responses.hpp
       dll_import_export.hpp <-- AZURE_GIZMOS_DLLEXPORT macro definition.
       rtti.hpp  <-- AZURE_GIZMOS_RTTI macro definition.
 ```
