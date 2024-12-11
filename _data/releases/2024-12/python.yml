@@ -426,4 +426,16 @@ entries:
     * Fixed bugs that were causing issues with tracing agent asynchronous functionality.
     * Fix a bug causing warning about unclosed session, shown when using asynchronous credentials to create agent.
     * Fix a bug that would cause agent function tool related function names and parameters to be included in traces even when content recording is not enabled.
+- Name: azure-communication-rooms
+  Version: 1.1.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.1.1/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    - Update azure-code dependency
+
+    #### Other Changes
+    - Updated azure-code dependency to the latest version 1.32.0
 
