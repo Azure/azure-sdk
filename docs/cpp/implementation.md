@@ -697,6 +697,27 @@ struct HashComputation {
 } // unnamed namespace
 {% endhighlight %}
 
+#### Client Library Public Header Structure
+
+Example: Azure Fantastic Gizmos service has two clients, AmazingGadgetClient and AwesomeWidgetClient.
+```
+inc/
+  azure/
+    fantasticgizmos.hpp <-- includes all public .hpp files.
+    fantasticgizmos/
+      fantasticgizmos_models.hpp <-- all models for the Gizmos service.
+      amazing_gadget_client.hpp
+      amazing_gadget_client_options.hpp <-- all options for the Amazing Gadget client, both Client Options and operation (method) options.
+      amazing_gadget_client_operations.hpp <-- all AmazingGadgetClient LROs.
+      amazing_gadget_client_paged_responses.hpp <-- all AmazingGadgetClient Pagers.
+      awesome_widget_client.hpp
+      awesome_widget_client_options.hpp
+      awesome_widget_client_operations.hpp
+      awesome_widget_client_paged_responses.hpp
+      dll_import_export.hpp <-- AZURE_GIZMOS_DLLEXPORT macro definition.
+      rtti.hpp  <-- AZURE_GIZMOS_RTTI macro definition.
+```
+
 #### Class Types (including `union`s and `struct`s)
 
 Throughout this section, *class types* includes types with *class-key* `struct` or *class-key* `union`, consistent with the [C++ Standard](https://eel.is/c++draft/class#pre-4).
