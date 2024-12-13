@@ -249,4 +249,248 @@ entries:
     #### Features Added
 
     First beta version
+- Name: azure-cosmos
+  Version: 4.9.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.9.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added full text policy and full text indexing policy. See [PR 37891](https://github.com/Azure/azure-sdk-for-python/pull/37891).
+    * Added support for full text search and hybrid search queries. See [PR 38275](https://github.com/Azure/azure-sdk-for-python/pull/38275).
+- Name: azure-mgmt-cosmosdb
+  Version: 9.7.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.7.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-eventgrid
+  Version: 4.21.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.21.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Resource Notifications.
+- Name: azure-ai-ml
+  Version: 1.22.3
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.3/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix error message while resolving mlflow url in get workspace details
+- Name: azure-mgmt-networkcloud
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_2.0.0b1/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.22.4
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.4/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - **#38609** - Fix Datastore credentials for Account key base
+- Name: azure-mgmt-healthdataaiservices
+  Version: 1.0.0
+  DisplayName: Resource Management - Health Data AI Services
+  ServiceName: Health Data AI Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthdataaiservices_1.0.0/sdk/healthdataaiservices/azure-mgmt-healthdataaiservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-devopsinfrastructure
+  Version: 1.0.0
+  DisplayName: Resource Management - DevOps Infrastructure
+  ServiceName: DevOps Infrastructure
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-devopsinfrastructure_1.0.0/sdk/devopsinfrastructure/azure-mgmt-devopsinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-data-tables
+  Version: 12.6.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.6.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Microsoft Entra auth with Azure Cosmos DB for Table's OAuth scope (`https://cosmos.azure.com/.default`).
+- Name: azure-search-documents
+  Version: 11.6.0b8
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `get_debug_info` in Search results.
+- Name: azure-communication-callautomation
+  Version: 1.4.0b1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.4.0b1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for ConnectAPI to enable streaming and real-time transcription
+    - Enhanced media streaming with bidirectional capabilities, enabling support for audio formats in both directions. Currently, it supports sample rates of 24kHz and 16kHz
+- Name: azure-communication-callautomation
+  Version: 1.3.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.3.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Hold and Unhold the participant
+    - CallDisconnected now includes more information on why the call has ended
+    - Support to manage the rooms/servercall/group call using connect API
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
+- Name: azure-mgmt-terraform
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Terraform
+  ServiceName: Terraform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-terraform_1.0.0b1/sdk/terraform/azure-mgmt-terraform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-connectedcache
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Connectedcache
+  ServiceName: Connectedcache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedcache_1.0.0b1/sdk/connectedcache/azure-mgmt-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-maps-geolocation
+  Version: 1.0.0b2
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-geolocation_1.0.0b2/sdk/maps/azure-maps-geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Remove python 3.6 support
+    - Fix API version error
+    - Fix Sphinx errors
+    - Fix mypy typing errors for mypy version 1.6.1
+- Name: azure-mgmt-neonpostgres
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Neonpostgres
+  ServiceName: Neonpostgres
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-neonpostgres_1.0.0b1/sdk/neonpostgres/azure-mgmt-neonpostgres/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.0.0b2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix a bug in the `.inference` operations when Entra ID authentication is used by the default connection.
+    * Fixed bugs occurring during streaming in function tool calls by asynchronous agents.
+    * Fixed bugs that were causing issues with tracing agent asynchronous functionality.
+    * Fix a bug causing warning about unclosed session, shown when using asynchronous credentials to create agent.
+    * Fix a bug that would cause agent function tool related function names and parameters to be included in traces even when content recording is not enabled.
+- Name: azure-communication-rooms
+  Version: 1.1.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.1.1/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    - Update azure-code dependency
+
+    #### Other Changes
+    - Updated azure-code dependency to the latest version 1.32.0
+- Name: azure-maps-geolocation
+  Version: 1.0.0b3
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-geolocation_1.0.0b3/sdk/maps/azure-maps-geolocation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Integrated support for SAS-based authentication
+- Name: azure-maps-search
+  Version: 2.0.0b2
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-search_2.0.0b2/sdk/maps/azure-maps-search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Integrated support for SAS-based authentication
+- Name: azure-maps-render
+  Version: 2.0.0b2
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-render_2.0.0b2/sdk/maps/azure-maps-render/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Integrated support for SAS-based authentication
+- Name: azure-maps-route
+  Version: 1.0.0b3
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-route_1.0.0b3/sdk/maps/azure-maps-route/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Integrated support for SAS-based authentication
+- Name: azure-ai-evaluation
+  Version: 1.1.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.1.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed `[remote]` extra. This is no longer needed when tracking results in Azure AI Studio.
+    - Fixed `AttributeError: 'NoneType' object has no attribute 'get'` while running simulator with 1000+ results
 
