@@ -1,0 +1,44 @@
+entries:
+- Name: azure-mgmt-datafactory
+  Version: 9.1.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_9.1.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Postgresqlflexibleservers
+  ServiceName: Postgresqlflexibleservers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_1.1.0b2/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 33.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_33.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.23.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.23.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for IP-based access control to default and hub workspaces.
+    - Add support for additional include in spark component.
+    - Adding enterprise agent feature for AI Hub and AI Project. Adding Create, Delete and Get operations.
+    - Removing preview tag for following connections type
+    - Azure AI Search
+    - Azure AI Content Safety
+    - Azure AI Speech
+    - Azure Blob Storage
+    - Microsoft OneLake
+
