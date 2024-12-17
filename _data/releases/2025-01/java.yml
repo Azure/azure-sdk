@@ -503,4 +503,59 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-core_5.19.0/sdk/spring/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added methods `getAnalyzeBatchResult`, `listAnalyzeBatchResults`, `deleteAnalyzeBatchResult`, and `deleteAnalyzeResult` to `DocumentIntelligenceClient` and `DocumentIntelligenceAsyncClient`.
+    - Added class `AnalyzeBatchOperation` as output model for `getAnalyzeBatchResult` and `listAnalyzeBatchResults` methods.
+    - Added constructor overloads for the `AnalyzeBatchDocumentsOptions` model that take required parameters.
+    - Added constructor overloads for the `AnalyzeDocumentsOptions` model that take required parameters and BinaryData.
+    - Added constructor overloads for the `ClassifyDocumentOptions` model that take required parameters and BinaryData.
+    - Added property `modifiedOn` to `DocumentModelDetails` and to `DocumentClassifierDetails`.
+    - Added enum value `SKIPPED` to `DocumentIntelligenceOperationStatus` (former `OperationStatus`).
+
+    #### Breaking Changes
+    - Replaced the following `Request` classes with new corresponding `Options` classes:
+    - `AnalyzeBatchDocumentsRequest` to `AnalyzeBatchDocumentsOptions`.
+    - `AnalyzeDocumentRequest` to `AnalyzeDocumentOptions`.
+    - `AuthorizeClassifierCopyRequest` to `AuthorizeClassifierCopyOptions`.
+    - `AuthorizeCopyRequest` to `AuthorizeModelCopyOptions`.
+    - `BuildDocumentClassifierRequest` to `BuildClassifierOptions`.
+    - `BuildDocumentModelRequest` to `BuildDocumentModelOptions`.
+    - `ClassifyDocumentRequest` to `ClassifyDocumentOptions`.
+    - `ComposeDocumentModelRequest` to `ComposeModelOptions`.
+    - Parameters of the `AnalyzeBatchDocuments`, `AnalyzeDocument`, and `ClassifyDocument` methods have been moved into their corresponding `Options` class.
+    - Renamed all occurrences of properties `docType` and `docTypes` to `documentType` and `documentTypes`, respectively.
+    - Removed enum value `Generative` from `DocumentBuildMode`.
+    - Renamed enum value `StyleFonts` to `FontStyling` in `DocumentAnalysisFeature`.
+    - Renamed class `AnalyzeBatchOperationDetail` to `AnalyzeBatchResultDetails`.
+    - Renamed class `AnalyzeBatchOperation` to `AnalyzeBatchOperationDetails`.
+    - Renamed class `AnalyzeOperation` to `AnalyzeOperationDetails`.
+    - Renamed all occurrences of property `expirationDateTime` to `expiresOn`.
+    - Renamed method `getResourceInfo` to `getResourceDetails` in `DocumentIntelligenceAdministrationClient` and `DocumentIntelligenceAdministrationAsyncClient`.
+    - Renamed class `ResourceDetails` to `DocumentIntelligenceResourceDetails`.
+    - Renamed type `ContentFormat` to `DocumentContentFormat`.
+    - Renamed class `OperationDetails` to `DocumentIntelligenceOperationDetails`.
+    - Renamed class `InnerError` to `DocumentIntelligenceInnerError`.
+    - Renamed class `CopyAuthorization` to `ModelCopyAuthorization`.
+    - Renamed type `OperationStatus` to `DocumentIntelligenceOperationStatus`.
+    - Renamed property `Innererror` to `innerError` in `DocumentIntelligenceError`.
+    - Renamed property `InnerErrorObject` to `innerError` in `DocumentIntelligenceInnerError` (former class `InnerError`).
+    - Removed enum value `COMPLETED` from `DocumentIntelligenceOperationStatus` (former `OperationStatus`).
+  GroupId: com.azure
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
