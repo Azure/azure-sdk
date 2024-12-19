@@ -62,4 +62,12 @@ entries:
     #### Bugs Fixed
     - Fixed a bug where calling `Operation.Id` would sometimes return an `InvalidOperationException` with message "The operation ID was not present in the service response.".
     - Calling `Operation.Id` in an operation returned from the `AnalyzeBatchDocuments` and `ClassifyDocument` APIs won't throw a `NotSupportedException` anymore.
+- Name: Azure.ResourceManager.PlaywrightTesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PlaywrightTesting_1.0.0/sdk/playwrighttesting/Azure.ResourceManager.PlaywrightTesting/CHANGELOG.md
+  ChangelogContent: ""
 
