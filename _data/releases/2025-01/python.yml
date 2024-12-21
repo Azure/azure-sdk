@@ -41,4 +41,97 @@ entries:
     - Azure AI Speech
     - Azure Blob Storage
     - Microsoft OneLake
+- Name: azure-mgmt-servicefabricmanagedclusters
+  Version: 2.1.0b2
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabricmanagedclusters_2.1.0b2/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-documentintelligence
+  Version: 1.0.0
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.0/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed request body parameters on all methods to `body`.
+    - Renamed operation `get_resource_info()` to `get_resource_details()`.
+    - Renamed model `ContentFormat` to `DocumentContentFormat`.
+    - Renamed model `AnalyzeBatchResultOperation` to `AnalyzeBatchOperation`.
+    - Renamed model `CopyAuthorization` to `ModelCopyAuthorization`.
+    - Renamed model `Document` to `AnalyzedDocument`.
+    - Renamed model `Error` to `DocumentIntelligenceError`.
+    - Renamed model `ErrorResponse` to `DocumentIntelligenceErrorResponse`.
+    - Renamed model `InnerError` to `DocumentIntelligenceInnerError`.
+    - Renamed model `OperationDetails` to `DocumentIntelligenceOperationDetails`.
+    - Renamed model `OperationStatus` to `DocumentIntelligenceOperationStatus`.
+    - Renamed model `ResourceDetails` to `DocumentIntelligenceResourceDetails`.
+    - Renamed model `Warning` to `DocumentIntelligenceWarning`.
+    - Renamed property `items_property` in model `DocumentFieldSchema` to `items_schema`.
+    - Renamed enum `FontStyle` to `DocumentFontStyle`.
+    - Renamed enum `FontWeight` to `DocumentFontWeight`.
+    - Removed model `AnalyzeResultOperation`.
+    - Removed `GENERATIVE ` in enum `DocumentBuildMode`.
+
+    #### Features Added
+
+    - Added support for the Analyze Batch Documents API:
+    - Added operations `delete_analyze_batch_result()`, `get_analyze_batch_result()` and `list_analyze_batch_results()` to `DocumentIntelligenceClient`.
+    - Added support for the Analyze Documents API:
+    - Added operations `delete_analyze_result()` to `DocumentIntelligenceClient`.
+- Name: azure-mgmt-iotoperations
+  Version: 1.0.0
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iotoperations_1.0.0/sdk/iotoperations/azure-mgmt-iotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.6.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.6.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-playwrighttesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-playwrighttesting_1.0.0/sdk/playwrighttesting/azure-mgmt-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 28.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_28.1.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.0.0b4
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b4/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix for Agent streaming issue (see [GitHub issue 38918](https://github.com/Azure/azure-sdk-for-python/issues/38918))
+    * Fix for Agent async function `send_email_async` is not called (see [GitHub issue 38898](https://github.com/Azure/azure-sdk-for-python/issues/38898))
+    * Fix for Agent streaming with event handler fails with "AttributeError: 'MyEventHandler' object has no attribute 'buffer'" (see [GitHub issue 38897](https://github.com/Azure/azure-sdk-for-python/issues/38897))
+
+    #### Features Added
+
+    * Add optional input argument `connection_name` to methods `.inference.get_chat_completions_client`,
+    `.inference.get_embeddings_client` and `.inference.get_azure_openai_client`.
 
