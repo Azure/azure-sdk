@@ -15,4 +15,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v4.0.0-beta.2/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.17.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.17.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added field `OperationLocationResultPath` to `runtime.NewPollerOptions[T]` for LROs that use the `Operation-Location` pattern.
+    * Support `encoding.TextMarshaler` and `encoding.TextUnmarshaler` interfaces in `arm.ResourceID`.
 
