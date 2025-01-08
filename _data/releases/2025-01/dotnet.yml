@@ -110,4 +110,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevTestLabs_1.1.1/sdk/devtestlabs/Azure.ResourceManager.DevTestLabs/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Language.Text
+  Version: 1.0.0-beta.2
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+    - Added support for analyze-text API Versions
+    - 2024-11-01
+    - 2024-11-15-preview
+
+    #### Breaking Changes
+
+    - Removed support for analyze-text API Versions
+    - 2023-11-15-preview
 
