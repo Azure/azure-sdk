@@ -1,7 +1,7 @@
 [Architecture Board]: https://github.com/azure/azure-sdk/issues
 
 [General Azure SDK Guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
-[Azure SDK Contributors Guide]: https://review.docs.microsoft.com/help/contribute-ref/contribute-ref-how-to-document-sdk
+[Azure SDK Contributors Guide]: https://review.learn.microsoft.com/en-us/help/platform/reference-document-sdk-client-libraries
 [Microsoft Writing Style Guide]: https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700
 [Microsoft Cloud Style Guide]: https://styleguides.azurewebsites.net/Styleguide/Read?id=2696
 [Acrolinx VS Code extension]: https://aka.ms/azsdk/acrolinx-vscode
