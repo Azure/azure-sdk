@@ -160,4 +160,16 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     -  Removed marshmallow _T reference.
+- Name: azure-appconfiguration-provider
+  Version: 2.0.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added support for load balancing between replicas.
+    * Added support for adding telemetry information to feature flags.
 
