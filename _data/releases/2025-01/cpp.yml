@@ -1,0 +1,13 @@
+entries:
+- Name: azure-core
+  Version: 1.15.0-beta.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.15.0-beta.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made default constructor for `Azure::Core::Uuid` implicit.
+
