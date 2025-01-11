@@ -203,6 +203,8 @@ namespace _detail {
 
 {% include requirement/SHOULD id="cpp-design-naming-functions-noexcept" %} declare all functions that can never throw exceptions `noexcept`.
 
+{% include requirement/MUST id="cpp-design-naming-functions-const" %} declare all client functions as `const` since service clients are intended to be immutable.
+
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended for user consumption with **PascalCase**.
 
 {% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
