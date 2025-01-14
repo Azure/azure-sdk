@@ -10,4 +10,29 @@ entries:
     #### Bugs Fixed
 
     - Exposed `@search.document_debug_info` in the search results.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b33
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b33/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Detect live metrics usage during runtime in addition to on startup
+    ([#37694](https://github.com/Azure/azure-sdk-for-python/pull/37694))
+    - Remove status code `206` from retry code + only count batch level for statsbeat
+    ([#38647](https://github.com/Azure/azure-sdk-for-python/pull/38647))
+
+    #### Features Added
+
+    - Implement live metrics filtering for metrics
+    ([#37998](https://github.com/Azure/azure-sdk-for-python/pull/37998))
+    - Add applying filter/validating filter logic to live metrics filtering
+    ([#38451](https://github.com/Azure/azure-sdk-for-python/pull/38451))
+    - Implement live metrics filtering for docs
+    ([#38925](https://github.com/Azure/azure-sdk-for-python/pull/38925))
+    - Implement live metrics + filtering for span event exceptions
+    ([#39168](https://github.com/Azure/azure-sdk-for-python/pull/39168))
 
