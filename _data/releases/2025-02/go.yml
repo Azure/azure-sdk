@@ -95,4 +95,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersion
+- Name: sdk/azidentity/cache
+  Version: 0.3.2
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.2/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
 
