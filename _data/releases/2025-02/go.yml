@@ -85,4 +85,14 @@ entries:
     * Credentials having optional tenant IDs such as `AzureCLICredential` and
     `InteractiveBrowserCredential` require setting `AdditionallyAllowedTenants`
     when used with some clients
+- Name: sdk/monitor/query/azmetrics
+  Version: 1.2.0
+  DisplayName: Query - Metrics
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azmetrics/v1.2.0/sdk/monitor/query/azmetrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersion
 
