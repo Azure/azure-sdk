@@ -46,4 +46,19 @@ entries:
     #### Features Added
 
     - ProducerClient and ConsumerClient allow the endpoint to be overridden with CustomEndpoint, allowing the use of TCP proxies with AMQP.
+- Name: sdk/messaging/azservicebus
+  Version: 1.8.0-beta.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.8.0-beta.2/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ServiceBusClient allows the endpoint to be overridden with ServiceBusClientOptions.CustomEndpoint, to use TCP proxies with AMQP. (PR#23843)
+
+    #### Bugs Fixed
+
+    - Receivers had a bug where a message could be received but not returned to the user. Callers would see that, occasionally, a message would not be returned from ReceiveMessages(), but would appear to have been received. Thanks to @patrickwhite256 for reporting this issue. (PR#23929)
 
