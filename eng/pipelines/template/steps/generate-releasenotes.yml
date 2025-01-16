@@ -41,11 +41,11 @@ steps:
         }
         elseif ($d.Year -eq 2025 -and $d.Month -eq 7)
         {
-          $secondFridayOfMonth = [DateTime]"2024-07-18"
+          $secondFridayOfMonth = [DateTime]"2025-07-18"
         }
         elseif ($d.Year -eq 2025 -and $d.Month -eq 9)
         {
-          $secondFridayOfMonth = [DateTime]"2024-09-19"
+          $secondFridayOfMonth = [DateTime]"2025-09-19"
         }
 
         return $secondFridayOfMonth
