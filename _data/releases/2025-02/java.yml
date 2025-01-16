@@ -115,4 +115,18 @@ entries:
     #### Features Added
     * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
   GroupId: com.azure.cosmos.spark
+- Name: azure-identity-extensions
+  Version: 1.2.0
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.2.0/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue where the token acquisition timeout is not set via the property `azure.accessTokenTimeoutInSeconds`. [#43512](https://github.com/Azure/azure-sdk-for-java/issues/43512).
+
+    #### Features Added
+    - Support cache for token credential object. [#39393](https://github.com/Azure/azure-sdk-for-java/issues/39393).
+  GroupId: com.azure
 
