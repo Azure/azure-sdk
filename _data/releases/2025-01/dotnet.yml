@@ -137,4 +137,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.10.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.10.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.10.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Calling `TableClient.Query`, `TableClient.QueryAsync`, or `TableClient.CreateQueryFilter` with a filter expression that uses `string.Equals` or `string.Compare` with a `StringComparison` parameter will now throw an exception. This is because the Azure Table service does not support these methods in query filters. Previously the `StringComparison` argument was silently ignored, which can lead to subtle bugs in client code. The new behavior can be overridden by either setting an AppContext switch named "Azure.Data.Tables.DisableThrowOnStringComparisonFilter" to `true` or by setting the environment variable "AZURE_DATA_TABLES_DISABLE_THROWONSTRINGCOMPARISONFILTER" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableThrowOnStringComparisonFilter" Value="true" />
+    </ItemGroup>
+    ```
+- Name: Azure.Identity
+  Version: 1.13.2
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.13.2/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where setting `DefaultAzureCredentialOptions.TenantId` twice throws an `InvalidOperationException` ([#47035](https://github.com/Azure/azure-sdk-for-net/issues/47035))
+    - Fixed an issue where `ManagedIdentityCredential` does not honor the `CancellationToken` passed to `GetToken` and `GetTokenAsync`. ([#47156](https://github.com/Azure/azure-sdk-for-net/issues/47156))
+    - Fixed an issue where some credentials in `DefaultAzureCredential` would not fall through to the next credential in the chain under certain exception conditions.
+    - Fixed a regression in `ManagedIdentityCredential` when used in a `ChainedTokenCredential` where the invalid json responses do not fall through to the next credential in the chain. ([#47470](https://github.com/Azure/azure-sdk-for-net/issues/47470))
 
