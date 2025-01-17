@@ -1,0 +1,136 @@
+entries:
+- Name: sdk/resourcemanager/deviceregistry/armdeviceregistry
+  Version: 0.2.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/deviceregistry/armdeviceregistry/v0.2.0/sdk/resourcemanager/deviceregistry/armdeviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cosmos/armcosmos
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v4.0.0-beta.2/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.17.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.17.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added field `OperationLocationResultPath` to `runtime.NewPollerOptions[T]` for LROs that use the `Operation-Location` pattern.
+    * Support `encoding.TextMarshaler` and `encoding.TextUnmarshaler` interfaces in `arm.ResourceID`.
+- Name: sdk/storage/azfile
+  Version: 1.5.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add Premium access tier to Files Shares
+    * Provisioned v2 billing model for Azure files
+- Name: sdk/azidentity
+  Version: 1.8.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * User credential types inconsistently log access token scopes
+    * `DefaultAzureCredential` skips managed identity in Azure Container Instances
+    * Credentials having optional tenant IDs such as `AzureCLICredential` and
+    `InteractiveBrowserCredential` require setting `AdditionallyAllowedTenants`
+    when used with some clients
+- Name: sdk/azidentity/cache
+  Version: 0.3.2
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.2/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/storage/azdatalake
+  Version: 1.4.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azblob` version to `v1.6.0-beta.1`
+- Name: sdk/storage/azblob
+  Version: 1.6.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.0-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added permissions & resourcetype parameters in listblob response.
+    * Added BlobProperties field in BlobPrefix definition in listblob response.
+
+    #### Bugs Fixed
+    * Fix FilterBlob API if Query contains a space character. Fixes [#23546](https://github.com/Azure/azure-sdk-for-go/issues/23546)
+- Name: sdk/messaging/azeventhubs
+  Version: 1.3.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.3.0-beta.1/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ProducerClient and ConsumerClient allow the endpoint to be overridden with CustomEndpoint, allowing the use of TCP proxies with AMQP.
+- Name: sdk/monitor/query/azmetrics
+  Version: 1.2.0
+  DisplayName: Query - Metrics
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azmetrics/v1.2.0/sdk/monitor/query/azmetrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersion
+- Name: sdk/messaging/azservicebus
+  Version: 1.8.0-beta.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.8.0-beta.2/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ServiceBusClient allows the endpoint to be overridden with ServiceBusClientOptions.CustomEndpoint, to use TCP proxies with AMQP. (PR#23843)
+
+    #### Bugs Fixed
+
+    - Receivers had a bug where a message could be received but not returned to the user. Callers would see that, occasionally, a message would not be returned from ReceiveMessages(), but would appear to have been received. Thanks to @patrickwhite256 for reporting this issue. (PR#23929)
+- Name: sdk/messaging/azservicebus
+  Version: 1.7.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.7.4/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Receivers had a bug where a message could be received but not returned to the user. Callers would see that, occasionally, a message would not be returned from ReceiveMessages(), but would appear to have been received. Thanks to @patrickwhite256 for reporting this issue. (PR#23929)
+
