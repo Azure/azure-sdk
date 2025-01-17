@@ -1506,4 +1506,158 @@ entries:
 
     - Added support for Service Bus Emulator connection string. Refer [Azure Service Bus Emulator](https://github.com/Azure/azure-service-bus-emulator-installer) for emulator installation and supported connection strings. ([38735](https://github.com/Azure/azure-sdk-for-java/issues/38735)).
   GroupId: com.azure
+- Name: azure-cosmos-spark_3-5_2-12
+  Version: 4.36.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-5_2-12_4.36.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
+
+    #### Bugs Fixed
+    * Added null checking for previous images for deletes in full fidelity change feed. - See [PR 43483](https://github.com/Azure/azure-sdk-for-java/pull/43483)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-identity
+  Version: 1.15.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.15.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added missing `executorService` API to `ManagedIdentityCredentialBuilder`, cleaned up comments in other types for this method.
+  GroupId: com.azure
+- Name: azure-identity-extensions
+  Version: 1.2.0
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-extensions_1.2.0/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support cache for token credential object. [#39393](https://github.com/Azure/azure-sdk-for-java/issues/39393).
+
+    #### Bugs Fixed
+    - Fix the issue where the token acquisition timeout is not set via the property `azure.accessTokenTimeoutInSeconds`. [#43512](https://github.com/Azure/azure-sdk-for-java/issues/43512).
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-2_2-12
+  Version: 4.36.0
+  DisplayName: OLTP Spark 3.2 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.2 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-2_2-12_4.36.0/sdk/cosmos/azure-cosmos-spark_3-2_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
+
+    #### Bugs Fixed
+    * Added null checking for previous images for deletes in full fidelity change feed. - See [PR 43483](https://github.com/Azure/azure-sdk-for-java/pull/43483)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.36.0
+  DisplayName: OLTP Spark 3.1 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.1 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-1_2-12_4.36.0/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
+
+    #### Bugs Fixed
+    * Added null checking for previous images for deletes in full fidelity change feed. - See [PR 43483](https://github.com/Azure/azure-sdk-for-java/pull/43483)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos
+  Version: 4.66.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.66.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added client vmId info to Rntbd health check logs - See [43079](https://github.com/Azure/azure-sdk-for-java/pull/43079)
+    * Added support to enable http2 for gateway mode with system property `COSMOS.HTTP2_ENABLED` and system variable `COSMOS_HTTP2_ENABLED`. - [PR 42947](https://github.com/Azure/azure-sdk-for-java/pull/42947)
+    * Added support to allow changing http2 max connection pool size with system property `COSMOS.HTTP2_MAX_CONNECTION_POOL_SIZE` and system variable `COSMOS_HTTP2_MAX_CONNECTION_POOL_SIZE`. - [PR 42947](https://github.com/Azure/azure-sdk-for-java/pull/42947)
+    * Added support to allow changing http2 max connection pool size with system property `COSMOS.HTTP2_MIN_CONNECTION_POOL_SIZE` and system variable `COSMOS_HTTP2_MIN_CONNECTION_POOL_SIZE`. - [PR 42947](https://github.com/Azure/azure-sdk-for-java/pull/42947)
+    * Added options to fine-tune settings for bulk operations. - [PR 43509](https://github.com/Azure/azure-sdk-for-java/pull/43509)
+    * Added the following metrics. - See [PR 43716](https://github.com/Azure/azure-sdk-for-java/pull/43716)
+    *`cosmos.client.req.gw.bulkOpCountPerEvaluation`
+    *`cosmos.client.req.gw.bulkOpRetriedCountPerEvaluation`
+    *`cosmos.client.req.gw.bulkGlobalOpCount`
+    *`cosmos.client.req.gw.bulkTargetMaxMicroBatchSize`
+    *`cosmos.client.req.rntbd.bulkOpCountPerEvaluation`
+    *`cosmos.client.req.rntbd.bulkOpRetriedCountPerEvaluation`
+    *`cosmos.client.req.rntbd.bulkGlobalOpCount`
+    *`cosmos.client.req.rntbd.bulkTargetMaxMicroBatchSize`
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.9
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.9/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-identity` from `1.14.2` to `1.15.0`
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.36.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.36.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
+
+    #### Bugs Fixed
+    * Added null checking for previous images for deletes in full fidelity change feed. - See [PR 43483](https://github.com/Azure/azure-sdk-for-java/pull/43483)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-kafka-connect
+  Version: 2.1.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_2.1.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed `BadRequestException` when customer using Serverless CosmosDB database account and metadata container does not exists. - See [PR 43125](https://github.com/Azure/azure-sdk-for-java/pull/43125)
+  GroupId: com.azure.cosmos.kafka
+- Name: azure-cosmos-encryption
+  Version: 2.17.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.17.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.66.0`.
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.36.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.36.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the udfs `GetFeedRangesForContainer` and `GetOverlappingFeedRange` to ease mapping of cosmos partition key to databricks table partition key. - See [PR 43092](https://github.com/Azure/azure-sdk-for-java/pull/43092)
+
+    #### Bugs Fixed
+    * Added null checking for previous images for deletes in full fidelity change feed. - See [PR 43483](https://github.com/Azure/azure-sdk-for-java/pull/43483)
+  GroupId: com.azure.cosmos.spark
 
