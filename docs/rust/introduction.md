@@ -731,6 +731,8 @@ Dashes are supported in feature names as well as crate names, but using undersco
 
 {% include requirement/SHOULD id="directory-structure-lib" %} only export public APIs from the crate `lib.rs` and define all other types in suitable [modules][rust-lang-modules]:
 
+{% include requirement/MUSTNOT id="directory-structure-build-script" %} include a `build.rs` build script in the crate root.
+
 * Single-file modules should be declared in a file next to their parent module.
 * Multi-file modules should be declared in a directory next to their parent module with a `mod.rs` file.
 
