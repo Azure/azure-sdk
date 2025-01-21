@@ -18,4 +18,38 @@ entries:
     #### Other Changes
 
     - Add NOT_VALIDATED to the list of terminal states for the file validation poller.
+- Name: '@azure/eventgrid'
+  Version: 5.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.10.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `internetMessageId` property to `AcsEmailDeliveryReportReceivedEventData`.
+    - Added `recipientMailServerHostName` property to `AcsEmailDeliveryReportStatusDetails`.
+    - For `AcsSmsReceivedEventData`:
+    - Added `segmentCount` property
+
+    #### Bugs Fixed
+
+    - For `AcsSmsReceivedEventData`:
+    - Made `message` & `receivedTimestamp` properties optional.
+- Name: '@azure/eventgrid-system-events'
+  Version: 1.0.0-beta.5
+  DisplayName: Event Grid System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.5/sdk/eventgrid/eventgrid-system-events/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `internetMessageId` property to `AcsEmailDeliveryReportReceivedEventData`.
+    - Added `recipientMailServerHostName` property to `AcsEmailDeliveryReportStatusDetails`.
+    - For `AcsSmsReceivedEventData`:
+    - Added `segmentCount` property
+    - Regenerated SDK with latest commit.
 
