@@ -39,4 +39,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/quota/armquota/v1.1.0-beta.2/sdk/resourcemanager/quota/armquota/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.5.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-01-05`.
+- Name: sdk/storage/azblob
+  Version: 1.6.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-01-05`.
 
