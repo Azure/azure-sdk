@@ -139,4 +139,36 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computeschedule_1.0.0/sdk/computeschedule/azure-mgmt-computeschedule/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.20.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.20.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where custom transports may encounter `AttributeError` on certain requests.
+- Name: azure-storage-blob
+  Version: 12.24.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.24.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where custom transports may encounter `AttributeError` on certain requests.
+    - Fixed an issue where `StorageStreamDownloader(chars=-1)` may not return all data.
+- Name: azure-storage-file-datalake
+  Version: 12.18.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.18.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where custom transports may encounter `AttributeError` on certain requests.
+    - Fixed request handler to handle `None` value for `expires_on` keyword to `set_file_expiry` API.
 
