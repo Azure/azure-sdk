@@ -11,4 +11,66 @@ entries:
 
     - Add NOT_VALIDATED to the list of terminal states for the file validation poller.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.28.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.28.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `internetMessageId` property to `AcsEmailDeliveryReportReceivedEventData`.
+    - Added `recipientMailServerHostName` property to `AcsEmailDeliveryReportStatusDetails`.
+    - Added `segmentCount` property to `AcsSmsReceivedEventData`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.20.3
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.20.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.19.2` to version `5.20.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.20.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.20.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Setting the v2 stack as the default. ([43725](https://github.com/Azure/azure-sdk-for-java/pull/43725))
+
+    #### Bugs Fixed
+
+    - Set partition key in addition to partition id when publishing events with `EventHubsBufferedProducerClient`.
+    ([#43039](https://github.com/Azure/azure-sdk-for-java/pull/43039))
+    - Do not remove `x-opt-sequence-number`, `x-opt-offset`, `x-opt-enqueued-time`, `x-opt-publisher` message annotations
+    when re-sending events received from another Event Hub. Message annotations should not be modified by the SDK and Event Hubs
+    will overwrite these values when the event is published.
+    ([#43039](https://github.com/Azure/azure-sdk-for-java/pull/43039))
+
+    #### Breaking Changes
+
+    - Do not remove `x-opt-partition-key` message annotation when publishing events.
+    If event is received from an Event Hub, it may contain `x-opt-partition-key` message annotation. If this event is
+    published to another Event Hub, previous version of the Event Hubs SDK did not pass this annotation to the next Event Hub.
+    Starting with this version:
+    - if the event is sent with `SendOptions` or `CreateBatchOptions` containing `null` partition key, the existing `x-opt-partition-key`
+    message annotation will be used when publishing the event. **This is a new behavior.**
+    - if the event is sent with `SendOptions` or `CreateBatchOptions` containing non-null partition key, this partition key will be used.
+    This behavior did not change.
+
+    If you relied on the previous behavior, make sure to clear the `x-opt-partition-key` message annotation before re-sending the event.
+    ([#43039](https://github.com/Azure/azure-sdk-for-java/pull/43039))
+  GroupId: com.azure
 
