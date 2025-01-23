@@ -52,4 +52,19 @@ entries:
     - For `AcsSmsReceivedEventData`:
     - Added `segmentCount` property
     - Regenerated SDK with latest commit.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.5
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.5/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add samples and tests for image embeddings.
+    - Add ChatCompletionsResponseFormatJsonSchema class for structured output in completions response.
+    - Add sample for Chat Completions with structured output
+
+    #### Breaking Changes
+    - Change ChatCompletionsResponseFormatJSON class name to ChatCompletionsResponseFormatJsonObject.
 
