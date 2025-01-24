@@ -51,4 +51,36 @@ entries:
     * Fixed the bug preventing addition of a single Azure blob URI to the VectorStore.
     * Fixed deserialization of Run Step when the file search is used [issue](https://github.com/Azure/azure-sdk-for-net/issues/47836).
     * Fixed the issue preventing using streaming with function tools [issue](https://github.com/Azure/azure-sdk-for-net/issues/47797).
+- Name: Azure.ResourceManager.AppConfiguration
+  Version: 1.4.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppConfiguration_1.4.0/sdk/appconfiguration/Azure.ResourceManager.AppConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.0.0
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.0.0/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceRegistry
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceRegistry_1.0.0-beta.2/sdk/deviceregistry/Azure.ResourceManager.DeviceRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotOperations
+  Version: 1.0.0
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotOperations_1.0.0/sdk/iotoperations/Azure.ResourceManager.IotOperations/CHANGELOG.md
+  ChangelogContent: ""
 
