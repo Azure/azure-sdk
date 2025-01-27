@@ -360,4 +360,38 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-search_2.47.0/sdk/resourcemanager/azure-resourcemanager-search/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-json
+  Version: 1.4.0
+  DisplayName: azure-json
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-json_1.4.0/sdk/serialization/azure-json/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added convenience APIs to `JsonArray` for adding a `boolean`, `Number`, or `String` without needing to instantiate the
+    corresponding `JsonElement` subtype.
+    - Added convenience APIs to `JsonObject` for setting `boolean`, `Number`, and `String` without needing to instantiate the
+    corresponding `JsonElement` subtype.
+    - Added `JsonObject.hasProperty` to check if a property exists in the object.
+    - Added convenience fluent methods to `JsonElement` to cast to a specific subtype if the element is of that type.
+  GroupId: com.azure
+- Name: azure-xml
+  Version: 1.2.0
+  DisplayName: azure-xml
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-xml_1.2.0/sdk/serialization/azure-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added APIs to `XmlReader` that may reduce `QName`, and other allocations, depending on the XML implementation.
+    `XmlElementConsumer` and usage with `XmlReader.processNextElement(XmlElementConsumer)` allow for processing an element
+    without using `QName`. `XmlReader.elementNameMathes(String)` and `XmlReader.elementNameMatches(String, String)` allow
+    for checking the current element name without using `QName`. `XmlReader.getElementLocalName()` and
+    `XmlReader.getElementNamespaceUri()` allow for inspecting the current element name and namespace without using
+    `QName`. Depending on the implementation, using these methods may reduce allocations and improve performance.
+  GroupId: com.azure
 
