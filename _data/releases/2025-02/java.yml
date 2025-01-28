@@ -394,4 +394,19 @@ entries:
     `XmlReader.getElementNamespaceUri()` allow for inspecting the current element name and namespace without using
     `QName`. Depending on the implementation, using these methods may reduce allocations and improve performance.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.31
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.31/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Added a new library entry to the BOM:
+    - [azure-ai-documentintelligence](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
 
