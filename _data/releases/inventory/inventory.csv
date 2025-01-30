@@ -932,6 +932,7 @@ Monitor,0,Monitor Ingestion,data,Java,,,11,false,azure-monitor-ingestion,https:/
 Monitor,0,Monitor Query,data,Java,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,12/04/2024
 Cognitive Services,0,OpenAI,data,Java,,,11,false,azure-ai-openai,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,Java,,,11,false,azure-ai-openai-assistants,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai,3,false,1,
+Monitor,0,OpenTelemetry AutoConfigure,data,Java,,,11,false,azure-monitor-opentelemetry-autoconfigure,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,Java,azure-opentelemetry-exporter-azuremonitor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,Java,,,11,false,azure-ai-personalizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/personalizer,3,true,1,
 Purview,0,Purview Account,data,Java,,,11,false,azure-analytics-purview-account,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/purview,3,false,1,
@@ -1225,7 +1226,6 @@ Log Analytics,0,Log Analytics - Query,data,Java,azure-loganalytics,https://githu
 Cognitive Services,0,LUIS Authoring,data,Java,azure-cognitiveservices-luis-authoring,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring,3,true,Replaced by: NA,,4,false,1,
 Cognitive Services,0,LUIS Runtime,data,Java,azure-cognitiveservices-luis-runtime,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime,3,true,Replaced by: NA,,4,false,1,
 Media Services,0,Media Services,data,Java,azure-media,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mediaservices/microsoft-azure-media,3,false,,,1,false,0,
-Monitor,0,OpenTelemetry AutoConfigure,data,Java,azure-monitor-opentelemetry-autoconfigure,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,3,false,,,1,false,0,
 IoT,0,Provisioning Device Client,data,Java,provisioning-device-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 IoT,0,Provisioning Service Client,data,Java,provisioning-service-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Cognitive Services,0,Question Answering,data,Java,azure-cognitiveservices-qnamaker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-qnamaker,3,true,Replaced by: NA,,4,false,1,
@@ -1662,7 +1662,7 @@ HDInsight,0,Resource Management - HDInsight Job,mgmt,JavaScript,azure-arm-hdinsi
 Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,1,
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,12/12/2024
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,01/29/2025
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
@@ -4680,6 +4680,11 @@ purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Java,,,11,fa
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
+Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
+Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
+Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
+Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
+Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
 Quantum,0,Quantum.Workspace,data,.NET,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
 Quantum,0,Quantum.Workspace,data,Java,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
 Quantum,0,Quantum.Workspace,data,JavaScript,,,11,false,Missing: Created from API in specs repo: quantum/Quantum.Workspace,,2,false,0,
