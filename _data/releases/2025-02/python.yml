@@ -216,4 +216,26 @@ entries:
     #### Features Added
 
     * Added support for Chat Completions with audio input. See new sample `sample_chat_completions_with_audio_data.py`.
+- Name: azure-ai-evaluation
+  Version: 1.2.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.2.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `ViolenceMultimodalEvaluator`, `SexualMultimodalEvaluator`, `SelfHarmMultimodalEvaluator`, `HateUnfairnessMultimodalEvaluator` and `ProtectedMaterialMultimodalEvaluator` will be removed in next release.
+
+    #### Features Added
+    - CSV files are now supported as data file inputs with `evaluate()` API. The CSV file should have a header row with column names that match the `data` and `target` fields in the `evaluate()` method and the filename should be passed as the `data` parameter. Column name 'Conversation' in CSV file is not fully supported yet.
+
+    #### Bugs Fixed
+    - Removed `[remote]` extra. This is no longer needed when tracking results in Azure AI Studio.
+    - Fixed `AttributeError: 'NoneType' object has no attribute 'get'` while running simulator with 1000+ results
+    - Fixed the non adversarial simulator to run in task-free mode
+    - Content safety evaluators (violence, self harm, sexual, hate/unfairness) return the maximum result as the
+    main score when aggregating per-turn evaluations from a conversation into an overall
+    evaluation score. Other conversation-capable evaluators still default to a mean for aggregation.
+    - Fixed bug in non adversarial simulator sample where `tasks` undefined
 
