@@ -93,4 +93,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added the ability to list users and roles.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.0-beta.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.0-beta.2/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Media streaming with AudioFormat default Pcm24kMono is removed and changed to null if AudioFormat is not passed.
 
