@@ -404,7 +404,7 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 C++ releases the source code of the package via releases on github. It currently does not ship packages to any package managers.
 
-A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.0.0-beta.1)) on GitHub and documentation as GitHub Pages (e.g. [azure-core_1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-core/1.0.0-beta.1/index.html)).
+A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.0.0-beta.1)) on GitHub and documentation as GitHub Pages (e.g. [azure-core_1.0.0-beta.1](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/1.0.0-beta.1/index.html)).
 
 #### Incrementing after release (C++)
 
@@ -418,7 +418,7 @@ A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https:/
 
 C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `main` branch, code going into the `main` branch must be in a completed state and ready to ship.
 
-An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/az_core/1.0.0-preview.5/index.html)).
+An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.z19.web.core.windows.net/c/az_core/1.0.0-preview.5/index.html)).
 
 #### Incrementing after release (Embedded C)
 

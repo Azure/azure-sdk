@@ -39,7 +39,7 @@ jobs:
         -github_pat '$(azuresdk-github-pat)'
 
   - task: AzureCLI@2
-    displayName: Create Package Work Item
+    displayName: Update release DevOps work-items
     inputs:
       azureSubscription: opensource-api-connection
       scriptType: pscore
