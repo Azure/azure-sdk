@@ -112,4 +112,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.1.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.2
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added three differenct type of Redaction Policy `CharacterMaskPolicyType`, `EntityMaskTypePolicyType` and `NoMaskPolicyType` for the function `AnalyzeConversations`
+    - Added support for analyze-conversation API Versions
+    - 2024-11-01
+    - 2024-11-15-preview
 
