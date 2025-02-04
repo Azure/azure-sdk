@@ -443,4 +443,18 @@ entries:
 
     - Media streaming with AudioFormat default Pcm24kMono is removed and changed to null if AudioFormat is not passed.
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.32
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.32/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    This package has been deprecated and will no longer be maintained. We encourage you to upgrade to the replacement package, `azure-monitor-opentelemetry-autoconfigure`, to continue receiving updates.
+    Refer to our deprecation policy (https://aka.ms/azsdk/support-policies) for more details.
+    Checkout the [Migration Guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/MIGRATION.md) for detailed instructions on how to update your application code from version 1.0.0-beta.x to the `azure-monitor-opentelemetry-autoconfigure` library.
+  GroupId: com.azure
 
