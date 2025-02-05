@@ -486,7 +486,7 @@ Though uncommon, service definitions do not always match the service implementat
 
 {% include requirement/MUST id="rust-model-types-serde-optional" %} attribute fields with `#[serde(skip_serializing_if = "Option::is_none")]` unless an explicit `null` must be serialized.
 
-{% include requirement/MUST id="rust-model-types-non-exhaustive" %} attribute model structs with `#[non_exhaustive]`.
+{% include requirement/MUST id="rust-model-types-non-exhaustive" %} attribute response-only model structs with `#[non_exhaustive]`.
 
 This forces all downstream crates, for example, to use the `..` operator to match any remaining fields that may be added in the future for pattern binding:
 
@@ -498,6 +498,10 @@ This forces all downstream crates, for example, to use the `..` operator to matc
 
 let { foo, bar, .. } = client.method().await?.try_into()?;
 ```
+
+{% include requirement/MUSTNOT id="rust-model-types-not-non-exhaustive" %} attribute request-only or request-response model structs with `#[non_exhaustive]`.
+
+This prevents downstream crates from creating types even when using the `..Default::default()` expression, which means developers cannot construct models as plain data objects.
 
 See [RFC 2008][rust-lang-rfc-2008] for more information.
 
