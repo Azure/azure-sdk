@@ -125,7 +125,18 @@ error[E0252]: the name `Client` is defined multiple times
    |
 ```
 
-{% include requirement/SHOULD id="rust-client-namespace" %} place service client types that the consumer is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault_secrets`.
+{% include requirement/SHOULD id="rust-client-namespace" %} export all service client types that the consumer can create and is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault_secrets`.
+
+{% include requirement/MUST id="rust-client-submodule" %} export all clients and subclients from a `clients` submodule of the crate root e.g., `azure_security_keyvault_secrets::clients`. Clients that can be created directly as described above should be re-exported from the crate root e.g.,
+
+```rust
+// lib.rs
+pub mod clients;
+
+pub use clients::SecretClient;
+```
+
+See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-client-immutable" %} ensure that all service client methods are thread safe (usually by making them immutable and stateless).
 
@@ -160,7 +171,9 @@ Client options should be plain old data structures to allow easy, idiomatic crea
 
 {% include requirement/MUST id="rust-client-configuration-name" %} define a client options struct with the same as the client name + "Options" e.g., a `SecretClient` takes a `SecretClientOptions`.
 
-{% include requirement/SHOULD id="rust-client-configuration-namespace" %} export client option structs from the root module of the client library e.g., `azure_security_keyvault_secrets`.
+{% include requirement/SHOULD id="rust-client-configuration-namespace" %} export client option structs from the same module(s) from which clients and subclients are exported e.g., `azure_security_keyvault_secrets` and `azure_security_keyvault_secrets::clients` for `SecretClient`.
+
+See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-client-configuration-fields" %} define all client-specific fields of client option structs as public and of type `Option<T>` except for `api_version` of type `String`, if applicable.
 
@@ -223,7 +236,9 @@ impl Default for SecretClientOptions {
 {% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same name as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
 This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
 
-{% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} export client method option structs from the root module of the client library e.g., `azure_security_keyvault_secrets`.
+{% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} export client method option structs from the same module(s) from which associated clients and subclients are exported e.g., `azure_security_keyvault_secrets` and `azure_security_keyvault_secrets::clients` for `SecretClient`.
+
+See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-client-methods-configuration-fields" %} define all client method-specific fields of method option structs as public and of type `Option<T>`.
 
@@ -244,7 +259,6 @@ impl SecretClientMethods for SecretClient {
     async fn set_secret(
         &self,
         name: &str,
-        value: String,
         options: Option<SecretClientSetSecretOptions>,
     ) -> azure_core::Result<Response<KeyVaultSecret>> {
         todo!()
@@ -379,41 +393,19 @@ Various extensions also exist that the caller may use that may otherwise not wor
 
 {% include requirement/MUST id="rust-parameters-self" %} take a `&self` as the first parameter. All service clients must be immutable
 
-{% include requirement/MUST id="rust-parameters-into" %} declare parameter types as concrete types e.g., `String` (or any type `T`) when the data will be owned e.g., a field in a request model; or `&str` (or any reference to type `&T`)` when the data only needs to be borrowed e.g., a URL parameter.
-
-This will be most common when the data passed to a function will be stored in a struct e.g.:
-
-```rust
-pub struct SecretClientOptions {
-    api_version: String,
-}
-
-impl SecretClientOptions {
-    pub fn new(api_version: String) -> Self {
-        Self {
-            api_version,
-        }
-    }
-}
-```
-
-This allows callers to pass a `String` or `str` e.g., `SecretClientOptions::new("7.4")`.
-
-{% include requirement/MUST id="rust-parameter-asref" %} declare parameter types as `impl AsRef<T>` where `T` is a common `std` reference type that implements `AsRef<T>` e.g., `str`, when the parameter data is merely borrowed.
-
-This is useful when the parameter data is temporary, such as allowing a `str` endpoint to be passed that will be parsed into an `azure_core::Url` e.g.:
+{% include requirement/MUST id="rust-parameters-into" %} declare parameter types as reference types e.g., `&str` (or any reference to type `&T`)` when the data only needs to be borrowed e.g., a URL parameter.
 
 ```rust
 impl SecretClient {
-    pub fn new(endpoint: impl AsRef<str>) -> Result<Self> {
-        let endpoint = azure_core::Url::parse(endpoint.as_ref())?;
+    pub fn new(endpoint: &str) -> Result<Self> {
+        let endpoint = azure_core::Url::parse(endpoint)?;
 
         todo!()
     }
 }
 ```
 
-The `endpoint` parameter is never saved so a reference is fine. This also allows callers to pass a `String` or `str` e.g., `SecretClient::new("https://myvault.vault.azure.net")`.
+The `endpoint` parameter is never saved so a reference is fine. Except for possible body parameters, any parameter should typically be borrowed since required parameters comprise URL path segments or query parameters.
 
 {% include requirement/MUST id="rust-parameters-request-content" %} declare a parameter named `content` of type `RequestContent<T>`, where `T` is the service-defined request model.
 
@@ -485,7 +477,9 @@ Subclients can only be returned by other clients and cannot be constructed by de
 
 {% include requirement/MUST id="rust-subclients-suffix" %} name all client methods returning a client with the `_client` suffix e.g., `CosmosClient::database_client()`.
 
-{% include requirement/MUSTNOT id="rust-subclients-export" %} export subclients from the crate root.
+{% include requirement/MUSTNOT id="rust-subclients-export" %} export subclients from the crate root. They should be exported from a `clients` submodule of the crate root example `azure_security_keyvault_secrets::clients`.
+
+See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUSTNOT id="rust-subclients-noasync" %} define client methods returning a client as asynchronous.
 
@@ -498,6 +492,10 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 #### Model Types {#rust-model-types}
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_). A model type is a representation of a REST service's resource.
+
+{% include requirement/MUST id="rust-model-types-export" %} export all models used in requests from the crate root.
+
+See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-model-types-derive" %} derive or implement `Clone` and `Default` for all model structs.
 
@@ -807,6 +805,8 @@ Cargo.lock
 Cargo.toml
 ```
 
+You can find a complete example of our directory structure in our [implementation documentation][rust-directories].
+
 #### Common Libraries
 
 {% include requirement/MUST id="rust-common-macros-review" %} review new macros with your language architect(s).
@@ -958,12 +958,10 @@ let client = SecretClient::new(...);
 /// # Arguments
 ///
 /// * `name` - The name of the secret.
-/// * `value` - The value of the secret.
 /// * `options` - Optional properties of the secret.
 async fn set_secret(
     &self,
     name: &str,
-    value: String,
     options: Option<SetSecretMethodOptions>,
 ) -> Result<Response>;
 ```
