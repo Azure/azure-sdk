@@ -271,7 +271,17 @@ to wait synchronously on a `Future`.
 
 {% include requirement/MUST id="rust-client-methods-naming-case" %} use snake_case method names converted from likely either camelCase or PascalCase declared in the service specification e.g., `getResource` would be declared as `get_resource`.
 
-{% include requirement/MUST id="rust-client-methods-naming-list" %} use the `list_` prefix for service methods that return one or more pages containing a list of resources e.g., `list_properties_of_secrets()`.
+{% include requirement/MUST id="rust-client-methods-naming-verbs" %} use the following verb patterns for CRUD operations:
+
+| Pattern       | HTTP Method  | Comments
+| ------------- | ------------ | --------
+| add_{noun}    | POST or PUT  | Add a resource to a collection. Fails if the resource exists.
+| delete_{noun} | DELETE       | Delete a resource. Does not fail if the resource does not exist.
+| get_{noun}    | GET          | Get a resource. Fails if the resource does not exist.
+| list_{noun}   | GET          | {#rust-client-methods-naming-list} Get a collection of resources. May be in zero or may pages of results. Returns an empty list if no resources exist.
+| {noun}_exists | GET or HEAD  | Check if a resource exists.
+| set_{noun}    | POST or PUT  | Adds a new or updates an existing resource.
+| update_{noun} | PATCH or PUT | Updates existing resources. Fails if resource does not exist.
 
 {% include requirement/MUST id="rust-client-methods-naming-conversion-prefix" %} use the following prefixes in the described scenarios:
 
