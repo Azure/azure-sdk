@@ -443,7 +443,37 @@ function CheckAll($langs)
   }
 }
 
-if ($language -eq 'check') {
+function DumpAllShippedPackage()
+{
+  $packageList = @()
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    $langName = Get-LanguageName $lang
+
+    $packageVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddYears(-10))
+    Write-Host "Found $($packageVersions.Values.Count) packages for language $langName"
+
+    foreach ($pkg in $packageVersions.Values)
+    {
+      foreach ($pkgVersion in $pkg.Versions) 
+      {
+        $packageList += [PSCustomObject][ordered]@{
+          Language = $langName
+          Package = $pkg.Package
+          Version = $pkgVersion.RawVersion
+          Date = $pkgVersion.Date
+        }
+      }
+    }
+  }
+
+  Set-Content -Path "shipped-packages.csv" -Value ($packageList | ConvertTo-Csv -NoTypeInformation)
+}
+
+if ($language -eq "allShipped") {
+  DumpAllShippedPackage
+}
+elseif ($language -eq 'check') {
   CheckAll $languageNameMapping.Keys
 }
 elseif ($language -eq 'all') {
