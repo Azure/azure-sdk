@@ -142,6 +142,7 @@ Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
+Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Storage,0,WCF Storage Queues,data,.NET,,,11,false,Microsoft.WCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
@@ -817,7 +818,7 @@ Service Fabric,0,Resource Management - Service Fabric,mgmt,Go,,,11,false,sdk/res
 Service Fabric Managed Clusters,0,Resource Management - Service Fabric Managed Clusters,mgmt,Go,,,11,false,sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters,3,false,1,
 Service Fabric,0,Resource Management - Service Fabric Mesh,mgmt,Go,,,11,false,sdk/resourcemanager/servicefabricmesh/armservicefabricmesh,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/servicefabricmesh/armservicefabricmesh,3,false,1,
 Service Linker,0,Resource Management - Service Linker,mgmt,Go,,,11,false,sdk/resourcemanager/servicelinker/armservicelinker,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/servicelinker/armservicelinker,10,false,1,11/24/2023
-Servicenetworking,0,Resource Management - Servicenetworking,mgmt,Go,,,11,false,sdk/resourcemanager/servicenetworking/armservicenetworking,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/servicenetworking/armservicenetworking,10,false,1,11/24/2023
+Servicenetworking,0,Resource Management - Servicenetworking,mgmt,Go,,,11,false,sdk/resourcemanager/servicenetworking/armservicenetworking,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/servicenetworking/armservicenetworking,10,false,1,02/05/2025
 Signalr,0,Resource Management - Signalr,mgmt,Go,,,11,false,sdk/resourcemanager/signalr/armsignalr,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/signalr/armsignalr,10,false,1,11/27/2023
 Sphere,0,Resource Management - Sphere,mgmt,Go,,,11,false,sdk/resourcemanager/sphere/armsphere,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/sphere/armsphere,10,false,1,03/26/2024
 SQL,0,Resource Management - SQL,mgmt,Go,,,11,false,sdk/resourcemanager/sql/armsql,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/sql/armsql,10,false,1,11/28/2023
@@ -1368,7 +1369,9 @@ Synapse,0,Synapse - Monitoring,data,JavaScript,,,11,false,@azure/synapse-monitor
 Tables,0,Tables,data,JavaScript,,,11,false,@azure/data-tables,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/tables,10,false,1,11/18/2024
 Cognitive Services,0,Text Analytics,data,JavaScript,@azure/cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-text-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics,10,false,1,07/07/2021
 Cognitive Services,0,Text Translation,data,JavaScript,,,11,false,@azure-rest/ai-translation-text,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/translation/ai-translation-text-rest/,10,false,1,06/03/2024
+Timezone Maps,0,Timezone,data,JavaScript,,,11,false,@azure-rest/maps-timezone,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/maps/maps-timezone-rest/,3,false,1,
 Identity,0,Token Cache Persistence Plugin,data,JavaScript,,,11,false,@azure/identity-cache-persistence,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,06/10/2024
+unknown,0,unknown,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,JavaScript,,,11,false,@azure/video-analyzer-edge,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/videoanalyzer,3,true,1,
 Identity,0,VS Code Authentication Plugin,data,JavaScript,,,11,false,@azure/identity-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,10/15/2021
 Web PubSub,0,Web PubSub,data,JavaScript,azure-web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,08/12/2024
@@ -1607,7 +1610,7 @@ App Configuration,0,App Configuration Provider,UNABLE TO BE DETERMINED,JavaScrip
 App Configuration,0,App Configuration Provider File Source,UNABLE TO BE DETERMINED,JavaScript,@azure/app-configuration-importer-file-source,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Graph RBAC,0,Graph RBAC,UNABLE TO BE DETERMINED,JavaScript,azure-graph,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,Replaced by: @microsoft/microsoft-graph-client,,4,false,1,
 Unable to determine Service Name,0,tmlanguage-generator,UNABLE TO BE DETERMINED,JavaScript,tmlanguage-generator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,JavaScript,@azure-rest/maps-timezone,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,JavaScript,@azure-tools/spec-gen-sdk,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Web PubSub,0,Web PubSub Tunnel Tool,UNABLE TO BE DETERMINED,JavaScript,@azure/web-pubsub-tunnel-tool,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,false,,,1,false,0,
 Cognitive Services,0,microsoft-speech-browser-sdk,data,JavaScript,microsoft-speech-browser-sdk,UNABLE TO DETERMINE REPO LINK,1,false,Replaced by: microsoft-cognitiveservices-speech-sdk,,4,false,1,
 Key Vault,0,@azure/keyvault,data,JavaScript,@azure/keyvault,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/keyvault-keys,,4,false,1,
@@ -1944,7 +1947,7 @@ Service Bus,0,Resource Management - Service Bus,mgmt,Python,,,11,false,azure-mgm
 Service Fabric,0,Resource Management - Service Fabric,mgmt,Python,,,11,false,azure-mgmt-servicefabric,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicefabric,10,false,1,12/18/2023
 Service Fabric,0,Resource Management - Service Fabric Managed Clusters,mgmt,Python,,,11,false,azure-mgmt-servicefabricmanagedclusters,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicefabricmanagedclusters,10,false,1,07/25/2024
 Service Linker,0,Resource Management - Service Linker,mgmt,Python,,,11,false,azure-mgmt-servicelinker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicelinker,10,false,1,05/17/2022
-Service Networking,0,Resource Management - Service Networking,mgmt,Python,,,11,false,azure-mgmt-servicenetworking,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicenetworking,10,false,1,11/21/2023
+Service Networking,0,Resource Management - Service Networking,mgmt,Python,,,11,false,azure-mgmt-servicenetworking,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicenetworking,10,false,1,02/05/2025
 SignalR,0,Resource Management - SignalR,mgmt,Python,,,11,false,azure-mgmt-signalr,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/signalr,10,false,1,03/20/2023
 Sphere,0,Resource Management - Sphere,mgmt,Python,,,11,false,azure-mgmt-sphere,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/sphere,10,false,1,03/26/2024
 SQL,0,Resource Management - SQL,mgmt,Python,,,11,false,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/sql,10,false,1,07/15/2021
