@@ -146,4 +146,39 @@ entries:
     #### Features Added
 
     - Beta support for StreamingChatMessageStartEvent and StreamingChatMessageChunkReceivedEvent events
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.19.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.19.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `agent` and `tlsSettings` to `PipelineRequestOptions` [PR #32590](https://github.com/Azure/azure-sdk-for-js/pull/32590)
+    - Add `agent` option to `PipelineOptions` [PR #32809](https://github.com/Azure/azure-sdk-for-js/pull/32809)
+- Name: '@azure/core-amqp'
+  Version: 4.3.5
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.5/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Throws `AggregateError` when collecting multiple errors across retries.
+- Name: '@azure-rest/core-client'
+  Version: 2.3.3
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.3/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle error responses with no body without causing a `TypeError`. PR [#32566](https://github.com/Azure/azure-sdk-for-js/pull/32566)
+    - Content-Type header now defaults to `application/json` instead of `application/json; charset=UTF-8` to conform to the HTTP standard. PR [#32672](https://github.com/Azure/azure-sdk-for-js/pull/32672)
 
