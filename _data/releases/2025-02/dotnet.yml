@@ -160,4 +160,14 @@ entries:
     #### Other Changes
 
     - Use `BinaryData.Empty` for `PipelineResponse.Content` when HTTP message has no content ([#46669](https://github.com/Azure/azure-sdk-for-net/pull/46669)).
+- Name: Microsoft.Extensions.Azure
+  Version: 1.10.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.10.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
 
