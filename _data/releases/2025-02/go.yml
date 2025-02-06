@@ -98,4 +98,42 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicenetworking/armservicenetworking/v1.1.0/sdk/resourcemanager/servicenetworking/armservicenetworking/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.7.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.7.2/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updating to support Azure OpenAI API version `2025-01-01-preview`.
+    - Updated `ChatCompletionsOptions` and `ChatCompletionsStreamOptions`:
+    - Added `Audio` parameter.
+    - Added `Metadata` parameter.
+    - Added `Modalities` parameter.
+    - Added `Prediction` parameter.
+    - Added `ReasoningEffort` parameter.
+    - Added `Store` parameter.
+    - Added `UserSecurityContext` parameter.
+    - Added `Audio` field to `ChatResponseMessage`
+    - Added `AudioOutputParameters` type.
+    - Added `AudioResponseData` type.
+    - Updated `CompletionsUsageCompletionTokensDetails`:
+    - Added `AcceptedPredictionTokens` field.
+    - Added `AudioTokens` field.
+    - Added `RejectedPredictionTokens` field.
+    - Updated `CompletionsUsagePromptTokensDetails`:
+    - Added `AudioTokens` field.
+    - Added `InputAudioContent` type.
+    - Added `ChatRequestDeveloperMessage` type.
+    - Added `PredictionContent` type.
+    - Added `UserSecurityContext` type.
+    - Added `ChatMessageAudioContentItem` type.
+    - Added `ChatCompletionModality` enum.
+    - Added `ChatRoleDeveloper` to the `ChatRole` enum.
+    - Added `InputAudioFormat` enum.
+    - Added `OutputAudioFormat` enum.
+    - Added `ReasoningEffortValue` enum.
 
