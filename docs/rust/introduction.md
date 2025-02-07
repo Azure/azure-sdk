@@ -333,6 +333,34 @@ impl<T> Response<T> {
 
 This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response<T>>>` from an `fn`.
 
+{% include requirement/MUST id="rust-client-methods-return-headers-methods" %} must export extension method traits for defined headers from the `models` module on `Response<T>` where `T` is a model type.
+If the model type is the unit type `()` there will be some over-exposure but this should be limited.
+
+{% include requirement/MUST id="rust-client-methods-return-headers-methods-name" %} name the trait similar to options: client name + method name + "Ext" e.g., `SecretClientSetSecretExt`.
+
+{% include requirement/MUST id="rust-client-methods-return-headers-methods-return" %} return an `azure_core::Result<Option<T>>` where `T` is an appropriate type for the header e.g., `usize` for `content-length`, `azure_core::Etag` for etags, etc.
+The implementation can simply call methods like `Headers::get_optional_as()` or `Headers::get_optional_string()` as appropriate.
+
+{% include requirement/MUST id="rust-client-methods-return-headers-methods-sealed" %} seal the trait to prevent it from being implemented by other types as shown in the example below.
+Implementations should use a single definition of `private::Sealed` for all such traits that require it.
+
+```rust
+pub trait SecretClientSetSecretExt: private::Sealed {
+    fn content_type_header(&self) -> azure_core::Result<Option<String>>;
+}
+
+impl SecretClientSetSecretExt for Response<SecretBundle> {
+    fn content_type_header(&self) -> azure_core::Result<Option<String>> {
+        Ok(self.headers().get_optional_string(&headers::CONTENT_TYPE))
+    }
+}
+
+mod private {
+    pub trait Sealed {}
+    impl Sealed for Response<SecretBundle> {}
+}
+```
+
 ##### Cancellation {#rust-client-methods-cancellation}
 
 Cancelling an asynchronous method call in Rust is done by dropping the `Future`.
