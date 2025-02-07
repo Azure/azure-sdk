@@ -1024,6 +1024,25 @@ To facilitate this, preface your example name with the client name - converting 
 
 See Cargo's [project layout][rust-lang-project-layout] for more information about conventional directories.
 
+{% include requirement/SHOULD id="rust-repo-samples-question-operator" %} use the `?` operator to handle errors or optional values as much as possible.
+This does mean that your sample method - including main - should return a `Result<T, E>`. This can be specific like `azure_core::Result<T>` if suitable,
+or generic like `std::result::Result<(), Box<dyn std::error::Error>>` (`std::result::Result` is imported by default) e.g.,
+
+````markdown
+```rust
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::SecretClient;
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let credential = DefaultAzureCredential::new()?;
+    let client = SecretClient::new("https://my-vault.vault.azure.net", credential.clone(), None)?;
+    // ...
+
+    Ok(())
+}
+```
+````
+
 <!-- Links -->
 
 {% include refs.md %}
