@@ -334,7 +334,14 @@ impl<T> Response<T> {
 This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response<T>>>` from an `fn`.
 
 {% include requirement/MUST id="rust-client-methods-return-headers-methods" %} must export extension method traits for defined headers from the `models` module on `Response<T>` where `T` is a model type.
-If the model type is the unit type `()` there will be some over-exposure but this should be limited.
+If the method does not return a model and would other return the unit type `Response<()>`, you should instead return an empty struct using the same naming convention has options: client name + method name + "Result" e.g.,
+
+```rust
+#[derive(SafeDebug)]
+pub struct SecretClientSetSecretResult;
+```
+
+This should be treated as a model, so derive the same traits and export from `models` as you would any other model.
 
 {% include requirement/MUST id="rust-client-methods-return-headers-methods-name" %} name the trait similar to options: client name + method name + "Ext" e.g., `SecretClientSetSecretExt`.
 
