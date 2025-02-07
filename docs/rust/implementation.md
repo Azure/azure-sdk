@@ -131,15 +131,18 @@ mod tests {
 
 ## Directory Layout {#rust-directories}
 
-In addition to Cargo's [project layout][rust-lang-project-layout], service clients' source files should be layed out in the following manner:
+In addition to Cargo's [project layout][rust-lang-project-layout], service clients' source files should be laid out in the following manner:
 
 ```text
 Azure/azure-sdk-for-rust/
+├─ .vscode/cspell.json
 ├─ doc/ # general documentation
 ├─ eng/ # engineering system pipeline, scripts, etc.
 └─ sdk/
    └─ {service directory}/ # example: keyvault
+      ├─ .dict.txt
       └─ {service client crate}/ # example: azure_security_keyvault_secrets
+         ├─ assets.json # best location for most crates, or in {service directory} for all crates
          ├─ examples/
          │  ├─ {optional shared code}/
          │  ├─ example1.rs
@@ -160,6 +163,38 @@ Azure/azure-sdk-for-rust/
          │  └─ integration_test2.rs
          └─ Cargo.toml
 ```
+
+## Miscellaneous {#rust-miscellaneous}
+
+### Spelling {#rust-miscellaneous-spelling}
+
+{% include requirement/SHOULD id="rust-miscellaneous-spelling-general" %} put general words used across different services and client libraries in the `.vscode/cspell.json` file.
+
+{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.dict.txt` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
+If you're creating this file, add an entry to `.vscode/cspell.json` as shown below:
+
+```json
+{
+  "dictionaryDefinitions": [
+    {
+      "name": "service-name",
+      "path": "../sdk/service-directory/.dict.txt",
+      "noSuggest": true
+    }
+  ],
+  "overrides": [
+    {
+      "filename": "sdk/service-directory/**",
+      "dictionaries": [
+        "crates",
+        "rust-custom",
+        "service-name"
+      ]
+    }
+  ]
+}
+```
+
 
 <!-- Links -->
 
