@@ -480,7 +480,10 @@ struct Example {
 
 {% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
 
-{% include requirement/MUST id="rust-model-types-optional" %} define all fields using `Option<T>`.
+{% include requirement/MUST id="rust-model-types-optional" %} define all non-vector fields using `Option<T>`.
+
+{% include requirement/MUST id="rust-model-types-vectors" %} define all vector fields as `Vec<T>`.
+These must deserialize as empty (non-allocating) if the vector they are deserializing is missing or empty, and should serialize as empty except in JSON merge+patch payloads.
 
 Though uncommon, service definitions do not always match the service implementation when it comes to required fields. Upon the recommendation of the Breaking Change Reviewers, the specification is often changed to reflect the service if the service has already been deployed.
 
