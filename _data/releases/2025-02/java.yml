@@ -670,4 +670,28 @@ entries:
 
     - Upgraded `azure-core` from `1.54.1` to `1.55.0`.
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.10
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.10/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded `msal4j` from `1.17.2` to `1.19.0`
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.15.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.15.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue preventing scopes with underscores from working properly. [#44040](https://github.com/Azure/azure-sdk-for-java/pull/44040)
+  GroupId: com.azure
 
