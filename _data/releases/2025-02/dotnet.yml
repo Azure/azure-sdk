@@ -241,4 +241,223 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.3.0-beta.2/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of Number Insight.
+    - API version `(2025-02-11)` is the default
+
+    #### Bugs Fixed
+    - OperatorDetails.Name is now optional in OperatorInformation Response.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.22.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The following APIs no longer send the x-ms-file-permission-key, x-ms-file-attributes, x-ms-file-creation-time, and x-ms-file-last-write-time request headers by default.  These headers have been optional in the REST API since x-ms-version 2021-06-08:
+    - ShareFileClient.Create() and .CreateAsync()
+    - ShareFileClient.SetHttpHeaders() and .SetHttpHeadersAsync()
+    - ShareDirectoryClient.Create() and .CreateAsync()
+    - ShareDirectoryClient.SetHttpHeaders() and .SetHttpHeadersAsync()
+
+    #### Features Added
+    - Added support for service version 2025-05-05.
+    - Added support for NFS over REST.
+
+    #### Bugs Fixed
+    - Fixed \[BUG\] Unable to create directory with only whiteSpaceChars #42891
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.0.0
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.0.0/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `BlobStorageResourceContainerOptions.BlobType` type from `DataTransferProperty<BlobType>` to `BlobType`
+    - Changed `BlobStorageResourceOptions.Metadata` type from `DataTransferProperty<IDictionary<string, string>>` to `IDictionary<string, string>`
+    - Changed the following types from `DataTranferProperty<string>` to `string`
+    - `BlobStorageResourceOptions.ContentType`
+    - `BlobStorageResourceOptions.ContentLanguage`
+    - `BlobStorageResourceOptions.ContentEncoding`
+    - `BlobStorageResourceOptions.ContentDisposition`
+    - `BlobStorageResourceOptions.CacheControl`
+    - Renamed `BlobStorageResourceContainerOptions.BlobDirectoryPrefix` to `BlobPrefix`
+    - Changed `BlobContainerClient.StartUploadDirectoryAsync` to `BlobContainerClient.UploadDirectoryAsync` and added a required `waitUntil` parameter.
+    - Changed `BlobContainerClient.StartDownloadToDirectoryAsync` to `BlobContainerClient.DownloadToDirectoryAsync` and added a required `waitUntil` parameter.
+    - Several refactors to `BlobsStorageResourceProvider`:
+    - Removed nested delegates `GetStorageSharedKeyCredential`, `GetTokenCredential`, and `GetAzureSasCredential`.
+    - Removed default constructor.
+    - Removed constructor overload for `GetTokenCredential` entirely.
+    - Changed constructor overloads for `GetStorageSharedKeyCredential` and `GetAzureSasCredential` to use `Func`. These callbacks are also now async, returning a `ValueTask`, and the `readOnly` parameter was removed.
+    - Changed `FromBlob` and `FromContainer` to async, returning a `ValueTask`, and renamed to `FromBlobAsync` and `FromContainerAsync` respectively.
+    - Changed `FromClient` methods to `static` methods.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.22.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.24.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.53
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.53/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.0.0
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.0.0/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `ShareFileStorangeResourceOptions.FilePermissions` from `DataTransferProperty` to `bool?`
+    - Changed the following types from `DataTranferProperty<string>` to `string`
+    - `ShareFileStorageResourceOptions.ContentType`
+    - `ShareFileStorageResourceOptions.ContentDisposition`
+    - `ShareFileStorageResourceOptions.CacheControl`
+    - Changed the following types from `DataTransferProperty<string[]>` to `string[]`
+    - `ShareFileStorageResourceOptions.ContentEncoding`
+    - `ShareFileStorageResourceOptions.ContentLanguage`
+    - Changed the following types from `DataTransferProperty<IDictionary<string, string>>` to `IDictionary<string, string>`
+    - `ShareFileStorageResourceOptions.FileMetadata`
+    - `ShareFileStorageResourceOptions.DirectoryMetadata`
+    - Changed the following types from `DataTransferProperty<DateTimeOffset?>` to `DateTimeOffset?`
+    -  `ShareFileStorageResourceOptions.FileCreatedOn`
+    - `ShareFileStorageResourceOptions.FileLastWrittenOn`
+    - `ShareFileStorageResourceOptions.FileChangedOn`
+    - Changed `ShareDirectoryClient.StartUploadDirectoryAsync` to `ShareDirectoryClient.UploadDirectoryAsync` and added a required `waitUntil` parameter.
+    - Changed `ShareDirectoryClient.StartDownloadToDirectoryAsync` to `ShareDirectoryClient.DownloadToDirectoryAsync` and added a required `waitUntil` parameter.
+    - Several refactors to `ShareFilesStorageResourceProvider`:
+    - Removed nested delegates `GetStorageSharedKeyCredential`, `GetTokenCredential`, and `GetAzureSasCredential`.
+    - Removed default constructor.
+    - Removed constructor overload for `GetTokenCredential` entirely.
+    - Changed constructor overloads for `GetStorageSharedKeyCredential` and `GetAzureSasCredential` to use `Func`. These callbacks are also now async, returning a `ValueTask`, and the `readOnly` parameter was removed.
+    - Changed `FromFile` and `FromDirectory` to async, returning a `ValueTask`, and renamed to `FromFileAsync` and `FromDirectoryAsync` respectively.
+    - Changed `FromClient` methods to `static` methods.
+
+    #### Bugs Fixed
+    - Fixed File Attributes with ReadOnly does not transfer / copy correctly bug #2167
+- Name: Azure.Identity
+  Version: 1.14.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a `Subscription` property to `AzureCliCredentialOptions` to allow specifying the Azure subscription ID or name to use when authenticating with the Azure CLI.
+
+    #### Bugs Fixed
+    - Null or empty responses from IMDS probe attempts will now fall through to the next credential in the chain ([#47844](https://github.com/Azure/azure-sdk-for-net/issues/47844))
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `DataTransferProperty` and `DataTransferProperty<T>`
+    - Renamed the following types/properties:
+    - `DataTransfer` -> `TransferOperation`
+    - Addtionally renamed the `TransferStatus` property to `Status`
+    - `DataTransferEventArgs` -> `TransferEventArgs`
+    - `DataTransferOptions` -> `TransferOptions`
+    - `DataTransferOrder` -> `TransferOrder`
+    - `DataTransferProgress` -> `TransferProgress`
+    - `DataTransferProperties` -> `TransferProperties`
+    - `DataTransferState` -> `TransferState`
+    - `DataTransferStatus` -> `TransferStatus`
+    - `DataTransferErrorMode` -> `TransferErrorMode`
+    - `ProgressHandlerOptions` -> `TransferProgressHandlerOptions`
+    - Also removed the constructor since properties are settable.
+    - `StorageResourceCheckpointData` -> `StorageResourceCheckpointDetails`
+    - `StorageResource.GetDestinationCheckpointData` -> `StorageResource.GetDestinationCheckpointDetails`
+    - `StorageResource.GetSourceCheckpointData` -> `StorageResource.GetSourceCheckpointDetails`
+    - `TransferProperties.DestinationCheckpointData` -> `TransferProperties.DestinationCheckpointDetails`
+    - `TransferProperties.SourceCheckpointData` -> `TransferProperties.SourceCheckpointDetails`
+    - `StorageResourceCreationPreference` -> `StorageResourceCreateMode`
+    - `TransferManager.PauseTransferIfRunningAsync` -> `TransferManager.PauseTransferAsync`
+    - `TransferManagerOptions.ErrorHandling` -> `TransferManagerOptions.ErrorMode`
+    - `TransferManagerOptions.CheckpointerOptions` -> `TransferManagerOptions.CheckpointStoreOptions`
+    - `TransferItemCompletedEventArgs.SourceResource` -> `TransferItemCompletedEventArgs.Source` and `TransferItemCompletedEventArgs.DestinationResource` -> `TransferItemCompletedEventArgs.Destination`
+    - `TransferItemFailedEventArgs.SourceResource` -> `TransferItemFailedEventArgs.Source` and `TransferItemFailedEventArgs.DestinationResource` -> `TransferItemFailedEventArgs.Destination`
+    - `TransferItemSkippedEventArgs.SourceResource` -> `TransferItemSkippedEventArgs.Source` and `TransferItemSkippedEventArgs.DestinationResource` -> `TransferItemSkippedEventArgs.Destination`
+    - `TransferCheckpointStoreOptions.Local` -> `TransferCheckpointStoreOptions.CreateLocalStore`
+    - `TransferCheckpointStoreOptions.Disabled` -> `TransferCheckpointStoreOptions.DisableCheckpoint`
+    - Renamed `TransferOptions.CreationPreference` to `TransferOptions.CreateMode`
+    - Removed properties from `StorageResourceItemProperties` constructor since properties are settable.
+    - Changed type of `StorageResourceItemProperties.RawProperties` to `IDictionary`.
+    - Changed `List<StorageResourceProvider> TransferManagerOptions.ResumeProviders` to `IList<StorageResourceProvider> TransferManagerOptions.ProvidersForResuming`
+    - Changed the following `LocalFilesStorageResourceProvider` methods to `static` methods:
+    - `FromFile(string)`
+    - `FromDirectory(string)`
+
+    #### Bugs Fixed
+    - Fixed bug where adding multiple transfers in parallel could cause a collision (`InvalidOperationException`) in the data transfers stored within the `TransferManager`.
+- Name: Azure.Storage.Common
+  Version: 12.23.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.23.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Queues
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.22.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.21.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.21.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
 
