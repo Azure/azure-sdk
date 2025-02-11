@@ -315,4 +315,32 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for service version 2025-05-05.
+- Name: azure-storage-file-datalake
+  Version: 12.19.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.19.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: azure-storage-file-share
+  Version: 12.21.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.21.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+    - Added support for NFS shares to existing APIs. This includes adding `owner`, `group`, and `file_mode` options to
+    `create_file`, `create_directory`, `set_http_headers` (File and Directory), `DirectoryProperties`, and `FileProperties`.
+    - Added new `create_hard_link` method to `ShareFileClient` to create hard links to specified
+    files and is only supported for the `NFS` protocol.
+    - `create_file`, `create_directory`, and `set_http_headers` (File and Directory) APIs no longer send
+    request headers `x-ms-file-permission-key`, `x-ms-file-attributes`, `x-ms-file-creation-time`, and
+    `x-ms-file-last-write-time` by default. The request headers have been optional in the REST API since
+    service version 2021-06-08. The default behavior of these APIs remain the same.
 
