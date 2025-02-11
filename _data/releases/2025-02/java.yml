@@ -1371,4 +1371,30 @@ entries:
     #### Features Added
     - Added support for service version 2025-05-05.
   GroupId: com.azure
+- Name: azure-communication-messages
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-messages_1.2.0-beta.1/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Interactive Message.
+    - Added Reaction Message.
+    - Added Sticker Message.
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.2.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.2.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Release of Number Insight GA.
+    - API version `2025-02-11` is the default.
+  GroupId: com.azure
 
