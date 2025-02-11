@@ -481,4 +481,62 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - This release contains bug fixes to improve quality.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.0-beta.2/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Querying runtime data and other management operations will now correctly guards against the race condition where an AMQP link is in the process of closing as the operation attempts to use it.  These errors will now properly be classified as retriable as they are for producer and consumer operations.
+
+    - Fixed an obscure edge case in the `EventHubBufferedProducer` client where an obscure race condition when flushing/enqueuing events concurrently with disposing the producer could cause a semaphore to be released inappropriately.  This error superseded the `TaskCanceledException` that should have been surfaced.
+
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - [EventData.Offset](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.offset?view=azure-dotnet#azure-messaging-eventhubs-eventdata-offset)
+    - [LastEnqueuedEventProperties.Offset](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.consumer.lastenqueuedeventproperties.offset?view=azure-dotnet)
+    - [PartitionProperties.LastEnqueuedOffset](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.partitionproperties.lastenqueuedoffset?view=azure-dotnet)
+
+    Obsoleted method overloads:
+    - [EventPosition.FromOffset](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.consumer.eventposition.fromoffset?view=azure-dotnet)
+    - [EventHubsModelFactory.EventData](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventhubsmodelfactory.eventdata?view=azure-dotnet)
+    - [BlobCheckpointStore.UpdateCheckpointAsync](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.primitives.blobcheckpointstore.updatecheckpointasync?view=azure-dotnet)
+    - [EventProcessorClient.UpdateCheckpointAsync](https://learn.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.updatecheckpointasync?view=azure-dotnet)
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.18.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.18.4/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with the `AmqpReceiver` class where a drain failure during a `ReceiveMessagesAsync` operation would cause message ordering to be violated. ([#47822](https://github.com/Azure/azure-sdk-for-net/issues/47822))
+
+    - Fixed an issue where an error response from the Service Bus administration service without a body was incorrectly parsed, resulting in a null argument exception obscuring the actual failure response. ([#47517](https://github.com/Azure/azure-sdk-for-net/issues/47517))
+- Name: Azure.Communication.Messages
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.2.0-beta.1/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Interactive Message.
+    - Added Reaction Message.
+    - Added Sticker Message.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
 
