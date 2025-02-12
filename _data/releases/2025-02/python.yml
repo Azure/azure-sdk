@@ -373,4 +373,19 @@ entries:
     - WhatsApp Url Interactive Message
     - Send Reactions messages
     - Send Stickers messages
+- Name: azure-identity
+  Version: 1.20.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.20.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `subscription` parameter to `AzureCliCredential` to specify the subscription to use when authenticating with the Azure CLI. ([#37994](https://github.com/Azure/azure-sdk-for-python/pull/37994))
+
+    #### Bugs Fixed
+
+    - A bug in the error handling for AzureCliCredentials and AzureDeveloperCliCredential which would result in the unexpected error `'NoneType' object has no attribute 'startswith'` has been fixed ([#39176](https://github.com/Azure/azure-sdk-for-python/pull/39176))
 
