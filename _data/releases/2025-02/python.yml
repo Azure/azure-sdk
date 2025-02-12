@@ -388,4 +388,14 @@ entries:
     #### Bugs Fixed
 
     - A bug in the error handling for AzureCliCredentials and AzureDeveloperCliCredential which would result in the unexpected error `'NoneType' object has no attribute 'startswith'` has been fixed ([#39176](https://github.com/Azure/azure-sdk-for-python/pull/39176))
+- Name: azure-ai-ml
+  Version: 1.25.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.25.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - #39187 - Submitting a Command job created using the __call__ method on another Command is missing outputs
 
