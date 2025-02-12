@@ -584,4 +584,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed an obscure edge case in the `EventHubBufferedProducer` client where an obscure race condition when flushing/enqueuing events concurrently with disposing the producer could cause a semaphore to be released inappropriately.  This error superseded the `TaskCanceledException` that should have been surfaced.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.6
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.6/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Messaging.EventHubs` dependency to 5.11.6, which includes bumps to several transitive dependencies.
 
