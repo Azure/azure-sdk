@@ -224,4 +224,14 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added limited support for cross-partition queries that can be served by the gateway. See [PR 23926](https://github.com/Azure/azure-sdk-for-go/pull/23926) and <https://learn.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api#queries-that-cannot-be-served-by-gateway> for more details.
+- Name: sdk/azidentity
+  Version: 1.8.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.2/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
 
