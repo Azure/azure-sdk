@@ -307,4 +307,30 @@ entries:
     - Added Interactive Message.
     - Added Reaction Message.
     - Added Sticker Message.
+- Name: '@azure/event-hubs'
+  Version: 6.0.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0-beta.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `offset` type is updated from `number` to `string`.
+
+    #### Features Added
+
+    - Support Geographic replication to enable recovery in case of geographic disasters.
+- Name: '@azure/eventhubs-checkpointstore-blob'
+  Version: 2.0.0-beta.1
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0-beta.1/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The `offset` property of a checkpoint is no longer re-interpreted as a number.
 
