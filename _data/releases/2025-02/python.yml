@@ -398,4 +398,81 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - #39187 - Submitting a Command job created using the __call__ method on another Command is missing outputs
+- Name: azure-eventhub-checkpointstoreblob
+  Version: 1.2.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob_1.2.0/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug with `BlobCheckpointStore.claim_ownership` mutating the `ownership_list` argument to no longer mutate the argument.
+    - Updated `azure-core` dependency to 1.20.1 to fix `cchardet` ImportError.
+- Name: azure-eventhub-checkpointstoreblob-aio
+  Version: 1.2.0
+  DisplayName: Azure Blob Storage Checkpoint Store AIO
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob-aio_1.2.0/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug with `BlobCheckpointStore.claim_ownership` mutating the `ownership_list` argument to no longer mutate the argument.
+    - Updated `azure-core` dependecy to 1.20.1 to fix `cchardet` ImportError.
+- Name: azure-servicebus
+  Version: 7.14.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.14.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added in emulator support, ServiceBusAdministrationClient is currently not supported by the emulator. ([#38655](https://github.com/Azure/azure-sdk-for-python/pull/38655))
+    - Add support for Decimal128 in pyAMQP ([#39511]https://github.com/Azure/azure-sdk-for-python/pull/39511)
+
+    #### Bugs Fixed
+
+    - Fixed a bug where async websocket disconnects were not being retried properly. ([#36280](https://github.com/Azure/azure-sdk-for-python/issues/36280))
+    - Fixed a bug where sending large messages with synchronous client caused a frame buffer offset error ([#37916](https://github.com/Azure/azure-sdk-for-python/issues/37916))
+    - Fix to handle websocket disconnect/close on aiohttp, as aiohttp raises a `TypeError` while asserting bytes. ([#32061](https://github.com/Azure/azure-sdk-for-python/pull/32061))
+    - Fixed a bug where pyAMQP was doubly retrying, causing latency on reconnect. ([#39037](https://github.com/Azure/azure-sdk-for-python/pull/39037))
+    - Fix to handle large messages being sent twice due to incoming flow frames triggering a resend. ([#38067](https://github.com/Azure/azure-sdk-for-python/pull/38067))
+    - Missing await in sender async on pyAMQP. ([#39182](https://github.com/Azure/azure-sdk-for-python/pull/39182))
+    - Improved AutoLockRenewer to renew locks for more registered messages. ([#37340](https://github.com/Azure/azure-sdk-for-python/issues/37340))
+    - Fixed a bug where message IDs in management operation requests were not unique.
+- Name: azure-eventhub
+  Version: 5.15.0b1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.15.0b1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for geo-replication and disaster recovery-enabled Event Hubs. To learn more about geo-replication, refer to this [doc](https://learn.microsoft.com/azure/event-hubs/geo-replication). To enable geo-replication on your Dedicated Event Hubs namespace, refer to [this guide](https://learn.microsoft.com/azure/event-hubs/use-geo-replication).
+- Name: azure-eventhub
+  Version: 5.14.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.14.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Decimal128 in pyAMQP ([#39511]https://github.com/Azure/azure-sdk-for-python/pull/39511)
+
+    #### Bugs Fixed
+
+    - Fixed a bug where async websocket disconnects were not being retried properly.
+    - Fixed a bug where pyAMQP was doubly retrying, causing latency on reconnect. ([#39037](https://github.com/Azure/azure-sdk-for-python/pull/39037))
+    - Fixed a bug where handle partial frames being sent twice due to multiple threads trying to send from the same outgoing internal buffer for large messages. ([#38067](https://github.com/Azure/azure-sdk-for-python/pull/38067))
+    - Missing await in sender async on pyAMQP. ([#39182](https://github.com/Azure/azure-sdk-for-python/pull/39182))
+    - Fixed a bug where message IDs in management operation requests were not unique.
 
