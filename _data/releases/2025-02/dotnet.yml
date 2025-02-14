@@ -595,4 +595,26 @@ entries:
     #### Other Changes
 
     - Bump `Azure.Messaging.EventHubs` dependency to 5.11.6, which includes bumps to several transitive dependencies.
+- Name: Azure.AI.Inference
+  Version: 1.0.0-beta.3
+  DisplayName: AI Model Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Inference_1.0.0-beta.3/sdk/ai/Azure.AI.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `usage` wasn't being properly included in chat responses.
+
+    #### Breaking Changes
+
+    - `ChatCompletionsResponseFormatJSON` has been renamed to `ChatCompletionsResponseFormatJsonObject`.
+
+    #### Features Added
+
+    - Added new `ImageEmbeddingsClient`, to provide support for generating embeddings with model input. See sample for more information.
+    - Added support for Chat Completions with audio input, for supported models.
+    - Added support for Chat Completions with structured output.
+    - Added support for providing a "Developer" message to models which support it.
 
