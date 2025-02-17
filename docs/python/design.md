@@ -10,7 +10,7 @@ sidebar: general_sidebar
 
 ### Design principles
 
-The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:
+The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:azu
 
 #### Idiomatic
 
@@ -544,11 +544,11 @@ class MyBadEnum(str, Enum):
 
 ### Exceptions
 
-{% include requirement/SHOULD id="python-errors-azure-exceptions" %} prefer raising [existing exception types from the `azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package over creating new exception types.
+{% include requirement/SHOULD id="python-errors-azure-exceptions" %} prefer raising [existing exception types from the `azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/index.html#azure-core-library-exceptions) package over creating new exception types.
 
 {% include requirement/MUSTNOT id="python-errors-use-standard-exceptions" %} create new exception types when a [built-in exception type](https://docs.python.org/3/library/exceptions.html) will suffice.
 
-{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can handle the error programmatically.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package.
+{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can handle the error programmatically.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/index.html#azure-core-library-exceptions) package.
 
 For higher-level methods that use multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
