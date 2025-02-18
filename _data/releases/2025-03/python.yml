@@ -14,4 +14,15 @@ entries:
     #### Bugs Fixed
 
     * Lowered the logging level of "Toolset is not available in the client" from `warning` to `debug` to prevent unnecessary log entries in agent application runs.
+- Name: azure-maps-timezone
+  Version: 1.0.0b1
+  DisplayName: Timezone
+  ServiceName: Timezone
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-timezone_1.0.0b1/sdk/maps/azure-maps-timezone/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
 
