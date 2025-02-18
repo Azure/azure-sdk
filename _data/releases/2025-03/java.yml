@@ -8,4 +8,23 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.48.0-beta.1/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-maps-weather
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Maps Weather
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-weather_1.0.0-beta.3/sdk/maps/azure-maps-weather/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Update to latest API spec. `temperatureSummary` returns `past3Hours`, `past6Hours`, `past9Hours`, `past12Hours`, `past18Hours`, and `past24Hours`.
+    - Rename methods:
+    - `getAirQualityDailyForecasts` to `getDailyAirQualityForecasts`
+    - `getAirQualityHourlyForecasts` to `getHourlyAirQualityForecasts`
+    - `getGovId` to `getGovernmentId` in `ActiveStorm` class
+    - Update `getCurrentConditions` function signature
+    - Remove `getNextLink` in all classes
+    - Remove `isActive` method from `ActiveStorm` class
+  GroupId: com.azure
 
