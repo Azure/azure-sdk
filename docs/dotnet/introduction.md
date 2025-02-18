@@ -1150,7 +1150,7 @@ To ensure consistency across runtimes, the Microsoft .NET team publishes polyfil
  
 {% include requirement/SHOULD id="dotnet-trim-polyfills" %} reference the .NET runtime polyfill packages only for `netstandard2.0` and legacy target frameworks. For libraries using the Azure SDK for .NET repository, these dependencies are automatically trimmed from your library for modern target frameworks as part of the Azure SDK engineering system builds.
 
-Some commonly used exmples of .NET runtime polyfill packages are:
+Some commonly used examples of .NET runtime polyfill packages are:
 - `Microsoft.Bcl.AsyncInterfaces`
 - `System.Buffers`
 - `System.Diagnostics.DiagnosticSource`
@@ -1240,7 +1240,7 @@ var client = new ConfigurationClient(connectionString);
 
 ## Package Publishing
 
-{% include requirement/SHOLDNOT id="dotnet-empty-release" %} publish new package releases just to keep to a regular cadence.  Generally, it is recommended that packages only be published when bugs are fixed or new features are added.  
+{% include requirement/SHOULDNOT id="dotnet-empty-release" %} publish new package releases just to keep to a regular cadence. Generally, it is recommended that packages only be published when bugs are fixed or new features are added.
 
 {% include requirement/SHOULD id="dotnet-dependency-release" %} publish dependency-only releases when no active work is taking place on the library, but a dependency addressed a vulnerability or the .NET runtime package dependencies have been updated to a new major version.
 
