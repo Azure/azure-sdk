@@ -1,0 +1,267 @@
+entries:
+- Name: sdk/resourcemanager/postgresql/armpostgresqlflexibleservers
+  Version: 4.0.0
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/v4.0.0/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 6.3.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v6.3.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computeschedule/armcomputeschedule
+  Version: 1.0.0
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computeschedule/armcomputeschedule/v1.0.0/sdk/resourcemanager/computeschedule/armcomputeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redis/armredis
+  Version: 3.3.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redis/armredis/v3.3.0/sdk/resourcemanager/redis/armredis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/quota/armquota
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/quota/armquota/v1.1.0-beta.2/sdk/resourcemanager/quota/armquota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.5.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-01-05`.
+- Name: sdk/storage/azblob
+  Version: 1.6.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-01-05`.
+- Name: sdk/resourcemanager/eventhub/armeventhub
+  Version: 1.4.0-beta.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/eventhub/armeventhub/v1.4.0-beta.1/sdk/resourcemanager/eventhub/armeventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/kusto/armkusto
+  Version: 2.3.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kusto/armkusto/v2.3.0/sdk/resourcemanager/kusto/armkusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azdatalake
+  Version: 1.4.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.0/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-01-05`.
+    * Updated `azidentity` version to `1.8.1`
+
+    #### Bugs Fixed
+    * Fix panic when invalid sas is passed to get-properties call. Fixes [#23912](https://github.com/Azure/azure-sdk-for-go/issues/23912)
+    * Added NewListDirectoryPathPager. Fixes [#23852](https://github.com/Azure/azure-sdk-for-go/issues/23852), [#21083](https://github.com/Azure/azure-sdk-for-go/issues/21083), [#18921](https://github.com/Azure/azure-sdk-for-go/issues/18921)
+- Name: sdk/resourcemanager/servicenetworking/armservicenetworking
+  Version: 1.1.0
+  DisplayName: Resource Management - Servicenetworking
+  ServiceName: Servicenetworking
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicenetworking/armservicenetworking/v1.1.0/sdk/resourcemanager/servicenetworking/armservicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.7.2
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.7.2/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updating to support Azure OpenAI API version `2025-01-01-preview`.
+    - Updated `ChatCompletionsOptions` and `ChatCompletionsStreamOptions`:
+    - Added `Audio` parameter.
+    - Added `Metadata` parameter.
+    - Added `Modalities` parameter.
+    - Added `Prediction` parameter.
+    - Added `ReasoningEffort` parameter.
+    - Added `Store` parameter.
+    - Added `UserSecurityContext` parameter.
+    - Added `Audio` field to `ChatResponseMessage`
+    - Added `AudioOutputParameters` type.
+    - Added `AudioResponseData` type.
+    - Updated `CompletionsUsageCompletionTokensDetails`:
+    - Added `AcceptedPredictionTokens` field.
+    - Added `AudioTokens` field.
+    - Added `RejectedPredictionTokens` field.
+    - Updated `CompletionsUsagePromptTokensDetails`:
+    - Added `AudioTokens` field.
+    - Added `InputAudioContent` type.
+    - Added `ChatRequestDeveloperMessage` type.
+    - Added `PredictionContent` type.
+    - Added `UserSecurityContext` type.
+    - Added `ChatMessageAudioContentItem` type.
+    - Added `ChatCompletionModality` enum.
+    - Added `ChatRoleDeveloper` to the `ChatRole` enum.
+    - Added `InputAudioFormat` enum.
+    - Added `OutputAudioFormat` enum.
+    - Added `ReasoningEffortValue` enum.
+- Name: sdk/resourcemanager/pineconevectordb/armpineconevectordb
+  Version: 0.1.0
+  DisplayName: Resource Management - Pineconevectordb
+  ServiceName: Pineconevectordb
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/pineconevectordb/armpineconevectordb/v0.1.0/sdk/resourcemanager/pineconevectordb/armpineconevectordb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/messaging/azeventhubs
+  Version: 1.3.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.3.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ProducerClient and ConsumerClient allow the endpoint to be overridden with CustomEndpoint, allowing the use of TCP proxies with AMQP.
+- Name: sdk/messaging/azservicebus
+  Version: 1.8.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.8.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - ServiceBusClient allows the endpoint to be overridden with ServiceBusClientOptions.CustomEndpoint, to use TCP proxies with AMQP. (PR#23843)
+- Name: sdk/storage/azblob
+  Version: 1.6.1-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.1-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-05-05`.
+- Name: sdk/storage/azfile
+  Version: 1.5.1-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.1-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * The following APIs no longer send the x-ms-file-permission-key, x-ms-file-attributes, x-ms-file-creation-time, and x-ms-file-last-write-time request headers by default. These headers have been optional in the REST API since x-ms-version 2021-06-08:
+    FileClient.Create()
+    FileClient.SetHttpHeaders()
+    DirectoryClient.Create()
+    DirectoryClient.SetHttpHeaders()
+
+    #### Features Added
+    * Upgraded service version to `2025-05-05`.
+    * NFS Over Rest API Request/Response changes in the following APIs -
+    CreateFile
+    SetFileProperties
+    GetFileProperties
+    StartCopyFromUrl
+    DownloadFile
+    DeleteFile
+    CreateDirectory
+    GetDirectoryProperties
+    SetDirectoryProperties
+    * NFS Over Rest, new API File CreateHardLink() Added
+- Name: sdk/storage/azdatalake
+  Version: 1.4.1-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.1-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Upgraded service version to `2025-05-05`.
+- Name: sdk/data/azcosmos
+  Version: 1.3.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.3.0/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added limited support for cross-partition queries that can be served by the gateway. See [PR 23926](https://github.com/Azure/azure-sdk-for-go/pull/23926) and <https://learn.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api#queries-that-cannot-be-served-by-gateway> for more details.
+- Name: sdk/azidentity
+  Version: 1.8.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.2/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.3.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.3.1/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.3.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.3.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.3.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.3.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+
