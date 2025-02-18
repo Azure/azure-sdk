@@ -485,4 +485,24 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Added ability to replace `computed_properties` through `replace_container` method. See [PR 39543](https://github.com/Azure/azure-sdk-for-python/pull/39543)
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.5
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.5/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add more diagnostic log options
+    ([#39701](https://github.com/Azure/azure-sdk-for-python/pull/39701))
+    - Only add OpenTelemetry LoggingHandler if current logger does not have it
+    ([#38549](https://github.com/Azure/azure-sdk-for-python/pull/38549))
+    - Distro to automatically configure event logger provider
+    ([#38543](https://github.com/Azure/azure-sdk-for-python/pull/38543))
+    - Configure live metrics first in pipeline to detect statsbeat usage
+    ([#38556](https://github.com/Azure/azure-sdk-for-python/pull/38556))
+    - Ignore backoff warning from distro if in functions environment
+    ([#38787](https://github.com/Azure/azure-sdk-for-python/pull/38787))
 
