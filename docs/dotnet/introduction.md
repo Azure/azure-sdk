@@ -667,11 +667,11 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
-{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
+{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://learn.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://learn.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
 TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
 
@@ -919,7 +919,7 @@ For example, `Azure.Storage.Blobs`.
     - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
     - Do not use `IoT` more than once in a namespace.
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
-- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub/sub.
 - `Azure.Monitor` for observability and Azure Monitor client libraries.
 - `Azure.ResourceManager.[ResourceProvider]` for management plane client libraries for a given resource provider.
     - For example the compute management plane namespace would be Azure.ResourceManager.Compute.
@@ -1029,31 +1029,13 @@ public static class ConfigurationModelFactory {
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs.
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://learn.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages, we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the NuGet symbol server which only supports portable pdbs.
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
-For example, if the component is in the `Azure.Storage.Blobs` namespace, the component DLL will be `Azure.Storage.Blobs.dll` and the NuGet package will b`Azure.Storage.Blobs```.
+For example, if the component is in the `Azure.Storage.Blobs` namespace, the component DLL will be `Azure.Storage.Blobs.dll` and the NuGet package will be `Azure.Storage.Blobs`
 
 {% include requirement/SHOULD id="dotnet-packaging-granularity" %} place small related components that evolve together in a single NuGet package.
-
-{% include requirement/MUST id="dotnet-build-net-standard" %} build all libraries for [.NET Standard 2.0].
-
-Use the following target setting in the `.csproj` file:
-
-```xml
-<TargetFramework>netstandard2.0</TargetFramework>
-```
-
-{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
-
-You may multi-target client libraries to different [TFMs][.NET Target Framework Monikers] but the public API must be the same for all targets including class, interface, parameter, and return types.
-
-#### Common Libraries
-
-There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
-
-{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] discuss how to design such common library.
 
 ### Versioning {#dotnet-versioning}
 
@@ -1067,11 +1049,11 @@ For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/runtim
 
 Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
 
-##### Package Version Numbers {#dotnet-versionnumbers}
+#### Package Version Numbers {#dotnet-versionnumbers}
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
-{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
+{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library ``.dll` and the NuGet package.
 
 Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
@@ -1089,21 +1071,95 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
+### Target Frameworks
+
+All Azure SDK libraries must target [.NET Standard 2.0].  This ensures that they are compatible with all supported versions of .NET, covering both modern .NET and the .NET Framework.  
+
+Libraries built by the Azure SDK engineering system will also target the oldest supported [long term support (LTS)] version of .NET. This enables them to take advantage of modern runtime features, allows applications to fully benefit from modern runtimes, and obviates the need for applications to download polyfill shim packages for functionality already built-into modern runtimes. It is strongly encouraged that self-published libraries also include this target framework.
+
+For projects built by the Azure SDK engineering system, use the following target setting is in the `.csproj` file:
+
+```xml
+<TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
+```
+
+{% include requirement/MUST id="dotnet-build-net-standard" %} build all libraries for [.NET Standard 2.0].
+
+If not building with the Azure SDK engineering system, use the following target setting in the `.csproj` file:
+
+```xml
+<TargetFrameworks>netstandard2.0</TargetFrameworks>
+```
+
+{% include requirement/SHOULD id="dotnet-build-net-standard" %} build libraries for the oldest supported LTS version of .NET.
+
+For example, if the oldest supported LTS version of .NET is `8.0`, use the following target setting in the `.csproj` file if not building with the Azure SDK engineering system:
+
+```xml
+<TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+```
+
+{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
+
+The public API of client libraries must be the same for all targets including class, interface, parameter, and return types.
+
+{% include requirement/MUST id="dotnet-specialtfm-approval" %} engage the [Architecture Board] if your client library has special needs for targeting additional frameworks or is unable to target the required set.
+
+#### Target Framework Retirement
+
+When a [long term support (LTS)] version of .NET reaches end-of-life and is no longer supported, Azure SDK libraries will no longer target it. To minimize the impact to developers and allow time for migration, Azure SDK libraries will continue to target the previous LTS package for 6 months after it has reached end-of-life. During that period, Azure SDK libraries will target the currently supported LTS, retired LTS, and `netstandard2.0`.  
+
+After 6 months, the retired LTS will be removed from the target frameworks. Because the `netstandard2.0` target will always be present, removal of the target should not break applications still using an unsupported runtime as they will fall back to the standard target. They will, however, gain a dependency on polyfill packages and lose performance improvements specific to modern runtimes. It is possible that the fallback will introduce an unintended break, but this risk is implicitly assumed by the application as they have chosen to rely on a runtime no longer supported by Microsoft.
+
 ### Dependencies {#dotnet-dependencies}
 
 {% include requirement/SHOULD id="dotnet-dependencies-minimize" %} minimize dependencies outside of the .NET Standard and `Azure.Core` packages.
 
-{% include requirement/MUSTNOT id="dotnet-dependencies-list" %} depend on any NuGet package except the following packages:
+{% include requirement/MUSTNOT id="dotnet-dependencies-list" %} depend on any NuGet package except the following:
 
 * `Azure.*` packages from the [azure/azure-sdk-for-net] repository.
-* `System.Text.Json`.
-* `Microsoft.BCL.AsyncInterfaces`.
-* packages produced by your own team.
+* `System.*` packages published by the Microsoft .NET team.
+* `Microsoft.*` packages approved by the [Architecture Board]. 
+* Third-party packages explicitly approved by the [Architecture Board] for specific scenarios with special needs.
+* Packages produced by your own team.
 
 In the past, [JSON.NET](https://www.newtonsoft.com/json), aka Newtonsoft.Json, was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
-package that is now a part of the .NET platform instead.
+package that is now a part of the .NET platform instead. If you are using `Azure.Core`, there is no need for a direct reference to the `System.Text.Json` package.  Your client library will have access to it automatically.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
+
+#### Package Dependency Versions
+
+For libraries using the Azure SDK for .NET repository, dependency versions are managed centrally and will automatically be applied to your library as part of the Azure SDK engineering system builds.
+
+{% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the oldest supported [long term support (LTS)] version of .NET. For example, if the oldest supported LTS version of .NET is `8.0`, references to runtime libraries such as `System.Text.Json` should target the latest version in the `8.x` line.
+
+{% include requirement/MUST id="dotnet-dependency-supported-versions" %} ensure all dependencies reference version supported by the publisher that is not marked as deprecated or flagged by NuGet for vulnerabilities. 
+
+{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications.  
+
+#### Common Libraries
+
+There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="dotnet-commonlib-approval" %} engage the [Architecture Board] to discuss how to design such common library.
+
+#### .NET Runtime Polyfill Packages
+
+To ensure consistency across runtimes, the Microsoft .NET team publishes polyfill packages on NuGet for some features built into modern .NET runtimes. On runtimes where these features are missing - such as the .NET Framework - the polyfill packages provide them. On runtimes where the features are natively available, the polyfill packages pass through the calls and do nothing.
+ 
+{% include requirement/SHOULD id="dotnet-trim-polyfills" %} reference the .NET runtime polyfill packages only for `netstandard2.0` and legacy target frameworks. For libraries using the Azure SDK for .NET repository, these dependencies are automatically trimmed from your library for modern target frameworks as part of the Azure SDK engineering system builds.
+
+Some commonly used exmples of .NET runtime polyfill packages are:
+- `Microsoft.Bcl.AsyncInterfaces`
+- `System.Buffers`
+- `System.Diagnostics.DiagnosticSource`
+- `System.Net.Http`
+- `System.Numerics.Vectors`
+- `System.Text.Encodings.Web`
+- `System.Text.Json`
+- `System.Threading.Channels`
+- `System.Threading.Tasks.Extensions`
 
 ### Native Code
 
@@ -1115,7 +1171,7 @@ Native dependencies introduce lots of complexities to .NET libraries and so they
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
-{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
+{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://learn.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
@@ -1182,7 +1238,11 @@ var client = new ConfigurationClient(connectionString);
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
 
-TODO: Update guidance on samples to reflect what we do in most places.
+## Package Publishing
+
+{% include requirement/SHOLDNOT id="dotnet-empty-release" %} publish new package releases just to keep to a regular cadence.  Generally, it is recommended that packages only be published when bugs are fixed or new features are added.  
+
+{% include requirement/SHOULD id="dotnet-dependency-release" %} publish dependency-only releases when no active work is taking place on the library, but a dependency addressed a vulnerability or the .NET runtime package dependencies have been updated to a new major version.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
