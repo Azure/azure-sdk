@@ -11,4 +11,15 @@ entries:
 
     - Added `MessageId`, `MessageType`, and `Reaction` properties to the `AcsMessageReceivedEventData` event.
     - Added the `Animated` property to `AcsMessageMediaContent` event.
+- Name: Azure.AI.OpenAI
+  Version: 2.2.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.2.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+
+    - Addressed a problem calling the `SetNewMaxCompletionTokensPropertyEnabled()` method, needed for o1/o3 model support, on `ChatCompletionOptions` instances prior to use in a method call. Related issue: [azure-sdk-for-net#46545](https://github.com/Azure/azure-sdk-for-net/issues/46545) with thanks to the PR  [azure-sdk-for-net#48218](https://github.com/Azure/azure-sdk-for-net/pull/48218).
 
