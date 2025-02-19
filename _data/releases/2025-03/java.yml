@@ -51,4 +51,34 @@ entries:
 
     - [Fixed the issue](https://github.com/Azure/azure-sdk-for-java/issues/44005) where `Errors` were being improperly cast into `RuntimeException`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.8.0-beta.5
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.5/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug that made 2024-11-01-preview service version inaccessible.
+  GroupId: com.azure
+- Name: azure-resourcemanager-impactreporting
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Impactreporting
+  ServiceName: Impactreporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-impactreporting_1.0.0-beta.1/sdk/impactreporting/azure-resourcemanager-impactreporting/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-applicationinsights
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-applicationinsights_1.2.0-beta.1/sdk/applicationinsights/azure-resourcemanager-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
