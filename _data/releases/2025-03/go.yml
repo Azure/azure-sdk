@@ -1,0 +1,16 @@
+entries:
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.6.1
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.6.1/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    The following fields have been added:
+    - ACSMessageReceivedEventData.MessageType
+    - ACSMessageReceivedEventData.MessageID
+    - ACSMessageReceivedEventData.Reaction
+
