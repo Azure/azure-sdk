@@ -54,4 +54,15 @@ entries:
     #### Features Added
 
     - Added `subscription` property in `AzureCliCredentialOptions` [#31451](https://github.com/Azure/azure-sdk-for-js/pull/31451).
+- Name: '@azure/communication-chat'
+  Version: 1.6.0-beta.5
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0-beta.5/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated signaling client to 1.0.0-beta.32 to fix chunk events missing editedOn field
 
