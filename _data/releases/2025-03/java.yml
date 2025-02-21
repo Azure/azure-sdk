@@ -431,4 +431,53 @@ entries:
     ##### Other Changes
     * Updated netty dependency
   GroupId: com.azure.cosmos.spark
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.14
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.14/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - For `ChatCompletionOptions`:
+    - `store` (bool), which enables saving outputs for FT (distillation)
+    - `metadata` (string/string map), used with `store`
+    - `reasoning_effort` (enum string, `low`, `medium`, `high`) to configure how hard `o1` thinks
+    - `developer` message role (`system` replacement for `o1` and newer models) now available. Other than the name, it's identical
+    - `prediction` added for predicted outputs
+    - `modalities` added ("text" | "audio") for audio input support
+    - `audio` added for audio content options (voice, format, etc.)
+    - user role message content part representation for audio input added
+    - **AZURE-ONLY** User Security Context (for Defender for Cloud Integration)
+    - Azure chat request bodies now have a user_security_context property
+    - These are JSON objects that have application_name, end_user_id, end_user_tenant_id, and source_ip, all optional string properties
+
+    - For `ChatCompletions`:
+    - audio output added as `ChatMessageAudioContentItem`
+    - parity usage updates:
+    - `PromptTokensDetails` gets `AudioTokens`
+    - `CompletionTokensDetails` gets `AcceptedPredictionTokens`, `RejectedPredictionTokens`, and `AudioTokens`
+  GroupId: com.azure
+- Name: azure-ai-openai-assistants
+  Version: 1.0.0-beta.5
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.5/sdk/openai/azure-ai-openai-assistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `AssistantsApiResponseFormatMode.NONE`.
+
+    #### Features Added
+
+    - Added `include[]` query parameter for `getRunStep` methods to specify additional fields for the request. Currently only files are supported.
+    - Results added to run step details file search tool calls instances
+    - Added more `VectorStoreFileErrorCode`s. Specifically, `server_error`, `unsupported_file` and `invalid_file`.
+    - Added `AssistantsApiResponseFormatJsonSchema` as a possible value (previously, `text` and `json_object` where the only supported ones).
+    - Added Azure OpenAI services labels: `V2024_09_01_PREVIEW`, `V2024_10_01_PREVIEW`, `V2025_01_01_PREVIEW`.
+  GroupId: com.azure
 
