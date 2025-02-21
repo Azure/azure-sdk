@@ -81,4 +81,20 @@ entries:
     - `messageId`
     - `messageType`
     - `reaction`
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.0-beta.6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0-beta.6/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `animated` property to `AcsMessageMediaContent`
+
+    - Added the following properties to `AcsMessageReceivedEventData`
+    - `messageId`
+    - `messageType`
+    - `reaction`
 
