@@ -65,4 +65,20 @@ entries:
     #### Bugs Fixed
 
     - Updated signaling client to 1.0.0-beta.32 to fix chunk events missing editedOn field
+- Name: '@azure/eventgrid'
+  Version: 5.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.11.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - properties added to `AcsMessageMediaContent`
+    - `animated`
+    - properties added to `AcsMessageReceivedEventData`
+    - `messageId`
+    - `messageType`
+    - `reaction`
 
