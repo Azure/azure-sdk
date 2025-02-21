@@ -285,4 +285,33 @@ entries:
 
     - Upgraded `azure-core` from `1.55.1` to `1.55.2`.
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.12
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.12/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.15.2` to `1.15.3`
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.15.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.15.3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.1` to version `1.55.2`.
+    - Upgraded `azure-core-http-netty` from `1.15.9` to version `1.15.10`.
+  GroupId: com.azure
 
