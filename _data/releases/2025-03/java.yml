@@ -518,4 +518,61 @@ entries:
     #### Bugs Fixed
     - Fixed redirection logic for QuickPulse service calls when only the instrumentation key is provided in the connection string. ([#44211](https://github.com/Azure/azure-sdk-for-net/pull/44211))
   GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.21.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.21.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for geo-replication capability. ([44272](https://github.com/Azure/azure-sdk-for-java/pull/44272))
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub-client
+  Version: 1.1.0
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub-client_1.1.0/sdk/webpubsub/azure-messaging-webpubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed Jackson annotations from models and removed custom serializer for raw JSON fields.
+
+    #### Bugs Fixed
+
+    - Fixes issue where text spanning more than a single WebSocketFrame are ignored. [#44130](https://github.com/Azure/azure-sdk-for-java/pull/44130)
+
+    #### Features Added
+
+    - Migrated serialization to `azure-json` which offers implementation agnostic serialization, providing support for
+    more serialization frameworks than just Jackson.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.0-beta.1
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.21.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Use `getOffsetString()` to persist checkpoints rather than `getOffset()`, which is deprecated.  ([44272](https://github.com/Azure/azure-sdk-for-java/pull/44272))
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.4.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.4.0/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `socketIO` when generating client access URI. ([#42797](https://github.com/Azure/azure-sdk-for-java/pull/42797))
+  GroupId: com.azure
 
