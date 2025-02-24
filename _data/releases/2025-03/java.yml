@@ -507,4 +507,15 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-deviceregistry_1.0.0/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-monitor-opentelemetry-autoconfigure
+  Version: 1.0.0-beta.3
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-autoconfigure_1.0.0-beta.3/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed redirection logic for QuickPulse service calls when only the instrumentation key is provided in the connection string. ([#44211](https://github.com/Azure/azure-sdk-for-net/pull/44211))
+  GroupId: com.azure
 
