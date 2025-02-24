@@ -667,11 +667,11 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
-{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://learn.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://learn.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
+{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://learn.microsoft.com/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://learn.microsoft.com/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
 TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
 
@@ -1029,7 +1029,7 @@ public static class ConfigurationModelFactory {
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://learn.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages, we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the NuGet symbol server which only supports portable pdbs.
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://learn.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft-owned packages, we need to support both Windows (for Windows dump diagnostics) and portable (for cross-platform debugging) pdb formats. This means you need to publish them to the Microsoft symbol server and not the NuGet symbol server which only supports portable pdbs.
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
@@ -1053,7 +1053,7 @@ Breaking changes should happen rarely, if ever.  Register your intent to do a br
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
-{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library ``.dll` and the NuGet package.
+{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library `.dll` and the NuGet package.
 
 Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
@@ -1073,11 +1073,11 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 ### Target Frameworks
 
-All Azure SDK libraries must include a target for [.NET Standard 2.0].  This ensures that they are compatible with all supported versions of .NET, covering both modern .NET and the .NET Framework.  
+All Azure SDK libraries must include a target for [.NET Standard 2.0]. This ensures that they are compatible with all supported versions of .NET, covering both modern .NET and the .NET Framework.  
 
 Libraries built by the Azure SDK engineering system will also target the oldest supported [long term support (LTS)] version of .NET. This enables them to take advantage of modern runtime features, allows applications to fully benefit from modern runtimes, and obviates the need for applications to download polyfill shim packages for functionality already built-into modern runtimes. It is strongly encouraged that self-published libraries also include this target framework.
 
-For projects built by the Azure SDK engineering system, use the following target setting is in the `.csproj` file:
+For projects built by the Azure SDK engineering system, use the following target setting in the `.csproj` file:
 
 ```xml
 <TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
@@ -1124,7 +1124,7 @@ After 6 months, the retired LTS will be removed from the target frameworks. Beca
 * Packages produced by your own team.
 
 In the past, [JSON.NET](https://www.newtonsoft.com/json), aka Newtonsoft.Json, was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
-package that is now a part of the .NET platform instead. If you are using `Azure.Core`, there is no need for a direct reference to the `System.Text.Json` package.  Your client library will have access to it automatically.
+package that is now a part of the .NET platform instead. If you are using `Azure.Core`, there is no need for a direct reference to the `System.Text.Json` package. Your client library will have access to it automatically.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
 
@@ -1146,7 +1146,7 @@ There are occasions when common code needs to be shared between several client l
 
 #### .NET Runtime Polyfill Packages
 
-To ensure consistency across runtimes, the Microsoft .NET team publishes polyfill packages on NuGet for some features built into modern .NET runtimes. On runtimes where these features are missing - such as the .NET Framework - the polyfill packages provide them. On runtimes where the features are natively available, the polyfill packages pass through the calls and do nothing.
+To ensure consistency across runtimes, the Microsoft .NET team publishes polyfill packages on NuGet for some features built into modern .NET runtimes. On runtimes where these features are missing, such as .NET Framework, the polyfill packages provide them. On runtimes where the features are natively available, the polyfill packages pass through the calls and do nothing.
  
 {% include requirement/SHOULD id="dotnet-trim-polyfills" %} reference the .NET runtime polyfill packages only for `netstandard2.0` and legacy target frameworks. For libraries using the Azure SDK for .NET repository, these dependencies are automatically trimmed from your library for modern target frameworks as part of the Azure SDK engineering system builds.
 
