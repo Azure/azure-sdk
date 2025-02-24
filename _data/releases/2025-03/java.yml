@@ -480,4 +480,31 @@ entries:
     - Added `AssistantsApiResponseFormatJsonSchema` as a possible value (previously, `text` and `json_object` where the only supported ones).
     - Added Azure OpenAI services labels: `V2024_09_01_PREVIEW`, `V2024_10_01_PREVIEW`, `V2025_01_01_PREVIEW`.
   GroupId: com.azure
+- Name: azure-resourcemanager-networkanalytics
+  Version: 1.0.1
+  DisplayName: Resource Management - Network Analytics
+  ServiceName: Network Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkanalytics_1.0.1/sdk/networkanalytics/azure-resourcemanager-networkanalytics/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-netapp
+  Version: 1.6.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.6.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-deviceregistry
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-deviceregistry_1.0.0/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
