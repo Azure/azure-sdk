@@ -575,4 +575,15 @@ entries:
 
     - Added support for `socketIO` when generating client access URI. ([#42797](https://github.com/Azure/azure-sdk-for-java/pull/42797))
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.1.13
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.1.13/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug to set the code currency and symbol for CurrencyValue correctly.
+  GroupId: com.azure
 
