@@ -667,7 +667,7 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using `If-Match` headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
