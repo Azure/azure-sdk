@@ -928,4 +928,40 @@ entries:
     - Added `MessageId`, `MessageType`, and `Reaction` properties to the `AcsMessageReceivedEventData` event.
     - Added the `Animated` property to `AcsMessageMediaContent` event.
   GroupId: com.azure
+- Name: azure-ai-contentsafety
+  Version: 1.0.10
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-contentsafety_1.0.10/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.54.1` to version `1.55.2`.
+    - Upgraded `azure-core-http-netty` from `1.15.7` to version `1.15.10`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-nginx
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-nginx_1.1.0-beta.3/sdk/nginx/azure-resourcemanager-nginx/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventgrid-systemevents
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-systemevents_1.0.0-beta.1/sdk/eventgrid/azure-messaging-eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Azure SystemEvents client library for Java. This package contains Microsoft Azure SystemEvents client library.
+    - Initial beta release of azure-messaging-eventgrid-systemevents.
+  GroupId: com.azure
 
