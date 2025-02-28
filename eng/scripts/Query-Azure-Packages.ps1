@@ -285,6 +285,28 @@ function Get-go-Packages
   return $packages
 }
 
+function Get-rust-Packages
+{
+  $packages = @()
+  # https://crates.io/api/v1/users/azure-sdk to find user id
+  $next_page = '?user_id=313465&per_page=100'
+  $crates = while ($next_page) {
+      $page = Invoke-RestMethod "https://crates.io/api/v1/crates$next_page"
+      $next_page = $page.meta.next_page
+      $page.crates
+  }
+
+  Write-Host "Found $($crates.Count) crates belonging to azure-sdk"
+
+  $packages = @()
+  foreach ($crate in $crates)
+  {
+    $packages += CreatePackage $crate.name $crate.max_version
+  }
+
+  return $packages
+}
+
 function Write-Latest-Versions($lang)
 {
   $packageList = Get-PackageListForLanguage $lang
@@ -624,6 +646,7 @@ switch($language)
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
+    Write-Latest-Versions "rust"
 
     # Maven search api has lots of reliability issues so keeping this error
     # handling here to keep it from failing the pipeline all the time.
@@ -662,6 +685,10 @@ switch($language)
     break
   }
   "android" {
+    Write-Latest-Versions $language
+    break
+  }
+  "rust" {
     Write-Latest-Versions $language
     break
   }

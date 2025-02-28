@@ -28,6 +28,7 @@
 [python-latest-releases]: {{ site.baseurl }}{% link releases/latest/python.md %}
 [cpp-latest-releases]: {{ site.baseurl }}{% link releases/latest/cpp.md %}
 [c-latest-releases]: {{ site.baseurl }}{% link releases/latest/c.md %}
+[rust-latest-releases]: {{ site.baseurl }}{% link releases/latest/rust.md %}
 
 [README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/main/docs/policies/README-EXAMPLE.md
 [README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/main/docs/policies/README-TEMPLATE.md

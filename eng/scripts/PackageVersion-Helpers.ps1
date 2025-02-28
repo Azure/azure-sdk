@@ -136,6 +136,7 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
   $repoName = "azure-sdk-for-$lang"
   if ($lang -eq "dotnet") { $repoName = "azure-sdk-for-net" }
   if ($lang -eq "go") { $tagSplit = "/v" }
+  if ($lang -eq "rust") { $tagSplit = "@" }
   if ($lang -eq "c") { $tagSplit = $null }
 
   $tags = GetLatestTags $repoName $afterDate

@@ -12,6 +12,7 @@ $languageNameMapping = @{
   go = "Go" # -- No csv or tagging info
   ios = "iOS" # -- These don't follow normal tagging rules
   android = "Android" # -- These don't follow normal tagging/githubio rules
+  rust = "Rust"
 }
 
 function CreatePackage(
