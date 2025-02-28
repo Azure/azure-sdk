@@ -4,7 +4,7 @@
   <div class="nav-language-filter-cell"><a href="#javascript">JavaScript/TypeScript</a></div>
   <div class="nav-language-filter-cell"><a href="#python">Python</a></div>
   <div class="nav-language-filter-cell"><a href="#go">Go</a></div>
-  <div class="nav-language-filter-cell"><a href="#rust">rust</a></div> 
+  <div class="nav-language-filter-cell"><a href="#rust">Rust</a></div>
 
 {% if include.type != "deprecated" %}
   <div class="nav-language-filter-cell"><a href="#c">C++</a></div>
