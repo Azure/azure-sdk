@@ -132,4 +132,76 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_4.0.0-beta.2/sdk/nginx/arm-nginx/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.4.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub'
+  Version: 1.1.4
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.4/sdk/web-pubsub/web-pubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to generate client access URL and token for `socketio` client protocol.
+
+    #### Bugs Fixed
+    - Fix issue with mismatched DTO for client protocol when calling generate client access URI API, causing the response to be incorrect.
+- Name: '@azure/arm-quota'
+  Version: 1.1.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_1.1.0/sdk/quota/arm-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.1.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.1.0/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-impactreporting'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Impactreporting
+  ServiceName: Impactreporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-impactreporting_1.0.0-beta.1/sdk/impactreporting/arm-impactreporting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.6
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.6/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for MQTT event handling
+- Name: '@azure/arm-deviceregistry'
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0/sdk/deviceregistry/arm-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 6.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
 
