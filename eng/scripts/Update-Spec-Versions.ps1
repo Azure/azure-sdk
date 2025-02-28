@@ -348,11 +348,11 @@ function UpdateSpecIndex()
     $spec.Version = $discoveredSpec.Version
     $spec.IsTypeSpec = $discoveredSpec.IsTypeSpec
 
-    if ($specsGitFolderExists -and !$spec.DateCreated -and !$spec.JsonFiles.Contains("|")) {
+    if ($specsGitFolderExists -and !$spec.DateCreated -and !$spec.JsonFiles.Contains("/")) {
       # Given files can be in different locations with different dates which aren't easy to reconcile we are only computing the date created 
-      # if there is only one file. The one file case will match all the new TypeSpec generated files which is what we are most interested in.
-      $jsonPath = Join-Path $spec.SpecPath $spec.JsonFiles
-      $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/${jsonPath}" | Select-Object -First 1
+      # if there is only one folder. If there is only one folder then we compute the commit date for the earliest file in that folder.
+      # This should handle all the new TypeSpec generated files which is what we are most interested in.
+      $spec.DateCreated = git --git-dir=$specsGitFolder log --diff-filter=A --pretty=format:'%cs' --reverse -- "specification/$($spec.SpecPath)" | Select-Object -First 1
     }
 
     $spec.ServiceLifeCycle = GetServiceLifeCycle $specs $spec.ServiceFamily $spec.ResourcePath
