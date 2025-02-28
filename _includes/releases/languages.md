@@ -4,6 +4,7 @@
 {% include releases/python.md type=include.type %}
 {% include releases/go.md type=include.type %}
 {% include releases/cpp.md type=include.type %}
+{% include releases/rust.md type=include.type %}
 {% include releases/c.md type=include.type %}
 {% include releases/android.md type=include.type %}
 {% include releases/ios.md type=include.type %}
