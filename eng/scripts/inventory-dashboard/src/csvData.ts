@@ -57,6 +57,8 @@ function csvNameToLanguage(csvName: string): Language {
       return "JavaScript";
     case "python-packages.csv":
       return "Python";
+    case "rust-packages.csv":
+      return "Rust";
     default:
       throw Error(`Package CSV matches no Language. Package name: ${csvName}`);
   }
