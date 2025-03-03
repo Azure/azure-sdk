@@ -21,6 +21,7 @@ export type Language =
   | "C"
   | "C++"
   | "iOS"
+  | "Rust"
   | "UNABLE TO DETERMINE LANGUAGE";
 export function isLanguage(str: string): str is Language {
   return (str === ".NET"
