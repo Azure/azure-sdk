@@ -214,7 +214,7 @@ Consumption,0,Resource Management - Consumption,mgmt,.NET,Microsoft.Azure.Manage
 Container Apps,0,Resource Management - Container Apps,mgmt,.NET,,,11,false,Azure.ResourceManager.AppContainers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerapps,10,false,1,09/09/2024
 Container Instances,0,Resource Management - Container Instances,mgmt,.NET,Microsoft.Azure.Management.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,true,Azure.ResourceManager.ContainerInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerinstance,10,false,1,04/28/2024
 Container Registry,0,Resource Management - Container Registry,mgmt,.NET,Microsoft.Azure.Management.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,true,Azure.ResourceManager.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,04/29/2024
-Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,06/17/2024
+Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,03/05/2025
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerServiceFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fleet,10,false,1,12/13/2023
 Containerorchestratorruntime,0,Resource Management - Containerorchestratorruntime,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerOrchestratorRuntime,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerorchestratorruntime,3,false,1,
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,.NET,Microsoft.Azure.Management.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,true,Azure.ResourceManager.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,false,1,04/29/2024
@@ -755,6 +755,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Go,,,11,f
 Media Services,0,Resource Management - Media Services,mgmt,Go,,,11,false,sdk/resourcemanager/mediaservices/armmediaservices,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mediaservices/armmediaservices,10,false,1,11/24/2023
 Migrate,0,Resource Management - Migrate,mgmt,Go,,,11,false,sdk/resourcemanager/migrate/armmigrate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrate/armmigrate,10,false,1,11/24/2023
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,Go,,,11,false,sdk/resourcemanager/migrationdiscovery/armmigrationdiscoverysap,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrationdiscovery/armmigrationdiscoverysap,3,false,1,
+Migrationassessment,0,Resource Management - Migrationassessment,mgmt,Go,,,11,false,sdk/resourcemanager/migrationassessment/armmigrationassessment,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrationassessment/armmigrationassessment,3,false,1,
 Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Go,,,11,false,sdk/resourcemanager/mixedreality/armmixedreality,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mixedreality/armmixedreality,3,false,1,
 Mobile Network,0,Resource Management - Mobile Network,mgmt,Go,,,11,false,sdk/resourcemanager/mobilenetwork/armmobilenetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mobilenetwork/armmobilenetwork,10,false,1,06/21/2024
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,Go,,,11,false,sdk/resourcemanager/mongocluster/armmongocluster,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongocluster/armmongocluster,10,false,1,10/22/2024
@@ -2015,7 +2016,7 @@ Identity,0,Identity,data,Rust,,,11,false,azure_identity,UNABLE TO DETERMINE REPO
 Key Vault,0,Key Vault - Keys,data,Rust,,,11,false,azure_security_keyvault_keys,UNABLE TO DETERMINE REPO LINK,3,false,1,
 Key Vault,0,Key Vault - Secrets,data,Rust,,,11,false,azure_security_keyvault_secrets,UNABLE TO DETERMINE REPO LINK,3,false,1,
 TypeSpec,0,TypeSpec Client Core,data,Rust,,,11,false,typespec_client_core,UNABLE TO DETERMINE REPO LINK,3,false,1,
-TypeSpec,0,TypeSpec Core,data,Rust,,,11,false,typespec,UNABLE TO DETERMINE REPO LINK,3,false,1,
+TypeSpec,0,TypeSpec Core,data,Rust,,,11,false,typespec,https://github.com/Azure/azure-sdk-for-rust/tree/item.Package@item.Version/sdk/typespec,3,false,1,
 TypeSpec,0,TypeSpec Core Macros,data,Rust,,,11,false,typespec_macros,UNABLE TO DETERMINE REPO LINK,3,false,1,
 App Configuration,0,App Configuration Provider,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 App Configuration,0,App Configuration Provider,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
@@ -4500,6 +4501,11 @@ MySQL,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in spec
 MySQL,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: mysql/suppressions.yaml,,2,false,0,
 MySQL,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: mysql/suppressions.yaml,,2,false,0,
 MySQL,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: mysql/suppressions.yaml,,2,false,0,
+mysqldiscovery,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: mysqldiscovery/suppressions.yaml,,2,false,0,
+mysqldiscovery,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: mysqldiscovery/suppressions.yaml,,2,false,0,
+mysqldiscovery,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: mysqldiscovery/suppressions.yaml,,2,false,0,
+mysqldiscovery,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: mysqldiscovery/suppressions.yaml,,2,false,0,
+mysqldiscovery,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: mysqldiscovery/suppressions.yaml,,2,false,0,
 NetApp Files,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: netapp/cspell.yaml,,2,false,0,
 NetApp Files,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: netapp/cspell.yaml,,2,false,0,
 NetApp Files,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: netapp/cspell.yaml,,2,false,0,
