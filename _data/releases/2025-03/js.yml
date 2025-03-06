@@ -233,4 +233,15 @@ entries:
     - Support the AMW de-duping flag in AKS auto-attach scenarios.
     - Support sending custom events via specifying `microsoft.custom_event.name` on logs.
     - Support the stable OpenTelemetry HTTP semantic conventions.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.9.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.9.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for stable OpenTelemetry semantic conventions.
 
