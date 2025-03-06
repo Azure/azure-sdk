@@ -25,7 +25,7 @@ function MSDocLink($pkg, $linkTemplates)
     }
   }
   # Make relative link
-  $msdoclink = $msdoclink -replace "https://docs.microsoft.com(/en-us)?", ""
+  $msdoclink = $msdoclink -replace "https://(docs|learn).microsoft.com(/en-us)?", ""
   return "[docs]($msdoclink)"
 }
 
