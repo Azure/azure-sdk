@@ -277,4 +277,15 @@ entries:
     #### Bugs Fixed
 
     - Designates `EAI_AGAIN` and `EADDRNOTAVAIL` errors as timeout errors to be retryable.
+- Name: '@azure/core-client'
+  Version: 1.9.3
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.9.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Correctly set the code and message fields in `RestError` in a corner case [PR #33151](https://github.com/Azure/azure-sdk-for-js/pull/33151)
 
