@@ -432,4 +432,25 @@ entries:
     * Updates the failure to load from a config store from a debug level log to a warning level log.
     * Fixes an issue where the stack trace from the azure sdk wasn't being logged on startup.
     * Fixes a bug where feature flags could be loaded as configurations.
+- Name: azure-ai-projects
+  Version: 1.0.0b7
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b7/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * Add support for parsing URL citations in Agent text messages. See new classes `MessageTextUrlCitationAnnotation` and `MessageDeltaTextUrlCitationAnnotation`.
+    * Add enum value `ConnectionType.API_KEY` to support enumeration of generic connections that uses API Key authentication.
+
+    #### Breaking Changes
+
+    * Rename input argument `assistant_id` to `agent_id` in all Agent methods to align with the "Agent" terminology. Similarly, rename all `assistant_id` properties on classes.
+
+    #### Bugs Fixed
+
+    * Fix a bug in deserialization of `RunStepDeltaFileSearchToolCall` returned during Agent streaming (see [GitHub issue 48333](https://github.com/Azure/azure-sdk-for-net/issues/48333)).
+    * Fix for Exception raised while parsing Agent streaming response, in some rare cases, for multibyte UTF-8 languages like Chinese.
 
