@@ -419,4 +419,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_4.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 2.0.1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Updates the failure to load from a config store from a debug level log to a warning level log.
+    * Fixes an issue where the stack trace from the azure sdk wasn't being logged on startup.
+    * Fixes a bug where feature flags could be loaded as configurations.
 
