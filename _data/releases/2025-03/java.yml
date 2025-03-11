@@ -2568,4 +2568,36 @@ entries:
     #### Features Added
     - Added support for service version 2025-05-05.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.15.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.15.4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.2` to version `1.55.3`.
+    - Upgraded `azure-core-http-netty` from `1.15.10` to version `1.15.11`.
+    - Upgraded `azure-json` from `1.4.0` to version `1.5.0`.
+    - Upgraded `msal4j` from `1.19.0` to version `1.19.1`.
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.13
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.13/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.15.3` to version `1.15.4`.
+    - Upgraded `msal4j` from `1.19.0` to version `1.19.1`.
+  GroupId: com.azure
 
