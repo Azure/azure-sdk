@@ -415,4 +415,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceProvisioningServices_1.2.1/sdk/deviceprovisioningservices/Azure.ResourceManager.DeviceProvisioningServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.6.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.6.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for specifying the token credential's Microsoft Entra audience when creating a client.
 
