@@ -453,4 +453,40 @@ entries:
 
     * Fix a bug in deserialization of `RunStepDeltaFileSearchToolCall` returned during Agent streaming (see [GitHub issue 48333](https://github.com/Azure/azure-sdk-for-net/issues/48333)).
     * Fix for Exception raised while parsing Agent streaming response, in some rare cases, for multibyte UTF-8 languages like Chinese.
+- Name: azure-ai-ml
+  Version: 1.26.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - #37464 - Allowing to update a component in register with anonymousEnvironment environment.
+    - #39744 - Fixing a serialization issue in RecurrencePattern schedule.
+    - Fix environment archiving and restore
+
+    #### Features Added
+    - Adding parent job support for command job.
+    - Adding multiple docker argument support for command job.
+    - spark version upgrade from 3.3 to 3.4
+- Name: azure-search-documents
+  Version: 11.6.0b10
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b10/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SearchIndexClient.list_index_stats_summary`.
+    - Added `SearchIndexerCache.id`.
+    - Added new model `azure.search.documents.indexes.models.IndexStatisticsSummary`.
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.5.0.
+    > Only code written against a beta version such as 11.6.0b9 may be affected.
+    - Renamed `azure.search.documents.indexes.models.AIStudioModelCatalogName` to `azure.search.documents.indexes.models.AIFoundryModelCatalogName`.
 
