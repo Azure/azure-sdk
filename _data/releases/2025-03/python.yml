@@ -509,4 +509,26 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Stable release of features from 12.21.0b1
+- Name: azure-identity
+  Version: 1.21.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.21.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the asynchronous `CertificateCredential` to use the PS256 algorithm with PSS padding for certificate authentication in non-ADFS tenants. ([#39761](https://github.com/Azure/azure-sdk-for-python/pull/39761))
+    - Deprecated `UsernamePasswordCredential`, as it doesn't support multifactor authentication (MFA). MFA will soon be enforced on all Microsoft Entra tenants. For more details, see [Planning for mandatory MFA](https://aka.ms/mfaforazure). ([#39785](https://github.com/Azure/azure-sdk-for-python/pull/39785))
+- Name: azure-storage-file-datalake
+  Version: 12.19.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.19.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.19.0b1
 
