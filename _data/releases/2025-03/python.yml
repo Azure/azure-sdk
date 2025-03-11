@@ -489,4 +489,24 @@ entries:
     > These changes do not impact the API of stable versions such as 11.5.0.
     > Only code written against a beta version such as 11.6.0b9 may be affected.
     - Renamed `azure.search.documents.indexes.models.AIStudioModelCatalogName` to `azure.search.documents.indexes.models.AIFoundryModelCatalogName`.
+- Name: azure-storage-blob
+  Version: 12.25.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.25.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.25.0b1
+- Name: azure-storage-file-share
+  Version: 12.21.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.21.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.21.0b1
 
