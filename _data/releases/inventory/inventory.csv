@@ -60,6 +60,7 @@ Confidential Ledger,0,Confidential Ledger,data,.NET,,,11,false,Azure.Security.Co
 Container Registry,0,Container Registry,data,.NET,Microsoft.Azure.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.ContainerRegistry_1.0.0-preview.2/sdk/containerregistry/Microsoft.Azure.ContainerRegistry,3,true,Azure.Containers.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry,10,false,1,02/07/2025
 Cognitive Services,0,Content Safety,data,.NET,Microsoft.Azure.CognitiveServices.ContentModerator,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.AI.ContentSafety,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety,10,false,1,12/12/2023
 Cognitive Services,0,Conversational Language Understanding,data,.NET,,,11,false,Azure.AI.Language.Conversations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,10,false,1,06/14/2023
+Cognitive Services,0,Conversations Authoring,data,.NET,,,11,false,Azure.AI.Language.Conversations.Authoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,3,false,1,
 Storage,0,Core WCF Storage Queues,data,.NET,,,11,false,Microsoft.CoreWCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
 Storage,0,Data Movement,data,.NET,Microsoft.Azure.Storage.DataMovement,https://github.com/Azure/azure-storage-net-data-movement/tree/v1.3.0,1,false,Azure.Storage.DataMovement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,02/27/2025
 Storage,0,Data Movement - Blobs,data,.NET,,,11,false,Azure.Storage.DataMovement.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,02/27/2025
@@ -140,10 +141,10 @@ Synapse,0,Synapse - Spark,data,.NET,,,11,false,Azure.Analytics.Synapse.Spark,htt
 Event Grid,0,System Events,data,.NET,,,11,false,Azure.Messaging.EventGrid.SystemEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,3,false,1,
 Tables,0,Tables,data,.NET,Microsoft.Azure.Cosmos.Table,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Data.Tables,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables,10,false,1,01/14/2025
 Cognitive Services,0,Text Analytics,data,.NET,Microsoft.Azure.CognitiveServices.Language.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.TextAnalytics_4.1.0-preview.2/sdk/cognitiveservices/Language.TextAnalytics,3,true,Azure.AI.TextAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics,10,false,1,06/19/2023
+Cognitive Services,0,Text Authoring,data,.NET,,,11,false,Azure.AI.Language.Text.Authoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,3,false,1,
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,.NET,,,11,false,Azure.AI.Language.Conversations.Authoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Storage,0,WCF Storage Queues,data,.NET,,,11,false,Microsoft.WCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
@@ -871,7 +872,7 @@ Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Jav
 Identity,0,Token-as-password Authentication Core Library,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,02/26/2025
 Cognitive Services,0,Anomaly Detector,data,Java,,,11,false,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/anomalydetector,3,true,1,
-App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,02/26/2025
+App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,03/12/2025
 Attestation,0,Attestation,data,Java,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/attestation,10,false,1,02/26/2025
 Cognitive Services,0,Azure AI Inference,data,Java,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,3,false,1,
 Search,0,Azure AI Search,data,Java,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/search,10,false,1,02/26/2025
