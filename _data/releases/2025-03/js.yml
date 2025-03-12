@@ -309,4 +309,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - `ManagedIdentityCredential` will now log the configured user-assigned managed identity ID. [#33144](https://github.com/Azure/azure-sdk-for-js/pull/33144)
+- Name: '@azure/app-configuration'
+  Version: 1.9.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0-beta.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add the `audience` param to `AppConfigurationClientOptions` and `KnownAppConfigurationAudience` to allow specifying the Microsoft Entra audience for the token credential when creating a client. If not specified, the SDK will default to Azure Public Cloud.
 
