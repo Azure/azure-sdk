@@ -516,4 +516,32 @@ entries:
     - Fixed bug to Redact SAS credentials from Error.SasCredentialRequiresUriWithoutSas message.
     - Fixed bug where LazyLoadingReadOnlyStream overprovisions the default buffer memory for OpenRead
     - Fixed bug where a client created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.22.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.22.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a `DataLakeServiceClient`, `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, `DataLakeFileClient`, `DataLakePathClient` created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+    - Fixed bug where a `DataLakeServiceClient`, `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, `DataLakeFileClient`, `DataLakePathClient` created with a `StorageSharedKeyCredential`, the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+
+    #### Features Added
+    - Includes all features from 12.22.0-beta.1
+    - Added the following Client Builders: `AddDataLakeServiceClient(Uri, Azure.SasCredential)`, `AddDataLakeServiceClient(Uri, TokenCredential)`
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.21.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.21.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where batch subrequests would not authenticate properly if using `TokenCredential` authentication when the `BlobBatchClient` was created from `BlobContianerClient.GetBlobBatchClient`.
+
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1
 
