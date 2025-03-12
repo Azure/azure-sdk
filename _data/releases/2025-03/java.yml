@@ -2600,4 +2600,16 @@ entries:
     - Upgraded `azure-identity` from `1.15.3` to version `1.15.4`.
     - Upgraded `msal4j` from `1.19.0` to version `1.19.1`.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.8.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for specifying the token credential's Microsoft Entra audience when creating a client.
+  GroupId: com.azure
 
