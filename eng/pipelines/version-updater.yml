@@ -20,6 +20,11 @@ jobs:
   - checkout: self
     path: azure-sdk
 
+  - template: /eng/pipelines/template/steps/read-secrets-from-keyvault.yml
+    parameters:
+      SecretName: azure-sdk-automation-access-token
+      OutputValueName: azuresdk-github-pat
+
   - task: PowerShell@2
     displayName: Update packages from package manager
     inputs:
