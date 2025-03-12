@@ -531,4 +531,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Stable release of features from 12.19.0b1
+- Name: azure-servicebus
+  Version: 7.14.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.14.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where service errors were incorrectly expected to have info/description fields set in all cases.
+    - Fixed a bug where the type in azure.servicebus.management.AuthorizationRule was not being correctly passed to the request.
 
