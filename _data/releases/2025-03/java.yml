@@ -2633,4 +2633,16 @@ entries:
     - Added support to specify `subscription` ID or name on `AzureCliCredentialBuilder`. [#44123](https://github.com/Azure/azure-sdk-for-java/pull/44123)
     - Log the client, object, or resource ID of the user-assigned managed identity. [#44305](https://github.com/Azure/azure-sdk-for-java/pull/44305)
   GroupId: com.azure
+- Name: azure-ai-openai
+  Version: 1.0.0-beta.15
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.15/sdk/openai/azure-ai-openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New subpackage `com.azure.ai.openai.responses` contains support for OpenAI's recently released Responses functionality.
+  GroupId: com.azure
 
