@@ -562,4 +562,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_11.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-documentintelligence
+  Version: 1.0.1
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix polling for `begin_copy_model_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
 
