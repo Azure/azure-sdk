@@ -1,0 +1,367 @@
+entries:
+- Name: '@azure/storage-file-share'
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.27.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-05-05.
+    - Added support for NFS over REST.
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.2.0
+  DisplayName: Token Cache Persistence Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to the version `^3.2.2`
+- Name: '@azure/identity-broker'
+  Version: 1.2.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.2.0/sdk/identity/identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Native ESM support has been added, and this package will now emit both CommonJS and ESM. [#31647](https://github.com/Azure/azure-sdk-for-js/pull/31647)
+    - Updated `@azure/msal-node` to the version `^3.2.2`
+- Name: '@azure/identity'
+  Version: 4.7.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.7.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the logic to return authority without the scheme and tenant ID [#31540](https://github.com/Azure/azure-sdk-for-js/pull/31540)
+    - Fixed an issue where an incorrect tenant ID was presented in multi-tenant authentication errors [#32505](https://github.com/Azure/azure-sdk-for-js/pull/32505)
+    - `ManagedIdentityCredential` now throws an error when attempting to pass a user-assigned Managed Identity in a ServiceFabric environment instead of silently ignoring it. [#32841](https://github.com/Azure/azure-sdk-for-js/pull/32841)
+    - Fixed the bug in silent authentication behavior to happen only in scenarios where an account is present either in the persistent cache (if tokenCachePersistence is enabled and authentication record is provided) or the in-memory cache, instead of silently picking up the first account found in token cache. [#32134](https://github.com/Azure/azure-sdk-for-js/pull/32134)
+    - Fixed the bug in interactive authentication request to account for the correct user login prompt based on the login hint provided, in case there are multiple accounts present. [#32134](https://github.com/Azure/azure-sdk-for-js/pull/32134)
+    - Incorporated the [fix by @azure/msal-node (v 3.2.1)](https://github.com/AzureAD/microsoft-authentication-library-for-js/pull/7469) for silent authentication to do token lookup in persistent cache.
+
+    #### Features Added
+
+    - Added `subscription` property in `AzureCliCredentialOptions` [#31451](https://github.com/Azure/azure-sdk-for-js/pull/31451).
+- Name: '@azure/communication-chat'
+  Version: 1.6.0-beta.5
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0-beta.5/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated signaling client to 1.0.0-beta.32 to fix chunk events missing editedOn field
+- Name: '@azure/eventgrid'
+  Version: 5.11.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.11.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - properties added to `AcsMessageMediaContent`
+    - `animated`
+    - properties added to `AcsMessageReceivedEventData`
+    - `messageId`
+    - `messageType`
+    - `reaction`
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.0-beta.6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0-beta.6/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `animated` property to `AcsMessageMediaContent`
+
+    - Added the following properties to `AcsMessageReceivedEventData`
+    - `messageId`
+    - `messageType`
+    - `reaction`
+- Name: '@azure/communication-call-automation'
+  Version: 1.3.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.3.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Removed the unsupported document references from readme
+- Name: '@azure/arm-containerregistry'
+  Version: 11.0.0-beta.4
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.4.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-nginx'
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_4.0.0-beta.2/sdk/nginx/arm-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.4.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub'
+  Version: 1.1.4
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.4/sdk/web-pubsub/web-pubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to generate client access URL and token for `socketio` client protocol.
+
+    #### Bugs Fixed
+    - Fix issue with mismatched DTO for client protocol when calling generate client access URI API, causing the response to be incorrect.
+- Name: '@azure/arm-quota'
+  Version: 1.1.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_1.1.0/sdk/quota/arm-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.1.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.1.0/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-impactreporting'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Impactreporting
+  ServiceName: Impactreporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-impactreporting_1.0.0-beta.1/sdk/impactreporting/arm-impactreporting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.6
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.6/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for MQTT event handling
+- Name: '@azure/arm-deviceregistry'
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0/sdk/deviceregistry/arm-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 6.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databasewatcher'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Databasewatcher
+  ServiceName: Databasewatcher
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databasewatcher_1.0.0-beta.1/sdk/databasewatcher/arm-databasewatcher/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 18.4.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.29
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.29/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support the AMW de-duping flag in AKS auto-attach scenarios.
+    - Support sending custom events via specifying `microsoft.custom_event.name` on logs.
+    - Support the stable OpenTelemetry HTTP semantic conventions.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.9.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.9.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for stable OpenTelemetry semantic conventions.
+- Name: '@azure/core-xml'
+  Version: 1.4.5
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.5/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where leading and trailing spaces are not preserved in parsed result [PR #33020](https://github.com/Azure/azure-sdk-for-js/pull/33020)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.19.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.19.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - clear the request timeout timer in `NodeHttpClient` after the response is returned [PR #32891](https://github.com/Azure/azure-sdk-for-js/pull/32891)
+- Name: '@azure/core-amqp'
+  Version: 4.3.6
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.6/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Designates `EAI_AGAIN` and `EADDRNOTAVAIL` errors as timeout errors to be retryable.
+- Name: '@azure/core-client'
+  Version: 1.9.3
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.9.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Correctly set the code and message fields in `RestError` in a corner case [PR #33151](https://github.com/Azure/azure-sdk-for-js/pull/33151)
+- Name: '@azure-rest/core-client'
+  Version: 2.3.4
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.4/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `asNodeStream` and `asBrowserStream` now throw when called in the incorrect environment instead of returning the wrong type of stream. PR [#33138](https://github.com/Azure/azure-sdk-for-js/pull/33138)
+- Name: '@azure/identity'
+  Version: 4.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.8.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `ManagedIdentityCredential` will now log the configured user-assigned managed identity ID. [#33144](https://github.com/Azure/azure-sdk-for-js/pull/33144)
+- Name: '@azure/app-configuration'
+  Version: 1.9.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0-beta.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add the `audience` param to `AppConfigurationClientOptions` and `KnownAppConfigurationAudience` to allow specifying the Microsoft Entra audience for the token credential when creating a client. If not specified, the SDK will default to Azure Public Cloud.
+- Name: '@azure-rest/maps-geolocation'
+  Version: 1.0.0-beta.5
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.5/sdk/maps/maps-geolocation-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix ESM module file not found.
+- Name: '@azure-rest/maps-search'
+  Version: 2.0.0-beta.3
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_2.0.0-beta.3/sdk/maps/maps-search-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix ESM module file not found.
+- Name: '@azure-rest/maps-render'
+  Version: 2.0.0-beta.2
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_2.0.0-beta.2/sdk/maps/maps-render-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix ESM module file not found.
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.5
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.5/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix ESM module file not found.
+
