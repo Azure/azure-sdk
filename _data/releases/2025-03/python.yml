@@ -573,4 +573,19 @@ entries:
     #### Bugs Fixed
 
     - Fix polling for `begin_copy_model_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
+- Name: azure-eventhub
+  Version: 5.15.0b2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.15.0b2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implemented a new websockets library so that using `AmqpOverWebsocket` no longer requires separate optional dependency installations.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where service errors were incorrectly required and expected to have info/description fields.
 
