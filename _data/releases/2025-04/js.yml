@@ -187,4 +187,20 @@ entries:
     #### Features Added
 
     - Added support for service version 2025-05-05.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.6
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Re-export ErrorModel type from azure-rest/core-client (#33333)
+
+    #### Features Added
+
+    - Add "developer" chat role, and ChatRequestDeveloperMessage interface.
+    - Added audio input (data and url) to chat completions, with samples.
 
