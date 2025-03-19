@@ -11,4 +11,15 @@ entries:
 
     - Updated the session processor idle timer to start immediately after accepting the session. ([44594](https://github.com/Azure/azure-sdk-for-java/pull/44594))
   GroupId: com.azure
+- Name: azure-communication-rooms
+  Version: 1.2.0
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.2.0/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - General Availability version of Collaborator role.
+  GroupId: com.azure
 
