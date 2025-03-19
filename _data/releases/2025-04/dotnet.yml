@@ -470,4 +470,38 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DatabaseWatcher_1.0.0-beta.1/sdk/databasewatcher/Azure.ResourceManager.DatabaseWatcher/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 2.2.0-beta.4
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.2.0-beta.4/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Transitive from the OpenAI package, several types in the `[Experimental]` attributed `Assistants`, `VectorStores`, and `RealtimeConversation` namespaces have removed use of the `required` keyword, standardizing their constructor-based required input patterns with the rest of the library. To address these build breaks, use one of the new constructor signatures that accepts required parameters previously provided via property `init`.
+
+    #### Features Added
+
+    - To use the new `/responses` endpoint, call `GetOpenAIResponseClient()` on an `AzureOpenAIClient` instance, following the same pattern as other operations. Using the overload without a deployment name will not be able to create new responses, only retrieve and list existing response data.
+
+    In addition to the new features transitive via the `OpenAI` library:
+
+    - Azure OpenAI file upload for batch (`FileUploadPurpose.Batch`) now supports the specification of a custom expiration policy in supported regions. To use this capability, call one of the supplied extension method overloads of `UploadFile()` that accepts an `AzureFileExpirationOptions` parameter.
+- Name: Azure.AI.Inference
+  Version: 1.0.0-beta.4
+  DisplayName: AI Model Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Inference_1.0.0-beta.4/sdk/ai/Azure.AI.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added extension methods to get `ChatCompletionsClient` and `EmbeddingsClient` using [AIProjectClient](https://learn.microsoft.com/dotnet/api/azure.ai.projects.aiprojectclient?view=azure-dotnet-preview).
+
+    #### Bugs Fixed
+
+    - Fixed an issue with the audio samples not properly showcasing the intended workflow.
 
