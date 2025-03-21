@@ -300,4 +300,21 @@ entries:
     - Model Dataset support Iceberg Format As Sink
     - Model runNotebook parameter runId update description
     - Model LinkedService support sslMode and useSystemTrustStore for MariaDB
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.3/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding Azure Functions and OpenAPI tool support
+    - Upgrading core-lro package
+
+    #### Bugs Fixed
+
+    - Addresses issue in search tool deserialization step during streaming.
+    - Addresses issue running samples
 
