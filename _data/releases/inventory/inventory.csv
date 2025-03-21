@@ -902,7 +902,7 @@ Batch,0,Compute Batch,data,Java,,,11,false,azure-compute-batch,https://github.co
 Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-security-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/confidentialledger,10,false,1,02/26/2025
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,02/26/2025
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-contentmoderator,3,true,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,10,false,1,02/27/2025
-Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,02/21/2025
+Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/20/2025
 Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,02/21/2025
 Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/04/2025
 Cosmos,0,Cosmos Spark 3.5,data,Java,,,11,false,azure-cosmos-spark_3-5_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/04/2025
@@ -940,7 +940,7 @@ Monitor,0,Monitor Ingestion,data,Java,,,11,false,azure-monitor-ingestion,https:/
 Monitor,0,Monitor Query,data,Java,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,02/26/2025
 Cognitive Services,0,OpenAI,data,Java,,,11,false,azure-ai-openai,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,Java,,,11,false,azure-ai-openai-assistants,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai,3,false,1,
-Monitor,0,OpenTelemetry AutoConfigure,data,Java,,,11,false,azure-monitor-opentelemetry-autoconfigure,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,03/07/2025
+Monitor,0,OpenTelemetry AutoConfigure,data,Java,,,11,false,azure-monitor-opentelemetry-autoconfigure,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,03/20/2025
 Monitor,0,OpenTelemetry Exporter,data,Java,azure-opentelemetry-exporter-azuremonitor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,Java,,,11,false,azure-ai-personalizer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/personalizer,3,true,1,
 Purview,0,Purview Account,data,Java,,,11,false,azure-analytics-purview-account,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/purview,3,false,1,
@@ -4808,6 +4808,11 @@ Purview,0,Purview,data,Java,,,11,false,Missing: Created from API in specs repo: 
 Purview,0,Purview,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Python,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Go,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
+Purview,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
+Purview,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
+Purview,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
+Purview,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
+Purview,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
 purviewpolicy,0,Resource Management - PurviewPolicy.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewpolicy/PurviewPolicy.Management,,2,false,0,
