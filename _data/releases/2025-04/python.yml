@@ -86,4 +86,23 @@ entries:
     - `KeyClient` has a `get_key_attestation` method that can be used to retrieve a key along with its attestation blob
     (stored in a new `KeyProperties.attestation` property) from a managed HSM
     [#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507)
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b12
+  DisplayName: Core - Client - Tracing Opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b12/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the original context was not properly restored after exiting an `OpenTelemetrySpan` context in certain scenarios. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+
+    #### Features Added
+
+    - If a span exits with an exception, the exception name is now recorded in the `error.type` attribute. ([#34619](https://github.com/Azure/azure-sdk-for-python/pull/34619))
+    - Added support for passing a schema version to fetch available attribute mappings and set the schema URL on the tracer's instrumentation scope. ([#40161](https://github.com/Azure/azure-sdk-for-python/pull/40161))
+    - Added additional span suppression logic to prevent unnecessary spans from being created. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+    - `SpanKind.INTERNAL` spans are suppressed if their parent span is of type `SpanKind.INTERNAL`, `SpanKind.CLIENT`, or `SpanKind.PRODUCER`.
+    - Update `OpenTelemetrySpan.change_context` to also accept spans of type `OpenTelemetrySpan`. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
 
