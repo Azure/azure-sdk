@@ -504,4 +504,40 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue with the audio samples not properly showcasing the intended workflow.
+- Name: Azure.Compute.Batch
+  Version: 1.0.0-beta.2
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Compute.Batch_1.0.0-beta.2/sdk/batch/Azure.Compute.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+
+    - Force delete/terminate job or job schedule:
+    - Added `force` parameter of type Boolean to `DeleteJobAsync`, `DeleteJob`, `TerminateJobAsync`, `TerminateJob`, `DeleteJobScheduleAsync`, `DeleteJobSchedule`, `TerminateJobScheduleAsync`, and `TerminateJobSchedule`.
+
+    - Support for compute node start/deallocate operations:
+    - Added `StartNode`, `StartNodeAsync`, `DeallocateNode`, and `DeallocateNodeAsync` methods to `BatchClient`
+
+    - Container task data mount isolation:
+    - Added `containerHostBatchBindMounts` of type `List<ContainerHostBatchBindMountEntry>` to `BatchTaskContainerSettings`.
+
+    - Patch improvements for pool and job:
+    - Added `displayName`, `vmSize`, `taskSlotsPerNode`, `taskSchedulingPolicy`, `enableInterNodeCommunication`, `virtualMachineConfiguration`, `networkConfiguration`, `userAccounts`, `mountConfiguration`, `upgradePolicy`, and `resourceTags` to `BatchPoolUpdateContent`.
+    - Added `networkConfiguration` to `BatchJobUpdateContent`.
+
+    - Confidential VM support:
+    - Added `confidentialVM` to `SecurityTypes`.
+    - Added `securityProfile` of type `VMDiskSecurityProfile` to `ManagedDisk`.
+
+    - Support for shared and community gallery images:
+    - Added `sharedGalleryImageId` and `communityGalleryImageId` to `ImageReference`.
+    #### Breaking Changes
+
+    - Removed `getNodeRemoteDesktop` method from `BatchClient`. Use `getNodeRemoteLoginSettings` instead to remotely login to a compute node.
+    - Removed `CloudServiceConfiguration` from pool models and operations. Use `VirtualMachineConfiguration` when creating pools.
+    - Removed `ApplicationLicenses` from pool models and operations.
 
