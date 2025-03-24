@@ -105,4 +105,28 @@ entries:
     - Added additional span suppression logic to prevent unnecessary spans from being created. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
     - `SpanKind.INTERNAL` spans are suppressed if their parent span is of type `SpanKind.INTERNAL`, `SpanKind.CLIENT`, or `SpanKind.PRODUCER`.
     - Update `OpenTelemetrySpan.change_context` to also accept spans of type `OpenTelemetrySpan`. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+- Name: azure-mgmt-compute
+  Version: 34.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_34.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventgrid
+  Version: 10.4.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventgrid_10.4.0/sdk/eventgrid/azure-mgmt-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-pineconevectordb
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Pineconevectordb
+  ServiceName: Pineconevectordb
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-pineconevectordb_1.0.0b2/sdk/pineconevectordb/azure-mgmt-pineconevectordb/CHANGELOG.md
+  ChangelogContent: ""
 
