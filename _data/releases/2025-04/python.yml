@@ -193,4 +193,14 @@ entries:
     #### Bugs Fixed
 
     - Fix polling for `begin_copy_classifier_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
+- Name: azure-storage-blob
+  Version: 12.25.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.25.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated dependency for `azure-storage-file-datalake` type hints.
 
