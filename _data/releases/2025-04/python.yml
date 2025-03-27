@@ -203,4 +203,14 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Updated dependency for `azure-storage-file-datalake` type hints.
+- Name: azure-storage-file-datalake
+  Version: 12.20.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.20.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
 
