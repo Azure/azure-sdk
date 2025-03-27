@@ -44,6 +44,9 @@ Progressive Concept Disclosure
 Service client
 : The starting points for consumers calling Azure services with the Azure SDK. A service client is distinguished from other clients in that it can be directly constructed. Each client library should have at least one service client in its main namespace, so it’s easy to discover.
 
+Subclient {#subclient}
+: A subclient is a type of client that cannot be directly constructed. Subclients can only be returned from another client.
+
 ## Requirements
 
 Each requirement in this document is labelled and color-coded to show the relative importance.  In order from highest importance to lowest importance:
