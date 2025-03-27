@@ -172,4 +172,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b21/sdk/sql/azure-mgmt-sql/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.26.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Handle missing duration value in deployment poller result
+- Name: azure-ai-documentintelligence
+  Version: 1.0.2
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.2/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix polling for `begin_copy_classifier_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
 
