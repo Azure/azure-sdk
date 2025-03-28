@@ -246,4 +246,23 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed too many health checks happening when skipping the recommended client startup. See [PR 40203](https://github.com/Azure/azure-sdk-for-python/pull/40203).
+- Name: azure-ai-projects
+  Version: 1.0.0b8
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b8/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * New parameters added for Azure AI Search tool, with corresponding sample update.
+    * Fabric tool REST name updated, along with convenience code.
+
+    #### Bugs Fixed
+
+    * Fix for a bug in Agent tracing causing event handler return values to not be returned when tracing is enabled.
+    * Fix for a bug in Agent tracing causing tool calls not to be recorded in traces.
+    * Fix for a bug in Agent tracing causing function tool calls to not work properly when tracing is enabled.
+    * Fix for a bug in Agent streaming, where `agent_id` was not included in the response. This caused the SDK not to make function calls when the thread run status is `requires_action`.
 
