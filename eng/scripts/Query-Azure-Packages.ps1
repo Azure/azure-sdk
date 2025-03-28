@@ -62,7 +62,7 @@ function Get-java-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"].ToLower()
+      # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -93,7 +93,7 @@ function Get-dotnet-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"].ToLower()
+      # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -154,7 +154,7 @@ function Get-js-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"].ToLower()
+      # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
@@ -209,7 +209,7 @@ function Get-python-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
-      $package.RepoPath = $matches["serviceName"].ToLower()
+      # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
       $package.ServiceName = $serviceName
       $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
