@@ -325,4 +325,120 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.3.2-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.2-beta.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Introduced support for `TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier`.
+    - Added a type `TeamsExtensionUserKind` with rawId in the format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added a method `isTeamsExtensionUserIdentifier` to check if the identifier is `TeamsExtensionUserIdentifier`.
+    - Mandatory fields of `TeamsExtensionUserIdentifier` are `userId`, `tenantId` and `resourceId`.
+    - With this version, rawId starting with `8:acs` may be either `CommunicationUserIdentifier` or new `TeamsExtensionUserIdentifier`.
+    - Added optional fields `isAnonymous` and `assertedId` to the communication identifier `PhoneNumberIdentifier`.
+    - `isAnonymous` is used for anonymous numbers with rawId equals to `4:anonymous`.
+    - `assertedId` is used when the same number is used several times in the same call. It contains value after the last underscore (_)
+    character in the phone number. It is undefined otherwise.
+- Name: '@azure/arm-hybridconnectivity'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_2.0.0-beta.1/sdk/hybridconnectivity/arm-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-durabletask'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Durabletask
+  ServiceName: Durabletask
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0-beta.1/sdk/durabletask/arm-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 22.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-pineconevectordb'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Pineconevectordb
+  ServiceName: Pineconevectordb
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-pineconevectordb_1.0.0-beta.2/sdk/pineconevectordb/arm-pineconevectordb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databox'
+  Version: 5.1.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 5.2.0-beta.2
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appinsights'
+  Version: 5.0.0-beta.8
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-agricultureplatform'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Agricultureplatform
+  ServiceName: Agricultureplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-agricultureplatform_1.0.0-beta.1/sdk/agricultureplatform/arm-agricultureplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridkubernetes'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_3.0.0-beta.1/sdk/hybridkubernetes/arm-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 14.2.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.5.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 3.2.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
 
