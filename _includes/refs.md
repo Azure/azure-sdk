@@ -1,6 +1,7 @@
 [Architecture Board]: https://github.com/azure/azure-sdk/issues
 
 [General Azure SDK Guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
+[General Azure SDK Terminology]: {{ site.baseurl }}{% link docs/general/terminology.md %}
 [Azure SDK Contributors Guide]: https://review.learn.microsoft.com/en-us/help/platform/reference-document-sdk-client-libraries
 [Microsoft Writing Style Guide]: https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700
 [Microsoft Cloud Style Guide]: https://styleguides.azurewebsites.net/Styleguide/Read?id=2696

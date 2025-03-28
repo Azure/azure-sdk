@@ -477,6 +477,8 @@ pub struct SetSecretOptions {
 
 ##### Hierarchical Clients {#rust-subclients}
 
+Subclients can only be returned by other clients and cannot be constructed by developers using our crates. See [General Azure SDK Terminology] general guidelines.
+
 {% include requirement/MAY id="rust-subclients-return" %} return clients from other clients e.g., a `DatabaseClient` from a `CosmosClient`.
 
 {% include requirement/MUSTNOT id="rust-subclients-create" %} define constructors on subclients. They must be constructed only from other clients.
