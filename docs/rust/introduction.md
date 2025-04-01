@@ -579,7 +579,7 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-builders-return" %} return an owned value from the final `build(&self)` method.
 
-{% include requirement/MUSt id="rust-builders-return-params" %} define required parameters in the final `build(&self)` method if not using a typestate pattern e.g., `build(&self, endpoint: &str)`.
+{% include requirement/MUST id="rust-builders-return-params" %} define required parameters in the final `build(&self)` method if not using a typestate pattern e.g., `build(&self, endpoint: &str)`.
 
 #### Enumerations {#rust-enums}
 
