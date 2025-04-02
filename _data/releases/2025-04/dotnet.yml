@@ -643,4 +643,36 @@ entries:
     - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
     - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
     - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
+- Name: Azure.ResourceManager.Compute
+  Version: 1.9.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.9.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.3.0-beta.3
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.3.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Update OpenTelemetry dependencies
+    ([#48574](https://github.com/Azure/azure-sdk-for-net/pull/48574))
+    - OpenTelemetry 1.11.2
+    - OpenTelemetry.Extensions.Hosting 1.11.2
+    - OpenTelemetry.Instrumentation.AspNetCore 1.11.1
+    - OpenTelemetry.Instrumentation.Http 1.11.1
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.3.2
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.3.2/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
 
