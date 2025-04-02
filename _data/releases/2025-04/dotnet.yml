@@ -631,4 +631,16 @@ entries:
 
     * Always set Dependency.Target to "server.address" and "server.port" if present.
     ([#48317](https://github.com/Azure/azure-sdk-for-net/pull/48317))
+- Name: Azure.Communication.Common
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.4.0-beta.1/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
 
