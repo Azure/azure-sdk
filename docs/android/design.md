@@ -299,7 +299,7 @@ public final class ConfigurationClientBuilder {
 
 {% include requirement/MUSTNOT id="android-versioning-no-previews-in-stable" %} include preview API versions in a stable SDK release's API version enum.
 
-{% include requirement/MUST id="android-versioning-no-previews-in-stable" %} expose preview API versions only in beta SDKs.
+{% include requirement/MUST id="android-versioning-previews-only-in-beta" %} expose preview API versions only in beta SDKs.
 
 {% include requirement/MUST id="android-versioning-select-service-api" %} provide an enum of supported service API versions that can be supplied via the [options class](#option-parameters) when initializing the service client, as shown below:
 
