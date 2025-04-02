@@ -273,9 +273,9 @@ The service client will have several methods that perform requests on the servic
 
 {% include requirement/MUST id="golang-pagination" %} return an instance of `*runtime.Pager[T]` for operations that return pages.  `runtime.Pager[T]` allows consumers to iterate over all pages as defined by the service.
 
-{% include requirement/MUST id="golang-pagination" %} name methods that return a `*runtime.Pager[T]` with pattern `New<Operation>Pager`.
+{% include requirement/MUST id="golang-paged-method-naming" %} name methods that return a `*runtime.Pager[T]` with pattern `New<Operation>Pager`.
 
-{% include requirement/MUSTNOT id="golang-params-service-validation" %} perform any IO when creating the `runtime.Pager[T]`.  This implies that the method does NOT take a context and does NOT return an error.
+{% include requirement/MUSTNOT id="golang-paging-io" %} perform any IO when creating the `runtime.Pager[T]`.  This implies that the method does NOT take a context and does NOT return an error.
 
 ```go
 func (c *WidgetClient) NewListPager(options *WidgetClientListOptions) *runtime.Pager[WidgetClientListResponse] {
@@ -573,7 +573,7 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 {% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, credential handling, and more.
 
-{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `sdk/internal` package for functionality that is common across all client packages that should not be publicly exported.  This package includes helpers for creating errors with stack frame information, and more.
+{% include requirement/MUST id="golang-dependencies-sdk-internal" %} depend on the `sdk/internal` package for functionality that is common across all client packages that should not be publicly exported.  This package includes helpers for creating errors with stack frame information, and more.
 
 {% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
 
