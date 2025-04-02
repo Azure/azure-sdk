@@ -103,7 +103,7 @@ Subtypes of `Operation<T>` are returned from service client methods invoking lon
 
 {% include requirement/MUST id="cpp-lro-return" %} check the value of `IsDone` in subclass implementations of `PollInternal` and `PollUntilDoneInternal` and immediately return the result of `GetRawResponse` if it is true.
 
-{% include requirement/MUST id="cpp-lro-return" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
+{% include requirement/MUST id="cpp-lro-exceptions" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
 
 - If an underlying service operation call from `Poll` or `PollUntilDone` throws, re-throw `RequestFailedException` or its subtype.
 - If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `Poll` or `PollUntilDone`.
