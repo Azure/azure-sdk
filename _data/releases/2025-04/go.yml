@@ -115,4 +115,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/pineconevectordb/armpineconevectordb/v0.1.1/sdk/resourcemanager/pineconevectordb/armpineconevectordb/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.18.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.18.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `AccessToken.RefreshOn` and updated `BearerTokenPolicy` to consider nonzero values of it when deciding whether to request a new token
 
