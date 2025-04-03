@@ -1,13 +1,15 @@
-# Expects azuresdk-github-pat is set to the PAT for azure-sdk
+# By default expects azure-sdk-gh-token-azure and azure-sdk-gh-token-azure-sdk is set to the PAT for the azure-sdk account
 # Expects the buildtools to be cloned
 
 parameters:
   BaseBranchName: $(Build.SourceBranch)
   PRBranchName: not-specified
   PROwner: azure-sdk
+  PROwnerAuthToken: $(azure-sdk-gh-token-azure-sdk)
   CommitMsg: not-specified
   RepoOwner: Azure
   RepoName: $(Build.Repository.Name)
+  RepoAuthToken: $(azure-sdk-gh-token-azure)
   PushArgs:
   WorkingDirectory: $(System.DefaultWorkingDirectory)
   PRTitle: not-specified
@@ -16,7 +18,7 @@ parameters:
   GHReviewers: ''
   GHTeamReviewers: ''
   GHAssignees: ''
-  # Multiple labels seperated by comma, e.g. "bug, APIView"
+  # Multiple labels separated by comma, e.g. "bug, APIView"
   PRLabels: ''
   SkipCheckingForChanges: false
   CloseAfterOpenForTesting: false
@@ -27,6 +29,7 @@ steps:
   parameters:
     BaseRepoBranch: ${{ parameters.PRBranchName }}
     BaseRepoOwner: ${{ parameters.PROwner }}
+    BaseRepoAuthToken: ${{ parameters.PROwnerAuthToken }}
     CommitMsg: ${{ parameters.CommitMsg }}
     TargetRepoOwner: ${{ parameters.RepoOwner }}
     TargetRepoName: ${{ parameters.RepoName }}
@@ -48,7 +51,7 @@ steps:
       -BaseBranch "${{ parameters.BaseBranchName }}"
       -PROwner "${{ parameters.PROwner }}"
       -PRBranch "${{ parameters.PRBranchName }}"
-      -AuthToken "$(azuresdk-github-pat)"
+      -AuthToken "${{ parameters.RepoAuthToken }}"
       -PRTitle "${{ parameters.PRTitle }}"
       -PRBody "${{ coalesce(parameters.PRBody, parameters.CommitMsg, parameters.PRTitle) }}"
       -PRLabels "${{ parameters.PRLabels }}"
