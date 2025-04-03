@@ -540,4 +540,155 @@ entries:
     - Removed `getNodeRemoteDesktop` method from `BatchClient`. Use `getNodeRemoteLoginSettings` instead to remotely login to a compute node.
     - Removed `CloudServiceConfiguration` from pool models and operations. Use `VirtualMachineConfiguration` when creating pools.
     - Removed `ApplicationLicenses` from pool models and operations.
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.3
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the `GetIndexStatsSummary` API in `SearchIndexClient`.
+    - Added extension methods to get `SearchClient`, `SearchIndexClient` and `SearchIndexerClient` using [AIProjectClient](https://learn.microsoft.com/dotnet/api/azure.ai.projects.aiprojectclient?view=azure-dotnet-preview).
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.4.0-beta.3
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.4.0-beta.3/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.6
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.6/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `QueryType` parameter to `AISearchIndexResource` to allow different search types performed by an agent [issue](https://github.com/Azure/azure-sdk-for-net/issues/49069).
+    * Added sample for Azure AI Search in streaming scenarios [issue](https://github.com/Azure/azure-sdk-for-net/issues/49069).
+
+    #### Bugs Fixed
+    * Fixed Azure AI Search in streaming scenarios.
+
+    #### Breaking Changes
+    * `MicrosoftFabricToolDefinition` constructor parameter was renamed from `fabricAiskill` to `fabricDataagent`, the corresponding parameter was renamed from `FabricAiskill` to `FabricDataagent`.
+- Name: Azure.ResourceManager.DataBox
+  Version: 1.1.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataBox_1.1.0/sdk/databox/Azure.ResourceManager.DataBox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.1.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.3
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.3/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Aligned with the latest changes (Feb 25) of the IETF draft: https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/
+    - Updated receipt verification logic.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.4.0-beta.3
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added support for emitting Application Insights Custom Events.
+    ([#48378](https://github.com/Azure/azure-sdk-for-net/pull/48378))
+
+    * Added new api `UseAzureMonitorExporter` which automatically enables logging, tracing, and metrics.
+    Additional calls to `WithLogging`, `WithMetrics`, and `WithTracing` are NOT required.
+    However, you may still need to enable specific tracing/metric sources/meters separately.
+    ([#48402](https://github.com/Azure/azure-sdk-for-net/pull/48402))
+    - Added support for LiveMetrics when using the `UseAzureMonitorExporter` api.
+
+    #### Bugs Fixed
+
+    * Fixed an issue where array attributes on metrics weren't exported correctly.
+    ([#47300](https://github.com/Azure/azure-sdk-for-net/pull/47300))
+
+    * Always set Dependency.Target to "server.address" and "server.port" if present.
+    ([#48317](https://github.com/Azure/azure-sdk-for-net/pull/48317))
+- Name: Azure.Communication.Common
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.4.0-beta.1/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
+- Name: Azure.ResourceManager.Compute
+  Version: 1.9.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.9.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.3.0-beta.3
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.3.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Update OpenTelemetry dependencies
+    ([#48574](https://github.com/Azure/azure-sdk-for-net/pull/48574))
+    - OpenTelemetry 1.11.2
+    - OpenTelemetry.Extensions.Hosting 1.11.2
+    - OpenTelemetry.Instrumentation.AspNetCore 1.11.1
+    - OpenTelemetry.Instrumentation.Http 1.11.1
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.3.2
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.3.2/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.4.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.4.0-beta.1/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Migration.Assessment
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Migration.Assessment
+  ServiceName: Migration.Assessment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Migration.Assessment_1.0.0-beta.1/sdk/migrationassessment/Azure.ResourceManager.Migration.Assessment/CHANGELOG.md
+  ChangelogContent: ""
 
