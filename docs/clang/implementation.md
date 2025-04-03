@@ -239,7 +239,7 @@ If a function takes both optional and non-optional parameters then prefer passin
 
 {% include requirement/MUST id="clang-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.  
 
-{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
+{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating parameter struct.
 
 ##### Methods requiring allocation
 
@@ -369,7 +369,7 @@ If a function takes both optional and non-optional parameters then prefer passin
 
 {% include requirement/MUST id="clang-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.  
 
-{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
+{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating parameter struct.
 
 ### Supporting Types
 
