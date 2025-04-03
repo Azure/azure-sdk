@@ -506,4 +506,16 @@ entries:
 
     - Adding Fabric support and sample.
     - Adding token usage sample
+- Name: '@azure/openai'
+  Version: 2.1.0-beta.1
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.1.0-beta.1/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for `ungrounded_material` in `ContentFilterResultsForChoiceOutput`.
+    - Adds support for `user_security_context` in `ChatCompletionCreateParamsNonStreaming` and `ChatCompletionCreateParamsStreaming`.
 
