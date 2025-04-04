@@ -125,6 +125,7 @@ jobs:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: MicrosoftDocs
       RepoName: azure-dev-docs-pr
+      RepoAuthToken: $(azure-sdk-gh-token-microsoftdocs)
       PRBranchName: PackageIndexUpdates
       CommitMsg: "Update package index with latest published versions"
       PRTitle: "Update package index with latest published versions"
