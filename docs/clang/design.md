@@ -538,7 +538,7 @@ AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
 int64_t compute_hash(int32_t a, int32_t b);
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that initialize structures with `..._<objname>_init`.  These functions can fail and must return an az_result.
+{% include requirement/MUST id="clang-design-naming-funcstatic-initializers" %} declare all functions that initialize structures with `..._<objname>_init`.  These functions can fail and must return an az_result.
 
 {% highlight c %}
 
@@ -547,7 +547,7 @@ AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
 
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that return an initialized options structure (which can be examined/modified) with `..._<objname>_options_default`.  These functions must always succeed.
+{% include requirement/MUST id="clang-design-naming-funcstatic-options" %} declare all functions that return an initialized options structure (which can be examined/modified) with `..._<objname>_options_default`.  These functions must always succeed.
 
 {% highlight c %}
 
@@ -556,7 +556,7 @@ AZ_NODISCARD az_widgets_options az_widgets_options_default();
 
 {% endhighlight %}
 
-{% include requirement/SHOULD id="clang-design-naming-funcstatic" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
+{% include requirement/SHOULD id="clang-design-naming-funcstatic-same-source" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
 
 {% highlight c %}
 static int64_t compute_hash(int32_t a, int32_t b) {

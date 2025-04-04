@@ -341,7 +341,7 @@ public class ContainerRepository {
 
 While API usability is the primary reason for subclients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using subclients allows an application to cache the top level client and create instances of subclients on demand.  In addition, if there is an expensive shared resource (e.g. an AMQP connection), subclients are preferred, as they naturally lead to resource sharing.
 
-{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
+{% include requirement/SHOULD id="dotnet-service-client-" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
 
 {% include requirement/MUSTNOT id="dotnet-subclient-no-constructor" %} provide a public constructor on a subclient.  Subclients are non-instantiable by design.
 
@@ -501,11 +501,11 @@ public class BlobCreateOptions {
 
 The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties.
 
-{% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
+{% include requirement/MUST id="dotnet-params-complex-methods" %} use the _options_ parameter pattern for complex service methods.
 
-{% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+{% include requirement/MAY id="dotnet-params-growing-methods" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
 
-{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern.
+{% include requirement/MAY id="dotnet-params-simple-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
@@ -642,7 +642,7 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
 
-{% include requirement/MUST id="dotnet-lro-waituntil" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
+{% include requirement/MUST id="dotnet-lro-subclass-operations" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID.  Some service operations have intermediate states they pass through prior to completion.  These can be represented with an added ```Status``` property to augment the ```HasCompleted``` property on the base ```Operation``` type.
@@ -1069,7 +1069,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/SHOULD id="dotnet-version-major-changes" %} increment the major version when making large feature changes.
 
-{% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
+{% include requirement/MUST id="dotnet-version-change-from-track-1" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
 ### Target Frameworks
 
@@ -1091,7 +1091,7 @@ If not building with the Azure SDK engineering system, use the following target 
 <TargetFrameworks>netstandard2.0</TargetFrameworks>
 ```
 
-{% include requirement/SHOULD id="dotnet-build-net-standard" %} build libraries for the oldest supported LTS version of .NET.
+{% include requirement/SHOULD id="dotnet-build-net-oldest-lts" %} build libraries for the oldest supported LTS version of .NET.
 
 For example, if the oldest supported LTS version of .NET is `8.0`, use the following target setting in the `.csproj` file if not building with the Azure SDK engineering system:
 
@@ -1165,7 +1165,7 @@ Some commonly used examples of .NET runtime polyfill packages are:
 
 Native dependencies introduce lots of complexities to .NET libraries and so they should be avoided.
 
-{% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} native dependencies.
+{% include requirement/SHOULDNOT id="dotnet-problems-native-dependencies" %} have native dependencies.
 
 ### Documentation Comments {#dotnet-documentation}
 

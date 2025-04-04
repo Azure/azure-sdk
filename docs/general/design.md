@@ -374,13 +374,13 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 The ability to retry failed requests for which a client never received a response greatly simplifies the ability to write resilient distributed applications. When the method on the service is not idempotent, the service may support safe retry by supporting repeatability headers as defined in [OASIS Repeatable Requests Version 1.0](https://docs.oasis-open.org/odata/repeatable-requests/v1.0/repeatable-requests-v1.0.html).
 
-{% include requirement/MUST id="general-repeatable-requests-support" %} add the `Repeatability-Request-ID` (a uuid) and `Repeatability-First-Sent` (IMF fixdate) request headers before sending the HTTP request to the pipeline in any client method that directly invokes a single service operation. These header values remain the same cross all retries.
+{% include requirement/MUST id="general-repeatable-requests-request-headers" %} add the `Repeatability-Request-ID` (a uuid) and `Repeatability-First-Sent` (IMF fixdate) request headers before sending the HTTP request to the pipeline in any client method that directly invokes a single service operation. These header values remain the same cross all retries.
 
 {% include requirement/SHOULDNOT id="general-repeatable-requests-parameters" %} offer explicit parameters on client methods allowing the consumer to explicitly set the repeatability headers value.
 
 NOTE: If the client method allows the consumer to set arbitrary headers, then any values for these two headers should be used and must not be overwritten by the client method code.
 
-{% include requirement/MUST id="general-repeatable-requests-support" %} expose the Repeatability-Result response header in the response model for the method.
+{% include requirement/MUST id="general-repeatable-requests-support-response-headers" %} expose the Repeatability-Result response header in the response model for the method.
 
 ## Support for non-HTTP protocols
 

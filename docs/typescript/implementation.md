@@ -285,7 +285,7 @@ A particular (major.minor) version of a library can choose what service APIs it 
 
 {% include requirement/MUSTNOT id="ts-versioning-no-version-0" %} use a major version of 0, even for beta packages.
 
-{% include requirement/MUST id="general-versioning-bump" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other npm scope or language.
+{% include requirement/MUST id="versioning-bump-from-track-1" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other npm scope or language.
 
 Semantic versioning is more of a lofty ideal than a practical specification for some libraries. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Package authors are required to follow semver in a way that is useful for their consumers.
 

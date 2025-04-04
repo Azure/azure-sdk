@@ -288,7 +288,7 @@ to wait synchronously on a `Future`.
 | Prefix | Scenario | Example |
 | ------ | -------- | ------- |
 | (none) | field getter | `field_name(&self) -> FieldType` |
-| `with_` | field setter returning `Self` - typically used in builders | `with_field_name(&mut self, value: FieldType) -> &mut Self` |
+| `with_` | [non-default constructor](#rust-client-constructors-multiple-credentials) or field setter returning `Self` - typically used in builders | `with_field_name(&mut self, value: FieldType) -> &mut Self` |
 | `set_` | field setter returning nothing or anything else | `set_field_name(&mut self, value: FieldType)` |
 
 ##### Operation Options {#rust-client-methods-options}
@@ -567,7 +567,7 @@ pub struct Example {
 
 ##### Builders {#rust-builders}
 
-Builders are an idiomatic pattern in Rust, such as the [typestate builder pattern][rust-lang-typestate] that can help guide developers into constructing a valid type variants.
+Though we prefer a `new()` constructor function to create instances, builders are still an idiomatic pattern in Rust, such as the [typestate builder pattern][rust-lang-typestate] that can help guide developers into constructing a valid type variants.
 
 {% include requirement/MAY id="rust-builders-support" %} implement builders for special cases e.g., URI builders.
 
@@ -578,6 +578,8 @@ If you do implement a builder, it must be defined according to the following gui
 {% include requirement/MUST id="rust-builders-self" %} consume `mut self` in `with_` setter methods and return `Self` except in the final `build(&self)` method.
 
 {% include requirement/MUST id="rust-builders-return" %} return an owned value from the final `build(&self)` method.
+
+{% include requirement/MUST id="rust-builders-return-params" %} define required parameters in the final `build(&self)` method if not using a typestate pattern e.g., `build(&self, endpoint: &str)`.
 
 #### Enumerations {#rust-enums}
 
