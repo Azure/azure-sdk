@@ -122,6 +122,8 @@ jobs:
 
   - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
+      PROwner: MicrosoftDocs
+      PROwnerAuthToken: $(azure-sdk-gh-token-microsoftdocs)
       BaseBranchName: $(DefaultBranch)
       RepoOwner: MicrosoftDocs
       RepoName: azure-dev-docs-pr
