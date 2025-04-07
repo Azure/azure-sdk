@@ -518,4 +518,38 @@ entries:
 
     - Adds support for `ungrounded_material` in `ContentFilterResultsForChoiceOutput`.
     - Adds support for `user_security_context` in `ChatCompletionCreateParamsNonStreaming` and `ChatCompletionCreateParamsStreaming`.
+- Name: '@azure/core-lro'
+  Version: 3.2.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.2.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Supports a `baseUrl` option that can be used to rewrite the polling URL to use that base URL instead. This makes sure that polling works for operations that live behind proxies or API gateways.
+    - Added `skipFinalGet` option to skip the final GET request when polling is complete, optimizing scenarios where the final resource state is not needed. [#33286](https://github.com/Azure/azure-sdk-for-js/pull/33286)
+- Name: '@azure-rest/core-client'
+  Version: 2.3.5
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.5/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `asNodeStream` now returns a `NodeJSReadableStream` which can be canceled by calling the `destroy` method.
+- Name: '@azure/core-sse'
+  Version: 2.2.0
+  DisplayName: '@azure/core-sse'
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.2.0/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `createSseStream` now supports NodeJS streams as input.
 
