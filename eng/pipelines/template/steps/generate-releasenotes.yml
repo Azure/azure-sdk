@@ -80,12 +80,12 @@ steps:
   - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
-      git remote add azure-sdk-fork "https://$(azure-sdk-gh-token-azure-sdk)@github.com/azure-sdk/azure-sdk.git"
+      git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
   - pwsh: |
-      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azure-sdk-gh-token-azure-sdk)
+      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
     displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
@@ -126,7 +126,7 @@ steps:
           -releaseStartDate $(ReleaseStartDate)
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
-          -github_pat '$(azure-sdk-gh-token-azure-sdk)'
+          -github_pat '$(azuresdk-github-pat)'
 
     - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
@@ -144,4 +144,4 @@ steps:
       displayName: Apply AutoMerge to Pull Request
       workingDirectory: $(AzureSDKReleaseNotesClonePath)
       env:
-        GH_TOKEN: $(azure-sdk-gh-token-azure)
+        GH_TOKEN: $(azuresdk-github-pat)
