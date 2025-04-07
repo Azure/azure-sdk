@@ -440,4 +440,18 @@ entries:
     ([#39941](https://github.com/Azure/azure-sdk-for-python/pull/39941))
     - Enabled Entra ID Credential configuration via env var
     ([#40237](https://github.com/Azure/azure-sdk-for-python/pull/40237))
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.6
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.6/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `logging_format` as configuration option in api
+    ([#40057](https://github.com/Azure/azure-sdk-for-python/pull/40057))
+    - Enable Azure AI Agents instrumentation
+    ([#40043](https://github.com/Azure/azure-sdk-for-python/pull/40043))
 
