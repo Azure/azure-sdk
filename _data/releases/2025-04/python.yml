@@ -422,4 +422,22 @@ entries:
     #### Features Added
 
     - New `RedTeam` agent functionality to assess the safety and resilience of AI systems against adversarial prompt attacks
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b36
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b36/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `syntheticSource` from `user_agent.synthetic.type` semantic convention
+    ([#40004](https://github.com/Azure/azure-sdk-for-python/pull/40004))
+    - Support `server.address` attributes when converting Azure SDK messaging spans to envelopes
+    ([#40059](https://github.com/Azure/azure-sdk-for-python/pull/40059))
+    - Update AKS check to use KUBERNETES_SERVICE_HOST
+    ([#39941](https://github.com/Azure/azure-sdk-for-python/pull/39941))
+    - Enabled Entra ID Credential configuration via env var
+    ([#40237](https://github.com/Azure/azure-sdk-for-python/pull/40237))
 
