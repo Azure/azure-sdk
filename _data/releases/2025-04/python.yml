@@ -411,4 +411,15 @@ entries:
     - Renamed span attributes in `DistributedTracingPolicy`:
     - "x-ms-client-request-id" is now "az.client_request_id"
     - "x-ms-request-id" is now "az.service_request_id"
+- Name: azure-ai-evaluation
+  Version: 1.5.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.5.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New `RedTeam` agent functionality to assess the safety and resilience of AI systems against adversarial prompt attacks
 
