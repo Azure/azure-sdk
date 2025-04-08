@@ -23,7 +23,7 @@ entries:
     - Allow the `ApiVersion` field within `CertificateClientOptions` to be settable.
 - Name: azure-security-keyvault-secrets
   Version: 4.3.0-beta.4
-  DisplayName: 'Key Vault - Secrets'
+  DisplayName: Key Vault - Secrets
   ServiceName: Key Vault
   VersionType: Beta
   Hidden: false
@@ -32,4 +32,20 @@ entries:
     #### Bugs Fixed
 
     - Allow the `ApiVersion` field within `SecretClientOptions` to be settable.
+- Name: azure-identity
+  Version: 1.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.11.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Subscription` to `AzureCliCredentialOptions` which allows the caller to specify an Azure subscription that does not match the current Azure CLI subscription.
+    - [[#6321]](https://github.com/Azure/azure-sdk-for-cpp/issues/6321) Log Client ID used in `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - [[#5235]](https://github.com/Azure/azure-sdk-for-cpp/issues/5235) Warnings in `azure/identity.hpp` cause strict builds to fail.
 
