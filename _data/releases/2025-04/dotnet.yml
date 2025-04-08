@@ -819,4 +819,62 @@ entries:
     - `EventHubsModelFactory.EventData`
     - `BlobCheckpointStore.UpdateCheckpointAsync`
     - `EventProcessorClient.UpdateCheckpointAsync`
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.6
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.6/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.ServiceBus` to 7.19.0
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a misspelling of "PartitionId" in the trigger input data passed to the function executor.  This caused function logs and metrics reported by AppInsights and the portal to reflect the wrong label.  To ensure that applications that rely on the misspelling are not impacted, a new member with the correct spelling was added.
+
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled.  As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.12.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.12.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - `EventData.Offset`
+    - `LastEnqueuedEventProperties.Offset`
+    - `PartitionProperties.LastEnqueuedOffset`
+
+    Obsoleted method overloads:
+    - `EventPosition.FromOffset`
+    - `EventHubsModelFactory.EventData`
+    - `BlobCheckpointStore.UpdateCheckpointAsync`
+    - `EventProcessorClient.UpdateCheckpointAsync`
+
+    #### Bugs Fixed
+
+    - Fixed behavior in the `UpdateCheckpointAsync` method of `EventProcessorClient` to properly await the call to the checkpoint store.  Previously, this was not awaited, causing the OTel span to open and close almost immediately and skip reporting any errors observed.
 
