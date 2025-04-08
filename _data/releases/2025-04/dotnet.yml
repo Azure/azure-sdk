@@ -718,4 +718,51 @@ entries:
     #### Other Changes
 
     - Initial release of the Azure.Projects package.
+- Name: Azure.Projects.AI
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.AI_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.AI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.AI package.
+- Name: Azure.Identity
+  Version: 1.14.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `DefaultAzureCredential` now includes silent authentication via the authentication broker on Windows if the `Azure.Identity.Broker` NuGet package is referenced. This allows for a more seamless authentication experience when using the `DefaultAzureCredential` in Windows environments. Setting the `ExcludeBrokerCredential` property on `DefaultAzureCredentialOptions` disables this feature.
+
+    #### Bugs Fixed
+    - `DefaultAzureCredential` no longer sends a probe request on each call to `GetToken`. It now only happens on the first call.
+- Name: Azure.Projects.Web
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.Web_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.Web/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.Web package.
+- Name: Azure.Projects.Provisioning
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.Provisioning_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.Provisioning package.
 
