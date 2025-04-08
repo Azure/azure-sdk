@@ -1,0 +1,114 @@
+entries:
+- Name: azure_core
+  Version: 0.23.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.23.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `azure_core::process::Executor` to run commands asynchronously.
+    The `tokio` feature is disabled by default so `std::process::Command` is used; otherwise, if enabled, `tokio::process::Command` is used.
+    - Added `http` module containing all functions, modules, and types from `typespec_client_core::http`.
+    - Added `azure_core::http::policies::ClientRequestIdPolicy` to every pipeline. Client libraries can add with custom header name instead.
+    - Moved `Pager` from `typespec_client_core::http` to `azure_core::http` module since it is Azure-specific.
+    - Re-exported `Body`, `Request`, and `RequestContent` from `http::request` module.
+    - Re-exported `create_enum`, `create_extensible_enum` macros from `typespec_client_core`.
+    - Re-exported `Model` and `Response` from `http::response` module.
+
+    #### Breaking Changes
+
+    - Removed `azure_core::credentials::TokenCredential::clear_cache()`
+    - Consolidated all the `tokio` features into a single feature named `tokio`. Traits remain separate but `tokio` support is enabled with a single feature.
+    - Moved `AppendToUrlQuery` type under `http` module.
+    - Moved `ByteStream` and `SeekableStream` types under `stream` module.
+    - Moved `ClientMethodOptions` type under `http` module.
+    - Moved `ClientOptions` type under `http` module.
+    - Moved `Context` type under `http` module.
+    - Moved `Etag` type under `http` module.
+    - Moved `ExponentialRetryOptions` type under `http` module.
+    - Moved `FixedRetryOptions` type under `http` module.
+    - Moved `headers` module under `http` module.
+    - Moved `HttpClient` type under `http` module.
+    - Moved `LeaseAction` type under `http` module.
+    - Moved `LeaseDuration` type under `http` module.
+    - Moved `LeaseState` type under `http` module.
+    - Moved `LeaseStatus` type under `http` module.
+    - Moved `Method` type under `http` module.
+    - Moved `new_http_client` function under `http` module.
+    - Moved `Pipeline` type under `http` module.
+    - Moved `policies` module under `http` module.
+    - Moved `request` module under `http` module.
+    - Moved `response` module under `http` module.
+    - Moved `RetryOptions` type under `http` module.
+    - Moved `StatusCode` type under `http` module.
+    - Moved `TelemetryOptions` type under `http` module.
+    - Moved `TransportOptions` type under `http` module.
+    - Moved `Url` type under `http` module.
+    - Removed `content_type` module.
+    - Removed `EMPTY_BODY` constant from root.
+    - Removed `future!()` macro.
+    - Removed `Header` re-export from `http` module. It is still defined in the `http::headers` module.
+    - Removed `parsing` module.
+    - Removed `query_param` module.
+    - Removed `RequestId` type alias from root.
+    - Removed `SessionToken` type alias from root.
+    - Renamed `lro` module to `http::poller` module.
+    - Renamed `lro` module types with prefix "Lro" to prefix "Poller".
+    - Renamed `tokio` module to `fs` since it contained only the `typespec_client_core::fs` module members.
+- Name: typespec_macros
+  Version: 0.2.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.2.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec
+  Version: 0.3.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.3.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `http-types` dependency and implemented `StatusCode` instead.
+- Name: azure_core_amqp
+  Version: 0.2.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.2.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to compare an `AmqpAnnotationKey` with a string and string slice.
+
+    #### Breaking Changes
+
+    - APIs which used to return `Option<String>`, and `Option<Vec<T>>` now return `Option<&str>`, and `Option<&[T]>`.
+    - APIs which take ownership of string parameters now take a `String` parameter instead of a `&str` parameter.
+- Name: typespec_client_core
+  Version: 0.2.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.2.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Consolidated all the `tokio` features into a single feature named `tokio`. Traits remain separate but `tokio` support is enabled with a single feature.
+    - Removed `Header` re-export from `http` module. It is still defined in the `http::headers` module.
+    - Removed `http-types` dependency and implemented `Method` instead.
+    - Removed `Pager`.
+    - Removed `parsing` module.
+
