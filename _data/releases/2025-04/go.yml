@@ -145,4 +145,14 @@ entries:
     #### Bugs Fixed
 
     - Processor now only lists checkpoints when it needs to start a new partition client, avoiding wasted calls to the checkpoint store. (PR#24383)
+- Name: sdk/azidentity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.9.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `GetToken()` sets `AccessToken.RefreshOn` when the token provider specifies a value
 
