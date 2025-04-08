@@ -578,4 +578,26 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Include all the changes from 1.9.0-beta.1 version
+- Name: '@azure/event-hubs'
+  Version: 6.0.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Stable release of the Geographic replication support added in v6.0.0-beta.1.
+- Name: '@azure/eventhubs-checkpointstore-blob'
+  Version: 2.0.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Stable release of the Geographic replication support added in v6.0.0-beta.1.
 
