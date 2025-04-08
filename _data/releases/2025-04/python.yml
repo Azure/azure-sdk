@@ -454,4 +454,14 @@ entries:
     ([#40057](https://github.com/Azure/azure-sdk-for-python/pull/40057))
     - Enable Azure AI Agents instrumentation
     ([#40043](https://github.com/Azure/azure-sdk-for-python/pull/40043))
+- Name: azure-ai-ml
+  Version: 1.26.2
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.2/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Made AI Search connections property optional while creating capability host.
 
