@@ -929,4 +929,15 @@ entries:
     - Added CkmAesKeyWrap algorithm in `EncryptionAlgorithm`
     - Added Attestation property for Keys in Managed HSM Key Vaults.
     - New `GetKeyAttestation` operation to get the public part of a stored key along with its attestation blob.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug which caused the placeholder value used to represent missing offsets in v5.11.3 - v5.11.6 to not be properly detected and incorrectly used as a valid offset when reading from a partition.
 
