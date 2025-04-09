@@ -111,4 +111,30 @@ entries:
     - Removed `http-types` dependency and implemented `Method` instead.
     - Removed `Pager`.
     - Removed `parsing` module.
+- Name: azure_identity
+  Version: 0.23.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.23.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential`.
+    - `AzureCliCredentialOptions` (new) accepts a `azure_core::process::Executor` to run the Azure CLI asynchronously.
+    The `tokio` feature is disabled by default so `std::process::Command` is used; otherwise, if enabled, `tokio::process::Command` is used.
+    Callers can also implement the trait themselves to use a different asynchronous runtime.
+    - Restored `ClientSecretCredential`
+
+    #### Breaking Changes
+
+    - Added `Option<AzureCliCredentialOptions>` to `AzureCliCredential::new`.
+    - `AzureCliCredential` authenticates only against the first scope passed as a resource to support both v1 and v2 CLI versions.
+    - `ClientAssertionCredential` constructors moved some parameters to an `Option<ClientAssertionCredentialOptions>` parameter.
+    - Removed `get_subscription()` and `get_tenant()` from `AzureCliCredential`.
+    - `WorkloadIdentityCredential` constructors moved some parameters to an `Option<ClientAssertionCredentialOptions>` parameter.
+    - Removed `clear_cache()` from all credential types
+    - Removed `old_azure_cli` feature. `AzureCliCredential` now requires a recent version of the Azure CLI (2.54.0 or later).
+    - Replaced `AppServiceManagedIdentityCredential`, `VirtualMachineManagedIdentityCredential`, and `ImdsId` with `ManagedIdentityCredential` and `UserAssignedId`
 
