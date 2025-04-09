@@ -168,4 +168,14 @@ entries:
     - AcceptNextSessionFor(Queue/Subscription) and AcceptSessionFor(Queue/Subscription) no longer need to call RenewSessionLock before returning the accepted
     session. (PR#24345)
     - Some Service Bus annotation values can be set to nil values, which would panic our Receiver. These are now checked, and set to nil appropriately. (PR#24312)
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.4.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.4.0-beta.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded to API service version `7.6-preview.2`
 
