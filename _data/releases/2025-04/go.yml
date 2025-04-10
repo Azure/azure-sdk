@@ -178,4 +178,36 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     * Upgraded to API service version `7.6-preview.2`
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.4.0-beta.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.4.0-beta.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `GetKeyAttestation` operation
+    * Added `EncryptionAlgorithmCKMAESKEYWRAP` and `EncryptionAlgorithmCKMAESKEYWRAPPAD`
+    * Added `SignatureAlgorithm`, `SignatureAlgorithmHS256`, `SignatureAlgorithmHS384`, and `SignatureAlgorithmHS512`
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.4.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.4.0-beta.1/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `BeginPreFullBackup` and `BeginPreFullRestore` operations
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.4.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.4.0-beta.1/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `PreserveCertOrder`
 
