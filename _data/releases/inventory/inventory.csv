@@ -73,8 +73,8 @@ Cognitive Services,0,Document Intelligence,data,.NET,,,11,false,Azure.AI.Documen
 Cognitive Services,0,Document Translation,data,.NET,,,11,false,Azure.AI.Translation.Document,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,11/13/2024
 Event Grid,0,Event Grid,data,.NET,Microsoft.Azure.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.Messaging.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,02/17/2025
 Event Grid,0,Event Grid Namespaces,data,.NET,,,11,false,Azure.Messaging.EventGrid.Namespaces,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,06/13/2024
-Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,04/08/2025
-Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,04/08/2025
+Event Hubs,0,Event Hubs,data,.NET,Microsoft.Azure.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,04/09/2025
+Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,true,Azure.Messaging.EventHubs.Processor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,04/09/2025
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,.NET,Microsoft.Azure.CognitiveServices.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/cognitiveservices/FormRecognizer,3,true,Azure.AI.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer,10,false,1,08/10/2023
 Extensions,0,Functions Extensions - WebPubSub,data,.NET,,,11,false,Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,07/03/2024
@@ -334,7 +334,7 @@ Qumulo,0,Resource Management - Qumulo,mgmt,.NET,,,11,false,Azure.ResourceManager
 Quota,0,Resource Management - Quota,mgmt,.NET,Microsoft.Azure.Management.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/quota,10,false,1,03/01/2025
 Recovery Services,0,Resource Management - Recovery Services,mgmt,.NET,Microsoft.Azure.Management.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,3,true,Azure.ResourceManager.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,10,false,1,12/01/2023
 Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesBackup,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-backup,10,false,1,03/18/2025
-Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesDataReplication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-datareplication,3,false,1,
+Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesDataReplication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-datareplication,10,false,1,04/09/2025
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesSiteRecovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-siterecovery,10,false,1,03/13/2025
 Redis,0,Resource Management - Redis,mgmt,.NET,Microsoft.Azure.Management.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/redis,10,false,1,12/19/2024
 Redis,0,Resource Management - Redis Enterprise,mgmt,.NET,Microsoft.Azure.Management.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/redisenterprise,10,false,1,02/20/2024
@@ -1801,7 +1801,7 @@ Purview,0,Purview Workflow,data,Python,,,11,false,azure-purview-workflow,https:/
 Cognitive Services,0,Question Answering,data,Python,azure-cognitiveservices-knowledge-qnamaker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-language-questionanswering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,10,false,1,10/13/2022
 Schema Registry,0,Schema Registry,data,Python,,,11,false,azure-schemaregistry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,09/18/2024
 Schema Registry,0,Schema Registry - Avro,data,Python,,,11,false,azure-schemaregistry-avroencoder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
-Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,03/12/2025
+Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,04/09/2025
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,03/27/2025
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
@@ -2062,6 +2062,7 @@ Stack Edge,0,Resource Management - Edge Gateway,mgmt,Python,azure-mgmt-edgegatew
 Cosmos DB,0,Cosmos DB,data,Rust,,,11,false,azure_data_cosmos,UNABLE TO DETERMINE REPO LINK,3,false,1,
 Event Hubs,0,Event Hubs,data,Rust,,,11,false,azure_messaging_eventhubs,UNABLE TO DETERMINE REPO LINK,3,false,1,
 Identity,0,Identity,data,Rust,,,11,false,azure_identity,UNABLE TO DETERMINE REPO LINK,3,false,1,
+Key Vault,0,Key Vault - Certificates,data,Rust,,,11,false,azure_security_keyvault_certificates,UNABLE TO DETERMINE REPO LINK,3,false,1,
 Key Vault,0,Key Vault - Keys,data,Rust,,,11,false,azure_security_keyvault_keys,UNABLE TO DETERMINE REPO LINK,3,false,1,
 Key Vault,0,Key Vault - Secrets,data,Rust,,,11,false,azure_security_keyvault_secrets,UNABLE TO DETERMINE REPO LINK,3,false,1,
 TypeSpec,0,TypeSpec Client Core,data,Rust,,,11,false,typespec_client_core,UNABLE TO DETERMINE REPO LINK,3,false,1,
