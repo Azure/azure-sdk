@@ -629,4 +629,15 @@ entries:
 
     - Support setting the AiLocationIp on logs and events.
     - Add support for performance counters.
+- Name: '@azure-rest/purview-datamap'
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Data Map
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-datamap_1.0.0-beta.3/sdk/purview/purview-datamap-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated type of endorsements from str to list[str] in SuggestResultValue and SuggestResultValue models.
 
