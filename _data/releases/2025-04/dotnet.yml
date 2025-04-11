@@ -540,4 +540,434 @@ entries:
     - Removed `getNodeRemoteDesktop` method from `BatchClient`. Use `getNodeRemoteLoginSettings` instead to remotely login to a compute node.
     - Removed `CloudServiceConfiguration` from pool models and operations. Use `VirtualMachineConfiguration` when creating pools.
     - Removed `ApplicationLicenses` from pool models and operations.
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.3
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the `GetIndexStatsSummary` API in `SearchIndexClient`.
+    - Added extension methods to get `SearchClient`, `SearchIndexClient` and `SearchIndexerClient` using [AIProjectClient](https://learn.microsoft.com/dotnet/api/azure.ai.projects.aiprojectclient?view=azure-dotnet-preview).
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.4.0-beta.3
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.4.0-beta.3/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.6
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.6/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `QueryType` parameter to `AISearchIndexResource` to allow different search types performed by an agent [issue](https://github.com/Azure/azure-sdk-for-net/issues/49069).
+    * Added sample for Azure AI Search in streaming scenarios [issue](https://github.com/Azure/azure-sdk-for-net/issues/49069).
+
+    #### Bugs Fixed
+    * Fixed Azure AI Search in streaming scenarios.
+
+    #### Breaking Changes
+    * `MicrosoftFabricToolDefinition` constructor parameter was renamed from `fabricAiskill` to `fabricDataagent`, the corresponding parameter was renamed from `FabricAiskill` to `FabricDataagent`.
+- Name: Azure.ResourceManager.DataBox
+  Version: 1.1.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataBox_1.1.0/sdk/databox/Azure.ResourceManager.DataBox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.1.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.3
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.3/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Aligned with the latest changes (Feb 25) of the IETF draft: https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/
+    - Updated receipt verification logic.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.4.0-beta.3
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added support for emitting Application Insights Custom Events.
+    ([#48378](https://github.com/Azure/azure-sdk-for-net/pull/48378))
+
+    * Added new api `UseAzureMonitorExporter` which automatically enables logging, tracing, and metrics.
+    Additional calls to `WithLogging`, `WithMetrics`, and `WithTracing` are NOT required.
+    However, you may still need to enable specific tracing/metric sources/meters separately.
+    ([#48402](https://github.com/Azure/azure-sdk-for-net/pull/48402))
+    - Added support for LiveMetrics when using the `UseAzureMonitorExporter` api.
+
+    #### Bugs Fixed
+
+    * Fixed an issue where array attributes on metrics weren't exported correctly.
+    ([#47300](https://github.com/Azure/azure-sdk-for-net/pull/47300))
+
+    * Always set Dependency.Target to "server.address" and "server.port" if present.
+    ([#48317](https://github.com/Azure/azure-sdk-for-net/pull/48317))
+- Name: Azure.Communication.Common
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.4.0-beta.1/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
+- Name: Azure.ResourceManager.Compute
+  Version: 1.9.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.9.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.3.0-beta.3
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.3.0-beta.3/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Update OpenTelemetry dependencies
+    ([#48574](https://github.com/Azure/azure-sdk-for-net/pull/48574))
+    - OpenTelemetry 1.11.2
+    - OpenTelemetry.Extensions.Hosting 1.11.2
+    - OpenTelemetry.Instrumentation.AspNetCore 1.11.1
+    - OpenTelemetry.Instrumentation.Http 1.11.1
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.3.2
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.3.2/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.4.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.4.0-beta.1/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Migration.Assessment
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Migration.Assessment
+  ServiceName: Migration.Assessment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Migration.Assessment_1.0.0-beta.1/sdk/migrationassessment/Azure.ResourceManager.Migration.Assessment/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridConnectivity
+  Version: 1.1.0
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridConnectivity_1.1.0/sdk/hybridconnectivity/Azure.ResourceManager.HybridConnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AgriculturePlatform
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Agricultureplatform
+  ServiceName: Agricultureplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AgriculturePlatform_1.0.0-beta.1/sdk/agricultureplatform/Azure.ResourceManager.AgriculturePlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Projects
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects package.
+- Name: Azure.Projects.AI
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.AI_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.AI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.AI package.
+- Name: Azure.Identity
+  Version: 1.14.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `DefaultAzureCredential` now includes silent authentication via the authentication broker on Windows if the `Azure.Identity.Broker` NuGet package is referenced. This allows for a more seamless authentication experience when using the `DefaultAzureCredential` in Windows environments. Setting the `ExcludeBrokerCredential` property on `DefaultAzureCredentialOptions` disables this feature.
+
+    #### Bugs Fixed
+    - `DefaultAzureCredential` no longer sends a probe request on each call to `GetToken`. It now only happens on the first call.
+- Name: Azure.Projects.Web
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.Web_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.Web/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.Web package.
+- Name: Azure.Projects.Provisioning
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Projects.Provisioning_1.0.0-beta.1/sdk/cloudmachine/Azure.Projects.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of the Azure.Projects.Provisioning package.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.19.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.19.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ServiceBusClientOptions` now supports registering a callback delegate for participating in the validation of SSL certificates when connections are established.  This delegate may override the built-in validation and allow or deny certificates based on application-specific logic.
+- Name: Azure.Identity.Broker
+  Version: 1.3.0-beta.2
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.0-beta.2/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Support for dynamic addition of the broker authentication to `DefaultAzureCredential` has been added. This allows the broker authentication to be used as part of the default credential chain by only adding a reference to this package to your application.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Querying runtime data and other management operations will now correctly guards against the race condition where an AMQP link is in the process of closing as the operation attempts to use it.  These errors will now properly be classified as retriable as they are for producer and consumer operations.
+
+    - Fixed an obscure edge case in the `EventHubBufferedProducer` client where an unlikely race condition when flushing/enqueuing events concurrently with disposing the producer could cause a semaphore to be released inappropriately.  This error superseded the `TaskCanceledException` that should have been surfaced.
+
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - `EventData.Offset`
+    - `LastEnqueuedEventProperties.Offset`
+    - `PartitionProperties.LastEnqueuedOffset`
+
+    Obsoleted method overloads:
+    - `EventPosition.FromOffset`
+    - `EventHubsModelFactory.EventData`
+    - `BlobCheckpointStore.UpdateCheckpointAsync`
+    - `EventProcessorClient.UpdateCheckpointAsync`
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.6
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.6/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.ServiceBus` to 7.19.0
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a misspelling of "PartitionId" in the trigger input data passed to the function executor.  This caused function logs and metrics reported by AppInsights and the portal to reflect the wrong label.  To ensure that applications that rely on the misspelling are not impacted, a new member with the correct spelling was added.
+
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled.  As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.12.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.12.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - `EventData.Offset`
+    - `LastEnqueuedEventProperties.Offset`
+    - `PartitionProperties.LastEnqueuedOffset`
+
+    Obsoleted method overloads:
+    - `EventPosition.FromOffset`
+    - `EventHubsModelFactory.EventData`
+    - `BlobCheckpointStore.UpdateCheckpointAsync`
+    - `EventProcessorClient.UpdateCheckpointAsync`
+
+    #### Bugs Fixed
+
+    - Fixed behavior in the `UpdateCheckpointAsync` method of `EventProcessorClient` to properly await the call to the checkpoint store.  Previously, this was not awaited, causing the OTel span to open and close almost immediately and skip reporting any errors observed.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.8.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.8.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected a typo in the documentation for `CertificatePolicy.KeySize`, changing the RSA key length from "4092" to "4096".
+    - Removed an extra `/` when building the request Uri for `CertificateClient.ImportCertificate` and `CertificateClient.ImportCertificateAsync`.
+
+    #### Features Added
+
+    - New `preserveCertificateOrder` option when creating and importing certificates. It can be set as an optional paremeter in `StartCreateCertificate`, as an option in `ImportCertificateOptions`, and it can be retrieved from certificates of type `KeyVaultCertificateWithPolicy`
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.6.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.6.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `StartPreRestore` and `StartPreBackup` operations to the `KeyVaultBackupClient`.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.8.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.8.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The default service version is now "7.6-preview.2".
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.8.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.8.0-beta.1/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Hmac algorithms in `SignatureAlgorithm`
+    - Added CkmAesKeyWrap algorithm in `EncryptionAlgorithm`
+    - Added Attestation property for Keys in Managed HSM Key Vaults.
+    - New `GetKeyAttestation` operation to get the public part of a stored key along with its attestation blob.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug which caused the placeholder value used to represent missing offsets in v5.11.3 - v5.11.6 to not be properly detected and incorrectly used as a valid offset when reading from a partition.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.12.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.12.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug which caused the placeholder value used to represent missing offsets in v5.11.3 - v5.11.6 to not be properly detected and incorrectly used as a valid offset when reading from a partition.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug which caused the placeholder value used to represent missing offsets in v5.11.3 - v5.11.6 to not be properly detected and incorrectly used as a valid offset when reading from a partition.
+- Name: Azure.ResourceManager.RecoveryServicesDataReplication
+  Version: 1.0.0
+  DisplayName: Resource Management - Recovery Services Data Replication
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesDataReplication_1.0.0/sdk/recoveryservices-datareplication/Azure.ResourceManager.RecoveryServicesDataReplication/CHANGELOG.md
+  ChangelogContent: ""
 
