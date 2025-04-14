@@ -578,4 +578,66 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Include all the changes from 1.9.0-beta.1 version
+- Name: '@azure/event-hubs'
+  Version: 6.0.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Stable release of the Geographic replication support added in v6.0.0-beta.1.
+- Name: '@azure/eventhubs-checkpointstore-blob'
+  Version: 2.0.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Stable release of the Geographic replication support added in v6.0.0-beta.1.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.10.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.10.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for performance counters.
+
+    ### Other Changes
+
+    - Add support for detecting the Application Insights shim on internal verison.
+    - Native ESM support has been added, and this package will now emit both CommonJS and ESM. [#32819](https://github.com/Azure/azure-sdk-for-js/pull/32819)
+    - Add undefined checks for document filtering functions.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.30
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.30/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support setting the AiLocationIp on logs and events.
+    - Add support for performance counters.
+- Name: '@azure-rest/purview-datamap'
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Data Map
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-datamap_1.0.0-beta.3/sdk/purview/purview-datamap-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated type of endorsements from str to list[str] in SuggestResultValue and SuggestResultValue models.
 
