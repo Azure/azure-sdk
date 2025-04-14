@@ -970,4 +970,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesDataReplication_1.0.0/sdk/recoveryservices-datareplication/Azure.ResourceManager.RecoveryServicesDataReplication/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Analytics.Purview.DataMap
+  Version: 1.0.0-beta.2
+  DisplayName: Purview Data Map
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.DataMap_1.0.0-beta.2/sdk/purview/Azure.Analytics.Purview.DataMap/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated type of endorsements from string to list[string] in SuggestResultValue and SuggestResultValue models.
+
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
 
