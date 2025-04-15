@@ -13,4 +13,15 @@ entries:
     - Added new overloads to `System.ClientModel.ModelReaderWriter` which take in a new
     [ModelReaderWriterContext](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.ClientModel/src/docs/ModelReaderWriterContext.md)
     which allows reading and writing of collections of `IPersistableModel<>`.  In addition any calls to the new overloads are AOT compatible.
+- Name: Azure.Communication.Messages
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.3.0-beta.1/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add Unified Messaging.
 
