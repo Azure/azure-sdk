@@ -42,4 +42,23 @@ entries:
     * Added BingCustomSearchTool class with sample
     * Added list_threads API to agents namespace
     * Added image input support for agents create_message
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 9.2.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_9.2.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.26.3
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.3/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updated `marshmallow` dependency to restrict versions
+    to `>=3.5,<4.0.0` in `install_requires` to ensure compatibility.
 
