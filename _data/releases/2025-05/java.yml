@@ -28,4 +28,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicesbackup_1.6.0/sdk/recoveryservicesbackup/azure-resourcemanager-recoveryservicesbackup/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.8.0-beta.6
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.6/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced new api `getIndexStatsSummary` into `SearchIndexClient` and `SearchIndexAsyncClient` to enable the retrieval of index stats summary.
+    - Introduced `flightingOptIn` field onto `SemanticConfiguration` to enable flighting opt-in for semantic search.
+  GroupId: com.azure
 
