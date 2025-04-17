@@ -10,4 +10,22 @@ entries:
     #### Bugs Fixed
     - Fixed a bug causing logs to be instrumented. Verbose logs would lead to recursive logging. ([#44828](https://github.com/Azure/azure-sdk-for-java/pull/44828))
   GroupId: com.azure
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.1.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.1.0/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-recoveryservicesbackup
+  Version: 1.6.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicesbackup_1.6.0/sdk/recoveryservicesbackup/azure-resourcemanager-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
