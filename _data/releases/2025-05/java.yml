@@ -41,4 +41,13 @@ entries:
     - Introduced new api `getIndexStatsSummary` into `SearchIndexClient` and `SearchIndexAsyncClient` to enable the retrieval of index stats summary.
     - Introduced `flightingOptIn` field onto `SemanticConfiguration` to enable flighting opt-in for semantic search.
   GroupId: com.azure
+- Name: azure-resourcemanager-dependencymap
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Dependencymap
+  ServiceName: Dependencymap
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dependencymap_1.0.0-beta.1/sdk/dependencymap/azure-resourcemanager-dependencymap/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
