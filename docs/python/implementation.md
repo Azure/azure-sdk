@@ -158,7 +158,9 @@ The `DEBUG` logging level is intended for developers or system administrators to
 
 {% include requirement/MUST id="python-logging-cancellation" %} log an `INFO` message, if a service call is canceled.
 
-{% include requirement/MUST id="python-logging-exceptions" %} log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message.
+{% include requirement/MUSTNOT id="python-logging-sensitive-info" %} log an exception that is raised 'as is'.
+
+{% include requirement/MUSTNOT id="python-logging-sensitive-info" %} use `EXCEPTION` logging level, which is a special case of `ERROR` that includes the stack trace.  It has the potential to leak sensitive information.
 
 You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor).
 
