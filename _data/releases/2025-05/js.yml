@@ -54,4 +54,19 @@ entries:
 
     - Hide iKey in debug logs.
     - Add to statsbeat success count when a batch of envelopes is partially accepted by breeze.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.11.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.11.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed process time normalized calculation returning NaN.
+
+    #### Features Added
+
+    - Added support for Process Time Normalized and Exception Rate performance counters.
 
