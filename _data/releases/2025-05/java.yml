@@ -68,4 +68,40 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storageactions_1.0.0-beta.3/sdk/storageactions/azure-resourcemanager-storageactions/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-health-deidentification
+  Version: 1.0.0
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed method names in `DeidentificationClient` to match functionality:
+    - Changed the `deidentify` method name to `deidentifyText`.
+    - Changed the `beginCreateJob` method name to `beginDeidentifyDocuments`.
+    - Renamed the property `DeidentificationContent.operation` to `operationType`.
+    - Deprecated `DocumentDataType`.
+    - Changed the model `DeidentificationDocumentDetails`:
+    - Renamed `input` to `inputLocation`.
+    - Renamed `output` to `outputLocation`.
+    - Changed the model `DeidentificationJob`
+    - Renamed `name` to `jobName`.
+    - Renamed `operation` to `operationType`.
+    - Renamed the model `OperationState` to `OperationStatus`.
+    - Changed the model `PhiCategory`:
+    - Renamed `IDNUM` to `ID_NUM`.
+    - Renamed `IPADDRESS` to `IP_ADDRESS`.
+    - Changed `Path` field to `Location` in `SourceStorageLocation` and `TargetStorageLocation`.
+    - Changed `outputPrefix` behavior to no longer include `jobName` by default.
+    - Deprecated `Path` and `Location` from `TaggerResult` model.
+
+    #### Features Added
+
+    - Introduced `DeidentificationCustomizationOptions` and `DeidentificationJobCustomizationOptions` models.
+    - Added `SurrogateLocale` field in these models.
+    - Moved `RedactionFormat` field into these models.
+    - Introduced `Overwrite` flag in `TargetStorageLocation` model.
+  GroupId: com.azure
 
