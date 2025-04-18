@@ -1,0 +1,107 @@
+entries:
+- Name: azure-monitor-opentelemetry-autoconfigure
+  Version: 1.2.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-autoconfigure_1.2.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug causing logs to be instrumented. Verbose logs would lead to recursive logging. ([#44828](https://github.com/Azure/azure-sdk-for-java/pull/44828))
+  GroupId: com.azure
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.1.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.1.0/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-recoveryservicesbackup
+  Version: 1.6.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-recoveryservicesbackup_1.6.0/sdk/recoveryservicesbackup/azure-resourcemanager-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.8.0-beta.6
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.6/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced new api `getIndexStatsSummary` into `SearchIndexClient` and `SearchIndexAsyncClient` to enable the retrieval of index stats summary.
+    - Introduced `flightingOptIn` field onto `SemanticConfiguration` to enable flighting opt-in for semantic search.
+  GroupId: com.azure
+- Name: azure-resourcemanager-dependencymap
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Dependencymap
+  ServiceName: Dependencymap
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dependencymap_1.0.0-beta.1/sdk/dependencymap/azure-resourcemanager-dependencymap/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-workloadssapvirtualinstance
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloads SAP Virtual Instance
+  ServiceName: Workloads
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-workloadssapvirtualinstance_1.0.0/sdk/workloadssapvirtualinstance/azure-resourcemanager-workloadssapvirtualinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storageactions
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Storage Actions
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storageactions_1.0.0-beta.3/sdk/storageactions/azure-resourcemanager-storageactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-health-deidentification
+  Version: 1.0.0
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed method names in `DeidentificationClient` to match functionality:
+    - Changed the `deidentify` method name to `deidentifyText`.
+    - Changed the `beginCreateJob` method name to `beginDeidentifyDocuments`.
+    - Renamed the property `DeidentificationContent.operation` to `operationType`.
+    - Deprecated `DocumentDataType`.
+    - Changed the model `DeidentificationDocumentDetails`:
+    - Renamed `input` to `inputLocation`.
+    - Renamed `output` to `outputLocation`.
+    - Changed the model `DeidentificationJob`
+    - Renamed `name` to `jobName`.
+    - Renamed `operation` to `operationType`.
+    - Renamed the model `OperationState` to `OperationStatus`.
+    - Changed the model `PhiCategory`:
+    - Renamed `IDNUM` to `ID_NUM`.
+    - Renamed `IPADDRESS` to `IP_ADDRESS`.
+    - Changed `Path` field to `Location` in `SourceStorageLocation` and `TargetStorageLocation`.
+    - Changed `outputPrefix` behavior to no longer include `jobName` by default.
+    - Deprecated `Path` and `Location` from `TaggerResult` model.
+
+    #### Features Added
+
+    - Introduced `DeidentificationCustomizationOptions` and `DeidentificationJobCustomizationOptions` models.
+    - Added `SurrogateLocale` field in these models.
+    - Moved `RedactionFormat` field into these models.
+    - Introduced `Overwrite` flag in `TargetStorageLocation` model.
+  GroupId: com.azure
+
