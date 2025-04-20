@@ -104,4 +104,13 @@ entries:
     - Moved `RedactionFormat` field into these models.
     - Introduced `Overwrite` flag in `TargetStorageLocation` model.
   GroupId: com.azure
+- Name: azure-resourcemanager-netapp
+  Version: 1.7.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.7.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
