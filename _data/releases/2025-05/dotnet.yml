@@ -58,4 +58,15 @@ entries:
     #### Bugs Fixed
 
     - System.ClientModel.SourceGeneration adds the Default property even when no type builders exist.
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.7
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.7/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added image input support for agents create message
+    * Added list threads support for agents
 
