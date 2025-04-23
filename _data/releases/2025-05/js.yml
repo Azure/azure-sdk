@@ -98,4 +98,20 @@ entries:
     #### Bugs Fixed
 
     - fixed an issue with tool_calls naming in convertOutputModelsFromWire
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.1/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - User defined endpoint
+    - User defined endpoint runtimeoptions
+    - User defined endpoint modules
+    - User defined roles
+    - User defined functions support on ledger API
+    - User List endpoint
 
