@@ -138,4 +138,47 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PineconeVectorDB_1.0.0-beta.1/sdk/pineconevectordb/Azure.ResourceManager.PineconeVectorDB/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Health.Deidentification
+  Version: 1.0.0
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Deidentification_1.0.0/sdk/healthdataaiservices/Azure.Health.Deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced `DeidentificationCustomizationOptions` and `DeidentificationJobCustomizationOptions` models
+    - Created `SurrogateLocale` field in these models
+    - Moved `RedactionFormat` field into these models
+    - Introduced `Overwrite` flag in `TargetStorageLocation` model
+
+    #### Breaking Changes
+
+    - Changed method names in `DeidentificationClient` to match functionality:
+    - Changed the `Deidentify*` method names to `DeidentifyText*`.
+    - Changed the `CreateJob*` method names to `DeidentifyDocuments*`.
+    - Renamed the property `DeidentificationContent.Operation` to `OperationType`.
+    - Deprecated `DocumentDataType`.
+    - Changed the model `DeidentificationDocumentDetails`:
+    - Renamed `Input` to `InputLocation`.
+    - Renamed `Output` to `OutputLocation`.
+    - Changed the model `DeidentificationJob`
+    - Renamed `Name` to `JobName`.
+    - Renamed `Operation` to `OperationType`.
+    - Renamed the model `OperationState` to `OperationStatus`.
+    - Changed `Path` field to `Location` in `SourceStorageLocation` and `TargetStorageLocation`.
+    - Changed handling of `TargetStorageLocation.Prefix` to only include the provided value. Previously, the generated document locations would include the `DeidentificationJob.JobName` by default.
+    - Deprecated `Path` and `Location` from `TaggerResult` model.
+- Name: System.ClientModel
+  Version: 1.4.0-beta.5
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.0-beta.5/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added additional supported scenarios to System.ClientModel.SourceGeneration.
 
