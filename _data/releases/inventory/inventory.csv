@@ -78,7 +78,7 @@ Event Hubs,0,Event Hubs - Event Processor,data,.NET,Microsoft.Azure.EventHubs.Pr
 FarmBeats,0,FarmBeats,data,.NET,,,11,false,Azure.Verticals.AgriFood.Farming,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood,3,false,1,
 Cognitive Services,0,Form Recognizer,data,.NET,Microsoft.Azure.CognitiveServices.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/cognitiveservices/FormRecognizer,3,true,Azure.AI.FormRecognizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer,10,false,1,08/10/2023
 Extensions,0,Functions Extensions - WebPubSub,data,.NET,,,11,false,Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,07/03/2024
-Health Deidentification,0,Health Deidentification,data,.NET,,,11,false,Azure.Health.Deidentification,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices,3,false,1,
+Health Deidentification,0,Health Deidentification,data,.NET,,,11,false,Azure.Health.Deidentification,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices,10,false,1,04/23/2025
 Cognitive Services,0,Health Insights Cancer Profiling,data,.NET,,,11,false,Azure.Health.Insights.CancerProfiling,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,.NET,,,11,false,Azure.Health.Insights.ClinicalMatching,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,.NET,,,11,false,Azure.Health.Insights.RadiologyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthinsights,10,false,1,08/16/2024
@@ -926,7 +926,7 @@ Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledge
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,03/25/2025
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/ee79d2413826f904a9f7b2e78d3c9ca7040d2fbe/sdk/cognitiveservices/ms-azure-cs-computervision,3,true,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety,10,false,1,03/25/2025
 Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/20/2025
-Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,02/21/2025
+Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,04/23/2025
 Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/04/2025
 Cosmos,0,Cosmos Spark 3.5,data,Java,,,11,false,azure-cosmos-spark_3-5_2-12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,03/04/2025
 Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
@@ -2122,6 +2122,7 @@ Extensions,0,Functions Extensions - WebPubSub,data,Java,,,11,false,Missing: Crea
 Extensions,0,Functions Extensions - WebPubSub,data,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
 Extensions,0,Functions Extensions - WebPubSub,data,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
 Extensions,0,Functions Extensions - WebPubSub,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.Functions.Worker.Extensions.WebPubSub,,2,false,0,
+Health Deidentification,0,Health Deidentification,data,Go,,,11,false,Missing: Created from existing package: Azure.Health.Deidentification,,2,false,0,
 Cognitive Services,0,Health Insights Radiology Insights,data,Go,,,11,false,Missing: Created from existing package: Azure.Health.Insights.RadiologyInsights,,2,false,0,
 Cognitive Services,0,Image Analysis,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Vision.ImageAnalysis,,2,false,0,
 Key Vault,0,Key Vault - Keys,data,Go,,,11,false,Missing: Created from existing package: Azure.Security.KeyVault.Keys,,2,false,0,
@@ -2350,7 +2351,6 @@ Cosmos,0,Cosmos Spark 3.5,data,.NET,,,11,false,Missing: Created from existing pa
 Cosmos,0,Cosmos Spark 3.5,data,JavaScript,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-5_2-12,,2,false,0,
 Cosmos,0,Cosmos Spark 3.5,data,Python,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-5_2-12,,2,false,0,
 Cosmos,0,Cosmos Spark 3.5,data,Go,,,11,false,Missing: Created from existing package: azure-cosmos-spark_3-5_2-12,,2,false,0,
-Health Deidentification,0,Health Deidentification,data,Go,,,11,false,Missing: Created from existing package: azure-health-deidentification,,2,false,0,
 Identity,0,Identity,data,.NET,,,11,false,Missing: Created from existing package: azure-identity,,2,false,0,
 Identity,0,Identity Broker,data,.NET,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
 Identity,0,Identity Broker,data,Go,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
