@@ -637,4 +637,13 @@ entries:
     #### Bugs Fixed
     * Prevented the usage of different schemas in the `cosmos.metadata.topic` topic helps when a customer selects output Kafka record value format as JSON_SR, AVRO or PROTOBUF (ie any SR format). With this change there is a unified schema used for the metadata topic instead. - See [PR 45018](https://github.com/Azure/azure-sdk-for-java/pull/45018)
   GroupId: com.azure.cosmos.kafka
+- Name: azure-resourcemanager-apimanagement
+  Version: 2.0.0
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-apimanagement_2.0.0/sdk/apimanagement/azure-resourcemanager-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
