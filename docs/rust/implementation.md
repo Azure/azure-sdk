@@ -168,13 +168,13 @@ Azure/azure-sdk-for-rust/
 
 Rust modules should be defined such that:
 
-1. All clients and models that the user can create are exported from the crate root e.g., `azure_security_keyvault_secrets`.
-2. All subclients that can only be created from other clients should only be exported from the `clients` submodule e.g., `azure_security_keyvault_secrets::clients`.
-3. All client options and client method options are exported from the same module(s) from which their associated clients are exported e.g., `azure_security_keyvault_secrets` and `azure_security_keyvault_secrets::clients`.
+1. All clients and their client options that the user can create are exported from the crate root e.g., `azure_security_keyvault_secrets`.
+2. All subclients and their client options that can only be created from other clients should only be exported from the `clients` submodule e.g., `azure_security_keyvault_secrets::clients`.
+3. All client method options are exported from the `models` module e.g., `azure_security_keyvault_secrets::models`.
 4. Extension methods on clients should be exported from the same module(s) from which their associated clients are exported.
 5. Extension methods on models should be exported from the same module(s) from which their associated models are exported.
 
-Effectively, export creatable types from the root and keep associated items together. These creatable types are often the only types that users will need to reference by name so we want them easily discoverable.
+Effectively, export creatable clients from the root and keep associated items together. These creatable types are often the only types that users will need to reference by name so we want them easily discoverable.
 All clients will be exported from a `clients` submodule so they are easy to find, but creatable clients would be re-exported from the crate root e.g.,
 
 ```rust
@@ -182,22 +182,39 @@ All clients will be exported from a `clients` submodule so they are easy to find
 mod generated;
 mod helpers;
 
-pub use generated::clients::*;
-pub use generated::clients::{
-    SecretClient,
-    SecretClientOptions,
-    SecretClientSetSecretOptions,
-    // ...
-};
-pub mod models {
-    pub use generated::enums::*;
-    pub use generated::models::*;
-};
-pub use models::{
-    SetSecretParameters,
-    // ...
-};
+pub use generated::*;
 pub use helpers::*;
+
+// generated/mod.rs
+pub mod clients;
+pub mod models;
+pub use clients::{SecretClient, SecretClientOptions};
+```
+
+If you need to define clients or models in addition to those generated e.g., you want to wrap generated clients instead of exposing them directly,
+you can create your own `clients` and `models` modules and re-export `generated::clients::*` and `generated::models::*`, respectively, from there.
+
+```rust
+// lib.rs
+pub mod clients;
+pub mod models;
+pub use clients::{SecretClient, SecretClientOptions};
+
+// clients/mod.rs
+use crate::generated::clients::SecretClient as GeneratedSecretClient;
+pub use crate::generated::SecretClientOptions;
+
+pub struct SecretClient {
+    client: GeneratedSecretClient,
+} // ...
+
+// models/mod.rs
+pub use crate::generated::models::*;
+
+#[derive(SafeDebug)]
+pub struct ExtraModel {
+    // ...
+}
 ```
 
 ## Miscellaneous {#rust-miscellaneous}

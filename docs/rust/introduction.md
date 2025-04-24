@@ -125,13 +125,16 @@ error[E0252]: the name `Client` is defined multiple times
    |
 ```
 
-{% include requirement/SHOULD id="rust-client-namespace" %} export all service client types that the consumer can create and is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault_secrets`.
+{% include requirement/MUST id="rust-client-namespace" %} export all service client and their client options that the consumer can create and is most likely to interact with in the root module of the client library e.g., `azure_security_keyvault_secrets`.
 
-{% include requirement/MUST id="rust-client-submodule" %} export all clients and subclients from a `clients` submodule of the crate root e.g., `azure_security_keyvault_secrets::clients`. Clients that can be created directly as described above should be re-exported from the crate root e.g.,
+{% include requirement/MUST id="rust-client-clients-module" %} export all clients, subclients, and their client options from a `clients` submodule of the crate root e.g., `azure_security_keyvault_secrets::clients`. Clients that can be created directly as described above should be re-exported from the crate root.
+
+{% include requirement/MUST id="rust-client-models-module" %} export all models and client method options from a `models` submodule of the crate root e.g., `azure_security_keyvault_secrets::models` e.g.,
 
 ```rust
 // lib.rs
 pub mod clients;
+pub mod models;
 
 pub use clients::SecretClient;
 ```
@@ -236,7 +239,7 @@ impl Default for SecretClientOptions {
 {% include requirement/MUST id="rust-client-methods-configuration-name" %} define a client method options struct with the same name as the client, client method name, and "Options" e.g., a `set_secret` takes an `Option<SecretClientSetSecretOptions>` as the last parameter.
 This is required even if the service method does not currently take any options because - should it ever add options - the client method signature does not have to change and will not break callers.
 
-{% include requirement/SHOULD id="rust-client-methods-configuration-namespace" %} export client method option structs from the same module(s) from which associated clients and subclients are exported e.g., `azure_security_keyvault_secrets` and `azure_security_keyvault_secrets::clients` for `SecretClient`.
+{% include requirement/MUST id="rust-client-methods-configuration-namespace" %} export client method option structs from the `models` module e.g., `azure_security_keyvault_secrets::models`.
 
 See [Rust modules][rust-modules] for more information.
 
@@ -492,10 +495,6 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 #### Model Types {#rust-model-types}
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_). A model type is a representation of a REST service's resource.
-
-{% include requirement/MUST id="rust-model-types-export" %} export all models used in requests from the crate root.
-
-See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-model-types-derive" %} derive or implement `Clone` and `Default` for all model structs.
 
