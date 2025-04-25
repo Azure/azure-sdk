@@ -129,6 +129,40 @@ mod tests {
 
 {% include requirement/SHOULD id="rust-client-tests-examples-location" %} include examples under the `examples/` subdirectory for primary use cases. These are written as standalone executables but may include shared code modules.
 
+## Traits {#rust-traits}
+
+{% include requirement/MUST id="rust-traits-async" %} attribute traits and trait implementations with async functions with the `async_trait::async_trait` procedural macro to desugar the async functions. This allows requiring futures to also be `Send`. See [Azure/azure-sdk-for-rust#1796](https://github.com/Azure/azure-sdk-for-rust/issues/1796) for details.
+
+```rust
+use async_trait::async_trait;
+
+#[cfg_attr(target_arch = "wasm32", async_trait(?Send))]
+#[cfg_attr(not(target_arch = "wasm32"), async_trait)]
+pub trait Policy {
+    async fn send(
+        &self,
+        ctx: &Context,
+        request: &mut Request,
+        next: &[Arc<dyn Policy>],
+    ) -> PolicyResult;
+}
+
+#[cfg_attr(target_arch = "wasm32", async_trait(?Send))]
+#[cfg_attr(not(target_arch = "wasm32"), async_trait)]
+impl Policy for TelemetryPolicy {
+    async fn send(
+        &self,
+        ctx: &Context,
+        request: &mut Request,
+        next: &[Arc<dyn Policy>],
+    ) -> PolicyResult {
+        todo!()
+    }
+}
+```
+
+We loosen constrains for `wasm32` because threads are not supported.
+
 ## Directory Layout {#rust-directories}
 
 In addition to Cargo's [project layout][rust-lang-project-layout], service clients' source files should be laid out in the following manner:
