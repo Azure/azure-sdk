@@ -372,7 +372,7 @@ Storage,0,Resource Management - Storage Actions,mgmt,.NET,,,11,false,Azure.Resou
 Storage,0,Resource Management - Storage Cache,mgmt,.NET,Microsoft.Azure.Management.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,true,Azure.ResourceManager.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,false,1,03/14/2025
 Storage,0,Resource Management - Storage Mover,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagemover,10,false,1,03/14/2025
 Storage,0,Resource Management - Storage Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StoragePool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagepool,10,false,1,03/18/2025
-Storage,0,Resource Management - Storage Sync,mgmt,.NET,Microsoft.Azure.Management.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,true,Azure.ResourceManager.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,false,1,03/18/2025
+Storage,0,Resource Management - Storage Sync,mgmt,.NET,Microsoft.Azure.Management.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,true,Azure.ResourceManager.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,false,1,04/28/2025
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,.NET,Microsoft.Azure.Management.StreamAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/streamanalytics/Microsoft.Azure.Management.StreamAnalytics,10,true,Azure.ResourceManager.StreamAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics,10,false,1,03/18/2025
 Subscriptions,0,Resource Management - Subscriptions,mgmt,.NET,Microsoft.Azure.Management.Subscription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/subscription,10,true,Azure.ResourceManager.Subscription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/subscription,10,false,1,03/18/2025
 Support,0,Resource Management - Support,mgmt,.NET,Microsoft.Azure.Management.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,10,true,Azure.ResourceManager.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,10,false,1,03/14/2025
@@ -1742,7 +1742,7 @@ Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https:
 Cognitive Services,0,AI Resources,data,Python,,,11,false,azure-ai-resources,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,Anomaly Detector,data,Python,azure-cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector,3,false,1,
 App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,08/23/2024
-App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,04/17/2025
+App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,04/28/2025
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,11/11/2023
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
@@ -3564,6 +3564,16 @@ Cognitive Services,0,Language.Conversations,data,Java,,,11,false,Missing: Create
 Cognitive Services,0,Language.Conversations,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.Conversations,,2,false,0,
 Cognitive Services,0,Language.Conversations,data,Python,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.Conversations,,2,false,0,
 Cognitive Services,0,Language.Conversations,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.Conversations,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering,data,Python,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering-authoring,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering-authoring,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering-authoring,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering-authoring,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering-authoring,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering-authoring,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering-authoring,data,Python,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering-authoring,,2,false,0,
+Cognitive Services,0,Language.QuestionAnswering-authoring,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Language.QuestionAnswering-authoring,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
 Cognitive Services,0,OpenAI.Authoring,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Authoring,,2,false,0,
