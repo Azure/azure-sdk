@@ -798,9 +798,9 @@ public final class TextDocumentInput {
 }
 ```
 
-{% include requirement/MUST id="java-models-fluent" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
+{% include requirement/MUST id="java-models-fluent-api" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
 
-{% include requirement/MUST id="java-models-fluent" %} override all `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
+{% include requirement/MUST id="java-models-fluent-override-set" %} override all `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
 
 ```java
 @Fluent
@@ -1097,7 +1097,7 @@ All client libraries for Java standardize on the Maven build tooling for build a
 
 {% include requirement/MUST id="java-maven-url" %} specify the `url` element to point to the root of the GitHub repository (i.e. `https://github.com/Azure/azure-sdk-for-java`).
 
-{% include requirement/MUST id="java-maven-url" %} specify the source code management section, to specify where the source code resides for the client library. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
+{% include requirement/MUST id="java-maven-scm" %} specify the source code management section, to specify where the source code resides for the client library. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
 
 ```
 <scm>
@@ -1150,9 +1150,9 @@ Java 9 and later support the notion of a module. A module *exports* certain pack
 
 {% include requirement/MUST id="java-versioning-backwards-compatibility" %} be 100% backwards compatible with older versions of the same package.
 
-{% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default.
+{% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
-{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, by using the service client builder with a property called `serviceVersion`. This method must take a type implementing the `ServiceVersion` interface, named specifically for the service, but as generally as possible. For example, `IdentityServiceVersion` for Identity. For a service with multiple sub-services, such as Storage, if the services all share a common versioning system, `StorageServiceVersion` would suffice. If they did not, it would be necessary to have separate `BlobServiceVersion`, `QueueServiceVersion`, and `FileServiceVersion` enums.
+{% include requirement/MUST id="java-versioning-select-api-version-java-9" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, by using the service client builder with a property called `serviceVersion`. This method must take a type implementing the `ServiceVersion` interface, named specifically for the service, but as generally as possible. For example, `IdentityServiceVersion` for Identity. For a service with multiple sub-services, such as Storage, if the services all share a common versioning system, `StorageServiceVersion` would suffice. If they did not, it would be necessary to have separate `BlobServiceVersion`, `QueueServiceVersion`, and `FileServiceVersion` enums.
 
 {% include requirement/MUST id="java-versioning-enum-latest" %} offer a `getLatest()` method on the enum that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `getLatest()` to obtain the appropriate service version.
 

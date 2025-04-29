@@ -1,0 +1,643 @@
+entries:
+- Name: '@azure/cosmos'
+  Version: 4.3.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.3.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue for incorrect `ParallelizeCrossPartitionQuery` header value. It was set to true if `maxDegreeOfParallelism` was set to 0 or 1 in `FeedOptions` while executing a query. [#31232](https://github.com/Azure/azure-sdk-for-js/issues/31232)
+    - Fixed the issue for incorrect results in Changefeed in case of internal TimeoutErrors [#32652](https://github.com/Azure/azure-sdk-for-js/issues/32652)
+    - Fix RequestOptions and SharedOptions [#27336](https://github.com/Azure/azure-sdk-for-js/issues/27336)
+    - Set default values in RetryOptions [#27312](https://github.com/Azure/azure-sdk-for-js/issues/27312)
+    #### Features Added
+    ##### Client-side Encryption (Preview) [#28760](https://github.com/Azure/azure-sdk-for-js/issues/28760)
+    Add support for Client-Side Encryption. Read more here: [docs](https://learn.microsoft.com/azure/cosmos-db/how-to-always-encrypted)
+
+    Example of using Client-Side Encryption:
+    ```js
+    const credentials = new DefaultAzureCredential();
+    const keyResolver = new AzureKeyVaultEncryptionKeyResolver(credentials);
+    const cosmosClient = new CosmosClient({connectionString: "<ConnectionString>", clientEncryptionOptions: { keyEncryptionKeyResolver: keyResolver }});
+    const database = cosmosClient.database("my-database");
+    const metadata: EncryptionKeyWrapMetadata = {
+    type: EncryptionKeyResolverName.AzureKeyVault,
+    name: "akvKey",
+    value: "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>",
+    algorithm: KeyEncryptionAlgorithm.RSA_OAEP
+    };
+
+    await database.createClientEncryptionKey(
+    "my-key",
+    EncryptionAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256,
+    metadata);
+
+    const path1 : ClientEncryptionIncludedPath = {
+    path: "/property1",
+    clientEncryptionKeyId: "my-key",
+    encryptionType: EncryptionType.DETERMINISTIC,
+    encryptionAlgorithm: EncryptionAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256,
+    };
+    const path2 : ClientEncryptionIncludedPath = {
+    path: "/property2",
+    clientEncryptionKeyId: "my-key",
+    encryptionType: EncryptionType.DETERMINISTIC,
+    encryptionAlgorithm: EncryptionAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256,
+    };
+    const paths = [path1, path2];
+    const clientEncryptionPolicy = {
+    includedPaths: [path],
+    policyFormatVersion: 2,
+    };
+    const containerDefinition = {
+    id: "my-container",
+    partitionKey: {
+    paths: ["/id"],
+    },
+    clientEncryptionPolicy: clientEncryptionPolicy,
+    };
+    await database.containers.createIfNotExists(containerDefinition);
+    ```
+
+    ##### New Query Pipeline
+    Introduced `enableQueryControl` flag to enhance query pipeline, giving users more control over their query execution.
+
+    By default, value of `enableQueryControl` is set as `false` keeping query pipeline older behavior as default, as explained below:
+
+    Previously, the SDK guaranteed that each fetchNext call would return `maxItemCount` number of results, provided those many results existed in the backend. While this behavior ensured a predictable output, the SDK may query backend partitions multiple times in a single `fetchNext` iteration. This can sometimes lead to higher RU consumption with no user control, especially when results are scattered across partitions. Also queries could run for extended periods as the SDK worked to fulfil the `maxItemCount` guarantee.
+
+    When `enableQueryControl` is set to `true`, Each `fetchNext` call will now query up to `maxDegreeOfParallelism` physical partitions. If no results are found, the SDK will return empty pages instead of continuing to search all partitions. Returning fewer or empty results in each iteration consumes less RUs and hands control back to the users, allowing them to decide whether to continue fetching more data. This approach provides more granular control over RU consumption.
+
+    Eg. usage of this flag to enable new query pipeline:
+    ```js
+    const options : FeedOptions = {
+    enableQueryControl: true, // Flag to enable new query pipeline. Default value is false
+    maxItemCount: 100,
+    maxDegreeOfParallelism: 10,
+    forceQueryPlan: true,
+    }
+    const queryIterator = container.items.query("query text", options);
+    const res = await queryIterator.fetchNext();
+    ```
+
+    ##### Partition merge support
+    This feature adds support for Partition merge (preview) feature. Requests from SDK will not be blocked, when the feature is enabled on the CosmosDB account.
+    Read more about merge here: [docs](https://learn.microsoft.com/azure/cosmos-db/merge)
+
+    ##### RU Bucketing (Preview)
+    Read more about RU Bucketing here: https://aka.ms/cosmsodb-bucketing
+
+    ##### Partial hierarchical partition key support in Change Feed [#27059](https://github.com/Azure/azure-sdk-for-js/issues/27059)
+    This feature adds support for partial hierarchical partition key in Change Feed allowing the SDK to work seamlessly with partial Hierarchical partition keys, returning accurate change feed results regardless of which partition key components are provided in the iterator.
+
+    Eg. Container has partition key ["/name", "/zip", "/state"], change feed will work if, only value of name and zip is provided eg: ["john", "11011"]
+
+    ##### Index Metrics V2 support
+    This feature adds support for V2 version of index metrics that returns the response in JSON format.
+
+    Example output of older version
+
+    ```js
+    Index Utilization Information
+    Utilized Single Indexes
+    Index Spec: /Item/?
+    Index Impact Score: High
+    ---
+    Index Spec: /Price/?
+    Index Impact Score: High
+    ---
+    Potential Single Indexes
+    Utilized Composite Indexes
+    Potential Composite Indexes
+    Index Spec: /Item ASC, /Price ASC
+    Index Impact Score: High
+    ---
+    ```
+
+    Example output of version V2
+
+    ```js
+    {"UtilizedIndexes":{"SingleIndexes":[{"IndexSpec":"/Item/?"},{"IndexSpec":"/Price/?"}],"CompositeIndexes":[]},"PotentialIndexes":{"SingleIndexes":[],"CompositeIndexes":[{"IndexSpecs":["/Item ASC","/Price ASC"],"IndexImpactScore":"High"}]}}
+    ```
+
+    ##### Add `connectionString` in CosmosClientOptions
+    ConnectionString can now be configured in CosmosClientOptions along with other configurations for client initialization.
+    Eg. usage:
+    ```js
+    const options = {
+    connectionString: "<ConnectionString>",
+    consistencyLevel: ConsistencyLevel.Strong
+    }
+    ```
+- Name: '@azure/communication-rooms'
+  Version: 1.2.0
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.2.0/sdk/communication/communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General Availability version of Rooms Collaborator role
+- Name: '@azure/storage-blob'
+  Version: 12.27.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.27.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-05-05.
+- Name: '@azure/storage-queue'
+  Version: 12.26.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.26.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-05-05.
+- Name: '@azure/storage-file-share'
+  Version: 12.27.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.27.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.27.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.26.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.26.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-05-05.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.6
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Re-export ErrorModel type from azure-rest/core-client (#33333)
+
+    #### Features Added
+
+    - Add "developer" chat role, and ChatRequestDeveloperMessage interface.
+    - Added audio input (data and url) to chat completions, with samples.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.10.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.10.0-beta.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6-preview.2`. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.10.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.10.0-beta.1/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6-preview.2`. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+    - Added support for `preserveCertificateOrder` allowing the user to specify whether the certificate chain preserves its original order when creating or importing a certificate. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+- Name: '@azure/keyvault-admin'
+  Version: 4.7.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.7.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6-preview.2`. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+    - Added `KeyVaultBackupClient.beginPreBackup` and `KeyVaultBackupClient.beginPreRestore` methods for checking if it is possible to perform a full key backup or full key restore. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+
+    #### Bugs Fixed
+
+    - Fixed a typing issue in `KeyVaultBackupResult` and `KeyVaultRestoreResult` where `startTime` was marked as a required field. This field can be `undefined` if the operation never started successfully. [#32123](https://github.com/Azure/azure-sdk-for-js/pull/32123)
+- Name: '@azure/keyvault-keys'
+  Version: 4.10.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.10.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6-preview.2`. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+    - Added support for `KeyClient.getKeyAttestation` which can be used to retrieve the key along with its attestation blob from a managed HSM. [#32947](https://github.com/Azure/azure-sdk-for-js/pull/32947)
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.16
+  DisplayName: Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Model LinkedService parameter PostgreSqlV2LinkedService has a new required properties authentication_type
+    - Model LinkedService parameter SapOdpLinkedService update properties sncMode
+    - Model LinkedService parameter AzureSqlDWLinkedService update required properties
+    - Model LinkedService parameter SqlServerLinkedService update required properties
+    - Model LinkedService parameter AmazonRdsForSqlServerLinkedService update required properties
+    - Model LinkedService parameter AzureSqlDatabaseLinkedService update required properties
+    - Model LinkedService parameter AzureSqlMILinkedService update required properties
+
+    #### Features Added
+
+    - Model Dataset has a new parameter schema
+    - Model LinkedService parameter AzureFileStorageLinkedService support MI auth
+    - Model LinkedService parameter AzureTableStorageLinkedService support MI auth
+    - Model LinkedService parameter DynamicsCrmLinkedService has a new properties credential
+    - Model LinkedService parameter DynamicsLinkedService has a new properties domain
+    - Model LinkedService parameter GreenplumLinkedService has some new connection properties
+    - Model LinkedService parameter MySqlLinkedService has some new properties
+    - Model LinkedService parameter OracleLinkedService update properties
+    - Model LinkedService parameter RestService and SharePointOnlineList support ServicePrincipalCert auth
+    - Model LinkedService parameter SAP ODP update properties sncMode
+    - Model LinkedService parameter SnowflakeV2LinkedService has a new properties host
+    - Model LinkedService parameter SqlServerLinkedService add authenticationType UserAssignedManagedIdentity
+    - Model LinkedService parameter TeradataLinkedService has some new Teradata connection properties
+    - Model LinkedService parameter VerticaLinkedService support Vertica V2
+    - Model LinkedService has a new parameter version
+    - Model Pipeline Add credential reference in notebook and spark job definition activity
+    - Model Pipeline feature snowflake support multi-resultset
+    - Model Pipeline feature snowflake support storage integration
+    - Model Pipeline parameter ExecuteDataFlowActivity has a new properties continuationSettings
+    - Model Pipeline parameter ExpressionV2 has a new properties page_size
+    - Model Pipeline parameter SalesforceV2Source has a new properties page_size
+    - Model Pipeline support Iceberg Format As Sink
+    - Model Pipeline support TeradataSink
+    - Model Dataset support Iceberg Format As Sink
+    - Model runNotebook parameter runId update description
+    - Model LinkedService support sslMode and useSystemTrustStore for MariaDB
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.3/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding Azure Functions and OpenAPI tool support
+    - Upgrading core-lro package
+
+    #### Bugs Fixed
+
+    - Addresses issue in search tool deserialization step during streaming.
+    - Addresses issue running samples
+- Name: '@azure/arm-containerservice'
+  Version: 22.0.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-common'
+  Version: 2.3.2-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.2-beta.1/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Introduced support for `TokenCredential` with `EntraCommunicationTokenCredentialOptions`, enabling Entra users to authorize Communication Services and allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier`.
+    - Added a type `TeamsExtensionUserKind` with rawId in the format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added a method `isTeamsExtensionUserIdentifier` to check if the identifier is `TeamsExtensionUserIdentifier`.
+    - Mandatory fields of `TeamsExtensionUserIdentifier` are `userId`, `tenantId` and `resourceId`.
+    - With this version, rawId starting with `8:acs` may be either `CommunicationUserIdentifier` or new `TeamsExtensionUserIdentifier`.
+    - Added optional fields `isAnonymous` and `assertedId` to the communication identifier `PhoneNumberIdentifier`.
+    - `isAnonymous` is used for anonymous numbers with rawId equals to `4:anonymous`.
+    - `assertedId` is used when the same number is used several times in the same call. It contains value after the last underscore (_)
+    character in the phone number. It is undefined otherwise.
+- Name: '@azure/arm-hybridconnectivity'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_2.0.0-beta.1/sdk/hybridconnectivity/arm-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-durabletask'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Durabletask
+  ServiceName: Durabletask
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0-beta.1/sdk/durabletask/arm-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 22.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-pineconevectordb'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Pineconevectordb
+  ServiceName: Pineconevectordb
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-pineconevectordb_1.0.0-beta.2/sdk/pineconevectordb/arm-pineconevectordb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databox'
+  Version: 5.1.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 5.2.0-beta.2
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appinsights'
+  Version: 5.0.0-beta.8
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-agricultureplatform'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Agricultureplatform
+  ServiceName: Agricultureplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-agricultureplatform_1.0.0-beta.1/sdk/agricultureplatform/arm-agricultureplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridkubernetes'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_3.0.0-beta.1/sdk/hybridkubernetes/arm-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 14.2.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.5.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 3.2.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-arizeaiobservabilityeval'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Arizeaiobservabilityeval
+  ServiceName: Arizeaiobservabilityeval
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-arizeaiobservabilityeval_1.0.0-beta.1/sdk/liftrarize/arm-arizeaiobservabilityeval/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.2.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.1/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix an issue where insecure connection setting was not properly propagated through the client options.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.2.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.0/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for multiple authentication schemes through the new `authSchemes` property in `ClientOptions`
+    - Add new authentication types: `ApiKeyAuthScheme`, `BasicAuthScheme`, `BearerAuthScheme`, `OAuth2AuthScheme`
+    - Add new credential types: `OAuth2TokenCredential`, `BearerTokenCredential`, `BasicCredential`, `ApiKeyCredential`, and `ClientCredential`
+
+    #### Breaking Changes
+
+    - Remove `TokenCredential` and `KeyCredential` interfaces for new authentication schemes support
+    - Change `ClientOptions` to use `authSchemes` and `credential` instead of the previous `credentials` property
+    - Update to use standard `AbortSignal` instead of custom `AbortSignalLike` interface
+- Name: '@azure/arm-migrationassessment'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Migrationassessment
+  ServiceName: Migrationassessment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-migrationassessment_1.0.0-beta.1/sdk/migrate/arm-migrationassessment/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-weightsandbiases'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Weightsandbiases
+  ServiceName: Weightsandbiases
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-weightsandbiases_1.0.0-beta.1/sdk/liftrweightsandbiases/arm-weightsandbiases/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.4/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding Fabric support and sample.
+    - Adding token usage sample
+- Name: '@azure/openai'
+  Version: 2.1.0-beta.1
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.1.0-beta.1/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for `ungrounded_material` in `ContentFilterResultsForChoiceOutput`.
+    - Adds support for `user_security_context` in `ChatCompletionCreateParamsNonStreaming` and `ChatCompletionCreateParamsStreaming`.
+- Name: '@azure/core-lro'
+  Version: 3.2.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.2.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Supports a `baseUrl` option that can be used to rewrite the polling URL to use that base URL instead. This makes sure that polling works for operations that live behind proxies or API gateways.
+    - Added `skipFinalGet` option to skip the final GET request when polling is complete, optimizing scenarios where the final resource state is not needed. [#33286](https://github.com/Azure/azure-sdk-for-js/pull/33286)
+- Name: '@azure-rest/core-client'
+  Version: 2.3.5
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.5/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `asNodeStream` now returns a `NodeJSReadableStream` which can be canceled by calling the `destroy` method.
+- Name: '@azure/core-sse'
+  Version: 2.2.0
+  DisplayName: '@azure/core-sse'
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.2.0/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `createSseStream` now supports NodeJS streams as input.
+- Name: '@azure/arm-search'
+  Version: 3.3.0-beta.2
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 6.0.0
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.9.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Include all the changes from 1.9.0-beta.1 version
+- Name: '@azure/event-hubs'
+  Version: 6.0.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Stable release of the Geographic replication support added in v6.0.0-beta.1.
+- Name: '@azure/eventhubs-checkpointstore-blob'
+  Version: 2.0.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Stable release of the Geographic replication support added in v6.0.0-beta.1.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.10.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.10.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for performance counters.
+
+    ### Other Changes
+
+    - Add support for detecting the Application Insights shim on internal verison.
+    - Native ESM support has been added, and this package will now emit both CommonJS and ESM. [#32819](https://github.com/Azure/azure-sdk-for-js/pull/32819)
+    - Add undefined checks for document filtering functions.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.30
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.30/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support setting the AiLocationIp on logs and events.
+    - Add support for performance counters.
+- Name: '@azure-rest/purview-datamap'
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Data Map
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-datamap_1.0.0-beta.3/sdk/purview/purview-datamap-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated type of endorsements from str to list[str] in SuggestResultValue and SuggestResultValue models.
+

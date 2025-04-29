@@ -1,0 +1,51 @@
+entries:
+- Name: azure-security-keyvault-keys
+  Version: 4.5.0-beta.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-keys_4.5.0-beta.3/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow the `ApiVersion` field within `KeyClientOptions` to be settable.
+- Name: azure-security-keyvault-certificates
+  Version: 4.3.0-beta.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.3.0-beta.3/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow the `ApiVersion` field within `CertificateClientOptions` to be settable.
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0-beta.4
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-secrets_4.3.0-beta.4/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow the `ApiVersion` field within `SecretClientOptions` to be settable.
+- Name: azure-identity
+  Version: 1.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.11.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Subscription` to `AzureCliCredentialOptions` which allows the caller to specify an Azure subscription that does not match the current Azure CLI subscription.
+    - [[#6321]](https://github.com/Azure/azure-sdk-for-cpp/issues/6321) Log Client ID used in `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - [[#5235]](https://github.com/Azure/azure-sdk-for-cpp/issues/5235) Warnings in `azure/identity.hpp` cause strict builds to fail.
+

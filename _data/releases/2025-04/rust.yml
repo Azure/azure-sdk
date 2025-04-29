@@ -1,0 +1,230 @@
+entries:
+- Name: azure_core
+  Version: 0.23.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.23.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `azure_core::process::Executor` to run commands asynchronously.
+    The `tokio` feature is disabled by default so `std::process::Command` is used; otherwise, if enabled, `tokio::process::Command` is used.
+    - Added `http` module containing all functions, modules, and types from `typespec_client_core::http`.
+    - Added `azure_core::http::policies::ClientRequestIdPolicy` to every pipeline. Client libraries can add with custom header name instead.
+    - Moved `Pager` from `typespec_client_core::http` to `azure_core::http` module since it is Azure-specific.
+    - Re-exported `Body`, `Request`, and `RequestContent` from `http::request` module.
+    - Re-exported `create_enum`, `create_extensible_enum` macros from `typespec_client_core`.
+    - Re-exported `Model` and `Response` from `http::response` module.
+
+    #### Breaking Changes
+
+    - Removed `azure_core::credentials::TokenCredential::clear_cache()`
+    - Consolidated all the `tokio` features into a single feature named `tokio`. Traits remain separate but `tokio` support is enabled with a single feature.
+    - Moved `AppendToUrlQuery` type under `http` module.
+    - Moved `ByteStream` and `SeekableStream` types under `stream` module.
+    - Moved `ClientMethodOptions` type under `http` module.
+    - Moved `ClientOptions` type under `http` module.
+    - Moved `Context` type under `http` module.
+    - Moved `Etag` type under `http` module.
+    - Moved `ExponentialRetryOptions` type under `http` module.
+    - Moved `FixedRetryOptions` type under `http` module.
+    - Moved `headers` module under `http` module.
+    - Moved `HttpClient` type under `http` module.
+    - Moved `LeaseAction` type under `http` module.
+    - Moved `LeaseDuration` type under `http` module.
+    - Moved `LeaseState` type under `http` module.
+    - Moved `LeaseStatus` type under `http` module.
+    - Moved `Method` type under `http` module.
+    - Moved `new_http_client` function under `http` module.
+    - Moved `Pipeline` type under `http` module.
+    - Moved `policies` module under `http` module.
+    - Moved `request` module under `http` module.
+    - Moved `response` module under `http` module.
+    - Moved `RetryOptions` type under `http` module.
+    - Moved `StatusCode` type under `http` module.
+    - Moved `TelemetryOptions` type under `http` module.
+    - Moved `TransportOptions` type under `http` module.
+    - Moved `Url` type under `http` module.
+    - Removed `content_type` module.
+    - Removed `EMPTY_BODY` constant from root.
+    - Removed `future!()` macro.
+    - Removed `Header` re-export from `http` module. It is still defined in the `http::headers` module.
+    - Removed `parsing` module.
+    - Removed `query_param` module.
+    - Removed `RequestId` type alias from root.
+    - Removed `SessionToken` type alias from root.
+    - Renamed `lro` module to `http::poller` module.
+    - Renamed `lro` module types with prefix "Lro" to prefix "Poller".
+    - Renamed `tokio` module to `fs` since it contained only the `typespec_client_core::fs` module members.
+- Name: typespec_macros
+  Version: 0.2.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.2.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec
+  Version: 0.3.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.3.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `http-types` dependency and implemented `StatusCode` instead.
+- Name: azure_core_amqp
+  Version: 0.2.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.2.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to compare an `AmqpAnnotationKey` with a string and string slice.
+
+    #### Breaking Changes
+
+    - APIs which used to return `Option<String>`, and `Option<Vec<T>>` now return `Option<&str>`, and `Option<&[T]>`.
+    - APIs which take ownership of string parameters now take a `String` parameter instead of a `&str` parameter.
+- Name: typespec_client_core
+  Version: 0.2.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.2.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Consolidated all the `tokio` features into a single feature named `tokio`. Traits remain separate but `tokio` support is enabled with a single feature.
+    - Removed `Header` re-export from `http` module. It is still defined in the `http::headers` module.
+    - Removed `http-types` dependency and implemented `Method` instead.
+    - Removed `Pager`.
+    - Removed `parsing` module.
+- Name: azure_identity
+  Version: 0.23.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.23.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential`.
+    - `AzureCliCredentialOptions` (new) accepts a `azure_core::process::Executor` to run the Azure CLI asynchronously.
+    The `tokio` feature is disabled by default so `std::process::Command` is used; otherwise, if enabled, `tokio::process::Command` is used.
+    Callers can also implement the trait themselves to use a different asynchronous runtime.
+    - Restored `ClientSecretCredential`
+
+    #### Breaking Changes
+
+    - Added `Option<AzureCliCredentialOptions>` to `AzureCliCredential::new`.
+    - `AzureCliCredential` authenticates only against the first scope passed as a resource to support both v1 and v2 CLI versions.
+    - `ClientAssertionCredential` constructors moved some parameters to an `Option<ClientAssertionCredentialOptions>` parameter.
+    - Removed `get_subscription()` and `get_tenant()` from `AzureCliCredential`.
+    - `WorkloadIdentityCredential` constructors moved some parameters to an `Option<ClientAssertionCredentialOptions>` parameter.
+    - Removed `clear_cache()` from all credential types
+    - Removed `old_azure_cli` feature. `AzureCliCredential` now requires a recent version of the Azure CLI (2.54.0 or later).
+    - Replaced `AppServiceManagedIdentityCredential`, `VirtualMachineManagedIdentityCredential`, and `ImdsId` with `ManagedIdentityCredential` and `UserAssignedId`
+- Name: azure_security_keyvault_certificates
+  Version: 0.1.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.1.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial public release.
+    - Built on Azure Key Vault service version 7.6-preview.2.
+- Name: azure_security_keyvault_keys
+  Version: 0.2.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.2.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed model fields defined as an `Option<HashMap<K, V>>` to just a `HashMap<K, V>`.
+    - Changed model fields defined as an `Option<Vec<T>>` to just a `Vec<T>`.
+    - Removed the "JsonWebKey" prefix from all types e.g., `JsonWebKeyCurveName` is now `CurveName`.
+    - Renamed `DeletedKeyBundle` to `DeleteKey`.
+    - Renamed `DeletedKeyItem` to `DeletedKeyProperties`.
+    - Renamed `KeyClient::get_keys` to `list_keys`.
+    - Renamed `KeyBundle` to `Key`.
+    - Renamed `KeyBundleBackup` to `KeyBackup`.
+    - Renamed `KeyClient::get_keys` to `list_key_properties`.
+    - Renamed `KeyItem` to `KeyProperties`.
+    - Renamed all parameter types to match the *{Verb}{Noun}* format of the client methods that use them e.g., `create_key` uses `CreateKeyParameters`.
+
+    #### Bugs Fixed
+
+    - `ResourceExt` canonicalizes URL path segments ([#2177](https://github.com/Azure/azure-sdk-for-rust/issues/2177))
+- Name: azure_security_keyvault_secrets
+  Version: 0.2.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.2.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed model fields defined as an `Option<HashMap<K, V>>` to just a `HashMap<K, V>`.
+    - Changed model fields defined as an `Option<Vec<T>>` to just a `Vec<T>`.
+    - Renamed `DeletedSecretBundle` to `DeleteSecret`.
+    - Renamed `DeletedSecretItem` to `DeletedSecretProperties`.
+    - Renamed `SecretBundle` to `Secret`.
+    - Renamed `SecretBundleBackup` to `SecretBackup`.
+    - Renamed `SecretClient::get_secrets` to `list_secret_properties`.
+    - Renamed `SecretItem` to `SecretProperties`.
+    - Renamed all parameter types to match the *{Verb}{Noun}* format of the client methods that use them e.g., `set_secret` uses `SetSecretParameters`.
+
+    #### Bugs Fixed
+
+    - `ResourceExt` canonicalizes URL path segments ([#2177](https://github.com/Azure/azure-sdk-for-rust/issues/2177))
+- Name: azure_messaging_eventhubs
+  Version: 0.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.2.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - If you call `send_event` or `send_message` with a specific target partition, the call now respects the desired target partition.
+
+    #### Features Added
+
+    - Added initial support for an EventHubs processor.
+
+    Note that as currently implemented, the processor is not very functional, since it requires that the customer provide an instance of a checkpoint store.
+
+    For people who wish to play with the checkpoint store, there is an `InMemoryCheckpointStore` created (under the "test" feature) which can be used to experiment with the EventHubs processor.
+
+    - Removed the requirement that streaming messages from the `stream_events` method on the `EventReceiver` use `pin_mut!()` on the provided stream.
+    - Removed direct dependencies on `tokio` package.
+    - Added `partition_id` option to `SendMessageOptions`.
+    - Significant modifications to API surface to improve conformance to Azure RUST guidelines e.g., APIs which take ownership of a string consume `String` parameter instead of borrowing a `&str` parameter.
+
+    #### Breaking Changes
+
+    - The stream returned by the `stream_events` API needs to be declared as mutable.
+    - APIs which used to return `Option<String>`, and `Option<Vec<T>>` now return `Option<&str>`, and `Option<&[T]>`.
+    - APIs which take ownership of string parameters now take a `String` parameter instead of a `&str` parameter.
+

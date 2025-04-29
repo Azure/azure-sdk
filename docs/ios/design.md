@@ -209,7 +209,7 @@ public struct ConfigurationClientOptions: ClientOptions {
 
 {% include requirement/MUSTNOT id="ios-versioning-no-previews-in-stable" %} include preview API versions in a stable SDK release's API version enum.
 
-{% include requirement/MUST id="ios-versioning-no-previews-in-stable" %} expose preview API versions only in beta SDKs.
+{% include requirement/MUST id="ios-versioning-previews-only-in-beta" %} expose preview API versions only in beta SDKs.
 
 {% include requirement/MUST id="ios-versioning-select-service-api" %} provide an enum of supported service API versions that can be supplied via the [options struct](#option-parameters) when initializing the service client, as shown below:
 

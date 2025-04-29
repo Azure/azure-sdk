@@ -91,7 +91,7 @@ Public service methods should follow the below parameter presence and ordering g
 1. LRO Qualifier: This indicates if the user wants to wait for the LRO to simply start or wait for completion.
     * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-type" %} be the type defined in `Azure.Core` [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/WaitUntil.cs).
     * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-required" %} be a required parameter.
-    * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-required" %} be the first parameter.
+    * If present this {% include requirement/MUST id="dotnet-parameter-lro-qualifier-first" %} be the first parameter.
     * For LRO this {% include requirement/SHOULD id="dotnet-parameter-lro-qualifier-presence" %} be the present.
 
 2. Required Path: These are parameters that will go in the path of the URI.

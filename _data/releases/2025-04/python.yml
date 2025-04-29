@@ -1,0 +1,511 @@
+entries:
+- Name: azure-cosmos
+  Version: 4.10.0b2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.10.0b2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug preventing health check in some scenarios. See [PR 39647](https://github.com/Azure/azure-sdk-for-python/pull/39647)
+    * Fixed `partition_key` filter for `query_items_change_feed` API. See [PR 39895](https://github.com/Azure/azure-sdk-for-python/pull/39895)
+- Name: azure-mgmt-databox
+  Version: 3.1.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databox_3.1.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 34.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_34.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-rooms
+  Version: 1.2.0
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.2.0/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - General Availability version of participant Collaborator role.
+- Name: azure-keyvault-administration
+  Version: 4.6.0b1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.6.0b1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.6-preview.2`
+    - Added `KeyVaultBackupClient.begin_pre_backup` and `KeyVaultBackupClient.begin_pre_restore` methods for checking if it
+    is possible to perform a full key backup or full key restore
+    [#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507)
+- Name: azure-keyvault-secrets
+  Version: 4.10.0b1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.10.0b1/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.6-preview.2`
+- Name: azure-keyvault-certificates
+  Version: 4.10.0b1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.10.0b1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.6-preview.2`
+    - Added a `preserve_certificate_order` keyword-only argument when creating or importing certificates to allow
+    preserving a certificate chain's original order, and corresponding a `preserve_certificate_order` property to
+    `CertificateProperties` and `CertificateOperation` models
+    ([#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507))
+- Name: azure-keyvault-keys
+  Version: 4.11.0b1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.11.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service API version `7.6-preview.2`
+    - `KeyClient` has a `get_key_attestation` method that can be used to retrieve a key along with its attestation blob
+    (stored in a new `KeyProperties.attestation` property) from a managed HSM
+    [#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507)
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b12
+  DisplayName: Core - Client - Tracing Opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b12/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the original context was not properly restored after exiting an `OpenTelemetrySpan` context in certain scenarios. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+
+    #### Features Added
+
+    - If a span exits with an exception, the exception name is now recorded in the `error.type` attribute. ([#34619](https://github.com/Azure/azure-sdk-for-python/pull/34619))
+    - Added support for passing a schema version to fetch available attribute mappings and set the schema URL on the tracer's instrumentation scope. ([#40161](https://github.com/Azure/azure-sdk-for-python/pull/40161))
+    - Added additional span suppression logic to prevent unnecessary spans from being created. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+    - `SpanKind.INTERNAL` spans are suppressed if their parent span is of type `SpanKind.INTERNAL`, `SpanKind.CLIENT`, or `SpanKind.PRODUCER`.
+    - Update `OpenTelemetrySpan.change_context` to also accept spans of type `OpenTelemetrySpan`. ([#39994](https://github.com/Azure/azure-sdk-for-python/pull/39994))
+- Name: azure-mgmt-compute
+  Version: 34.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_34.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventgrid
+  Version: 10.4.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventgrid_10.4.0/sdk/eventgrid/azure-mgmt-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-pineconevectordb
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Pineconevectordb
+  ServiceName: Pineconevectordb
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-pineconevectordb_1.0.0b2/sdk/pineconevectordb/azure-mgmt-pineconevectordb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 1.1.0
+  DisplayName: Resource Management - Postgresqlflexibleservers
+  ServiceName: Postgresqlflexibleservers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_1.1.0/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-durabletask
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Durabletask
+  ServiceName: Durabletask
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-durabletask_1.0.0b1/sdk/durabletask/azure-mgmt-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.6.0b11
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b11/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue that could not deserialize `document_debug_info`.    #40138
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.2.0b2
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_1.2.0b2/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b21
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b21/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.26.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Handle missing duration value in deployment poller result
+- Name: azure-ai-documentintelligence
+  Version: 1.0.2
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.2/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix polling for `begin_copy_classifier_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
+- Name: azure-storage-blob
+  Version: 12.25.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.25.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated dependency for `azure-storage-file-datalake` type hints.
+- Name: azure-storage-file-datalake
+  Version: 12.20.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.20.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated type hints across the entire package and enabled MyPy to run during CI. Some public types may have been adjusted if they were previously erroneous or incomplete.
+- Name: corehttp
+  Version: 1.0.0b6
+  DisplayName: Core - Client - Core HTTP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/corehttp_1.0.0b6/sdk/core/corehttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The `get_token` method has been removed from the `TokenCredential` and `AsyncTokenCredential` protocols. Implementations should now use the new `get_token_info` method to acquire tokens. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - The `AccessToken` class has been removed and replaced with a new `AccessTokenInfo` class. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy` now rely on credentials having the `get_token_info` method defined. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+
+    #### Features Added
+
+    - The `TokenCredential` and `AsyncTokenCredential` protocols have been updated to include a new `get_token_info` method. This method should be used to acquire tokens and return an `AccessTokenInfo` object. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - Added a new `TokenRequestOptions` class, which is a `TypedDict` with optional parameters, that can be used to define options for token requests through the `get_token_info` method. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - Added a new `AccessTokenInfo` class, which is returned by `get_token_info` implementations. This class contains the token, its expiration time, and optional additional information like when a token should be refreshed. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy` now check if a credential has the `get_token_info` method defined. If so, the `get_token_info` method is used to acquire a token. [#38346](https://github.com/Azure/azure-sdk-for-python/pull/38346)
+    - These policies now also check the `refresh_on` attribute when determining if a new token request should be made.
+    - Added `model` attribute to `HttpResponseError` to allow accessing error attributes based on a known model. [#39636](https://github.com/Azure/azure-sdk-for-python/pull/39636)
+    - Added `auth_flows` support in `BearerTokenCredentialPolicy`. [#40084](https://github.com/Azure/azure-sdk-for-python/pull/40084)
+- Name: azure-cosmos
+  Version: 4.10.0b3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.10.0b3/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed too many health checks happening when skipping the recommended client startup. See [PR 40203](https://github.com/Azure/azure-sdk-for-python/pull/40203).
+- Name: azure-ai-projects
+  Version: 1.0.0b8
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b8/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * New parameters added for Azure AI Search tool, with corresponding sample update.
+    * Fabric tool REST name updated, along with convenience code.
+
+    #### Bugs Fixed
+
+    * Fix for a bug in Agent tracing causing event handler return values to not be returned when tracing is enabled.
+    * Fix for a bug in Agent tracing causing tool calls not to be recorded in traces.
+    * Fix for a bug in Agent tracing causing function tool calls to not work properly when tracing is enabled.
+    * Fix for a bug in Agent streaming, where `agent_id` was not included in the response. This caused the SDK not to make function calls when the thread run status is `requires_action`.
+- Name: azure-mgmt-edgezones
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Edge Zones
+  ServiceName: Edge Zones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgezones_1.0.0b2/sdk/edgezones/azure-mgmt-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-arizeaiobservabilityeval
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Arizeaiobservabilityeval
+  ServiceName: Arizeaiobservabilityeval
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-arizeaiobservabilityeval_1.0.0b1/sdk/arizeaiobservabilityeval/azure-mgmt-arizeaiobservabilityeval/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridconnectivity
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_2.0.0b1/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.4.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.4.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Enhanced binary evaluation results with customizable thresholds
+    - Added threshold support for QA and ContentSafety evaluators
+    - Evaluation results now include both the score and threshold values
+    - Configurable threshold parameter allows custom binary classification boundaries
+    - Default thresholds provided for backward compatibility
+    - Quality evaluators use "higher is better" scoring (score ≥ threshold is positive)
+    - Content safety evaluators use "lower is better" scoring (score ≤ threshold is positive)
+    - New Built-in evaluator called CodeVulnerabilityEvaluator is added.
+    - It provides capabilities to identify the following code vulnerabilities.
+    - path-injection
+    - sql-injection
+    - code-injection
+    - stack-trace-exposure
+    - incomplete-url-substring-sanitization
+    - flask-debug
+    - clear-text-logging-sensitive-data
+    - incomplete-hostname-regexp
+    - server-side-unvalidated-url-redirection
+    - weak-cryptographic-algorithm
+    - full-ssrf
+    - bind-socket-all-network-interfaces
+    - client-side-unvalidated-url-redirection
+    - likely-bugs
+    - reflected-xss
+    - clear-text-storage-sensitive-data
+    - tarslip
+    - hardcoded-credentials
+    - insecure-randomness
+    - It also supports multiple coding languages such as (Python, Java, C++, C#, Go, Javascript, SQL)
+
+    - New Built-in evaluator called UngroundedAttributesEvaluator is added.
+    - It evaluates ungrounded inference of human attributes for a given query, response, and context for a single-turn evaluation only,
+    - where query represents the user query and response represents the AI system response given the provided context.
+
+    - Ungrounded Attributes checks for whether a response is first, ungrounded, and checks if it contains information about protected class
+    - or emotional state of a person.
+
+    - It identifies the following attributes:
+
+    - emotional_state
+    - protected_class
+    - groundedness
+    - New Built-in evaluators for Agent Evaluation (Preview)
+    - IntentResolutionEvaluator - Evaluates the intent resolution of an agent's response to a user query.
+    - ResponseCompletenessEvaluator - Evaluates the response completeness of an agent's response to a user query.
+    - TaskAdherenceEvaluator - Evaluates the task adherence of an agent's response to a user query.
+    - ToolCallAccuracyEvaluator - Evaluates the accuracy of tool calls made by an agent in response to a user query.
+
+    #### Bugs Fixed
+    - Fixed error in `GroundednessProEvaluator` when handling non-numeric values like "n/a" returned from the service.
+    - Uploading local evaluation results from `evaluate` with the same run name will no longer result in each online run sharing (and bashing) result files.
+- Name: azure-cosmos
+  Version: 4.10.0b4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.10.0b4/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug introduced in 4.10.0b3 with explicitly setting `etag` keyword argument as `None` causing exceptions. See [PR 40282](https://github.com/Azure/azure-sdk-for-python/pull/40282).
+- Name: azure-mgmt-weightsandbiases
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Weightsandbiases
+  ServiceName: Weightsandbiases
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-weightsandbiases_1.0.0b1/sdk/weightsandbiases/azure-mgmt-weightsandbiases/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-search
+  Version: 9.2.0b3
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_9.2.0b3/sdk/search/azure-mgmt-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.33.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.33.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the `traceparent` header was not being set correctly in the `DistributedTracingPolicy`. The `traceparent` header will now set based on the context of the HTTP client span. #40074
+
+    #### Features Added
+
+    - Added native OpenTelemetry tracing to Azure Core which enables users to use OpenTelemetry to trace Azure SDK operations without needing to install a plugin. #39563
+    - To enable native OpenTelemetry tracing, users need to:
+    1. Have `opentelemetry-api` installed.
+    2. Ensure that `settings.tracing_implementation` is not set.
+    3. Ensure that `settings.tracing_enabled` is set to `True`.
+    - If `setting.tracing_implementation` is set, the tracing plugin will be used instead of the native tracing.
+    - If `settings.tracing_enabled` is set to `False`, tracing will be disabled.
+    - The `OpenTelemetryTracer` class was added to the `azure.core.tracing.opentelemetry` module. This is a wrapper around the OpenTelemetry tracer that is used to create spans for Azure SDK operations.
+    - Added a `get_tracer` method to the new `azure.core.instrumentation` module. This method returns an instance of the `OpenTelemetryTracer` class if OpenTelemetry is available.
+    - A `TracingOptions` TypedDict class was added to define the options that SDK users can use to configure tracing per-operation. These options include the ability to enable or disable tracing and set additional attributes on spans.
+    - Example usage: `client.method(tracing_options={"enabled": True, "attributes": {"foo": "bar"}})`
+    - The `DistributedTracingPolicy` and `distributed_trace`/`distributed_trace_async` decorators now uses the OpenTelemetry tracer if it is available and native tracing is enabled.
+    - SDK clients can define an `_instrumentation_config` class variable to configure the OpenTelemetry tracer used in method span creation. Possible configuration options are `library_name`, `library_version`, `schema_url`, and `attributes`.
+    - `DistributedTracingPolicy` now accepts a `instrumentation_config` keyword argument to configure the OpenTelemetry tracer used in HTTP span creation.
+
+    #### Breaking Changes
+
+    - Removed automatic tracing enablement for the OpenTelemetry plugin if `opentelemetry` was imported. To enable tracing with the plugin, please import `azure.core.settings.settings` and set `settings.tracing_implementation` to `"opentelemetry"`. #39563
+    - In `DistributedTracingPolicy`, the default span name is now just the HTTP method (e.g., "GET", "POST") and no longer includes the URL path. This change was made to converge with the OpenTelemetry HTTP semantic conventions. The full URL is still included in the span attributes.
+    - Renamed span attributes in `DistributedTracingPolicy`:
+    - "x-ms-client-request-id" is now "az.client_request_id"
+    - "x-ms-request-id" is now "az.service_request_id"
+- Name: azure-ai-evaluation
+  Version: 1.5.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.5.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New `RedTeam` agent functionality to assess the safety and resilience of AI systems against adversarial prompt attacks
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b36
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b36/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `syntheticSource` from `user_agent.synthetic.type` semantic convention
+    ([#40004](https://github.com/Azure/azure-sdk-for-python/pull/40004))
+    - Support `server.address` attributes when converting Azure SDK messaging spans to envelopes
+    ([#40059](https://github.com/Azure/azure-sdk-for-python/pull/40059))
+    - Update AKS check to use KUBERNETES_SERVICE_HOST
+    ([#39941](https://github.com/Azure/azure-sdk-for-python/pull/39941))
+    - Enabled Entra ID Credential configuration via env var
+    ([#40237](https://github.com/Azure/azure-sdk-for-python/pull/40237))
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.6
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.6/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `logging_format` as configuration option in api
+    ([#40057](https://github.com/Azure/azure-sdk-for-python/pull/40057))
+    - Enable Azure AI Agents instrumentation
+    ([#40043](https://github.com/Azure/azure-sdk-for-python/pull/40043))
+- Name: azure-ai-ml
+  Version: 1.26.2
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.2/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Made AI Search connections property optional while creating capability host.
+- Name: azure-mgmt-iothub
+  Version: 4.0.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_4.0.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.14.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.14.2/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where max number of messages was not being requested when receiving from the service due to an incorrect link credit calculation. ([#40156](https://github.com/Azure/azure-sdk-for-python/issues/40156))
+    -
+- Name: azure-appconfiguration-provider
+  Version: 2.1.0b1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.1.0b1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Updates the feature flag telemetry to use the provided endpoint instead of the endpoint of the store the feature flag was loaded from.
+    * Removes Feature Id from feature flag telemetry.
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.7
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.7/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Adapt to OpenTelemetry dependency resolver change.
+    ([#40463](https://github.com/Azure/azure-sdk-for-python/pull/40463))
+

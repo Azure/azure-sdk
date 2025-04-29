@@ -49,9 +49,9 @@ The following guidance applies to Swift [attributes](https://docs.swift.org/swif
 
 {% include requirement/SHOULD id="ios-attr-objc" %} use the `@objc` and `@objMembers` attributes ONLY when a Swift object must be exposed to ObjectiveC.
 
-{% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute when implementation is contingent upon differences in supported OS or Swift versions.
+{% include requirement/MUST id="ios-attr-available-for-os-versions" %} use the `@available` attribute when implementation is contingent upon differences in supported OS or Swift versions.
 
-{% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute to manage breaking changes and transition customers away from deprecated APIs. For example:
+{% include requirement/MUST id="ios-attr-available-for-breaking-changes" %} use the `@available` attribute to manage breaking changes and transition customers away from deprecated APIs. For example:
 ```swift
 // usable but will issue a warning
 @available(*, deprecated, message: "Optional message here...")

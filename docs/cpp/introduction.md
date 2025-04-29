@@ -119,7 +119,7 @@ ExampleClient ExampleClient::CreateFromConnectionString(
 }
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-service-client-constructor-minimal" %} recommend customers use passwordless authentication methods to connect to the service.
+{% include requirement/SHOULD id="cpp-service-client-constructor-passwordless" %} recommend customers use passwordless authentication methods to connect to the service.
 
 ##### Client Configuration
 
@@ -174,7 +174,7 @@ The C++ SDK is designed for synchronous api calls.
 
 {% include requirement/MUST id="cpp-design-client-sync-api" %} provide a synchronous programming model.
 
-{% include requirement/MUSTNOT id="cpp-design-client-sync-api" %} provide an async programming model.
+{% include requirement/MUSTNOT id="cpp-design-client-no-async-api" %} provide an async programming model.
 
 ##### Naming
 
@@ -209,7 +209,7 @@ namespace _detail {
 
 {% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
+{% include requirement/MUST id="cpp-design-naming-variables-public-global-internal" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `_detail` namespace or an unnamed namespace.
 
 {% include requirement/MUSTNOT id="cpp-design-types-or-methods-in-global-namespace" %} create types in the global namespace. All Azure SDK types MUST be in a namespace.
 
@@ -680,7 +680,7 @@ In addition, it is critical to realize that the only dependencies between Azure 
 
 Private types  are types located in a `_detail` namespace. Private types are only intended to be called within a single package, and follow the following requirements:
 
-{% include requirement/MUSTNOT id="cpp-design-private-types-private" %} define private types in public Azure SDK headers.
+{% include requirement/MUSTNOT id="cpp-design-private-types-in-headers" %} define private types in public Azure SDK headers.
 
 {% include requirement/MUSTNOT id="cpp-design-private-types-private" %} consume internal types outside the package in which they are defined.
 
@@ -755,7 +755,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/SHOULD id="cpp-version-major-changes" %} increment the major version when making large feature changes.
 
-{% include requirement/MUST id="cpp-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
+{% include requirement/MUST id="cpp-version-change-from-track-1" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
 ### Dependencies {#cpp-dependencies}
 
