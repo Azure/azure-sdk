@@ -233,4 +233,15 @@ entries:
     #### Bugs Fixed
     * Fixed issue where some requests fail with mismatch in string to sign.
     * Fixed service SAS creation where expiry time or permissions can be omitted when stored access policy is used.
+- Name: sdk/data/azcosmos
+  Version: 1.4.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.4.0/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Requests to update region topology (often made automatically as part of other operations) now pass through the same Context as the request that triggered them. This allows for flowing telemetry spans and other Context values through HTTP pipeline policies. However, these requests do NOT use the cancellation signal provided in the original request Context, in order to ensure the region topology is properly updated even if the original request is cancelled. See [PR 24351](https://github.com/Azure/azure-sdk-for-go/issues/24351) for more details.
 
