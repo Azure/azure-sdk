@@ -327,4 +327,15 @@ entries:
     * Fixed health check to check the first write region when it is not specified in the preferred regions. See [PR 40588](https://github.com/Azure/azure-sdk-for-python/pull/40588).
     * Fixed `response_hook` not getting called for aggregate queries. See [PR 40696](https://github.com/Azure/azure-sdk-for-python/pull/40696).
     * Fixed bug where writes were being retried for 5xx status codes for patch and replace. See [PR 40672](https://github.com/Azure/azure-sdk-for-python/pull/40672).
+- Name: azure-core
+  Version: 1.34.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.34.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `set_span_error_status` method to the `OpenTelemetryTracer` class. This method allows users to set the status of a span to `ERROR` after it has been created. #40703
 
