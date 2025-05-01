@@ -289,4 +289,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0-beta.2/sdk/durabletask/arm-durabletask/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.2.2
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.2/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add an optional `requestOverrides` property to `PipelineRequest` and `PipelineRequestOptions`.
 
