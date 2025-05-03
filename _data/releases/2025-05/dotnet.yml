@@ -335,4 +335,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue where Azure CLI credential could hang or delay due to I/O contention when standard input/output was shared with the host process ([#49582](https://github.com/Azure/azure-sdk-for-net/pull/49582)).
+- Name: System.ClientModel
+  Version: 1.4.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added additional supported scenarios to System.ClientModel.SourceGeneration.
 
