@@ -61,4 +61,22 @@ entries:
     - Updated dependencies.
     - Converted AMQP traits to use `async_trait` rather than attempting to implement the `async_trait` functionality manually.
     - Restructured and refactored AMQP errors to make them easier to interpret.
+- Name: azure_identity
+  Version: 0.24.0
+  DisplayName: Identity
+  ServiceName: identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.24.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AzureDeveloperCliCredential` authenticates the identity logged in to the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).
+    - Added the `AzureDeveloperCliCredential` to the `DefaultAzureCredential`.
+
+    #### Breaking Changes
+
+    - Moved `WorkloadIdentityCredential::new` arguments into `WorkloadIdentityCredentialOptions` except `token`, which has been removed (the credential now reads service account tokens only from a file).
+    - Removed `ClientAssertionCredential::from_env` and `ClientCertificateCredential::from_env`.
+    - Removed `WorkloadIdentityCredential::from_env`. `::new` now reads the same environment variables except for `AZURE_FEDERATED_TOKEN` (the Workload Identity webhook doesn't set that variable). `WorkloadIdentityCredentialOptions` overrides environment variable values.
 
