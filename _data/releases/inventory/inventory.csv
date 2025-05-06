@@ -364,7 +364,7 @@ Service Linker,0,Resource Management - Service Linker,mgmt,.NET,,,11,false,Azure
 Service Networking,0,Resource Management - Service Networking,mgmt,.NET,,,11,false,Azure.ResourceManager.ServiceNetworking,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicenetworking,10,false,1,03/04/2025
 SignalR,0,Resource Management - SignalR,mgmt,.NET,Microsoft.Azure.Management.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,true,Azure.ResourceManager.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,false,1,10/28/2024
 Sphere,0,Resource Management - Sphere,mgmt,.NET,,,11,false,Azure.ResourceManager.Sphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sphere,10,false,1,03/14/2025
-SQL,0,Resource Management - SQL,mgmt,.NET,Microsoft.Azure.Management.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlmanagement,10,false,1,03/26/2024
+SQL,0,Resource Management - SQL,mgmt,.NET,Microsoft.Azure.Management.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlmanagement,10,false,1,05/06/2025
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,.NET,,,11,false,Azure.ResourceManager.SqlVirtualMachine,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlvirtualmachine,10,false,1,03/18/2025
 Pool Management Service (PMaaS),0,Resource Management - Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,10,false,1,09/11/2024
 Storage,0,Resource Management - Storage,mgmt,.NET,Microsoft.Azure.Management.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,true,Azure.ResourceManager.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,04/30/2025
@@ -385,6 +385,7 @@ Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.Resourc
 Weightsandbiases,0,Resource Management - Weightsandbiases,mgmt,.NET,,,11,false,Azure.ResourceManager.WeightsAndBiases,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/weightsandbiases,3,false,1,
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,03/18/2025
+Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,.NET,,,11,false,Azure.ResourceManager.WorkloadsSapVirtualInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadssapvirtualinstance,3,false,1,
 Functions,0,App Configuration Extension,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.AppConfiguration.Functions.Worker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 App Configuration,0,App Configuration Provider,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.AppConfiguration.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Communication,0,Azure.Communication.Administration,UNABLE TO BE DETERMINED,.NET,Azure.Communication.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1737,7 +1738,7 @@ HDInsight,0,Resource Management - HDInsight Job,mgmt,JavaScript,azure-arm-hdinsi
 Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-monitor,,4,false,1,
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,04/05/2025
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,05/05/2025
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
