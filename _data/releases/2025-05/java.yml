@@ -924,4 +924,119 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redisenterprise_2.1.0-beta.3/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-file-share
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.27.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the `ShareFileClient.CreateSymbolicLink()`, `.CreateSymbolicLinkAsync()`, `.GetSymbolicLink()`, and `.GetSymbolicLinkAsync()` APIs.
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.31.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.31.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the `SourceShareTokenIntent` parameter to `AppendBlobClient.AppendBlockFromUri()`, `.AppendBlockFromUriAsync()`, `BlockBlobClient.StageBlockFromUri()`, `.StageBlockFromUriAsync()`, `BlockBlobClient.SyncUploadFromUri()`, `.SyncUploadFromUriAsync()`, `BlobBaseClient.SyncCopyFromUri()`, `.SyncCopyFromUriAsync()`, `PageBlobClient.UploadPagesFromUri()`, `.UploadPagesFromUriAsync()`,
+    - Added `PageBlobCreateOptions.PremiumPageBlobAccessTier` to `PageBlobClient.Create(..)` overloads.
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.30.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.30.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.31
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.31/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.26.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.27.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.24.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a new API `getSystemProperties` to `DataLakePathClient` to support the `getStatus` action for the
+    `Path Get Properties` operation.
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.30
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.30/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.16.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+  GroupId: com.azure
 
