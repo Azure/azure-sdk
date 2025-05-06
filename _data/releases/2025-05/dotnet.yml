@@ -362,4 +362,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WorkloadsSapVirtualInstance_1.0.0-beta.1/sdk/workloadssapvirtualinstance/Azure.ResourceManager.WorkloadsSapVirtualInstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.11.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.11.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for specifying the token credential's Microsoft Entra audience when creating a client.
 
