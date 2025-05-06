@@ -244,4 +244,14 @@ entries:
     #### Other Changes
 
     * Requests to update region topology (often made automatically as part of other operations) now pass through the same Context as the request that triggered them. This allows for flowing telemetry spans and other Context values through HTTP pipeline policies. However, these requests do NOT use the cancellation signal provided in the original request Context, in order to ensure the region topology is properly updated even if the original request is cancelled. See [PR 24351](https://github.com/Azure/azure-sdk-for-go/issues/24351) for more details.
+- Name: sdk/data/azappconfig
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v1.2.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated dependencies.
 
