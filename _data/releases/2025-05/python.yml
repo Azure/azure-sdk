@@ -390,4 +390,44 @@ entries:
     #### Breaking Changes
 
     - Previously, if a `client_id` or `identity_config` was specified in `ManagedIdentityCredential` for Service Fabric managed identity, which is not supported, the `client_id` (or `resource_id`/`object_id` specified `identity_config`) would be silently ignored. Now, an exception will be raised during a token request if a `client_id` or `identity_config` is specified for Service Fabric managed identity.
+- Name: azure-storage-blob
+  Version: 12.26.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.26.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+    - Added support for OAuth authentication in `ContainerClient`'s `get_container_access_policy`
+    and `set_container_access_policy` APIs.
+    - Added support for the keyword `source_token_intent` when copying from file share to blob and
+    authenticated via `TokenCredential` for the following `BlobClient` APIs: `upload_blob_from_url`,
+    `start_copy_from_url`, `stage_block_from_url`, `upload_pages_from_url`, and `append_block_from_url`.
+    - Added support for `query_blob` in the asynchronous `BlobClient`.
+- Name: azure-storage-file-share
+  Version: 12.22.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.22.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+    - Added new `create_symbolic_link` and `get_symbolic_link` APIs to `ShareFileClient` to
+    create/get symbolic links to specified files and is only supported for the `NFS` protocol.
+- Name: azure-storage-queue
+  Version: 12.13.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.13.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+    - Added support for OAuth authentication in `QueueClient`'s `get_queue_access_policy`
+    and `set_queue_access_policy` APIs.
 
