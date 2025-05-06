@@ -437,4 +437,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for service version 2025-07-05.
+- Name: Azure.Core
+  Version: 1.46.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.46.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding AzureCoreContext to support AOT compatible reading and writing of types owned by Azure.Core through ModelReaderWriter
 
