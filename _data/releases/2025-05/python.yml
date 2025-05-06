@@ -364,4 +364,15 @@ entries:
     ```
     throws error when passed into `evaluator_config` as `{"evaluator_name": {"column_mapping": {"query": "${data.query1}", "response": "${data.response}"}},}`.
     Now, users may import data containing fields with numeric characters.
+- Name: azure-data-tables
+  Version: 12.7.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.7.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added support for configuring custom audiences for `TokenCredential` authentication when initializing a `TableClient` or `TableServiceClient`. ([#40487](https://github.com/Azure/azure-sdk-for-python/pull/40487))
 
