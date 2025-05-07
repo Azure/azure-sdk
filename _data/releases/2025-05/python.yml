@@ -447,4 +447,27 @@ entries:
 
     #### Bugs Fixed
     - Fixed an issue where URL safe encoding is inconsistent between Blob and Datalake paths.
+- Name: azure-ai-ml
+  Version: 1.27.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.27.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix for compute Instance, disableLocalAuth property should be depend on ssh public access enabled.
+    - Removing Git-related properties from job properties if a PAT token is detected in the repository URL.
+    - Fix deployment creation for registry models
+
+    #### Features Added
+    - Added Target storage connection for capability host.
+- Name: azure-mgmt-cosmosdb
+  Version: 9.8.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.8.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
 
