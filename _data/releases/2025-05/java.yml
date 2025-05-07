@@ -1039,4 +1039,36 @@ entries:
     #### Features Added
     - Added support for service version 2025-07-05.
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.14
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.14/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.15.4` to version `1.16.0`.
+    - Upgraded `msal4j` from `1.19.1` to version `1.20.1`.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.16.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.16.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Marked `VisualStudioCodeCredential` and `VisualStudioCodeCredentialBuilder` as deprecated.[#44527](https://github.com/Azure/azure-sdk-for-java/issues/44527)
+    - Added deprecation message to `EnvironmentCredential` when a username/password is used. [#45185](https://github.com/Azure/azure-sdk-for-java/pull/45185)
+
+    ##### Dependency Updates
+
+    - Updated `msal4j` from `1.20.0` to version `1.20.1`.
+  GroupId: com.azure
 
