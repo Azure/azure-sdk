@@ -466,4 +466,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.8.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.5.0
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.5.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - An overload was added to `ProtectKeysWithAzureKeyVault` which allows for resolving the key identifier dynamically using `IServiceProvider` rather than using a static identifier.  _(A community contribution, courtesy of [MattKotsenas](https://github.com/MattKotsenas))_
 
