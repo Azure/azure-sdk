@@ -430,4 +430,21 @@ entries:
     - Added support for service version 2025-07-05.
     - Added support for OAuth authentication in `QueueClient`'s `get_queue_access_policy`
     and `set_queue_access_policy` APIs.
+- Name: azure-storage-file-datalake
+  Version: 12.21.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.21.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-07-05.
+    - Added support for OAuth authentication in `FileSystemClient`'s `get_file_system_access_policy`
+    and `set_file_system_access_policy` APIs.
+    - Added support for progress tracking to `DataLakeFileClient`'s `upload_data` and `download_file`
+    APIs via a new optional callback, `progress_hook`.
+
+    #### Bugs Fixed
+    - Fixed an issue where URL safe encoding is inconsistent between Blob and Datalake paths.
 
