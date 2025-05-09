@@ -143,4 +143,15 @@ entries:
     #### Breaking Changes
 
     - The `fully_qualified_domain` parameter to the `open` method on the `ProducerClient` and `ConsumerClient` builder now takes an `&str` instead of a `String` to better follow the Azure SDK for Rust API guidelines.
+- Name: azure_core_amqp
+  Version: 0.3.1
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.3.1/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `From<&AmqpValue>` converters for fundamental types.
 
