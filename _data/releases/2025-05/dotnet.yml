@@ -548,4 +548,26 @@ entries:
     * Update OpenTelemetry dependencies
     ([#49861](https://github.com/Azure/azure-sdk-for-net/pull/49861))
     - OpenTelemetry 1.12.0
+- Name: Azure.Data.AppConfiguration
+  Version: 1.6.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.6.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added AOT annotations to support AOT compilation.
+- Name: Azure.Core
+  Version: 1.46.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.46.1/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.4.1
 
