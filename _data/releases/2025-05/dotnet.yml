@@ -521,4 +521,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NeonPostgres_1.0.0-beta.2/sdk/neonpostgres/Azure.ResourceManager.NeonPostgres/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.4.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue when a model builder was both IEnumerable and IPersistable.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.4.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Changed `AzureMonitorLogExporter` to be internal to match the other Exporters (Trace and Metric).
+    ([#49849](https://github.com/Azure/azure-sdk-for-net/pull/49849))
+
+    * Update OpenTelemetry dependencies
+    ([#49861](https://github.com/Azure/azure-sdk-for-net/pull/49861))
+    - OpenTelemetry 1.12.0
 
