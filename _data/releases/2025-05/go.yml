@@ -333,4 +333,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/portalservicescopilot/armportalservicescopilot/v0.1.0/sdk/resourcemanager/portalservicescopilot/armportalservicescopilot/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.6.2-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.2-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add support for x-ms-file-request-intent header for blob copy APIs.
 
