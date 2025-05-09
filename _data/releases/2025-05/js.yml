@@ -385,4 +385,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-lambdatesthyperexecute_1.0.0-beta.1/sdk/lambdatesthyperexecute/arm-lambdatesthyperexecute/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-query'
+  Version: 1.3.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where `customHeaders` option value is lost [PR #33794](https://github.com/Azure/azure-sdk-for-js/pull/33794)
 
