@@ -190,12 +190,13 @@ function Get-python-Packages
     # Python info.Version only takes last stable version so we need to sort the releases.
     # Only use the sorted releases if they are all valid sem versions otherwise we might have
     # an incorrect sort. We determine that if the list of sorted versions match the count of the versions
-    $versions = [AzureEngSemanticVersion]::SortVersionStrings($packageReleases)
-    if ($versions.Count -eq $packageReleases.Count)
+    $versions = $packageReleases | ForEach-Object { [AzureEngSemanticVersion]::ParseVersionString($_) } | Where-Object { $_ }
+    $sortedVersions = [AzureEngSemanticVersion]::SortVersions($versions)
+    if ($sortedVersions.Count -gt 0)
     {
-      $packageVersion = $versions[0]
+      $packageVersion = $sortedVersions[0].RawVersion
+      $packages += CreatePackage $package.info.name $packageVersion
     }
-    $packages += CreatePackage $package.info.name $packageVersion
   }
 
   $repoTags = GetPackageVersions "python"
