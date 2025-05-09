@@ -192,7 +192,7 @@ function Get-python-Packages
     # an incorrect sort. We determine that if the list of sorted versions match the count of the versions
     $versions = $packageReleases | ForEach-Object { [AzureEngSemanticVersion]::ParseVersionString($_) } | Where-Object { $_ }
     $sortedVersions = [AzureEngSemanticVersion]::SortVersions($versions)
-    if ($sortedVersions.Count -gt 0)
+    if ($sortedVersions -and $sortedVersions.Count -gt 0)
     {
       $packageVersion = $sortedVersions[0].RawVersion
       $packages += CreatePackage $package.info.name $packageVersion
