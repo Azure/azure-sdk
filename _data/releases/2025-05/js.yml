@@ -1,0 +1,399 @@
+entries:
+- Name: '@azure/identity-vscode'
+  Version: 1.0.1
+  DisplayName: VS Code Authentication Plugin
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.1/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    This package is deprecated. See [Readme](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity-vscode/README.md) for more details
+
+    #### Other Changes
+
+    - Update Readme with the deprecation notice.
+- Name: '@azure-rest/communication-messages'
+  Version: 2.2.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_2.2.0-beta.1/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add Unified Messaging.
+- Name: '@azure/identity'
+  Version: 4.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.9.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `workerd` conditional exports support for Cloudflare environment. [#32422](https://github.com/Azure/azure-sdk-for-js/pull/32422)
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.31
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.31/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support `syntheticSource` from `user_agent.synthetic.type` semantic convention.
+
+    #### Bugs Fixed
+
+    - Fixed process time normalized calculation returning NaN.
+
+    ### Other Changes
+
+    - Hide iKey in debug logs.
+    - Add to statsbeat success count when a batch of envelopes is partially accepted by breeze.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.11.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.11.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed process time normalized calculation returning NaN.
+
+    #### Features Added
+
+    - Added support for Process Time Normalized and Exception Rate performance counters.
+- Name: '@azure/identity'
+  Version: 4.9.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.9.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Update the order for conditional exports so that the most specific conditions are listed first. [#33914](https://github.com/Azure/azure-sdk-for-js/pull/33914)
+    - Fix a bug in which `self.location` is undefined in specific environment. [#33914](https://github.com/Azure/azure-sdk-for-js/pull/33914)
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.5
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.5/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adding image input support with samples
+    - Adding list threads support and sample
+    - Adding sharepoint sample
+
+    #### Bugs Fixed
+
+    - fixed an issue with tool_calls naming in convertOutputModelsFromWire
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.1/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - User defined endpoint
+    - User defined endpoint runtimeoptions
+    - User defined endpoint modules
+    - User defined roles
+    - User defined functions support on ledger API
+    - User List endpoint
+- Name: '@azure/arm-netapp'
+  Version: 21.5.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 18.5.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices-siterecovery'
+  Version: 5.3.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicessiterecovery/arm-recoveryservices-siterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storageactions'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Storage Actions
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storageactions_1.0.0-beta.2/sdk/storageactions/arm-storageactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elasticsan'
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.2.0-beta.2/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.2.0-beta.1/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 19.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-portalservicescopilot'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Portalservicescopilot
+  ServiceName: Portalservicescopilot
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portalservicescopilot_1.0.0-beta.1/sdk/portalservices/arm-portalservicescopilot/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 22.0.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.6.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 11.0.0-beta.5
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesbackup'
+  Version: 13.2.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicesbackup/arm-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dependencymap'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Dependencymap
+  ServiceName: Dependencymap
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dependencymap_1.0.0-beta.1/sdk/dependencymap/arm-dependencymap/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-workloadssapvirtualinstance'
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloads SAP Virtual Instance
+  ServiceName: Workloads
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0/sdk/workloads/arm-workloadssapvirtualinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-standbypool'
+  Version: 2.0.0
+  DisplayName: Resource Management - Standby Pool
+  ServiceName: Standby Pool
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-standbypool_2.0.0/sdk/standbypool/arm-standbypool/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Redis Enterprise Cache
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_4.0.0-beta.1/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-neonpostgres'
+  Version: 1.0.0
+  DisplayName: Resource Management - Neon Postgres
+  ServiceName: Neon Postgres
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-neonpostgres_1.0.0/sdk/neonpostgres/arm-neonpostgres/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appcontainers'
+  Version: 2.2.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_2.2.0/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-apimanagement'
+  Version: 10.0.0
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.3.1-alpha.20250428.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.1-alpha.20250428.2/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the SIP API version `2024-11-15-preview`, giving users the ability to:
+    - Manage trunk-level settings to `SipTrunk` and `SipTrunkRoute` models.
+    - Retrieve Trunk health for `SipTrunk` models.
+    - Manage SIP Domains.
+    - Filter collection of `SipTrunkRoute` objects based on target phone number.
+- Name: '@azure/arm-durabletask'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0-beta.2/sdk/durabletask/arm-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.2.2
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.2/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add an optional `requestOverrides` property to `PipelineRequest` and `PipelineRequestOptions`.
+- Name: '@azure/core-client'
+  Version: 1.9.4
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.9.4/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency `@azure/core-rest-pipeline` to `^1.20.0`. [PR #34151](https://github.com/Azure/azure-sdk-for-js/pull/34151)
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.2
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.2/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added missed models in previous release
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.20.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.20.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add an optional `requestOverrides` property to `PipelineRequest` and `PipelineRequestOptions` [PR #33724](https://github.com/Azure/azure-sdk-for-js/pull/33724).
+- Name: '@azure/logger'
+  Version: 1.2.0
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.2.0/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Depend on `@typespec/ts-http-runtime`. [PR #33752](https://github.com/Azure/azure-sdk-for-js/pull/33752)
+- Name: '@azure/core-util'
+  Version: 1.12.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.12.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Depend on `@typespec/ts-http-runtime`. [PR #33721](https://github.com/Azure/azure-sdk-for-js/pull/33721)
+- Name: '@azure-rest/core-client'
+  Version: 2.4.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.4.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Depend on `@typespec/ts-http-runtime`. [PR #33948](https://github.com/Azure/azure-sdk-for-js/pull/33948)
+- Name: '@azure/core-http-compat'
+  Version: 2.3.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.3.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add an optional `requestOverrides` property to `WebResourceLike` [PR #33724](https://github.com/Azure/azure-sdk-for-js/pull/33724).
+- Name: '@azure/arm-lambdatesthyperexecute'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Lambdatesthyperexecute
+  ServiceName: Lambdatesthyperexecute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-lambdatesthyperexecute_1.0.0-beta.1/sdk/lambdatesthyperexecute/arm-lambdatesthyperexecute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-query'
+  Version: 1.3.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where `customHeaders` option value is lost [PR #33794](https://github.com/Azure/azure-sdk-for-js/pull/33794)
+
