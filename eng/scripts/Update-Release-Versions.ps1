@@ -255,6 +255,11 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
     }
 
+    if ($previewVersions.Count -ne 0)
+    {
+      $latestPreviewDate = Get-DateFromSemVer $previewVersions[0]
+    }
+
     $version = $latestGA
 
     if ($compareTagVsGHIOVersions) {
@@ -289,6 +294,11 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     if (!$pkg.FirstPreviewDate) {
       $pkg.FirstPreviewDate = GetFirstPreviewDate $pkg $previewVersions
     }
+
+    if (!$pkg.LatestPreviewDate) {
+      $pkg.LatestPreviewDate = $latestPreviewDate
+    }
+    
     $version = $latestPreview
 
     if ($compareTagVsGHIOVersions) {
