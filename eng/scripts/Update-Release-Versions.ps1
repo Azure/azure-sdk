@@ -295,7 +295,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       $pkg.FirstPreviewDate = GetFirstPreviewDate $pkg $previewVersions
     }
 
-    if (!$pkg.LatestPreviewDate) {
+    if (!$pkg.LatestPreviewDate -and $latestPreviewDate) {
       $pkg.LatestPreviewDate = $latestPreviewDate
     }
     
