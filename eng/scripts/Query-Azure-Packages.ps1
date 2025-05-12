@@ -193,7 +193,7 @@ function Get-python-Packages
     $versions = [AzureEngSemanticVersion]::SortVersionStrings($packageReleases)
     if ($versions.Count -eq $packageReleases.Count)
     {
-      $packageVersion = $sortedVersions[0].RawVersion
+      $packageVersion = $versions[0].RawVersion
       $packages += CreatePackage $package.info.name $packageVersion
     }
   }
