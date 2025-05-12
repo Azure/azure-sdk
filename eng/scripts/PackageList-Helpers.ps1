@@ -63,6 +63,7 @@ function CreatePackage(
     LatestGADate = ""
     FirstGADate = ""
     FirstPreviewDate = ""
+    LatestPreviewDate = ""
     Support = ""
     EOLDate = ""
     Hide = ""
@@ -96,6 +97,7 @@ function ClonePackage($pkg)
     LatestGADate = $pkg.LatestGADate
     FirstGADate = $pkg.FirstGADate
     FirstPreviewDate = $pkg.FirstPreviewDate
+    LatestPreviewDate = $pkg.LatestPreviewDate
     Support = $pkg.Support
     EOLDate = $pkg.EOLDate
     Hide = $pkg.Hide
