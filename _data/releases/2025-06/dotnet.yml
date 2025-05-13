@@ -1,0 +1,17 @@
+entries:
+- Name: Azure.Messaging.EventGrid.Namespaces
+  Version: 1.1.0
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid.Namespaces_1.1.0/sdk/eventgrid/Azure.Messaging.EventGrid.Namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add tracing information to CloudEvents when tracing is enabled.
+
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+
