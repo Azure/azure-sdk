@@ -9,4 +9,16 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Handled key error for missing props in PAT url case.
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.9
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.9/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enable Azure AI Agents instrumentation for azure-ai-agents
+    ([#40866](https://github.com/Azure/azure-sdk-for-python/pull/40866))
 
