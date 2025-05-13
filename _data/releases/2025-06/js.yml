@@ -10,4 +10,22 @@ entries:
     #### Features Added
 
     - Updated to @azure/communication-common@2.3.2-beta.1
+- Name: '@azure/ai-form-recognizer'
+  Version: 5.1.0
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.1.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Supports alternative cloud environments (Azure United States Government and Azure China Cloud). To use an alternative cloud environment, provide a value for the `audience` field of `DocumentAnalysisClientOptions` or `DocumentModelAdministrationClientOptions` to configure the client to authenticate within a [Sovereign Cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+    Import and use `KnownFormRecognizerAudience` to get the correct values for a given cloud environment. The currently supported cloud environments are:
+
+    - `KnownFormRecognizerAudience.AzureChina` (`"https://cognitiveservices.azure.cn"`),
+    - `KnownFormRecognizerAudience.AzureGovernment` (`"https://cognitiveservices.azure.us"`),
+    - `KnownFormRecognizerAudience.AzurePublicCloud` (`"https://cognitiveservices.azure.com"`),
+
+    If `audience` is undefined, the default value is suitable for the Azure Public Cloud `https://cognitiveservices.azure.com`.
 
