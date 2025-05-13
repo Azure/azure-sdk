@@ -28,4 +28,14 @@ entries:
     - `KnownFormRecognizerAudience.AzurePublicCloud` (`"https://cognitiveservices.azure.com"`),
 
     If `audience` is undefined, the default value is suitable for the Azure Public Cloud `https://cognitiveservices.azure.com`.
+- Name: '@azure/web-pubsub'
+  Version: 1.2.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a new API `WebPubSubGroup.listConnections` to list connections in a group.
 
