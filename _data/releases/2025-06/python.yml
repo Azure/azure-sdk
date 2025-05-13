@@ -21,4 +21,15 @@ entries:
 
     - Enable Azure AI Agents instrumentation for azure-ai-agents
     ([#40866](https://github.com/Azure/azure-sdk-for-python/pull/40866))
+- Name: azure-ai-agents
+  Version: 1.0.0b2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.0b2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Rename `get_last_text_message_by_role` to `get_last_message_text_by_role`.
 
