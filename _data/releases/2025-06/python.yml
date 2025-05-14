@@ -103,4 +103,15 @@ entries:
     #### Features Added
 
     - Internal updates based on TypeSpec finalization.
+- Name: azure-eventgrid
+  Version: 4.22.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.22.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Communication Services and Azure Edge.
 
