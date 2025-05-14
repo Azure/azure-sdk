@@ -145,4 +145,15 @@ entries:
     #### Bugs Fixed
     ##### [#34088](https://github.com/Azure/azure-sdk-for-js/pull/34088) Fix documentation for default values of `useMultipleWriteLocations` and `enableBackgroundEndpointRefreshing`.
     ##### [#33869](https://github.com/Azure/azure-sdk-for-js/pull/33869) Fix ChangeFeed Iterator merge
+- Name: '@azure/identity'
+  Version: 4.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the `AZURE_TOKEN_CREDENTIALS` environment variable to `DefaultAzureCredential`, which allows for choosing between 'deployed service' and 'developer tools' credentials. Valid values are 'dev' for developer tools and 'prod' for deployed service. [#34301](https://github.com/Azure/azure-sdk-for-js/pull/34301)
 
