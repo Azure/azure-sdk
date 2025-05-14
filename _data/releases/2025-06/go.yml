@@ -7,4 +7,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/v0.1.0/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.10.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `DefaultAzureCredential` reads environment variable `AZURE_TOKEN_CREDENTIALS` to enable a subset of its credentials:
+    - `dev` selects `AzureCLICredential` and `AzureDeveloperCLICredential`
+    - `prod` selects `EnvironmentCredential`, `WorkloadIdentityCredential` and `ManagedIdentityCredential`
 
