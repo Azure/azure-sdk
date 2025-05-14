@@ -69,4 +69,27 @@ entries:
     - Removed references to `Username`, `Password`, `AZURE_USERNAME`, and `AZURE_PASSWORD` in XML comments from `EnvironmentCredentialOptions` and `EnvironmentCredential` due to lack of MFA support. See [MFA enforcement details](https://aka.ms/azsdk/identity/mfa).
     - Marked `AZURE_USERNAME` and `AZURE_PASSWORD` as obsolete due to lack of MFA support. See [MFA enforcement details](https://aka.ms/azsdk/identity/mfa).
     - Added support for the `AZURE_TOKEN_CREDENTIALS` environment variable to `DefaultAzureCredential`, which allows for choosing between 'deployed service' and 'developer tools' credentials. Valid values are 'dev' for developer tools and 'prod' for deployed service.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.0.0-beta.2
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.0.0-beta.2/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - ThreadRunSteps methods were moved to Runs.
+    - VectorStoreFileBatches and VectorStoreFiles methods were moved to VectorStores.
+    - The AzureAISearchResource was replaced by AzureAISearchToolResource.
+- Name: Azure.AI.Inference
+  Version: 1.0.0-beta.5
+  DisplayName: AI Model Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Inference_1.0.0-beta.5/sdk/ai/Azure.AI.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated support for `AIInferenceExtensions` methods to consume stable SCM version.
 
