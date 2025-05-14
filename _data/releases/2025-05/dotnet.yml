@@ -503,4 +503,71 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.10.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.0.0-beta.1
+  DisplayName: Azure AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.0.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial release
+- Name: Azure.ResourceManager.NeonPostgres
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Neon Postgres
+  ServiceName: Neon Postgres
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NeonPostgres_1.0.0-beta.2/sdk/neonpostgres/Azure.ResourceManager.NeonPostgres/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.4.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue when a model builder was both IEnumerable and IPersistable.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.4.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.4.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * Changed `AzureMonitorLogExporter` to be internal to match the other Exporters (Trace and Metric).
+    ([#49849](https://github.com/Azure/azure-sdk-for-net/pull/49849))
+
+    * Update OpenTelemetry dependencies
+    ([#49861](https://github.com/Azure/azure-sdk-for-net/pull/49861))
+    - OpenTelemetry 1.12.0
+- Name: Azure.Data.AppConfiguration
+  Version: 1.6.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.6.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added AOT annotations to support AOT compilation.
+- Name: Azure.Core
+  Version: 1.46.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.46.1/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.4.1
 
