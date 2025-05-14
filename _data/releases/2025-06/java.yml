@@ -1,0 +1,13 @@
+entries:
+- Name: azure-security-keyvault-jca
+  Version: 2.10.1
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.10.1/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug: Missing logging for abnormal http status codes when processing HTTP responses. [#42859](https://github.com/Azure/azure-sdk-for-java/issues/42859).
+  GroupId: com.azure
+
