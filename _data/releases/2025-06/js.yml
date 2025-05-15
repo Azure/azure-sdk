@@ -167,4 +167,71 @@ entries:
     #### Bugs Fixed
 
     [#34346](https://github.com/Azure/azure-sdk-for-js/pull/34346) Fixed an issue where `require` is being used in an ESM context.
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.0-beta.7
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0-beta.7/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ApiManagement.CircuitBreaker.Closed`
+    - `Microsoft.ApiManagement.CircuitBreaker.Opened`
+    - `Microsoft.ApiManagement.GatewayTokenExpired`
+    - `Microsoft.ApiManagement.GatewayTokenNearExpiry`
+    - `Microsoft.Communication.CallEnded": AcsCallEndedEventData`
+    - `Microsoft.Communication.CallParticipantAdded`
+    - `Microsoft.Communication.CallParticipantRemoved`
+    - `Microsoft.Communication.CallStarted`
+    - `Microsoft.Communication.ChatAzureBotCommandReceivedInThread`
+    - `Microsoft.Communication.ChatTypingIndicatorReceivedInThread`
+    - `Microsoft.Edge.SolutionVersionPublished`
+- Name: '@azure/eventgrid'
+  Version: 5.12.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.12.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - For `AcsChatMessageEditedEventData`, `AcsChatMessageEditedInThreadEventData`, and `AcsChatThreadPropertiesUpdatedPerUserEventData`
+    - Made `editTime` and `metadata` optional
+    - For `AcsChatMessageEventBase`
+    - Made `composeTime`, `senderCommunicationIdentifier`, `senderDisplayName`, and `version` optional
+    - For `AcsChatMessageEventInThreadBase`
+    - Made `composeTime`, `senderDisplayName`, and `version` optional
+    - For `AcsChatMessageReceivedInThreadEventData` and `AcsChatThreadCreatedWithUserEventData`
+    - Made `metadata` optional
+    - For `AcsChatParticipantAddedToThreadEventData` and `AcsChatParticipantRemovedFromThreadEventData`
+    - Made `time` and `version` optional
+    - For `AcsChatThreadParticipant`
+    - Made `displayName` and `metadata` optional
+    - For `AcsChatThreadDeletedEventData` and `AcsChatThreadWithUserDeletedEventData`
+    - Made `deleteTime` optional
+    - For `AcsSmsDeliveryReportReceivedEventData`
+    - Made `receivedTimestamp` and `tag` optional
+    - For `AcsSmsReceivedEventData`
+    - Made `message` required
+
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ApiManagement.CircuitBreaker.Closed`
+    - `Microsoft.ApiManagement.CircuitBreaker.Opened`
+    - `Microsoft.ApiManagement.GatewayTokenExpired`
+    - `Microsoft.ApiManagement.GatewayTokenNearExpiry`
+    - `Microsoft.Communication.CallEnded": AcsCallEndedEventData`
+    - `Microsoft.Communication.CallParticipantAdded`
+    - `Microsoft.Communication.CallParticipantRemoved`
+    - `Microsoft.Communication.CallStarted`
+    - `Microsoft.Communication.ChatAzureBotCommandReceivedInThread`
+    - `Microsoft.Communication.ChatTypingIndicatorReceivedInThread`
+    - `Microsoft.Edge.SolutionVersionPublished`
 
