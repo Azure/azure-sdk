@@ -234,4 +234,37 @@ entries:
     - `Microsoft.Communication.ChatAzureBotCommandReceivedInThread`
     - `Microsoft.Communication.ChatTypingIndicatorReceivedInThread`
     - `Microsoft.Edge.SolutionVersionPublished`
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.6
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.6/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    - `.deployment` methods to enumerate the deployed AI models in your AI Foundry project.
+    - `.datasets` methods to upload documents and reference them. These documents will be used to augment the capability
+    of your selected LLM (RAG pattern).
+    - `.indexes` methods to handle your AI search indexes and search queries, as part of RAG pattern.
+    - `.evaluations` methods to assess the performance of generative AI applications in the cloud.
+    - `.inference` methods to get an Azure AI Inference client for chat completions, text or image embeddings.
+    - `.telemetry` methods to enable OpenTelemetry tracing using the `enableTelemetry` function.
+
+    #### Breaking changes
+
+    - Endpoint URL is now needed to construct the `AIProjectClient`, instead of using the method
+    `.fromConnectionString`. Find this endpoint URL in your AI Foundry project page.
+    - Agent operations that were previously part of the `azure.ai.projects` package have moved out to a separate new package
+    `@azure/ai-agents` with a client named `AgentsClient`. See [here](https://www.npmjs.com/package/@azure/ai-agents) for more information. You can get the `AgentsClient` by calling `.agents` method on your `AIProjectClient`.
+    - Several changes to `.connections` operations. Please see new connection samples.
+- Name: '@azure/arm-servicenetworking'
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicenetworking_2.1.0-beta.1/sdk/servicenetworking/arm-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
 
