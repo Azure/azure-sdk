@@ -111,4 +111,14 @@ entries:
     - Enhanced `DocumentIntelligenceLayoutSkill` with new properties: `ChunkingProperties`, `ExtractionOptions`, and `OutputFormat`.
     - Added `IndexerPermissionOptions` to `SearchIndexerDataSourceConnection` to support ingestion of various types of permission data.
     - Introduced sub-field vector support (multi-vectors) via `VectorQuery.Fields`, and added new query option `VectorQuery.PerDocumentVectorLimit`.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.0.0
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.0.0/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - First stable release of Azure AI Agents Persistent client library.
 
