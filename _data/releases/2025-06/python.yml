@@ -172,4 +172,23 @@ entries:
     * Evaluator Ids are available using the Enum `EvaluatorIds` and no longer require `azure-ai-evaluation` package to be installed.
     * Property `scope` on `AIProjectClient` is removed, use AI Foundry Project endpoint instead.
     * Property `id` on Evaluation is replaced with `name`.
+- Name: azure-ai-agents
+  Version: 1.0.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of Azure AI Agents client library.
+- Name: azure-mgmt-servicenetworking
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicenetworking_2.1.0b1/sdk/servicenetworking/azure-mgmt-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
 
