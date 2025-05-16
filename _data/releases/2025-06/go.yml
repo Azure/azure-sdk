@@ -1,0 +1,56 @@
+entries:
+- Name: sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute
+  Version: 0.1.0
+  DisplayName: Resource Management - Lambdatesthyperexecute
+  ServiceName: Lambdatesthyperexecute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/v0.1.0/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.10.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `DefaultAzureCredential` reads environment variable `AZURE_TOKEN_CREDENTIALS` to enable a subset of its credentials:
+    - `dev` selects `AzureCLICredential` and `AzureDeveloperCLICredential`
+    - `prod` selects `EnvironmentCredential`, `WorkloadIdentityCredential` and `ManagedIdentityCredential`
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.7.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.7.0/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - ACSCallParticipantProperties.Role has changed from a `*string` to a `*ACSCallParticipantRoleKind`.
+
+    #### Features Added
+
+    - New system events have been added:
+    - ACSCallEndedEventData
+    - ACSCallParticipantAddedEventData
+    - ACSCallParticipantRemovedEventData
+    - ACSCallStartedEventData
+    - ACSChatAzureBotCommandReceivedInThreadEventData
+    - ACSChatTypingIndicatorReceivedInThreadEventData
+    - APIManagementCircuitBreakerClosedEventData
+    - APIManagementCircuitBreakerOpenedEventData
+    - APIManagementGatewayTokenExpiredEventData
+    - APIManagementGatewayTokenNearExpiryEventData
+    - EdgeSolutionVersionPublishedEventData
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 1.8.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v1.8.0-beta.1/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+
