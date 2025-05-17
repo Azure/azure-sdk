@@ -272,4 +272,19 @@ entries:
     #### Features Added
     - Added new values to `SystemEventNames` related to Azure Communication Services and Azure Edge.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.20.7
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.20.7/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.20.2` to version `5.20.3`.
+    - Upgraded `azure-storage-blob` from `12.29.1` to version `12.30.0`.
+  GroupId: com.azure
 
