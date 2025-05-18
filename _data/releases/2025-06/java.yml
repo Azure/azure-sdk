@@ -287,4 +287,25 @@ entries:
     - Upgraded `azure-messaging-eventhubs` from `5.20.2` to version `5.20.3`.
     - Upgraded `azure-storage-blob` from `12.29.1` to version `12.30.0`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.8.0-beta.7
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new `KnowledgeAgent` apis to index clients and introduced new `SearchKnowledgeAgentClient` for managing and querying Knowledge Agents,
+    enabling multi-index grounding for agentic retrieval.
+    - Added a method overloads for search client operations to include the `querySourceAuthentication` parameter, allowing users to specify the authentication method for the query source.
+    - Added a `resync` method to indexer clients to resync selective options from the data source to be re-ingested by the indexer.
+    - Added `permissionFilter` to Field Builder annotations, indication whether a field should be used as a permission filter.
+    - Added `rerankerBoostedScore` to `SemanticSearchResult` and updated `SemanticConfiguration` with a new `rankingOrder` property.
+    - Introduced new skill `ChatCompletionSkill` that integrates with Azure AI Foundry.
+    - Enhanced `DocumentIntelligenceLayoutSkill` with new properties: `ChunkingProperties`, `ExtractionOptions`, and `OutputFormat`.
+    - Added `IndexerPermissionOptions` to `SearchIndexerDataSourceConnection` to support ingestion of various types of permission data.
+    - Introduced sub-field vector support (multi-vectors) via `VectorQuery.Fields`, and added new query option `VectorQuery.PerDocumentVectorLimit`.
+  GroupId: com.azure
 
