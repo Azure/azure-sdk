@@ -1,0 +1,250 @@
+entries:
+- Name: azure-ai-ml
+  Version: 1.27.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.27.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Handled key error for missing props in PAT url case.
+- Name: azure-monitor-opentelemetry
+  Version: 1.6.9
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.6.9/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enable Azure AI Agents instrumentation for azure-ai-agents
+    ([#40866](https://github.com/Azure/azure-sdk-for-python/pull/40866))
+- Name: azure-ai-agents
+  Version: 1.0.0b2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.0b2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Rename `get_last_text_message_by_role` to `get_last_message_text_by_role`.
+- Name: azure-identity
+  Version: 1.23.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.23.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AZURE_TOKEN_CREDENTIALS` environment variable to `DefaultAzureCredential` to allow for choosing groups of credentials.
+    - `prod` for `EnvironmentCredential`, `WorkloadIdentityCredential`,  and `ManagedIdentityCredential`.
+    - `dev` for `SharedTokenCacheCredential`, `AzureCliCredential`, `AzurePowershellCredential`, and `AzureDeveloperCliCredential`.
+- Name: azure-search-documents
+  Version: 11.6.0b12
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b12/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue batching in upload_documents() did not work.    #40157
+
+    #### Features Added
+
+    - Added `azure.search.documents.agent.KnowledgeAgentRetrievalClient`.
+    - Added knowledge agents operations in `SearchIndexClient`.
+    - Added `resync` method in `SearchIndexerClient`.
+    - Exposed `@search.reranker_boosted_score` in the search results.
+    - Added `x_ms_query_source_authorization` as a keyword argument to `SearchClient.search`.
+    - Added property `azure.search.documents.indexes.models.SearchField.permission_filter`.
+    - Added property `azure.search.documents.indexes.models.SearchIndex.permission_filter_option`.
+    - Added property `azure.search.documents.indexes.models.SearchIndexerDataSourceConnection.indexer_permission_options`.
+
+    - Added new models:
+    - `azure.search.documents.models.QueryResultDocumentInnerHit`
+    - `azure.search.documents.indexes.models.ChatCompletionExtraParametersBehavior`
+    - `azure.search.documents.indexes.models.ChatCompletionResponseFormat`
+    - `azure.search.documents.indexes.models.ChatCompletionResponseFormatType`
+    - `azure.search.documents.indexes.models.ChatCompletionResponseFormatJsonSchemaProperties`
+    - `azure.search.documents.indexes.models.ChatCompletionSchema`
+    - `azure.search.documents.indexes.models.ChatCompletionSkill`
+    - `azure.search.documents.indexes.models.CommonModelParameters`
+    - `azure.search.documents.indexes.models.DocumentIntelligenceLayoutSkillChunkingProperties`
+    - `azure.search.documents.indexes.models.DocumentIntelligenceLayoutSkillChunkingUnit`
+    - `azure.search.documents.indexes.models.DocumentIntelligenceLayoutSkillExtractionOptions`
+    - `azure.search.documents.indexes.models.DocumentIntelligenceLayoutSkillOutputFormat`
+    - `azure.search.documents.indexes.models.IndexerPermissionOption`
+    - `azure.search.documents.indexes.models.IndexerResyncOption`
+    - `azure.search.documents.indexes.models.KnowledgeAgent`
+    - `azure.search.documents.indexes.models.KnowledgeAgentAzureOpenAIModel`
+    - `azure.search.documents.indexes.models.KnowledgeAgentModel`
+    - `azure.search.documents.indexes.models.KnowledgeAgentModelKind`
+    - `azure.search.documents.indexes.models.KnowledgeAgentRequestLimits`
+    - `azure.search.documents.indexes.models.KnowledgeAgentTargetIndex`
+    - `azure.search.documents.indexes.models.PermissionFilter`
+    - `azure.search.documents.indexes.models.RankingOrder`
+    - `azure.search.documents.indexes.models.SearchIndexPermissionFilterOption`
+- Name: azure-ai-agents
+  Version: 1.0.0b3
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.0b3/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Internal updates based on TypeSpec finalization.
+- Name: azure-eventgrid
+  Version: 4.22.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.22.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEventNames` related to Azure Communication Services and Azure Edge.
+- Name: azure-mgmt-containerregistry
+  Version: 14.1.0b1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_14.1.0b1/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.7.0b1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.7.0b1/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.7.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.7.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - azure-ai-evaluation failed with module not found [#40992](https://github.com/Azure/azure-sdk-for-python/issues/40992)
+- Name: azure-ai-projects
+  Version: 1.0.0b11
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b11/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * `.deployments` methods to enumerate AI models deployed to your AI Foundry Project.
+    * `.datasets` methods to upload documents and reference them. To be used with Evaluations.
+    * `.indexes` methods to handle your Search Indexes.
+
+    #### Breaking changes
+
+    * Azure AI Foundry Project endpoint is now required to construct the `AIProjectClient`. It has the form
+    `https://<your-ai-services-account-name>.services.ai.azure.com/api/projects/<your-project-name>`. Find it in your AI Foundry Project
+    Overview page. The factory method `from_connection_string` was removed.
+    * Agents are now implemented in a separate package `azure-ai-agents`. Continue using the ".agents" operations on the
+    `AIProjectsClient` to create, run and delete agents, as before. However there have been some breaking changes in these operations.
+    See [Agents package document and samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-agents) for more details.
+    * Several changes to the `.connections` methods, including the response object (now simply called `Connection`)
+    * The method `.inference.get_azure_openai_client()` now supports returning an authenticated `AzureOpenAI` client to be used with
+    AI models deployed to the Project's AI Services. This is in addition to the existing option to get an `AzureOpenAI` client for one of the connected Azure OpenAI services.
+    * Import `PromptTemplate` from `azure.ai.projects` instead of `azure.ai.projects.prompts`.
+    * The class ConnectionProperties was renamed to Connection, and its properties have changed.
+    * The method `.to_evaluator_model_config` on `ConnectionProperties` is no longer required and does not have an equivalent method on `Connection`. When constructing the EvaluatorConfiguration class, the `init_params` element now requires `deployment_name` instead of `model_config`.
+    * The method `upload_file` on `AIProjectClient` had been removed, use `datasets.upload_file` instead.
+    * Evaluator Ids are available using the Enum `EvaluatorIds` and no longer require `azure-ai-evaluation` package to be installed.
+    * Property `scope` on `AIProjectClient` is removed, use AI Foundry Project endpoint instead.
+    * Property `id` on Evaluation is replaced with `name`.
+- Name: azure-ai-agents
+  Version: 1.0.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of Azure AI Agents client library.
+- Name: azure-mgmt-servicenetworking
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicenetworking_2.1.0b1/sdk/servicenetworking/azure-mgmt-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 36.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_36.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-confidentialledger
+  Version: 2.0.0b5
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confidentialledger_2.0.0b5/sdk/confidentialledger/azure-mgmt-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 1.2.0b1
+  DisplayName: Resource Management - PostgreSQL  Flexible Servers
+  ServiceName: PostgreSQL  Flexible Servers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_1.2.0b1/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-health-deidentification
+  Version: 1.0.0
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed method names in `DeidentificationClient` to match functionality:
+    - Changed the `deidentify` method name to `deidentify_text`.
+    - Changed the `begin_create_job` method name to `begin_deidentify_documents`.
+    - Renamed the property `DeidentificationContent.operation` to `operation_type`.
+    - Deprecated `DocumentDataType`.
+    - Changed the model `DeidentificationDocumentDetails`:
+    - Renamed `input` to `input_location`.
+    - Renamed `output` to `output_location`.
+    - Changed the model `DeidentificationJob`
+    - Renamed `name` to `job_name`.
+    - Renamed `operation` to `operation_type`.
+    - Renamed the model `OperationState` to `OperationStatus`.
+    - Changed `path` field to `location` in `SourceStorageLocation` and `TargetStorageLocation`.
+    - Changed `outputPrefix` behavior to no longer include `job_name` by default.
+    - Deprecated `path` and `location` from `TaggerResult` model.
+
+    #### Features Added
+
+    - Introduced `DeidentificationCustomizationOptions` and `DeidentificationJobCustomizationOptions` models.
+    - Added `surrogate_locale` field in these models.
+    - Moved `redaction_format` field into these models.
+    - Introduced `overwrite` property in `TargetStorageLocation` model, which allows a job to overwrite existing documents in the storage location.
+
