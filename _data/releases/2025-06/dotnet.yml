@@ -146,4 +146,35 @@ entries:
     * `Deployments` methods to enumerate AI models deployed to your AI Foundry Project.
     * `Datasets` methods to upload documents and reference them. To be used with Evaluations.
     * `Indexes` methods to handle Search Indexes.
+- Name: Azure.ResourceManager.Sql
+  Version: 1.4.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.4.0-beta.1/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.5.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.5.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Added Incomingcall event to support incoming call notification for Teams multipersona users
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+- Name: Azure.ResourceManager.FrontDoor
+  Version: 1.4.0
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FrontDoor_1.4.0/sdk/frontdoor/Azure.ResourceManager.FrontDoor/CHANGELOG.md
+  ChangelogContent: ""
 
