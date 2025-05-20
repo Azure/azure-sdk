@@ -314,4 +314,83 @@ entries:
     - Added Incomingcall event to support incoming call notification for Teams multipersona users
     - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
     - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+- Name: '@azure/storage-file-share'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.28.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+    - Added the `ShareFileClient.createSymbolicLink()`, and `.getSymbolicLink()` APIs.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.27.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+- Name: '@azure/storage-blob'
+  Version: 12.28.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0-beta.2/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.26.0-beta.2.
+- Name: '@azure/storage-blob'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+    - Added support for the `sourceShareTokenIntent` parameter to `AppendBlobClient.appendBlockFromURL()`, `BlockBlobClient.stageBlockFromURL()`, `BlockBlobClient.syncUploadFromURL()`, `BlobClient.syncCopyFromURL()`, `PageBlobClient.uploadPagesFromURL()`.
+- Name: '@azure/storage-queue'
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.27.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+- Name: '@azure/storage-common'
+  Version: 12.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0-beta.2/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Including all released in 12.0.0-beta.1
+- Name: '@azure/storage-common'
+  Version: 12.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial Release.
 
