@@ -247,4 +247,18 @@ entries:
     - Added `surrogate_locale` field in these models.
     - Moved `redaction_format` field into these models.
     - Introduced `overwrite` property in `TargetStorageLocation` model, which allows a job to overwrite existing documents in the storage location.
+- Name: azure-cosmos
+  Version: 4.12.0b1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.12.0b1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added ability to use weighted RRF (Reciprocal Rank Fusion) for Hybrid full text search queries. See [PR 40899](https://github.com/Azure/azure-sdk-for-python/pull/40899/files).
+
+    #### Bugs Fixed
+    * Fixed Diagnostics Error Log Formatting to handle error messages from non-CosmosHttpResponseExceptions. See [PR 40889](https://github.com/Azure/azure-sdk-for-python/pull/40889/files)
+    * Fixed bug where `multiple_write_locations` option in client was not being honored. See [PR 40999](https://github.com/Azure/azure-sdk-for-python/pull/40999).
 
