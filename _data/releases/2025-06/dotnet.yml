@@ -202,4 +202,15 @@ entries:
     - Added new communication events.
     - Added new API management events.
     - Add `EdgeSolutionVersionPublishedEventData` Edge event.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.6.0
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.6.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Overloads were added to accept a `Uri`-typed key identifier to all protection methods.  _(A community contribution, courtesy of [MattKotsenas](https://github.com/abatishchev))_
 
