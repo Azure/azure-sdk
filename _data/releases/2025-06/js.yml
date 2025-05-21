@@ -393,4 +393,21 @@ entries:
     #### Features Added
 
     - Initial Release.
+- Name: '@azure/ai-agents'
+  Version: 1.0.0-beta.3
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.3/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds `runs.createAndPoll` method that automatically polls for the result.
+    - Adds `resumeFrom` option in polling operations.
+
+    #### Bugs Fixed
+
+    - fixed an issue with bing grounding serialization
+    - fixed an issue with url encoding
 
