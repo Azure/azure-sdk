@@ -242,4 +242,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.4.0/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.4.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for the Browse Available Phone Numbers and Reservations APIs
+    - This adds an alternate way to search and purchase phone numbers that allows customers to select which phone numbers they want to reserve and purchase.
+    - Adds support for automated purchases of phone numbers from countries requiring a Do Not Resell agreement.
+    - For more information, refer to: https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability
+    - API version `2025-04-01` is the default.
 
