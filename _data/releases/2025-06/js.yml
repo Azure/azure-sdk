@@ -410,4 +410,15 @@ entries:
 
     - fixed an issue with bing grounding serialization
     - fixed an issue with url encoding
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.8
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.8/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Upgrading ai-agents package to fix bugs with bing grounding serialization and url encoding
 
