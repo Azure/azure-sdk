@@ -551,4 +551,65 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.51.0/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-developer-loadtesting
+  Version: 1.1.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.1.0-beta.1/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgraded all clients to use new API Version `2024-05-01-preview`
+    - Added models for all APIs supported by the service
+    - Added methods that work with and return models for all existing methods supported by both `LoadTestAdministration` and `LoadTestRun` clients
+    - Added methods to interact with `TestProfile` APIs in `LoadTestAdministrationClient.createOrUpdateTestProfile()`, `LoadTestAdministrationClient.getTestProfile()`, `LoadTestAdministrationClient.deleteTestProfile()` and `LoadTestAdministrationClient.listTestProfiles()` and their equivalent async variants
+    - Added methods to interact with `TestProfileRun` APIs in `LoadTestRunClient.beginTestProfileRun()`, `LoadTestRunClient.getTestProfileRun()`, `LoadTestRunClient.deleteTestProfileRun()` and `LoadTestRunClient.listTestProfileRuns()` and their equivalent async variants
+  GroupId: com.azure
+- Name: azure-resourcemanager-mediaservices
+  Version: 2.4.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mediaservices_2.4.0/sdk/mediaservices/azure-resourcemanager-mediaservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-sitemanager
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sitemanager_1.0.0-beta.1/sdk/sitemanager/azure-resourcemanager-sitemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-kubernetesconfiguration-fluxconfigurations
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kubernetesconfiguration-fluxconfigurations_1.0.0-beta.1/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datafactory
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.2.0/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-kubernetesconfiguration-extensions
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kubernetesconfiguration-extensions_1.0.0-beta.1/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
