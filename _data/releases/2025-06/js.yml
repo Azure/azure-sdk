@@ -559,4 +559,15 @@ entries:
     #### Features Added
 
     - Updated service API version to use API version 2023-10-31 by default.
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.3
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.3/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated IsUnexpected method signature and corrected api-version to 2024-12-09-preview in confidentialLedger.ts
 
