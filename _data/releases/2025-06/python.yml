@@ -377,4 +377,21 @@ entries:
     #### Features Added
 
     - Introduces `AttackStrategy.MultiTurn` and `AttackStrategy.Crescendo` to `RedTeam`. These strategies attack the target of a `RedTeam` scan over the course of multi-turn conversations.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b37
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b37/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implement spec for k8s attribute logic.
+    ([#41130](https://github.com/Azure/azure-sdk-for-python/pull/41130))
+
+    #### Bugs Fixed
+
+    - Do not count Functions as App Service
+    ([#41327](https://github.com/Azure/azure-sdk-for-python/pull/41327))
 
