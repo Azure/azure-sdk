@@ -299,4 +299,275 @@ entries:
     - Removes the optional parameters `top`, `skip`, and `maxpagesize` in `project.connections.list`.
     - Removes the optional parameters `top`, `skip`, and `maxpagesize` in `project.deployments.list`.
     - Removes the body parameter in `project.datasets.getCredentials`.
+- Name: '@azure/communication-call-automation'
+  Version: 1.5.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.5.0-beta.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Added Incomingcall event to support incoming call notification for Teams multipersona users
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+- Name: '@azure/storage-file-share'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.28.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+    - Added the `ShareFileClient.createSymbolicLink()`, and `.getSymbolicLink()` APIs.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.27.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+- Name: '@azure/storage-blob'
+  Version: 12.28.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0-beta.2/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.26.0-beta.2.
+- Name: '@azure/storage-blob'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+    - Added support for the `sourceShareTokenIntent` parameter to `AppendBlobClient.appendBlockFromURL()`, `BlockBlobClient.stageBlockFromURL()`, `BlockBlobClient.syncUploadFromURL()`, `BlobClient.syncCopyFromURL()`, `PageBlobClient.uploadPagesFromURL()`.
+- Name: '@azure/storage-queue'
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.27.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-07-05.
+- Name: '@azure/storage-common'
+  Version: 12.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0-beta.2/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Including all released in 12.0.0-beta.1
+- Name: '@azure/storage-common'
+  Version: 12.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial Release.
+- Name: '@azure/ai-agents'
+  Version: 1.0.0-beta.3
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.3/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds `runs.createAndPoll` method that automatically polls for the result.
+    - Adds `resumeFrom` option in polling operations.
+
+    #### Bugs Fixed
+
+    - fixed an issue with bing grounding serialization
+    - fixed an issue with url encoding
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.8
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.8/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Upgrading ai-agents package to fix bugs with bing grounding serialization and url encoding
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.4.0-beta.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds support for the Browse Available Phone Numbers and Reservations APIs
+    - This adds an alternate way to search and purchase phone numbers that allows customers to select which phone numbers they want to reserve and purchase.
+    - Adds support for automated purchases of phone numbers from countries requiring a Do Not Resell agreement.
+    - For more information, refer to: https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability
+    - API version `2025-04-01` is the default.
+- Name: '@azure/communication-call-automation'
+  Version: 1.5.0-beta.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.5.0-beta.2/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix to correctly reflect the client version in telemetry data.
+- Name: '@azure/arm-kubernetesconfiguration-extensions'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensions_1.0.0-beta.1/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-fluxconfigurations'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-fluxconfigurations_1.0.0-beta.1/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.6.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 6.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-postgresql-flexible'
+  Version: 8.1.0-beta.1
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.1.0-beta.1/sdk/postgresql/arm-postgresql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 34.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.3.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 7.7.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confidentialledger'
+  Version: 1.3.0-beta.3
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_1.3.0-beta.3/sdk/confidentialledger/arm-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-extensiontypes'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensiontypes
+  ServiceName: Kubernetesconfiguration-Extensiontypes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensiontypes_1.0.0-beta.1/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensiontypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sitemanager'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sitemanager_1.0.0-beta.1/sdk/sitemanager/arm-sitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/digital-twins-core'
+  Version: 2.0.0
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_2.0.0/sdk/digitaltwins/digital-twins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Migrated to use `@azure/core-rest-pipeline`. For more information, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#core-v1-and-core-v2). As a result of this migration:
+    - The response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag, for example:
+    ```ts
+    let rawResponse: FullOperationResponse | undefined;
+    await client.operationName(/* ...parameters... */, {
+    onResponse: (response) => (rawResponse = response),
+    });
+    ```
+    - Client methods that previously returned `RestResponse` now return `void`. In the event the operation fails, a `RestError` will still be thrown. To access the raw HTTP response, use the `onResponse` callback described above.
+    - Digital Twin objects returned from operations no longer have their properties wrapped in a `body` property.
+
+    #### Features Added
+
+    - Updated service API version to use API version 2023-10-31 by default.
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.3
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.3/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated IsUnexpected method signature and corrected api-version to 2024-12-09-preview in confidentialLedger.ts
 
