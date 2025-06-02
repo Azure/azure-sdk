@@ -570,4 +570,17 @@ entries:
     #### Bugs Fixed
 
     - Updated IsUnexpected method signature and corrected api-version to 2024-12-09-preview in confidentialLedger.ts
+- Name: '@azure/data-tables'
+  Version: 13.3.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.1/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue [#28624](https://github.com/Azure/azure-sdk-for-js/issues/28624) where request options were not available when submitting a transaction operation.
+    - Fix issue [#32239](https://github.com/Azure/azure-sdk-for-js/issues/32239) where Azurite emulator endpoint with a non-default port was treated as Cosmos endpoint.
+    - Add `partitionKey` and `rowKey` validation for `TableClient` methods.
 
