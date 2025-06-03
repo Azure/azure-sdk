@@ -157,4 +157,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dell/armdellstorage/v0.1.0/sdk/resourcemanager/dell/armdellstorage/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.8.0
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.8.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    This library has been updated to function as a companion to the [official OpenAI Go client library](https://github.com/openai/openai-go). It provides types and functions that allow interaction with Azure-specific extensions available in the Azure OpenAI service.
+
+    See the [migration guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for details on how to update your code to use this library alongside the official OpenAI Go client.
+- Name: sdk/ai/azopenaiassistants
+  Version: 0.4.0
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiassistants/v0.4.0/sdk/ai/azopenaiassistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for more details.
 
