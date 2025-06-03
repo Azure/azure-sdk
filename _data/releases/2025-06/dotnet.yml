@@ -382,4 +382,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MongoDBAtlas_1.0.0-beta.1/sdk/mongodbatlas/Azure.ResourceManager.MongoDBAtlas/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.Common
+  Version: 1.4.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Common_1.4.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
 
