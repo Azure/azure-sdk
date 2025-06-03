@@ -394,4 +394,26 @@ entries:
     - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
     - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
     - Added `IsAnonymous` and `AssertedId` properties to `PhoneNumberIdentifier`.
+- Name: Azure.DigitalTwins.Core
+  Version: 1.6.0
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.6.0/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - Renamed tags reported on `DigitalTwinsClient` activities to follow OpenTelemetry attribute naming conventions:
+    - `digitalTwinId` to `az.digitaltwins.twin.id`
+    - `componentName` to `az.digitaltwins.component.name`
+    - `relationshipName` to `az.digitaltwins.relationship.name`
+    - `modelId` to `az.digitaltwins.model.id`
+    - `jobId` to `az.digitaltwins.job.id`
+    - `query` to `az.digitaltwins.query`
+    - `eventRouteId` to `az.digitaltwins.event_route.id`
+    - `messageId` to `az.digitaltwins.message.id`
+
+    #### Features Added
+    - Updated service API version to use API version 2023-10-31 by default.
 
