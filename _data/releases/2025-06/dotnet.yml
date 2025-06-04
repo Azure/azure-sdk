@@ -435,4 +435,40 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.5.0-beta.1/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Real-time transcription support
+    - Audio and DTMF streaming capabilities
+    - Integration of ConnectAPI for seamless streaming and transcription
+    - Improved media streaming with bidirectional functionality, allowing audio formats in both directions, currently supporting sample rates of 24kHz and 16kHz
+    - Support for custom speech models has been integrated into transcription
+    - A confidence level for recognized speech has been introduced, ranging from 0.0 to 1.0 when available
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.1.0-beta.1/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.0.1
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.0.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Now floating number values are properly serialized into bicep via `json()` function ([#48249](https://github.com/Azure/azure-sdk-for-net/issues/48249))
+    - Fixed issues in interpolated strings ([#48493](https://github.com/Azure/azure-sdk-for-net/issues/48493))
 
