@@ -508,4 +508,14 @@ entries:
 
     - Added a dependency on the `Azure.Messaging.EventGrid.SystemEvents` package.
     The system events are now referenced via type-forwarding.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.1.0-beta.2
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0-beta.2/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed uploading files with non ASCII symbols in names.
 
