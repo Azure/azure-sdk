@@ -717,4 +717,21 @@ entries:
     * Fixed an issue ignoring client-level diagnostic thresholds for point read operations in some cases - [PR 45488](https://github.com/Azure/azure-sdk-for-java/pull/45488)
     * Fixed an issue ignoring read consistency strategy for queries, readMany operations and change feed in some cases - [PR 45552](https://github.com/Azure/azure-sdk-for-java/pull/45552)
   GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.4.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.4.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Real-time transcription support
+    - Audio and DTMF streaming capabilities
+    - Integration of ConnectAPI for seamless streaming and transcription
+    - Improved media streaming with bidirectional functionality, allowing audio formats in both directions, currently supporting sample rates of 24kHz and 16kHz
+    - Support for custom speech models has been integrated into transcription
+    - A confidence level for recognized speech has been introduced, ranging from 0.0 to 1.0 when available
+  GroupId: com.azure
 
