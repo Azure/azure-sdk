@@ -526,4 +526,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.2.0-beta.1/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.4.2
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.2/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - First part of performance improvements for System.ClientModel.SourceGeneration to shorten lengthy builds.
+- Name: Azure.Core
+  Version: 1.46.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.46.2/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.4.2
 
