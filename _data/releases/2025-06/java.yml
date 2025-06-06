@@ -940,4 +940,13 @@ entries:
 
     - Added an `AmqpRetryOptions` constant in `MessageFlux` to configure retries on terminal completion events but propagates terminal errors. ([45400](https://github.com/Azure/azure-sdk-for-java/pull/45400))
   GroupId: com.azure
+- Name: azure-resourcemanager-computeschedule
+  Version: 1.1.0
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computeschedule_1.1.0/sdk/computeschedule/azure-resourcemanager-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
