@@ -627,4 +627,68 @@ entries:
     - `isAnonymous` is used for anonymous numbers with rawId equals to `4:anonymous`.
     - `assertedId` is used when the same number is used several times in the same call. It contains value after the last underscore (_)
     character in the phone number. It is undefined otherwise.
+- Name: '@azure/arm-chaos'
+  Version: 2.0.0
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-chaos_2.0.0/sdk/chaos/arm-chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mongodbatlas'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongodbatlas_1.0.0-beta.1/sdk/mongodbatlas/arm-mongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/health-insights-radiologyinsights'
+  Version: 2.0.0
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_2.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added sample and test code for scoring and assessment, quality measure and clinical guidance.
+
+    #### Breaking Changes
+
+    - for PatientDocumentOutput:
+    - Adding guidanceOptions (default true) and qualityMeasureOptions (needed for Quality Measure Inferences).
+
+    - for azureHealthInsightsClient:
+    - Adding ClientApiVersionPolicy
+
+    - for HealthInsightsErrorResponseOutput:
+    - Retire 'requestId' and the response: RequestIdResponseHeaderOutput.
+
+    - for RequestIdResponseHeaderOutput:
+    - Adding FollowupCommunicationInferenceOutput, ScoringAndAssessmentInferenceOutput, GuidanceInferenceOutput and QualityMeasureInferenceOutput.
+    - Adding  FollowupCommunicationInferenceTypeOutput, ScoringAndAssessmentTypeOutput, GuidanceTypeOutput and QualityMeasureTypeOutput.
+
+    - for GetJobQueryParamProperties:
+    - Replace 'string' by 'GetJobExpandQueryParam' with its definition.
+
+    - for CreateJobQueryParamProperties:
+    - Replace 'string' by 'CreateJobExpandQueryParam' with its definition.
+
+    - for ClinicalDocumentTypeOutput:
+    - Replace 'ClinicalDocumentTypeOutputEnum' by 'string'.
+
+    - for pollingHelper:
+    - Adding imports for 'AbortSignalLike' and 'CancelOnProgress'
+    - Replace 'RunningOperation' with 'LongRunningOperation'
+    - Replace 'OperationResponse' with 'LroResponse'
+    - Retire 'SimplePollerLike'
+- Name: '@azure/arm-arizeaiobservabilityeval'
+  Version: 1.0.0
+  DisplayName: Resource Management - Arize AI Observability Eval
+  ServiceName: Arize AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-arizeaiobservabilityeval_1.0.0/sdk/liftrarize/arm-arizeaiobservabilityeval/CHANGELOG.md
+  ChangelogContent: ""
 
