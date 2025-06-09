@@ -7,8 +7,8 @@ jobs:
 - job:
   displayName: Update Versions
   pool:
-    name: 'azsdk-pool-mms-ubuntu-2204-general'
-    vmImage: 'ubuntu-22.04'
+    name: 'azsdk-pool
+    vmImage: 'ubuntu-24.04'
 
   timeoutInMinutes: 360
 
