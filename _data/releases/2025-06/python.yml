@@ -478,4 +478,30 @@ entries:
     #### Bugs Fixed
     * Fixed how resource tokens are parsed for metadata calls in the lifecycle of a document operation. See [PR 40302](https://github.com/Azure/azure-sdk-for-python/pull/40302).
     * Fixed issue where Query Change Feed did not return items if the container uses legacy Hash V1 Partition Keys. This also fixes issues with not being able to change feed query for Specific Partition Key Values for HPK. See [PR 41270](https://github.com/Azure/azure-sdk-for-python/pull/41270/)
+- Name: azure-ai-agents
+  Version: 1.1.0b2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.1.0b2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `asyncio.gather` is used to make function tool calls in parallel for `async` scenario.
+    - Adding instrumentation for create_thread_and_run.
+    - Fixed a tracing related bug that caused process_thread_run span to not appear when streaming is used without event handler.
+- Name: azure-ai-agents
+  Version: 1.0.1
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.1/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `asyncio.gather` is used to make function tool calls in parallel for `async` scenario.
+    - Adding instrumentation for create_thread_and_run.
+    - Fixed a tracing related bug that caused process_thread_run span to not appear when streaming is used without event handler.
 
