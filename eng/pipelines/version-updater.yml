@@ -7,8 +7,8 @@ jobs:
 - job:
   displayName: Update Versions
   pool:
-    name: 'azsdk-pool
-    vmImage: 'ubuntu-24.04'
+    name: azsdk-pool
+    demand: ImageOverride -equal ubuntu-24.04
 
   timeoutInMinutes: 360
 

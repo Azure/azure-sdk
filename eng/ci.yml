@@ -3,7 +3,7 @@ trigger:
 
 pool:
   name: azsdk-pool
-  vmImage: ubuntu-24.04
+  demand: ImageOverride -equal ubuntu-24.04
 
 variables:
   BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
