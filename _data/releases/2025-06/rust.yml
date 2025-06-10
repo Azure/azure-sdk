@@ -93,4 +93,70 @@ entries:
     #### Breaking Changes
 
     - Event Message Properties is now an `AmqpSimpleValue` rather than an `AmqpValue` to more closely reflect the AMQP specification (AMQP ApplicationProperties cannot contain Map, List, or Array).
+- Name: azure_security_keyvault_keys
+  Version: 0.4.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.4.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `KeyClient::list_deleted_key_properties`
+    - `KeyClient::list_key_properties`
+    - `KeyClient::list_key_properties_versions`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+    - Added `EncryptionAlgorithm::CkmAesKeyWrap` and `CkmAesKeyWrapPad`.
+    - Added `JsonWebKeySignatureAlgorithm::Hs256`, `Hs384`, and `Hs512`.
+    - Added `KeyAttestation` returned by `KeyAttributes::attestation` field.
+    - Added `KeyClient::get_key_attestation` client method.
+- Name: azure_security_keyvault_secrets
+  Version: 0.4.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.4.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `SecretClient::list_deleted_secret_properties`
+    - `SecretClient::list_secret_properties`
+    - `SecretClient::list_secret_properties_versions`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+- Name: azure_security_keyvault_certificates
+  Version: 0.3.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.3.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `CertificateClient::list_deleted_certificate_properties`
+    - `CertificateClient::list_certificate_properties`
+    - `CertificateClient::list_certificate_properties_versions`
+    - `CertificateClient::list_issuer_properties`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+    - Added `preserve_cert_order` to several models to preserve the order of signing certificates when importing or merging certificates.
 
