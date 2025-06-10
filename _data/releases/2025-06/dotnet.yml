@@ -636,4 +636,16 @@ entries:
     #### Features Added
     - Added support for service version 2025-11-05.
     - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: Azure.Communication.Identity
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Identity_1.4.0-beta.1/sdk/communication/Azure.Communication.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Identity Management: Added support for creating identities with an associated customId.
+    - Identity Operations: Introduced the get identity operation.
 
