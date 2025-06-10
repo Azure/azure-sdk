@@ -967,4 +967,35 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-purestorageblock_1.0.0-beta.1/sdk/purestorageblock/azure-resourcemanager-purestorageblock/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-identity-broker
+  Version: 1.1.15
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.15/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.16.1` to version `1.16.2`.
+    - Updated `msal4j` from `1.20.1` to version `1.21.0`.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.16.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.16.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.3` to version `1.55.4`.
+    - Upgraded `azure-core-http-netty` from `1.15.11` to version `1.15.12`.
+    - Updated `msal4j` from `1.20.1` to version `1.21.0`.
+  GroupId: com.azure
 
