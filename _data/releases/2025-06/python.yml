@@ -504,4 +504,28 @@ entries:
     - `asyncio.gather` is used to make function tool calls in parallel for `async` scenario.
     - Adding instrumentation for create_thread_and_run.
     - Fixed a tracing related bug that caused process_thread_run span to not appear when streaming is used without event handler.
+- Name: azure-mgmt-resource-templatespecs
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Resource-Templatespecs
+  ServiceName: Resource-Templatespecs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-templatespecs_1.0.0b1/sdk/resources/azure-mgmt-resource-templatespecs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-deploymentstacks
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Resource-Deploymentstacks
+  ServiceName: Resource-Deploymentstacks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deploymentstacks_1.0.0b1/sdk/resources/azure-mgmt-resource-deploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-deploymentscripts
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Resource-Deploymentscripts
+  ServiceName: Resource-Deploymentscripts
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deploymentscripts_1.0.0b1/sdk/resources/azure-mgmt-resource-deploymentscripts/CHANGELOG.md
+  ChangelogContent: ""
 
