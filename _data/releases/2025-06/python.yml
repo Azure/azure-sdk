@@ -528,4 +528,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deploymentscripts_1.0.0b1/sdk/resources/azure-mgmt-resource-deploymentscripts/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-healthinsights-radiologyinsights
+  Version: 1.1.0
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-healthinsights-radiologyinsights_1.1.0/sdk/healthinsights/azure-healthinsights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - 3 new inferences added:
+    - ScoringAndAssessmentInference
+    - AssessmentValueRange
+    - ScoringAndAssessmentCategoryType
+    - GuidanceInference
+    - GuidanceOptions
+    - PresentGuidanceInformation
+    - GuidanceRankingType
+    - QualityMeasureInference
+    - QualityMeasureOptions
+    - QualityMeasureType
+    - QualityMeasureComplianceType
+    - Added samples for scoring and assessment, Quality Measure and Guidance
 
