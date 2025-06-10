@@ -251,4 +251,14 @@ entries:
     #### Features Added
 
     * Added an initial API for integrating an external client-side Query Engine with the Cosmos DB Go SDK. This API is unstable and not recommended for production use. See [PR 24273](https://github.com/Azure/azure-sdk-for-go/pull/24273) for more details.
+- Name: sdk/azidentity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.10.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `AzureCLICredential` and `AzureDeveloperCLICredential` could wait indefinitely for subprocess output
 
