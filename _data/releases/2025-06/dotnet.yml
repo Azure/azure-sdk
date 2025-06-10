@@ -648,4 +648,14 @@ entries:
 
     - Identity Management: Added support for creating identities with an associated customId.
     - Identity Operations: Introduced the get identity operation.
+- Name: Azure.Storage.Blobs
+  Version: 12.24.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.24.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `PageBlobCreateOptions.PremiumPageBlobAccessTier` for `PageBlobClient.Create(..)`
 
