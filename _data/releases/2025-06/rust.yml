@@ -170,4 +170,30 @@ entries:
     #### Bugs Fixed
 
     - `AzureCliCredential` didn't invoke `az` within a shell on all platforms
+- Name: azure_storage_blob
+  Version: 0.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.2.0/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Moved `commit_block_list`, `get_block_list`, and `stage_block` from `BlobClient` to `BlockBlobClient`.
+
+    #### Bugs Fixed
+
+    * Fixed an issue where the blob type string would appear as a query parameter in the request URL for certain APIs extraneously.
+
+    #### Features Added
+
+    * Added a new blob client type, `BlockBlobClient`.
+    * Added navigation methods to access sub-clients from existing clients:
+    * `BlobServiceClient::blob_container_client()`
+    * `BlobContainerClient::blob_client()`
+    * `BlobClient::block_blob_client()`
+
+    * Added support for `list_blobs`, `set_metadata` to `ContainerClient`.
+    * Added support for `set_metadata`, `set_properties`, and `set_tier` to `BlobClient`.
 
