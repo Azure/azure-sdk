@@ -1,0 +1,85 @@
+entries:
+- Name: azure_core_amqp
+  Version: 0.4.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.4.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AmqpClaimsBasedSecurity` now takes ownership of the associated session rather than simply referencing the associated session. This means that all CBS authentication operations should be performed on dedicated AmqpSession objects.
+
+    - `AmqpOrderedMap::iter` now iterates over references to key and value, not clones of the key and value, thus eliminating unnecessary clones.
+- Name: typespec
+  Version: 0.5.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.5.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    ### Other Changes
+
+    - Updated dependencies.
+- Name: typespec_client_core
+  Version: 0.4.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.4.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+    - Added module `fmt::as_string` which is used to (de)serialize types in string format.
+    - Added `Response<T, F>` type to represent a response with a specific format and model type.
+    - Added `RawResponse` type to represent a raw response without a specific model.
+
+    #### Breaking Changes
+
+    - Removed the `Model` trait and replaced it with `Response<T, F>`, which moves the "format" information (JSON/XML/etc.) from the model to the service client method's return type. This allows for more flexibility in handling different response formats and user data types in Responses.
+    - Split `Response` into `Response<T, F>` and `RawResponse` (which carries the raw response data without a specific format).
+- Name: azure_core
+  Version: 0.25.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.25.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+    - Added `Page` trait to facilitate the `ItemIterator`.
+    - Added `PageIterator` to asynchronously iterator all pages.
+
+    #### Bugs Fixed
+
+    - `BearerTokenCredentialPolicy` returns an error when a proactive token refresh attempt fails
+
+    #### Breaking Changes
+
+    - A `Pager` now asynchronously iterates over items across all pages. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages.
+    - Removed `AccessToken::is_expired()`.
+    - Renamed `PagerResult::Continue` to `More` and its `continuation` field to `next`.
+    - Renamed `PagerResult::Complete` to `Done`.
+    - Renamed `PageStream` to `ItemIterator`.
+- Name: typespec_macros
+  Version: 0.4.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.4.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+
+    #### Breaking Changes
+
+    - Removed `Model` derive macro.
+
