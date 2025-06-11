@@ -804,4 +804,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-onlineexperimentation_1.0.0-beta.1/sdk/onlineexperimentation/arm-onlineexperimentation/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.32
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.32/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Ensure that the longIntervalStatsbeat reader is properly bound to a MetricProducer.
+    - Removed error logging upon failure to initialize long interval statsbeat.
+    - No longer send statsbeat counters when values are zero.
+    - Fix statsbeat throttle recording logic.
+    - SEMATTRS_ENDUSER_ID is properly added to tags but not to properties in telemetry envelopes.
+    - Update network statsbeat to follow a singleton pattern.
 
