@@ -998,4 +998,20 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.15.11` to version `1.15.12`.
     - Updated `msal4j` from `1.20.1` to version `1.21.0`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.7.7
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.7.7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.3` to version `1.55.4`.
+    - Upgraded `azure-core-http-netty` from `1.15.11` to version `1.15.12`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.5.8` to version `1.5.9`.
+  GroupId: com.azure
 
