@@ -831,4 +831,16 @@ entries:
     #### Other Changes
 
     - Update to using monitor-opentelemetry-exporter beta 32.
+- Name: '@azure/identity'
+  Version: 4.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the bug in interactive authentication request to account for the correct user login prompt based on the login hint provided, in case there are multiple accounts present in the browser flow. [#34321](https://github.com/Azure/azure-sdk-for-js/pull/34321)
+    - Fixed the typing for `WorkloadIdentityCredential.getToken` to better represent the runtime behavior. [#34786](https://github.com/Azure/azure-sdk-for-js/pull/34786)
 
