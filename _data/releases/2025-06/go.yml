@@ -289,4 +289,14 @@ entries:
 
     This package has been deprecated, use `github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/v2` instead. The major release
     changes a single field (Offset) from an integer, and should be a non-breaking change for most users.
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.4.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.4.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
 
