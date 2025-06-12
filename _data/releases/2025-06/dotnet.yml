@@ -669,4 +669,21 @@ entries:
     #### Features Added
 
     - Initial release of Azure Online Experimentation client library for .NET, supports service version `2025-05-31-preview`.
+- Name: Azure.Communication.Sms
+  Version: 1.1.0-beta.3
+  DisplayName: Communication SMS
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Sms_1.1.0-beta.3/sdk/communication/Azure.Communication.Sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced Messaging Connect support in the .NET SDK.
+    - Added a new MessagingConnect field to the SmsSendOptions model.
+    - The MessagingConnect structure includes:
+    - apiKey: used for authenticating Messaging Connect requests.
+    - partner: identifies the Messaging Connect partner.
+    - Supports:
+    - Incoming and outgoing flows for long codes.
+    - Outgoing flow for Dynamic Alpha Sender IDs (DASID).
 
