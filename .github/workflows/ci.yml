@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    
+    env:
+      BUNDLE_PATH: ${{ github.workspace }}/.bundle
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Cache gems
+      uses: actions/cache@v4
+      with:
+        key: gems-${{ runner.os }}-${{ hashFiles('Gemfile', 'Gemfile.lock') }}
+        restore-keys: |
+          gems-${{ runner.os }}-
+        path: ${{ env.BUNDLE_PATH }}
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: false
+
+    - name: Install bundler
+      run: gem install bundler
+
+    - name: Configure bundler
+      run: bundle config set path $BUNDLE_PATH
+
+    - name: Install project dependencies
+      run: bundle install
+
+    - name: Build Site
+      run: bundle exec jekyll build --future
+
+    - name: Verify CSV data contents
+      shell: pwsh
+      run: |
+        ./eng/scripts/Update-Release-Versions.ps1 "check"
+
+    - name: Verify site links
+      shell: pwsh
+      run: |
+        ./eng/common/scripts/Verify-Links.ps1 -urls ./_site/azure-sdk/index.html -ignoreLinksFile ./eng/ignore-links.txt -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt" -devOpsLogging:$true -baseUrl "file://$PWD/_site/azure-sdk"
