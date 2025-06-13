@@ -1,8 +1,10 @@
+name: CI
+
 on: [pull_request]
 
 jobs:
   build:
-    name: Verify Site
+    name: Verify Site Links
 
     runs-on: ubuntu-latest
 
