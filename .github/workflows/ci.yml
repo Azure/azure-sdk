@@ -16,12 +16,12 @@ jobs:
     - name: Build
       uses: actions/jekyll-build-pages@v1
       with:
-        destination: "./azure-sdk"
+        destination: "./_site/azure-sdk"
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: "./azure-sdk"
+        path: "./_site/azure-sdk"
 
     - name: Verify CSV data contents
       shell: pwsh
