@@ -3,7 +3,8 @@ name: CI
 on: [pull_request]
 
 jobs:
-  verify-site:
+  build:
+    name: Verify Site
     runs-on: ubuntu-latest
 
     steps:
