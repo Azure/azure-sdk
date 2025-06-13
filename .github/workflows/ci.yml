@@ -1,4 +1,4 @@
-name: Build Jekyll site for Pages
+name: Verify Site
 
 on: [pull_request]
 
@@ -21,7 +21,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        destination: "./azure-sdk"
+        path: "./azure-sdk"
 
     - name: Verify CSV data contents
       shell: pwsh
