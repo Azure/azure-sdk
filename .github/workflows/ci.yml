@@ -1,10 +1,9 @@
-name: Validate Jeykll build
-run-name: Verify Site
-
 on: [pull_request]
 
 jobs:
   build:
+    name: Verify Site
+
     runs-on: ubuntu-latest
 
     steps:
