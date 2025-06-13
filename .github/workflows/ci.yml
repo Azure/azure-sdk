@@ -1,45 +1,32 @@
-name: Verify PullRequest
+name: Verify Changes
 
-on:
-  push:
-    branches: [ master ]
+on: [pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
-    
-    env:
-      BUNDLE_PATH: ${{ github.workspace }}/.bundle
+    runs-on: ubuntu-24.04   
 
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Cache gems
-      uses: actions/cache@v4
+    - name: Setup Ruby
+      # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
+      uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
       with:
-        key: gems-${{ runner.os }}-${{ hashFiles('Gemfile', 'Gemfile.lock') }}
-        restore-keys: |
-          gems-${{ runner.os }}-
-        path: ${{ env.BUNDLE_PATH }}
+        ruby-version: '3.1' # Not needed with a .ruby-version file
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        cache-version: 0 # Increment this number if you need to re-download cached gems
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.3'
-        bundler-cache: false
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
 
-    - name: Install bundler
-      run: gem install bundler
-
-    - name: Configure bundler
-      run: bundle config set path $BUNDLE_PATH
-
-    - name: Install project dependencies
-      run: bundle install
-
-    - name: Build Site
-      run: bundle exec jekyll build --future
+    - name: Build with Jekyll
+      # Outputs to the './_site' directory by default
+      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      env:
+        JEKYLL_ENV: production
 
     - name: Verify CSV data contents
       shell: pwsh
