@@ -3,24 +3,22 @@ name: CI
 on: [pull_request]
 
 jobs:
-  build:
-    name: Verify Site Links
-
+  verify-site:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Pages
+    - name: Setup pages
       uses: actions/configure-pages@v5
 
-    - name: Build
+    - name: Build site
       uses: actions/jekyll-build-pages@v1
       with:
         destination: "./_site/azure-sdk"
 
-    - name: Upload artifact
+    - name: Upload site artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: "./_site/azure-sdk"
