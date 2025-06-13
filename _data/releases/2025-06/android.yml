@@ -1,0 +1,14 @@
+entries:
+- Name: azure-communication-common
+  Version: 1.3.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.3.0/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `isAnonymous` and `getAssertedId` methods to `PhoneNumberIdentifier`.
+  GroupId: com.azure.android
+
