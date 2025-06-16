@@ -1,0 +1,31 @@
+entries:
+- Name: '@azure/communication-sms'
+  Version: 1.2.0-beta.4
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.4/sdk/communication/communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced Messaging Connect support:
+    - Added a new MessagingConnect field to the SmsSendOptions model.
+    - The MessagingConnect structure includes:
+    - apiKey: used for authenticating Messaging Connect requests.
+    - partner: identifies the Messaging Connect partner.
+    - Supports:
+    - Incoming and outgoing flows for long codes.
+    - Outgoing flow for Dynamic Alpha Sender IDs (DASID).
+- Name: '@azure/storage-common'
+  Version: 12.1.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.1.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added pipeline policy to parse failures for invalid x-ms-version header and report a more reasonable error message.
+
