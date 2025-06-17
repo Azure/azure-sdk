@@ -26,4 +26,127 @@ entries:
     #### Bugs Fixed
 
     - Fixed a bug where the data types of broker-owned properties were being adjusted when an event was read by the client, causing the underlying AMQP data to be mutated.  This resulted in binary changes when the AMQP message was serialized and unintentionally altered the service contract.  Going forward, the original data types will be preserved on the AMQP representation of the message and type normalization only applied to the .NET `EventData` projection.
+- Name: Azure.Provisioning.CosmosDB
+  Version: 1.1.0-beta.1
+  DisplayName: Provisioning - CosmosDB
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.CosmosDB_1.1.0-beta.1/sdk/provisioning/Azure.Provisioning.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.KeyVault
+  Version: 1.1.0
+  DisplayName: Provisioning - Key Vault
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.KeyVault_1.1.0/sdk/provisioning/Azure.Provisioning.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.1.0
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.1.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to use latest API version.
+- Name: Azure.Provisioning.CognitiveServices
+  Version: 1.1.0
+  DisplayName: Provisioning - Cognitive Services
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.CognitiveServices_1.1.0/sdk/provisioning/Azure.Provisioning.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ApplicationInsights
+  Version: 1.1.0
+  DisplayName: Provisioning - Application Insights
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ApplicationInsights_1.1.0/sdk/provisioning/Azure.Provisioning.ApplicationInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Storage
+  Version: 1.1.0
+  DisplayName: Provisioning - Storage
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Storage_1.1.0/sdk/provisioning/Azure.Provisioning.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ServiceBus
+  Version: 1.1.0
+  DisplayName: Provisioning - Service Bus
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ServiceBus_1.1.0/sdk/provisioning/Azure.Provisioning.ServiceBus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.SignalR
+  Version: 1.1.0
+  DisplayName: Provisioning - SignalR
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.SignalR_1.1.0/sdk/provisioning/Azure.Provisioning.SignalR/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.WebPubSub
+  Version: 1.1.0
+  DisplayName: Provisioning - WebPubSub
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.WebPubSub_1.1.0/sdk/provisioning/Azure.Provisioning.WebPubSub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.EventHubs
+  Version: 1.1.0
+  DisplayName: Provisioning - Event Hubs
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.EventHubs_1.1.0/sdk/provisioning/Azure.Provisioning.EventHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Search
+  Version: 1.1.0-beta.1
+  DisplayName: Provisioning - Search
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Search_1.1.0-beta.1/sdk/provisioning/Azure.Provisioning.Search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Sql
+  Version: 1.1.0
+  DisplayName: Provisioning - SQL
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Sql_1.1.0/sdk/provisioning/Azure.Provisioning.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Redis
+  Version: 1.1.0
+  DisplayName: Provisioning - Redis
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Redis_1.1.0/sdk/provisioning/Azure.Provisioning.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppConfiguration
+  Version: 1.1.0
+  DisplayName: Provisioning - App Configuration
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppConfiguration_1.1.0/sdk/provisioning/Azure.Provisioning.AppConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.PostgreSql
+  Version: 1.1.0
+  DisplayName: Provisioning - PostgreSQL
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.PostgreSql_1.1.0/sdk/provisioning/Azure.Provisioning.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
 
