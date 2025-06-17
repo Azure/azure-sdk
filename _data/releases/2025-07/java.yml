@@ -17,4 +17,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hybridcompute_1.1.0-beta.2/sdk/hybridcompute/azure-resourcemanager-hybridcompute/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-communication-common
+  Version: 1.4.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.4.0/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduced support for `Azure.Core.TokenCredential` with `EntraCommunicationTokenCredentialOptions`, allowing an Entra user with a Teams license to use Teams Phone Extensibility features through the Azure Communication Services resource.
+    - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
+    - Added `isAnonymous` and `getAssertedId` methods to `PhoneNumberIdentifier`.
+  GroupId: com.azure
 
