@@ -169,4 +169,43 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Added support for HTTP status code 206 (Partial Content) in the `Search` method to handle partial results returned by the service.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.0-beta.1
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Explicitly setting `BlobStorageResourceOptions.AccessTier` to `null` will disable preserving the access tier value from the source blob to the destination blob.
+
+    #### Bugs Fixed
+    - Fixed bug where AccessTier for Premium Page Blobs were not being preserved.
+    - Fixed some issues when transferring virtual directories with Blob Storage as the source.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.0-beta.1
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.0-beta.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where transfers added concurrently to the local checkpointer would throw collision exceptions intermittently.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.0-beta.1
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for preserving NFS properties and permissions in Share Files and Share Directories for Share-to-Share copy transfers.
+    - Added support for preserving SMB properties and permissions in Share Directories for Share-to-Share copy transfers.
+    - Added basic support for handling hard links and soft links in NFS Share-to-Share copy and Share-to-local download transfers.
+
+    #### Breaking Changes
+    - Added protocol validation for Share-to-Share copy transfers. Validation is enabled by default and will fail the transfer if there are no share-level permissions. To bypass this, please enable `SkipProtocolValidation`.
 
