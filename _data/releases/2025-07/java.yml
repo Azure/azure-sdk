@@ -30,4 +30,37 @@ entries:
     - Added support for a new communication identifier `TeamsExtensionUserIdentifier` which maps rawIds with format `8:acs:{resourceId}_{tenantId}_{userId}`.
     - Added `isAnonymous` and `getAssertedId` methods to `PhoneNumberIdentifier`.
   GroupId: com.azure
+- Name: azure-ai-projects
+  Version: 1.0.0-beta.2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-projects_1.0.0-beta.2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `InferenceClient` with `getOpenAIClient` making use of stainless openai-java.
+    - Added support for building `PersistentAgentsClient` from `AIProjectClientBuilder`
+  GroupId: com.azure
+- Name: azure-ai-agents-persistent
+  Version: 1.0.0-beta.2
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-agents-persistent_1.0.0-beta.2/sdk/ai/azure-ai-agents-persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed [issue in FilesClient::uploadFile](https://github.com/Azure/azure-sdk-for-java/issues/45549)
+
+    #### Breaking Changes
+
+    - Merges `RunsClient` and `RunStepsClient` into `RunsClient`
+    - Merges `VectorStoresClient`, `VectorStoreFilesClient`, `VectoreStoreFileBatchesClient` into one `VectoreStoresClient`
+    - `PersistentAgentsAdministrationClientBuilder` is replace with `PersistentAgentsClientBuilder` and administration related operations are separated out into `PersistentAgentsAdministrationClient`
+    - Introduced `PersistentAgentsClient` and other clients have been made sub-clients of `PersistentAgentsClient`
+    - `AgentsServiceVersion` is renamed to `PersistentAgentsServiceVersion`
+  GroupId: com.azure
 
