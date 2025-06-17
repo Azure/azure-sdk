@@ -150,4 +150,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b2/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b38
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b38/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add AMW deduplicating flag, SentToAMW, for AKS Attach
+    ([#41410](https://github.com/Azure/azure-sdk-for-python/pull/41410))
+    - Implement APPLICATIONINSIGHTS_METRICS_TO_LOGANALYTICS_ENABLED env var for AKS Attach.
+    ([#41383](https://github.com/Azure/azure-sdk-for-python/pull/41383))
+
+    #### Bugs Fixed
+    - Fix for issue #41470. Added back exception message, removed earlier due to linting errors
+    ([#41512] https://github.com/Azure/azure-sdk-for-python/pull/41512)
+    - Should leave ingestion to populate Device OS from User Agent
+    ([#41549] https://github.com/Azure/azure-sdk-for-python/pull/41549)
 
