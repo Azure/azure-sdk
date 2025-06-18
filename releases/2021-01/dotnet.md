@@ -114,7 +114,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release of Live Video Analytics on IoT Edge.
 
-### Microsoft.Azure.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#511-2021-01-12)
+### Microsoft.Azure.ServiceBus
 
 - Update dependency of Microsoft.Azure.Amqp to version 2.4.9.
 
