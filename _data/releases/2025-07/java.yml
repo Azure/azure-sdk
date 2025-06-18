@@ -63,4 +63,13 @@ entries:
     - Introduced `PersistentAgentsClient` and other clients have been made sub-clients of `PersistentAgentsClient`
     - `AgentsServiceVersion` is renamed to `PersistentAgentsServiceVersion`
   GroupId: com.azure
+- Name: azure-resourcemanager-networkcloud
+  Version: 2.0.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-networkcloud_2.0.0/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
