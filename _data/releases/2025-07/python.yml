@@ -204,4 +204,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deployments_1.0.0b1/sdk/resources/azure-mgmt-resource-deployments/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-phonenumbers
+  Version: 1.3.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.3.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of the reservations functionality.
+    - GA support for automated purchases of phone numbers from countries requiring a do not resell agreement.
+    - For more information, refer to: https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability
 
