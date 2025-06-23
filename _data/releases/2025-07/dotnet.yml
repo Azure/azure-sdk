@@ -337,4 +337,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.14.0-beta.1/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.6.1
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.6.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated `ConfigureKeyManagementKeyVaultEncryptorClientOptions` to ensure that its dependencies were resolved in the correct scope to prevent issues due to lifetime drift.  Previously, a new scope was created to resolve `AzureKeyVaultXmlEncryptor`.  However, `AzureKeyVaultXmlEncryptor` is registered as a singleton and should be resolved from the same scope in which the options are being configured. Creating a new scope introduced unnecessary overhead and potential for unexpected behavior due to differences in service lifetime management.  _(A community contribution, courtesy of [danielmarbach](https://github.com/MikeAlhayek))_
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.5.1
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.5.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated `ConfigureKeyManagementBlobClientOptions` to ensure that its dependencies were resolved in the correct scope to prevent issues due to lifetime drift.  Previously, a new scope was created to resolve `AzureBlobXmlRepository`.  However, `AzureBlobXmlRepository` is registered as a singleton and should be resolved from the same scope in which the options are being configured. Creating a new scope introduced unnecessary overhead and potential for unexpected behavior due to differences in service lifetime management.  _(A community contribution, courtesy of [danielmarbach](https://github.com/MikeAlhayek))_
 
