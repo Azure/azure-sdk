@@ -330,10 +330,7 @@ When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/c
 Below are the guidelines for versions to use:
 
 - Stable releases will follow [SemVer](https://semver.org/) and the published package will get the tag `latest`.
-  - If a hotfix is being shipped for a version older than the current GA version, then the hotfix version does not get any tags.
-  - If a package has moved from beta to stable, then `next` tag is deleted from beta and latest tag will be set for stable version.
-- Beta releases will use the format `X.Y.Z-beta.N` for version and the published package will get the tag `next`.
-  - Package version will also get `latest` tag **only** if the package has never had a stable release.
+- Beta releases will use the format `X.Y.Z-beta.N` for version and the published package will get the tag `beta`.
 - Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version.
 
 ##### Incrementing after release (JS)
@@ -353,14 +350,6 @@ In rare cases where a customer does not wish to take all bugfixes for a particul
 In general, packages that have a stable release are not expected to have additional beta releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
 
 Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0`). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
-
-Dependencies older than the latest published version can be listed by running the following commands:
-
-```bash
-rush unlink
-git clean -xdf
-rush update --full
-```
 
 #### .NET
 
