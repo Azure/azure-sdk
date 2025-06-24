@@ -385,4 +385,15 @@ entries:
     - Added AI Conversation Analyze feature
     - Added support for analyze-conversation API Versions
     - 2025-05-15-preview
+- Name: Azure.Communication.Chat
+  Version: 1.4.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.4.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support data retention policy.
+    - Support thread level and member level metadata.
 
