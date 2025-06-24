@@ -359,4 +359,30 @@ entries:
     #### Bugs Fixed
 
     - Updated `ConfigureKeyManagementBlobClientOptions` to ensure that its dependencies were resolved in the correct scope to prevent issues due to lifetime drift.  Previously, a new scope was created to resolve `AzureBlobXmlRepository`.  However, `AzureBlobXmlRepository` is registered as a singleton and should be resolved from the same scope in which the options are being configured. Creating a new scope introduced unnecessary overhead and potential for unexpected behavior due to differences in service lifetime management.  _(A community contribution, courtesy of [danielmarbach](https://github.com/MikeAlhayek))_
+- Name: Azure.AI.Language.Text
+  Version: 1.0.0-beta.3
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.3/sdk/cognitivelanguage/Azure.AI.Language.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Value Exclusion, synonyms, and new entity types to the detection of Personally Identifiable Information (PII).
+    - Added support for analyze-text API Versions
+    - 2025-05-15-preview
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.3
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.3/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added AI Conversation Analyze feature
+    - Added support for analyze-conversation API Versions
+    - 2025-05-15-preview
 
