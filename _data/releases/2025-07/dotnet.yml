@@ -471,4 +471,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.2.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid.SystemEvents
+  Version: 1.0.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid.SystemEvents_1.0.0/sdk/eventgrid/Azure.Messaging.EventGrid.SystemEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General Availability release of `Azure.Messaging.EventGrid.SystemEvents`. Note this package
+    should not be used with versions of `Azure.Messaging.EventGrid` prior to 5.0.0 as it will result in
+    type conflicts. Version 5.0.0 and later of `Azure.Messaging.EventGrid` type forwards the system events to this package.
 
