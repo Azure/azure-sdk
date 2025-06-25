@@ -216,4 +216,15 @@ entries:
     - GA release of the reservations functionality.
     - GA support for automated purchases of phone numbers from countries requiring a do not resell agreement.
     - For more information, refer to: https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability
+- Name: azure-search-documents
+  Version: 11.5.3
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.5.3/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue search operation did not handle 206 correctly.
 
