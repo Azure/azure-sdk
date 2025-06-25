@@ -396,4 +396,23 @@ entries:
     #### Features Added
     - Support data retention policy.
     - Support thread level and member level metadata.
+- Name: Azure.ResourceManager.Grafana
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Grafana_1.2.0-beta.1/sdk/grafana/Azure.ResourceManager.Grafana/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.14.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added support in AzurePowerShellCredential for the Az.Accounts 5.0.0+ (Az 14.0.0+) breaking change where Get-AzAccessToken returns PSSecureAccessToken with a SecureString Token property instead of plaintext.
 
