@@ -484,4 +484,15 @@ entries:
     - General Availability release of `Azure.Messaging.EventGrid.SystemEvents`. Note this package
     should not be used with versions of `Azure.Messaging.EventGrid` prior to 5.0.0 as it will result in
     type conflicts. Version 5.0.0 and later of `Azure.Messaging.EventGrid` type forwards the system events to this package.
+- Name: Azure.Monitor.Query
+  Version: 1.7.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.7.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the `2024-02-01` metric namespaces service version to `MetricsQueryClient`.
 
