@@ -108,4 +108,37 @@ entries:
     #### Features Added
 
     * Template package validating release pipeline for hardcoded pool reference.
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 1.0.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v1.0.0/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    Some types have been renamed:
+    - ACSCallEndedByProperties.Type -> Kind
+    - ACSRecordingFileStatusUpdatedEventData.RecordingChannelKind -> RecordingChannelType
+    - APIManagementExpiredGatewayTokenProperties.ExpiredAtUTC -> ExpiresOn
+    - APIManagementGatewayTokenExpiredEventData.GatewayInfo -> Gateway
+    - APIManagementGatewayTokenExpiredEventData.TokenInfo -> Token
+    - APIManagementGatewayTokenNearExpiryEventData.GatewayInfo -> Gateway
+    - APIManagementGatewayTokenNearExpiryEventData.TokenInfo -> Token
+    - APIManagementNearExpiryGatewayTokenProperties.ExpiredAtUTC -> ExpiresOn
+    - RecordingChannelKind -> ACSRecordingChannelType
+    - RecordingContentType -> ACSRecordingContentType
+    - RecordingFormatType -> ACSRecordingFormatType
+
+    Some types have been removed:
+    - ACSCallParticipantEventProperties
+- Name: sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters
+  Version: 0.4.0
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/v0.4.0/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
 
