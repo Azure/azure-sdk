@@ -267,4 +267,16 @@ entries:
 
     * Fix to package function `enable_telemetry()` to correctly instrument `azure-ai-agents`.
     * Updated RedTeam target type visibility to allow for type being sent in the JSON for redteam run creation.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b39
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b39/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Suppress stdout side effect of add permissions to file for local storage on Windows
+    ([#41727](https://github.com/Azure/azure-sdk-for-python/pull/41727))
 
