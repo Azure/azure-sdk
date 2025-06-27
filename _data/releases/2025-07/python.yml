@@ -235,4 +235,36 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabricmanagedclusters_2.1.0b3/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-containerservicesafeguards
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Containerservicesafeguards
+  ServiceName: Containerservicesafeguards
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicesafeguards_1.0.0b1/sdk/containerservice/azure-mgmt-containerservicesafeguards/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.0.0b12
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b12/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    * These 3 methods on `AIProjectClient` were removed: `.inference.get_chat_completions_client()`,
+    `.inference.get_embeddings_client()` and `.inference.get_image_embeddings_client()`.
+    For guidance on obtaining an authenticated `azure-ai-inference` client for your AI Foundry Project,
+    refer to the updated samples in the `samples\inference` directory. For example,
+    [sample_chat_completions_with_azure_ai_inference_client.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-projects/samples/inference/sample_chat_completions_with_azure_ai_inference_client.py). Alternatively, use the `.inference.get_azure_openai_client()` method to perform chat completions with an Azure OpenAI client.
+    * Method argument name changes:
+    * In method `.indexes.create_or_update()` argument `body` was renamed `index`.
+    * In method `.datasets.create_or_update()` argument `body` was renamed `dataset_version`.
+    * In method `.datasets.pending_upload()` argument `body` was renamed `pending_upload_request`.
+
+    #### Bugs Fixed
+
+    * Fix to package function `enable_telemetry()` to correctly instrument `azure-ai-agents`.
+    * Updated RedTeam target type visibility to allow for type being sent in the JSON for redteam run creation.
 
