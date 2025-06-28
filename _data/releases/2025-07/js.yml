@@ -253,4 +253,15 @@ entries:
     #### Other Changes
 
     The EventGrid System Events client library is now in GA with this release.
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.1
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.1/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - correct property name `resourceUri` in `ResourceAction*EventData`.
 
