@@ -1108,4 +1108,26 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.52.0/sdk/resourcemanager/azure-resourcemanager-authorization/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventgrid
+  Version: 4.31.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.31.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Deprecated system events from `azure-messaging-eventgrid` package. Users should migrate to the new `azure-messaging-eventgrid-systemevents` package for system events.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid-systemevents
+  Version: 1.0.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-systemevents_1.0.0/sdk/eventgrid/azure-messaging-eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - First stable release of the azure-messaging-eventgrid-systemevents client library for Java, providing strongly-typed models for Azure Event Grid system events.
+  GroupId: com.azure
 
