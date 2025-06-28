@@ -264,4 +264,15 @@ entries:
     #### Bugs Fixed
 
     - correct property name `resourceUri` in `ResourceAction*EventData`.
+- Name: '@azure/ai-agents'
+  Version: 1.0.0-beta.6
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.6/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with event data of `submitToolOutputs` stream mode
 
