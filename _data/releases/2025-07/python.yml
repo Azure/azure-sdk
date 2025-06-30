@@ -295,4 +295,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0b1/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agents
+  Version: 1.1.0b3
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.1.0b3/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Deep Research tool. For more information, see https://aka.ms/agents-deep-research.
+
+    #### Bugs Fixed
+
+    - Fixed a tracing related bug that caused an error when process was ending if messages or run steps were listed and the resulting list was not iterated completely.
 
