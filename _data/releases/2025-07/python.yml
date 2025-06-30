@@ -1,0 +1,173 @@
+entries:
+- Name: azure-mgmt-networkcloud
+  Version: 2.1.0
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_2.1.0/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dnsresolver
+  Version: 1.1.0
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dnsresolver_1.1.0/sdk/dnsresolver/azure-mgmt-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 7.0.0b2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_7.0.0b2/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.10.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.10.0/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 4.9.0. Only code written against a beta version such as 4.10.0b1 may be affected.
+
+    - Renamed the `preserve_certificate_order` keyword-only argument and property to `preserve_order`
+
+    #### Features Added
+
+    - Added support for service API version `7.6`
+    - Added a `preserve_order` keyword-only argument when creating or importing certificates to
+    allow preserving a certificate chain's original order, and a corresponding `preserve_order` property to
+    `CertificateProperties` and `CertificateOperation` models
+    ([#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507))
+- Name: azure-keyvault-secrets
+  Version: 4.10.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.10.0/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6`
+- Name: azure-keyvault-keys
+  Version: 4.11.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.11.0/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `7.6`
+    - (From 4.11.0b1) `KeyClient` has a `get_key_attestation` method that can be used to retrieve a key along with its
+    attestation blob (stored in a new `KeyProperties.attestation` property) from a managed HSM
+    [#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507)
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 4.10.0. Only code written against a beta version such as 4.11.0b1 may be affected.
+
+    - The following enums have been moved:
+    - `EncryptionAlgorithm.ckm_aes_key_wrap` -> `KeyWrapAlgorithm.ckm_aes_key_wrap`
+    - `EncryptionAlgorithm.ckm_aes_key_wrap_pad` -> `KeyWrapAlgorithm.ckm_aes_key_wrap_pad`
+
+    #### Bugs Fixed
+
+    - Fixed a bug where `KeyVaultRSAPublicKey` and `KeyVaultRSAPrivateKey` were not correctly implementing the `cryptography` library's `RSAPublicKey` and `RSAPrivateKey` interfaces, causing instantiation errors. ([#41205](https://github.com/Azure/azure-sdk-for-python/pull/41205))
+- Name: azure-keyvault-administration
+  Version: 4.6.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.6.0/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 4.5.0. Only code written against a beta version such as 4.6.0b1 may be affected.
+
+    - Changed the return types of `KeyVaultBackupClient.begin_pre_backup` and `KeyVaultBackupClient.begin_pre_restore` to be
+    pollers returning `None`
+
+    #### Features Added
+
+    - Added support for service API version `7.6`
+    - (From 4.6.0b1) Added `KeyVaultBackupClient.begin_pre_backup` and `KeyVaultBackupClient.begin_pre_restore` methods for
+    checking if it is possible to perform a full key backup or full key restore
+    [#37507](https://github.com/Azure/azure-sdk-for-python/pull/37507)
+- Name: azure-mgmt-resource
+  Version: 24.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_24.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration-privatelinkscopes
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Kubernetesconfiguration-Privatelinkscopes
+  ServiceName: Kubernetesconfiguration-Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-privatelinkscopes_1.0.0b1/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-privatelinkscopes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 9.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_9.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datamigration
+  Version: 10.1.0b2
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datamigration_10.1.0b2/sdk/datamigration/azure-mgmt-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appconfiguration
+  Version: 5.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_5.0.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridcompute
+  Version: 9.1.0b2
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b2/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b38
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b38/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add AMW deduplicating flag, SentToAMW, for AKS Attach
+    ([#41410](https://github.com/Azure/azure-sdk-for-python/pull/41410))
+    - Implement APPLICATIONINSIGHTS_METRICS_TO_LOGANALYTICS_ENABLED env var for AKS Attach.
+    ([#41383](https://github.com/Azure/azure-sdk-for-python/pull/41383))
+
+    #### Bugs Fixed
+    - Fix for issue #41470. Added back exception message, removed earlier due to linting errors
+    ([#41512] https://github.com/Azure/azure-sdk-for-python/pull/41512)
+    - Should leave ingestion to populate Device OS from User Agent
+    ([#41549] https://github.com/Azure/azure-sdk-for-python/pull/41549)
+
