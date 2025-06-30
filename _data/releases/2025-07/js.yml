@@ -275,4 +275,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue with event data of `submitToolOutputs` stream mode
+- Name: '@azure/ai-agents'
+  Version: 1.0.0
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - `AgentsClient` constructor parameter `credential` type  `KeyCredential | TokenCredential` is update to `TokenCredential`
 
