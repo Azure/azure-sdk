@@ -1318,4 +1318,17 @@ entries:
 
     - Upgraded `azure-core` from `1.55.4` to `1.55.5`.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.36
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.36/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+    - Added ARM libraries to the BOM.
+  GroupId: com.azure
 
