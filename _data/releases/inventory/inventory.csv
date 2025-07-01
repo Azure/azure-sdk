@@ -112,6 +112,8 @@ Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTeleme
 Monitor,0,OpenTelemetry Exporter,data,.NET,Microsoft.OpenTelemetry.Exporter.AzureMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.Monitor.OpenTelemetry.Exporter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,05/09/2025
 Monitor,0,OpenTelemetry LiveMetrics,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.LiveMetrics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,true,1,
 Cognitive Services,0,Personalizer,data,.NET,Microsoft.Azure.CognitiveServices.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Personalizer_1.0.0/sdk/cognitiveservices/Personalizer,1,false,Azure.AI.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer,3,false,1,
+Load Testing,0,Playwright,data,.NET,,,11,false,Azure.Developer.Playwright,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,3,false,1,
+Load Testing,0,Playwright NUnit,data,.NET,,,11,false,Azure.Developer.Playwright.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,3,false,1,
 Communication,0,Programmable Connectivity,data,.NET,,,11,false,Azure.Communication.ProgrammableConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Provisioning,0,Provisioning,data,.NET,,,11,false,Azure.Provisioning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - Resources,data,.NET,,,11,false,Azure.Provisioning.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
@@ -321,7 +323,7 @@ Monitor,0,Resource Management - Monitor,mgmt,.NET,Microsoft.Azure.Management.Mon
 MySQL,0,Resource Management - MySQL,mgmt,.NET,Microsoft.Azure.Management.MySQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,10,false,1,03/13/2025
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,.NET,,,11,false,Azure.ResourceManager.NeonPostgres,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/neonpostgres,10,false,1,05/22/2025
 NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,true,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,05/08/2025
-Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,05/26/2025
+Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,07/01/2025
 Network Analytics,0,Resource Management - Network Analytics,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkanalytics,10,true,1,03/18/2025
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkCloud,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkcloud,10,false,1,06/25/2025
 Network Function,0,Resource Management - Network Function,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkFunction,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkfunction,3,false,1,
@@ -865,7 +867,7 @@ Resource Connector,0,Resource Management - Resource Connector,mgmt,Go,,,11,false
 Resource Graph,0,Resource Management - Resource Graph,mgmt,Go,,,11,false,sdk/resourcemanager/resourcegraph/armresourcegraph,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resourcegraph/armresourcegraph,3,false,1,
 Resource Health,0,Resource Management - Resource Health,mgmt,Go,,,11,false,sdk/resourcemanager/resourcehealth/armresourcehealth,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resourcehealth/armresourcehealth,10,false,1,11/28/2023
 Resource Mover,0,Resource Management - Resource Mover,mgmt,Go,,,11,false,sdk/resourcemanager/resourcemover/armresourcemover,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resourcemover/armresourcemover,10,false,1,11/24/2023
-Resources,0,Resource Management - Resources,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armresources,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armresources,10,false,1,05/21/2025
+Resources,0,Resource Management - Resources,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armresources,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armresources,10,false,1,07/01/2025
 Saas,0,Resource Management - Saas,mgmt,Go,,,11,false,sdk/resourcemanager/saas/armsaas,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/saas/armsaas,3,false,1,
 Scheduler,0,Resource Management - Scheduler,mgmt,Go,,,11,false,sdk/resourcemanager/scheduler/armscheduler,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/scheduler/armscheduler,10,false,1,11/24/2023
 Scvmm,0,Resource Management - Scvmm,mgmt,Go,,,11,false,sdk/resourcemanager/scvmm/armscvmm,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/scvmm/armscvmm,10,false,1,06/24/2024
@@ -886,7 +888,7 @@ Sphere,0,Resource Management - Sphere,mgmt,Go,,,11,false,sdk/resourcemanager/sph
 SQL,0,Resource Management - SQL,mgmt,Go,,,11,false,sdk/resourcemanager/sql/armsql,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/sql/armsql,10,false,1,11/28/2023
 SQL Server on Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Go,,,11,false,sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine,3,false,1,
 Standby Pool,0,Resource Management - Standby Pool,mgmt,Go,,,11,false,sdk/resourcemanager/standbypool/armstandbypool,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/standbypool/armstandbypool,10,false,1,04/21/2025
-Storage,0,Resource Management - Storage,mgmt,Go,,,11,false,sdk/resourcemanager/storage/armstorage,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage,10,false,1,04/16/2025
+Storage,0,Resource Management - Storage,mgmt,Go,,,11,false,sdk/resourcemanager/storage/armstorage,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage,10,false,1,07/01/2025
 Storage,0,Resource Management - Storage Actions,mgmt,Go,,,11,false,sdk/resourcemanager/storageactions/armstorageactions,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storageactions/armstorageactions,3,false,1,
 Storage,0,Resource Management - Storage Cache,mgmt,Go,,,11,false,sdk/resourcemanager/storagecache/armstoragecache,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagecache/armstoragecache,10,false,1,05/22/2024
 Storage,0,Resource Management - Storage Import/Export,mgmt,Go,,,11,false,sdk/resourcemanager/storageimportexport/armstorageimportexport,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storageimportexport/armstorageimportexport,3,true,1,
@@ -4278,6 +4280,11 @@ HANA on Azure,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in sp
 HANA on Azure,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hanaonazure/cspell.yaml,,2,false,0,
 HANA on Azure,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: hanaonazure/cspell.yaml,,2,false,0,
 HANA on Azure,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: hanaonazure/cspell.yaml,,2,false,0,
+Hardware Security Modules,0,Resource Management - HardwareSecurityModules.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: hardwaresecuritymodules/HardwareSecurityModules.Management,,2,false,0,
+Hardware Security Modules,0,Resource Management - HardwareSecurityModules.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: hardwaresecuritymodules/HardwareSecurityModules.Management,,2,false,0,
+Hardware Security Modules,0,Resource Management - HardwareSecurityModules.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: hardwaresecuritymodules/HardwareSecurityModules.Management,,2,false,0,
+Hardware Security Modules,0,Resource Management - HardwareSecurityModules.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: hardwaresecuritymodules/HardwareSecurityModules.Management,,2,false,0,
+Hardware Security Modules,0,Resource Management - HardwareSecurityModules.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: hardwaresecuritymodules/HardwareSecurityModules.Management,,2,false,0,
 HDInsight,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
 HDInsight,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
 HDInsight,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
@@ -4658,7 +4665,6 @@ Load Testing,0,Resource Management - LoadTestService.Management,mgmt,Java,,,11,f
 Load Testing,0,Resource Management - LoadTestService.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: loadtestservice/LoadTestService.Management,,2,false,0,
 Load Testing,0,Resource Management - LoadTestService.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: loadtestservice/LoadTestService.Management,,2,false,0,
 Load Testing,0,Resource Management - LoadTestService.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: loadtestservice/LoadTestService.Management,,2,false,0,
-Load Testing,0,Playwright,data,.NET,,,11,false,Missing: Created from API in specs repo: loadtestservice/Playwright,,2,false,0,
 Load Testing,0,Playwright,data,Java,,,11,false,Missing: Created from API in specs repo: loadtestservice/Playwright,,2,false,0,
 Load Testing,0,Playwright,data,JavaScript,,,11,false,Missing: Created from API in specs repo: loadtestservice/Playwright,,2,false,0,
 Load Testing,0,Playwright,data,Python,,,11,false,Missing: Created from API in specs repo: loadtestservice/Playwright,,2,false,0,
