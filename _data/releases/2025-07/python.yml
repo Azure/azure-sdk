@@ -310,4 +310,24 @@ entries:
     #### Bugs Fixed
 
     - Fixed a tracing related bug that caused an error when process was ending if messages or run steps were listed and the resulting list was not iterated completely.
+- Name: azure-ai-ml
+  Version: 1.28.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.28.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a workflow(action) to check the major version release of dependencies
+- Name: azure-ai-agents
+  Version: 1.0.2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.0.2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a tracing related bug that caused an error when process was ending if messages or run steps were listed and the resulting list was not iterated completely.
 
