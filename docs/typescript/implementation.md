@@ -188,7 +188,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-support-opentelemetry" %} support [OpenTelemetry] for distributed tracing.
 
-{% include requirement/MUST id="general-tracing-support-opentelemetry" %} Use helpers from `core-tracing` to support  distributed tracing.
+{% include requirement/MUST id="general-tracing-use-core-tracing" %} Use helpers from `core-tracing` to support  distributed tracing.
 
 {% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
@@ -318,7 +318,7 @@ Use the `"tshy"` section in your package.json to configure your npm package.
   },
 ```
 
-The layout of packaged library should look simiar to this:
+The layout of packaged library should look similar to this:
 
 <a name="ts-figure-package-layout"></a>
 

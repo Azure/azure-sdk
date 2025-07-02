@@ -31,7 +31,7 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 
 {% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
 
-{% include requirement/SHOULD id="ts-azure-tools-scope" %} consier publishing to the `@azure-tools` npm scope when your library are not intended for general customers to interact with Azure services.
+{% include requirement/SHOULD id="ts-azure-tools-scope" %} consider publishing to the `@azure-tools` npm scope when your libraries are not intended for general customers to interact with Azure services.
 
 {% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
@@ -68,7 +68,7 @@ export class ServiceClient {
   constructor(host: string, credential: TokenCredential, options?: ServiceClientOptions);
   constructor(...) { }
 
-  // Service methods. Options should extends from azure core OperationOptions.
+  // Service methods. Options should extend from azure core OperationOptions.
   async createItem(options?: CreateItemOptions): CreateItemResponse;
   async deleteItem(options?: DeleteItemOptions): DeleteItemResponse;
 
