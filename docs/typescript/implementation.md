@@ -78,11 +78,11 @@ The service client will have several methods that perform requests on the servic
 
 Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
 
-{% include requirement/MUST id="general-implementing-httppipeline" %} use the HTTP pipeline component within `@azure/core-http` package for communicating to service REST endpoints.
+{% include requirement/MUST id="general-implementing-httppipeline" %} use the HTTP pipeline component within `@azure/core-rest-pipeline` package for communicating to service REST endpoints.
 
 The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services.  The order in the list is the most sensible order for implementation.
 
-{% include requirement/MUST id="general-implementing-policies" %} implement the following policies in the HTTP pipeline:
+{% include requirement/MUST id="general-implementing-policies" %} include the following policies in the HTTP pipeline or your client SDK library:
 
 - Telemetry
 - Unique Request ID
@@ -92,7 +92,6 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Distributed tracing
 - Logging
 -
-- TODO: If these policies are already implemented in Azure Core, does the library developer need to do this?  If not, please remove this guidance.
 
 {% include requirement/SHOULD id="general-implementing-use-core-policies" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
@@ -189,7 +188,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-support-opentelemetry" %} support [OpenTelemetry] for distributed tracing.
 
-{% include requirement/MUST id="general-tracing-parent-span" %} take an option named `parentSpanId` for all asynchronous operations.
+{% include requirement/MUST id="general-tracing-support-opentelemetry" %} Use helpers from `core-tracing` to support  distributed tracing.
 
 {% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
@@ -255,7 +254,7 @@ Let's take two examples:
 
 ## Testing TypeScript libraries
 
-{% include requirement/SHOULD id="ts-use-mocha-karma" %} use [Mocha](https://mochajs.org/) and [Karma](https://karma-runner.github.io/4.0/index.html) as these tools support build pipelines and work in browsers and node.
+{% include requirement/SHOULD id="ts-use-vitest" %} use [vitest](https://vitest.dev/) as it supports build pipelines and works in browsers and node.
 
 ## Versioning {#ts-versioning}
 
@@ -297,7 +296,30 @@ For more details, review the [Releases policy]({{ site.baseurl }}/policies_relea
 
 ### Package Layout {#ts-package-file-layout}
 
-Use the following canonical file structure for your npm package:
+Use the `"tshy"` section in your package.json to configure your npm package.
+
+```
+  "tshy": {
+    "project": "./tsconfig.src.json",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts",
+      "./experimental": "./src/experimental/index.ts"
+    },
+    "dialects": [
+      "esm",
+      "commonjs"
+    ],
+    "esmDialects": [
+      "browser",
+      "react-native"
+    ],
+    "selfLink": false
+  },
+```
+
+The layout of packaged library should look simiar to this:
+
 <a name="ts-figure-package-layout"></a>
 
 ```
@@ -305,19 +327,27 @@ azure-library
 ├─ README.md
 ├─ LICENSE
 ├─ dist
-│  ├─ index.js
-│  ├─ index.js.map
-│  └─ ... *.js
-│
-├─ dist-esm
-│  └─ lib
-│    ├─ index.js
-│    ├─ index.js.map
-│    └─ ... *.js
-│
-├─ types
-│  └─ service.d.ts
-│
+│   ├── browser
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── index.js.map
+│   │   ├── ...*.js
+│   │   └── ...*.js.map
+│   ├── commonjs
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── index.js.map
+│   │   ├── ...*.js
+│   │   └── ...*.js.map
+|   |   ...
+│   ├── esm
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── index.js.map
+│   │   ├── ...*.js
+│   │   └── ...*.js.map
+|   |
+|   ...
 └─ package.json
 ```
 
@@ -345,27 +375,25 @@ The following sections describe the package.json file that must be included with
   ],
   "version": "1.0.0",
   "author": "Microsoft Corporation",
-  "main": "./dist/index.js",
-  "module": "./dist-esm/index.js",
-  "browser": {
-    "./dist-esm/src/index.js": "./dist-esm/src/index.browser.js"
-  },
-  "types": "./dist-esm/index.d.ts",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": "./dist/browser/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "engine": {
-    "node": ">=6.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "build": "...",
     "test": "...",
-    "prepack": "npm install && npm run build"
   },
   "files": [
-    "dist",
-    "dist-esm"
+    "dist/",
+    "README.md",
+    "LICENSE"
   ],
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
-  "repository": "github:Azure/azure-sdk",
+  "repository": "github:Azure/azure-sdk-for-js",
   "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus",
   "bugs": {
     "url": "https://github.com/Azure/azure-sdk-for-js/issues"
@@ -395,9 +423,9 @@ Side effects are modifications to the runtime environment of the program. For ex
 
 {% include requirement/MUST id="ts-package-json-main-is-cjs" %} set `main` to point to either a CommonJS or a UMD module. Main is the entry point of your application for Node users.
 
-{% include requirement/MUSTNOT id="ts-package-json-main-is-not-es6" %} set `main` to include any ES6+ syntax.
+{% include requirement/MUSTNOT id="ts-package-json-main-is-not-es6" %} set `main` to include any ESM syntax.
 
-{% include requirement/MUST id="ts-package-json-module" %} set `module` to the ES6 module entrypoint of your application.
+{% include requirement/MUST id="ts-package-json-module" %} set `module` to the ESM entrypoint of your application.
 
 Tools such as [Webpack](https://webpack.js.org) use this key to discover the static module graph of your application for optimization purposes.
 
