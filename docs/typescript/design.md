@@ -35,7 +35,7 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 
 {% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
-{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `next`.
+{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `beta`.
 
 {% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`.
 

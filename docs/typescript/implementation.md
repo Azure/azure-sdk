@@ -339,15 +339,18 @@ azure-library
 │   │   ├── index.js.map
 │   │   ├── ...*.js
 │   │   └── ...*.js.map
-|   |   ...
 │   ├── esm
 │   │   ├── index.d.ts
 │   │   ├── index.js
 │   │   ├── index.js.map
 │   │   ├── ...*.js
 │   │   └── ...*.js.map
-|   |
-|   ...
+│   ├── react-native
+│       ├── index.d.ts
+│       ├── index.js
+│       ├── index.js.map
+│       ├── ...*.js
+│       └── ...*.js.map
 └─ package.json
 ```
 
