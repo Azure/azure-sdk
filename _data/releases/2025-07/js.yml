@@ -286,4 +286,15 @@ entries:
     #### Breaking changes
 
     - `AgentsClient` constructor parameter `credential` type  `KeyCredential | TokenCredential` is update to `TokenCredential`
+- Name: '@azure/identity'
+  Version: 4.10.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue in `AzurePowerShellCredential` where `-AsPlainText` is not supported in the `ConvertFrom-SecureString` cmdlet in older versions. [#34902](https://github.com/Azure/azure-sdk-for-js/pull/34902)
 
