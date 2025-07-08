@@ -791,4 +791,17 @@ entries:
     #### Features Added
 
     - Added the following types for 3rd-party Authentication support: `AuthenticationTokenProvider`, `GetTokenOptions`, `AuthenticationToken`, `AuthenticationPolicy`, and `BearerTokenPolicy`.
+- Name: Azure.Provisioning
+  Version: 1.2.0
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.2.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated models to match the latest API version for ArmDeployment and ArmDeploymentScript.
+    - Added derived types (`AzureCliScript` and `AzurePowerShellScript`) for `ArmDeploymentScript` to support different kind of deployment scripts.
+    - Please note that usually `ArmDeploymentScript` should not be constructed directly, but rather through the `AzureCliScript` or `AzurePowerShellScript` constructors.
 
