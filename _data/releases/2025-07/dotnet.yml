@@ -804,4 +804,12 @@ entries:
     - Updated models to match the latest API version for ArmDeployment and ArmDeploymentScript.
     - Added derived types (`AzureCliScript` and `AzurePowerShellScript`) for `ArmDeploymentScript` to support different kind of deployment scripts.
     - Please note that usually `ArmDeploymentScript` should not be constructed directly, but rather through the `AzureCliScript` or `AzurePowerShellScript` constructors.
+- Name: Azure.ResourceManager.MongoDBAtlas
+  Version: 1.0.0
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MongoDBAtlas_1.0.0/sdk/mongodbatlas/Azure.ResourceManager.MongoDBAtlas/CHANGELOG.md
+  ChangelogContent: ""
 
