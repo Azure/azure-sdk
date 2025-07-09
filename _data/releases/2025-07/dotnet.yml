@@ -812,4 +812,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MongoDBAtlas_1.0.0/sdk/mongodbatlas/Azure.ResourceManager.MongoDBAtlas/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.47.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.47.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `RequestContent.Create<T>(T model, ModelReaderWriterOptions? options = null)` overload that accepts `IPersistableModel<T>` types for improved performance and API consistency with `BinaryContent`.
+    - Adopt System.ClientModel 1.5.0
 
