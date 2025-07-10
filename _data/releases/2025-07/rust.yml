@@ -1,0 +1,86 @@
+entries:
+- Name: azure_core
+  Version: 0.26.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.26.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `http::PollerOptions` parameter to `http::poller::get_retry_after`.
+    - Implemented `FromStr` where `FromStr::Err = Infallible` for `PollerStatus` instead of `From<&str>`.
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - `azure_core::http::Pipeline::new` now takes an `azure_core::http::ClientOptions` which is defined in `azure_core`, but convertible to `typespec_client_core::http::ClientOptions`.
+    - Moved `process::Executor` to `azure_identity`.
+    - Removed `Pipeline::replace_policy`.
+    - Removed unused `location` and `body` modules from `http::poller`.
+    - Renamed `azure_core::date` to `azure_core::time` and added `azure_core::time::Duration` as the standard "duration" type for the SDK.
+    - Renamed `http::poller::body_content` to `http::poller::body`.
+    - Renamed `PagerResult::More { next }` to `continuation`.
+    - Renamed `PollerStatus::Other` to `PollerStatus::UnknownValue` following [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html#rust-enum-extensible).
+    - Renamed `TelemetryOptions` to `UserAgentOptions`.
+    - Renamed `TelemetryPolicy` to `UserAgentPolicy`.
+
+    #### Features Added
+
+    - Added `get_async_runtime()` and `set_async_runtime()` to allow customers to replace the asynchronous runtime used by the Azure SDK.
+    - Added `PageIterator::continuation_token()` and `PageIterator::with_continuation_token()` to support reconstructing a `PageIterator` in another process or on another machine to continue paging.
+    - Added `Poller<T>` for long-running operations (LROs).
+    - Added `Request::set_method()` to allow changing the HTTP method of a request.
+    - Added `StatusMonitor` for long-running operations.
+- Name: azure_core_amqp
+  Version: 0.5.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.5.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Converted all `time::Duration` references to be `azure_core::time::Duration`.
+- Name: typespec_macros
+  Version: 0.5.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.5.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: typespec_client_core
+  Version: 0.5.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.5.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Removed `Pipeline::replace_policy`.
+    - Renamed `typespec_client_core::date` to `typespec_client_core::time` and added `typespec_client_core::time::Duration`
+
+    #### Features Added
+
+    - Added `get_async_runtime()` and `set_async_runtime()` to allow customers to replace
+    the default asynchronous runtime with another.
+    - Added `Request::set_method()` to allow changing the HTTP method of a request.
+- Name: typespec
+  Version: 0.6.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.6.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+
