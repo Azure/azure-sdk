@@ -60,4 +60,19 @@ entries:
 
     - `ShareClient::DeleteIfExists()` will return `false` when error code is `ShareSnapshotNotFound`.
     - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: azure-core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.16.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed WinHTTP FailFast exception raised when a request is cancelled before the request is actually sent on the wire.
+
+    #### Features Added
+
+    - [[#6535]](https://github.com/Azure/azure-sdk-for-cpp/issues/6535) Enable SSL caching for libcurl transport by default, which is backwards compatible behavior with older libcurl versions, so using the default settings won't result in transport error when using libcurl >= 8.12. The option is controlled by `CurlTransportOptions::EnableCurlSslCaching`, and is on by default. (A community contribution, courtesy of _[sushshring](https://github.com/sushshring)_)
 
