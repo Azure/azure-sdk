@@ -243,4 +243,16 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed bug where fileClient.Create API call was failing on passing permissionKey parameter. Fixes[#24632(https://github.com/Azure/azure-sdk-for-go/issues/24632)]
+- Name: sdk/azcore
+  Version: 1.18.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.18.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed incorrect request/response logging try info when logging a request that's being retried.
+    * Fixed a data race in `ResourceID.String()`
 
