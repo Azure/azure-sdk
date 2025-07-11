@@ -456,4 +456,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_12.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agents
+  Version: 1.1.0b4
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.1.0b4/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `_AgentsClientOperationsMixin` now it is private.
+
+    #### Features Added
+
+    - Added support for MCP tool. For more information, see https://aka.ms/FoundryAgentMCPDoc.
+    - New tool_resources parameter added to runs.create method. This parameter represents overridden enabled tool resources that the agent should use to run
+    the thread. Default value is None.
 
