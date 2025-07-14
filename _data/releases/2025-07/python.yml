@@ -473,4 +473,12 @@ entries:
     - Added support for MCP tool. For more information, see https://aka.ms/FoundryAgentMCPDoc.
     - New tool_resources parameter added to runs.create method. This parameter represents overridden enabled tool resources that the agent should use to run
     the thread. Default value is None.
+- Name: azure-mgmt-dns
+  Version: 9.0.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dns_9.0.0/sdk/network/azure-mgmt-dns/CHANGELOG.md
+  ChangelogContent: ""
 
