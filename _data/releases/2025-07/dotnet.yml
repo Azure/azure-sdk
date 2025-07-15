@@ -993,4 +993,27 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Includes all features from 12.22.0-beta.1
+- Name: System.ClientModel
+  Version: 1.5.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.5.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The System.ClientModel.SourceGeneration used to auto-discover `IJsonModel<T>`'s that were in the project as well as any types `T` used in `ModelReaderWriter.Read<T>` and `ModelReaderWriter.Write<T>`.  Now you must explicitly add a `ModelReaderWriterBuildableAttribute` with each type that needs to have AOT friendly reading and writing.
+
+    #### Bugs Fixed
+
+    - Fixed an issue where System.ClientModel.SourceGeneration was running slowly for large projects with many dependencies.
+- Name: Azure.Provisioning.Storage
+  Version: 1.1.2
+  DisplayName: Provisioning - Storage
+  ServiceName: Provisioning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Storage_1.1.2/sdk/provisioning/Azure.Provisioning.Storage/CHANGELOG.md
+  ChangelogContent: ""
 
