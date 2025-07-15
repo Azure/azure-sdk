@@ -148,4 +148,16 @@ entries:
     * Added lease support (`acquire_lease`, `break_lease`, `change_lease`, `release_lease`, and `renew_lease`) to `BlobContainerClient` and `BlobClient`.
     * Added two new blob client types, `AppendBlobClient` and `PageBlobClient`.
     * Added support for `list_containers` to `BlobServiceClient`.
+- Name: azure_messaging_eventhubs
+  Version: 0.5.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.5.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Converted all `time::Duration` types to `azure_core::time::Duration`
 
