@@ -297,4 +297,14 @@ entries:
     `AZURE_TOKEN_CREDENTIALS`. It will use only the selected type at runtime. For example, set
     `AZURE_TOKEN_CREDENTIALS=WorkloadIdentityCredential` to have `DefaultAzureCredential` use only
     `WorkloadIdentityCredential`.
+- Name: sdk/monitor/ingestion/azlogs
+  Version: 1.1.0
+  DisplayName: Ingestion - Logs
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/ingestion/azlogs/v1.1.0/sdk/monitor/ingestion/azlogs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support
 
