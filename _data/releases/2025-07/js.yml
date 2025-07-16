@@ -571,4 +571,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongodbatlas_1.0.0/sdk/mongodbatlas/arm-mongodbatlas/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-ingestion'
+  Version: 1.2.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.2.0/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Generate code from TypeSpec. This is an internal change that should not affect customers.
+    - Migrates client interfaces to use types from `@azure-rest/core-client` and `@azure/core-rest-pipeline` instead of `@azure/core-client`.
+    - Adds support for specifying `clientRequestId` and `contentEncoding` in `LogsUploadOptions` to provide more control over upload requests.
+    - Adds the `KnownVersions` enum for API versioning, starting with V20230101.
+    - Adds the `pipeline` property on `LogsIngestionClient` for advanced customization.
 
