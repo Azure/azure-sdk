@@ -1626,4 +1626,16 @@ entries:
     #### Features Added
     - Added support for service version 2025-07-05.
   GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.2.0-beta.1/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `beginSend(String operationId)` method to `EmailClient` and `EmailAsyncClient` to create a poller from an existing operation ID. This allows customers to check the status of a previously started email send operation.
+  GroupId: com.azure
 
