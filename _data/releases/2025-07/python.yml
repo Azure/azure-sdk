@@ -609,4 +609,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_25.0.0b1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b40
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b40/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Detect synthetically created telemetry based on the user-agent header
+    ([#41733](https://github.com/Azure/azure-sdk-for-python/pull/41733))
+    - Added customer-facing statsbeat preview.
+    ([#41669](https://github.com/Azure/azure-sdk-for-python/pull/41669))
+    - Customer Facing Statsbeat: Added logic for dropped item count
+    ([#41950](https://github.com/Azure/azure-sdk-for-python/pull/41950))
+    - Customer Facing Statsbeat: Added logic for retry item count
+    ([#41971](https://github.com/Azure/azure-sdk-for-python/pull/41971))
 
