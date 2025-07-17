@@ -1638,4 +1638,13 @@ entries:
 
     - Added `beginSend(String operationId)` method to `EmailClient` and `EmailAsyncClient` to create a poller from an existing operation ID. This allows customers to check the status of a previously started email send operation.
   GroupId: com.azure
+- Name: azure-resourcemanager-hardwaresecuritymodules
+  Version: 1.1.0
+  DisplayName: Resource Management - Hardware Security Module
+  ServiceName: Hardware Security Module
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hardwaresecuritymodules_1.1.0/sdk/hardwaresecuritymodules/azure-resourcemanager-hardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
