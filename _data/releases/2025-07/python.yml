@@ -300,7 +300,7 @@ entries:
   DisplayName: AI Agents
   ServiceName: Cognitive Services
   VersionType: Beta
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.1.0b3/sdk/ai/azure-ai-agents/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
@@ -466,10 +466,13 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
 
+    - Fixed a tracing related bug that caused an error when process was ending if messages or run steps were listed and the resulting list was not iterated completely.
     - `_AgentsClientOperationsMixin` now it is private.
+    
 
     #### Features Added
 
+    - Added support for Deep Research tool. For more information, see https://aka.ms/agents-deep-research.
     - Added support for MCP tool. For more information, see https://aka.ms/FoundryAgentMCPDoc.
     - New tool_resources parameter added to runs.create method. This parameter represents overridden enabled tool resources that the agent should use to run
     the thread. Default value is None.
