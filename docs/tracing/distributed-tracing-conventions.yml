@@ -27,7 +27,7 @@ groups:
         deprecated:
           reason: renamed
           renamed_to: azure.client.request.id
-        note: >
+        note: |
           It is the value of the `x-ms-client-request-id` (or similar,
           depending on the service) request header.
 
@@ -55,7 +55,7 @@ groups:
     span_kind: internal
     brief: Describes Azure client library service method call - a public API
       that involves communication with Azure services.
-    note: >
+    note: |
       In cases where OpenTelemetry defines semantic convention for a given area
       (for example, messaging, database or GenAI, the standard OpenTelemetry
       name SHOULD be used instead of the generic ones defined in this section.
@@ -106,7 +106,7 @@ groups:
         examples: ['java.net.UnknownHostException', 'System.Threading.Tasks.OperationCanceledException', 'azure.core.exceptions.ServiceRequestError']
         requirement_level:
           conditionally_required: if and only if an error occurred.
-        note: >
+        note: |
           This attribute SHOULD be set if an error occurred during the API call and
           the method returns an error or throws an exception.
 

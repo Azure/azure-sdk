@@ -101,15 +101,41 @@ to record the version of semantic conventions being emitted.
 
 Describes Azure client library service method call - a public API that involves communication with Azure services.
 
-In cases where OpenTelemetry defines semantic convention for a given area (for example, messaging, database or GenAI, the standard OpenTelemetry name SHOULD be used instead of the generic ones defined in this section.
-**Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern following the corresponding operation definition in Typespec. When interface is not defined, the name SHOULD be `{Namespace}.{MethodName}`.
-The span name matches `crossLanguageDefinitionId` in the generated Typespec code model.
+In cases where OpenTelemetry defines semantic convention for a given area
+(for example, messaging, database or GenAI, the standard OpenTelemetry
+name SHOULD be used instead of the generic ones defined in this section.
+
+**Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern
+following the corresponding operation definition in Typespec. When interface
+is not defined, the name SHOULD be `{Namespace}.{MethodName}`.
+
+The span name matches `crossLanguageDefinitionId` in the generated Typespec
+code model.
+
 The span name SHOULD be consistent across all languages.
-> [!NOTE] > > The previous version of this document recommended using the > `{client.method}` pattern for span names matching lagnauge-specific > public API called by the application code. > > This recommendation is now deprecated in favor of the `{Namespace}.{Interface}.{OperationName}` > pattern. > Azure code generators and client libraries SHOULD use the new pattern > as long as it does not introduce breaking changes to existing stable libraries > and SHOULD use the old pattern only for backward compatibility.
+
+> [!NOTE]
+>
+> The previous version of this document recommended using the
+> `{client.method}` pattern for span names matching lagnauge-specific
+> public API called by the application code.
+>
+> This recommendation is now deprecated in favor of the `{Namespace}.{Interface}.{OperationName}`
+> pattern.
+> Azure code generators and client libraries SHOULD use the new pattern
+> as long as it does not introduce breaking changes to existing stable libraries
+> and SHOULD use the old pattern only for backward compatibility.
+
 **Span kind** SHOULD be `INTERNAL`.
-**Span status:** MUST be left unset if the API call was successful. If the API call failed with error or exception, span status SHOULD be set to `Error`.
+
+**Span status:** MUST be left unset if the API call was successful.
+If the API call failed with error or exception, span status SHOULD be set to `Error`.
+
 Span status description SHOULD be set to the error or exception message.
-Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/recording-errors.md) document for general considerations on how to record span status.
+
+Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/recording-errors.md)
+document for general considerations on how to record span status.
+
 Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them in logging.
 
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
@@ -123,9 +149,15 @@ Azure client libraries and core implementations that populate it, SHOULD keep po
 
 **[2] `az.schema_url`:** if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
 
-**[3] `error.type`:** This attribute SHOULD be set if an error occurred during the API call and the method returns an error or throws an exception.
-If Azure service defines a set of error types, it is RECOMMENDED to use the service-defined fully qualified service error type as the value of this attribute.
-When there is no service-defined error type, it is RECOMMENDED to use the fully qualified type of the exception or error thrown by the SDK.
+**[3] `error.type`:** This attribute SHOULD be set if an error occurred during the API call and
+the method returns an error or throws an exception.
+
+If Azure service defines a set of error types, it is RECOMMENDED to use
+the service-defined fully qualified service error type as the value of
+this attribute.
+
+When there is no service-defined error type, it is RECOMMENDED to use
+the fully qualified type of the exception or error thrown by the SDK.
 
 **[4] `az.namespace`:** This attribute is deprecated in favor of `azure.resource_provider.namespace`, but it is still RECOMMENDED to be used until `azure.resource_provider.namespace` becomes stable in the OpenTelemetry Semantic Conventions.
 
