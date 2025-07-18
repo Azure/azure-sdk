@@ -57,11 +57,11 @@ groups:
       that involves communication with Azure services.
     note: |
       In cases where OpenTelemetry defines semantic convention for a given area
-      (for example, messaging, database or GenAI, the standard OpenTelemetry
+      (for example, messaging, database or GenAI), the standard OpenTelemetry
       name SHOULD be used instead of the generic ones defined in this section.
 
       **Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern
-      following the corresponding operation definition in Typespec. When interface
+      following the corresponding operation definition in Typespec. When an interface
       is not defined, the name SHOULD be `{Namespace}.{MethodName}`.
 
       The span name matches `crossLanguageDefinitionId` in the generated Typespec
@@ -72,7 +72,7 @@ groups:
       > [!NOTE]
       >
       > The previous version of this document recommended using the
-      > `{client.method}` pattern for span names matching lagnauge-specific
+      > `{client.method}` pattern for span names matching language-specific
       > public API called by the application code.
       >
       > This recommendation is now deprecated in favor of the `{Namespace}.{Interface}.{OperationName}`
@@ -84,7 +84,7 @@ groups:
       **Span kind** SHOULD be `INTERNAL`.
 
       **Span status:** MUST be left unset if the API call was successful.
-      If the API call failed with error or exception, span status SHOULD be set to `Error`.
+      If the API call failed with an error or exception, span status SHOULD be set to `Error`.
 
       Span status description SHOULD be set to the error or exception message.
 
@@ -115,7 +115,7 @@ groups:
           this attribute.
 
           When there is no service-defined error type, it is RECOMMENDED to use
-          the fully qualified type of the exception or error thrown by the SDK.
+          the fully qualified type of the exception or error thrown by the client library.
 
   # HTTP spans
   - id: azure.sdk.http
@@ -155,10 +155,10 @@ groups:
       Don't set the span status description if the reason can be inferred from
       `http.response.status_code`.
 
-      HTTP request may fail if it was cancelled or an error occurred preventing
+      An HTTP request may fail if it was cancelled or an error occurred preventing
       the client or server from sending/receiving the request/response fully.
 
-      When instrumentation detects such errors it SHOULD set span status to `Error`
+      When an instrumentation detects such errors it SHOULD set span status to `Error`
       and SHOULD set the `error.type` attribute.
 
       Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record
@@ -198,7 +198,7 @@ groups:
           is not transmitted over HTTP, but if it is known, it SHOULD be included nevertheless.
 
           `url.full` MUST NOT contain credentials passed via URL in form of `https://username:password@www.example.com/`.
-          In such case username and password SHOULD be redacted and attribute's value SHOULD be `https://REDACTED:REDACTED@www.example.com/`.
+          In such cases username and password SHOULD be redacted and attribute's value SHOULD be `https://REDACTED:REDACTED@www.example.com/`.
 
           `url.full` SHOULD capture the absolute URL when it is available (or can be reconstructed).
 

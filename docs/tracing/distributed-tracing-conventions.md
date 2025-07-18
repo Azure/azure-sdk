@@ -7,7 +7,7 @@ sidebar: general_sidebar
 ---
 
 Conventions are the contract between Azure client libraries and tracing providers such as
-Azure Monitor, Jaeger, and others.  They describe and standardize attributes,
+Azure Monitor, Jaeger, and others. They describe and standardize attributes,
 events and relationships for common span types: HTTP, DB, messaging and others.
 
 Observability vendors use conventions to build visualizations and may be very
@@ -42,10 +42,10 @@ metrics and logging.
 **Status**: [Mixed][DocumentStatus]
 
 This document describes tracing semantic conventions adopted by Azure client libraries.
- Azure client libraries are instrumented natively, so the instrumentation code
- is a part of each library (but depending on the languages, users may need to
- install a plugin to enable collection with OpenTelemetry). Check out tracing
- documentation for your language to get more details.
+Azure client libraries are instrumented natively, so the instrumentation code
+is a part of each library (but depending on the languages, users may need to
+install a plugin to enable collection with OpenTelemetry). Check out tracing
+documentation for your language to get more details.
 
 - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/core-tracing)
@@ -68,22 +68,23 @@ SHOULD be used instead.
 See [Azure Messaging](https://opentelemetry.io/docs/specs/semconv/messaging/azure-messaging/),
 [Azure CosmosDB conventions](https://opentelemetry.io/docs/specs/semconv/database/cosmosdb/),
 [Azure AI Inference](https://opentelemetry.io/docs/specs/semconv/gen-ai/azure-ai-inference/)
-for the details.
+for details.
 
 ## Versioning
 
 Azure client libraries follow OpenTelemetry semantic conventions versioning when applicable,
 but adopt new versions of conventions at their own pace.
 
-Azure client libraries SHOULD take dependency on stable attributes and conventions
+Azure client libraries SHOULD depend on stable attributes and conventions
 and SHOULD NOT introduce breaking changes to the end users.
 
 For example, when OpenTelemetry introduces `azure.resource_provider.namespace` attribute
-and deprecates `az.namespace`, Azure client libraries that use the latter,
+and deprecates `az.namespace`, Azure client libraries that use the latter
 should continue using it in the current major version despite it being deprecated.
 
 Once `azure.resource_provider.namespace` becomes stable in OpenTelemetry conventions,
-new Azure client libraries (and core implementations) MAY start leveraging the new attribute.
+new Azure client libraries (and core implementations) MAY start leveraging the
+new attribute in the new code.
 
 Client libraries SHOULD populate [SchemaURL](https://opentelemetry.io/docs/specs/otel/schemas/#schema-url)
 to record the version of semantic conventions being emitted.
@@ -102,11 +103,11 @@ to record the version of semantic conventions being emitted.
 Describes Azure client library service method call - a public API that involves communication with Azure services.
 
 In cases where OpenTelemetry defines semantic convention for a given area
-(for example, messaging, database or GenAI, the standard OpenTelemetry
+(for example, messaging, database or GenAI), the standard OpenTelemetry
 name SHOULD be used instead of the generic ones defined in this section.
 
 **Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern
-following the corresponding operation definition in Typespec. When interface
+following the corresponding operation definition in Typespec. When an interface
 is not defined, the name SHOULD be `{Namespace}.{MethodName}`.
 
 The span name matches `crossLanguageDefinitionId` in the generated Typespec
@@ -117,7 +118,7 @@ The span name SHOULD be consistent across all languages.
 > [!NOTE]
 >
 > The previous version of this document recommended using the
-> `{client.method}` pattern for span names matching lagnauge-specific
+> `{client.method}` pattern for span names matching language-specific
 > public API called by the application code.
 >
 > This recommendation is now deprecated in favor of the `{Namespace}.{Interface}.{OperationName}`
@@ -129,7 +130,7 @@ The span name SHOULD be consistent across all languages.
 **Span kind** SHOULD be `INTERNAL`.
 
 **Span status:** MUST be left unset if the API call was successful.
-If the API call failed with error or exception, span status SHOULD be set to `Error`.
+If the API call failed with an error or exception, span status SHOULD be set to `Error`.
 
 Span status description SHOULD be set to the error or exception message.
 
@@ -140,9 +141,9 @@ Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record t
 
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
 |---|---|---|---|---|---|
-| [`az.schema_url`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [1] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [2] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
-| [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [3] | `java.net.UnknownHostException`; `System.Threading.Tasks.OperationCanceledException`; `azure.core.exceptions.ServiceRequestError` | `Conditionally Required` if and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`az.namespace`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [4] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
+| [`az.schema_url`](/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [1] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [2] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
+| [`error.type`](/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [3] | `java.net.UnknownHostException`; `System.Threading.Tasks.OperationCanceledException`; `azure.core.exceptions.ServiceRequestError` | `Conditionally Required` if and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`az.namespace`](/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [4] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
 
 **[1] `az.schema_url`:** This attribute is deprecated in favor of SchemaURL argument provided when creating OpenTelemetry tracers or meters.
 Azure client libraries and core implementations that populate it, SHOULD keep populating it for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
@@ -157,7 +158,7 @@ the service-defined fully qualified service error type as the value of
 this attribute.
 
 When there is no service-defined error type, it is RECOMMENDED to use
-the fully qualified type of the exception or error thrown by the SDK.
+the fully qualified type of the exception or error thrown by the client library.
 
 **[4] `az.namespace`:** This attribute is deprecated in favor of `azure.resource_provider.namespace`, but it is still RECOMMENDED to be used until `azure.resource_provider.namespace` becomes stable in the OpenTelemetry Semantic Conventions.
 
@@ -176,10 +177,10 @@ the fully qualified type of the exception or error thrown by the SDK.
 
 ## HTTP client spans
 
-Azure client libraries implement a valid subset of stable part of [OpenTelemetry HTTP spans conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md) .
+Azure client libraries implement a valid subset of the stable part of [OpenTelemetry HTTP spans conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md).
 
 HTTP policy SHOULD propagate [W3C Trace context](https://w3c.github.io/trace-context/)
-among with service-specific `x-ms-request*` headers.
+along with service-specific `x-ms-request*` headers.
 Custom propagation formats are not currently supported.
 
 <!-- semconv azure.sdk.http -->
@@ -222,10 +223,10 @@ client failed to interpret, span status SHOULD be set to `Error`.
 Don't set the span status description if the reason can be inferred from
 `http.response.status_code`.
 
-HTTP request may fail if it was cancelled or an error occurred preventing
+An HTTP request may fail if it was cancelled or an error occurred preventing
 the client or server from sending/receiving the request/response fully.
 
-When instrumentation detects such errors it SHOULD set span status to `Error`
+When an instrumentation detects such errors it SHOULD set span status to `Error`
 and SHOULD set the `error.type` attribute.
 
 Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record
@@ -233,17 +234,17 @@ them in logging.
 
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
 |---|---|---|---|---|---|
-| [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/http.md) | string | HTTP request method. [1] | `GET`; `POST`; `HEAD` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`server.address`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [2] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`url.full`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [3] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`az.client_request_id`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | Unique identifier for the request sent by the client which stays the same if request is retried. [4] | `eb178587-c05a-418c-a695-ae9466c5303c` | `Conditionally Required` if available. | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.client.request.id`. |
-| [`az.schema_url`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [5] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [6] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
-| [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [7] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | `Conditionally Required` If and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`http.response.status_code`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | `Conditionally Required` If and only if one was received/sent. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`az.namespace`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [8] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
-| [`az.service_request_id`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/azure.md) | string | Unique identifier for the response returned by the service in response to a request attempt. [9] | `00000000-0000-0000-0000-000000000000` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.service.request.id`. |
-| [`http.request.resend_count`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` if and only if request was retried or redirected. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`server.port`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/server.md) | int | Server port number. [11] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`http.request.method`](/docs/registry/attributes/http.md) | string | HTTP request method. [1] | `GET`; `POST`; `HEAD` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`server.address`](/docs/registry/attributes/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [2] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`url.full`](/docs/registry/attributes/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [3] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`az.client_request_id`](/docs/registry/attributes/azure.md) | string | Unique identifier for the request sent by the client which stays the same if request is retried. [4] | `eb178587-c05a-418c-a695-ae9466c5303c` | `Conditionally Required` if available. | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.client.request.id`. |
+| [`az.schema_url`](/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [5] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [6] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
+| [`error.type`](/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [7] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | `Conditionally Required` If and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`http.response.status_code`](/docs/registry/attributes/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | `Conditionally Required` If and only if one was received/sent. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`az.namespace`](/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [8] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
+| [`az.service_request_id`](/docs/registry/attributes/azure.md) | string | Unique identifier for the response returned by the service in response to a request attempt. [9] | `00000000-0000-0000-0000-000000000000` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.service.request.id`. |
+| [`http.request.resend_count`](/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` if and only if request was retried or redirected. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`server.port`](/docs/registry/attributes/server.md) | int | Server port number. [11] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 
 **[1] `http.request.method`:** HTTP request method value SHOULD be "known" to the instrumentation.
 By default, this convention defines "known" methods as the ones listed in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-methods)
@@ -271,7 +272,7 @@ In all other cases, `server.address` SHOULD match the host component of the
 is not transmitted over HTTP, but if it is known, it SHOULD be included nevertheless.
 
 `url.full` MUST NOT contain credentials passed via URL in form of `https://username:password@www.example.com/`.
-In such case username and password SHOULD be redacted and attribute's value SHOULD be `https://REDACTED:REDACTED@www.example.com/`.
+In such cases username and password SHOULD be redacted and attribute's value SHOULD be `https://REDACTED:REDACTED@www.example.com/`.
 
 `url.full` SHOULD capture the absolute URL when it is available (or can be reconstructed).
 
@@ -314,9 +315,9 @@ In all other cases, `server.port` SHOULD match the port component of the
 The following attributes can be important for making sampling decisions
 and SHOULD be provided **at span creation time** (if provided at all):
 
-* [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/http.md)
-* [`server.address`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/server.md)
-* [`server.port`](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/registry/attributes/server.md)
+* [`http.request.method`](/docs/registry/attributes/http.md)
+* [`server.address`](/docs/registry/attributes/server.md)
+* [`server.port`](/docs/registry/attributes/server.md)
 
 ---
 
