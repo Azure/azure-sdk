@@ -1,50 +1,55 @@
 ---
-title: "Distributed Tracing Conventions"
-permalink: distributed_tracing_conventions.html
+title: "OpenTelemetry Semantic Conventions for Azure Client Libraries"
+permalink: opentelemetry_conventions.html
 keywords: opentelemetry conventions
 folder: general
 sidebar: general_sidebar
 ---
 
-Conventions are the contract between Azure client libraries and tracing providers such as
-Azure Monitor, Jaeger, and others. They describe and standardize attributes,
-events and relationships for common span types: HTTP, DB, messaging and others.
+Semantic conventions are the contract between Azure client libraries and tracing providers such as
+Azure Monitor, Jaeger, and others. They describe and standardize spans, events, metrics, and their attributes
+for common span types: HTTP, DB, messaging and others.
 
 Observability vendors use conventions to build visualizations and may be very
 sensitive to them.
 
-Custom Azure client library conventions are described in [Azure client library semantic conventions](#azure-sdk-semantic-conventions)
+Custom Azure client library conventions are described in [Azure client library semantic conventions](#azure-client-library-semantic-conventions)
 section below.
 
 When writing instrumentation in Azure client libraries or Core:
 
-{% include requirement/MUST id="general-tracing-convention-use-otel" %} use existing [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) or [Azure client library](#azure-sdk-semantic-conventions) semantic conventions whenever possible.
+Follow [distributed tracing implementation policy][distributed tracing policy].
 
-{% include requirement/MUST id="general-tracing-convention-describe-attributes" %} update [Azure client library semantic conventions](#azure-sdk-semantic-conventions) when adding new Azure-specific attributes.
+{% include requirement/MUST id="general-semantic-convention-use-otel" %} use applicable [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) or [Azure client library](#azure-client-library-semantic-conventions) semantic conventions whenever possible.
 
-{% include requirement/MUST id="general-tracing-convention-attribute-naming" %} follow [OpenTelemetry attribute naming conventions](https://opentelemetry.io/docs/specs/semconv/general/how-to-define-semantic-conventions/) and use the `azure.{service-family}.` prefix when adding new Azure-specific attributes.
+{% include requirement/MUST id="general-semantic-convention-describe-attributes" %} update [Azure client library semantic conventions](#azure-client-library-semantic-conventions) when adding new Azure-specific attributes.
 
-{% include requirement/MUST id="general-tracing-convention-set-schema-version" %} set OpenTelemetry [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/schemas/README.md) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer), meter, or logger.
+{% include requirement/MUST id="general-semantic-convention-attribute-naming" %} follow [OpenTelemetry attribute naming conventions](https://opentelemetry.io/docs/specs/semconv/general/how-to-define-semantic-conventions/) and use the `azure.{service-family}.` prefix when adding new Azure-specific attributes.
 
-{% include requirement/SHOULD id="general-tracing-convention-set-library" %} set Azure Client Library name and version [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer), meter, or logger.
+> [!NOTE]
+> Azure Semantic Conventions defined here include a deprecated set of `az.*` attributes, which was renamed to `azure.*` in OpenTelemetry to
+> align with the [naming policy](https://opentelemetry.io/docs/specs/semconv/general/naming/#choosing-a-system-name).
+> Azure client libraries and core implementations SHOULD NOT use the new `azure.*` attributes at least until these new attributes reach stability
+> and then MAY start adopting them in new code if and only if it is possible without breaking backward compatibility.
 
-{% include requirement/SHOULD id="general-tracing-convention-new-otel" %} contribute new conventions (or patch existing ones) to OpenTelemetry when there is no suitable one or some scenarios are missing.
+{% include requirement/SHOULD id="general-semantic-convention-set-library-info" %} set Azure Client Library name, version, and [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer), meter, or logger. Library name SHOULD be
+the language-specific fully qualified artifact name and the version SHOULD be the version of this artifact.
+
+{% include requirement/SHOULD id="general-semantic-convention-new-otel" %} contribute new conventions (or patch existing ones) to OpenTelemetry when there is no suitable one or some scenarios are missing.
 
 # Azure client library semantic conventions
 
-<!--TODO: move to https://github.com/open-telemetry/semantic-conventions repo-->
-
 Azure client libraries support distributed tracing with OpenTelemetry. Some client libraries support
-metrics and logging.
+OpenTelemetry metrics and logging.
 
 ## Semantic conventions for Azure client library spans
 
 **Status**: [Mixed][DocumentStatus]
 
 This document describes tracing semantic conventions adopted by Azure client libraries.
-Azure client libraries are instrumented natively, so the instrumentation code
-is a part of each library (but depending on the languages, users may need to
-install a plugin to enable collection with OpenTelemetry). Check out tracing
+Azure client libraries are instrumented natively (or via a plugin), so the instrumentation code
+is a part of each library. Depending on the language, users may need to
+install a plugin to enable collection with OpenTelemetry. Check out tracing
 documentation for your language to get more details.
 
 - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry)
@@ -56,7 +61,7 @@ documentation for your language to get more details.
 - [Rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core_opentelemetry)
 
 The Azure client libraries produce spans for public API calls and nested HTTP client spans.
-AMQP transport-level calls are not traced.
+AMQP and other transport-level calls are not traced.
 
 This section describes generic conventions for client libraries that don't have
 additional conventions established in OpenTelemetry.
@@ -84,7 +89,7 @@ should continue using it in the current major version despite it being deprecate
 
 Once `azure.resource_provider.namespace` becomes stable in OpenTelemetry conventions,
 new Azure client libraries (and core implementations) MAY start leveraging the
-new attribute in the new code.
+new attribute in new code.
 
 Client libraries SHOULD populate [SchemaURL](https://opentelemetry.io/docs/specs/otel/schemas/#schema-url)
 to record the version of semantic conventions being emitted.
@@ -137,7 +142,11 @@ Span status description SHOULD be set to the error or exception message.
 Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/recording-errors.md)
 document for general considerations on how to record span status.
 
-Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them in logging.
+Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them using logging.
+
+When a client method creates a new span and internally calls into other public client methods of
+the same or different Azure client library, spans created for inner client methods are suppressed by
+Azure Core implementation. See [Distributed tracing policy] for the details.
 
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
 |---|---|---|---|---|---|
@@ -145,7 +154,7 @@ Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record t
 | [`error.type`](/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [3] | `java.net.UnknownHostException`; `System.Threading.Tasks.OperationCanceledException`; `azure.core.exceptions.ServiceRequestError` | `Conditionally Required` if and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`az.namespace`](/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [4] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
 
-**[1] `az.schema_url`:** This attribute is deprecated in favor of SchemaURL argument provided when creating OpenTelemetry tracers or meters.
+**[1] `az.schema_url`:** This attribute is deprecated in favor of a SchemaURL argument provided when creating OpenTelemetry tracers or meters.
 Azure client libraries and core implementations that populate it, SHOULD keep populating it for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
 
 **[2] `az.schema_url`:** if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
@@ -237,14 +246,14 @@ them in logging.
 | [`http.request.method`](/docs/registry/attributes/http.md) | string | HTTP request method. [1] | `GET`; `POST`; `HEAD` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`server.address`](/docs/registry/attributes/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [2] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`url.full`](/docs/registry/attributes/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [3] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`az.client_request_id`](/docs/registry/attributes/azure.md) | string | Unique identifier for the request sent by the client which stays the same if request is retried. [4] | `eb178587-c05a-418c-a695-ae9466c5303c` | `Conditionally Required` if available. | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.client.request.id`. |
+| [`az.client_request_id`](/docs/registry/attributes/azure.md) | string | Unique identifier for the request sent by the client which stays the same if the request is retried. [4] | `eb178587-c05a-418c-a695-ae9466c5303c` | `Conditionally Required` if available. | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.client.request.id`. |
 | [`az.schema_url`](/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [5] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [6] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
 | [`error.type`](/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [7] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | `Conditionally Required` If and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`http.response.status_code`](/docs/registry/attributes/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | `Conditionally Required` If and only if one was received/sent. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`az.namespace`](/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [8] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
 | [`az.service_request_id`](/docs/registry/attributes/azure.md) | string | Unique identifier for the response returned by the service in response to a request attempt. [9] | `00000000-0000-0000-0000-000000000000` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.service.request.id`. |
-| [`http.request.resend_count`](/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` if and only if request was retried or redirected. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`server.port`](/docs/registry/attributes/server.md) | int | Server port number. [11] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`http.request.resend_count`](/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` [11] | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`server.port`](/docs/registry/attributes/server.md) | int | Server port number. [12] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 
 **[1] `http.request.method`:** HTTP request method value SHOULD be "known" to the instrumentation.
 By default, this convention defines "known" methods as the ones listed in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-methods)
@@ -282,13 +291,13 @@ across distributed tracing and logging.
 
 **[4] `az.client_request_id`:** This attribute is deprecated in favor of `azure.client.request.id`, but it is still RECOMMENDED to be used until `azure.client.request.id` becomes stable in the OpenTelemetry Semantic Conventions.
 
-**[5] `az.schema_url`:** This attribute is deprecated in favor of SchemaURL argument provided when creating OpenTelemetry tracers or meters.
+**[5] `az.schema_url`:** This attribute is deprecated in favor of a SchemaURL argument provided when creating OpenTelemetry tracers or meters.
 Azure client libraries and core implementations that populate it, SHOULD keep populating it for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
 
 **[6] `az.schema_url`:** if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
 
-**[7] `error.type`:** If the request fails with an error before response status code was received,
-`error.type` SHOULD be set to exception type (its fully-qualified class name, if applicable)
+**[7] `error.type`:** If the request fails with an error before a response status code was received,
+`error.type` SHOULD be set to an exception type (its fully-qualified class name, if applicable)
 or a component-specific low cardinality error identifier.
 
 If response status code was sent or received and status indicates an
@@ -305,7 +314,9 @@ This attribute SHOULD be set according to the client library's best knowledge an
 
 **[10] `http.request.resend_count`:** The resend count SHOULD be updated each time an HTTP request gets resent by the client, regardless of what was the cause of the resending (e.g. redirection, authorization failure, 503 Server Unavailable, network issues, or any other).
 
-**[11] `server.port`:** In the case of HTTP/1.1, when the [request target](https://www.rfc-editor.org/rfc/rfc9112.html#name-request-target)
+**[11] `http.request.resend_count`:** if and only if the request was retried or redirected.
+
+**[12] `server.port`:** In the case of HTTP/1.1, when the [request target](https://www.rfc-editor.org/rfc/rfc9112.html#name-request-target)
 is passed in its [absolute-form](https://www.rfc-editor.org/rfc/rfc9112.html#section-3.2.2),
 the `server.port` SHOULD match the port component of the request target.
 
@@ -349,5 +360,5 @@ and SHOULD be provided **at span creation time** (if provided at all):
 <!-- END AUTOGENERATED TEXT -->
 <!-- endsemconv -->
 
-
+[Distributed tracing policy]: {{ site.baseurl }}{% link docs/general/implementation.md#distributed-tracing %}
 [DocumentStatus]: https://github.com/open-telemetry/opentelemetry-specification/tree/v1.47.0/specification/document-status.md

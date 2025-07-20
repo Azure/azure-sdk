@@ -8,7 +8,7 @@ groups:
           conditionally_required: if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
         stability: stable
         note: >
-          This attribute is deprecated in favor of SchemaURL argument provided
+          This attribute is deprecated in favor of a SchemaURL argument provided
           when creating OpenTelemetry tracers or meters.
 
           Azure client libraries and core implementations that populate it, SHOULD keep populating it
@@ -23,7 +23,7 @@ groups:
         stability: stable
         requirement_level:
           conditionally_required: if available.
-        brief: Unique identifier for the request sent by the client which stays the same if request is retried.
+        brief: Unique identifier for the request sent by the client which stays the same if the request is retried.
         deprecated:
           reason: renamed
           renamed_to: azure.client.request.id
@@ -42,7 +42,7 @@ groups:
         stability: development
         requirement_level:
           conditionally_required: if available.
-        brief: Unique identifier for the request sent by the client which stays the same if request is retried.
+        brief: Unique identifier for the request sent by the client which stays the same if the request is retried.
         note: >
           It is the value of the `x-ms-client-request-id` (or similar,
           depending on the service) request header.
@@ -91,7 +91,11 @@ groups:
       Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/recording-errors.md)
       document for general considerations on how to record span status.
 
-      Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them in logging.
+      Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them using logging.
+
+      When a client method creates a new span and internally calls into other public client methods of
+      the same or different Azure client library, spans created for inner client methods are suppressed by
+      Azure Core implementation. See [Distributed tracing policy] for the details.
     attributes:
       - ref: az.namespace
         brief: >
@@ -169,7 +173,7 @@ groups:
         requirement_level: required
       - ref: http.request.resend_count
         requirement_level:
-          recommended: if and only if request was retried or redirected.
+          recommended: if and only if the request was retried or redirected.
       - ref: server.address
         sampling_relevant: true
         requirement_level: required
@@ -238,8 +242,8 @@ groups:
         requirement_level:
           conditionally_required: If and only if an error occurred.
         note: |
-          If the request fails with an error before response status code was received,
-          `error.type` SHOULD be set to exception type (its fully-qualified class name, if applicable)
+          If the request fails with an error before a response status code was received,
+          `error.type` SHOULD be set to an exception type (its fully-qualified class name, if applicable)
           or a component-specific low cardinality error identifier.
 
           If response status code was sent or received and status indicates an

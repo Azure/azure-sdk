@@ -91,7 +91,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="general-authimpl-no-persisting" %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
+{% include requirement/MUSTNOT id="general-authimpl-no-persisting" %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
@@ -105,13 +105,13 @@ Some languages support the development of platform-specific native code plugins.
 
 ## Error handling
 
-Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.  
+Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
 
 {% include requirement/SHOULD id="general-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
 
 {% include requirement/MUST id="general-errors-for-failed-requests" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
 
-{% include requirement/MUST id="general-errors-include-request-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
+{% include requirement/MUST id="general-errors-include-request-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -179,19 +179,21 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard)) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
 {% include requirement/MUST id="general-tracing-new-span-per-method" %} create only one span for client method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 
 {% include requirement/MUST id="general-tracing-suppress-client-spans-for-inner-methods" %} When client method creates a new span and internally calls into other public client methods of the same or different Azure SDK, spans created for inner client methods MUST be suppressed, their attributes and events ignored.  Nested spans created for REST calls MUST be the children of the outer client call span.  Suppression is generally done by Azure Core.
 
-{% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [Tracing Conventions].
+{% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [OpenTelemetry Conventions].
 
-{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} us `<client> <method>` as the name of the per-method span without namespace or async suffix. Follow language-specific conventions on casing or separator.
+{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} for service methods, use the language-agnostic naming format `{Namespace}.{Interface}.{OperationName}`,
+based on the underlying TypeSpec operation definition, as the span name for each method, without an async suffix. For instrumented convenience methods that do not map to a single service operation, use `{Namespace}.{Interface}.{Method}`, also without the async suffix. Note: Earlier version of guidance recommended a language-specific `<client> <method>` pattern.
+The new format may be used in new code, provided it does not introduce backward-incompatible changes in stable libraries.
 
 {% include requirement/MUST id="general-tracing-new-span-per-method-duration" %} start per-method spans before sending the request or calling any significantly time consuming code that might fail. End the span only after all network, IO or other unreliable and time consuming operations are complete.
 
-{% include requirement/MUST id="general-tracing-new-span-per-method-failure" %} If method throws exception, record exception on span. Do not record exception if exception is handled within service method.
+{% include requirement/MUST id="general-tracing-new-span-per-method-failure" %} If method throws exception, record error details on span. Do not record exception if exception is handled within service method.
 
 {% include requirement/MUST id="general-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
@@ -205,7 +207,7 @@ If a service needs a technology beyond that which has already been selected, the
 
 * First, the service team can petition the Azure API Stewardship Board to approve technologies that require client-side components.  This must be done early in the design process.  The petitioning team must gather relevant data to justify the critical business need (e.g. competitive advantage, widespread adoption and/or support in the community, improved performance, etc.), why that need cannot reasonably be fulfilled via REST & JSON, the future viability and sustainability of the technology, as well as documentation for the cases/conditions where use of the new technology is indicated.   Evaluation includes a discussion of impact across all languages, especially those supported by Azure SDKs.
 
-* Having gained approval, then to avoid issues with SDKs taking hard dependencies on 3rd party libraries such as versioning, quality, and security issues in code that Microsoft does not own and cannot control, SDKs can offer an extensibility point allowing the end-customer to integrate the 3rd-party library and version they desire into the SDK.  In this case, the SDK’s documentation must have examples showing a customer how to do this correctly for each SDK language.  
+* Having gained approval, then to avoid issues with SDKs taking hard dependencies on 3rd party libraries such as versioning, quality, and security issues in code that Microsoft does not own and cannot control, SDKs can offer an extensibility point allowing the end-customer to integrate the 3rd-party library and version they desire into the SDK.  In this case, the SDK’s documentation must have examples showing a customer how to do this correctly for each SDK language.
 
 The following are considerations that will be discussed in any petition to include additional technologies:
 
@@ -290,4 +292,4 @@ As outlined above, writing tests that we can run constantly is critical for conf
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 [2]: https://martinfowler.com/bliki/TestCoverage.html
-[Tracing Conventions]: {{ site.baseurl }}{% link docs/tracing/distributed-tracing-conventions.md %}
+[OpenTelemetry Conventions]: {{ site.baseurl }}{% link docs/observability/opentelemetry-conventions.md %}
