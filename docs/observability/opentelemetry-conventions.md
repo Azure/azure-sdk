@@ -20,7 +20,8 @@ When writing instrumentation in Azure client libraries or Core:
 
 Follow [distributed tracing implementation policy][distributed tracing policy].
 
-{% include requirement/MUST id="general-semantic-convention-use-otel" %} use applicable [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) or [Azure client library](#azure-client-library-semantic-conventions) semantic conventions whenever possible.
+{% include requirement/MUST id="general-semantic-convention-use-otel" %} use applicable [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) or [Azure client library](#azure-client-library-semantic-conventions) semantic conventions whenever possible. Conventions SHOULD be applied at the span, metric, or event level. Individual attributes
+from OpenTelemetry SHOULD NOT be used in isolation - only include them when they are explicitly referenced in a span, metric, or event definition. For example, OpenTelemetry defines `cloud.resource_id` attribute, which could apply broadly across Azure client libraries. However, it SHOULD NOT be added to Azure client library spans unless the corresponding span (or metric or event) definition includes it.
 
 {% include requirement/MUST id="general-semantic-convention-describe-attributes" %} update [Azure client library semantic conventions](#azure-client-library-semantic-conventions) when adding new Azure-specific attributes.
 
@@ -32,8 +33,7 @@ Follow [distributed tracing implementation policy][distributed tracing policy].
 > Azure client libraries and core implementations SHOULD NOT use the new `azure.*` attributes at least until these new attributes reach stability
 > and then MAY start adopting them in new code if and only if it is possible without breaking backward compatibility.
 
-{% include requirement/SHOULD id="general-semantic-convention-set-library-info" %} set Azure Client Library name, version, and [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer), meter, or logger. Library name SHOULD be
-the language-specific fully qualified artifact name and the version SHOULD be the version of this artifact.
+{% include requirement/SHOULD id="general-semantic-convention-set-library-info" %} set Azure Client Library name, version, and [Schema URL](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer) when [creating OpenTelemetry tracer](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#get-a-tracer), meter, or logger. Library name SHOULD be the language-specific fully qualified artifact name and the version SHOULD be the version of this artifact.
 
 {% include requirement/SHOULD id="general-semantic-convention-new-otel" %} contribute new conventions (or patch existing ones) to OpenTelemetry when there is no suitable one or some scenarios are missing.
 
