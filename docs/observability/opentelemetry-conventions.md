@@ -244,16 +244,16 @@ them in logging.
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
 |---|---|---|---|---|---|
 | [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/http.md) | string | HTTP request method. [1] | `GET`; `POST`; `HEAD` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`server.address`](/docs/registry/attributes/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [2] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`url.full`](/docs/registry/attributes/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [3] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`server.address`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/server.md) | string | Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name. [2] | `example.com`; `10.1.2.80`; `/tmp/my.sock` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`url.full`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/url.md) | string | Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) [3] | `https://www.foo.bar/search?q=OpenTelemetry#SemConv`; `//localhost` | `Required` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`az.client_request_id`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/azure.md) | string | Unique identifier for the request sent by the client which stays the same if the request is retried. [4] | `eb178587-c05a-418c-a695-ae9466c5303c` | `Conditionally Required` if available. | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.client.request.id`. |
 | [`az.schema_url`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [5] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [6] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
-| [`error.type`](/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [7] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | `Conditionally Required` If and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`http.response.status_code`](/docs/registry/attributes/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | `Conditionally Required` If and only if one was received/sent. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`error.type`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/error.md) | string | Describes a class of error the operation ended with. [7] | `timeout`; `java.net.UnknownHostException`; `server_certificate_invalid`; `500` | `Conditionally Required` If and only if an error occurred. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`http.response.status_code`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/http.md) | int | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). | `200` | `Conditionally Required` If and only if one was received/sent. | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 | [`az.namespace`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/azure.md) | string | The [Azure Resource Provider Namespace](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers) for the service being called. For example, `Microsoft.Storage` for Azure Storage. [8] | `Microsoft.Storage`; `Microsoft.KeyVault`; `Microsoft.ServiceBus` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.resource_provider.namespace`. |
 | [`az.service_request_id`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/azure.md) | string | Unique identifier for the response returned by the service in response to a request attempt. [9] | `00000000-0000-0000-0000-000000000000` | `Recommended` | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Replaced by `azure.service.request.id`. |
-| [`http.request.resend_count`](/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` [11] | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
-| [`server.port`](/docs/registry/attributes/server.md) | int | Server port number. [12] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`http.request.resend_count`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/http.md) | int | The ordinal number of request resending attempt (for any reason, including redirects). [10] | `3` | `Recommended` [11] | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
+| [`server.port`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/server.md) | int | Server port number. [12] | `80`; `8080`; `443` | `Recommended` | ![Stable](https://img.shields.io/badge/-stable-lightgreen) |
 
 **[1] `http.request.method`:** HTTP request method value SHOULD be "known" to the instrumentation.
 By default, this convention defines "known" methods as the ones listed in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-methods)
@@ -326,9 +326,9 @@ In all other cases, `server.port` SHOULD match the port component of the
 The following attributes can be important for making sampling decisions
 and SHOULD be provided **at span creation time** (if provided at all):
 
-* [`http.request.method`](/docs/registry/attributes/http.md)
-* [`server.address`](/docs/registry/attributes/server.md)
-* [`server.port`](/docs/registry/attributes/server.md)
+* [`http.request.method`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/http.md)
+* [`server.address`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/server.md)
+* [`server.port`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/server.md)
 
 ---
 
