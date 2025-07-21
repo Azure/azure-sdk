@@ -40,4 +40,19 @@ entries:
 
     - Added a direct dependency on org.apache.commons:commons-lang3
   GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.16
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.16/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.16.2` to version `1.16.3`.
+    - Updated `msal4j` from `1.21.0` to version `1.22.0`.
+  GroupId: com.azure
 
