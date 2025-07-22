@@ -61,4 +61,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed bug where the scan will continue scanning AzureWebJobsStorage even when configuring a target storage account
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.0/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
 
