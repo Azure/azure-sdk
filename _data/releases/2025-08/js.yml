@@ -1,0 +1,20 @@
+entries:
+- Name: '@azure/ai-agents'
+  Version: 1.1.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0-beta.1/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add MCP tool
+    - Add Deep Research tool
+    - Add Deep Research sample
+    - Add back agent tool `SharepointGroundingTool`, `BingCustomSearchTool`, `MicrosoftFabricTool`, `SharepointTool`
+
+    #### Breaking changes
+
+    - The `DeepResearchDetails` type has been updated: the field `deepResearchBingGroundingConnections` has been renamed to `bingGroundingConnections` and the field `deepResearchModel` has been renamed to `model`.
+
