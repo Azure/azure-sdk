@@ -45,7 +45,7 @@ Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.Mixed
 Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,false,1,09/17/2021
 Communication,0,Calling Server,data,.NET,,,11,false,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
 Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.CodeTransparency,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,3,false,1,
-Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
+Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,07/23/2025
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/18/2023
@@ -898,6 +898,7 @@ Storage,0,Resource Management - Storage Import/Export,mgmt,Go,,,11,false,sdk/res
 Storage,0,Resource Management - Storage Mover,mgmt,Go,,,11,false,sdk/resourcemanager/storagemover/armstoragemover,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagemover/armstoragemover,10,false,1,06/21/2024
 Storage,0,Resource Management - Storage Pool,mgmt,Go,,,11,false,sdk/resourcemanager/storagepool/armstoragepool,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagepool/armstoragepool,10,false,1,11/24/2023
 Storage,0,Resource Management - Storage Sync,mgmt,Go,,,11,false,sdk/resourcemanager/storagesync/armstoragesync,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagesync/armstoragesync,10,false,1,11/24/2023
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Go,,,11,false,sdk/resourcemanager/storagediscovery/armstoragediscovery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagediscovery/armstoragediscovery,3,false,1,
 StorSimple 1200 series,0,Resource Management - StorSimple 1200 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple1200series/armstorsimple1200series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple1200series/armstorsimple1200series,10,true,1,11/24/2023
 StorSimple 8000 series,0,Resource Management - StorSimple 8000 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple8000series/armstorsimple8000series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple8000series/armstorsimple8000series,10,true,1,11/24/2023
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/streamanalytics/armstreamanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/streamanalytics/armstreamanalytics,10,false,1,11/24/2023
@@ -2130,6 +2131,7 @@ Storage,0,Resource Management - Storage Import/Export,mgmt,Python,,,11,false,azu
 Storage,0,Resource Management - Storage Mover,mgmt,Python,,,11,false,azure-mgmt-storagemover,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagemover,10,false,1,06/18/2024
 Storage,0,Resource Management - Storage Pool,mgmt,Python,,,11,false,azure-mgmt-storagepool,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagepool,10,false,1,10/14/2021
 Storage,0,Resource Management - Storage Sync,mgmt,Python,,,11,false,azure-mgmt-storagesync,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,04/08/2021
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Python,,,11,false,azure-mgmt-storagediscovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagediscovery,3,false,1,
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Python,,,11,false,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics,10,false,1,01/06/2022
 Subscriptions,0,Resource Management - Subscriptions,mgmt,Python,,,11,false,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/subscription,10,false,1,09/06/2022
 Support,0,Resource Management - Support,mgmt,Python,,,11,false,azure-mgmt-support,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/support,10,false,1,04/24/2024
@@ -4070,11 +4072,11 @@ DeveloperHub,0,Resource Management - DeveloperHub,mgmt,Java,,,11,false,Missing: 
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,Python,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
 DeveloperHub,0,Resource Management - DeveloperHub,mgmt,Go,,,11,false,Missing: Created from API in specs repo: developerhub/resource-manager,,2,false,0,
-IoT,0,Resource Management - Deviceprovisioningservices.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/Deviceprovisioningservices.Management,,2,false,0,
-IoT,0,Resource Management - Deviceprovisioningservices.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/Deviceprovisioningservices.Management,,2,false,0,
-IoT,0,Resource Management - Deviceprovisioningservices.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/Deviceprovisioningservices.Management,,2,false,0,
-IoT,0,Resource Management - Deviceprovisioningservices.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/Deviceprovisioningservices.Management,,2,false,0,
-IoT,0,Resource Management - Deviceprovisioningservices.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/Deviceprovisioningservices.Management,,2,false,0,
+IoT,0,Resource Management - DeviceProvisioningServices.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/DeviceProvisioningServices.Management,,2,false,0,
+IoT,0,Resource Management - DeviceProvisioningServices.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/DeviceProvisioningServices.Management,,2,false,0,
+IoT,0,Resource Management - DeviceProvisioningServices.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/DeviceProvisioningServices.Management,,2,false,0,
+IoT,0,Resource Management - DeviceProvisioningServices.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/DeviceProvisioningServices.Management,,2,false,0,
+IoT,0,Resource Management - DeviceProvisioningServices.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/DeviceProvisioningServices.Management,,2,false,0,
 IoT,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/cspell.yaml,,2,false,0,
 IoT,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/cspell.yaml,,2,false,0,
 IoT,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: deviceprovisioningservices/cspell.yaml,,2,false,0,
