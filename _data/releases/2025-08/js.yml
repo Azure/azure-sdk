@@ -64,4 +64,16 @@ entries:
     - **API Surface Changes:**
     - Updated all API operation parameter interfaces to use the new `*Options` types.
     - Updated all output and response types to use the new output model types.
+- Name: '@azure/ai-agents'
+  Version: 1.1.0-beta.2
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0-beta.2/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed [Github issue](https://github.com/Azure/azure-sdk-for-js/issues/35203) with `messages.create` method type error when upload image file.
+    - Fixed [Github issue](https://github.com/Azure/azure-sdk-for-js/issues/34885) with `runs.create` method deserialization of stream event data.
 
