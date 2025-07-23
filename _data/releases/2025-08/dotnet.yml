@@ -81,4 +81,15 @@ entries:
     - Adds support for mobile number types
     - mobile numbers are location associated phone numbers with SMS capabilities
     - API version `2025-06-01` is the default.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue when using the event processor connect call result for the `CallConnected` event, which was not being returned correctly.
 
