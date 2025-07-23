@@ -14,7 +14,7 @@ To install the packages, copy and paste the following commands into a terminal:
 {%- capture install_instructions -%}
 {% for package in allPackagesSortedByName %}
     {%- capture install_instruction -%}
-    $> vcpkg install {{ package.Name }}-cpp
+    $> vcpkg add port {{ package.Name }}-cpp
     {%- endcapture -%}
     {{ install_instruction }}
 {% endfor %}
