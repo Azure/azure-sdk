@@ -86,4 +86,48 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagediscovery/armstoragediscovery/v0.1.0/sdk/resourcemanager/storagediscovery/armstoragediscovery/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.5.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.2/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
+- Name: sdk/resourcemanager/resources/armdeploymentstacks
+  Version: 1.0.1
+  DisplayName: Resource Management - Deployment Stacks
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeploymentstacks/v1.0.1/sdk/resourcemanager/resources/armdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resources/armdeployments
+  Version: 0.1.0
+  DisplayName: Resource Management - Deployments
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeployments/v0.1.0/sdk/resourcemanager/resources/armdeployments/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.6.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.2/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 7.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v7.0.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
 
