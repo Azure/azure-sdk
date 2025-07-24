@@ -68,4 +68,31 @@ entries:
     - mobile numbers are location associated phone numbers with SMS capabilities
     - API version `2025-06-01` is the default.
   GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.2.11
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.2.11/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.15.12` to version `1.15.13`.
+    - Upgraded `azure-core` from `1.55.4` to version `1.55.5`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.10.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.10.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added functionality to resume proxy handshake on a new connection if the challenge response closes the existing connection. ([45698](https://github.com/Azure/azure-sdk-for-java/pull/45698)) ([69](https://github.com/Azure/qpid-proton-j-extensions/pull/69))
+  GroupId: com.azure
 
