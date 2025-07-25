@@ -92,4 +92,41 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue when using the event processor connect call result for the `CallConnected` event, which was not being returned correctly.
+- Name: Azure.AI.Language.Conversations.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Conversations Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Conversations Authoring API Versions
+    - 2025-05-15-preview
+    - Added `DataGenerationSettings` in `TrainingJobDetails` when training a model.
+    - Added corresponding test and sample.
+    - Added `DataGenerationConnectionInfo` in `DeploymentResource` when deploying a model.
+    - Added corresponding test and sample.
+    - Added `ExportedAssociatedEntityLabel` in `ConversationExportedIntent` when importing a project.
+    - Added corresponding test and sample.
+- Name: Azure.AI.Language.Text.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Text Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Custom Text Authoring API Versions
+    - 2025-05-15-preview
+
+    #### Bugs Fixed
+
+    - Merged TextAuthoringUnassignDeploymentResourcesState and TextAuthoringAssignDeploymentResourcesState into one class TextAuthoringDeploymentResourcesState
+    - Fixed "azureOpenAI" to "AzureOpenAI" for DataGenerationConnectionInfoKind
 
