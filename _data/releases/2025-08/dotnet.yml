@@ -1,0 +1,162 @@
+entries:
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.0
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.0/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.0
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.0/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.0
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.0/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.5
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.5/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - This release contains bug fixes to improve quality.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.5
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.5/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where the scan will continue scanning AzureWebJobsStorage even when configuring a target storage account
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.0/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.5.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.5.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for mobile number types
+    - mobile numbers are location associated phone numbers with SMS capabilities
+    - API version `2025-06-01` is the default.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue when using the event processor connect call result for the `CallConnected` event, which was not being returned correctly.
+- Name: Azure.AI.Language.Conversations.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Conversations Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Conversations Authoring API Versions
+    - 2025-05-15-preview
+    - Added `DataGenerationSettings` in `TrainingJobDetails` when training a model.
+    - Added corresponding test and sample.
+    - Added `DataGenerationConnectionInfo` in `DeploymentResource` when deploying a model.
+    - Added corresponding test and sample.
+    - Added `ExportedAssociatedEntityLabel` in `ConversationExportedIntent` when importing a project.
+    - Added corresponding test and sample.
+- Name: Azure.AI.Language.Text.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Text Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Custom Text Authoring API Versions
+    - 2025-05-15-preview
+
+    #### Bugs Fixed
+
+    - Merged TextAuthoringUnassignDeploymentResourcesState and TextAuthoringAssignDeploymentResourcesState into one class TextAuthoringDeploymentResourcesState
+    - Fixed "azureOpenAI" to "AzureOpenAI" for DataGenerationConnectionInfoKind
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.1/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.1.0
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Tracing for Agents. More information [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Agents.Persistent/README.md#tracing).
+    - Added `include` parameter to `CreateRunStreaming` and `CreateRunStreamingAsync`.
+    - Added `tool_resources` parameter to `CreateRun` and `CreateRunAsync`
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.1
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the [issue](https://github.com/Azure/azure-sdk-for-net/issues/51342) with ignoring `after` parameter when getting pageable lists.
+
