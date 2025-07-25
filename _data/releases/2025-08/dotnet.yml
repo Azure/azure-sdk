@@ -149,4 +149,14 @@ entries:
     - Tracing for Agents. More information [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Agents.Persistent/README.md#tracing).
     - Added `include` parameter to `CreateRunStreaming` and `CreateRunStreamingAsync`.
     - Added `tool_resources` parameter to `CreateRun` and `CreateRunAsync`
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.1
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the [issue](https://github.com/Azure/azure-sdk-for-net/issues/51342) with ignoring `after` parameter when getting pageable lists.
 
