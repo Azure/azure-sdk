@@ -282,4 +282,4 @@ OAuth token authentication, obtained via Managed Identities or Azure Identity, i
 [Transient fault handling]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [OpenTelemetry]: https://opentelemetry.io/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[Tracing Conventions]: {{ site.baseurl }}{% link docs/tracing/distributed-tracing-conventions.md %}
+[Tracing Conventions]: {{ site.baseurl }}{% link docs/observability/opentelemetry-conventions.md %}
