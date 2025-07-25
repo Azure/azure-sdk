@@ -129,4 +129,24 @@ entries:
 
     - Merged TextAuthoringUnassignDeploymentResourcesState and TextAuthoringAssignDeploymentResourcesState into one class TextAuthoringDeploymentResourcesState
     - Fixed "azureOpenAI" to "AzureOpenAI" for DataGenerationConnectionInfoKind
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.1/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.1.0
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Tracing for Agents. More information [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Agents.Persistent/README.md#tracing).
+    - Added `include` parameter to `CreateRunStreaming` and `CreateRunStreamingAsync`.
+    - Added `tool_resources` parameter to `CreateRun` and `CreateRunAsync`
 
