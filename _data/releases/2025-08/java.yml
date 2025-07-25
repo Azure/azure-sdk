@@ -95,4 +95,26 @@ entries:
 
     - Added functionality to resume proxy handshake on a new connection if the challenge response closes the existing connection. ([45698](https://github.com/Azure/azure-sdk-for-java/pull/45698)) ([69](https://github.com/Azure/qpid-proton-j-extensions/pull/69))
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.73.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.73.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where child partition lease is getting created with null continuation token when change feed processor restart after split - See [PR 46075](https://github.com/Azure/azure-sdk-for-java/pull/46075)
+  GroupId: com.azure
+- Name: azure-cosmos-test
+  Version: 1.0.0-beta.13
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-test_1.0.0-beta.13/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for `FaultInjectionServerErrorType.LEASE_NOT_FOUND` - See [PR 46071](https://github.com/Azure/azure-sdk-for-java/pull/46071)
+  GroupId: com.azure
 
