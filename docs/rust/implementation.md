@@ -253,35 +253,6 @@ pub struct ExtraModel {
 
 ## Miscellaneous {#rust-miscellaneous}
 
-### Enum Naming Patterns {#rust-miscellaneous-enum-naming}
-
-When generating Rust code from service specifications (such as TypeSpec), enum variant names must be transformed to follow Rust's PascalCase naming convention. This is particularly important when the source specification contains enum values with hyphens, dashes, or other separators.
-
-{% include requirement/MUST id="rust-miscellaneous-enum-naming-transform" %} transform enum variant names containing hyphens or dashes to PascalCase by capitalizing each segment.
-
-For example:
-- `"multi-word-value"` becomes `MultiWordValue`
-- `"another_value"` becomes `AnotherValue`
-- `"simple-name"` becomes `SimpleName`
-- `"UPPERCASE-VALUE"` becomes `UppercaseValue`
-
-{% include requirement/MUST id="rust-miscellaneous-enum-naming-serde" %} use `#[serde(rename = "original-name")]` attributes to preserve the original wire format when serializing/deserializing.
-
-```rust
-#[derive(Clone, SafeDebug, Eq, PartialEq, Deserialize, Serialize)]
-#[non_exhaustive]
-pub enum ExampleEnum {
-    #[serde(rename = "multi-word-value")]
-    MultiWordValue,
-    #[serde(rename = "another_value")]
-    AnotherValue,
-    #[serde(rename = "simple-name")]
-    SimpleName,
-}
-```
-
-This ensures that the Rust code follows idiomatic naming conventions while maintaining compatibility with the service's wire format.
-
 ### Spelling {#rust-miscellaneous-spelling}
 
 {% include requirement/SHOULD id="rust-miscellaneous-spelling-general" %} put general words used across different services and client libraries in the `.vscode/cspell.json` file.
