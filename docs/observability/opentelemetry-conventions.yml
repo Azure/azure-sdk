@@ -13,6 +13,10 @@ groups:
 
           Azure client libraries and core implementations that populate it, SHOULD keep populating it
           for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
+
+          The attribute MAY also be populated when using non-OpenTelemetry tracing
+          or metrics implementations that do not support setting SchemaURL as a
+          dedicated argument.
         deprecated:
           reason: obsoleted
         type: string
@@ -96,6 +100,9 @@ groups:
       When a client method creates a new span and internally calls into other public client methods of
       the same or different Azure client library, spans created for inner client methods are suppressed by
       Azure Core implementation. See [Distributed tracing policy] for the details.
+
+      **Span duration:** SHOULD cover the full duration of the method call and, when possible,
+      SHOULD include input argument validation and (de)serialization of the request and response.
     attributes:
       - ref: az.namespace
         brief: >
@@ -173,7 +180,8 @@ groups:
         requirement_level: required
       - ref: http.request.resend_count
         requirement_level:
-          recommended: if and only if the request was retried or redirected.
+          recommended: >
+            if and only if the request was retried or redirected (i.e. if the value is greater than 0).
       - ref: server.address
         sampling_relevant: true
         requirement_level: required

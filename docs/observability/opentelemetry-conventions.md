@@ -148,6 +148,9 @@ When a client method creates a new span and internally calls into other public c
 the same or different Azure client library, spans created for inner client methods are suppressed by
 Azure Core implementation. See [Distributed tracing policy] for the details.
 
+**Span duration:** SHOULD cover the full duration of the method call and, when possible,
+SHOULD include input argument validation and (de)serialization of the request and response.
+
 | Attribute  | Type | Description  | Examples  | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Stability |
 |---|---|---|---|---|---|
 | [`az.schema_url`](https://github.com/open-telemetry/semantic-conventions/tree/v1.36.0/docs/registry/attributes/azure.md) | string | OpenTelemetry Schema URL including schema version [1] | `https://opentelemetry.io/schemas/1.23.0` | `Conditionally Required` [2] | ![Deprecated](https://img.shields.io/badge/-deprecated-red)<br>Obsoleted. |
@@ -156,6 +159,7 @@ Azure Core implementation. See [Distributed tracing policy] for the details.
 
 **[1] `az.schema_url`:** This attribute is deprecated in favor of a SchemaURL argument provided when creating OpenTelemetry tracers or meters.
 Azure client libraries and core implementations that populate it, SHOULD keep populating it for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
+The attribute MAY also be populated when using non-OpenTelemetry tracing or metrics implementations that do not support setting SchemaURL as a dedicated argument.
 
 **[2] `az.schema_url`:** if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
 
@@ -293,6 +297,7 @@ across distributed tracing and logging.
 
 **[5] `az.schema_url`:** This attribute is deprecated in favor of a SchemaURL argument provided when creating OpenTelemetry tracers or meters.
 Azure client libraries and core implementations that populate it, SHOULD keep populating it for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
+The attribute MAY also be populated when using non-OpenTelemetry tracing or metrics implementations that do not support setting SchemaURL as a dedicated argument.
 
 **[6] `az.schema_url`:** if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
 
@@ -314,7 +319,7 @@ This attribute SHOULD be set according to the client library's best knowledge an
 
 **[10] `http.request.resend_count`:** The resend count SHOULD be updated each time an HTTP request gets resent by the client, regardless of what was the cause of the resending (e.g. redirection, authorization failure, 503 Server Unavailable, network issues, or any other).
 
-**[11] `http.request.resend_count`:** if and only if the request was retried or redirected.
+**[11] `http.request.resend_count`:** if and only if the request was retried or redirected (i.e. if the value is greater than 0).
 
 **[12] `server.port`:** In the case of HTTP/1.1, when the [request target](https://www.rfc-editor.org/rfc/rfc9112.html#name-request-target)
 is passed in its [absolute-form](https://www.rfc-editor.org/rfc/rfc9112.html#section-3.2.2),
