@@ -1,0 +1,260 @@
+groups:
+  - id: azure.sdk
+    brief: Azure client library attributes
+    type: attribute_group
+    attributes:
+      - id: az.schema_url
+        requirement_level:
+          conditionally_required: if and only if OpenTelemetry in a given language doesn't provide a standard way to set `SchemaURL` (.NET)
+        stability: stable
+        note: >
+          This attribute is deprecated in favor of a SchemaURL argument provided
+          when creating OpenTelemetry tracers or meters.
+
+          Azure client libraries and core implementations that populate it, SHOULD keep populating it
+          for backward compatibility, but it is NOT RECOMMENDED to use it in new code.
+
+          The attribute MAY also be populated when using non-OpenTelemetry tracing
+          or metrics implementations that do not support setting SchemaURL as a
+          dedicated argument.
+        deprecated:
+          reason: obsoleted
+        type: string
+        brief: OpenTelemetry Schema URL including schema version
+        examples: ['https://opentelemetry.io/schemas/1.23.0']
+      - id: az.client_request_id
+        type: string
+        stability: stable
+        requirement_level:
+          conditionally_required: if available.
+        brief: Unique identifier for the request sent by the client which stays the same if the request is retried.
+        deprecated:
+          reason: renamed
+          renamed_to: azure.client.request.id
+        note: |
+          It is the value of the `x-ms-client-request-id` (or similar,
+          depending on the service) request header.
+
+          This attribute is deprecated in favor of `azure.client.request.id`,
+          but it is still RECOMMENDED to be used until `azure.client.request.id`
+          becomes stable in the OpenTelemetry Semantic Conventions.
+
+        examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
+
+      - id: azure.client.request.id
+        type: string
+        stability: development
+        requirement_level:
+          conditionally_required: if available.
+        brief: Unique identifier for the request sent by the client which stays the same if the request is retried.
+        note: >
+          It is the value of the `x-ms-client-request-id` (or similar,
+          depending on the service) request header.
+
+        examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
+  # public API (logical calls)
+  - id: azure.sdk.api
+    type: span
+    stability: stable
+    span_kind: internal
+    brief: Describes Azure client library service method call - a public API
+      that involves communication with Azure services.
+    note: |
+      In cases where OpenTelemetry defines semantic convention for a given area
+      (for example, messaging, database or GenAI), the standard OpenTelemetry
+      name SHOULD be used instead of the generic ones defined in this section.
+
+      **Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern
+      following the corresponding operation definition in TypeSpec. When an interface
+      is not defined, the name SHOULD be `{Namespace}.{MethodName}`. This pattern matches
+      the operation's `crossLanguageDefinitionId` in the generated TypeSpec code model.
+
+      The span name SHOULD be consistent across all languages.
+
+      > [!NOTE]
+      >
+      > The previous version of this document recommended using the
+      > `{client.method}` pattern for span names matching language-specific
+      > public API called by the application code.
+      >
+      > This recommendation is now deprecated in favor of the `{Namespace}.{Interface}.{OperationName}`
+      > pattern.
+      > Azure code generators and client libraries SHOULD use the new pattern
+      > as long as it does not introduce breaking changes to existing stable libraries
+      > and SHOULD use the old pattern only for backward compatibility.
+
+      **Span kind** SHOULD be `INTERNAL`.
+
+      **Span status:** MUST be left unset if the API call was successful.
+      If the API call failed with an error or exception, span status SHOULD be set to `Error`.
+
+      Span status description SHOULD be set to the error or exception message.
+
+      Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/recording-errors.md)
+      document for general considerations on how to record span status.
+
+      Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record them using logging.
+
+      When a client method creates a new span and internally calls into other public client methods of
+      the same or different Azure client library, spans created for inner client methods are suppressed by
+      Azure Core implementation. See [Distributed tracing policy] for the details.
+
+      **Span duration:** SHOULD cover the full duration of the method call and, when possible,
+      SHOULD include input argument validation and (de)serialization of the request and response.
+    attributes:
+      - ref: az.namespace
+        brief: >
+          The [Azure Resource Provider Namespace](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers)
+          for the service being called. For example, `Microsoft.Storage` for Azure Storage.
+        note: >
+          This attribute is deprecated in favor of `azure.resource_provider.namespace`,
+          but it is still RECOMMENDED to be used until `azure.resource_provider.namespace`
+          becomes stable in the OpenTelemetry Semantic Conventions.
+      - ref: az.schema_url
+      - ref: error.type
+        examples: ['java.net.UnknownHostException', 'System.Threading.Tasks.OperationCanceledException', 'azure.core.exceptions.ServiceRequestError']
+        requirement_level:
+          conditionally_required: if and only if an error occurred.
+        note: |
+          This attribute SHOULD be set if an error occurred during the API call and
+          the method returns an error or throws an exception.
+
+          If Azure service defines a set of error types, it is RECOMMENDED to use
+          the service-defined fully qualified service error type as the value of
+          this attribute.
+
+          When there is no service-defined error type, it is RECOMMENDED to use
+          the fully qualified type of the exception or error thrown by the client library.
+
+  # HTTP spans
+  - id: azure.sdk.http
+    type: span
+    span_kind: client
+    stability: stable
+    brief: >
+      This span represents an outbound HTTP request. Azure client libraries implement a valid
+      subset of [OpenTelemetry HTTP client span conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md).
+    note: |
+      The instrumentations SHOULD create an HTTP span for each attempt and redirect
+      when sending an HTTP request over the wire.
+
+      **Span name:** SHOULD be {http.request.method}.
+
+      **Span kind** MUST be `CLIENT`.
+
+      **Span status:** MUST be left unset if HTTP status code was in the 1xx, 2xx or
+      3xx ranges, unless there was another error (e.g., network error receiving the
+      response body; or 3xx codes with max redirects exceeded), in which case status
+      MUST be set to `Error`.
+
+      For HTTP status codes in the 4xx or 5xx range as well as any other code the
+      client failed to interpret, span status SHOULD be set to `Error`.
+
+      > [!Note]
+      > The classification of an HTTP status code as an error depends on the context.
+      > For example, a 404 "Not Found" status code indicates an error if the application
+      > expected the resource to be available. However, it is not an error when
+      > the application is simply checking whether the resource exists.
+      >
+      > Instrumentations that have additional context about a specific request MAY
+      > use this context to set the span status more precisely.
+      > Instrumentations that don't have any additional context MUST follow the
+      > guidelines in this section.
+
+      Don't set the span status description if the reason can be inferred from
+      `http.response.status_code`.
+
+      An HTTP request may fail if it was cancelled or an error occurred preventing
+      the client or server from sending/receiving the request/response fully.
+
+      When an instrumentation detects such errors it SHOULD set span status to `Error`
+      and SHOULD set the `error.type` attribute.
+
+      Azure client libraries SHOULD NOT record exceptions on spans and SHOULD record
+      them in logging.
+    attributes:
+      - ref: http.request.method
+        sampling_relevant: true
+        requirement_level: required
+      - ref: http.request.resend_count
+        requirement_level:
+          recommended: >
+            if and only if the request was retried or redirected (i.e. if the value is greater than 0).
+      - ref: server.address
+        sampling_relevant: true
+        requirement_level: required
+        note: |
+          In HTTP/1.1, when the [request target](https://www.rfc-editor.org/rfc/rfc9112.html#name-request-target)
+          is passed in its [absolute-form](https://www.rfc-editor.org/rfc/rfc9112.html#section-3.2.2),
+          the `server.address` SHOULD match the host component of the request target.
+
+          In all other cases, `server.address` SHOULD match the host component of the
+          `Host` header in HTTP/1.1 or the `:authority` pseudo-header in HTTP/2 and HTTP/3.
+
+      - ref: server.port
+        sampling_relevant: true
+        requirement_level: recommended
+        note: |
+          In the case of HTTP/1.1, when the [request target](https://www.rfc-editor.org/rfc/rfc9112.html#name-request-target)
+          is passed in its [absolute-form](https://www.rfc-editor.org/rfc/rfc9112.html#section-3.2.2),
+          the `server.port` SHOULD match the port component of the request target.
+
+          In all other cases, `server.port` SHOULD match the port component of the
+          `Host` header in HTTP/1.1 or the `:authority` pseudo-header in HTTP/2 and HTTP/3.
+      - ref: url.full
+        requirement_level: required
+        note: |
+          For network calls, URL usually has `scheme://host[:port][path][?query][#fragment]` format, where the fragment
+          is not transmitted over HTTP, but if it is known, it SHOULD be included nevertheless.
+
+          `url.full` MUST NOT contain credentials passed via URL in form of `https://username:password@www.example.com/`.
+          In such cases username and password SHOULD be redacted and attribute's value SHOULD be `https://REDACTED:REDACTED@www.example.com/`.
+
+          `url.full` SHOULD capture the absolute URL when it is available (or can be reconstructed).
+
+          Sensitive content provided in `url.full` SHOULD be scrubbed when instrumentations can identify it.
+          Azure client libraries SHOULD redact sensitive content in `url.full` by default consistently
+          across distributed tracing and logging.
+      - ref: az.client_request_id
+        note: >
+          This attribute is deprecated in favor of `azure.client.request.id`,
+          but it is still RECOMMENDED to be used until `azure.client.request.id`
+          becomes stable in the OpenTelemetry Semantic Conventions.
+
+      - ref: az.service_request_id
+        brief: >
+          Unique identifier for the response returned by the service in response to
+          a request attempt.
+        note: >
+          This attribute is deprecated in favor of `azure.service.request.id`,
+          but it is still RECOMMENDED to be used until `azure.service.request.id`
+          becomes stable in the OpenTelemetry Semantic Conventions.
+      - ref: az.namespace
+        brief: >
+          The [Azure Resource Provider Namespace](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers)
+          for the service being called. For example, `Microsoft.Storage` for Azure Storage.
+        note: >
+          This attribute is deprecated in favor of `azure.resource_provider.namespace`,
+          but it is still RECOMMENDED to be used until `azure.resource_provider.namespace`
+          becomes stable in the OpenTelemetry Semantic Conventions.
+
+          This attribute SHOULD be set according to the client library's best knowledge
+          and may not match the actual service being called.
+      - ref: az.schema_url
+      - ref: http.response.status_code
+        requirement_level:
+          conditionally_required: If and only if one was received/sent.
+      - ref: error.type
+        requirement_level:
+          conditionally_required: If and only if an error occurred.
+        note: |
+          If the request fails with an error before a response status code was received,
+          `error.type` SHOULD be set to an exception type (its fully-qualified class name, if applicable)
+          or a component-specific low cardinality error identifier.
+
+          If response status code was sent or received and status indicates an
+          error according to [HTTP span status definition](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md),
+          `error.type` SHOULD be set to the status code number (represented as a string),
+          an exception type (if thrown) or a component-specific error identifier.
+
+          If the request has completed successfully, instrumentations SHOULD NOT set `error.type`.
