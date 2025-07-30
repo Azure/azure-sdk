@@ -65,11 +65,9 @@ groups:
       name SHOULD be used instead of the generic ones defined in this section.
 
       **Span name** SHOULD match the `{Namespace}.{Interface}.{OperationName}` pattern
-      following the corresponding operation definition in Typespec. When an interface
-      is not defined, the name SHOULD be `{Namespace}.{MethodName}`.
-
-      The span name matches `crossLanguageDefinitionId` in the generated Typespec
-      code model.
+      following the corresponding operation definition in TypeSpec. When an interface
+      is not defined, the name SHOULD be `{Namespace}.{MethodName}`. This pattern matches
+      the operation's `crossLanguageDefinitionId` in the generated TypeSpec code model.
 
       The span name SHOULD be consistent across all languages.
 
