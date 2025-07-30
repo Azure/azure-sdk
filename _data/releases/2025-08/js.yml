@@ -255,4 +255,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-query-logs'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-logs_1.0.0/sdk/monitor/monitor-query-logs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `@azure/monitor-query-logs` package
+    - This package contains the logs querying functionality split from `@azure/monitor-query`
+    - Provides `LogsQueryClient` for querying Azure Monitor Logs using KQL (Kusto Query Language)
+    - Supports querying Azure Log Analytics workspaces and resource-centric queries
+    - Includes batch query capabilities for multiple queries
 
