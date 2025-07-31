@@ -1156,4 +1156,15 @@ entries:
     - Upgraded `azure-core` from `1.55.4` to version `1.55.5`.
     - Upgraded `azure-core-http-netty` from `1.15.12` to version `1.15.13`.
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.4.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.4.0-beta.2/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for SIP routing API version `2024-11-15-preview` which includes new trunk settings.
+  GroupId: com.azure
 
