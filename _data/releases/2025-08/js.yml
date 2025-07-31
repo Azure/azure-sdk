@@ -281,4 +281,17 @@ entries:
     #### Features Added
 
     - Added support for SIP routing API version `2024-11-15-preview` which includes new advanced trunk settings.
+- Name: '@azure/monitor-query-metrics'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-metrics_1.0.0/sdk/monitor/monitor-query-metrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `@azure/monitor-query-metrics` package
+    - This package contains the metrics querying functionality split from `@azure/monitor-query`
+    - Provides `MetricsClient` for querying Azure Monitor Metrics
 
