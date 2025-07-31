@@ -270,4 +270,15 @@ entries:
     - Provides `LogsQueryClient` for querying Azure Monitor Logs using KQL (Kusto Query Language)
     - Supports querying Azure Log Analytics workspaces and resource-centric queries
     - Includes batch query capabilities for multiple queries
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.5.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.5.0-beta.2/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for SIP routing API version `2024-11-15-preview` which includes new advanced trunk settings.
 
