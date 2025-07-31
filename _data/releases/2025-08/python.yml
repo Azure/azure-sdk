@@ -218,4 +218,27 @@ entries:
     - The `MetricsClient` has been moved to the new `azure-monitor-querymetrics` package.
     - Functionality provided by `MetricsQueryClient` can be access through the `azure-mgmt-monitor` package.
     - For more details, see the [migration guide](https://aka.ms/azsdk/python/monitor/query/migration).
+- Name: azure-ai-projects
+  Version: 1.0.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    * Features that are still in preview were removed from this stable release. This includes:
+    * Evaluation operations (property `.evaluations`)
+    * Red-Team operations (property `.red_teams`)
+    * Class `PromptTemplate`.
+    * Package function `enable_telemetry()`
+    * Classes were renamed:
+    * Class `Sku` was renamed `ModelDeploymentSku`
+    * Class `SasCredential` was renamed `BlobReferenceSasCredential`
+    * Class `AssetCredentialResponse` was renamed `DatasetCredential`
+    * Method `.inference.get_azure_openai_client()` was renamed `.get_openai_client()`. The `.inference` property was removed.
+    The method is documented as returning an object of type `OpenAI`, but it still returns an object of the derived type `AzureOpenAI`.
+    The function implementation has not changed.
+    * Method `.telemetry.get_connection_string()` was renamed `.telemetry.get_application_insights_connection_string()`
 
