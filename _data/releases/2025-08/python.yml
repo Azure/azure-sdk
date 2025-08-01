@@ -290,4 +290,15 @@ entries:
     - Added `attack_success_thresholds` parameter to `RedTeam` class for configuring custom thresholds that determine attack success. This allows users to set specific threshold values for each risk category, with scores greater than the threshold considered successful attacks (i.e. higher threshold means higher
     tolerance for harmful responses).
     - Enhanced threshold reporting in RedTeam results to include default threshold values when custom thresholds aren't specified, providing better transparency about the evaluation criteria used.
+- Name: azure-ai-projects
+  Version: 1.1.0b1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.1.0b1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * Added methods `cancel` and `delete` to Evaluations.
 
