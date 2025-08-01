@@ -1200,4 +1200,15 @@ entries:
     #### Features Added
     * Added telemetry support by adding OTEL span attribute naming schemes, introducing Azure Monitor integration, and sampled diagnostics. - See [PR 45924](https://github.com/Azure/azure-sdk-for-java/pull/45924)
   GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-kafka-connect
+  Version: 2.5.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_2.5.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Added more logs in `CosmosSourceTask` and `CosmosSinkTask` - See [PR 46224](https://github.com/Azure/azure-sdk-for-java/pull/46224)
+  GroupId: com.azure.cosmos.kafka
 
