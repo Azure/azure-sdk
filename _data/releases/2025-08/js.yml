@@ -294,4 +294,20 @@ entries:
     - Initial release of `@azure/monitor-query-metrics` package
     - This package contains the metrics querying functionality split from `@azure/monitor-query`
     - Provides `MetricsClient` for querying Azure Monitor Metrics
+- Name: '@azure/ai-agents'
+  Version: 1.1.0
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - Features that are still in preview were removed from this stable release. This includes
+    - Remove MCP tool
+    - Remove Deep Research tool
+    - Remove Sharepoint tool
+    - Remove BingCustomSearch tool
+    - Remove MicrosoftFabric tool
 
