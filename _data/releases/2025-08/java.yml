@@ -1269,4 +1269,19 @@ entries:
     - Fix null exception message error ([#46001](https://github.com/Azure/azure-sdk-for-java/pull/46001))
     - Fix live metrics race condition ([#45944](https://github.com/Azure/azure-sdk-for-java/pull/45944))
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.37
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.37/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+    - Added a new library entries to the BOM:
+    - [azure-monitor-query-metrics](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query-metrics)
+    - [azure-monitor-query-logs](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query-logs)
+  GroupId: com.azure
 
