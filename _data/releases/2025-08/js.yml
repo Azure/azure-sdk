@@ -310,4 +310,42 @@ entries:
     - Remove Sharepoint tool
     - Remove BingCustomSearch tool
     - Remove MicrosoftFabric tool
+- Name: '@azure/identity'
+  Version: 4.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.11.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed deprecation warnings in `AzureCliCredential` and `AzureDeveloperCliCredential`. [#34878](https://github.com/Azure/azure-sdk-for-js/pull/34878)
+    - Fixed an issue where `InteractiveBrowserCredential` did not resolve correctly on Mac OS. [#35406](https://github.com/Azure/azure-sdk-for-js/pull/35406)
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.12.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.12.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add RateLimitedSampler.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.33
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.33/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Track CLIENT_READONLY and CLIENT_TIMEOUT customer statsbeat.
+
+    #### Bugs Fixed
+
+    - Fix auto-detection of RP environment for azure functions.
 
