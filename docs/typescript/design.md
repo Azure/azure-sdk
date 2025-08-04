@@ -31,11 +31,13 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 
 {% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
 
+{% include requirement/SHOULD id="ts-azure-tools-scope" %} consider publishing to the `@azure-tools` npm scope when your libraries are not intended for general customers to interact with Azure services.
+
 {% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
-{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `next`. If there is no generally available release of this package, it should also be tagged `latest`.
+{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `beta`.
 
-{% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
+{% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`.
 
 {% include requirement/MUST id="ts-npm-package-name-prefix" %} prefix your data plane package names with the kebab-case version of the appropriate namespace from the following table:
 
@@ -52,7 +54,7 @@ The following are examples that do not meet the guidelines:
 * `@microsoft/cosmos` (not in `@azure` scope).
 * `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing stable packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
+{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} follow the casing conventions of any existing stable packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 ## The Client API {#ts-apisurface-serviceclient}
 
@@ -66,7 +68,7 @@ export class ServiceClient {
   constructor(host: string, credential: TokenCredential, options?: ServiceClientOptions);
   constructor(...) { }
 
-  // Service methods. Options take at least an abortSignal.
+  // Service methods. Options should extend from azure core OperationOptions.
   async createItem(options?: CreateItemOptions): CreateItemResponse;
   async deleteItem(options?: DeleteItemOptions): DeleteItemResponse;
 
@@ -146,7 +148,7 @@ class ExampleClient {
 
 {% include requirement/MUST id="ts-service-versions-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the client if multiple service versions are supported.
 
-{% include requirement/MUST id="ts-service-versions-use-client-options" %} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
+{% include requirement/SHOULD id="ts-service-versions-use-client-options" %} consider providing a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
 
 ### Options {#ts-options}
 
@@ -157,29 +159,6 @@ The guidelines in this section apply to options passed in options bags to client
 {% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
 
 {% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
-
-#### Retry-specific Options {#ts-retry-options}
-
-Many services have a notion of retries and have various means to configure them.
-
-{% include requirement/MUST id="ts-use-retry-option-names" %} use the option names specified in the table below
-
-| Option | Values | Usage | Other Names (informational) |
-|--------|-------|------|------|
-| retryMode | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy |
-| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. |
-| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. |
-| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
-| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
-
-TODO: Please add a code sample showing how these fit into a track 2 JS/TS library.
-
-{% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
-
-* `fixed`: retry after some duration, where the duration never changes.
-* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
-
-TODO: Are these implemented by default in Azure Core or does the API designer need to implement these?  If there is no action for the API Designer, let's take this out.
 
 ### Response formats {#ts-responses}
 
@@ -229,15 +208,7 @@ An example:
 // relevant info in headers. Note how the headers are represented
 // in first-class properties with intellisense etc.
 export type ContainerGetPropertiesResponse = ContainerGetPropertiesHeaders & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The parsed HTTP response headers.
-       */
-      parsedHeaders: ContainerGetPropertiesHeaders;
-    };
+   // ...
 };
 
 export interface ContainerGetPropertiesHeaders {
@@ -352,8 +323,6 @@ Promises were added to JavaScript ES2015. ES2016 and later added `async` functio
 
 {% include requirement/SHOULD id="ts-use-async-functions" %} use `async` functions for implementing asynchronous library APIs.
 
-If you need to support ES5 and are concerned with library size, use `async` when combining asynchronous code with control flow constructs.  Use promises for simpler code flows.  `async` adds code bloat (especially when targeting ES5) when transpiled.
-
 {% include requirement/MUST id="ts-use-iterators" %} use [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) and [Async Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) for sequences and streams of all sorts.
 
 Both iterators and async iterators are built into JavaScript and easy to consume. Other streaming interfaces (such as node streams) may be used where appropriate as long as they're idiomatic.
@@ -415,15 +384,15 @@ Your `tsconfig.json` should look similar to the following example:
 {
   "compilerOptions": {
     "declaration": true,
-    "module": "es6",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "./dist-esm",
-    "target": "es6",
+    "outDir": "./dist",
+    "target": "ES2023",
     "sourceMap": true,
     "declarationMap": true,
     "esModuleInterop": true,
@@ -449,9 +418,6 @@ Your `tsconfig.json` should look similar to the following example:
 {% include requirement/MUST id="ts-config-target" %} set `compilerOptions.target`, but it can be any valid value so long as the final source distributions are compatible with the runtimes your library targets. See also [#ts-source-distros].
 
 {% include requirement/MUST id="ts-config-forceConsistentCasingInFileNames" %} set `compilerOptions.forceConsistentCasingInFileNames` to true. `forceConsistentCasingInFileNames` forces TypeScript to treat files as case sensitive, and ensures you don't get surprised by build failures when moving between platforms.
-
-
-{% include requirement/MUST id="ts-config-module" %} set `compilerOptions.module` to `es6`. Use a bundler such as [Rollup](https://rollupjs.org/guide/en/) or [Webpack](https://webpack.js.org/) to produce the CommonJS and UMD builds.
 
 {% include requirement/MUST id="ts-config-moduleResolution" %} set `compilerOptions.moduleResolution` to "node" if your library targets Node. Otherwise, it should be absent.
 
@@ -639,7 +605,7 @@ The following table enumerates the various models you might create:
 
 {% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
 
-* `core-http` for http client, pipeline and related functionality
+* `core-rest-pipeline` for http client, pipeline and related functionality
 * `logger` for logging
 * `core-tracing` for distributed tracing
 * `core-auth` for common auth interfaces
