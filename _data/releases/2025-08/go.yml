@@ -167,4 +167,15 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     * Updated `azcore` version to `1.18.1`
+- Name: sdk/azidentity
+  Version: 1.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.11.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - `DefaultAzureCredential` tries its next credential when a dev tool credential such as
+    `AzureCLICredential` returns an error
 
