@@ -301,4 +301,19 @@ entries:
     #### Features added
 
     * Added methods `cancel` and `delete` to Evaluations.
+- Name: azure-ai-agents
+  Version: 1.1.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.1.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - **Version Lineage Change**: This stable release is based on `1.0.2` and does not include the experimental features that were introduced in the beta versions `1.1.0b1` through `1.1.0b5`. This means that any beta-specific functionality you may have been using is not available in this stable release.
+    - **Migration Path**: If you need to continue using the experimental features from the beta releases, please upgrade to `1.2.0b1` which continues the beta feature development line.
+
+    #### Bugs Fixed
+
+    - `_AgentsClientOperationsMixin` is now private.
 
