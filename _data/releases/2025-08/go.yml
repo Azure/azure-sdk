@@ -157,4 +157,14 @@ entries:
     #### Bugs Fixed
 
     * Fixed a case in which `BearerTokenPolicy` didn't ensure an authentication error is non-retriable
+- Name: sdk/storage/azdatalake
+  Version: 1.4.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.2/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
 
