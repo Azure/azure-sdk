@@ -348,4 +348,15 @@ entries:
     #### Bugs Fixed
 
     - Fix auto-detection of RP environment for azure functions.
+- Name: '@azure/identity-vscode'
+  Version: 2.0.0
+  DisplayName: VS Code Authentication Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.0.0/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    All the features shipped as part of 2.0.0-beta.1 will be GA with this version. The most important feature is providing `vsCodePlugin` compatible with `@azure/identity` v4.11.0.
 
