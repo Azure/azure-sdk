@@ -363,4 +363,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApplicationInsights_1.1.0-beta.1/sdk/applicationinsights/Azure.ResourceManager.ApplicationInsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.Ingestion
+  Version: 1.2.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.2.0/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Added new overloads for `UploadAsync` and `Upload`, enabling callers to upload logs in `BinaryData` form.  This allows for callers to use an AOT-compliant serializer for logs, ensuring the Ingestion package can be trimmed.
 
