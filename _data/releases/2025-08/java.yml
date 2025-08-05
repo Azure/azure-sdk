@@ -1284,4 +1284,30 @@ entries:
     - [azure-monitor-query-metrics](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query-metrics)
     - [azure-monitor-query-logs](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query-logs)
   GroupId: com.azure
+- Name: azure-monitor-query-logs
+  Version: 1.0.0
+  DisplayName: Monitor Query Logs
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query-logs_1.0.0/sdk/monitor/azure-monitor-query-logs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This package contains the first release of Microsoft Azure Monitor Logs Query client library. This library replaces logs querying operations
+    of the `azure-monitor-query` package.
+  GroupId: com.azure
+- Name: azure-monitor-query-metrics
+  Version: 1.0.0
+  DisplayName: Monitor Query Metrics
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query-metrics_1.0.0/sdk/monitor/azure-monitor-query-metrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This package contains the first release of Microsoft Azure Monitor Metrics Query client library.
+    This library replaces batch metrics querying operations of the `MetricsClient` and `MetricsAsyncClient` classes in the
+    `azure-monitor-query` package.
+  GroupId: com.azure
 
