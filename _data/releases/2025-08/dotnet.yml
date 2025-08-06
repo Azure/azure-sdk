@@ -373,4 +373,31 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Added new overloads for `UploadAsync` and `Upload`, enabling callers to upload logs in `BinaryData` form.  This allows for callers to use an AOT-compliant serializer for logs, ensuring the Ingestion package can be trimmed.
+- Name: Azure.Developer.Playwright
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright_1.0.0-beta.2/sdk/loadtestservice/Azure.Developer.Playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+
+    #### Features Added
+
+    - Added Support for activity log.
+    - Added RunName feature.
+- Name: Azure.Developer.Playwright.NUnit
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright NUnit
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright.NUnit_1.0.0-beta.2/sdk/loadtestservice/Azure.Developer.Playwright.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
 
