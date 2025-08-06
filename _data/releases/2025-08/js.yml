@@ -417,4 +417,21 @@ entries:
     #### Features Added
 
     - Added Support for activity log.
+- Name: '@azure/ai-projects'
+  Version: 1.0.0
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - remove `project.redTeams`
+    - remove `project.evaluations`
+    - remove `project.inference.chatCompletions`, `project.inference.embeddings` and `project.inference.imageEmbeddings`. For guidance on obtaining an authenticated `azure-ai-inference` client for your AI Foundry Project,
+    refer to the updated samples in the `samples\inference` directory.
+    - rename `project.telemetry.getConnectionString` to `project.telemetry.getApplicationInsightsConnectionString`
+    - rename `project.inference.azureOpenAI` to `project.getAzureOpenAIClient`
+    - remove `project.inference`
 
