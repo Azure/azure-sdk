@@ -378,4 +378,43 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue in which `AzurePowerShellCredential` command is not parsed correctly. [#35469](https://github.com/Azure/azure-sdk-for-js/pull/35469)
+- Name: '@azure/arm-mongocluster'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.1.0-beta.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/create-playwright'
+  Version: 1.0.0-beta.2
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0-beta.2/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+
+    #### Features Added
+
+    - Added support for authentication using Entra ID for the service.
+- Name: '@azure/playwright'
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0-beta.2/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+    - Improved error handling.
+
+    #### Features Added
+
+    - Added Support for activity log.
 
