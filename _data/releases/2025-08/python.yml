@@ -348,4 +348,28 @@ entries:
     - `AgentsResponseFormatOption`, `MessageInputContent`, `MessageAttachmentToolDefinition`, `AgentsToolChoiceOption` are now public.
     - Fixed issues where the `runs.create_and_process` API call did not correctly handle the `AzureAISearchTool`, `FileSearchTool`, and `CodeInterpreterTool` when specified in the toolset parameter.
     - Fixed `update_agent` to execute with body as a keyword parameter.
+- Name: azure-mgmt-mongocluster
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.1.0b1/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-databoxedge
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Data Box Edge
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databoxedge_3.0.0b1/sdk/databoxedge/azure-mgmt-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 8.0.0b1
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_8.0.0b1/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
 
