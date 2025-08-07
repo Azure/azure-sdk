@@ -1305,7 +1305,7 @@ Authentication,0,Client Authentication,data,Java,azure-client-authentication,htt
 Cognitive Services,0,Conversational Language Understanding,data,Java,azure-cognitiveservices-language,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,,,1,false,0,
 IoT,0,Digital Twins Device Client Preview,data,Java,digital-twin-service-client-preview,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
 Event Hubs,0,Event Hubs - Databricks,data,Java,azure-eventhubs-databricks_2.11,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
-Event Hubs,0,Event Hubs - Event Processor,data,Java,azure-eventhubs-eph,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/microsoft-azure-eventhubs-eph,10,true,Exception: Library not needed in language,,10,false,1,
+Event Hubs,0,Event Hubs - Event Processor,data,Java,azure-eventhubs-eph,https://github.com/Azure/azure-sdk-for-java/tree/42bc066f674cda741eb9659a25ae2d6c97d465b4/sdk/eventhubs/microsoft-azure-eventhubs-eph,10,true,Exception: Library not needed in language,,10,false,1,
 Event Hubs,0,Event Hubs - Extensions,data,Java,azure-eventhubs-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,Exception: Track 2 library not needed,,10,false,1,
 Event Hubs,0,Event Hubs - Reactive,data,Java,azure-eventhubs-reactive_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
 Event Hubs,0,Event Hubs - Spark,data,Java,azure-eventhubs-spark_2.12,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,false,Exception: Track 2 library not needed,,10,false,1,
@@ -1858,8 +1858,8 @@ Health Deidentification,0,Health Deidentification,data,Python,,,11,false,azure-h
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,Python,,,11,false,azure-healthinsights-radiologyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,10,false,1,06/10/2025
-Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,07/15/2025
-Identity,0,Identity Broker,data,Python,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/07/2024
+Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,08/07/2025
+Identity,0,Identity Broker,data,Python,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,08/07/2025
 Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,10,false,1,10/14/2024
 Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,06/16/2025
 Key Vault,0,Key Vault - Certificates,data,Python,,,11,false,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,06/16/2025
