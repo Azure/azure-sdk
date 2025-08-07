@@ -342,7 +342,7 @@ Playwright,0,Resource Management - Playwright,mgmt,.NET,,,11,false,Azure.Resourc
 Playwright Testing,0,Resource Management - Playwright Testing,mgmt,.NET,,,11,false,Azure.ResourceManager.PlaywrightTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,10,false,1,12/18/2024
 Policy Insights,0,Resource Management - Policy Insights,mgmt,.NET,Microsoft.Azure.Management.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,true,Azure.ResourceManager.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,false,1,03/18/2025
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,.NET,,,11,false,Azure.ResourceManager.PortalServicesCopilot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/portalservices,3,false,1,
-PostgreSQL,0,Resource Management - PostgreSQL,mgmt,.NET,Microsoft.Azure.Management.PostgreSQL,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/postgresql/Microsoft.Azure.Management.PostgreSQL,10,true,Azure.ResourceManager.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql,10,false,1,06/25/2025
+PostgreSQL,0,Resource Management - PostgreSQL,mgmt,.NET,Microsoft.Azure.Management.PostgreSQL,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/postgresql/Microsoft.Azure.Management.PostgreSQL,10,true,Azure.ResourceManager.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql,10,false,1,08/07/2025
 Power BI Dedicated,0,Resource Management - Power BI Dedicated,mgmt,.NET,Microsoft.Azure.Management.PowerBIDedicated,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/powerbidedicated/Microsoft.Azure.Management.PowerBIDedicated,3,true,Azure.ResourceManager.PowerBIDedicated,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/powerbidedicated,3,false,1,
 Private DNS,0,Resource Management - Private DNS,mgmt,.NET,Microsoft.Azure.Management.PrivateDns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/privatedns,10,true,Azure.ResourceManager.PrivateDns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/privatedns,10,false,1,03/18/2025
 Provider Hub,0,Resource Management - Provider Hub,mgmt,.NET,Microsoft.Azure.Management.ProviderHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.ProviderHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/providerhub,10,false,1,03/18/2025
@@ -1383,7 +1383,7 @@ Communication,0,@azure/communication-react,data,JavaScript,,,11,false,@azure/com
 Synapse,0,AccessControl,data,JavaScript,,,11,false,@azure/synapse-access-control,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 AI,0,AI Agents,data,JavaScript,,,11,false,@azure/ai-agents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,07/31/2025
 AI,0,AI Model Inference,data,JavaScript,,,11,false,@azure-rest/ai-inference,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/ai/ai-inference-rest/,3,false,1,
-AI,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,3,false,1,
+AI,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,08/06/2025
 Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,true,1,
 App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,04/08/2025
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
@@ -2555,6 +2555,10 @@ AI,0,AI Agents,data,.NET,,,11,false,Missing: Created from existing package: @azu
 AI,0,AI Agents,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-agents,,2,false,0,
 AI,0,AI Agents,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-agents,,2,false,0,
 AI,0,AI Agents,data,Go,,,11,false,Missing: Created from existing package: @azure/ai-agents,,2,false,0,
+AI,0,AI Projects,data,.NET,,,11,false,Missing: Created from existing package: @azure/ai-projects,,2,false,0,
+AI,0,AI Projects,data,Java,,,11,false,Missing: Created from existing package: @azure/ai-projects,,2,false,0,
+AI,0,AI Projects,data,Python,,,11,false,Missing: Created from existing package: @azure/ai-projects,,2,false,0,
+AI,0,AI Projects,data,Go,,,11,false,Missing: Created from existing package: @azure/ai-projects,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,.NET,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Java,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Go,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
@@ -4234,11 +4238,6 @@ edgemarketplace,0,Resource Management - edgemarketplace,mgmt,Java,,,11,false,Mis
 edgemarketplace,0,Resource Management - edgemarketplace,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: edgemarketplace/resource-manager,,2,false,0,
 edgemarketplace,0,Resource Management - edgemarketplace,mgmt,Python,,,11,false,Missing: Created from API in specs repo: edgemarketplace/resource-manager,,2,false,0,
 edgemarketplace,0,Resource Management - edgemarketplace,mgmt,Go,,,11,false,Missing: Created from API in specs repo: edgemarketplace/resource-manager,,2,false,0,
-Edge Order,0,Resource Management - EdgeOrder.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: edgeorder/EdgeOrder.Management,,2,false,0,
-Edge Order,0,Resource Management - EdgeOrder.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: edgeorder/EdgeOrder.Management,,2,false,0,
-Edge Order,0,Resource Management - EdgeOrder.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: edgeorder/EdgeOrder.Management,,2,false,0,
-Edge Order,0,Resource Management - EdgeOrder.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: edgeorder/EdgeOrder.Management,,2,false,0,
-Edge Order,0,Resource Management - EdgeOrder.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: edgeorder/EdgeOrder.Management,,2,false,0,
 Edge Order,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: edgeorder/cspell.yaml,,2,false,0,
 Edge Order,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: edgeorder/cspell.yaml,,2,false,0,
 Edge Order,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: edgeorder/cspell.yaml,,2,false,0,
