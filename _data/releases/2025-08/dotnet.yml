@@ -430,4 +430,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue that could cause an exception when trying to resume a transfer that contained resources with special characters in the name.
+- Name: Azure.AI.OpenAI
+  Version: 2.3.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.3.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see [the full OpenAI 2.3.0 release notes](https://github.com/openai/openai-dotnet/blob/main/CHANGELOG.md#230-2025-08-01) for details.
 
