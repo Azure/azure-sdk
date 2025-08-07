@@ -434,4 +434,12 @@ entries:
     - rename `project.telemetry.getConnectionString` to `project.telemetry.getApplicationInsightsConnectionString`
     - rename `project.inference.azureOpenAI` to `project.getAzureOpenAIClient`
     - remove `project.inference`
+- Name: '@azure/arm-dashboard'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dashboard_2.0.0-beta.1/sdk/dashboard/arm-dashboard/CHANGELOG.md
+  ChangelogContent: ""
 
