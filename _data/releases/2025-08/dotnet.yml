@@ -1,0 +1,460 @@
+entries:
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.0
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.0/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.0
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.0/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.0
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.0/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.2.0-beta.1
+
+    #### Bugs Fixed
+    - Fixed an issue with Copy transfers where if the source file/directory name contained certain special characters, the destination file name would incorrectly contain the encoded version of these characters.
+    - Fixed an issue with Upload transfers where file/directory names containing certain URL-encoded characters could cause the transfer to fail.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.5
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.5/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - This release contains bug fixes to improve quality.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.5
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.5/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where the scan will continue scanning AzureWebJobsStorage even when configuring a target storage account
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.0/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.5.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.5.0-beta.1/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for mobile number types
+    - mobile numbers are location associated phone numbers with SMS capabilities
+    - API version `2025-06-01` is the default.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue when using the event processor connect call result for the `CallConnected` event, which was not being returned correctly.
+- Name: Azure.AI.Language.Conversations.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Conversations Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Conversations Authoring API Versions
+    - 2025-05-15-preview
+    - Added `DataGenerationSettings` in `TrainingJobDetails` when training a model.
+    - Added corresponding test and sample.
+    - Added `DataGenerationConnectionInfo` in `DeploymentResource` when deploying a model.
+    - Added corresponding test and sample.
+    - Added `ExportedAssociatedEntityLabel` in `ConversationExportedIntent` when importing a project.
+    - Added corresponding test and sample.
+- Name: Azure.AI.Language.Text.Authoring
+  Version: 1.0.0-beta.2
+  DisplayName: Text Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text.Authoring_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added import feature for raw json string.
+    - Added support for Custom Text Authoring API Versions
+    - 2025-05-15-preview
+
+    #### Bugs Fixed
+
+    - Merged TextAuthoringUnassignDeploymentResourcesState and TextAuthoringAssignDeploymentResourcesState into one class TextAuthoringDeploymentResourcesState
+    - Fixed "azureOpenAI" to "AzureOpenAI" for DataGenerationConnectionInfoKind
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.1/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.1.0
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.1.0/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Tracing for Agents. More information [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/ai/Azure.AI.Agents.Persistent/README.md#tracing).
+    - Added `include` parameter to `CreateRunStreaming` and `CreateRunStreamingAsync`.
+    - Added `tool_resources` parameter to `CreateRun` and `CreateRunAsync`
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.1
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.1/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the [issue](https://github.com/Azure/azure-sdk-for-net/issues/51342) with ignoring `after` parameter when getting pageable lists.
+- Name: Azure.ResourceManager.Storage
+  Version: 1.4.4
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.4.4/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppConfiguration
+  Version: 1.4.1
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppConfiguration_1.4.1/sdk/appconfiguration/Azure.ResourceManager.AppConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Authorization
+  Version: 1.1.5
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Authorization_1.1.5/sdk/authorization/Azure.ResourceManager.Authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.2.5
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.2.5/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.5.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.5.1/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.11.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.11.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Search
+  Version: 1.3.0
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Search_1.3.0/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OperationalInsights
+  Version: 1.3.1
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OperationalInsights_1.3.1/sdk/operationalinsights/Azure.ResourceManager.OperationalInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.LoadTesting
+  Version: 1.1.2
+  DisplayName: Resource Management - Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.LoadTesting_1.1.2/sdk/loadtestservice/Azure.ResourceManager.LoadTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.9.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.9.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgrade dependency package `Microsoft.AspNetCore.Http` to 2.3.0.
+    - Upgrade dependency package `Microsoft.Azure.WebPubSub.Common` to 1.4.0.
+- Name: Azure.ResourceManager.Redis
+  Version: 1.5.1
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Redis_1.5.1/sdk/redis/Azure.ResourceManager.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.6.1
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.6.1/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  Version: 1.1.0
+  DisplayName: Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents
+  ServiceName: AuthenticationEvents
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents_1.1.0/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Package will target netstandard 2.0 and net 8.0.
+    - Package will reference the latest stable releases of its dependencies.
+- Name: Azure.ResourceManager.ResourceGraph
+  Version: 1.1.0-beta.4
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceGraph_1.1.0-beta.4/sdk/resourcegraph/Azure.ResourceManager.ResourceGraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Playwright
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Playwright_1.0.0-beta.1/sdk/playwright/Azure.ResourceManager.Playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.5.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.5.0-beta.2/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for SIP routing API version `2024-11-15-preview` which includes new trunk settings.
+- Name: Azure.ResourceManager.Sql
+  Version: 1.4.0-beta.2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.4.0-beta.2/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.4.0-beta.3
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.4.0-beta.3/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.3.0
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.3.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Supported `FormattableString` in `BicepFunction.Interpolate` method. ([#47360](https://github.com/Azure/azure-sdk-for-net/issues/47360))
+- Name: Azure.ResourceManager.StorageDiscovery
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageDiscovery_1.0.0-beta.1/sdk/storagediscovery/Azure.ResourceManager.StorageDiscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Grafana
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Grafana_1.2.0-beta.2/sdk/grafana/Azure.ResourceManager.Grafana/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.4.0-beta.13
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.4.0-beta.13/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Datadog
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Datadog
+  ServiceName: Datadog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Datadog_1.0.0-beta.6/sdk/datadog/Azure.ResourceManager.Datadog/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApplicationInsights
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApplicationInsights_1.1.0-beta.1/sdk/applicationinsights/Azure.ResourceManager.ApplicationInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.Ingestion
+  Version: 1.2.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Ingestion_1.2.0/sdk/monitor/Azure.Monitor.Ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Added new overloads for `UploadAsync` and `Upload`, enabling callers to upload logs in `BinaryData` form.  This allows for callers to use an AOT-compliant serializer for logs, ensuring the Ingestion package can be trimmed.
+- Name: Azure.Developer.Playwright
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright_1.0.0-beta.2/sdk/loadtestservice/Azure.Developer.Playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+
+    #### Features Added
+
+    - Added Support for activity log.
+    - Added RunName feature.
+- Name: Azure.Developer.Playwright.NUnit
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright NUnit
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright.NUnit_1.0.0-beta.2/sdk/loadtestservice/Azure.Developer.Playwright.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.1
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.1/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that could cause an exception when trying to resume a transfer that contained resources with special characters in the name.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.1
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.1/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that could cause an exception when trying to resume a transfer that contained resources with special characters in the name.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.1
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that could cause an exception when trying to resume a transfer that contained resources with special characters in the name.
+- Name: Azure.AI.OpenAI
+  Version: 2.3.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.3.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see [the full OpenAI 2.3.0 release notes](https://github.com/openai/openai-dotnet/blob/main/CHANGELOG.md#230-2025-08-01) for details.
+- Name: Azure.ResourceManager.PostgreSql
+  Version: 1.3.1
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PostgreSql_1.3.1/sdk/postgresql/Azure.ResourceManager.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.5.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.5.0/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+
