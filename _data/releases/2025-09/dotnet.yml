@@ -23,4 +23,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.11.2/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.6.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.6.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `UserAgentPolicy` pipeline policy to allow adding the user agent to the request headers.
 
