@@ -1,0 +1,200 @@
+entries:
+- Name: sdk/resourcemanager/datamigration/armdatamigration
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Data Migration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datamigration/armdatamigration/v2.0.0-beta.1/sdk/resourcemanager/datamigration/armdatamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/search/armsearch
+  Version: 1.4.0
+  DisplayName: Resource Management - Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/search/armsearch/v1.4.0/sdk/resourcemanager/search/armsearch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 1.8.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v1.8.0/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/monitor/query/azlogs
+  Version: 1.2.0
+  DisplayName: Query - Logs
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azlogs/v1.2.0/sdk/monitor/query/azlogs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support
+- Name: sdk/resourcemanager/dashboard/armdashboard
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dashboard/armdashboard/v2.0.0-beta.1/sdk/resourcemanager/dashboard/armdashboard/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/providerhub/armproviderhub
+  Version: 2.0.0
+  DisplayName: Resource Management - Provider Hub
+  ServiceName: Provider Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/providerhub/armproviderhub/v2.0.0/sdk/resourcemanager/providerhub/armproviderhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azqueue
+  Version: 2.0.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azqueue/v2.0.0-beta.1/sdk/storage/azqueue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * The type of ApproximateMessagesCount has changed from *int32 to *int64 to support large queues with more than int32 max value messages.
+
+    #### Other Changes
+    * Updated `azidentity` version to `1.10.1`
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 7.3.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v7.3.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/carbonoptimization/armcarbonoptimization
+  Version: 1.0.0
+  DisplayName: Resource Management - Carbonoptimization
+  ServiceName: Carbonoptimization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/carbonoptimization/armcarbonoptimization/v1.0.0/sdk/resourcemanager/carbonoptimization/armcarbonoptimization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storagediscovery/armstoragediscovery
+  Version: 0.1.0
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagediscovery/armstoragediscovery/v0.1.0/sdk/resourcemanager/storagediscovery/armstoragediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.5.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.2/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
+- Name: sdk/resourcemanager/resources/armdeploymentstacks
+  Version: 1.0.1
+  DisplayName: Resource Management - Deployment Stacks
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeploymentstacks/v1.0.1/sdk/resourcemanager/resources/armdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resources/armdeployments
+  Version: 0.1.0
+  DisplayName: Resource Management - Deployments
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeployments/v0.1.0/sdk/resourcemanager/resources/armdeployments/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.6.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.2/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 7.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v7.0.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/avs/armavs
+  Version: 2.1.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/avs/armavs/v2.1.0/sdk/resourcemanager/avs/armavs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/recoveryservicesdatareplication/armrecoveryservicesdatareplication
+  Version: 1.0.0
+  DisplayName: Resource Management - Recovery Services Data Replication
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservicesdatareplication/armrecoveryservicesdatareplication/v1.0.0/sdk/resourcemanager/recoveryservicesdatareplication/armrecoveryservicesdatareplication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.18.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.18.2/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a case in which `BearerTokenPolicy` didn't ensure an authentication error is non-retriable
+- Name: sdk/storage/azdatalake
+  Version: 1.4.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.2/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.18.1`
+- Name: sdk/azidentity
+  Version: 1.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.11.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - `DefaultAzureCredential` tries its next credential when a dev tool credential such as
+    `AzureCLICredential` returns an error
+- Name: sdk/messaging/azservicebus
+  Version: 1.10.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.10.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow a user to settle and renew message locks with only a lock token, so long as they are not using Service Bus sessions. This makes it possible to settle a message in a completely separate process or service. See [ExampleReceiver_CompleteMessage_settleWithLockToken](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus#example-package-SettleWithLockToken) for an example. (PR#24966)
+- Name: sdk/resourcemanager/mongocluster/armmongocluster
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mongocluster/armmongocluster/v1.1.0-beta.1/sdk/resourcemanager/mongocluster/armmongocluster/CHANGELOG.md
+  ChangelogContent: ""
+
