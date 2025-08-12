@@ -110,4 +110,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.3.0-beta.3/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.47.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.47.2/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.6.0
+- Name: Azure.Monitor.Query
+  Version: 1.7.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.7.1/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated internal serialization paths to use an AOT-friendly approach.  The package now fully supports AOT and is trimmable.
 
