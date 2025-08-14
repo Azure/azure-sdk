@@ -24,4 +24,30 @@ entries:
     guides for [migrating to azure-monitor-query-logs](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query/migration-guide-query-logs.md)
     and [migrating to azure-monitor-query-metrics](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query/migration-guide-query-metrics.md).
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.21.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.20.5` to version `5.21.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.21.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.21.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for geo-replication capability. ([44272](https://github.com/Azure/azure-sdk-for-java/pull/44272))
+  GroupId: com.azure
 
