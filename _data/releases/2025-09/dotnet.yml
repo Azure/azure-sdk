@@ -149,4 +149,23 @@ entries:
 
     - Implemented streaming scenario for MCP tool.
     - Added `RunStepDetailsActivity`, describing MCP function parameters.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.11.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.11.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.6.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.6.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Fix the behavior of Roslyn not properly handling partial classes with attributes in different files
 
