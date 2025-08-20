@@ -365,7 +365,7 @@ Resource Graph,0,Resource Management - Resource Graph,mgmt,.NET,Microsoft.Azure.
 Resource Health,0,Resource Management - Resource Health,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceHealth,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcehealth,10,false,1,05/06/2023
 Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,07/18/2025
 Resource Mover,0,Resource Management - Resource Mover,mgmt,.NET,Microsoft.Azure.Management.Migrate.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemover,10,false,1,12/01/2023
-Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,06/23/2025
+Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,08/20/2025
 ScVmm,0,Resource Management - ScVmm,mgmt,.NET,,,11,false,Azure.ResourceManager.ScVmm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/arc-scvmm,3,false,1,
 Secretsstoreextension,0,Resource Management - Secretsstoreextension,mgmt,.NET,,,11,false,Azure.ResourceManager.SecretsStoreExtension,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/secretsstoreextension,3,false,1,
 Security,0,Resource Management - Security,mgmt,.NET,Microsoft.Azure.Management.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,true,Azure.ResourceManager.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,10,false,1,02/13/2023
@@ -1449,7 +1449,7 @@ Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABL
 Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/16/2025
-Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,08/12/2025
+Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,true,1,08/12/2025
 Monitor,0,Monitor Query Logs,data,JavaScript,,,11,false,@azure/monitor-query-logs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/30/2025
 Monitor,0,Monitor Query Metrics,data,JavaScript,,,11,false,@azure/monitor-query-metrics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/31/2025
 Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,10/14/2024
@@ -5441,6 +5441,11 @@ Resources,0,Resource Management - Bicep.Management,mgmt,Java,,,11,false,Missing:
 Resources,0,Resource Management - Bicep.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
 Resources,0,Resource Management - Bicep.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
 Resources,0,Resource Management - Bicep.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
+Resources,0,Resource Management - DeploymentStacks.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
+Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
+Resources,0,Resource Management - DeploymentStacks.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
+Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
+Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
 Resources,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
 Resources,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
 Resources,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
@@ -5805,6 +5810,11 @@ App Service,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in spec
 App Service,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: web/cspell.yaml,,2,false,0,
 App Service,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: web/cspell.yaml,,2,false,0,
 App Service,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: web/cspell.yaml,,2,false,0,
+Web PubSub,0,Azure.Messaging.WebPubSub,data,.NET,,,11,false,Missing: Created from API in specs repo: webpubsub/Azure.Messaging.WebPubSub,,2,false,0,
+Web PubSub,0,Azure.Messaging.WebPubSub,data,Java,,,11,false,Missing: Created from API in specs repo: webpubsub/Azure.Messaging.WebPubSub,,2,false,0,
+Web PubSub,0,Azure.Messaging.WebPubSub,data,JavaScript,,,11,false,Missing: Created from API in specs repo: webpubsub/Azure.Messaging.WebPubSub,,2,false,0,
+Web PubSub,0,Azure.Messaging.WebPubSub,data,Python,,,11,false,Missing: Created from API in specs repo: webpubsub/Azure.Messaging.WebPubSub,,2,false,0,
+Web PubSub,0,Azure.Messaging.WebPubSub,data,Go,,,11,false,Missing: Created from API in specs repo: webpubsub/Azure.Messaging.WebPubSub,,2,false,0,
 Web PubSub,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: webpubsub/cspell.yaml,,2,false,0,
 Web PubSub,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: webpubsub/cspell.yaml,,2,false,0,
 Web PubSub,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: webpubsub/cspell.yaml,,2,false,0,
