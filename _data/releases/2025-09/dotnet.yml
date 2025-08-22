@@ -228,4 +228,17 @@ entries:
     #### Features Added
 
     This small update includes `[Experimental]` additions to `AzureOpenAIClientOptions` that enables providing custom key/value pairs for headers and query string parameters via `DefaultHeaders` and `DefaultQueryParameters`, respectively.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.3
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.3/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added delete operation for `ThreadMessages`.
+    - Add `RunStepDeltaCustomBingGroundingToolCall`, describing `BingCustomSearchTool` updates in streaming scenario.
+    - Add `RunStepDeltaMicrosoftFabricToolCall`, describing `FabricTool` updates in streaming scenario.
+    - Add `RunStepDeltaSharepointToolCall`, describing `SharepointTool` updates in streaming scenario.
 
