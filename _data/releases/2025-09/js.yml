@@ -13,4 +13,20 @@ entries:
     - LogsQueryClient: `@azure/monitor-query-logs` - migration guide: [Monitor Query Logs migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-logs/MIGRATION.md) • npm: [@azure/monitor-query-logs](https://www.npmjs.com/package/@azure/monitor-query-logs)
     - MetricsClient: `@azure/monitor-query-metrics` - migration guide: [Monitor Query Metrics migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-metrics/MIGRATION.md) • npm: [@azure/monitor-query-metrics](https://www.npmjs.com/package/@azure/monitor-query-metrics)
     - MetricsQueryClient: migrate to the management library `@azure/arm-monitor` - guide: [MetricsQueryClient → @azure/arm-monitor](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/arm-monitor/MIGRATION_METRICSQUERYCLIENT_TO_ARM_MONITOR.md)
+- Name: '@azure/arm-appcontainers'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_3.0.0-beta.1/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dataprotection'
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_3.0.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
 
