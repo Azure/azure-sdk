@@ -163,4 +163,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_8.0.0b1/sdk/security/azure-mgmt-security/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.1.0b3
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.1.0b3/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * File `setup.py` was updated to indicate the dependency `azure-ai-agents>=1.2.0b3`
+    instead of `azure-ai-agents>=1.0.0`. This means that in a clean environment, installing
+    via `pip install --pre azure-ai-projects` will install latest beta version of `azure-ai-agents`
+    (which has features in preview) instead of latest stable version (which does
+    not include preview features).
 
