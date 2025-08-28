@@ -25,23 +25,6 @@ entries:
         url: /dotnet_introduction.html
       - title: Implementation
         url: /dotnet_implementation.html
-        subfolders:
-            - title: API Documentation
-              subfolderitems:
-                - title: Microsoft.Azure.Cosmos
-                  external_url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos
-                - title: Azure.Messaging.EventHubs
-                  external_url: https://azure.github.io/azure-sdk-for-net/eventhubs.html#azuremessagingeventhubs
-                - title: Azure.Security.KeyVault.Keys
-                  external_url: https://azure.github.io/azure-sdk-for-net/keyvault.html#azuresecuritykeyvaultkeys
-                - title: Azure.Security.KeyVault.Secrets
-                  external_url: https://azure.github.io/azure-sdk-for-net/keyvault.html#azuresecuritykeyvaultsecrets
-                - title: Azure.Storage.Blobs
-                  external_url: https://azure.github.io/azure-sdk-for-net/storage.html#azurestorageblobs
-                - title: Azure.Storage.Files.Shares
-                  external_url: https://azure.github.io/azure-sdk-for-net/storage.html#azurestoragefilesshares
-                - title: Azure.Storage.Queues
-                  external_url: https://azure.github.io/azure-sdk-for-net/storage.html#azurestoragequeues
   - title: Java Guidelines
     folderitems:
       - title: Design
@@ -49,26 +32,7 @@ entries:
       - title: Implementation
         url: /java_implementation.html
       - title: Spring Guidelines
-        url: /java_spring.html 
-        subfolders:
-            - title: API Documentation
-              subfolderitems:
-                - title: azure-data-appconfiguration
-                  external_url: https://azure.github.io/azure-sdk-for-java/appconfiguration.html#azure-data-appconfiguration
-                - title: azure-cosmos
-                  external_url: https://azure.github.io/azure-sdk-for-java/cosmosdb.html#azure-cosmos
-                - title: azure-messaging-eventhubs
-                  external_url: https://azure.github.io/azure-sdk-for-java/eventhubs.html#azure-messaging-eventhubs
-                - title: azure-keyvault-keys
-                  external_url: https://azure.github.io/azure-sdk-for-java/keyvault.html#azure-security-keyvault-keys
-                - title: azure-keyvault-secrets
-                  external_url: https://azure.github.io/azure-sdk-for-java/keyvault.html#azure-security-keyvault-secrets
-                - title: azure-storage-blob
-                  external_url: https://azure.github.io/azure-sdk-for-java/storage.html#azure-storage-blob
-                - title: azure-storage-file-share
-                  external_url: https://azure.github.io/azure-sdk-for-java/storage.html#azure-storage-file-share
-                - title: azure-storage-queue
-                  external_url: https://azure.github.io/azure-sdk-for-java/storage.html#azure-storage-queue
+        url: /java_spring.html
   - title: Python Guidelines
     folderitems:
       - title: Design
@@ -77,23 +41,6 @@ entries:
         url: /python_implementation.html
       - title: Documentation
         url: /python_documentation.html
-        subfolders:
-        - title: API Documentation
-          subfolderitems:
-            - title: azure-cosmos
-              external_url: https://azure.github.io/azure-sdk-for-python/cosmosdb.html#azure-cosmos
-            - title: azure-eventhub
-              external_url: https://azure.github.io/azure-sdk-for-python/eventhubs.html#azure-eventhub
-            - title: azure-keyvault-keys
-              external_url: https://azure.github.io/azure-sdk-for-python/keyvault.html#azure-keyvault-keys
-            - title: azure-keyvault-secrets
-              external_url: https://azure.github.io/azure-sdk-for-python/keyvault.html#azure-keyvault-secrets
-            - title: azure-storage-blob
-              external_url: https://azure.github.io/azure-sdk-for-python/storage.html#azure-storage-blob
-            - title: azure-storage-file-share
-              external_url: https://azure.github.io/azure-sdk-for-python/storage.html#azure-storage-file-share
-            - title: azure-storage-queue
-              external_url: https://azure.github.io/azure-sdk-for-python/storage.html#azure-storage-queue
   - title: TypeScript Guidelines
     folderitems:
       - title: Introduction
@@ -104,23 +51,6 @@ entries:
         url: /typescript_implementation.html
       - title: Documentation
         url: /typescript_documentation.html
-        subfolders:
-        - title: API Documentation
-          subfolderitems:
-            - title: "@azure/cosmos"
-              external_url: https://azure.github.io/azure-cosmos-js/
-            - title: "@azure/event-hubs"
-              external_url: https://azure.github.io/azure-sdk-for-js/eventhubs.html#azure-event-hubs
-            - title: "@azure/keyvault-keys"
-              external_url: https://azure.github.io/azure-sdk-for-js/keyvault.html#azure-keyvault-keys
-            - title: "@azure/keyvault-secrets"
-              external_url: https://azure.github.io/azure-sdk-for-js/keyvault.html#azure-keyvault-secrets
-            - title: "@azure/storage-blob"
-              external_url: https://azure.github.io/azure-sdk-for-js/storage.html#azure-storage-blob
-            - title: "@azure/storage-file-share"
-              external_url: https://azure.github.io/azure-sdk-for-js/storage.html#azure-storage-file-share
-            - title: "@azure/storage-queue"
-              external_url: https://azure.github.io/azure-sdk-for-js/storage.html#azure-storage-queue
   - title: Android Guidelines
     folderitems:
       - title: Design
@@ -139,26 +69,12 @@ entries:
         url: /clang_design.html
       - title: Implementation
         url: /clang_implementation.html
-        subfolders:
-            - title: API Documentation
-              subfolderitems:
-                - title: az_iot
-                  external_url: https://azuresdkdocs.z19.web.core.windows.net/c/az_iot/latest/index.html
   - title: C++ Guidelines
     folderitems:
       - title: Design
         url: /cpp_introduction.html
       - title: Implementation
         url: /cpp_implementation.html
-        subfolders:
-            - title: API Documentation
-              subfolderitems:
-                - title: azure-storage-blob
-                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-blob
-                - title: azure-storage-file-datalake
-                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-file-datalake
-                - title: azure-storage-file-share
-                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-file-shares
   - title: Go Guidelines
     folderitems:
       - title: Design
