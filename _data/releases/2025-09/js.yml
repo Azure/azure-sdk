@@ -82,4 +82,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.2.0-beta.1/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.0.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
+- Name: '@azure/create-playwright'
+  Version: 1.0.0
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
 
