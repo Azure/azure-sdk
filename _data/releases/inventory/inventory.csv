@@ -175,7 +175,7 @@ Kubernetes Configuration,0,Provisioning - Kubernetes Configuration,mgmt,.NET,,,1
 Provisioning,0,Provisioning - Operational Insights,mgmt,.NET,,,11,false,Azure.Provisioning.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/19/2025
 Provisioning,0,Provisioning - PostgreSQL,mgmt,.NET,,,11,false,Azure.Provisioning.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/25/2025
 Provisioning,0,Provisioning - Redis,mgmt,.NET,,,11,false,Azure.Provisioning.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
-Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,08/28/2025
 Provisioning,0,Provisioning - Search,mgmt,.NET,,,11,false,Azure.Provisioning.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
 Provisioning,0,Provisioning - Service Bus,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - SignalR,mgmt,.NET,,,11,false,Azure.Provisioning.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
@@ -323,7 +323,7 @@ Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,.NET,,,11,false,Azure.Res
 Monitor,0,Resource Management - Monitor,mgmt,.NET,Microsoft.Azure.Management.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,true,Azure.ResourceManager.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,04/29/2024
 MySQL,0,Resource Management - MySQL,mgmt,.NET,Microsoft.Azure.Management.MySQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,10,false,1,08/12/2025
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,.NET,,,11,false,Azure.ResourceManager.NeonPostgres,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/neonpostgres,10,false,1,05/22/2025
-NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,true,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,07/27/2025
+NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,true,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,08/28/2025
 Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,08/21/2025
 Network Analytics,0,Resource Management - Network Analytics,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkanalytics,10,true,1,03/18/2025
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkCloud,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkcloud,10,false,1,06/25/2025
@@ -385,7 +385,7 @@ SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,.NET,,,11,f
 Pool Management Service (PMaaS),0,Resource Management - Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,10,false,1,05/13/2025
 Storage,0,Resource Management - Storage,mgmt,.NET,Microsoft.Azure.Management.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,true,Azure.ResourceManager.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,07/28/2025
 Storage,0,Resource Management - Storage Actions,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageActions,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions,10,false,1,07/03/2025
-Storage,0,Resource Management - Storage Cache,mgmt,.NET,Microsoft.Azure.Management.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,true,Azure.ResourceManager.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,false,1,03/14/2025
+Storage,0,Resource Management - Storage Cache,mgmt,.NET,Microsoft.Azure.Management.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,true,Azure.ResourceManager.StorageCache,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagecache,10,false,1,08/28/2025
 Storage,0,Resource Management - Storage Mover,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagemover,10,false,1,03/14/2025
 Storage,0,Resource Management - Storage Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StoragePool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagepool,10,false,1,03/18/2025
 Storage,0,Resource Management - Storage Sync,mgmt,.NET,Microsoft.Azure.Management.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,true,Azure.ResourceManager.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,false,1,04/28/2025
@@ -2343,6 +2343,10 @@ Provisioning,0,Provisioning - Redis,mgmt,Java,,,11,false,Missing: Created from e
 Provisioning,0,Provisioning - Redis,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.Provisioning.Redis,,2,false,0,
 Provisioning,0,Provisioning - Redis,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.Provisioning.Redis,,2,false,0,
 Provisioning,0,Provisioning - Redis,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.Provisioning.Redis,,2,false,0,
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.Provisioning.RedisEnterprise,,2,false,0,
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.Provisioning.RedisEnterprise,,2,false,0,
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.Provisioning.RedisEnterprise,,2,false,0,
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.Provisioning.RedisEnterprise,,2,false,0,
 Provisioning,0,Provisioning - Search,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.Provisioning.Search,,2,false,0,
 Provisioning,0,Provisioning - Search,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.Provisioning.Search,,2,false,0,
 Provisioning,0,Provisioning - Search,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.Provisioning.Search,,2,false,0,
@@ -4195,6 +4199,11 @@ DNS,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: 
 DNS,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
+DNS Resolver,0,Resource Management - Network.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: dnsresolver/Network.Management,,2,false,0,
+DNS Resolver,0,Resource Management - Network.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: dnsresolver/Network.Management,,2,false,0,
+DNS Resolver,0,Resource Management - Network.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: dnsresolver/Network.Management,,2,false,0,
+DNS Resolver,0,Resource Management - Network.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: dnsresolver/Network.Management,,2,false,0,
+DNS Resolver,0,Resource Management - Network.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: dnsresolver/Network.Management,,2,false,0,
 Domain Services,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
 Domain Services,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
 Domain Services,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
@@ -5693,6 +5702,11 @@ Stream Analytics,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in
 Stream Analytics,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: streamanalytics/cspell.yaml,,2,false,0,
 Stream Analytics,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: streamanalytics/cspell.yaml,,2,false,0,
 Stream Analytics,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: streamanalytics/cspell.yaml,,2,false,0,
+Support,0,Resource Management - Support.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: support/Support.Management,,2,false,0,
+Support,0,Resource Management - Support.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: support/Support.Management,,2,false,0,
+Support,0,Resource Management - Support.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: support/Support.Management,,2,false,0,
+Support,0,Resource Management - Support.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: support/Support.Management,,2,false,0,
+Support,0,Resource Management - Support.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: support/Support.Management,,2,false,0,
 Synapse,0,common,data,.NET,,,11,false,Missing: Created from API in specs repo: synapse/common,,2,false,0,
 Synapse,0,common,data,Java,,,11,false,Missing: Created from API in specs repo: synapse/common,,2,false,0,
 Synapse,0,common,data,JavaScript,,,11,false,Missing: Created from API in specs repo: synapse/common,,2,false,0,
