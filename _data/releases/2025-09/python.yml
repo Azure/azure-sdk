@@ -217,4 +217,18 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - GA release of support for mobile number types
+- Name: azure-ai-voicelive
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.0.0b1/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added WebSocket connection support through `connect()`.
+    - Added `VoiceLiveConnection` for managing WebSocket connections.
+    - Added models of Voice Live preview.
+    - Added WebSocket-based examples in the samples directory.
 
