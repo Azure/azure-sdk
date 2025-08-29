@@ -296,4 +296,26 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - GA release of mobile number types
+- Name: Azure.Developer.Playwright
+  Version: 1.0.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright_1.0.0/sdk/loadtestservice/Azure.Developer.Playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed useCloudHostedBrowsers.
+- Name: Azure.Developer.Playwright.NUnit
+  Version: 1.0.0
+  DisplayName: Playwright NUnit
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright.NUnit_1.0.0/sdk/loadtestservice/Azure.Developer.Playwright.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed useCloudHostedBrowsers.
 
