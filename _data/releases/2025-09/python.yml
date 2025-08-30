@@ -1,0 +1,242 @@
+entries:
+- Name: azure-health-deidentification
+  Version: 1.1.0b1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-health-deidentification_1.1.0b1/sdk/healthdataaiservices/azure-health-deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SURROGATE_ONLY` operation type in `DeidentificationOperationType`, which returns output text where user-defined PHI entities are replaced with realistic replacement values.
+    - Added `input_locale` parameter to `DeidentificationCustomizationOptions` to allow for specifying the locale of the input text for `TAG` and `REDACT` operations.
+- Name: azure-cosmos
+  Version: 4.14.0b2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.14.0b2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed session container session token logic. The SDK will now only send the relevant partition-local session tokens for read document requests and write requests when multi-region writes are enabled, as opposed to the entire compound session token for the container for every document request. See [PR 41678](https://github.com/Azure/azure-sdk-for-python/pull/41678).
+    * Write requests for single-write region accounts will no longer send session tokens when using session consistency. See [PR 41678](https://github.com/Azure/azure-sdk-for-python/pull/41678).
+    * Fixed bug where container cache was not being properly updated resulting in unnecessary extra requests. See [PR 42143](https://github.com/Azure/azure-sdk-for-python/pull/42143).
+    * Fixed bug where the Filters on Parent loggers or handlers of Cosmos Diagnostics loggers were not being applied. See [PR 41012](https://github.com/Azure/azure-sdk-for-python/pull/41012)
+
+    #### Features Added
+    * Added feed range support in `query_items`. See [PR 41722](https://github.com/Azure/azure-sdk-for-python/pull/41722).
+- Name: azure-ai-agents
+  Version: 1.2.0b2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.2.0b2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Browser Automation tool.
+    - Add support for environment variable `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` as defined by
+    [OpenTelemetry](https://opentelemetry.io/), to control tracing of user and Agent messages.
+
+    #### Bugs Fixed
+
+    - Added `RunStepConnectedAgentToolCall` and `RunStepDeltaConnectedAgentToolCall` for deserializing Connected
+    Agent tool updates in non-streaming and streaming scenarios.
+- Name: azure-mgmt-iothub
+  Version: 5.0.0b1
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_5.0.0b1/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-msi
+  Version: 8.0.0b1
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-msi_8.0.0b1/sdk/resources/azure-mgmt-msi/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerregistry
+  Version: 14.1.0b2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_14.1.0b2/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 13.7.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_13.7.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appcontainers
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcontainers_4.0.0b1/sdk/appcontainers/azure-mgmt-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-workloadorchestration
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-workloadorchestration_1.0.0b1/sdk/workloadorchestration/azure-mgmt-workloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 39.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_39.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry
+  Version: 1.7.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.7.0/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated README to specify the python version supported by the distro.
+    ([#42464](https://github.com/Azure/azure-sdk-for-python/pull/42464))
+
+    #### Bugs Fixed
+
+    - Fixed issue #42337, removes warning messages for instrumentations that target multiple packages. The logic for dependency conflict detection has been enhanced by adding "instruments-any" feature. This feature is used when an instrumentation requires any of a set of dependencies rather than all. Follows upstream dependency conflict detection logic - https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/opentelemetry-instrumentation/src/opentelemetry/instrumentation/dependencies.py
+    ([#42342](https://github.com/Azure/azure-sdk-for-python/pull/42342))
+    - Add error handling for diagnostic logging setup
+    ([#42505](https://github.com/Azure/azure-sdk-for-python/pull/42505))
+- Name: azure-ai-agents
+  Version: 1.2.0b3
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.2.0b3/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the issue when the `create_and_process` call hangs if MCP tool approval is required.
+
+    #### Features Added
+
+    - Added delete operation for `ThreadMessages`.
+    - Add `RunStepDetailsActivity`, describing MCP function parameters.
+    - Add `RunStepDeltaCustomBingGroundingToolCall`, describing `BingCustomSearchTool` updates in streaming scenario.
+    - Add `RunStepDeltaMicrosoftFabricToolCall`, describing `FabricTool` updates in streaming scenario.
+    - Add `RunStepDeltaSharepointToolCall`, describing `SharepointTool` updates in streaming scenario.
+    - Improve code interpreter tool to take the list of `VectorStoreDataSource` as an input for enterprise file search.
+- Name: azure-mgmt-compute
+  Version: 36.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_36.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 10.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_10.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-security
+  Version: 8.0.0b1
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_8.0.0b1/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 1.1.0b3
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.1.0b3/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * File `setup.py` was updated to indicate the dependency `azure-ai-agents>=1.2.0b3`
+    instead of `azure-ai-agents>=1.0.0`. This means that in a clean environment, installing
+    via `pip install --pre azure-ai-projects` will install latest beta version of `azure-ai-agents`
+    (which has features in preview) instead of latest stable version (which does
+    not include preview features).
+- Name: azure-ai-language-conversations
+  Version: 2.0.0b1
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_2.0.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-05-01, 2024-11-01, 2024-11-15-preview,2025-05-15-preview.
+
+    - Added custom poller AnalyzeConversationLROPoller and AnalyzeConversationAsyncLROPoller, and make begin_analyze_conversation_job return AnalyzeConversationLROPoller[ItemPaged[ConversationActions]] or AnalyzeConversationAsyncLROPoller[ItemPaged[ConversationActions]].
+
+    - Added three different type of Redaction Policy `CharacterMaskPolicyType`, `EntityMaskTypePolicyType` and `NoMaskPolicyType`.
+
+    - Added AI Conversation Analyze (Multi-turn conversation prediction) feature.
+
+    - Added tests and samples for new features.
+
+    #### Breaking Changes
+    - Removed support for Conversations Authoring.
+- Name: azure-mgmt-containerservicefleet
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicefleet_4.0.0b1/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-phonenumbers
+  Version: 1.4.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.4.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of support for mobile number types
+- Name: azure-ai-voicelive
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.0.0b1/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added WebSocket connection support through `connect()`.
+    - Added `VoiceLiveConnection` for managing WebSocket connections.
+    - Added models of Voice Live preview.
+    - Added WebSocket-based examples in the samples directory.
+- Name: azure-mgmt-azurestackhcivm
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Azurestackhcivm
+  ServiceName: Azurestackhcivm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhcivm_1.0.0b1/sdk/azurestackhci/azure-mgmt-azurestackhcivm/CHANGELOG.md
+  ChangelogContent: ""
+
