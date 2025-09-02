@@ -25,7 +25,7 @@ from OpenTelemetry SHOULD NOT be used in isolation - only include them when they
 
 {% include requirement/MUST id="general-semantic-convention-describe-attributes" %} update [Azure client library semantic conventions](#azure-client-library-semantic-conventions) when adding new Azure-specific attributes.
 
-{% include requirement/MUST id="general-semantic-convention-attribute-naming" %} follow [OpenTelemetry attribute naming conventions](https://opentelemetry.io/docs/specs/semconv/general/how-to-define-semantic-conventions/) and use the `azure.{service-family}.` prefix when adding new Azure-specific attributes.
+{% include requirement/MUST id="general-semantic-convention-attribute-naming" %} follow [OpenTelemetry attribute naming conventions](https://opentelemetry.io/docs/specs/semconv/general/semantic-convention-groups/) and use the `azure.{service-family}.` prefix when adding new Azure-specific attributes.
 
 > [!NOTE]
 > Azure Semantic Conventions defined here include a deprecated set of `az.*` attributes, which was renamed to `azure.*` in OpenTelemetry to
