@@ -318,4 +318,23 @@ entries:
     #### Breaking Changes
 
     - Removed useCloudHostedBrowsers.
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.2.0-beta.2/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.4.0-beta.1
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.4.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new protected API in `ProvisionableConstruct` to support a `ProvisionableResource` as property of another `ProvisionableConstruct`.
 
