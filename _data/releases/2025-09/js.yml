@@ -1,0 +1,146 @@
+entries:
+- Name: '@azure/monitor-query'
+  Version: 1.3.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.3/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecation ⚠️: This package has been deprecated and is no longer under active development. Please migrate to the replacement packages:
+    - LogsQueryClient: `@azure/monitor-query-logs` - migration guide: [Monitor Query Logs migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-logs/MIGRATION.md) • npm: [@azure/monitor-query-logs](https://www.npmjs.com/package/@azure/monitor-query-logs)
+    - MetricsClient: `@azure/monitor-query-metrics` - migration guide: [Monitor Query Metrics migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-metrics/MIGRATION.md) • npm: [@azure/monitor-query-metrics](https://www.npmjs.com/package/@azure/monitor-query-metrics)
+    - MetricsQueryClient: migrate to the management library `@azure/arm-monitor` - guide: [MetricsQueryClient → @azure/arm-monitor](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/arm-monitor/MIGRATION_METRICSQUERYCLIENT_TO_ARM_MONITOR.md)
+- Name: '@azure/arm-appcontainers'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_3.0.0-beta.1/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dataprotection'
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_3.0.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.7.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-call-automation'
+  Version: 1.5.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.5.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in create call, add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+    - Adds support for SIP headers prefixed with 'X-' and 'X-MS-Custom-' within the CustomCallingContext.
+- Name: '@azure/communication-call-automation'
+  Version: 1.6.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.6.0-beta.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+    - Added support for Personally Identifiable Information (PII) redaction and summarization in transcription, improving privacy and providing concise summaries of transcribed content.
+    - Added support for sentiment analysis in both speech and choice recognition, allowing detection of participant sentiment during call interactions.
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.1/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computeschedule'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.2.0-beta.1/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.0.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
+- Name: '@azure/create-playwright'
+  Version: 1.0.0
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.5.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.5.0/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of mobile number types
+- Name: '@azure/arm-playwright'
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwright_1.0.0/sdk/playwright/arm-playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.5.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.5.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [#35739](https://github.com/Azure/azure-sdk-for-js/issues/35739) Fixed an issue where unavailable regions were incorrectly retained in the read and write region lists, potentially causing latency and connectivity issues. The SDK now properly removes regions that are no longer available from both readable and writable locations
+    - [#35822](https://github.com/Azure/azure-sdk-for-js/issues/35822) Fixed an issue where ENOTFOUND error was incorrectly retried with defaultRetryPolicy. This error is now handled as part of EndpointDiscoveryPolicy and retried 120 times.
+- Name: '@azure/arm-iotfirmwaredefense'
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/arm-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+
