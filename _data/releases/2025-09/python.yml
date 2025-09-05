@@ -280,4 +280,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/azure-mgmt-iotfirmwaredefense/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.7.0b1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.7.0b1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `azure.search.documents.models.DebugInfo`.
+    - Added `azure.search.documents.indexes.models.AzureBlobKnowledgeSource`.
+    - Added `azure.search.documents.indexes.models.AzureBlobKnowledgeSourceParameters`.
+    - Added `azure.search.documents.indexes.models.IndexerResyncBody`.
+    - Added `azure.search.documents.indexes.models.KnowledgeAgentOutputConfiguration`.
+    - Added `azure.search.documents.indexes.models.KnowledgeAgentOutputConfigurationModality`.
+    - Added `azure.search.documents.indexes.models.KnowledgeSource`.
+    - Added `azure.search.documents.indexes.models.KnowledgeSourceKind`.
+    - Added `azure.search.documents.indexes.models.KnowledgeSourceReference`.
+    - Added `azure.search.documents.indexes.models.SearchIndexKnowledgeSource`.
+    - Added `azure.search.documents.indexes.models.SearchIndexKnowledgeSourceParameters`.
+    - Removed `azure.search.documents.indexes.models.KnowledgeAgentTargetIndex`.
+    - Added `azure.search.documents.indexes.models.SearchIndex.description`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentAzureBlobActivityArguments`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentAzureBlobActivityRecord`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentAzureBlobReference`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentModelAnswerSynthesisActivityRecord`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentRetrievalActivityRecord`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentSearchIndexActivityArguments`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentSearchIndexActivityRecord`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentSearchIndexReference`.
+    - Added `azure.search.documents.agent.models.KnowledgeAgentSemanticRerankerActivityRecord`.
+    - Added `azure.search.documents.agent.models.KnowledgeSourceParams`.
+    - Added `azure.search.documents.agent.models.SearchIndexKnowledgeSourceParams`.
+    - Removed `azure.search.documents.agent.models.KnowledgeAgentAzureSearchDocReference`.
+    - Removed `azure.search.documents.agent.models.KnowledgeAgentIndexParams`.
+    - Removed `azure.search.documents.agent.models.KnowledgeAgentSearchActivityRecord`.
+    - Removed `azure.search.documents.agent.models.KnowledgeAgentSearchActivityRecordQuery`.
+    - Removed `azure.search.documents.agent.models.KnowledgeAgentSemanticRankerActivityRecord`.
+    - Added KnowledgeSource operations in `SearchIndexClient`.
 
