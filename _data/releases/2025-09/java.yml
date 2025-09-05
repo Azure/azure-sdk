@@ -1164,4 +1164,25 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/azure-resourcemanager-iotfirmwaredefense/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.8.0-beta.8
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Dropped support for `2025-05-01-Preview` service version.
+    - Knowledge Agent target indexes were removed as `2025-08-01-Preview` replaced that concept with knowledge sources,
+    a richer concept that allows for knowledge agent to consume information from more than just Search indexes.
+
+    #### Features Added
+
+    - Support for `2025-08-01-Preview` service version.
+    - Added support for Knowledge Agent knowledge sources.
+    - Added support for Knowledge Agent answer synthesis.
+    - Added `VectorFilterMode.STRICT_POST_FILTER`.
+  GroupId: com.azure
 
