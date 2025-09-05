@@ -381,4 +381,20 @@ entries:
     #### Bugs Fixed
     - Fix issues related to `ResponseFormat` when using `PersistentAgentsChatClient` with Structured Outputs.
     - Fix handling of streaming update of unexpected type [issue](https://github.com/Azure/azure-sdk-for-net/issues/52407).
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.7
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.7/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Dropped support for Knowledge Agent target index. Use knowledge sources instead.
+    - Moved `QueryDebugMode` from `SemanticSearchOptions` to `SearchOptions` as it is no longer tied only to semantic queries.
+
+    #### Features Added
+    - Added support for Knowledge Agent knowledge sources.
+    - Added support for Knowledge Agent answer synthesis.
+    - Added `VectorFilterMode.StrictPostFilter`.
 
