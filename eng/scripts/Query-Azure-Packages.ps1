@@ -149,7 +149,16 @@ function Get-js-Packages
   }
 
   Write-Host "Found $($publishedPackages.Count) npm packages"
-  $packages = $publishedPackages | Foreach-Object { CreatePackage $_.name $_.version }
+  $packages = $publishedPackages | Foreach-Object {
+    $version = $_.version
+    if ($package.version -match "-alpha") {
+      $pkgInfo = Invoke-RestMethod "https://registry.npmjs.com/$($_.name)"
+      if ($pkgInfo."dist-tags"."beta") {
+        # Replace version with latest beta if the latest tag is an alpha version
+        $version = $pkgInfo."dist-tags"."beta"
+      }
+    CreatePackage $_.name $version
+  }
 
   $repoTags = GetPackageVersions "js"
 
