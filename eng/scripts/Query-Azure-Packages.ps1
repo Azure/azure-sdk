@@ -153,7 +153,7 @@ function Get-js-Packages
     $version = $_.version
     if ($_.version -match "-alpha") {
       $pkgInfo = Invoke-RestMethod "https://registry.npmjs.com/$($_.name)"
-      if ($pkgInfo."dist-tags"."beta") {
+      if ($pkgInfo."dist-tags".PSObject.Properties.Name -contains "beta") {
         # Replace version with latest beta if the latest tag is an alpha version
         $version = $pkgInfo."dist-tags"."beta"
       }
