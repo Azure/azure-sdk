@@ -1266,4 +1266,210 @@ entries:
     * Added change feed performance monitoring which is used to improve end lsn calculation in `CosmosPartitionPlanner`. - See [PR 46320](https://github.com/Azure/azure-sdk-for-java/pull/46320)
     * Added `spark.cosmos.auth.aad.audience` as a valid configuration option to allow using AAD tokens with custom audiences. - See [PR 46554](https://github.com/Azure/azure-sdk-for-java/pull/46554)
   GroupId: com.azure.cosmos.spark
+- Name: azure-core-serializer-json-jackson
+  Version: 1.6.1
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.6.1/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.60
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.60/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.16.1
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.16.1/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+    - Upgraded Reactor Netty from `1.2.8` to `1.2.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+    - Upgraded Netty dependencies from `4.1.123.Final` to `4.1.126.Final`. ([#46586](https://github.com/Azure/azure-sdk-for-java/pull/46586))
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.11.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.11.1/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
+- Name: azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.33
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-metrics-opentelemetry_1.0.0-beta.33/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-jdk-httpclient
+  Version: 1.1.1
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-jdk-httpclient_1.1.1/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.4.1
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.4.1/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.64
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.64/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.13.1
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.13.1/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Okio from `3.9.1` to `3.16.0` ([#46586](https://github.com/Azure/azure-sdk-for-java/pull/46586))
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.61
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.61/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.27.0-beta.12
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.27.0-beta.12/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-vertx
+  Version: 1.1.1
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-vertx_1.1.1/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Vert.x from `4.5.15` to `4.5.17`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.19.1
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.19.1/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-resourcemanager-playwrighttesting
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-playwrighttesting_1.1.0-beta.1/sdk/playwrighttesting/azure-resourcemanager-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-core
+  Version: 1.56.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.56.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
 
