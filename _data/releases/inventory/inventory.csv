@@ -97,7 +97,7 @@ Maps,0,Maps Route,data,.NET,,,11,false,Azure.Maps.Routing,https://github.com/Azu
 Maps,0,Maps Search,data,.NET,,,11,false,Azure.Maps.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
 Media,0,Media Analytics Edge,data,.NET,,,11,false,Azure.Media.Analytics.Edge,https://github.com/Azure/azure-sdk-for-net/tree/Azure.Media.Analytics.Edge_1.0.0-beta.1/sdk/mediaservices/Azure.Media.Analytics.Edge,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,.NET,,,11,false,Azure.AI.MetricsAdvisor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/metricsadvisor,10,false,1,08/10/2021
-Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.TestLogger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,false,1,
+Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.TestLogger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,10,false,1,07/29/2025
 Web PubSub,0,Microsoft.Azure.WebPubSub.AspNetCore,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,09/24/2024
 Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,09/24/2024
@@ -105,7 +105,7 @@ Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedRea
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/05/2025
 Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/12/2025
-Microsoft Playwright Testing,0,NUnit ? Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,false,1,
+Microsoft Playwright Testing,0,NUnit ? Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 Cognitive Services,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
 Cognitive Services,0,OpenAI Inference,data,.NET,,,11,false,Azure.AI.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,10,false,1,12/06/2024
 Monitor,0,OpenTelemetry AspNetCore,data,.NET,,,11,false,Azure.Monitor.OpenTelemetry.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,05/09/2025
@@ -341,7 +341,7 @@ Peering,0,Resource Management - Peering,mgmt,.NET,Microsoft.Azure.Management.Pee
 Pineconevectordb,0,Resource Management - Pineconevectordb,mgmt,.NET,,,11,false,Azure.ResourceManager.PineconeVectorDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,.NET,,,11,false,Azure.ResourceManager.PlanetaryComputer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/planetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,.NET,,,11,false,Azure.ResourceManager.Playwright,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwright,10,false,1,09/05/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,.NET,,,11,false,Azure.ResourceManager.PlaywrightTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,10,false,1,12/18/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,.NET,,,11,false,Azure.ResourceManager.PlaywrightTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,10,true,1,12/18/2024
 Policy Insights,0,Resource Management - Policy Insights,mgmt,.NET,Microsoft.Azure.Management.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,true,Azure.ResourceManager.PolicyInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/policyinsights,10,false,1,03/18/2025
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,.NET,,,11,false,Azure.ResourceManager.PortalServicesCopilot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/portalservices,3,false,1,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,.NET,Microsoft.Azure.Management.PostgreSQL,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/postgresql/Microsoft.Azure.Management.PostgreSQL,10,true,Azure.ResourceManager.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql,10,false,1,08/07/2025
@@ -844,7 +844,7 @@ Peering,0,Resource Management - Peering,mgmt,Go,,,11,false,sdk/resourcemanager/p
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,Go,,,11,false,sdk/resourcemanager/pineconevectordb/armpineconevectordb,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/pineconevectordb/armpineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,Go,,,11,false,sdk/resourcemanager/planetarycomputer/armplanetarycomputer,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/planetarycomputer/armplanetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,Go,,,11,false,sdk/resourcemanager/playwright/armplaywright,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwright/armplaywright,10,false,1,09/02/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Go,,,11,false,sdk/resourcemanager/playwrighttesting/armplaywrighttesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwrighttesting/armplaywrighttesting,10,false,1,09/08/2025
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Go,,,11,false,sdk/resourcemanager/playwrighttesting/armplaywrighttesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwrighttesting/armplaywrighttesting,10,true,1,09/08/2025
 Policy,0,Resource Management - Policy,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armpolicy,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armpolicy,3,false,1,
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Go,,,11,false,sdk/resourcemanager/policyinsights/armpolicyinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/policyinsights/armpolicyinsights,3,false,1,
 Portal,0,Resource Management - Portal,mgmt,Go,,,11,false,sdk/resourcemanager/portal/armportal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/portal/armportal,3,false,1,
@@ -1216,7 +1216,7 @@ Palo Alto Networks,0,Resource Management - Palo Alto Networks - Next Generation 
 Peering,0,Resource Management - Peering,mgmt,Java,azure-mgmt-peering,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/peering/mgmt-v2019_08_01_preview,3,true,azure-resourcemanager-peering,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/peering,10,false,1,12/25/2024
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,Java,,,11,false,azure-resourcemanager-pineconevectordb,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,Java,,,11,false,azure-resourcemanager-planetarycomputer,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/planetarycomputer,3,false,1,
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Java,,,11,false,azure-resourcemanager-playwrighttesting,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/playwrighttesting,10,false,1,12/16/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Java,,,11,false,azure-resourcemanager-playwrighttesting,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/playwrighttesting,10,true,1,12/16/2024
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Java,azure-mgmt-policyinsights,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/policyinsights/mgmt-v2019_10_01,3,true,azure-resourcemanager-policyinsights,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/policyinsights,10,false,1,12/25/2024
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,Java,,,11,false,azure-resourcemanager-portalservicescopilot,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/portalservices,3,false,1,
 PostgreSQL,0,Resource Management - PostgreSQL,mgmt,Java,azure-mgmt-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/postgresql/mgmt-v2017_12_01,3,true,azure-resourcemanager-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/postgresql,10,false,1,12/23/2024
@@ -1415,7 +1415,7 @@ Container Registry,0,Container Registry,data,JavaScript,,,11,false,@azure/contai
 Cognitive Services,0,Content Safety,data,JavaScript,@azure/cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure-rest/ai-content-safety,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/contentsafety/ai-content-safety-rest/,10,false,1,02/12/2025
 Cognitive Services,0,Conversational Language Understanding,data,JavaScript,,,11,false,@azure/ai-language-conversations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage,3,false,1,
 Cosmos DB,0,Cosmos DB,data,JavaScript,documentdb,UNABLE TO DETERMINE REPO LINK,1,false,@azure/cosmos,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb,10,false,1,09/04/2025
-Microsoft Playwright Testing,0,Create - Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/create-microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,false,1,
+Microsoft Playwright Testing,0,Create - Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/create-microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,true,1,
 Load Testing,0,Create Playwright,data,JavaScript,,,11,false,@azure/create-playwright,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/loadtesting,10,false,1,08/28/2025
 Defender EASM,0,Defender EASM,data,JavaScript,,,11,false,@azure-rest/defender-easm,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/easm/defender-easm-rest/,3,false,1,
 Dev Center,0,Dev Center,data,JavaScript,,,11,false,@azure-rest/developer-devcenter,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/devcenter/developer-devcenter-rest/,10,false,1,02/12/2025
@@ -1451,7 +1451,7 @@ Maps,0,Maps Render,data,JavaScript,,,11,false,@azure-rest/maps-render,https://gi
 Maps,0,Maps Route,data,JavaScript,,,11,false,@azure-rest/maps-route,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/maps/maps-route-rest/,3,false,1,
 Maps,0,Maps Search,data,JavaScript,,,11,false,@azure-rest/maps-search,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/maps/maps-search-rest/,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABLE TO DETERMINE REPO LINK,1,false,@azure/ai-metrics-advisor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor,10,false,1,07/06/2021
-Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,false,1,
+Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,true,1,
 Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/16/2025
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,true,1,08/12/2025
@@ -1675,7 +1675,7 @@ Peering,0,Resource Management - Peering,mgmt,JavaScript,,,11,false,@azure/arm-pe
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,JavaScript,,,11,false,@azure/arm-pineconevectordb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,JavaScript,,,11,false,@azure/arm-planetarycomputer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/planetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,JavaScript,,,11,false,@azure/arm-playwright,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwright,10,false,1,09/01/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,JavaScript,,,11,false,@azure/arm-playwrighttesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,10,false,1,12/20/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,JavaScript,,,11,false,@azure/arm-playwrighttesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,10,true,1,12/20/2024
 Policy,0,Resource Management - Policy,mgmt,JavaScript,,,11,false,@azure/arm-policy,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy,10,false,1,04/08/2025
 Policy Insights,0,Resource Management - Policy Insights,mgmt,JavaScript,,,11,false,@azure/arm-policyinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights,10,false,1,01/13/2025
 Portal,0,Resource Management - Portal,mgmt,JavaScript,,,11,false,@azure/arm-portal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/portal,3,false,1,
@@ -1835,7 +1835,7 @@ Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://g
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,08/20/2025
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,09/08/2025
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,false,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,06/06/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
@@ -2093,7 +2093,7 @@ Peering,0,Resource Management - Peering,mgmt,Python,,,11,false,azure-mgmt-peerin
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,Python,,,11,false,azure-mgmt-pineconevectordb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,Python,,,11,false,azure-mgmt-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,Python,,,11,false,azure-mgmt-playwright,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwright,10,false,1,08/29/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Python,,,11,false,azure-mgmt-playwrighttesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwrighttesting,10,false,1,12/19/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Python,,,11,false,azure-mgmt-playwrighttesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwrighttesting,10,true,1,12/19/2024
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Python,,,11,false,azure-mgmt-policyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/policyinsights,10,false,1,01/04/2021
 Portal,0,Resource Management - Portal,mgmt,Python,,,11,false,azure-mgmt-portal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/portal,10,false,1,05/21/2021
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,Python,,,11,false,azure-mgmt-portalservicescopilot,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/portalservices,3,false,1,
