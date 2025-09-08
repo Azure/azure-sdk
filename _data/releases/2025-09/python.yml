@@ -406,4 +406,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computerecommender_1.0.0b1/sdk/computerecommender/azure-mgmt-computerecommender/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.29.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.29.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix for registry resource group passed to OnlineEndpointOperations when model is in registry in different resource group compared to workspace.
+    - Set defaults for min_instances, max_instances, idle_time_before_scale_down in AmlCompute
+
+    #### Features Added
+
+    - Removed the dependencies - msrest and six
 
