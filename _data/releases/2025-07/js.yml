@@ -1,0 +1,597 @@
+entries:
+- Name: '@azure/communication-sms'
+  Version: 1.2.0-beta.4
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.4/sdk/communication/communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduced Messaging Connect support:
+    - Added a new MessagingConnect field to the SmsSendOptions model.
+    - The MessagingConnect structure includes:
+    - apiKey: used for authenticating Messaging Connect requests.
+    - partner: identifies the Messaging Connect partner.
+    - Supports:
+    - Incoming and outgoing flows for long codes.
+    - Outgoing flow for Dynamic Alpha Sender IDs (DASID).
+- Name: '@azure/storage-common'
+  Version: 12.1.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.1.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added pipeline policy to parse failures for invalid x-ms-version header and report a more reasonable error message.
+- Name: '@azure/storage-blob'
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.29.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-11-05.
+    - AppendBlobClient. appendBlockFromURL (), BlobClient.startCopyFromURL(), syncCopyFromURL(), BlockBlobClient.stageBlockFromURL() and PageBlobClient.uploadPagesFromURL() will now return CopySourceStatusCode, CopySourceErrorCode, and CopySourceErrorMessage as part of error responses.
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.28.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-11-05.
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: '@azure/storage-file-share'
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.29.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-11-05.
+    - Added ShareErrorCode.ShareSnapshotNotFound.
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: '@azure/storage-queue'
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.28.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-11-05.
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: '@azure/arm-containerservice'
+  Version: 22.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-oracledatabase'
+  Version: 2.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_2.0.0/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 23.0.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-planetarycomputer'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Planetarycomputer
+  ServiceName: Planetarycomputer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-planetarycomputer_1.0.0-beta.1/sdk/planetarycomputer/arm-planetarycomputer/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.2.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.2.0/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-identity'
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.4.0-beta.1/sdk/communication/communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Identity Management: Added support for creating identities with an associated customId.
+    - Identity Operations: Introduced the get identity operation.
+- Name: '@azure/arm-appconfiguration'
+  Version: 5.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appservice'
+  Version: 17.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 22.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-privatelinkscopes'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration-Privatelinkscopes
+  ServiceName: Kubernetesconfiguration-Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-privatelinkscopes_1.0.0-beta.1/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-privatelinkscopes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices'
+  Version: 6.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservices/arm-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.4.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.4.0/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of the reservations functionality.
+    - GA support for automated purchases of phone numbers from countries requiring a do not resell agreement.
+    - For more information, refer to: https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability
+- Name: '@azure/arm-hybridcompute'
+  Version: 5.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_5.0.0-beta.1/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.6.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support data retention policy.
+    - Support thread level and member level metadata.
+- Name: '@azure/arm-dnsresolver'
+  Version: 1.2.0
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.2.0/sdk/dnsresolver/arm-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.4/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.9
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.9/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - The `project.datasets.uploadFile` method is updated to take an options bag of type `DatasetUploadOptions`.
+    - The `project.datasets.uploadFolder` method is updated to take an options bag of type `DatasetUploadOptions`.
+- Name: '@azure/ai-agents'
+  Version: 1.0.0-beta.5
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.5/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with event data parsing
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    The EventGrid System Events client library is now in GA with this release.
+- Name: '@azure/eventgrid-systemevents'
+  Version: 1.0.1
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.1/sdk/eventgrid/eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - correct property name `resourceUri` in `ResourceAction*EventData`.
+- Name: '@azure/ai-agents'
+  Version: 1.0.0-beta.6
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.6/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with event data of `submitToolOutputs` stream mode
+- Name: '@azure/ai-agents'
+  Version: 1.0.0
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - `AgentsClient` constructor parameter `credential` type  `KeyCredential | TokenCredential` is update to `TokenCredential`
+- Name: '@azure/identity'
+  Version: 4.10.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue in `AzurePowerShellCredential` where `-AsPlainText` is not supported in the `ConvertFrom-SecureString` cmdlet in older versions. [#34902](https://github.com/Azure/azure-sdk-for-js/pull/34902)
+- Name: '@azure/arm-purestorageblock'
+  Version: 1.0.0
+  DisplayName: Resource Management - Purestorageblock
+  ServiceName: Purestorageblock
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purestorageblock_1.0.0/sdk/purestorageblock/arm-purestorageblock/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-lambdatesthyperexecute'
+  Version: 1.0.0
+  DisplayName: Resource Management - Lambdatesthyperexecute
+  ServiceName: Lambdatesthyperexecute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-lambdatesthyperexecute_1.0.0/sdk/lambdatesthyperexecute/arm-lambdatesthyperexecute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/health-deidentification'
+  Version: 1.0.0
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0/sdk/healthdataaiservices/health-deidentification-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed method names in `DeidentificationClient` to match functionality:
+    - Changed the `Deidentify` method name to `DeidentifyText`.
+    - Changed the `CreateJob` method name to `DeidentifyDocuments`.
+    - Deprecated `DocumentDataType`.
+    - Changed `path` field to `location` in `SourceStorageLocation` and `TargetStorageLocation`.
+    - Changed `outputPrefix` behavior to no longer include the job's name by default.
+    - Deprecated `path` and `location` from `PhiTaggerResultOutput` model.
+
+    #### Features Added
+
+    - Introduced `DeidentificationCustomizationOptions` and `DeidentificationJobCustomizationOptions` models.
+    - Added `surrogate_locale` field in these models.
+    - Moved `redaction_format` field into these models.
+    - Introduced `overwrite` property in `TargetStorageLocation` model, which allows a job to overwrite existing documents in the storage location.
+- Name: '@azure/ai-projects'
+  Version: 1.0.0-beta.10
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.10/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - remove `project.enableTelemetry` method.
+- Name: '@azure/arm-avs'
+  Version: 7.0.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/service-bus'
+  Version: 7.10.0-beta.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.10.0-beta.2/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add the experimental diagnostic feature `omitMessageBody` via `PeekMessagesOptions` under `./experimental` subpath export. To access the new option, import "@azure/service-bus/experimental" sub-path. For example,
+
+    ```ts
+    import { DefaultAzureCredential } from "@azure/identity";
+    import { ServiceBusClient } from "@azure/service-bus";
+    import "@azure/service-bus/experimental";
+    import "dotenv/config";
+
+    async function test() {
+    const fqdn = process.env.SERVICEBUS_FQDN || "example.servicebus.windows.net";
+    const queue = process.env.SERVICEBUS_QUEUE || "queue1";
+    const credential = new DefaultAzureCredential();
+    const client = new ServiceBusClient(fqdn, credential);
+    const receiver = client.createReceiver(queue);
+    await receiver.peekMessages(100, {
+    omitMessageBody: true,
+    });
+    }
+    ```
+- Name: '@azure/core-amqp'
+  Version: 4.4.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.4.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-auth'
+  Version: 1.10.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.10.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/logger'
+  Version: 1.3.0
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.3.0/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.0
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.0/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-lro'
+  Version: 3.3.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.3.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-tracing'
+  Version: 1.3.0
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.3.0/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-client'
+  Version: 1.10.0
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.10.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure-rest/core-client'
+  Version: 2.5.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.5.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-xml'
+  Version: 1.5.0
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.5.0/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-util'
+  Version: 1.13.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.13.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-sse'
+  Version: 2.3.0
+  DisplayName: '@azure/core-sse'
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.3.0/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.22.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.22.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=20.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/arm-storageactions'
+  Version: 1.0.0
+  DisplayName: Resource Management - Storage Actions
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storageactions_1.0.0/sdk/storageactions/arm-storageactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-playwright'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwright_1.0.0-beta.1/sdk/playwright/arm-playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computeschedule'
+  Version: 1.1.0
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.1.0/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.0.0-beta.1
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0-beta.1/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added authentication using Entra ID for the service.
+- Name: '@azure/create-playwright'
+  Version: 1.0.0-beta.1
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0-beta.1/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added authentication using Entra ID for the service.
+- Name: '@azure/arm-mongodbatlas'
+  Version: 1.0.0
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongodbatlas_1.0.0/sdk/mongodbatlas/arm-mongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-ingestion'
+  Version: 1.2.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.2.0/sdk/monitor/monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Generate code from TypeSpec. This is an internal change that should not affect customers.
+    - Migrates client interfaces to use types from `@azure-rest/core-client` and `@azure/core-rest-pipeline` instead of `@azure/core-client`.
+    - Adds support for specifying `clientRequestId` and `contentEncoding` in `LogsUploadOptions` to provide more control over upload requests.
+    - Adds the `KnownVersions` enum for API versioning, starting with V20230101.
+    - Adds the `pipeline` property on `LogsIngestionClient` for advanced customization.
+- Name: '@azure/arm-hardwaresecuritymodules'
+  Version: 2.0.0
+  DisplayName: Resource Management - Hardware Security Modules
+  ServiceName: Hardware Security Modules
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hardwaresecuritymodules_2.0.0/sdk/hardwaresecuritymodules/arm-hardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+
