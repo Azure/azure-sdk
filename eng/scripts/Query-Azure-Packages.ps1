@@ -69,7 +69,7 @@ function Get-java-Packages
         $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
         $packages += CreatePackage $artifactId $version $groupId
       } catch {
-        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository"
+        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl"
       }
     }
   }
