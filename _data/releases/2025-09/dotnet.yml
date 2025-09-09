@@ -416,4 +416,24 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue that prevented unbranded generated clients from utilizing an instance of `TokenCredential` with APIs that accept `AuthenticationTokenProvider`.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.6
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.6/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - This release contains bug fixes to improve quality.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.6
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.6/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Reverted change where the scan will continue scanning AzureWebJobsStorage even when configuring a target storage account
 
