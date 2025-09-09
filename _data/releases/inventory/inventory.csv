@@ -272,7 +272,7 @@ Energy Services,0,Resource Management - Energy Services,mgmt,.NET,,,11,false,Azu
 Event Grid,0,Resource Management - Event Grid,mgmt,.NET,Microsoft.Azure.Management.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,true,Azure.ResourceManager.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid,10,false,1,03/31/2025
 Event Hubs,0,Resource Management - Event Hubs,mgmt,.NET,Microsoft.Azure.Management.EventHub,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/eventhub/Microsoft.Azure.Management.EventHub,10,true,Azure.ResourceManager.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub,10,false,1,06/13/2025
 Extended Location,0,Resource Management - Extended Location,mgmt,.NET,Microsoft.Azure.Management.ExtendedLocation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ExtendedLocations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extendedlocation,10,false,1,03/17/2025
-Fabric,0,Resource Management - Fabric,mgmt,.NET,,,11,false,Azure.ResourceManager.Fabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fabric,3,false,1,
+Fabric,0,Resource Management - Fabric,mgmt,.NET,,,11,false,Azure.ResourceManager.Fabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fabric,10,false,1,09/08/2025
 Fluid Relay,0,Resource Management - Fluid Relay,mgmt,.NET,,,11,false,Azure.ResourceManager.FluidRelay,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fluidrelay,10,false,1,03/17/2025
 Front Door,0,Resource Management - Front Door,mgmt,.NET,Microsoft.Azure.Management.FrontDoor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/frontdoor,10,true,Azure.ResourceManager.FrontDoor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/frontdoor,10,false,1,05/18/2025
 Graph Services,0,Resource Management - Graph Services,mgmt,.NET,,,11,false,Azure.ResourceManager.GraphServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/graphservices,10,false,1,03/17/2025
@@ -675,6 +675,7 @@ Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Go,,,11
 Azurestackhci,0,Resource Management - Azurestackhcivm,mgmt,Go,,,11,false,sdk/resourcemanager/azurestackhci/armazurestackhcivm,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azurestackhci/armazurestackhcivm,3,false,1,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,Go,,,11,false,sdk/resourcemanager/baremetalinfrastructure/armbaremetalinfrastructure,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/baremetalinfrastructure/armbaremetalinfrastructure,10,false,1,11/23/2023
 Batch,0,Resource Management - Batch,mgmt,Go,,,11,false,sdk/resourcemanager/batch/armbatch,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/batch/armbatch,10,false,1,09/27/2024
+Resources,0,Resource Management - Bicep,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armbicep,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armbicep,3,false,1,
 Billing,0,Resource Management - Billing,mgmt,Go,,,11,false,sdk/resourcemanager/billing/armbilling,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/billing/armbilling,10,false,1,09/18/2024
 Billingbenefits,0,Resource Management - Billingbenefits,mgmt,Go,,,11,false,sdk/resourcemanager/billingbenefits/armbillingbenefits,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/billingbenefits/armbillingbenefits,10,false,1,11/23/2023
 Blockchain,0,Resource Management - Blockchain,mgmt,Go,,,11,false,sdk/resourcemanager/blockchain/armblockchain,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/blockchain/armblockchain,3,false,1,
@@ -844,7 +845,7 @@ Peering,0,Resource Management - Peering,mgmt,Go,,,11,false,sdk/resourcemanager/p
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,Go,,,11,false,sdk/resourcemanager/pineconevectordb/armpineconevectordb,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/pineconevectordb/armpineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,Go,,,11,false,sdk/resourcemanager/planetarycomputer/armplanetarycomputer,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/planetarycomputer/armplanetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,Go,,,11,false,sdk/resourcemanager/playwright/armplaywright,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwright/armplaywright,10,false,1,09/02/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Go,,,11,false,sdk/resourcemanager/playwrighttesting/armplaywrighttesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwrighttesting/armplaywrighttesting,10,true,1,09/08/2025
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Go,,,11,false,sdk/resourcemanager/playwrighttesting/armplaywrighttesting,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/playwrighttesting/armplaywrighttesting,10,true,1,09/09/2025
 Policy,0,Resource Management - Policy,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armpolicy,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armpolicy,3,false,1,
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Go,,,11,false,sdk/resourcemanager/policyinsights/armpolicyinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/policyinsights/armpolicyinsights,3,false,1,
 Portal,0,Resource Management - Portal,mgmt,Go,,,11,false,sdk/resourcemanager/portal/armportal,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/portal/armportal,3,false,1,
@@ -1675,7 +1676,7 @@ Peering,0,Resource Management - Peering,mgmt,JavaScript,,,11,false,@azure/arm-pe
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,JavaScript,,,11,false,@azure/arm-pineconevectordb,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,JavaScript,,,11,false,@azure/arm-planetarycomputer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/planetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,JavaScript,,,11,false,@azure/arm-playwright,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwright,10,false,1,09/01/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,JavaScript,,,11,false,@azure/arm-playwrighttesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,10,true,1,12/20/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,JavaScript,,,11,false,@azure/arm-playwrighttesting,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,10,true,1,09/09/2025
 Policy,0,Resource Management - Policy,mgmt,JavaScript,,,11,false,@azure/arm-policy,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy,10,false,1,04/08/2025
 Policy Insights,0,Resource Management - Policy Insights,mgmt,JavaScript,,,11,false,@azure/arm-policyinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights,10,false,1,01/13/2025
 Portal,0,Resource Management - Portal,mgmt,JavaScript,,,11,false,@azure/arm-portal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/portal,3,false,1,
@@ -2093,7 +2094,7 @@ Peering,0,Resource Management - Peering,mgmt,Python,,,11,false,azure-mgmt-peerin
 Pinecone Vector DB,0,Resource Management - Pinecone Vector DB,mgmt,Python,,,11,false,azure-mgmt-pineconevectordb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/pineconevectordb,3,false,1,
 Planetarycomputer,0,Resource Management - Planetarycomputer,mgmt,Python,,,11,false,azure-mgmt-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
 Playwright,0,Resource Management - Playwright,mgmt,Python,,,11,false,azure-mgmt-playwright,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwright,10,false,1,08/29/2025
-Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Python,,,11,false,azure-mgmt-playwrighttesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwrighttesting,10,true,1,12/19/2024
+Playwright Testing,0,Resource Management - Playwright Testing,mgmt,Python,,,11,false,azure-mgmt-playwrighttesting,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/playwrighttesting,10,true,1,09/09/2025
 Policy Insights,0,Resource Management - Policy Insights,mgmt,Python,,,11,false,azure-mgmt-policyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/policyinsights,10,false,1,01/04/2021
 Portal,0,Resource Management - Portal,mgmt,Python,,,11,false,azure-mgmt-portal,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/portal,10,false,1,05/21/2021
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,Python,,,11,false,azure-mgmt-portalservicescopilot,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/portalservices,3,false,1,
@@ -4043,6 +4044,11 @@ Data Migration,0,Resource Management - Data Migration,mgmt,.NET,,,11,false,Missi
 Data Migration,0,Resource Management - Data Migration,mgmt,Java,,,11,false,Missing: Created from API in specs repo: datamigration/resource-manager,,2,false,0,
 Data Migration,0,Resource Management - Data Migration,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: datamigration/resource-manager,,2,false,0,
 Data Migration,0,Resource Management - Data Migration,mgmt,Python,,,11,false,Missing: Created from API in specs repo: datamigration/resource-manager,,2,false,0,
+Data Protection,0,Resource Management - DataProtection.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: dataprotection/DataProtection.Management,,2,false,0,
+Data Protection,0,Resource Management - DataProtection.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: dataprotection/DataProtection.Management,,2,false,0,
+Data Protection,0,Resource Management - DataProtection.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: dataprotection/DataProtection.Management,,2,false,0,
+Data Protection,0,Resource Management - DataProtection.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: dataprotection/DataProtection.Management,,2,false,0,
+Data Protection,0,Resource Management - DataProtection.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: dataprotection/DataProtection.Management,,2,false,0,
 Data Protection,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: dataprotection/cspell.yaml,,2,false,0,
 Data Protection,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: dataprotection/cspell.yaml,,2,false,0,
 Data Protection,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dataprotection/cspell.yaml,,2,false,0,
@@ -5595,6 +5601,11 @@ Storage,0,Resource Management - StorageMover.Management,mgmt,Java,,,11,false,Mis
 Storage,0,Resource Management - StorageMover.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
+Storage,0,Resource Management - StorageSync.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: storagesync/StorageSync.Management,,2,false,0,
+Storage,0,Resource Management - StorageSync.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: storagesync/StorageSync.Management,,2,false,0,
+Storage,0,Resource Management - StorageSync.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: storagesync/StorageSync.Management,,2,false,0,
+Storage,0,Resource Management - StorageSync.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: storagesync/StorageSync.Management,,2,false,0,
+Storage,0,Resource Management - StorageSync.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: storagesync/StorageSync.Management,,2,false,0,
 StorSimple 8000 series,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: storsimple8000series/cspell.yaml,,2,false,0,
 StorSimple 8000 series,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: storsimple8000series/cspell.yaml,,2,false,0,
 StorSimple 8000 series,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: storsimple8000series/cspell.yaml,,2,false,0,
