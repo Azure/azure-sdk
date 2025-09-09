@@ -57,6 +57,7 @@ function Get-java-Packages
       $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
       Write-Warning "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl"
 
+      # fallback to guess a groupId, and query maven central repository for the artifact
       $artifactId = $tag
       $groupId = "com.azure"
       if ($tag.StartsWith("azure-resourcemanager-")) {
