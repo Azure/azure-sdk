@@ -56,6 +56,20 @@ function Get-java-Packages
     if ($packages.Package -notcontains $tag) {
       $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
       Write-Warning "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl"
+
+      $artifactId = $tag
+      $groupId = "com.azure"
+      if ($tag.StartsWith("azure-resourcemanager-")) {
+        $groupId = "com.azure.resourcemanager"
+      }
+      $groupPath = $groupId.Replace(".","/")
+      $mavenUrl = "https://repo1.maven.org/maven2/$groupPath/$artifactId/$version/$artifactId-$version.pom"
+      try {
+        $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
+        $packages += CreatePackage $artifactId $version $groupId
+      } catch {
+        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository"
+      }
     }
   }
 
