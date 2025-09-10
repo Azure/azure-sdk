@@ -154,8 +154,8 @@ Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,h
 Storage,0,WCF Storage Queues,data,.NET,,,11,false,Microsoft.WCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
 Web PubSub,0,Web PubSub,data,.NET,,,11,false,Azure.Messaging.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,05/08/2025
 Web PubSub,0,Web PubSub Client,data,.NET,,,11,false,Azure.Messaging.WebPubSub.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,12/31/2023
-Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,07/21/2025
-Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,07/21/2025
+Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/09/2025
+Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,09/09/2025
 Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,3,false,1,
 Provisioning,0,Provisioning - App Configuration,mgmt,.NET,,,11,false,Azure.Provisioning.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 App Containers,0,Provisioning - App Containers,mgmt,.NET,,,11,false,Azure.Provisioning.AppContainers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
@@ -1436,7 +1436,7 @@ Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@az
 Cognitive Services,0,Health Insights Cancer Profiling,data,JavaScript,,,11,false,@azure-rest/health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-cancerprofiling-rest/,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,JavaScript,,,11,false,@azure-rest/health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-clinicalmatching-rest/,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,10,false,1,06/06/2025
-Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,08/05/2025
+Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,09/09/2025
 Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,02/18/2025
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
@@ -1705,6 +1705,7 @@ Resource Graph,0,Resource Management - Resource Graph,mgmt,JavaScript,,,11,false
 Resource Health,0,Resource Management - Resource Health,mgmt,JavaScript,azure-arm-resourcehealth,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-resourcehealth,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth,10,false,1,05/24/2023
 Resource Mover,0,Resource Management - Resource Mover,mgmt,JavaScript,,,11,false,@azure/arm-resourcemover,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcemover,10,false,1,10/24/2023
 Resources,0,Resource Management - Resources,mgmt,JavaScript,azure-arm-resource,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-resources,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources,10,false,1,07/25/2025
+Resourcesbicep,0,Resource Management - Resourcesbicep,mgmt,JavaScript,,,11,false,@azure/arm-resourcesbicep,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources,3,false,1,
 Scvmm,0,Resource Management - Scvmm,mgmt,JavaScript,,,11,false,@azure/arm-scvmm,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/scvmm,10,false,1,06/26/2024
 Security,0,Resource Management - Security,mgmt,JavaScript,,,11,false,@azure/arm-security,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security,10,false,1,04/01/2022
 Security DevOps,0,Resource Management - Security DevOps,mgmt,JavaScript,,,11,false,@azure/arm-securitydevops,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/securitydevops,3,false,1,
@@ -5597,6 +5598,7 @@ storagediscovery,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in
 storagediscovery,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
 storagediscovery,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
 storagediscovery,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
+storagediscovery,0,Resource Management - storagediscovery,mgmt,Java,,,11,false,Missing: Created from API in specs repo: storagediscovery/resource-manager,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
