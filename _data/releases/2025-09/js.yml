@@ -221,4 +221,12 @@ entries:
 
     - Fixed an issue where `AzureDeveloperCliCredential` would time out during token requests when `azd` prompts for user interaction. This issue commonly occurred in environments where the `AZD_DEBUG` environment variable was set, causing the Azure Developer CLI to display additional prompts that interfered with automated token acquisition. [#35637](https://github.com/Azure/azure-sdk-for-js/pull/35637)
     - Fixed an issue where `VisualStudioCodeCredential` will show interactive authentication when the plugin is set but the broker is not available. [#35837](https://github.com/Azure/azure-sdk-for-js/pull/35837)
+- Name: '@azure/arm-resourcesbicep'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resourcesbicep
+  ServiceName: Resourcesbicep
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesbicep_1.0.0-beta.1/sdk/resources/arm-resourcesbicep/CHANGELOG.md
+  ChangelogContent: ""
 
