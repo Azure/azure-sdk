@@ -457,4 +457,34 @@ entries:
     - `BrokerCredential` is now included in the chain when `AZURE_TOKEN_CREDENTIALS` is set to `dev`.
     - Fixed an issue that prevented ManagedIdentityCredential from utilizing the token cache in Workload Identity Federation environments.
     - Fixed a bug in `DefaultAzureCredential` that caused the credential chain to be constructed incorrectly when using AZURE_TOKEN_CREDENTIALS in combination with `DefaultAzureCredentialOptions`.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.2
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.2/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.2
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.2/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.2
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.2/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
 
