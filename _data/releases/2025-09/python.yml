@@ -460,4 +460,30 @@ entries:
     #### Features Added
     * Added read_items API to provide an efficient method for retrieving multiple items in a single request. See [PR 42167](https://github.com/Azure/azure-sdk-for-python/pull/42167).
     * Added ability to replace a container's indexing policy if a vector embedding policy was present. See [PR 42810](https://github.com/Azure/azure-sdk-for-python/pull/42810).
+- Name: azure-communication-callautomation
+  Version: 1.5.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.5.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in create call, add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Adds support for SIP headers prefixed with 'X-' and 'X-MS-Custom-' within the CustomCallingContext.
+
+    #### Bugs fixed
+
+    - Fixed range specification for download_recording.
+    - Fixed serialization of participant ordering for start_recording.
+
+
+    #### Breaking Changes
+
+    - The properties `media_streaming_subscription` and `transcription_subscription` of `CallConnectionProperties` are no longer subclasses of the internal `Model` baseclass, and no longer have the inherited methods.
+    - The following attributes have now been typed as `Optional` to reflect the actual behaviour: `CallParticipant.is_muted`, `CallParticipant.is_on_hold`, `AddParticipantResult.invitation_id`, `CancelAddParticipantOperationResult.invitation_id`.
+    - The models `FileSource` and `ChannelAffinity` will no longer accept arbitrary keyword args in the constructor.
 
