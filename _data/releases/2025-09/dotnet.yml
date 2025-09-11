@@ -487,4 +487,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.1.0
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.1.0/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
 
