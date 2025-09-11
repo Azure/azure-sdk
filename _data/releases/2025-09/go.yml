@@ -1,0 +1,158 @@
+entries:
+- Name: sdk/resourcemanager/impactreporting/armimpactreporting
+  Version: 0.2.0
+  DisplayName: Resource Management - Impact Reporting
+  ServiceName: Impact Reporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/impactreporting/armimpactreporting/v0.2.0/sdk/resourcemanager/impactreporting/armimpactreporting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/template/aztemplate
+  Version: 0.6.3
+  DisplayName: Template
+  ServiceName: Template
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/template/aztemplate/v0.6.3/sdk/template/aztemplate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Template package validating release pipeline
+- Name: sdk/azcore
+  Version: 1.19.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.19.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `runtime.APIVersionLocationPath` to be set by clients that set the API version in the path.
+- Name: sdk/resourcemanager/workloadorchestration/armworkloadorchestration
+  Version: 0.1.0
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/v0.1.0/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 7.7.0
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v7.7.0/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/workloadorchestration/armworkloadorchestration
+  Version: 0.2.0
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/v0.2.0/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 1.4.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.4.1/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed bug where the correct header was not being sent for writes on multiple write region accounts. See [PR 25127](https://github.com/Azure/azure-sdk-for-go/pull/25127)
+- Name: sdk/resourcemanager/workloadorchestration/armworkloadorchestration
+  Version: 0.3.0
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/v0.3.0/sdk/resourcemanager/workloadorchestration/armworkloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservicefleet/armcontainerservicefleet
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/v3.0.0-beta.1/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cloudhealth/armcloudhealth
+  Version: 0.1.0
+  DisplayName: Resource Management - Cloudhealth
+  ServiceName: Cloudhealth
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cloudhealth/armcloudhealth/v0.1.0/sdk/resourcemanager/cloudhealth/armcloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/playwright/armplaywright
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/playwright/armplaywright/v1.0.0/sdk/resourcemanager/playwright/armplaywright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/azurestackhci/armazurestackhcivm
+  Version: 0.1.0
+  DisplayName: Resource Management - Azurestackhcivm
+  ServiceName: Azurestackhci
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/azurestackhci/armazurestackhcivm/v0.1.0/sdk/resourcemanager/azurestackhci/armazurestackhcivm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/playwrighttesting/armplaywrighttesting
+  Version: 1.0.1
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/v1.0.1/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resources/armbicep
+  Version: 0.1.0
+  DisplayName: Resource Management - Bicep
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armbicep/v0.1.0/sdk/resourcemanager/resources/armbicep/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/playwrighttesting/armplaywrighttesting
+  Version: 1.0.2
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/v1.0.2/sdk/resourcemanager/playwrighttesting/armplaywrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computerecommender/armcomputerecommender
+  Version: 0.1.0
+  DisplayName: Resource Management - Computerecommender
+  ServiceName: Computerecommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computerecommender/armcomputerecommender/v0.1.0/sdk/resourcemanager/computerecommender/armcomputerecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/sql/armsql
+  Version: 2.0.0-beta.7
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sql/armsql/v2.0.0-beta.7/sdk/resourcemanager/sql/armsql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.19.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.19.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed resource identifier parsing for provider-specific resource hierarchies containing "resourceGroups" segments.
+
