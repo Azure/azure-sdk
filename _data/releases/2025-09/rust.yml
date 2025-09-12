@@ -1,0 +1,120 @@
+entries:
+- Name: azure_core_opentelemetry
+  Version: 0.2.0
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.2.0/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_core_amqp
+  Version: 0.7.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.7.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Distinguish remote disconnect and remote closed errors by origin
+- Name: typespec_macros
+  Version: 0.7.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.7.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec
+  Version: 0.8.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.8.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Bytes` (moved from `typespec_client_core`).
+    - Added `HeaderName::is_standard()`.
+    - Added `json` module if the `json` feature is enabled (moved from `typespec_client_core`).
+    - Added `RawResponse` to `ErrorKind::HttpResponse` that contains the HTTP status code, headers, and complete error response body.
+    - Added `xml` feature.
+    - Added `xml` module if the `xml` feature is enabled (moved from `typespec_client_core`).
+- Name: azure_core
+  Version: 0.28.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.28.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added a lifetime parameter to `TokenRequestOptions`.
+    - Added the ability to configure pipeline configuration independently from `ClientOptions`. This adds a new optional `PipelineOptions` parameter to `azure_core::http::Pipeline::new()`. If not specified, it defaults to the expected options for `azure_core` services.
+    - Changed `FromStr for RequestContent<T, F>` to `RequestContent::from_str()`.
+    - Changed `TryFrom<&'static str> for RequestContent<T, F>` to `RequestContent::from_static()`.
+    - Changed `TryFrom<Bytes> for RequestContent<T, F>` to `From<Bytes> for RequestContent<T, F>` because it was already infallible.
+    - Removed `TryFrom<Vec<u8>> for RequestContent<T, F>` since `RequestContent::from()` already exists.
+    - Removed feature `reqwest_rustls_tls`. See [README.md](https://github.com/heaths/azure-sdk-for-rust/blob/main/sdk/core/azure_core/README.md) for alternative HTTP client configuration.
+    - Removed the `fs` module including the `FileStream` and `FileStreamBuilder` types. Moved to `examples/` for `typespec_client_core` to copy if needed.
+    - Removed the `setters` macro.
+    - Renamed `RawResponse` to `BufResponse`. New `RawResponse` contains complete body as `Bytes` used in `ErrorKind::HttpResponse`.
+
+    #### Features Added
+
+    - Added `RawResponse` to `ErrorKind::HttpResponse` that contains the HTTP status code, headers, and complete error response body.
+    - Added `RequestContent::from_slice()`.
+    - Added `TokenRequestOptions { method_options: ClientMethodOptions }`.
+    - Added `TryFrom<T> for RequestContent<T, JsonFormat>` for JSON primitives.
+    - Added support for WASM to the `async_runtime` module.
+    - Added logging policy to log HTTP requests and responses in the pipeline. As a part of this change, sanitization support was added to places which log HTTP headers and URLs. The `azure_core::http::ClientOptions` has been enhanced with a `LoggingOptions` which allows a user/service client to specify headers or URL query parameters which should be allowed. Note that the sanitization feature is disabled if you build with the `debug` feature enabled.
+    - Added support for a new `azure_core::error::http::ErrorResponse` structure which describes an error according to the Azure REST API guidelines.
+    - Added a new `azure_core::http::check_success(BufResponse)` function to convert a buffered response to an `ErrorKind::HttpResponse`.
+- Name: azure_core_macros
+  Version: 0.2.0
+  DisplayName: Core - Macros
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.2.0/sdk/core/azure_core_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec_client_core
+  Version: 0.7.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.7.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added pipeline configuration options (`PipelineOptions`) to `typespec_client_core::http::Pipeline::new()` to enable customization of the options for an HTTP pipeline.
+    - Changed `FromStr for RequestContent<T, F>` to `RequestContent::from_str()`.
+    - Changed `TryFrom<&'static str> for RequestContent<T, F>` to `RequestContent::from_static()`.
+    - Changed `TryFrom<Bytes> for RequestContent<T, F>` to `From<Bytes> for RequestContent<T, F>` because it was already infallible.
+    - Removed `TryFrom<Vec<u8>> for RequestContent<T, F>` since `RequestContent::from()` already exists.
+    - Removed feature `reqwest_rustls_tls`. See [README.md](https://github.com/heaths/azure-sdk-for-rust/blob/main/sdk/typespec/typespec_client_core/README.md) for alternative HTTP client configuration.
+    - Removed the `fs` module including the `FileStream` and `FileStreamBuilder` types. Moved to `examples/` to copy if needed.
+    - Removed the `setters` macro.
+    - Removed the cloud service specific retry headers from typespec_client_core.
+    - Renamed `RawResponse` to `BufResponse`. New `RawResponse` contains complete body as `Bytes` used in `ErrorKind::HttpResponse`.
+    - Removed HttpError type from typespec_client_core because it is an azure_core construct.
+
+    #### Features Added
+
+    - Added `RequestContent::from_slice()`.
+    - Added `TryFrom<T> for RequestContent<T, JsonFormat>` for JSON primitives.
+    - Added support for WASM to the `async_runtime` module.
+
