@@ -117,4 +117,21 @@ entries:
     - Added `RequestContent::from_slice()`.
     - Added `TryFrom<T> for RequestContent<T, JsonFormat>` for JSON primitives.
     - Added support for WASM to the `async_runtime` module.
+- Name: azure_messaging_eventhubs
+  Version: 0.7.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.7.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `ProducerClient::send_batch` now consumes its `batch` argument.
+    - `RetryOptions::max_retries` is a `u32` not a `usize`.
+
+    #### Features Added
+
+    - Reconnect support for EventHubs operations.
+    - Enable [Geo Replication](https://learn.microsoft.com/azure/event-hubs/geo-replication) support in Event Hubs consumers and producers.
 
