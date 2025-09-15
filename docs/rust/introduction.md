@@ -944,11 +944,22 @@ let client = SecretClient::new(...);
 
 {% include requirement/MUST id="rust-documentation-doc-auto-cfg" %} document which, if any, features a module, type, or function requires.
 
-Near the top of `src/lib.rs` right after [inclusion of the README](#rust-documentation-readme), add:
+Near the top of `src/lib.rs` after [inclusion of the README](#rust-documentation-readme), add:
 
 ```rust
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 ```
+
+{% include requirement/MUST id="rust-documentation-warn-missing-docs" %} warn for missing docs.
+
+Near the top of `src/lib.rs` after [inclusion of the README](#rust-documentation-readme), add:
+
+```rust
+#![warn(missing_docs)]
+```
+
+If you must first add comments to TypeSpec members or convenience types and members, use `expect` instead of `warn` until you finish adding documentation.
+`expect` will then trigger a warning (as error) reminding you to flip that back to `warn` so that future violations of `missing_docs` are discovered.
 
 {% include requirement/MUST id="rust-documentation-parameters" %} document all parameters. Prior to [conventional doc comment markdown headers][rust-lang-rustdoc-headings], declare an `Arguments` heading as needed (not needed for `&self`):
 
