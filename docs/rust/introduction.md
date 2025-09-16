@@ -327,13 +327,16 @@ Any data passed to client methods to alter the pipeline e.g., retry policy optio
 
 {% include requirement/MUST id="rust-client-methods-return-lro" %} return an `azure_core::Result<azure_core::Poller<T>>` from an `async fn` when the service implements the operation a [long-running operation](#rust-lro).
 
-{% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response<T>>` from an `async fn` for all other service responses.
-If the service method does not return any content e.g., HTTP 204, the client method should return a `Result<Response<()>>` containing the `()` unit type.
+{% include requirement/MUST id="rust-client-methods-return-result" %} return an `azure_core::Result<azure_core::Response<T, F>>` from an `async fn` for all other service responses.
+If the service method does not return any content e.g., HTTP 204, the client method should return a `Result<Response<(), NoFormat>>` containing the `()` unit type.
+If the service method returns binary data, the client method should return a `Result<Response<Byte, NoFormat>>`.
+
+Most services return JSON corresponding to the `JsonFormat` type for the `F` type parameter, which can be elided since `JsonFormat` is the default.
 
 {% include requirement/MUST id="rust-client-methods-return-raw-response" %} provide the status code, headers, and self-consuming async raw response stream from all return types e.g.,
 
 ``` rust
-impl<T> Response<T> {
+impl<T, F> Response<T, F> {
     pub fn status(&self) -> &StatusCode {
         todo!()
     }
@@ -348,10 +351,10 @@ impl<T> Response<T> {
 }
 ```
 
-This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response<T>>>` from an `fn`.
+This is equivalent to returning an `impl Future<Output = azure_core::Result<azure_core::Response<T, F>>>` from an `fn`.
 
-{% include requirement/MUST id="rust-client-methods-return-headers-methods" %} must export extension method traits for defined headers from the `models` module on `Response<T>` where `T` is a model type.
-If the method does not return a model and would other return the unit type `Response<()>`, you should instead return an empty struct using the same naming convention has options: client name + method name + "Result" e.g.,
+{% include requirement/MUST id="rust-client-methods-return-headers-methods" %} must export extension method traits for defined headers from the `models` module on `Response<T, F>` where `T` is a model type and `F` represents the format e.g., `JsonFormat` (default).
+If the method does not return a model and would otherwise return the unit type `Response<(), NoFormat>`, you should instead return an empty struct using the same naming convention has options: client name + method name + "Result" e.g.,
 
 ```rust
 #[derive(SafeDebug)]
@@ -360,7 +363,7 @@ pub struct SecretClientSetSecretResult;
 
 This should be treated as a model, so derive the same traits and export from `models` as you would any other model.
 
-{% include requirement/MUST id="rust-client-methods-return-headers-methods-name" %} name the trait similar to options: client name + method name + "Ext" e.g., `SecretClientSetSecretExt`.
+{% include requirement/MUST id="rust-client-methods-return-headers-methods-name" %} name the trait similar to options: client name + method name + "ResultHeaders" e.g., `SecretClientSetSecretResultHeaders`.
 
 {% include requirement/MUST id="rust-client-methods-return-headers-methods-return" %} return an `azure_core::Result<Option<T>>` where `T` is an appropriate type for the header e.g., `usize` for `content-length`, `azure_core::Etag` for etags, etc.
 The implementation can simply call methods like `Headers::get_optional_as()` or `Headers::get_optional_string()` as appropriate.
@@ -369,11 +372,11 @@ The implementation can simply call methods like `Headers::get_optional_as()` or 
 Implementations should use a single definition of `private::Sealed` for all such traits that require it.
 
 ```rust
-pub trait SecretClientSetSecretExt: private::Sealed {
+pub trait SecretClientSetSecretResultHeaders: private::Sealed {
     fn content_type_header(&self) -> azure_core::Result<Option<String>>;
 }
 
-impl SecretClientSetSecretExt for Response<SecretBundle> {
+impl SecretClientSetSecretResultHeaders for Response<SecretClientSetSecretResult> {
     fn content_type_header(&self) -> azure_core::Result<Option<String>> {
         Ok(self.headers().get_optional_string(&headers::CONTENT_TYPE))
     }
@@ -381,7 +384,7 @@ impl SecretClientSetSecretExt for Response<SecretBundle> {
 
 mod private {
     pub trait Sealed {}
-    impl Sealed for Response<SecretBundle> {}
+    impl Sealed for Response<SecretClientSetSecretResult> {}
 }
 ```
 
@@ -432,29 +435,31 @@ The service client will have several methods that perform requests on the servic
 
 Rust is a lower-level language but often provides higher-level, zero-cost abstractions such as iterators. Iterators are an idiomatic way to enumerate vectors or streams such as `futures::Stream`.
 
-{% include requirement/MUST id="rust-paging-pageable" %} return an `azure_core::Pager<T>` from pageable service client methods where `T` is model type being enumerated.
+{% include requirement/MUST id="rust-paging-pageable-page-trait" %} implement the `azure_core::http::pager::Page` trait on a pageable type that returns the pageable items for a page of items.
 
-{% include requirement/MUST id="rust-paging-pageable-stream" %} implement `futures::Stream` for `azure_core::Pager<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the consumer has reached the end of the result set. This will enumerate all items for all pages.
+{% include requirement/MUST id="rust-paging-pageable" %} return an `azure_core::http::Pager<T>` from pageable service client methods where `T` is model type being enumerated.
 
-{% include requirement/MUST id="rust-paging-pageable-page" %} implement an `to_page(&self) -> &azure_core::Page<T>` for `azure_core::Pager<T>` that returns the current page of items.
+{% include requirement/MUST id="rust-paging-pageable-stream" %} implement `futures::Stream` for `azure_core::http::pager::Pager<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the consumer has reached the end of the result set. This will enumerate all items for all pages.
 
-{% include requirement/MUST id="rust-paging-pageable-page-iter" %} implement `IntoIterator` on `azure_core::Page<T>`. This allows customers to enumerate each page separately, and to enumerate each page of items therein.
+{% include requirement/MUST id="rust-paging-pageable-page" %} implement an `into_pages(self) -> &azure_core::http::pager::PageIterator<T>` for `azure_core::http::pager::Pager<T>` that returns the current page of items.
 
-{% include requirement/MUST id="rust-paging-pageable-page-iter-size" %} implement `Iterator::size_hint()` on the returned `IntoIterator` for `azure_core::Page<T>`.
+{% include requirement/MUST id="rust-paging-pageable-page-iter" %} implement `IntoIterator` on `azure_core::http::pager::PageIterator<T>`. This allows customers to enumerate each page separately, and to enumerate each page of items therein.
 
-{% include requirement/MUST id="rust-paging-pageable-restart" %} support reconstructing an `azure_core::Pager<T>` so that a caller can start paging from a previous state.
+{% include requirement/MUST id="rust-paging-pageable-page-iter-size" %} implement `Iterator::size_hint()` on the returned `IntoIterator` for `azure_core::http::pager::PageIterator<T>`.
+
+{% include requirement/MUST id="rust-paging-pageable-restart" %} support reconstructing an `azure_core::http::pager::Pager<T>` so that a caller can start paging from a previous state.
 
 #### Methods Invoking Long-running Operations {#rust-lro}
 
 Some service operations, known as [_Long-running Operations_][rest-lro] or _LROs_ take a long time to execute - up to hours or even days. Such operations do not return their result immediately but rather are started and their progressed polled until the operation reaches a terminal state including `Succeeded`, `Failed`, or `Canceled`.
 
-The `azure_core` crate exposes an abstract type called `azure_core::Poller<T>`, which represents LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long-running operation will return an `azure_core::Poller<T>` as described below.
+The `azure_core` crate exposes an abstract type called `azure_core::http::poller::Poller<T>`, which represents LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result. A service method invoking a long-running operation will return an `azure_core::http::poller::Poller<T>` as described below.
 
 {% include requirement/MUST id="rust-lro-prefix" %} name all methods that start an LRO with the `begin_` prefix.
 
-{% include requirement/MUST id="rust-lro-stream" %} implement `futures::Stream` for `azure_core::Poller<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the polling has terminated.
+{% include requirement/MUST id="rust-lro-stream" %} implement `futures::Stream` for `azure_core::http::poller::Poller<T>`. This defines a `poll_next()` method that returns an `Option<T>` that returns `None` when the polling has terminated.
 
-{% include requirement/MUST id="rust-lro-restart" %} support reconstructing an `azure_core::Poller<T>` so that a caller can start polling from a previous state.
+{% include requirement/MUST id="rust-lro-restart" %} support reconstructing an `azure_core::http::poller::Poller<T>` so that a caller can start polling from a previous state.
 
 ##### Conditional Request Methods {#rust-etag}
 
@@ -499,18 +504,6 @@ This section describes guidelines for the design _model types_ and all their tra
 {% include requirement/MUST id="rust-model-types-derive" %} derive or implement `Clone` and `Default` for all model structs.
 
 {% include requirement/MUST id="rust-model-types-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the model is input (serializable), output (deserializable), or both.
-
-{% include requirement/MUST id="rust-model-types-serde" %} derive or implement `azure_core::Model` for HTTP response models. Your crate must also have a direct dependency on `typespec_client_core`.
-
-{% include requirement/MUST id="rust-model-types-serde" %} attribute models with `#[typespec(format = "...")]` if the response containing the model uses a format **other** than JSON.
-
-```rust
-#[derive(azure_core::Model)]
-#[typespec(format = "xml")]
-struct Example {
-    pub foo: String
-}
-```
 
 {% include requirement/MUST id="rust-model-types-public" %} define all fields as `pub`.
 
@@ -939,7 +932,7 @@ This will impact line numbers, so you should only export APIs publicly from `lib
 #![doc = include_str!("README.md")]`
 ```
 
-This would include the contents of `http/README.md`, which would render documentation for developers browing in the GitHub web UI, as well as compile and potentially run any tests you have defined as examples in the `README.md` e.g.,
+This would include the contents of `http/README.md`, which would render documentation for developers browsing in the GitHub web UI, as well as compile and potentially run any tests you have defined as examples in the `README.md` e.g.,
 
 ````markdown
 This is how you would construct a client:
@@ -948,6 +941,25 @@ This is how you would construct a client:
 let client = SecretClient::new(...);
 ```
 ````
+
+{% include requirement/MUST id="rust-documentation-doc-auto-cfg" %} document which, if any, features a module, type, or function requires.
+
+Near the top of `src/lib.rs` after [inclusion of the README](#rust-documentation-readme), add:
+
+```rust
+#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+```
+
+{% include requirement/MUST id="rust-documentation-warn-missing-docs" %} warn for missing docs.
+
+Near the top of `src/lib.rs` after [inclusion of the README](#rust-documentation-readme), add:
+
+```rust
+#![warn(missing_docs)]
+```
+
+If you must first add comments to TypeSpec members or convenience types and members, use `expect` instead of `warn` until you finish adding documentation.
+`expect` will then trigger a warning (as error) reminding you to flip that back to `warn` so that future violations of `missing_docs` are discovered.
 
 {% include requirement/MUST id="rust-documentation-parameters" %} document all parameters. Prior to [conventional doc comment markdown headers][rust-lang-rustdoc-headings], declare an `Arguments` heading as needed (not needed for `&self`):
 

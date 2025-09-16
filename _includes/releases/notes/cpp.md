@@ -8,7 +8,23 @@ View all the latest versions of C++ packages [here][cpp-latest-releases].
 
 ## Installation Instructions
 
-To install any of our packages, copy and paste the following commands into a terminal:
+To install the packages, copy and paste the following commands into a terminal:
+
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' | uniq: 'Name' %}
+{%- capture install_instructions -%}
+{% for package in allPackagesSortedByName %}
+    {%- capture install_instruction -%}
+    $> vcpkg add port {{ package.Name }}-cpp
+    {%- endcapture -%}
+    {{ install_instruction }}
+{% endfor %}
+{%- endcapture -%}
+```
+{{ install_instructions | rstrip }}
+```
+{: .language-bash}
+
+You can also install the packages from source:
 
 ```bash
 # From Source
