@@ -163,4 +163,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computefleet/armcomputefleet/v2.0.0-beta.1/sdk/resourcemanager/computefleet/armcomputefleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.12.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.12.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `DefaultAzureCredentialOptions.RequireAzureTokenCredentials`. `NewDefaultAzureCredential` returns an
+    error when this option is true and the environment variable `AZURE_TOKEN_CREDENTIALS` has no value.
 
