@@ -567,4 +567,37 @@ entries:
     - Model WarehouseLinkedService has a new parameter credential
     - Model HDInsightLinkedService has a new parameter cluster_auth_type
     - Model HDInsightLinkedService has a new parameter credential
+- Name: Azure.Storage.DataMovement
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed property/permission/metadata preservation when overwriting an existing directory for SMB and NFS transfers.
+
+    #### Features Added
+    - Added support for NFS -> SMB and SMB -> NFS Share-to-Share copy transfers.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
 
