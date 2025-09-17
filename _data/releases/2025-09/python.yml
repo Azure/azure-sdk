@@ -620,4 +620,31 @@ entries:
     ([#43012](https://github.com/Azure/azure-sdk-for-python/pull/43012))
     - Modified ordering of dependencies in setup.py to avoid dependency conflicts in future.
     ([#43023](https://github.com/Azure/azure-sdk-for-python/pull/43023))
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b42
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b42/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Customer Facing Statsbeat: Added remaining drop codes to base
+    ([#42382](https://github.com/Azure/azure-sdk-for-python/pull/42382))
+    - Refactored the put methods in storage.py for LocalFileBlob and LocalFileStorage
+    ([#42502](https://github.com/Azure/azure-sdk-for-python/pull/42502))
+    - Customer Facing Statsbeat: Refactored logic for tracking dropped items from storage
+    ([#42542](https://github.com/Azure/azure-sdk-for-python/pull/42542))
+    - Customer Facing SDKStats: Added the export interval env var for customer sdkstats
+    ([#42551](https://github.com/Azure/azure-sdk-for-python/pull/42551))
+    - Rename Customer Statsbeat to Customer SDKStats as per [Spec] - https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/pull/581
+    ([#42573](https://github.com/Azure/azure-sdk-for-python/pull/42573))
+    - Customer Facing SDKStats: Exception categorization as per [Spec] - https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/blob/main/ApplicationInsights/sdkstats/customer_facing_sdk_stats.md
+    ([#42695](https://github.com/Azure/azure-sdk-for-python/pull/42695))
+    - Customer Facing SDKStats: Added logic for race conditions and updated the implementation to use a global instance for customer SDKStats metrics
+    ([#42655](https://github.com/Azure/azure-sdk-for-python/pull/42655))
+    - Customer Facing SDKStats: Added telemetry_success field to dropped items as per [Spec] - https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/pull/606
+    ([#42846](https://github.com/Azure/azure-sdk-for-python/pull/42846))
+    - Customer Facing SDKStats: Refactor to use `Manager` and `Singleton` pattern
+    ([#42969](https://github.com/Azure/azure-sdk-for-python/pull/42969))
 
