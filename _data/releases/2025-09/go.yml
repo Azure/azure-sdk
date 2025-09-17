@@ -174,4 +174,12 @@ entries:
     #### Features Added
     - Added `DefaultAzureCredentialOptions.RequireAzureTokenCredentials`. `NewDefaultAzureCredential` returns an
     error when this option is true and the environment variable `AZURE_TOKEN_CREDENTIALS` has no value.
+- Name: sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense/v2.0.0/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
 
