@@ -148,7 +148,7 @@ Cognitive Services,0,Text Authoring,data,.NET,,,11,false,Azure.AI.Language.Text.
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,.NET,,,11,false,Azure.Analytics.OnlineExperimentation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation,3,false,1,
+unknown,0,unknown,data,.NET,,,11,false,Azure.AI.VoiceLive,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Storage,0,WCF Storage Queues,data,.NET,,,11,false,Microsoft.WCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
@@ -291,7 +291,7 @@ Hybrid Kubernetes,0,Resource Management - Hybrid Kubernetes,mgmt,.NET,Microsoft.
 Hybrid Network,0,Resource Management - Hybrid Network,mgmt,.NET,,,11,false,Azure.ResourceManager.HybridNetwork,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridnetwork,3,false,1,
 Informatica Data Management,0,Resource Management - Informatica Data Management,mgmt,.NET,,,11,false,Azure.ResourceManager.InformaticaDataManagement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/informaticadatamanagement,3,false,1,
 IoT,0,Resource Management - IoT Central,mgmt,.NET,Microsoft.Azure.Management.IotCentral,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iotcentral,10,true,Azure.ResourceManager.IotCentral,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iotcentral,10,false,1,02/20/2023
-IoT,0,Resource Management - IoT Firmware Defense,mgmt,.NET,,,11,false,Azure.ResourceManager.IotFirmwareDefense,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iot,10,false,1,03/13/2025
+IoT,0,Resource Management - IoT Firmware Defense,mgmt,.NET,,,11,false,Azure.ResourceManager.IotFirmwareDefense,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iot,10,false,1,09/17/2025
 IoT,0,Resource Management - IoT Hub,mgmt,.NET,Microsoft.Azure.Management.IotHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub,10,true,Azure.ResourceManager.IotHub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub,10,false,1,11/30/2023
 IoT,0,Resource Management - IoT Operations,mgmt,.NET,,,11,false,Azure.ResourceManager.IotOperations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iotoperations,10,false,1,01/24/2025
 Key Vault,0,Resource Management - Key Vault,mgmt,.NET,Microsoft.Azure.Management.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,true,Azure.ResourceManager.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,04/02/2025
@@ -403,6 +403,7 @@ Voice Services,0,Resource Management - Voice Services,mgmt,.NET,,,11,false,Azure
 Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.ResourceManager.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,06/13/2025
 Weightsandbiases,0,Resource Management - Weightsandbiases,mgmt,.NET,,,11,false,Azure.ResourceManager.WeightsAndBiases,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/weightsandbiases,3,false,1,
 Workload Monitor,0,Resource Management - Workload Monitor,mgmt,.NET,Microsoft.Azure.Management.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.WorkloadMonitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadmonitor,3,false,1,
+Workloadorchestration,0,Resource Management - Workloadorchestration,mgmt,.NET,,,11,false,Azure.ResourceManager.WorkloadOrchestration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadorchestration,10,false,1,09/16/2025
 Workloads,0,Resource Management - Workloads,mgmt,.NET,,,11,false,Azure.ResourceManager.Workloads,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloads,10,false,1,03/18/2025
 Workloadssapvirtualinstance,0,Resource Management - Workloadssapvirtualinstance,mgmt,.NET,,,11,false,Azure.ResourceManager.WorkloadsSapVirtualInstance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/workloadssapvirtualinstance,3,false,1,
 Functions,0,App Configuration Extension,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.AppConfiguration.Functions.Worker,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
@@ -785,7 +786,7 @@ Impact Reporting,0,Resource Management - Impact Reporting,mgmt,Go,,,11,false,sdk
 Informatica Data Management,0,Resource Management - Informatica Data Management,mgmt,Go,,,11,false,sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt,10,false,1,07/15/2024
 Integration Spaces,0,Resource Management - Integration Spaces,mgmt,Go,,,11,false,sdk/resourcemanager/integrationspaces/armintegrationspaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/integrationspaces/armintegrationspaces,3,false,1,
 IoT,0,Resource Management - IoT Central,mgmt,Go,,,11,false,sdk/resourcemanager/iotcentral/armiotcentral,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotcentral/armiotcentral,10,false,1,11/24/2023
-IoT,0,Resource Management - IoT Firmware Defense,mgmt,Go,,,11,false,sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,10,false,1,03/20/2024
+IoT,0,Resource Management - IoT Firmware Defense,mgmt,Go,,,11,false,sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotfirmwaredefense/armiotfirmwaredefense,10,false,1,09/11/2025
 IoT,0,Resource Management - IoT Hub,mgmt,Go,,,11,false,sdk/resourcemanager/iothub/armiothub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iothub/armiothub,10,false,1,11/24/2023
 IoT,0,Resource Management - IoT Operations,mgmt,Go,,,11,false,sdk/resourcemanager/iotoperations/armiotoperations,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotoperations/armiotoperations,10,false,1,12/13/2024
 IoT,0,Resource Management - IoT Security,mgmt,Go,,,11,false,sdk/resourcemanager/iotsecurity/armiotsecurity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/iotsecurity/armiotsecurity,3,false,1,
@@ -997,8 +998,8 @@ Health Deidentification,0,Health Deidentification,data,Java,,,11,false,azure-hea
 Cognitive Services,0,Health Insights Cancer Profiling,data,Java,,,11,false,azure-health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Java,,,11,false,azure-health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,Java,,,11,false,azure-health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/healthinsights,10,false,1,08/21/2025
-Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,08/08/2025
-Identity,0,Identity Broker,data,Java,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,07/21/2025
+Identity,0,Identity,data,Java,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,09/16/2025
+Identity,0,Identity Broker,data,Java,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,09/16/2025
 Cognitive Services,0,Image Analysis,data,Java,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis,10,false,1,08/21/2025
 Key Vault,0,Key Vault - Administration,data,Java,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,08/21/2025
 Key Vault,0,Key Vault - Certificates,data,Java,azure-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,3,true,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,08/21/2025
@@ -4083,6 +4084,11 @@ Dev Center,0,DevCenter,data,Java,,,11,false,Missing: Created from API in specs r
 Dev Center,0,DevCenter,data,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
 Dev Center,0,DevCenter,data,Python,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
 Dev Center,0,DevCenter,data,Go,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
+Dev Center,0,Resource Management - DevCenter.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
+Dev Center,0,Resource Management - DevCenter.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
+Dev Center,0,Resource Management - DevCenter.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
+Dev Center,0,Resource Management - DevCenter.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
+Dev Center,0,Resource Management - DevCenter.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
 Dev Center,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
 Dev Center,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
 Dev Center,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
