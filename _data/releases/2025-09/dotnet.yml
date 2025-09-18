@@ -655,4 +655,14 @@ entries:
     #### Breaking Changes
 
     - removed `AIConversation` and `ConversationalAIItem`, and reuse `TextConversation` and `TextConversationItem` for AI Conversation Analyze feature.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.5
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.5/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix issue with image block serialization [issue](https://github.com/Azure/azure-sdk-for-net/issues/52571)
 
