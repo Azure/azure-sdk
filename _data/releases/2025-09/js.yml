@@ -1,0 +1,407 @@
+entries:
+- Name: '@azure/monitor-query'
+  Version: 1.3.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.3/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deprecation ⚠️: This package has been deprecated and is no longer under active development. Please migrate to the replacement packages:
+    - LogsQueryClient: `@azure/monitor-query-logs` - migration guide: [Monitor Query Logs migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-logs/MIGRATION.md) • npm: [@azure/monitor-query-logs](https://www.npmjs.com/package/@azure/monitor-query-logs)
+    - MetricsClient: `@azure/monitor-query-metrics` - migration guide: [Monitor Query Metrics migration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-query-metrics/MIGRATION.md) • npm: [@azure/monitor-query-metrics](https://www.npmjs.com/package/@azure/monitor-query-metrics)
+    - MetricsQueryClient: migrate to the management library `@azure/arm-monitor` - guide: [MetricsQueryClient → @azure/arm-monitor](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/arm-monitor/MIGRATION_METRICSQUERYCLIENT_TO_ARM_MONITOR.md)
+- Name: '@azure/arm-appcontainers'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_3.0.0-beta.1/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dataprotection'
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_3.0.0/sdk/dataprotection/arm-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.7.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-call-automation'
+  Version: 1.5.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.5.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in create call, add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+    - Adds support for SIP headers prefixed with 'X-' and 'X-MS-Custom-' within the CustomCallingContext.
+- Name: '@azure/communication-call-automation'
+  Version: 1.6.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.6.0-beta.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+    - Added support for Personally Identifiable Information (PII) redaction and summarization in transcription, improving privacy and providing concise summaries of transcribed content.
+    - Added support for sentiment analysis in both speech and choice recognition, allowing detection of participant sentiment during call interactions.
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.1/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computeschedule'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.2.0-beta.1/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.0.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
+- Name: '@azure/create-playwright'
+  Version: 1.0.0
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed getServiceConfig to createAzurePlaywrightConfig .
+    - Renamed timeout to connectTimeout .
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.5.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.5.0/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of mobile number types
+- Name: '@azure/arm-playwright'
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwright_1.0.0/sdk/playwright/arm-playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.5.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.5.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [#35739](https://github.com/Azure/azure-sdk-for-js/issues/35739) Fixed an issue where unavailable regions were incorrectly retained in the read and write region lists, potentially causing latency and connectivity issues. The SDK now properly removes regions that are no longer available from both readable and writable locations
+    - [#35822](https://github.com/Azure/azure-sdk-for-js/issues/35822) Fixed an issue where ENOTFOUND error was incorrectly retried with defaultRetryPolicy. This error is now handled as part of EndpointDiscoveryPolicy and retried 120 times.
+- Name: '@azure/arm-iotfirmwaredefense'
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/arm-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.34
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.34/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for configuring customer SDK Stats export interval using the `APPLICATIONINSIGHTS_SDKSTATS_EXPORT_INTERVAL` environment variable (specified in seconds).
+
+    - Added support for the `telemetry_success` field on customer SDK Stats to track if dropped request and dependency telemetry succeeded or failed.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.13.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.13.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix declaration of the preview customer statsbeat enablement environment variable.
+    - Change customer statsbeat feature name to customer SDK Stats.
+
+    #### Features Added
+
+    - All instrumentations apart from bunyan and winston are now enabled by default.
+- Name: '@azure/arm-containerservicesafeguards'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerservicesafeguards
+  ServiceName: Containerservicesafeguards
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicesafeguards_1.0.0-beta.1/sdk/containerservice/arm-containerservicesafeguards/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-azurestackhcivm'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Azurestackhcivm
+  ServiceName: Azurestackhcivm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhcivm_1.0.0-beta.1/sdk/azurestackhcivm/arm-azurestackhcivm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-workloadorchestration'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadorchestration_1.0.0-beta.1/sdk/workloadorchestration/arm-workloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-playwrighttesting'
+  Version: 1.0.1
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.1/sdk/playwrighttesting/arm-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.12.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.12.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new `requiredEnvVars` option to `DefaultAzureCredential` that can accept a single environment variable or an array of environment variables. All specified variables must be set (and non-empty) before credential instantiation. If any variable is missing or empty, an error is thrown listing all missing variables. [#35832](https://github.com/Azure/azure-sdk-for-js/pull/35832)
+    - Introduced a new `DefaultAzureCredentialEnvVars` union type that represents the environment variables supported in `DefaultAzureCredential`. This type is used to specify the required environment variable(s) in the option bag for `DefaultAzureCredential` via `requiredEnvVars`. [#35832](https://github.com/Azure/azure-sdk-for-js/pull/35832)
+
+    #### Bugs Fixed
+
+    - Fixed an issue where `AzureDeveloperCliCredential` would time out during token requests when `azd` prompts for user interaction. This issue commonly occurred in environments where the `AZD_DEBUG` environment variable was set, causing the Azure Developer CLI to display additional prompts that interfered with automated token acquisition. [#35637](https://github.com/Azure/azure-sdk-for-js/pull/35637)
+    - Fixed an issue where `VisualStudioCodeCredential` will show interactive authentication when the plugin is set but the broker is not available. [#35837](https://github.com/Azure/azure-sdk-for-js/pull/35837)
+- Name: '@azure/arm-resourcesbicep'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resourcesbicep
+  ServiceName: Resourcesbicep
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesbicep_1.0.0-beta.1/sdk/resources/arm-resourcesbicep/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.13.1
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.13.1/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix support for multiple metric exporters and OTLP metric exporter creation.
+- Name: '@azure/microsoft-playwright-testing'
+  Version: 1.0.0-beta.9
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.9/sdk/playwrighttesting/microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This package has been deprecated and will no longer be maintained after **March 8, 2026**. Upgrade to the replacement package, **@azure/playwright**, to continue receiving updates. Refer to the [migration guide](https://aka.ms/mpt/migration-guidance) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+- Name: '@azure/create-microsoft-playwright-testing'
+  Version: 1.0.0-beta.4
+  DisplayName: Create - Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-microsoft-playwright-testing_1.0.0-beta.4/sdk/playwrighttesting/create-microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This package has been deprecated and will no longer be maintained after **March 8, 2026**. Upgrade to the replacement package, **@azure/create-playwright**, to continue receiving updates. Refer to the [migration guide](https://aka.ms/mpt/migration-guidance) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+- Name: '@azure/core-lro'
+  Version: 3.3.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.3.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-util'
+  Version: 1.13.1
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.13.1/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-http-compat'
+  Version: 2.3.1
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.3.1/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-client'
+  Version: 1.10.1
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.10.1/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-tracing'
+  Version: 1.3.1
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.3.1/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.22.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.22.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-amqp'
+  Version: 4.4.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.4.1/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure-rest/core-client'
+  Version: 2.5.1
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.5.1/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/core-auth'
+  Version: 1.10.1
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.10.1/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.1
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.1/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improve RestError logging by including only essential agent information in the request [#35839](https://github.com/Azure/azure-sdk-for-js/pull/35839)
+    - Avoid regex for matching log level [#34247](https://github.com/Azure/azure-sdk-for-js/pull/34247)
+    - Upgrade `@azure/*` dependencies to latest versions.
+- Name: '@azure/arm-computefleet'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_2.0.0-beta.1/sdk/computefleet/arm-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.14.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.14.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update exporter version.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.35
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.35/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update OpenTelemetry dependencies.
+
