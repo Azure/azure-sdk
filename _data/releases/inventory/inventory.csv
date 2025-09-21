@@ -48,7 +48,7 @@ Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.Code
 Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/25/2025
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
-Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/18/2023
+Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,09/19/2025
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
 Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/18/2024
@@ -278,6 +278,7 @@ Front Door,0,Resource Management - Front Door,mgmt,.NET,Microsoft.Azure.Manageme
 Graph Services,0,Resource Management - Graph Services,mgmt,.NET,,,11,false,Azure.ResourceManager.GraphServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/graphservices,10,false,1,03/17/2025
 Guest Configuration,0,Resource Management - Guest Configuration,mgmt,.NET,Microsoft.Azure.Management.GuestConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/guestconfiguration,10,true,Azure.ResourceManager.GuestConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/guestconfiguration,10,false,1,03/13/2025
 Hardware Security Modules,0,Resource Management - Hardware Security Modules,mgmt,.NET,,,11,false,Azure.ResourceManager.HardwareSecurityModules,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hardwaresecuritymodules,10,false,1,07/14/2025
+Hci.Vm,0,Resource Management - Hci.Vm,mgmt,.NET,,,11,false,Azure.ResourceManager.Hci.Vm,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestackhci,3,false,1,
 HDInsight,0,Resource Management - HDInsight,mgmt,.NET,Microsoft.Azure.Management.HDInsight,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight,10,true,Azure.ResourceManager.HDInsight,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight,10,false,1,06/27/2023
 HDInsight Containers,0,Resource Management - HDInsight Containers,mgmt,.NET,,,11,false,Azure.ResourceManager.HDInsight.Containers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsightcontainers,3,false,1,
 Health Bot,0,Resource Management - Health Bot,mgmt,.NET,Microsoft.Azure.Management.Healthbot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.HealthBot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthbot,10,false,1,03/17/2025
@@ -399,6 +400,7 @@ Synapse,0,Resource Management - Synapse,mgmt,.NET,Microsoft.Azure.Management.Syn
 Terraform,0,Resource Management - Terraform,mgmt,.NET,,,11,false,Azure.ResourceManager.Terraform,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/terraform,3,false,1,
 Traffic Manager,0,Resource Management - Traffic Manager,mgmt,.NET,Microsoft.Azure.Management.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.TrafficManager_2.5.4/sdk/trafficmanager/Microsoft.Azure.Management.TrafficManager,10,true,Azure.ResourceManager.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/trafficmanager,10,false,1,03/14/2025
 Trusted Signing,0,Resource Management - Trusted Signing,mgmt,.NET,,,11,false,Azure.ResourceManager.TrustedSigning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/trustedsigning,3,false,1,
+Virtualenclaves,0,Resource Management - Virtualenclaves,mgmt,.NET,,,11,false,Azure.ResourceManager.VirtualEnclaves,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/virtualenclaves,3,false,1,
 Voice Services,0,Resource Management - Voice Services,mgmt,.NET,,,11,false,Azure.ResourceManager.VoiceServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/voiceservices,10,false,1,03/18/2025
 Web PubSub,0,Resource Management - Web PubSub,mgmt,.NET,,,11,false,Azure.ResourceManager.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,06/13/2025
 Weightsandbiases,0,Resource Management - Weightsandbiases,mgmt,.NET,,,11,false,Azure.ResourceManager.WeightsAndBiases,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/weightsandbiases,3,false,1,
@@ -1833,7 +1835,7 @@ Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,http
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
 Cognitive Services,0,AI Agents,data,Python,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,08/05/2025
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,09/03/2025
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,09/18/2025
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,07/30/2025
