@@ -55,8 +55,8 @@ function Get-java-Packages
   {
     if ($packages.Package -notcontains $tag) {
       $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
-      Write-Warning "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl"
-
+      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so falling back to direct query for this package."
+      
       # fallback to guess a groupId, and query maven central repository for the artifact
       $artifactId = $tag
       $groupId = "com.azure"
@@ -69,7 +69,7 @@ function Get-java-Packages
         $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
         $packages += CreatePackage $artifactId $version $groupId
       } catch {
-        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl"
+        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl - $($_.Exception.Message)"
       }
     }
   }
