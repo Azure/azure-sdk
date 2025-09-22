@@ -10,4 +10,17 @@ entries:
     #### Other Changes
 
     - Updated the Azure.Identity dependency to version 1.16.0
+- Name: System.ClientModel
+  Version: 1.7.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.7.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientConnection` constructor, accepting credentials and metadata.
+
+    - Added `JsonPatch` which allows for applying JSON Patch operations to JSON documents.
 
