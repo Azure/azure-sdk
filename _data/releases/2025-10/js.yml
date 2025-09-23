@@ -1,0 +1,21 @@
+entries:
+- Name: '@azure/ai-agents'
+  Version: 1.2.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.2.0-beta.1/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `MCPTool.mergeResources` to support multiple MCP tools in one agent
+    - Add `OpenApiTool` to easily call multiple open APIs in one agent
+    - Add `messages.delete` to support delete message in thread
+    - Add back the features removed in previous stable release:
+    - MCP tool
+    - Deep Research tool
+    - Sharepoint tool
+    - BingCustomSearch tool
+    - MicrosoftFabric tool
+
