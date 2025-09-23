@@ -41,4 +41,30 @@ entries:
     API properties that were duration based are now TimeSpans
     Methods to configure session collapsed to ConfigureSession
     Renamed ToolChoiceFunctionObjectFunction to ToolChoiceFunctionObject
+- Name: Azure.ResourceManager.Network
+  Version: 1.12.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.12.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebPubSub.AspNetCore
+  Version: 1.5.0
+  DisplayName: Microsoft.Azure.WebPubSub.AspNetCore
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support a custom hub name in `MapWebPubSubHub` extension method.
+- Name: Azure.ResourceManager.EventHubs
+  Version: 1.2.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventHubs_1.2.1/sdk/eventhub/Azure.ResourceManager.EventHubs/CHANGELOG.md
+  ChangelogContent: ""
 
