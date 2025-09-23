@@ -23,4 +23,22 @@ entries:
     - Added `ClientConnection` constructor, accepting credentials and metadata.
 
     - Added `JsonPatch` which allows for applying JSON Patch operations to JSON documents.
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.2/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Added overloads for MessageItem creation to accept a single content part.
+
+    #### Breaking Changes
+    AudioFormat was split into InputAudioFormat and OutputAudioFormat.
+    Emotion classes / options dropped.
+    Eou and TurnDetection classes renamed.
+    API properties that were duration based are now TimeSpans
+    Methods to configure session collapsed to ConfigureSession
+    Renamed ToolChoiceFunctionObjectFunction to ToolChoiceFunctionObject
 
