@@ -567,4 +567,102 @@ entries:
     - Model WarehouseLinkedService has a new parameter credential
     - Model HDInsightLinkedService has a new parameter cluster_auth_type
     - Model HDInsightLinkedService has a new parameter credential
+- Name: Azure.Storage.DataMovement
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed property/permission/metadata preservation when overwriting an existing directory for SMB and NFS transfers.
+
+    #### Features Added
+    - Added support for NFS -> SMB and SMB -> NFS Share-to-Share copy transfers.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
+- Name: Azure.ResourceManager.WorkloadOrchestration
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WorkloadOrchestration_1.0.0/sdk/workloadorchestration/Azure.ResourceManager.WorkloadOrchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.3.0-beta.4
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.3.0-beta.4/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.1.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.1.0/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.1/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Initial Addition of VoiceLiveClient and associated classes.
+- Name: Azure.Communication.Sms
+  Version: 1.0.2
+  DisplayName: Communication SMS
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Sms_1.0.2/sdk/communication/Azure.Communication.Sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Dependency versions updated.
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.4
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.4/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - removed `AIConversation` and `ConversationalAIItem`, and reuse `TextConversation` and `TextConversationItem` for AI Conversation Analyze feature.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.5
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.5/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix issue with image block serialization [issue](https://github.com/Azure/azure-sdk-for-net/issues/52571)
 
