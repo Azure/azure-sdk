@@ -102,4 +102,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.12.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Blobs
+  Version: 12.25.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.25.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug for processing partitioned downloads for empty blobs with content validation enabled.
 
