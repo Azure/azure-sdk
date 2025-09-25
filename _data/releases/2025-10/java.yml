@@ -530,4 +530,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storagecache_1.1.0/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-monitor-opentelemetry-autoconfigure
+  Version: 1.4.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-autoconfigure_1.4.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added mapping for `enduser.pseudo.id` attribute to `user_Id` ([#46506](https://github.com/Azure/azure-sdk-for-java/pull/46506)
+
+    #### Breaking Changes
+
+    - Updated mapping for `enduser.id` attribute from `user_Id` to `user_AuthenticatedId` ([#46506](https://github.com/Azure/azure-sdk-for-java/pull/46506)
+  GroupId: com.azure
 
