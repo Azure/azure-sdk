@@ -131,4 +131,20 @@ entries:
     #### Features Added
     - Added `DeidentificationOperationType.SurrogateOnly`, which returns output text where user-defined PHI entities are replaced with realistic replacement values. When using this operation, include `DeidentificationContent.TaggedEntities`, which allows user input of PHI entities detected in the input text. The service will skip tagging and apply surrogation directly to the user-defined entities.
     - Added `DeidentificationCustomizationOptions.InputLocale` to allow specifying the locale of the input text for TAG and REDACT operations.
+- Name: Azure.ResourceManager.DisconnectedOperations
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Disconnectedoperations
+  ServiceName: Disconnectedoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DisconnectedOperations_1.0.0-beta.1/sdk/disconnectedoperations/Azure.ResourceManager.DisconnectedOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataMigration
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataMigration_1.0.0/sdk/datamigration/Azure.ResourceManager.DataMigration/CHANGELOG.md
+  ChangelogContent: ""
 
