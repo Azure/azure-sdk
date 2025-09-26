@@ -34,4 +34,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_2.0.0/sdk/quota/arm-quota/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-agents'
+  Version: 1.2.0-beta.2
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.2.0-beta.2/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `ToolUtility.createBrowserAutomationTool` to support browser automation tool in agent
+- Name: '@azure/arm-computerecommender'
+  Version: 1.0.0
+  DisplayName: Resource Management - Computerecommender
+  ServiceName: Computerecommender
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computerecommender_1.0.0/sdk/compute/arm-computerecommender/CHANGELOG.md
+  ChangelogContent: ""
 
