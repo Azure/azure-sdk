@@ -39,7 +39,7 @@ function ResolveToSpecFolder($specPath, $jsonPath)
 function GetServiceLifeCycle($allSpecs, $serviceFamily, $resourcePath)
 {
   $stableSpecs = $allSpecs.Where({ 
-    $_.ServiceFamily -eq $serviceFamily -and $_.ResourcePath -eq $resourcePath -and $_.VersionType -eq "stable" -and $_.IsTypeSpec -ne "True"
+    $_.ServiceFamily -eq $serviceFamily -and $_.ResourcePath -eq $resourcePath -and $_.VersionType -eq "stable"
   })
 
   if ($stableSpecs.Count -eq 0) {
