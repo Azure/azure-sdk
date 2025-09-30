@@ -1508,4 +1508,22 @@ entries:
     - Model GreenplumLinkedService remove parameter password
     - Model ExpressionV2 parameter value change its type from string to object
   GroupId: com.azure
+- Name: azure-resourcemanager
+  Version: 2.55.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.55.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-datamigration
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datamigration_1.2.0/sdk/datamigration/azure-resourcemanager-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
