@@ -150,4 +150,19 @@ entries:
     - **Improved Type Safety**: Added `TurnDetectionType` enum for better type safety and IntelliSense support
     - **Package Structure Modernization**: Simplified package initialization with namespace package support
     - **Enhanced Error Handling**: Added `ConnectionError` and `ConnectionClosed` exception classes to the async API for better WebSocket error management
+- Name: azure-ai-agents
+  Version: 1.2.0b5
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.2.0b5/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `run_handler` parameter to `runs.create_and_process` allowing to make function tool calls manually or approve mcp tool calls.
+
+    #### Bugs Fixed
+    - Fixed regression, reverted ToolOutput type signature and usage in tool_output submission.
+    - Added `RunStepDeltaComputerUseDetails` and `RunStepDeltaComputerUseToolCall` classes for streaming computer use scenarios.
+    - Added `RunStepDeltaChunk` to `StreamEventData` model (GitHub issues [43022](https://github.com/Azure/azure-sdk-for-python/issues/43022))
 
