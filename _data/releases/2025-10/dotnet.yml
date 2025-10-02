@@ -466,4 +466,31 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Add support for read receipt and typing indicator.
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **SessionResponse changes:**
+    - Removed public `Object` property (now internal)
+    - Renamed `ModalitiesInternal` property to `Modalities`
+    - Changed `Voice` property type from `BinaryData` to strongly typed `VoiceProvider`
+    - Changed `MaxOutputTokens` property type from `BinaryData` to strongly typed `MaxResponseOutputTokensOption`
+
+    - **SessionResponseItem changes:**
+    - Removed public `Object` property (now internal)
+
+    - **VoiceLiveSessionResponse changes:**
+    - No longer inherits from `VoiceLiveSessionOptions`
+    - Constructor changed from internal to public
+    - Properties now have public setters: `Id`, `Model`, `Animation`, `Instructions`, `InputAudioSamplingRate`, `InputAudioFormat`, `OutputAudioFormat`, `InputAudioNoiseReduction`, `InputAudioEchoCancellation`, `Avatar`, `InputAudioTranscription`, `Temperature`
+    - Added new read-only properties: `Voice`, `MaxResponseOutputTokens`, `ToolChoice`, `TurnDetection`
+
+    - **VoiceProvider changes:**
+    - Removed internal `ToBinaryData()` method
 
