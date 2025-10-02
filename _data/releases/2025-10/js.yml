@@ -128,4 +128,12 @@ entries:
     #### Features Added
     - Added `DeidentificationOperationType.SurrogateOnly`, which returns output text where user-defined PHI entities are replaced with realistic replacement values. When using this operation, include `DeidentificationContent.taggedEntities`, which allows user input of PHI entities detected in the input text. The service will skip tagging and apply surrogation directly to the user-defined entities.
     - Added `DeidentificationCustomizationOptions.inputLocale` to allow specifying the locale of the input text for TAG and REDACT operations.
+- Name: '@azure/arm-storagediscovery'
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagediscovery_1.0.0/sdk/storagediscovery/arm-storagediscovery/CHANGELOG.md
+  ChangelogContent: ""
 
