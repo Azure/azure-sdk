@@ -456,4 +456,14 @@ entries:
     * `SearchIndex` has been renamed to `AIProjectIndex`
     * Removed `GetOpenAIClient` method. Look at Inference samples for how to get the client now.
     * All other `Get*Client` methods have been removed. Use the `AIProjectClient` properties `Connections`, `Datasets`, `Deployments`, and `Indexes` instead.
+- Name: Azure.Communication.Messages
+  Version: 1.3.0-beta.2
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.3.0-beta.2/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for read receipt and typing indicator.
 
