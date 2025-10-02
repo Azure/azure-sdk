@@ -23,7 +23,7 @@ Storage,0,Storage,data,C,,,11,false,az_storage_blobs,https://github.com/Azure/az
 Attestation,0,Attestation,data,C++,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/attestation,10,false,1,02/08/2023
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,C++,,,11,false,azure-messaging-eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
 Event Hubs,0,Event Hubs,data,C++,,,11,false,azure-messaging-eventhubs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/eventhubs,3,false,1,
-Identity,0,Identity,data,C++,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity,10,false,1,09/10/2025
+Identity,0,Identity,data,C++,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity,10,false,1,10/02/2025
 Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvault-administration,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,3,false,1,
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
@@ -34,7 +34,7 @@ Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,h
 Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,09/23/2024
 Tables,0,Tables,data,C++,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables,3,false,1,
 Cognitive Services,0,AI Agents Persistent,data,.NET,,,11,false,Azure.AI.Agents.Persistent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,07/25/2025
-Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
+Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,10/01/2025
 Cognitive Services,0,AI Model Inference,data,.NET,,,11,false,Azure.AI.Inference,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,Anomaly Detector,data,.NET,Microsoft.Azure.CognitiveServices.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.AnomalyDetector_1.0.0-preview.1/sdk/cognitiveservices/AnomalyDetector,1,false,Azure.AI.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector,3,false,1,
 App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,05/09/2025
@@ -914,7 +914,7 @@ Storage,0,Resource Management - Storage Import/Export,mgmt,Go,,,11,false,sdk/res
 Storage,0,Resource Management - Storage Mover,mgmt,Go,,,11,false,sdk/resourcemanager/storagemover/armstoragemover,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagemover/armstoragemover,10,false,1,06/21/2024
 Storage,0,Resource Management - Storage Pool,mgmt,Go,,,11,false,sdk/resourcemanager/storagepool/armstoragepool,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagepool/armstoragepool,10,false,1,11/24/2023
 Storage,0,Resource Management - Storage Sync,mgmt,Go,,,11,false,sdk/resourcemanager/storagesync/armstoragesync,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagesync/armstoragesync,10,false,1,11/24/2023
-Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Go,,,11,false,sdk/resourcemanager/storagediscovery/armstoragediscovery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagediscovery/armstoragediscovery,3,false,1,
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Go,,,11,false,sdk/resourcemanager/storagediscovery/armstoragediscovery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storagediscovery/armstoragediscovery,10,false,1,10/01/2025
 StorSimple 1200 series,0,Resource Management - StorSimple 1200 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple1200series/armstorsimple1200series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple1200series/armstorsimple1200series,10,true,1,11/24/2023
 StorSimple 8000 series,0,Resource Management - StorSimple 8000 series,mgmt,Go,,,11,false,sdk/resourcemanager/storsimple8000series/armstorsimple8000series,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storsimple8000series/armstorsimple8000series,10,true,1,11/24/2023
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/streamanalytics/armstreamanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/streamanalytics/armstreamanalytics,10,false,1,11/24/2023
@@ -1840,7 +1840,7 @@ Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,http
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
 Cognitive Services,0,AI Agents,data,Python,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,08/05/2025
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,09/18/2025
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,10/02/2025
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,07/30/2025
@@ -1934,7 +1934,7 @@ Tables,0,Tables,data,Python,,,11,false,azure-data-tables,https://github.com/Azur
 Cognitive Services,0,Text Analytics,data,Python,azure-cognitiveservices-language-textanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics/,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics,10,false,1,06/15/2023
 Cognitive Services,0,Text Translation,data,Python,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,06/24/2024
 Maps,0,TimeZones,data,Python,,,11,false,azure-maps-timezone,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,Python,,,11,false,azure-ai-language-conversations-authoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,3,false,1,
+unknown,0,unknown,data,Python,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,10/02/2025
 Video Analyzer,0,Video Analyzer Edge,data,Python,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/videoanalyzer,3,true,1,
 Web PubSub,0,Web PubSub,data,Python,,,11,false,azure-messaging-webpubsubservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,07/07/2025
 Web PubSub,0,Web PubSub Client,data,Python,,,11,false,azure-messaging-webpubsubclient,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,05/06/2024
@@ -2170,7 +2170,7 @@ Storage,0,Resource Management - Storage Import/Export,mgmt,Python,,,11,false,azu
 Storage,0,Resource Management - Storage Mover,mgmt,Python,,,11,false,azure-mgmt-storagemover,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagemover,10,false,1,06/18/2024
 Storage,0,Resource Management - Storage Pool,mgmt,Python,,,11,false,azure-mgmt-storagepool,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagepool,10,false,1,10/14/2021
 Storage,0,Resource Management - Storage Sync,mgmt,Python,,,11,false,azure-mgmt-storagesync,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,04/08/2021
-Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Python,,,11,false,azure-mgmt-storagediscovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagediscovery,3,false,1,
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Python,,,11,false,azure-mgmt-storagediscovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storagediscovery,10,false,1,10/01/2025
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Python,,,11,false,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics,10,false,1,01/06/2022
 Subscriptions,0,Resource Management - Subscriptions,mgmt,Python,,,11,false,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/subscription,10,false,1,09/06/2022
 Support,0,Resource Management - Support,mgmt,Python,,,11,false,azure-mgmt-support,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/support,10,false,1,04/24/2024
@@ -2221,6 +2221,10 @@ Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Rust,azure_ai_ano
 Cognitive Services,0,AI Agents Persistent,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
 Cognitive Services,0,AI Agents Persistent,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
 Cognitive Services,0,AI Agents Persistent,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
+Cognitive Services,0,AI Foundry,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.Projects,,2,false,0,
+Cognitive Services,0,AI Foundry,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Projects,,2,false,0,
+Cognitive Services,0,AI Foundry,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.Projects,,2,false,0,
+Cognitive Services,0,AI Foundry,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Projects,,2,false,0,
 App Configuration,0,App Configuration Provider,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 App Configuration,0,App Configuration Provider,data,JavaScript,,,11,false,Exception: Library not needed in language,,10,false,1,
 App Configuration,0,App Configuration Provider,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Extensions.Configuration.AzureAppConfiguration,,2,false,0,
@@ -2803,6 +2807,7 @@ Scheduler,0,Resource Management - Scheduler,mgmt,JavaScript,,,11,false,Missing: 
 Server Management,0,Resource Management - Server Management,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
 Server Management,0,Resource Management - Server Management,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
 Server Management,0,Resource Management - Server Management,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-storagediscovery,,2,false,0,
 Addons,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
 Addons,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
 Addons,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
@@ -3702,6 +3707,11 @@ Content Delivery Network,0,cspell.yaml,data,Java,,,11,false,Missing: Created fro
 Content Delivery Network,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
+certificateregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
+certificateregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
+certificateregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
+certificateregistration,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
+certificateregistration,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
 Change Analysis,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: changeanalysis/cspell.yaml,,2,false,0,
 Change Analysis,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: changeanalysis/cspell.yaml,,2,false,0,
 Change Analysis,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: changeanalysis/cspell.yaml,,2,false,0,
@@ -3928,6 +3938,11 @@ Container Service,0,Resource Management - Fleet.Management,mgmt,Java,,,11,false,
 Container Service,0,Resource Management - Fleet.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
 Container Service,0,Resource Management - Fleet.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
 Container Service,0,Resource Management - Fleet.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
+Container Service,0,Resource Management - NodeCustomization.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
+Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
+Container Service,0,Resource Management - NodeCustomization.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
+Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
+Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
 Container Service,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
 Container Service,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
 Container Service,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
@@ -4171,6 +4186,11 @@ DNS,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: 
 DNS,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
+domainregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
+domainregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
+domainregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
+domainregistration,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
+domainregistration,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
 Domain Services,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
 Domain Services,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
 Domain Services,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: domainservices/cspell.yaml,,2,false,0,
@@ -4896,16 +4916,6 @@ mongocluster,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in spe
 mongocluster,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: mongocluster/cspell.yaml,,2,false,0,
 mongocluster,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: mongocluster/cspell.yaml,,2,false,0,
 mongocluster,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: mongocluster/cspell.yaml,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Accounts.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Accounts.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Accounts.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Accounts.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Accounts.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Accounts.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Accounts.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Accounts.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Accounts.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Accounts.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Issues.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Issues.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Issues.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Issues.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Issues.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Issues.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Issues.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Issues.Management,,2,false,0,
-Monitor,0,Resource Management - Microsoft.Monitor.Issues.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Issues.Management,,2,false,0,
 Monitor,0,Resource Management - Microsoft.Monitor.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Management,,2,false,0,
 Monitor,0,Resource Management - Microsoft.Monitor.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Management,,2,false,0,
 Monitor,0,Resource Management - Microsoft.Monitor.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.Management,,2,false,0,
@@ -5266,6 +5276,21 @@ Purview,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in sp
 Purview,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
 Purview,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
 Purview,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
+purviewdatagovernance,0,Azure.Analytics.Purview.UnifiedCatalog,data,.NET,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/Azure.Analytics.Purview.UnifiedCatalog,,2,false,0,
+purviewdatagovernance,0,Azure.Analytics.Purview.UnifiedCatalog,data,Java,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/Azure.Analytics.Purview.UnifiedCatalog,,2,false,0,
+purviewdatagovernance,0,Azure.Analytics.Purview.UnifiedCatalog,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/Azure.Analytics.Purview.UnifiedCatalog,,2,false,0,
+purviewdatagovernance,0,Azure.Analytics.Purview.UnifiedCatalog,data,Python,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/Azure.Analytics.Purview.UnifiedCatalog,,2,false,0,
+purviewdatagovernance,0,Azure.Analytics.Purview.UnifiedCatalog,data,Go,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/Azure.Analytics.Purview.UnifiedCatalog,,2,false,0,
+purviewdatagovernance,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/cspell.yaml,,2,false,0,
+purviewdatagovernance,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/cspell.yaml,,2,false,0,
+purviewdatagovernance,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/cspell.yaml,,2,false,0,
+purviewdatagovernance,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/cspell.yaml,,2,false,0,
+purviewdatagovernance,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/cspell.yaml,,2,false,0,
+purviewdatagovernance,0,purviewdatagovernance,data,.NET,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/data-plane,,2,false,0,
+purviewdatagovernance,0,purviewdatagovernance,data,Java,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/data-plane,,2,false,0,
+purviewdatagovernance,0,purviewdatagovernance,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/data-plane,,2,false,0,
+purviewdatagovernance,0,purviewdatagovernance,data,Python,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/data-plane,,2,false,0,
+purviewdatagovernance,0,purviewdatagovernance,data,Go,,,11,false,Missing: Created from API in specs repo: purviewdatagovernance/data-plane,,2,false,0,
 Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
 Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
 Quantum,0,Resource Management - Microsoft.Quantum.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: quantum/Microsoft.Quantum.Management,,2,false,0,
@@ -5532,7 +5557,6 @@ storagediscovery,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in
 storagediscovery,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
 storagediscovery,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
 storagediscovery,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: storagediscovery/cspell.yaml,,2,false,0,
-storagediscovery,0,Resource Management - storagediscovery,mgmt,Java,,,11,false,Missing: Created from API in specs repo: storagediscovery/resource-manager,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
 Storage,0,Resource Management - StorageMover.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: storagemover/StorageMover.Management,,2,false,0,
