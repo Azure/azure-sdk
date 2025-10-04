@@ -178,6 +178,13 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
       });
     }
 
+    # For new java tags we format them as <groupid>+<artifactid>_<version>
+    if ($lang -eq "java" -and $package.Contains("+")) {
+      $groupId, $artifactId = $package -split "+"
+      $packageVersions[$package] | Add-Member -NotePropertyName "ArtifactId" -NotePropertyValue $artifactId
+      $packageVersions[$package] | Add-Member -NotePropertyName "GroupId" -NotePropertyValue $groupId
+    }
+
     $sv = ToSemVer $version $tag.Date
     if ($sv) {
       $packageVersions[$package].Versions += $sv

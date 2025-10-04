@@ -53,23 +53,26 @@ function Get-java-Packages
   
   foreach ($tag in $repoTags.Keys)
   {
-    if ($packages.Package -notcontains $tag) {
-      $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
-      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so falling back to direct query for this package."
-      
-      # fallback to guess a groupId, and query maven central repository for the artifact
-      $artifactId = $tag
-      $groupId = "com.azure"
-      if ($tag.StartsWith("azure-resourcemanager-")) {
-        $groupId = "com.azure.resourcemanager"
-      }
+    $pkg = $repoTags[$tag]
+    $artifactId = $pkg.Package
+    if ($pkg.PSObject.Members.Name -contains "ArtifactId") { $artifactId = $pkg.ArtifactId }
+
+    $groupId = "com.azure"
+    if ($pkg.PSObject.Members.Name -contains "GroupId") { $groupId = $pkg.GroupId }
+    elseif ($pkg.Package.StartsWith("azure-resourcemanager-")) { $groupId = "com.azure.resourcemanager" }
+  
+    if ($packages.Package -notcontains $artifactId) {
+      $version = [AzureEngSemanticVersion]::SortVersions($pkg.Versions)[0]
+      Write-Host "${groupId}+${artifactid}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so falling back to direct query for this package."
+
+      # fallback to query maven central repository for the artifact
       $groupPath = $groupId.Replace(".","/")
       $mavenUrl = "https://repo1.maven.org/maven2/$groupPath/$artifactId/$version/$artifactId-$version.pom"
       try {
         $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
         $packages += CreatePackage $artifactId $version $groupId
       } catch {
-        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl - $($_.Exception.Message)"
+        Write-Warning "${groupId}+${artifactid}_${version} - Didn't find this package using the maven central repository $mavenUrl - $($_.Exception.Message)"
       }
     }
   }
