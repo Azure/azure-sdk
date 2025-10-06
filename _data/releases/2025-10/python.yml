@@ -234,4 +234,16 @@ entries:
     - **Enhanced Type Safety**: Improved type safety for content parts with proper enum usage:
     - `InputAudioContentPart`, `InputTextContentPart`, and `OutputTextContentPart` now use `ContentPartType` enum values instead of string literals
     - Better IntelliSense support and compile-time type checking for content part discriminators
+- Name: azure-identity
+  Version: 1.25.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.25.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When `AZURE_TOKEN_CREDENTIALS` is set to `ManagedIdentityCredential`, `DefaultAzureCredential` now skips the IMDS endpoint probe request and directly attempts token acquisition with full retry logic, matching the behavior of using `ManagedIdentityCredential` standalone. ([#43080](https://github.com/Azure/azure-sdk-for-python/pull/43080))
+    - Improved error messages from `ManagedIdentityCredential` to include the full error response from managed identity endpoints for better troubleshooting. ([#43231](https://github.com/Azure/azure-sdk-for-python/pull/43231))
 
