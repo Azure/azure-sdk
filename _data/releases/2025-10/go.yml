@@ -79,4 +79,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagediscovery/armstoragediscovery/v1.0.0/sdk/resourcemanager/storagediscovery/armstoragediscovery/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.13.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Removed the `WorkloadIdentityCredential` support for identity binding mode added in v1.13.0-beta.1.
+    It will return in v1.14.0-beta.1
+
+    #### Features Added
+
+    - Added `AzurePowerShellCredential`, which authenticates as the identity logged in to Azure PowerShell
+    (thanks [ArmaanMcleod](https://github.com/ArmaanMcleod))
+    - When `AZURE_TOKEN_CREDENTIALS` is set to `ManagedIdentityCredential`, `DefaultAzureCredential` behaves the same as
+    does `ManagedIdentityCredential` when used directly. It doesn't apply special retry configuration or attempt to
+    determine whether IMDS is available. ([#25265](https://github.com/Azure/azure-sdk-for-go/issues/25265))
 
