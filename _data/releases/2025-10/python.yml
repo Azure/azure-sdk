@@ -246,4 +246,19 @@ entries:
 
     - When `AZURE_TOKEN_CREDENTIALS` is set to `ManagedIdentityCredential`, `DefaultAzureCredential` now skips the IMDS endpoint probe request and directly attempts token acquisition with full retry logic, matching the behavior of using `ManagedIdentityCredential` standalone. ([#43080](https://github.com/Azure/azure-sdk-for-python/pull/43080))
     - Improved error messages from `ManagedIdentityCredential` to include the full error response from managed identity endpoints for better troubleshooting. ([#43231](https://github.com/Azure/azure-sdk-for-python/pull/43231))
+- Name: azure-ai-voicelive
+  Version: 1.1.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.1.0b1/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **AgentConfig Support**: Re-introduced `AgentConfig` functionality with enhanced capabilities:
+    - `AgentConfig` model added back to public API with full import and export support
+    - `agent` field re-added to `ResponseSession` model for session-level agent configuration
+    - Updated cross-language package mappings to include `AgentConfig` support
+    - Provides foundation for advanced agent configuration scenarios
 
