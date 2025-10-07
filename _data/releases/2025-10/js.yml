@@ -136,4 +136,30 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagediscovery_1.0.0/sdk/storagediscovery/arm-storagediscovery/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.13.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - When `AZURE_TOKEN_CREDENTIALS` is set to only `ManagedIdentityCredential`, `DefaultAzureCredential` does not issue a probe request and performs retries with exponential backoff. [#36047](https://github.com/Azure/azure-sdk-for-js/pull/36047)
+
+    #### Bugs Fixed
+
+    - Fixed an issue where `ManagedIdentityCredential` will make an additional probe request in the `getToken` call. [#36047](https://github.com/Azure/azure-sdk-for-js/pull/36047)
+- Name: '@azure/notification-hubs'
+  Version: 2.0.2
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.2/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Properly handle single-element headers of template registrations [PR #36114](https://github.com/Azure/azure-sdk-for-js/pull/36114).
 
