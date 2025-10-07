@@ -17,12 +17,13 @@ Market data and customer engagement studies clearly indicate that a cloud provid
 
 We’re motivated to provide high quality SDKs to deliver a great experience for Azure developers leveraging and interacting with Azure services.
 
-At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
+At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all Azure services:
 
 - Java
 - .NET
 - Python
 - TS/JS
+- Go (required for management plane, as needed for data plane)
 
 We recommended supporting additional key languages depending on the business scenarios and critical customer demand. Non primary languages depend much more heavily on contributions from outside the Azure SDK team.
 
