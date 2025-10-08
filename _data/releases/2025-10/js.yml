@@ -162,4 +162,17 @@ entries:
     #### Bugs Fixed
 
     - Properly handle single-element headers of template registrations [PR #36114](https://github.com/Azure/azure-sdk-for-js/pull/36114).
+- Name: '@azure/communication-email'
+  Version: 1.1.0
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.1.0/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Consumers can now provide a value for the `contentId` property when sending emails with attachments.
+    This allows consumers to reference attachments in the email body using the `cid` scheme. The `contentId` property can be set on the `EmailAttachment` object.
+    - Updated to `@azure/core-lro` 2.7.2
 
