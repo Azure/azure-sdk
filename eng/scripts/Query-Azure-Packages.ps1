@@ -34,8 +34,8 @@ function Get-android-Packages
 function Get-java-Packages
 {
   $userAgent = "azure-sdk-indexing"
-  $headers = @{ "Content-signal" = "search=yes,ai-train=no" }
-  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore")
+  $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
+  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore", "g.com.azure.v2", "g:com.azure.spring")
   $gids = $groupIds -join "%20OR%20"
   $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=${gids}&rows=100&wt=json"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
