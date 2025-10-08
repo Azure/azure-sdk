@@ -33,9 +33,12 @@ function Get-android-Packages
 
 function Get-java-Packages
 {
-  # Rest API docs https://search.maven.org/classic/#api
-  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*%20OR%20g:io.clientcore&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3
+  $userAgent = "azure-sdk-indexing"
+  $headers = @{ "Content-signal" = "search=yes,ai-train=no" }
+  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore")
+  $gids = $groupIds -join "%20OR%20"
+  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=${gids}&rows=100&wt=json"
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
 
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
 
@@ -43,10 +46,10 @@ function Get-java-Packages
   $count = 0
   while ($count -lt $mavenQuery.response.numFound)
   {
-    $packages += $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
+    $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $count += $mavenQuery.response.docs.count
 
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   $repoTags = GetPackageVersions "java"
