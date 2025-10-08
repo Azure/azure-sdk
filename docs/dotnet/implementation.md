@@ -299,13 +299,13 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 ##### Constant values for enumeration-like structures {#dotnet-enums-values}
 
-{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, for example:
+{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants when the extensible enum is part of an output type.
+
+This is because it is much more likelt that the value will need to be used as constant expressions, for example:
 
 - Attribute values
 - Default parameter values
 - Switch statements and expressions
-
-As a rule of thumb, this would be a common scenario when the extensible enum is part of an output type.
 
 ```csharp
 public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
@@ -640,4 +640,5 @@ public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretCl
 
 {% include refs.md %}
 {% include_relative refs.md %}
+
 
