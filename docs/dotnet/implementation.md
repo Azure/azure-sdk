@@ -305,6 +305,8 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 - Default parameter values
 - Switch statements and expressions
 
+As a rule of thumb, this would be a common scenario when the extensible enum is part of an output type.
+
 ```csharp
 public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 {
@@ -638,3 +640,4 @@ public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretCl
 
 {% include refs.md %}
 {% include_relative refs.md %}
+
