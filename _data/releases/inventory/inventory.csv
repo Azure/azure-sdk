@@ -48,7 +48,7 @@ Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.Code
 Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,08/25/2025
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
-Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,09/19/2025
+Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/07/2025
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
 Communication,0,Communication Messages,data,.NET,,,11,false,Azure.Communication.Messages,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/18/2024
@@ -148,7 +148,7 @@ Cognitive Services,0,Text Authoring,data,.NET,,,11,false,Azure.AI.Language.Text.
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,.NET,,,11,false,Azure.AI.VoiceLive,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
+unknown,0,unknown,data,.NET,,,11,false,Azure.AI.VoiceLive,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,10/02/2025
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Storage,0,WCF Storage Queues,data,.NET,,,11,false,Microsoft.WCF.Azure.StorageQueues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/extension-wcf,3,false,1,
@@ -629,7 +629,7 @@ Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Az
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/eventgrid/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azeventgrid,10,false,1,04/02/2024
 Event Grid,0,Event Grid Namespaces,data,Go,,,11,false,sdk/messaging/eventgrid/aznamespaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/aznamespaces,10,false,1,06/11/2024
 Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,06/10/2025
-Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,09/15/2025
+Identity,0,Identity,data,Go,,,11,false,sdk/azidentity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity,10,false,1,10/06/2025
 Identity,0,Identity - Cache,data,Go,,,11,false,sdk/azidentity/cache,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity/cache,3,false,1,
 Monitor,0,Ingestion - Logs,data,Go,,,11,false,sdk/monitor/ingestion/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/ingestion/azlogs,10,false,1,07/16/2025
 Key Vault,0,Key Vault  - Keys,data,Go,,,11,false,sdk/security/keyvault/azkeys,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys,10,false,1,06/12/2025
@@ -1280,6 +1280,7 @@ Storage,0,Resource Management - Storage Cache,mgmt,Java,azure-mgmt-storagecache,
 Storage,0,Resource Management - Storage Import/Export,mgmt,Java,azure-mgmt-storageimportexport,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/storageimportexport/mgmt-v2016_11_01,3,true,azure-resourcemanager-storageimportexport,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storageimportexport,3,true,1,
 Storage,0,Resource Management - Storage Mover,mgmt,Java,,,11,false,azure-resourcemanager-storagemover,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storagemover,10,false,1,12/23/2024
 Storage,0,Resource Management - Storage Pool,mgmt,Java,,,11,false,azure-resourcemanager-storagepool,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storagepool,10,false,1,01/03/2025
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Java,,,11,false,azure-resourcemanager-storagediscovery,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/storagediscovery,10,false,1,10/02/2025
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Java,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/streamanalytics/mgmt-v2016_03_01,3,true,azure-resourcemanager-streamanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics,10,false,1,01/03/2025
 Subscriptions,0,Resource Management - Subscriptions,mgmt,Java,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-subscription,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/subscription,10,false,1,12/25/2024
 Support,0,Resource Management - Support,mgmt,Java,azure-mgmt-support,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/support/mgmt-v2020_04_01,10,true,azure-resourcemanager-support,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/support,10,false,1,12/19/2024
@@ -1418,7 +1419,7 @@ Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://git
 Communication,0,Communication Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,08/25/2025
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communication-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/05/2025
-Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/31/2023
+Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,10/07/2025
 Communication,0,Communication Identity,data,JavaScript,,,11,false,@azure/communication-identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,03/26/2024
 Communication,0,Communication Job Router,data,JavaScript,,,11,false,@azure-rest/communication-job-router,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-job-router-rest/,10,false,1,11/18/2023
 Communication,0,Communication Messages,data,JavaScript,,,11,false,@azure-rest/communication-messages,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/communication/communication-messages-rest/,10,false,1,10/23/2024
@@ -1450,7 +1451,7 @@ Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@az
 Cognitive Services,0,Health Insights Cancer Profiling,data,JavaScript,,,11,false,@azure-rest/health-insights-cancerprofiling,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-cancerprofiling-rest/,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,JavaScript,,,11,false,@azure-rest/health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-clinicalmatching-rest/,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,10,false,1,06/06/2025
-Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,09/09/2025
+Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,10/07/2025
 Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,02/18/2025
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
@@ -1473,7 +1474,7 @@ Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,true,1,08/12/2025
 Monitor,0,Monitor Query Logs,data,JavaScript,,,11,false,@azure/monitor-query-logs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/30/2025
 Monitor,0,Monitor Query Metrics,data,JavaScript,,,11,false,@azure/monitor-query-metrics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/31/2025
-Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,10/14/2024
+Notification Hubs,0,Notification Hubs,data,JavaScript,,,11,false,@azure/notification-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs,10,false,1,10/06/2025
 Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,10,false,1,11/18/2024
 Cognitive Services,0,OpenAI Assistants,data,JavaScript,,,11,false,@azure/openai-assistants,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
@@ -1746,7 +1747,7 @@ Storage,0,Resource Management - Storage Cache,mgmt,JavaScript,,,11,false,@azure/
 Storage,0,Resource Management - Storage Import/Export,mgmt,JavaScript,azure-arm-storageimportexport,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-storageimportexport,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storageimportexport/arm-storageimportexport,10,true,1,02/03/2023
 Storage,0,Resource Management - Storage Mover,mgmt,JavaScript,,,11,false,@azure/arm-storagemover,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagemover,10,false,1,06/25/2024
 Storage,0,Resource Management - Storage Sync,mgmt,JavaScript,,,11,false,@azure/arm-storagesync,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagesync/arm-storagesync,10,false,1,12/16/2022
-Storagediscovery,0,Resource Management - Storagediscovery,mgmt,JavaScript,,,11,false,@azure/arm-storagediscovery,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagediscovery,3,false,1,
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,JavaScript,,,11,false,@azure/arm-storagediscovery,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagediscovery,10,false,1,10/01/2025
 StorSimple 1200 series,0,Resource Management - StorSimple 1200 series,mgmt,JavaScript,,,11,false,@azure/arm-storsimple1200series,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storsimple1200series/arm-storsimple1200series,10,true,1,12/16/2022
 StorSimple 8000 series,0,Resource Management - StorSimple 8000 series,mgmt,JavaScript,azure-arm-storsimple8000series,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,@azure/arm-storsimple8000series,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storsimple8000series/arm-storsimple8000series,10,true,1,12/16/2022
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,JavaScript,azure-arm-streamanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,@azure/arm-streamanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics,10,false,1,12/16/2022
@@ -1885,7 +1886,7 @@ Health Deidentification,0,Health Deidentification,data,Python,,,11,false,azure-h
 Cognitive Services,0,Health Insights Cancer Profiling,data,Python,,,11,false,azure-healthinsights-cancerprofiling,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Clinical Matching,data,Python,,,11,false,azure-healthinsights-clinicalmatching,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,Python,,,11,false,azure-healthinsights-radiologyinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/healthinsights,10,false,1,06/10/2025
-Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,09/12/2025
+Identity,0,Identity,data,Python,,,11,false,azure-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,10/06/2025
 Identity,0,Identity Broker,data,Python,,,11,false,azure-identity-broker,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity,10,false,1,08/07/2025
 Cognitive Services,0,Image Analysis,data,Python,,,11,false,azure-ai-vision-imageanalysis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/vision,10,false,1,10/14/2024
 Key Vault,0,Key Vault - Administration,data,Python,,,11,false,azure-keyvault-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,06/16/2025
@@ -2322,6 +2323,7 @@ Storage,0,Storage - Blobs Batch,data,Go,,,11,false,Exception: Library not needed
 Event Grid,0,System Events,data,Python,,,11,false,Missing: Created from existing package: Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Cognitive Services,0,Text Analytics,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.TextAnalytics,,2,false,0,
 Cognitive Services,0,Text Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Text,,2,false,0,
+unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.VoiceLive,,2,false,0,
 Web PubSub,0,Web PubSub Client,data,Go,,,11,false,Missing: Created from existing package: Azure.Messaging.WebPubSub.Client,,2,false,0,
 Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,Java,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,,2,false,0,
 Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,,2,false,0,
@@ -2636,7 +2638,6 @@ Identity,0,Token Cache Persistence Plugin,data,.NET,,,11,false,Exception: Librar
 Identity,0,Token Cache Persistence Plugin,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,Token Cache Persistence Plugin,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,Token Cache Persistence Plugin,data,Go,,,11,false,Exception: Library not needed in language,,10,false,1,
-unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: @azure/storage-common,,2,false,0,
 Identity,0,VS Code Authentication Plugin,data,.NET,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,VS Code Authentication Plugin,data,Java,,,11,false,Exception: Library not needed in language,,10,false,1,
 Identity,0,VS Code Authentication Plugin,data,Python,,,11,false,Exception: Library not needed in language,,10,false,1,
@@ -2807,7 +2808,6 @@ Scheduler,0,Resource Management - Scheduler,mgmt,JavaScript,,,11,false,Missing: 
 Server Management,0,Resource Management - Server Management,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
 Server Management,0,Resource Management - Server Management,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
 Server Management,0,Resource Management - Server Management,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-servermanager,,2,false,0,
-Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-storagediscovery,,2,false,0,
 Addons,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
 Addons,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
 Addons,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: addons/cspell.yaml,,2,false,0,
