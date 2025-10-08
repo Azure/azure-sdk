@@ -162,6 +162,10 @@ switch($language)
     Write-Markdown $language
     break
   }
+  "rust" {
+    Write-Markdown $language
+    break
+  }
   default {
     Write-Host "Unrecognized Language: $language"
     exit 1
