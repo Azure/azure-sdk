@@ -27,8 +27,8 @@ function Get-android-Packages
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $start += 1
     
-    Write-Host "Calling " + ($baseMavenQueryUrl + "&start=$start")
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$start") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
+    Write-Host "Calling ${baseMavenQueryUrl}&start=$start"
+    $mavenQuery = Invoke-RestMethod "${baseMavenQueryUrl}&start=$start" -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   return $packages
@@ -53,8 +53,8 @@ function Get-java-Packages
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $start += 1
 
-    Write-Host "Calling " + ($baseMavenQueryUrl + "&start=$start")
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$start") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
+    Write-Host "Calling ${baseMavenQueryUrl}&start=$start"
+    $mavenQuery = Invoke-RestMethod "${baseMavenQueryUrl}&start=$start" -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   $repoTags = GetPackageVersions "java"
