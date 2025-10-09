@@ -1,0 +1,140 @@
+entries:
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 8.0.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v8.0.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcontainers/armappcontainers
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcontainers/armappcontainers/v4.0.0-beta.1/sdk/resourcemanager/appcontainers/armappcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storage/armstorage
+  Version: 2.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storage/armstorage/v2.0.0/sdk/resourcemanager/storage/armstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/compute/armrecommender
+  Version: 0.1.0
+  DisplayName: Resource Management - Recommender
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armrecommender/v0.1.0/sdk/resourcemanager/compute/armrecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/quota/armquota
+  Version: 2.0.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/quota/armquota/v2.0.0/sdk/resourcemanager/quota/armquota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storagecache/armstoragecache
+  Version: 4.1.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagecache/armstoragecache/v4.1.0/sdk/resourcemanager/storagecache/armstoragecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/datamigration/armdatamigration
+  Version: 2.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Data Migration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datamigration/armdatamigration/v2.0.0/sdk/resourcemanager/datamigration/armdatamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 2.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v2.0.0/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/sitemanager/armsitemanager
+  Version: 1.0.0
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sitemanager/armsitemanager/v1.0.0/sdk/resourcemanager/sitemanager/armsitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storagediscovery/armstoragediscovery
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagediscovery/armstoragediscovery/v1.0.0/sdk/resourcemanager/storagediscovery/armstoragediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.13.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Removed the `WorkloadIdentityCredential` support for identity binding mode added in v1.13.0-beta.1.
+    It will return in v1.14.0-beta.1
+
+    #### Features Added
+
+    - Added `AzurePowerShellCredential`, which authenticates as the identity logged in to Azure PowerShell
+    (thanks [ArmaanMcleod](https://github.com/ArmaanMcleod))
+    - When `AZURE_TOKEN_CREDENTIALS` is set to `ManagedIdentityCredential`, `DefaultAzureCredential` behaves the same as
+    does `ManagedIdentityCredential` when used directly. It doesn't apply special retry configuration or attempt to
+    determine whether IMDS is available. ([#25265](https://github.com/Azure/azure-sdk-for-go/issues/25265))
+- Name: sdk/azidentity
+  Version: 1.14.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.14.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Restored the `WorkloadIdentityCredential` identity binding mode support removed in v1.13.0
+- Name: sdk/resourcemanager/mongocluster/armmongocluster
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mongocluster/armmongocluster/v1.1.0-beta.2/sdk/resourcemanager/mongocluster/armmongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/messaging/azeventhubs
+  Version: 2.0.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v2.0.1/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed outdated documentation that incorrectly stated the library is in beta.
+- Name: sdk/resourcemanager/durabletask/armdurabletask
+  Version: 1.0.0
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/durabletask/armdurabletask/v1.0.0/sdk/resourcemanager/durabletask/armdurabletask/CHANGELOG.md
+  ChangelogContent: ""
+
