@@ -1,0 +1,554 @@
+entries:
+- Name: Microsoft.Extensions.Azure
+  Version: 1.13.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.13.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the Azure.Identity dependency to version 1.16.0
+- Name: System.ClientModel
+  Version: 1.7.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.7.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientConnection` constructor, accepting credentials and metadata.
+
+    - Added `JsonPatch` which allows for applying JSON Patch operations to JSON documents.
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.2/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Added overloads for MessageItem creation to accept a single content part.
+
+    #### Breaking Changes
+    AudioFormat was split into InputAudioFormat and OutputAudioFormat.
+    Emotion classes / options dropped.
+    Eou and TurnDetection classes renamed.
+    API properties that were duration based are now TimeSpans
+    Methods to configure session collapsed to ConfigureSession
+    Renamed ToolChoiceFunctionObjectFunction to ToolChoiceFunctionObject
+- Name: Azure.ResourceManager.Network
+  Version: 1.12.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.12.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebPubSub.AspNetCore
+  Version: 1.5.0
+  DisplayName: Microsoft.Azure.WebPubSub.AspNetCore
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.5.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support a custom hub name in `MapWebPubSubHub` extension method.
+- Name: Azure.ResourceManager.EventHubs
+  Version: 1.2.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventHubs_1.2.1/sdk/eventhub/Azure.ResourceManager.EventHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.49.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.49.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.7.0
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.7.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.7.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Quota
+  Version: 1.2.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.2.0/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.12.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.12.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Blobs
+  Version: 12.25.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.25.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug for processing partitioned downloads for empty blobs with content validation enabled.
+- Name: Azure.ResourceManager.Storage
+  Version: 1.5.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.5.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Health.Deidentification
+  Version: 1.1.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Deidentification_1.1.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `DeidentificationOperationType.SurrogateOnly`, which returns output text where user-defined PHI entities are replaced with realistic replacement values. When using this operation, include `DeidentificationContent.TaggedEntities`, which allows user input of PHI entities detected in the input text. The service will skip tagging and apply surrogation directly to the user-defined entities.
+    - Added `DeidentificationCustomizationOptions.InputLocale` to allow specifying the locale of the input text for TAG and REDACT operations.
+- Name: Azure.ResourceManager.DisconnectedOperations
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Disconnectedoperations
+  ServiceName: Disconnectedoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DisconnectedOperations_1.0.0-beta.1/sdk/disconnectedoperations/Azure.ResourceManager.DisconnectedOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataMigration
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataMigration_1.0.0/sdk/datamigration/Azure.ResourceManager.DataMigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.3/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `VideoBackground` class to support video background customization with `Color` and `ImageUrl` properties
+    - Added new properties to `VideoParams`:
+    - `Background` (VideoBackground): Configure video background settings
+    - `GopSize` (int?): Configure Group of Pictures size
+    - Added new properties to turn detection classes for enhanced control:
+    - `CreateResponse` (bool?): Added to `ServerVadTurnDetection`, `AzureSemanticVadTurnDetection`, and related classes
+    - `InterruptResponse` (bool?): Added to the same turn detection classes
+    - Added string constructor overloads for message item classes:
+    - `AssistantMessageItem(string assistantMessageText)`
+    - `SystemMessageItem(string systemMessageText)`
+    - `UserMessageItem(string userMessageText)`
+    - Enhanced README with new code examples for function calling and user message handling
+    - Added Headers dictionary to VoiceLiveClientOptions to specify additional headers to set on connect.
+
+    #### Breaking Changes
+
+    ##### Type Changes from Enums to Extensible Enums
+
+    Several enum types have been converted to extensible enums (struct-based) for better extensibility:
+
+    ##### AnimationOutputType
+    - **Before**: `enum AnimationOutputType`
+    - **After**: `readonly partial struct AnimationOutputType`
+    - **Impact**: The type is now an extensible enum. Existing code using the enum values will continue to work due to implicit conversions.
+
+    ##### AudioNoiseReductionType
+    - **Before**: `enum AudioNoiseReductionType`
+    - **After**: `readonly partial struct AudioNoiseReductionType`
+    - **Impact**: The type is now an extensible enum. Existing code using the enum values will continue to work due to implicit conversions.
+
+    ##### ItemParamStatus
+    - **Before**: `enum ItemParamStatus`
+    - **After**: `readonly partial struct ItemParamStatus`
+    - **Impact**: The type is now an extensible enum. Existing code using the enum values will continue to work due to implicit conversions.
+
+    ##### ResponseCancelledDetailsReason
+    - **Before**: `enum ResponseCancelledDetailsReason`
+    - **After**: `readonly partial struct ResponseCancelledDetailsReason`
+    - **Impact**: The type is now an extensible enum. Existing code using the enum values will continue to work due to implicit conversions.
+
+    ##### ResponseIncompleteDetailsReason
+    - **Before**: `enum ResponseIncompleteDetailsReason`
+    - **After**: `readonly partial struct ResponseIncompleteDetailsReason`
+    - **Impact**: The type is now an extensible enum. Existing code using the enum values will continue to work due to implicit conversions.
+
+    ##### Class and Property Renames
+
+    ##### AudioInputTranscriptionSettings → AudioInputTranscriptionOptions
+    - **Type renamed**: `AudioInputTranscriptionSettings` is now `AudioInputTranscriptionOptions`
+    - **Model property renamed**: `AudioInputTranscriptionSettingsModel` is now `AudioInputTranscriptionOptionsModel`
+    - **Impact**: Update all references to use the new type name.
+
+    ##### InputModality → InteractionModality
+    - **Type renamed**: `InputModality` is now `InteractionModality`
+    - **Impact**: Update all references from `InputModality` to `InteractionModality` throughout your code.
+
+    ##### ResponseMaxOutputTokensOption → MaxResponseOutputTokensOption
+    - **Type renamed**: `ResponseMaxOutputTokensOption` is now `MaxResponseOutputTokensOption`
+    - **Impact**: Update all type references to use the new name.
+
+    ##### Removed Types
+
+    ##### UserContentPart (abstract base class)
+    - **Removed**: The abstract `UserContentPart` class has been removed.
+    - **Replacement**: Use the new `MessageContentPart` abstract base class instead.
+    - **Impact**: Update inheritance hierarchies to use `MessageContentPart`.
+
+    ##### AzureSemanticEnEouDetection
+    - **Removed**: This class has been removed.
+    - **Replacement**: Use `AzureSemanticEouDetectionEn` instead.
+
+    ##### AzureSemanticMultilingualEouDetection
+    - **Removed**: This class has been removed.
+    - **Replacement**: Use `AzureSemanticEouDetectionMultilingual` instead.
+
+    ##### AzureSemanticVadEnTurnDetection
+    - **Removed**: This class has been removed.
+    - **Replacement**: Use `AzureSemanticVadTurnDetectionEn` instead.
+
+    ##### AzureSemanticVadMultilingualTurnDetection
+    - **Removed**: This class has been removed.
+    - **Replacement**: Use `AzureSemanticVadTurnDetectionMultilingual` instead.
+
+    ##### Property Removals
+
+    ##### AnimationOptions
+    - **Removed properties**:
+    - `EmotionDetectionInterval`
+    - `EmotionDetectionIntervalMs`
+    - **Impact**: Remove any code that sets or reads these properties.
+
+    ##### AzureSemanticEouDetection family
+    - **Changed property**: `Threshold` (float) has been replaced with `ThresholdLevel` using new threshold level types:
+    - `AzureSemanticDetectionThresholdLevel` for `AzureSemanticEouDetection`
+    - `AzureSemanticDetectionEnThresholdLevel` for `AzureSemanticEouDetectionEn`
+    - `AzureSemanticDetectionMultilingualThresholdLevel` for `AzureSemanticEouDetectionMultilingual`
+    - **Impact**: Update code to use the new `ThresholdLevel` property with appropriate enum values (Default, Low, Medium, High).
+
+    ##### Constructor and Method Signature Changes
+
+    ##### MessageItem
+    - **Constructor changed**:
+    - **Before**: `MessageItem(string role)`
+    - **After**: `MessageItem(ResponseMessageRole role, IEnumerable<MessageContentPart> content)`
+    - **Impact**: Update all MessageItem instantiations to provide both role and content parameters.
+
+    ##### AssistantMessageItem
+    - **Constructor changed**:
+    - **Before**: Accepted `OutputTextContentPart` or `IEnumerable<OutputTextContentPart>`
+    - **After**: Accepts `MessageContentPart`, `IEnumerable<MessageContentPart>`, or a string
+    - **Property changed**: `Content` is now `IList<MessageContentPart>` instead of `IList<OutputTextContentPart>`
+
+    ##### SystemMessageItem
+    - **Constructor changed**:
+    - **Before**: Accepted `InputTextContentPart` or `IEnumerable<InputTextContentPart>`
+    - **After**: Accepts `InputTextContentPart`, `IEnumerable<MessageContentPart>`, or a string
+    - **Property changed**: `Content` is now part of base `MessageItem` as `IList<MessageContentPart>`
+
+    ##### UserMessageItem
+    - **Constructor changed**:
+    - **Before**: Accepted `UserContentPart` or `IEnumerable<UserContentPart>`
+    - **After**: Accepts `InputTextContentPart`, `IEnumerable<MessageContentPart>`, or a string
+    - **Property changed**: `Content` is now part of base `MessageItem` as `IList<MessageContentPart>`
+
+    ##### ToolChoiceOption
+    - **Constructor parameter renamed**:
+    - **Before**: `ToolChoiceOption(string stringValue)`
+    - **After**: `ToolChoiceOption(string functionName)`
+    - **Impact**: The parameter name has changed, but functionality remains the same.
+
+    ##### Service Version Changes
+
+    ##### VoiceLiveClientOptions
+    - **Default service version changed**:
+    - **Before**: `ServiceVersion.V2025_05_01_Preview`
+    - **After**: `ServiceVersion.V2025_10_01`
+    - **Impact**: The client now defaults to a newer, non-preview API version.
+
+    ##### Class Inheritance Changes
+
+    ##### VoiceLiveClientOptions
+    - **Before**: Inherited from `Azure.Core.ClientOptions`
+    - **After**: No longer inherits from `ClientOptions`, but provides a `DiagnosticsOptions` property
+    - **Impact**: Some properties previously available through inheritance may need to be accessed differently.
+
+    ##### Content Part Classes
+    - `InputAudioContentPart`: Now inherits from `MessageContentPart` instead of `UserContentPart`
+    - `InputTextContentPart`: Now inherits from `MessageContentPart` instead of `UserContentPart`
+    - `OutputTextContentPart`: Now inherits from `MessageContentPart` instead of being standalone
+
+    ##### New Required Properties
+
+    ##### Turn Detection Classes
+    Several turn detection classes have new properties that should be considered:
+    - `CreateResponse` (bool?): Added to `ServerVadTurnDetection`, `AzureSemanticVadTurnDetection`, and related classes
+    - `InterruptResponse` (bool?): Added to the same turn detection classes
+
+    ##### VideoParams
+    - New optional properties:
+    - `Background` (VideoBackground): Configure video background settings
+    - `GopSize` (int?): Configure Group of Pictures size
+
+    ##### Property Access Changes
+
+    ##### VoiceLiveClient
+    - **Removed**: `Pipeline` property is no longer publicly accessible
+    - **Impact**: If you were accessing the HTTP pipeline directly, you'll need to find alternative approaches.
+
+    ##### VoiceLiveResponse
+    - **Property changed**: `Modalities` is now `ModalitiesInternal` and returns `IList<InteractionModality>` instead of `SessionUpdateModality`
+
+    ##### Authentication Changes
+
+    ##### VoiceLiveClient Authentication Scope
+    - **Authentication scope changed**: The default authentication scope has been updated from `https://cognitiveservices.azure.com/.default` to `https://ai.azure.com/.default`
+    - **Impact**: This change should be transparent for most users, but custom authentication implementations may need adjustment.
+
+    ##### Class Inheritance and Interface Implementation Changes
+
+    ##### AzureSemanticEouDetectionEn and AzureSemanticEouDetectionMultilingual
+    - **Before**: These classes were incomplete and did not properly inherit from base classes
+    - **After**: Both classes now properly inherit from `EouDetection` and implement full serialization interfaces
+    - **Impact**: These classes are now fully functional and consistent with the API pattern
+
+    ##### Migration Guide
+
+    1. **Update enum usage**: While the conversion to extensible enums maintains backward compatibility through implicit conversions, consider updating to use the new struct-based pattern for future-proofing.
+
+    2. **Rename types**: Find and replace all occurrences of renamed types:
+    - `AudioInputTranscriptionSettings` → `AudioInputTranscriptionOptions`
+    - `InputModality` → `InteractionModality`
+    - `ResponseMaxOutputTokensOption` → `MaxResponseOutputTokensOption`
+
+    3. **Update inheritance**: Replace `UserContentPart` with `MessageContentPart` in any custom implementations.
+
+    4. **Update constructors**: Review and update all MessageItem-derived class instantiations to use the new constructor signatures.
+
+    5. **Update threshold properties**: Replace float `Threshold` properties with appropriate `ThresholdLevel` properties using the new enum values.
+
+    6. **Consider new properties**: Review the new `CreateResponse` and `InterruptResponse` properties in turn detection configurations to see if they benefit your use case.
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.3.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.3.0/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SiteManager
+  Version: 1.0.0
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SiteManager_1.0.0/sdk/sitemanager/Azure.ResourceManager.SiteManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute.Recommender
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Compute.Recommender
+  ServiceName: Compute.Recommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.Recommender_1.0.0-beta.1/sdk/computerecommender/Azure.ResourceManager.Compute.Recommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageCache
+  Version: 1.4.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageCache_1.4.0/sdk/storagecache/Azure.ResourceManager.StorageCache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OracleDatabase
+  Version: 1.2.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OracleDatabase_1.2.0/sdk/oracle/Azure.ResourceManager.OracleDatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.4/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed all synchronous methods from `VoiceLiveClient` and `VoiceLiveSession` classes.
+    - `VoiceLiveClient.StartSession()` - use `StartSessionAsync()` instead
+    - `VoiceLiveSession.AddItem()` - use `AddItemAsync()` instead
+    - `VoiceLiveSession.AppendAudioToTurn()` - use `AppendAudioToTurnAsync()` instead
+    - `VoiceLiveSession.CancelAudioTurn()` - use `CancelAudioTurnAsync()` instead
+    - `VoiceLiveSession.CancelResponse()` - use `CancelResponseAsync()` instead
+    - `VoiceLiveSession.ClearInputAudio()` - use `ClearInputAudioAsync()` instead
+    - `VoiceLiveSession.ClearStreamingAudio()` - use `ClearStreamingAudioAsync()` instead
+    - `VoiceLiveSession.Close()` - use `CloseAsync()` instead
+    - `VoiceLiveSession.CommitInputAudio()` - use `CommitInputAudioAsync()` instead
+    - `VoiceLiveSession.ConfigureSession()` - use `ConfigureSessionAsync()` instead
+    - `VoiceLiveSession.Connect()` - use `ConnectAsync()` instead
+    - `VoiceLiveSession.ConnectAvatar()` - use `ConnectAvatarAsync()` instead
+    - `VoiceLiveSession.DeleteItem()` - use `DeleteItemAsync()` instead
+    - `VoiceLiveSession.EndAudioTurn()` - use `EndAudioTurnAsync()` instead
+    - `VoiceLiveSession.GetUpdates()` - use `GetUpdatesAsync()` instead
+    - `VoiceLiveSession.ReceiveUpdates()` - use `ReceiveUpdatesAsync()` instead
+    - `VoiceLiveSession.RequestItemRetrieval()` - use `RequestItemRetrievalAsync()` instead
+    - `VoiceLiveSession.SendCommand()` - use `SendCommandAsync()` instead
+    - `VoiceLiveSession.SendInputAudio()` - use `SendInputAudioAsync()` instead
+    - `VoiceLiveSession.StartAudioTurn()` - use `StartAudioTurnAsync()` instead
+    - `VoiceLiveSession.StartResponse()` - use `StartResponseAsync()` instead
+    - `VoiceLiveSession.TruncateConversation()` - use `TruncateConversationAsync()` instead
+    - Removed `RespondingAgentOptions` and associated property usage.
+- Name: Azure.AI.Projects
+  Version: 1.0.0
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Properly handle secret key population for `AIProjectConnectionCustomCredential`, [see GitHub issue 52355](https://github.com/Azure/azure-sdk-for-net/issues/52355).
+
+    #### Features Added
+    * Added convenience `CreateOrUpdate` methods for `AIProjectIndex` objects
+
+    #### Breaking Changes
+    * Name changes:
+    * `AssetDeployment` has been renamed to `AIProjectDeployment`
+    * `BlobReference` has been renamed to `AIProjectBlobReference`
+    * `ConnectionProperties` has been renamed to `AIProjectConnection`
+    * `FileDatasetVersion` has been renamed to `FileDataset`
+    * `FolderDatasetVersion` has been renamed to `FolderDataset`
+    * `SasCredential` has been renamed to `BlobReferenceSasCredential`
+    * `SearchIndex` has been renamed to `AIProjectIndex`
+    * Removed `GetOpenAIClient` method. Look at Inference samples for how to get the client now.
+    * All other `Get*Client` methods have been removed. Use the `AIProjectClient` properties `Connections`, `Datasets`, `Deployments`, and `Indexes` instead.
+- Name: Azure.Communication.Messages
+  Version: 1.3.0-beta.2
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.3.0-beta.2/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for read receipt and typing indicator.
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **SessionResponse changes:**
+    - Removed public `Object` property (now internal)
+    - Renamed `ModalitiesInternal` property to `Modalities`
+    - Changed `Voice` property type from `BinaryData` to strongly typed `VoiceProvider`
+    - Changed `MaxOutputTokens` property type from `BinaryData` to strongly typed `MaxResponseOutputTokensOption`
+
+    - **SessionResponseItem changes:**
+    - Removed public `Object` property (now internal)
+
+    - **VoiceLiveSessionResponse changes:**
+    - No longer inherits from `VoiceLiveSessionOptions`
+    - Constructor changed from internal to public
+    - Properties now have public setters: `Id`, `Model`, `Animation`, `Instructions`, `InputAudioSamplingRate`, `InputAudioFormat`, `OutputAudioFormat`, `InputAudioNoiseReduction`, `InputAudioEchoCancellation`, `Avatar`, `InputAudioTranscription`, `Temperature`
+    - Added new read-only properties: `Voice`, `MaxResponseOutputTokens`, `ToolChoice`, `TurnDetection`
+
+    - **VoiceProvider changes:**
+    - Removed internal `ToBinaryData()` method
+- Name: Azure.AI.OpenAI
+  Version: 2.5.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.5.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see [the full OpenAI 2.5.0 release notes](https://github.com/openai/openai-dotnet/blob/main/CHANGELOG.md#250-2025-09-23) for details.
+- Name: Azure.Identity
+  Version: 1.17.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.17.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - TenantId is now configured via MSAL's `WithTenantId` instead of `WithTenantIdFromAuthority` to prevent malformed Uris to the authority.
+- Name: Azure.Communication.Email
+  Version: 1.1.0
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Email_1.1.0/sdk/communication/Azure.Communication.Email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Consumers can now provide a value for the `ContentId` property when sending emails with attachments.
+    This allows consumers to reference attachments in the email body using the `cid` scheme. The `ContentId` property can be set on the `EmailAttachment` object.
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.3.3
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.3.3/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.5.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.5.0/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Authorization
+  Version: 1.1.6
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Authorization_1.1.6/sdk/authorization/Azure.ResourceManager.Authorization/CHANGELOG.md
+  ChangelogContent: ""
+
