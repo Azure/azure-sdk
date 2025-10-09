@@ -247,4 +247,12 @@ entries:
     await container.item("1").delete(requestOptions);
     ```
     - [#36015](https://github.com/Azure/azure-sdk-for-js/issues/36015) AAD Authentication Scope Override: Added support for overriding AAD authentication scope via the new `aadScope` option in `CosmosClientOptions`. When no custom scope is provided, the system uses the account-specific scope for authentication and implements a fallback mechanism to `https://cosmos.azure.com/.default` in case of `AADSTS500011` errors. When a custom scope is explicitly provided via the `aadScope` option, no fallback occurs.
+- Name: '@azure/arm-mongocluster'
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.1.0-beta.2/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
 
