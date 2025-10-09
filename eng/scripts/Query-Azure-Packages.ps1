@@ -12,20 +12,23 @@ Set-StrictMode -Version 3
 
 function Get-android-Packages
 {
-  # Rest API docs https://search.maven.org/classic/#api
-  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json" -MaximumRetryCount 3
-
+  $userAgent = "azure-sdk-indexing"
+  $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
+  $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
+  Write-Host "Calling $baseMavenQueryUrl"
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
+  
   Write-Host "Found $($mavenQuery.response.numFound) android packages on maven packages"
 
   $packages = @()
-  $count = 0
-  while ($count -lt $mavenQuery.response.numFound)
+  $start = 0
+  while ($mavenQuery.response.docs.count -ne 0)
   {
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
-    $count += $mavenQuery.response.docs.count
-
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
+    $start += 1
+    
+    Write-Host "Calling ${baseMavenQueryUrl}&start=$start"
+    $mavenQuery = Invoke-RestMethod "${baseMavenQueryUrl}&start=$start" -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   return $packages
@@ -33,20 +36,36 @@ function Get-android-Packages
 
 function Get-java-Packages
 {
-  # Rest API docs https://search.maven.org/classic/#api
-  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*%20OR%20g:io.clientcore&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3
+  $userAgent = "azure-sdk-indexing"
+  $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
+  $groupIds = @(
+    "com.azure",
+    "com.azure.cosmos.kafka",
+    "com.azure.cosmos.spark",
+    "com.azure.resourcemanager",
+    "com.azure.spring",
+    "com.azure.tools",
+    "com.azure.v2",
+    "com.microsoft.azure",
+    "io.clientcore"
+  )
+  $groupIds = $groupIds | % { "g:" + $_ }
+  $groupIdQuery = $groupIds -join "+"
+  $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${groupIdQuery}&rows=100&wt=json"
+  Write-Host "Calling $baseMavenQueryUrl"
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
 
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
 
   $packages = @()
-  $count = 0
-  while ($count -lt $mavenQuery.response.numFound)
+  $start = 0
+  while ($mavenQuery.response.docs.count -ne 0)
   {
-    $packages += $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
-    $count += $mavenQuery.response.docs.count
+    $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
+    $start += 1
 
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3
+    Write-Host "Calling ${baseMavenQueryUrl}&start=$start"
+    $mavenQuery = Invoke-RestMethod "${baseMavenQueryUrl}&start=$start" -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   $repoTags = GetPackageVersions "java"
@@ -55,23 +74,7 @@ function Get-java-Packages
   {
     if ($packages.Package -notcontains $tag) {
       $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
-      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so falling back to direct query for this package."
-      
-      # fallback to guess a groupId, and query maven central repository for the artifact
-      $artifactId = $tag
-      $groupId = "com.azure"
-      if ($tag.StartsWith("azure-resourcemanager-")) {
-        $groupId = "com.azure.resourcemanager"
-      }
-      $groupPath = $groupId.Replace(".","/")
-      $mavenUrl = "https://repo1.maven.org/maven2/$groupPath/$artifactId/$version/$artifactId-$version.pom"
-      try {
-        $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
-        $packages += CreatePackage $artifactId $version $groupId
-      } catch {
-        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl - $($_.Exception.Message)"
-      }
-    }
+      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so not adding."
   }
 
   foreach ($package in $packages)
