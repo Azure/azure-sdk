@@ -38,9 +38,20 @@ function Get-java-Packages
 {
   $userAgent = "azure-sdk-indexing"
   $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
-  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore", "g:com.azure.v2", "g:com.azure.spring")
-  $gids = $groupIds -join "+"
-  $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${gids}&rows=100&wt=json"
+  $groupIds = @(
+    "com.azure",
+    "com.azure.cosmos.kafka",
+    "com.azure.cosmos.spark",
+    "com.azure.resourcemanager",
+    "com.azure.spring",
+    "com.azure.tools",
+    "com.azure.v2",
+    "com.microsoft.azure",
+    "io.clientcore"
+  )
+  $groupIds = $groupIds | % { "g:" + $_ }
+  $groupIdQuery = $groupIds -join "+"
+  $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${groupIdQuery}&rows=100&wt=json"
   Write-Host "Calling $baseMavenQueryUrl"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
 
@@ -63,23 +74,7 @@ function Get-java-Packages
   {
     if ($packages.Package -notcontains $tag) {
       $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
-      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so falling back to direct query for this package."
-      
-      # fallback to guess a groupId, and query maven central repository for the artifact
-      $artifactId = $tag
-      $groupId = "com.azure"
-      if ($tag.StartsWith("azure-resourcemanager-")) {
-        $groupId = "com.azure.resourcemanager"
-      }
-      $groupPath = $groupId.Replace(".","/")
-      $mavenUrl = "https://repo1.maven.org/maven2/$groupPath/$artifactId/$version/$artifactId-$version.pom"
-      try {
-        $mavenQuery = Invoke-RestMethod $mavenUrl -MaximumRetryCount 3
-        $packages += CreatePackage $artifactId $version $groupId
-      } catch {
-        Write-Warning "${tag}_${version} - Didn't find this package using the maven central repository $mavenUrl - $($_.Exception.Message)"
-      }
-    }
+      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so not adding."
   }
 
   foreach ($package in $packages)
