@@ -35,8 +35,8 @@ function Get-java-Packages
 {
   $userAgent = "azure-sdk-indexing"
   $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
-  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore", "g.com.azure.v2", "g:com.azure.spring")
-  $gids = $groupIds -join "%20OR%20"
+  $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore", "g:com.azure.v2", "g:com.azure.spring")
+  $gids = $groupIds -join "+"
   $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${gids}&rows=100&wt=json"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
 
