@@ -19,7 +19,7 @@ function Get-android-Packages
 
   $packages = @()
   $start = 0
-  while ($mavenQuery.response.docs -ne 0)
+  while ($mavenQuery.response.docs.count -ne 0)
   {
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $start += 1
