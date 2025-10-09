@@ -139,6 +139,7 @@ switch($language)
     Write-Markdown "dotnet"
     Write-Markdown "python"
     Write-Markdown "go"
+    Write-Markdown "rust"
     break
   }
   "java" {
@@ -158,6 +159,10 @@ switch($language)
     break
   }
   "go" {
+    Write-Markdown $language
+    break
+  }
+  "rust" {
     Write-Markdown $language
     break
   }
