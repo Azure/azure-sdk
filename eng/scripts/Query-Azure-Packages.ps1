@@ -12,9 +12,12 @@ Set-StrictMode -Version 3
 
 function Get-android-Packages
 {
-  # Rest API docs https://search.maven.org/classic/#api
-  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json" -MaximumRetryCount 3
+  $userAgent = "azure-sdk-indexing"
+  $headers = @{ "Content-Signal" = "search=yes,ai-train=no" }
+  $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
+  Write-Host "Calling $baseMavenQueryUrl"
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
+  
   Write-Host "Found $($mavenQuery.response.numFound) android packages on maven packages"
 
   $packages = @()
@@ -23,8 +26,9 @@ function Get-android-Packages
   {
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $start += 1
-
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$start") -MaximumRetryCount 3
+    
+    Write-Host "Calling " + ($baseMavenQueryUrl + "&start=$start")
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$start") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   return $packages
@@ -43,14 +47,14 @@ function Get-java-Packages
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
 
   $packages = @()
-  $count = 0
-  while ($count -lt $mavenQuery.response.numFound)
+  $start = 0
+  while ($mavenQuery.response.docs.count -ne 0)
   {
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
-    $count += $mavenQuery.response.docs.count
+    $start += 1
 
-    Write-Host "Calling $baseMavenQueryUrl"
-    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
+    Write-Host "Calling " + ($baseMavenQueryUrl + "&start=$start")
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$start") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
   $repoTags = GetPackageVersions "java"
