@@ -15,15 +15,15 @@ entries:
     - Changed `RawResponse::xml()` from `async` to a sync function. The body was already buffered.
     - Moved `AsHeaders`, `FromHeaders`, `Header`, `Headers`, `HeaderName`, and `HeaderValue` to `http::headers` module to align with `typespec_client_core`.
     - Removed `ErrorKind::http_response()`. Construct an `ErrorResponse::HttpResponse` variant instead.
-    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)"
-    - Renamed `Error::full()` to `Error::with_error()`.
-    - Renamed `Error::with_message()` to `Error::with_message_fn()`.
-    - Renamed `Error::message()` to `Error::with_message()`.
-    - Renamed `Error::with_context()` to `Error::with_context_fn()`.
-    - Renamed `Error::context()` to `Error::with_context()`.
-    - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
-    - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
-    - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
+    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
+      - Renamed `Error::full()` to `Error::with_error()`.
+      - Renamed `Error::with_message()` to `Error::with_message_fn()`.
+      - Renamed `Error::message()` to `Error::with_message()`.
+      - Renamed `Error::with_context()` to `Error::with_context_fn()`.
+      - Renamed `Error::context()` to `Error::with_context()`.
+      - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
+      - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
+      - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
 
     #### Features Added
 
@@ -41,15 +41,15 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
 
-    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)"
-    - Renamed `Error::full()` to `Error::with_error()`.
-    - Renamed `Error::with_message()` to `Error::with_message_fn()`.
-    - Renamed `Error::message()` to `Error::with_message()`.
-    - Renamed `Error::with_context()` to `Error::with_context_fn()`.
-    - Renamed `Error::context()` to `Error::with_context()`.
-    - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
-    - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
-    - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
+    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
+      - Renamed `Error::full()` to `Error::with_error()`.
+      - Renamed `Error::with_message()` to `Error::with_message_fn()`.
+      - Renamed `Error::message()` to `Error::with_message()`.
+      - Renamed `Error::with_context()` to `Error::with_context_fn()`.
+      - Renamed `Error::context()` to `Error::with_context()`.
+      - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
+      - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
+      - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
 
     #### Features Added
 
@@ -85,15 +85,15 @@ entries:
     - Removed implementation of `Stream` for `ResponseBody`.
     - Renamed `TransportOptions::new_custom_policy()` to `Transport::with_policy()`.
     - Renamed `TransportOptions` to `Transport`.
-    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)"
-    - Renamed `Error::full()` to `Error::with_error()`.
-    - Renamed `Error::with_message()` to `Error::with_message_fn()`.
-    - Renamed `Error::message()` to `Error::with_message()`.
-    - Renamed `Error::with_context()` to `Error::with_context_fn()`.
-    - Renamed `Error::context()` to `Error::with_context()`.
-    - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
-    - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
-    - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
+    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
+      - Renamed `Error::full()` to `Error::with_error()`.
+      - Renamed `Error::with_message()` to `Error::with_message_fn()`.
+      - Renamed `Error::message()` to `Error::with_message()`.
+      - Renamed `Error::with_context()` to `Error::with_context_fn()`.
+      - Renamed `Error::context()` to `Error::with_context()`.
+      - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
+      - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
+      - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
     - Replaced implementation of `From<BufResponse>` for `Response<T, F>` to `From<RawResponse>`.
     - Replaced implementation of `From<Response<T, F>>` for `BufResponse` to `From<AsyncResponse<T>>`.
 
@@ -174,15 +174,15 @@ entries:
     - Removed several unreferenced HTTP headers and accessor structures for those headers.
     - Renamed `TransportOptions::new_custom_policy()` to `Transport::with_policy()`.
     - Renamed `TransportOptions` to `Transport`.
-    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)"
-    - Renamed `Error::full()` to `Error::with_error()`.
-    - Renamed `Error::with_message()` to `Error::with_message_fn()`.
-    - Renamed `Error::message()` to `Error::with_message()`.
-    - Renamed `Error::with_context()` to `Error::with_context_fn()`.
-    - Renamed `Error::context()` to `Error::with_context()`.
-    - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
-    - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
-    - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
+    - Renamed a number of construction functions for `Error` to align with [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
+      - Renamed `Error::full()` to `Error::with_error()`.
+      - Renamed `Error::with_message()` to `Error::with_message_fn()`.
+      - Renamed `Error::message()` to `Error::with_message()`.
+      - Renamed `Error::with_context()` to `Error::with_context_fn()`.
+      - Renamed `Error::context()` to `Error::with_context()`.
+      - Renamed `ResultExt::map_kind()` to `ResultExt::with_kind()`.
+      - Renamed `ResultExt::with_context()` to `ResultExt::with_context_fn()`.
+      - Renamed `ResultExt::context()` to `ResultExt::with_context()`.
     - Replaced implementation of `From<BufResponse>` for `Response<T, F>` to `From<RawResponse>`.
     - Replaced implementation of `From<Response<T, F>>` for `BufResponse` to `From<AsyncResponse<T>>`.
 
