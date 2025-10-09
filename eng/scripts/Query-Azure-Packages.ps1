@@ -38,6 +38,7 @@ function Get-java-Packages
   $groupIds = @("g:com.azure", "g:com.microsoft.azure", "g:com.azure.resourcemanager", "g:io.clientcore", "g:com.azure.v2", "g:com.azure.spring")
   $gids = $groupIds -join "+"
   $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${gids}&rows=100&wt=json"
+  Write-Host "Calling $baseMavenQueryUrl"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
 
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
@@ -49,6 +50,7 @@ function Get-java-Packages
     $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
     $count += $mavenQuery.response.docs.count
 
+    Write-Host "Calling $baseMavenQueryUrl"
     $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count") -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
   }
 
