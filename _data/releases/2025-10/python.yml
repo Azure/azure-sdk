@@ -441,4 +441,15 @@ entries:
     - Support `DocumentIntelligenceLayoutSkill` skillset skill and `OneLake` `SearchIndexerDataSourceConnection` data source.
     - Support for `QueryDebugMode` in searching to retrieve detailed information about search processing. Only `vector` is
     supported for `QueryDebugMode`.
+- Name: azure-ai-evaluation
+  Version: 1.11.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.11.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - **kwargs in an evaluator signature receives input columns that are not otherwise named in the evaluator's signature
 
