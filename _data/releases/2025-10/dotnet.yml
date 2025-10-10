@@ -573,4 +573,17 @@ entries:
     - Support for `LexicalNormalizer` when defining `SearchIndex`, `SimpleField`, and `SearchableField` and the ability to use it when analyzing text with `SearchIndexClient.AnalyzeText`.
     - Support `DocumentIntelligenceLayoutSkill` skillset skill and `OneLake` `SearchIndexerDataSourceConnection` data source.
     - Support for `QueryDebugMode` in searching to retrieve detailed information about search processing. Only vector is supported for `QueryDebugMode`.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.6
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.6/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue on calculating hash of `FunctionToolDefinition`. See [issue](https://github.com/Azure/azure-sdk-for-net/issues/53043).
+    - Expose the `ServerLabel` on `SubmitToolApprovalUpdate` See [issue](https://github.com/Azure/azure-sdk-for-net/issues/53001).
+    - Fix naming of MCPApproval see [issue](https://github.com/Azure/azure-sdk-for-net/issues/53000)
+    - Fix issue with image block serialization in async scenarios [issue](https://github.com/Azure/azure-sdk-for-net/issues/52671)
 
