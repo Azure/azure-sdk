@@ -39,4 +39,425 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quota_3.0.0/sdk/quota/azure-mgmt-quota/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 3.0.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_3.0.0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 14.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_14.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 14.0.0b2
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.0.0b2/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sitemanager
+  Version: 1.0.0
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sitemanager_1.0.0/sdk/sitemanager/azure-mgmt-sitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-voicelive
+  Version: 1.0.0b5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.0.0b5/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Cross-Language Package Identity Update**: Updated package ID from `VoiceLive` to `VoiceLive.WebSocket` for better cross-language consistency
+    - **Model Refactoring**:
+    - Renamed `UserContentPart` to `MessageContentPart` for clearer content part hierarchy
+    - All message items now require a `content` field with list of `MessageContentPart` objects
+    - `OutputTextContentPart` now inherits from `MessageContentPart` instead of being standalone
+    - **Enhanced Type Safety**:
+    - Azure voice classes now use `AzureVoiceType` enum discriminators instead of string literals
+    - Message role discriminators now use `MessageRole` enum values for better type safety
+    - **Removed Deprecated Parameters**: Completely removed deprecated parameters from semantic detection classes:
+    - Removed `threshold` parameter from all semantic detection classes (`AzureSemanticDetection`, `AzureSemanticDetectionEn`, `AzureSemanticDetectionMultilingual`)
+    - Removed `timeout` parameter from all semantic detection classes
+    - Users must now use `threshold_level` and `timeout_ms` parameters respectively
+    - **Removed Synchronous API**: Completely removed synchronous WebSocket operations to focus exclusively on async patterns:
+    - Removed sync `connect()` function and sync `VoiceLiveConnection` class from main patch implementation
+    - Removed sync `basic_voice_assistant.py` sample (only async version remains)
+    - Simplified sync patch to minimal structure with empty exports
+    - All functionality now available only through async patterns
+    - **Updated Dependencies**: Modified package dependencies to reflect async-only architecture:
+    - Moved `aiohttp>=3.9.0,<4.0.0` from optional to required dependency
+    - Removed `websockets` optional dependency as sync API no longer exists
+    - Removed optional dependency groups `websockets`, `aiohttp`, and `all-websockets`
+    - **Model Rename**:
+    - Renamed `AudioInputTranscriptionSettings` to `AudioInputTranscriptionOptions` for consistency with naming conventions
+    - Renamed `AzureMultilingualSemanticVad` to `AzureSemanticVadMultilingual` for naming consistency with other multilingual variants
+    - **Enhanced Type Safety**: Turn detection discriminator types now use enum values instead of string literals for better type safety
+
+    #### Features Added
+
+    - **Enhanced Semantic Detection Type Safety**: Added new `EouThresholdLevel` enum for better type safety in end-of-utterance detection:
+    - `LOW` for low sensitivity threshold level
+    - `MEDIUM` for medium sensitivity threshold level
+    - `HIGH` for high sensitivity threshold level
+    - `DEFAULT` for default sensitivity threshold level
+    - **Improved Semantic Detection Configuration**: Enhanced semantic detection classes with better type annotations:
+    - `threshold_level` parameter now supports both string values and `EouThresholdLevel` enum
+    - Cleaner type definitions for `AzureSemanticDetection`, `AzureSemanticDetectionEn`, and `AzureSemanticDetectionMultilingual`
+    - Improved documentation for threshold level parameters
+    - **Comprehensive Unit Test Suite**: Added extensive unit test coverage with 200+ test cases covering:
+    - All enum types and their functionality
+    - Model creation, validation, and serialization
+    - Async connection functionality with proper mocking
+    - Client event handling and workflows
+    - Voice configuration across all supported types
+    - Message handling with content part hierarchy
+    - Integration scenarios and real-world usage patterns
+    - Recent changes validation and backwards compatibility
+    - **API Version Update**: Updated to API version `2025-10-01` (from `2025-05-01-preview`)
+    - **Enhanced Type Safety**: Added new `AzureVoiceType` enum with values for better Azure voice type categorization:
+    - `AZURE_CUSTOM` for custom voice configurations
+    - `AZURE_STANDARD` for standard voice configurations
+    - `AZURE_PERSONAL` for personal voice configurations
+    - **Improved Message Handling**: Added `MessageRole` enum for better role type safety in message items
+    - **Enhanced Model Documentation**: Comprehensive documentation improvements across all models:
+    - Added detailed docstrings for model classes and their parameters
+    - Enhanced enum value documentation with descriptions
+    - Improved type annotations and parameter descriptions
+    - **Enhanced Semantic Detection**: Added improved configuration options for all semantic detection classes:
+    - Added `threshold_level` parameter with options: `"low"`, `"medium"`, `"high"`, `"default"` (recommended over deprecated `threshold`)
+    - Added `timeout_ms` parameter for timeout configuration in milliseconds (recommended over deprecated `timeout`)
+    - **Video Background Support**: Added new `Background` model for video background customization:
+    - Support for solid color backgrounds in hex format (e.g., `#00FF00FF`)
+    - Support for image URL backgrounds
+    - Mutually exclusive color and image URL options
+    - **Enhanced Video Parameters**: Extended `VideoParams` model with:
+    - `background` parameter for configuring video backgrounds using the new `Background` model
+    - `gop_size` parameter for Group of Pictures (GOP) size control, affecting compression efficiency and seeking performance
+    - **Improved Type Safety**: Added `TurnDetectionType` enum for better type safety and IntelliSense support
+    - **Package Structure Modernization**: Simplified package initialization with namespace package support
+    - **Enhanced Error Handling**: Added `ConnectionError` and `ConnectionClosed` exception classes to the async API for better WebSocket error management
+- Name: azure-ai-agents
+  Version: 1.2.0b5
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agents_1.2.0b5/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `run_handler` parameter to `runs.create_and_process` allowing to make function tool calls manually or approve mcp tool calls.
+
+    #### Bugs Fixed
+    - Fixed regression, reverted ToolOutput type signature and usage in tool_output submission.
+    - Added `RunStepDeltaComputerUseDetails` and `RunStepDeltaComputerUseToolCall` classes for streaming computer use scenarios.
+    - Added `RunStepDeltaChunk` to `StreamEventData` model (GitHub issues [43022](https://github.com/Azure/azure-sdk-for-python/issues/43022))
+- Name: azure-mgmt-storagediscovery
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagediscovery_1.0.0/sdk/storagediscovery/azure-mgmt-storagediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.12.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.12.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - AOAI Graders now accept a "credential" parameter that can be used for authentication with an AzureOpenAIModelConfiguration
+    - Added `is_reasoning_model` parameter support to `CoherenceEvaluator`, `FluencyEvaluator`, `SimilarityEvaluator`, `GroundednessEvaluator`, `RetrievalEvaluator`, and `RelevanceEvaluator` to enable reasoning model configuration for o1/o3 models.
+
+    #### Bugs Fixed
+    - Support for multi-level nesting in OpenAI grader (experimental)
+- Name: azure-ai-voicelive
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.0.0/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Improved Naming Conventions**: Updated model and enum names for better clarity and consistency:
+    - `OAIVoice` enum renamed to `OpenAIVoiceName` for more descriptive naming
+    - `ToolChoiceObject` model renamed to `ToolChoiceSelection` for better semantic meaning
+    - `ToolChoiceFunctionObject` model renamed to `ToolChoiceFunctionSelection` for consistency
+    - Updated type unions and imports to reflect the new naming conventions
+    - Cross-language package mappings updated to maintain compatibility across SDKs
+    - **Session Model Architecture**: Separated `ResponseSession` and `RequestSession` models for better design clarity:
+    - `ResponseSession` no longer inherits from `RequestSession` and now inherits directly from `_Model`
+    - All session configuration fields are now explicitly defined in `ResponseSession` instead of being inherited
+    - This provides clearer separation of concerns between request and response session configurations
+    - May affect type checking and code that relied on the previous inheritance relationship
+    - **Model Cleanup**: Removed unused `AgentConfig` model and related fields from the public API:
+    - `AgentConfig` class has been completely removed from imports and exports
+    - `agent` field removed from `ResponseSession` model (including constructor parameter)
+    - Updated cross-language package mappings to reflect the removal
+    - **Model Naming Convention Update**: Renamed `EOUDetection` to `EouDetection` for better naming consistency:
+    - Class name changed from `EOUDetection` to `EouDetection`
+    - All inheritance relationships updated: `AzureSemanticDetection`, `AzureSemanticDetectionEn`, and `AzureSemanticDetectionMultilingual` now inherit from `EouDetection`
+    - Type annotations updated in `AzureSemanticVad`, `AzureSemanticVadEn`, `AzureSemanticVadMultilingual`, and `ServerVad` classes
+    - Import statements and exports updated to reflect the new naming
+    - **Enhanced Content Part Type Safety**: Content part discriminators now use enum values instead of string literals:
+    - `InputAudioContentPart.type` now uses `ContentPartType.INPUT_AUDIO` instead of `"input_audio"`
+    - `InputTextContentPart.type` now uses `ContentPartType.INPUT_TEXT` instead of `"input_text"`
+    - `OutputTextContentPart.type` now uses `ContentPartType.TEXT` instead of `"text"`
+
+    #### Features Added
+
+    - **Enhanced WebSocket Connection Options**: Significantly improved WebSocket connection configuration with transport-agnostic design:
+    - Added new timeout configuration options: `receive_timeout`, `close_timeout`, and `handshake_timeout` for fine-grained control
+    - Enhanced `compression` parameter to support both boolean and integer types for advanced zlib window configuration
+    - Added `vendor_options` parameter for implementation-specific options passthrough (escape hatch for advanced users)
+    - Improved documentation with clearer descriptions for all connection parameters
+    - Better support for common aliases from other WebSocket ecosystems (`max_size`, `ping_interval`, etc.)
+    - More robust option mapping with proper type conversion and safety checks
+    - **Enhanced Type Safety**: Improved type safety for content parts with proper enum usage:
+    - `InputAudioContentPart`, `InputTextContentPart`, and `OutputTextContentPart` now use `ContentPartType` enum values instead of string literals
+    - Better IntelliSense support and compile-time type checking for content part discriminators
+- Name: azure-identity
+  Version: 1.25.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.25.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When `AZURE_TOKEN_CREDENTIALS` is set to `ManagedIdentityCredential`, `DefaultAzureCredential` now skips the IMDS endpoint probe request and directly attempts token acquisition with full retry logic, matching the behavior of using `ManagedIdentityCredential` standalone. ([#43080](https://github.com/Azure/azure-sdk-for-python/pull/43080))
+    - Improved error messages from `ManagedIdentityCredential` to include the full error response from managed identity endpoints for better troubleshooting. ([#43231](https://github.com/Azure/azure-sdk-for-python/pull/43231))
+- Name: azure-ai-voicelive
+  Version: 1.1.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.1.0b1/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **AgentConfig Support**: Re-introduced `AgentConfig` functionality with enhanced capabilities:
+    - `AgentConfig` model added back to public API with full import and export support
+    - `agent` field re-added to `ResponseSession` model for session-level agent configuration
+    - Updated cross-language package mappings to include `AgentConfig` support
+    - Provides foundation for advanced agent configuration scenarios
+- Name: azure-mgmt-mongocluster
+  Version: 1.1.0b3
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.1.0b3/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 14.0.0b3
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.0.0b3/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-durabletask
+  Version: 1.0.0
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-durabletask_1.0.0/sdk/durabletask/azure-mgmt-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 3.0.1
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_3.0.1/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 37.0.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_37.0.1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 12.1.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_12.1.1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagediscovery
+  Version: 1.0.1
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagediscovery_1.0.1/sdk/storagediscovery/azure-mgmt-storagediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 2.0.1
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_2.0.1/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sitemanager
+  Version: 1.0.1
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sitemanager_1.0.1/sdk/sitemanager/azure-mgmt-sitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-quota
+  Version: 3.0.1
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quota_3.0.1/sdk/quota/azure-mgmt-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b24
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b24/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-disconnectedoperations
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Disconnectedoperations
+  ServiceName: Disconnectedoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-disconnectedoperations_1.0.0b2/sdk/disconnectedoperations/azure-mgmt-disconnectedoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b43
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b43/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - OneSettings control plane: Add live metrics feature control
+    ([#43032](https://github.com/Azure/azure-sdk-for-python/pull/43032))
+    - Adding customer sdkstats to feature statsbeat
+    ([#43066](https://github.com/Azure/azure-sdk-for-python/pull/43066))
+    - OneSettings control plane: Add killswitch + exponential  backoff + sdkstats feature control
+    ([#43147](https://github.com/Azure/azure-sdk-for-python/pull/43147))
+    - Performance Counters
+    ([#43024](https://github.com/Azure/azure-sdk-for-python/pull/43024))
+    - Performance Counters: Include Consumer spans
+    ([#43261](https://github.com/Azure/azure-sdk-for-python/pull/43261))
+
+    #### Bugs Fixed
+    - Fixes issues #42897 - TypeError in _transmit_from_storage: LocalFileBlob.get() returns None
+    ([#42897](https://github.com/Azure/azure-sdk-for-python/pull/42951))
+    - Fix logic for message field on Microsoft.ApplicationInsights.Message to sync with Breeze
+    ([#43060](https://github.com/Azure/azure-sdk-for-python/pull/43060))
+    - Skip tests from test_storage.py causing transient build pipeline failures
+    ([#43122](https://github.com/Azure/azure-sdk-for-python/pull/43122))
+    - Fix spelling for OTEL_PYTHON_EXCLUDED_URLS in samples
+    ([#43141](https://github.com/Azure/azure-sdk-for-python/pull/43141))
+    - Revert #43060
+    ([#43087](https://github.com/Azure/azure-sdk-for-python/pull/43087))
+- Name: azure-search-documents
+  Version: 11.6.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `VectorSearchCompression.rerankWithOriginalVectors` and `VectorSearchCompression.defaultOversampling` don't work with
+    `2025-09-01` and were replaced by `VectorSearchCompression.RescoringOptions.enabledRescoring` and
+    `VectorSearchCompression.RescoringOptions.defaultOversampling`. If using `2024-07-01` continue using the old properties,
+    otherwise if using `2025-09-01` use the new properties in `RescoringOptions`.
+
+    #### Features Added
+
+    - Added `azure.search.documents.DocumentDebugInfo`.
+    - Added `azure.search.documents.QueryDebugMode`.
+    - Added `azure.search.documents.QueryResultDocumentSubscores`.
+    - Added `azure.search.documents.SingleVectorFieldResult`.
+    - Added `azure.search.documents.TextResult`.
+    - Added `azure.search.documents.VectorsDebugInfo`.
+    - Added new parameter `debug` in `azure.search.documents.SearchClient.search`.
+    - Added `azure.search.documents.indexes.LexicalNormalizer`.
+    - Added `azure.search.documents.indexes.LexicalNormalizerName`.
+    - Added `azure.search.documents.indexes.AnalyzeTextOptions.normalizer_name`.
+    - Added `azure.search.documents.indexes.CustomNormalizer`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkill`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillExtractionOptions`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillChunkingProperties`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillChunkingUnit`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillMarkdownHeaderDepth`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillOutputFormat`.
+    - Added `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillOutputMode`.
+    - Added `azure.search.documents.indexes.RankingOrder`.
+    - Added `azure.search.documents.indexes.RescoringOptions`.
+    - Added `azure.search.documents.indexes.SearchField.normalizer_name`.
+    - Added `azure.search.documents.indexes.SearchIndex.normalizer`.
+    - Added `azure.search.documents.indexes.SearchIndexerKnowledgeStoreParameters`.
+    - Added `azure.search.documents.indexes.VectorSearchCompressionRescoreStorageMethod`.
+    - Support for running `VectorQuery`s against sub-fields of complex fields.
+    - Added support for `2025-09-01` service version.
+    - Support for reranker boosted scores in search results and the ability to sort results on either reranker or reranker
+    boosted scores in `SemanticConfiguration.rankingOrder`.
+    - Support for `VectorSearchCompression.RescoringOptions` to configure how vector compression handles the original
+    vector when indexing and how vectors are used during rescoring.
+    - Added `SearchIndex.description` to provide a textual description of the index.
+    - Support for `LexicalNormalizer` when defining `SearchIndex`, `SimpleField`, and `SearchableField` and the ability to
+    use it when analyzing text with `SearchIndexClient.analyzeText` and `SearchIndexAsyncClient.analyzeText`.
+    - Support `DocumentIntelligenceLayoutSkill` skillset skill and `OneLake` `SearchIndexerDataSourceConnection` data source.
+    - Support for `QueryDebugMode` in searching to retrieve detailed information about search processing. Only `vector` is
+    supported for `QueryDebugMode`.
+- Name: azure-ai-evaluation
+  Version: 1.11.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.11.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - **kwargs in an evaluator signature receives input columns that are not otherwise named in the evaluator's signature
+- Name: azure-mgmt-containerservice
+  Version: 40.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_40.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
