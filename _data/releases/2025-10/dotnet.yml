@@ -551,4 +551,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Authorization_1.1.6/sdk/authorization/Azure.ResourceManager.Authorization/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Search.Documents
+  Version: 11.7.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `VectorSearchCompression.RerankWithOriginalVectors` and `VectorSearchCompression.DefaultOversampling` don't work with
+    `2025-09-01` and were replaced by `VectorSearchCompression.RescoringOptions.EnabledRescoring` and
+    `VectorSearchCompression.RescoringOptions.DefaultOversampling`. If using `2024-07-01` continue using the old properties,
+    otherwise if using `2025-09-01` use the new properties in `RescoringOptions`.
+
+    #### Features Added
+    - Added support for `2025-09-01` service version.
+    - Support for reranker boosted scores in search results and the ability to sort results on either reranker or reranker boosted scores in `SemanticConfiguration.RankingOrder`.
+    - Support for `VectorSearchCompression.RescoringOptions` to configure how vector compression handles the original vector when indexing and how vectors are used during rescoring.
+    - Added `SearchIndex.Description` to provide a textual description of the index.
+    - Support for `LexicalNormalizer` when defining `SearchIndex`, `SimpleField`, and `SearchableField` and the ability to use it when analyzing text with `SearchIndexClient.AnalyzeText`.
+    - Support `DocumentIntelligenceLayoutSkill` skillset skill and `OneLake` `SearchIndexerDataSourceConnection` data source.
+    - Support for `QueryDebugMode` in searching to retrieve detailed information about search processing. Only vector is supported for `QueryDebugMode`.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.6
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.6/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the issue on calculating hash of `FunctionToolDefinition`. See [issue](https://github.com/Azure/azure-sdk-for-net/issues/53043).
+    - Expose the `ServerLabel` on `SubmitToolApprovalUpdate` See [issue](https://github.com/Azure/azure-sdk-for-net/issues/53001).
+    - Fix naming of MCPApproval see [issue](https://github.com/Azure/azure-sdk-for-net/issues/53000)
+    - Fix issue with image block serialization in async scenarios [issue](https://github.com/Azure/azure-sdk-for-net/issues/52671)
 
