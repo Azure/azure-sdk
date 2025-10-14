@@ -17,4 +17,29 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.55.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.18.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.18.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Fixed `DefaultAzureCredential` behavior when `AZURE_TOKEN_CREDENTIALS` environment variable is explicitly set to `ManagedIdentityCredential`. The credential now skips unnecessary probe requests and enables retry logic with exponential backoff for improved resiliency in environments where the managed identity endpoint may be temporarily unavailable.
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.18
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.18/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.18.0` to version `1.18.1`.
+  GroupId: com.azure
 
