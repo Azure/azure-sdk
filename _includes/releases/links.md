@@ -13,7 +13,7 @@
         {% assign source_url = source_url_template  | replace: 'item.RepoPath', item.RepoPath %}
     {% endif %}
 
-    {% assign code_url = source_url | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.Version', version %}
+    {% assign code_url = source_url | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.Version', version | replace: 'item.GroupId', item.GroupId %}
     {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
 
     {% if item.MSDocs != "NA" %}
