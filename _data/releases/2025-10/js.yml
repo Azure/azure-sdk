@@ -1,0 +1,258 @@
+entries:
+- Name: '@azure/ai-agents'
+  Version: 1.2.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.2.0-beta.1/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `MCPTool.mergeResources` to support multiple MCP tools in one agent
+    - Add `OpenApiTool` to easily call multiple open APIs in one agent
+    - Add `messages.delete` to support delete message in thread
+    - Add back the features removed in previous stable release:
+    - MCP tool
+    - Deep Research tool
+    - Sharepoint tool
+    - BingCustomSearch tool
+    - MicrosoftFabric tool
+- Name: '@azure/arm-containerservice'
+  Version: 22.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-quota'
+  Version: 2.0.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_2.0.0/sdk/quota/arm-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-agents'
+  Version: 1.2.0-beta.2
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.2.0-beta.2/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `ToolUtility.createBrowserAutomationTool` to support browser automation tool in agent
+- Name: '@azure/arm-computerecommender'
+  Version: 1.0.0
+  DisplayName: Resource Management - Computerecommender
+  ServiceName: Computerecommender
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computerecommender_1.0.0/sdk/compute/arm-computerecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 8.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 23.0.0-beta.4
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datamigration'
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 19.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagecache'
+  Version: 8.1.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 11.0.0-beta.4
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 23.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sitemanager'
+  Version: 1.0.0
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sitemanager_1.0.0/sdk/sitemanager/arm-sitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/health-deidentification'
+  Version: 1.1.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.1.0-beta.1/sdk/healthdataaiservices/health-deidentification-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `DeidentificationOperationType.SurrogateOnly`, which returns output text where user-defined PHI entities are replaced with realistic replacement values. When using this operation, include `DeidentificationContent.taggedEntities`, which allows user input of PHI entities detected in the input text. The service will skip tagging and apply surrogation directly to the user-defined entities.
+    - Added `DeidentificationCustomizationOptions.inputLocale` to allow specifying the locale of the input text for TAG and REDACT operations.
+- Name: '@azure/arm-storagediscovery'
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagediscovery_1.0.0/sdk/storagediscovery/arm-storagediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.13.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - When `AZURE_TOKEN_CREDENTIALS` is set to only `ManagedIdentityCredential`, `DefaultAzureCredential` does not issue a probe request and performs retries with exponential backoff. [#36047](https://github.com/Azure/azure-sdk-for-js/pull/36047)
+
+    #### Bugs Fixed
+
+    - Fixed an issue where `ManagedIdentityCredential` will make an additional probe request in the `getToken` call. [#36047](https://github.com/Azure/azure-sdk-for-js/pull/36047)
+- Name: '@azure/notification-hubs'
+  Version: 2.0.2
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.2/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Properly handle single-element headers of template registrations [PR #36114](https://github.com/Azure/azure-sdk-for-js/pull/36114).
+- Name: '@azure/communication-email'
+  Version: 1.1.0
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.1.0/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Consumers can now provide a value for the `contentId` property when sending emails with attachments.
+    This allows consumers to reference attachments in the email body using the `cid` scheme. The `contentId` property can be set on the `EmailAttachment` object.
+    - Updated to `@azure/core-lro` 2.7.2
+- Name: '@azure/search-documents'
+  Version: 12.2.0-beta.3
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.3/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added API for listing index statistics [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added semantic ranking based on scoring profile boosted score [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added agentic retrieval functionality through `KnowledgeRetrievalClient` and `KnowledgeAgent` [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added ACL functionality for indexer ingestion [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added document-level access control [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added support for vector fields in top-level complex fields [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added `ChatCompletionSkill` as a variant of `WebAPISkill` [#34408](https://github.com/Azure/azure-sdk-for-js/pull/34408)
+    - Added `strictPostFilter` option for filtering on global top results [#35924](https://github.com/Azure/azure-sdk-for-js/pull/35924)
+- Name: '@azure/arm-durabletask'
+  Version: 1.0.0
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0/sdk/durabletask/arm-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 12.2.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `2025-09-01` service version.
+    - Support for running `VectorQuery`s against sub-fields of complex fields.
+    - Support for reranker boosted scores in search results and the ability to sort results on either reranker or reranker
+    boosted scores in `SemanticConfiguration.rankingOrder`.
+    - Support for `VectorSearchCompression.RescoringOptions` to configure how vector compression handles the original
+    vector when indexing and how vectors are used during rescoring.
+    - Added `SearchIndex.description` to provide a textual description of the index.
+    - Support for `LexicalNormalizer` when defining `SearchIndex`, `SimpleField`, and `SearchableField` and the ability to
+    use it when analyzing text with `SearchIndexClient.analyzeText` and `SearchIndexAsyncClient.analyzeText`.
+    - Support `DocumentIntelligenceLayoutSkill` skillset skill and `OneLake` `SearchIndexerDataSourceConnection` data source.
+- Name: '@azure/cosmos'
+  Version: 4.6.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.6.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - [#35875](https://github.com/Azure/azure-sdk-for-js/issues/35875) Fixed the per-operation partition key format in the batch API to match the API-level partition key,
+    preventing partitionKeyMismatch error when an optional partition key value is provided in the operationInput
+    - [#35967](https://github.com/Azure/azure-sdk-for-js/issues/35967) Changed the default values of `enablePartitionLevelFailover` and `enablePartitionLevelCircuitBreaker` flags to `true` in the connection policy.
+
+    #### Features Added
+
+    - Excluded Locations Support: This feature adds support for excluded locations, allowing requests to avoid specified Azure regions when performing operations. By excluding certain regions at the request level, applications can control data residency, compliance, and latency, ensuring that operations are served only from preferred regions. This enhances availability and reliability by preventing requests from being routed to undesired or unavailable regions. [docs](https://devblogs.microsoft.com/cosmosdb/new-sdk-options-for-fine-grained-request-routing-to-azure-cosmos-db/)
+
+    ```js
+    const requestOptions = { excludedLocations: ["West US"] };
+    const city = { id: "1", name: "Olympia", state: "WA" };
+
+    await container.items.upsert(city, requestOptions);
+
+    await container.item("1").delete(requestOptions);
+    ```
+    - [#36015](https://github.com/Azure/azure-sdk-for-js/issues/36015) AAD Authentication Scope Override: Added support for overriding AAD authentication scope via the new `aadScope` option in `CosmosClientOptions`. When no custom scope is provided, the system uses the account-specific scope for authentication and implements a fallback mechanism to `https://cosmos.azure.com/.default` in case of `AADSTS500011` errors. When a custom scope is explicitly provided via the `aadScope` option, no fallback occurs.
+- Name: '@azure/arm-mongocluster'
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.1.0-beta.2/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+
