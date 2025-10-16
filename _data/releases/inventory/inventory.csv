@@ -28,10 +28,10 @@ Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvau
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
 Key Vault,0,Key Vault - Secrets,data,C++,,,11,false,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
-Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/22/2025
-Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,09/23/2024
-Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,07/22/2025
-Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,09/23/2024
+Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
+Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
+Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
+Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
 Tables,0,Tables,data,C++,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables,3,false,1,
 Cognitive Services,0,AI Agents Persistent,data,.NET,,,11,false,Azure.AI.Agents.Persistent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,07/25/2025
 Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,10/01/2025
@@ -395,7 +395,7 @@ Storage,0,Resource Management - Storage Cache,mgmt,.NET,Microsoft.Azure.Manageme
 Storage,0,Resource Management - Storage Mover,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagemover,10,false,1,10/14/2025
 Storage,0,Resource Management - Storage Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StoragePool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagepool,10,false,1,03/18/2025
 Storage,0,Resource Management - Storage Sync,mgmt,.NET,Microsoft.Azure.Management.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,true,Azure.ResourceManager.StorageSync,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagesync,10,false,1,04/28/2025
-Storagediscovery,0,Resource Management - Storagediscovery,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageDiscovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagediscovery,3,false,1,
+Storagediscovery,0,Resource Management - Storagediscovery,mgmt,.NET,,,11,false,Azure.ResourceManager.StorageDiscovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storagediscovery,10,false,1,10/15/2025
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,.NET,Microsoft.Azure.Management.StreamAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/streamanalytics/Microsoft.Azure.Management.StreamAnalytics,10,true,Azure.ResourceManager.StreamAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics,10,false,1,03/18/2025
 Subscriptions,0,Resource Management - Subscriptions,mgmt,.NET,Microsoft.Azure.Management.Subscription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/subscription,10,true,Azure.ResourceManager.Subscription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/subscription,10,false,1,03/18/2025
 Support,0,Resource Management - Support,mgmt,.NET,Microsoft.Azure.Management.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,10,true,Azure.ResourceManager.Support,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/support,10,false,1,03/14/2025
@@ -2133,7 +2133,7 @@ Quantum,0,Resource Management - Quantum,mgmt,Python,,,11,false,azure-mgmt-quantu
 Qumulo,0,Resource Management - Qumulo,mgmt,Python,,,11,false,azure-mgmt-qumulo,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/qumulo,10,false,1,09/05/2024
 Quota,0,Resource Management - Quota,mgmt,Python,,,11,false,azure-mgmt-quota,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/quota,10,false,1,10/09/2025
 Recovery Services,0,Resource Management - Recovery Services,mgmt,Python,,,11,false,azure-mgmt-recoveryservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,06/05/2025
-Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,04/17/2025
+Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,10/16/2025
 Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesdatareplication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservicesdatareplication,10,false,1,07/28/2025
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,Python,,,11,false,azure-mgmt-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,04/23/2025
 Recoveryservicesbackup-Passivestamp,0,Resource Management - Recoveryservicesbackup-Passivestamp,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup-passivestamp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,3,false,1,
