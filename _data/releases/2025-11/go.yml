@@ -31,4 +31,58 @@ entries:
     * Added support for reading Feed Ranges from a container. See [PR 24889](https://github.com/Azure/azure-sdk-for-go/pull/24889)
     * Added support for reading Change Feed through Feed Ranges from a container. See [PR 24898](https://github.com/Azure/azure-sdk-for-go/pull/24898)
     * Additional logging in the query engine integration code. See [PR 25444](https://github.com/Azure/azure-sdk-for-go/pull/25444)
+- Name: sdk/storage/azblob
+  Version: 1.6.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.6.3/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated service version to `2025-11-05`
+    * Updated `azidentity` version to `1.13.0`
+    * Updated `azcore` version to `1.19.1`
+- Name: sdk/storage/azfile
+  Version: 1.5.3
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.5.3/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated service version to `2025-11-05`
+    * Updated `azidentity` version to `1.13.0`
+    * Updated `azcore` version to `1.19.1`
+- Name: sdk/storage/azdatalake
+  Version: 1.4.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.4.3/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated service version to `2025-11-05`
+    * Updated `azidentity` version to `1.13.0`
+    * Updated `azcore` version to `1.19.1`
+    * Updated `azblob` version to `v1.6.2`
+- Name: sdk/data/azappconfig
+  Version: 2.0.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v2.0.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Support assigning Tags and filtering by Tags
+    * Added `Tags` field to `AddSettingOptions` and `SetSettingOptions` structs, enabling users to assign key-value metadata tags when creating or updating configuration settings.
+    * Added `TagsFilter` field to `SettingSelector` struct, allowing retrieval of settings and revisions filtered by tags.
+
+    #### Breaking Changes
+
+    * Changed `Tags` field type in `Setting` from `map[string]string` to `map[string]*string` to support null tag values and maintain compatibility with the Azure App Configuration service backend.
 
