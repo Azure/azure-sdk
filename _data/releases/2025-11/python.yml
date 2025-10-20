@@ -179,4 +179,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_3.1.0/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.7.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.7.2/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where non-HTTPS endpoints would not function correctly.
 
