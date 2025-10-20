@@ -100,11 +100,11 @@ Metrics Advisor,0,Metrics Advisor,data,.NET,,,11,false,Azure.AI.MetricsAdvisor,h
 Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.TestLogger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,10,false,1,07/29/2025
 Web PubSub,0,Microsoft.Azure.WebPubSub.AspNetCore,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,09/23/2025
-Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,09/24/2024
+Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,10/20/2025
 Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/05/2025
-Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/12/2025
+Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,true,1,08/12/2025
 Microsoft Playwright Testing,0,NUnit ? Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 Online Experimentation,0,Online Experimentation,data,.NET,,,11,false,Azure.Analytics.OnlineExperimentation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
@@ -170,6 +170,7 @@ Provisioning,0,Provisioning - CosmosDB,mgmt,.NET,,,11,false,Azure.Provisioning.C
 Deployment,0,Provisioning - Deployment,mgmt,.NET,,,11,false,Azure.Provisioning.Deployment,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Event Grid,0,Provisioning - Event Grid,mgmt,.NET,,,11,false,Azure.Provisioning.EventGrid,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - Event Hubs,mgmt,.NET,,,11,false,Azure.Provisioning.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
+Frontdoor,0,Provisioning - Frontdoor,mgmt,.NET,,,11,false,Azure.Provisioning.FrontDoor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Provisioning,0,Provisioning - Key Vault,mgmt,.NET,,,11,false,Azure.Provisioning.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Kubernetes,0,Provisioning - Kubernetes,mgmt,.NET,,,11,false,Azure.Provisioning.Kubernetes,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Kubernetes Configuration,0,Provisioning - Kubernetes Configuration,mgmt,.NET,,,11,false,Azure.Provisioning.KubernetesConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
@@ -623,7 +624,7 @@ StorSimple,0,WindowsAzure Management - StorSimple,mgmt,.NET,Microsoft.WindowsAzu
 Traffic Manager,0,WindowsAzure Management - Traffic Manager,mgmt,.NET,Microsoft.WindowsAzure.Management.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.TrafficManager,,4,false,1,
 Network,0,WindowsAzure Management - Virtual Networks,mgmt,.NET,Microsoft.WindowsAzure.Management.VirtualNetworks,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzure.Management.WebSites,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.AppService,,4,false,1,
-App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,10/16/2025
+App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,10/17/2025
 Batch,0,Batch,data,Go,,,11,false,sdk/batch/azbatch,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/batch/azbatch,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,08/27/2025
@@ -649,7 +650,7 @@ Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/
 Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,10/16/2025
 Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,10/16/2025
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,10/16/2025
-Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,04/30/2025
+Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,10/16/2025
 Event Grid,0,System Events,data,Go,,,11,false,sdk/messaging/eventgrid/azsystemevents,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azsystemevents,10,false,1,06/26/2025
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,06/19/2025
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
@@ -1148,7 +1149,7 @@ Dynatrace,0,Resource Management - Dynatrace,mgmt,Java,,,11,false,azure-resourcem
 Edge Order,0,Resource Management - Edge Order,mgmt,Java,,,11,false,azure-resourcemanager-edgeorder,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/edgeorder,10,false,1,01/02/2025
 Edge Zones,0,Resource Management - Edge Zones,mgmt,Java,,,11,false,azure-resourcemanager-edgezones,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/edgezones,3,false,1,
 Education,0,Resource Management - Education,mgmt,Java,,,11,false,azure-resourcemanager-education,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/education,3,false,1,
-Elastic,0,Resource Management - Elastic,mgmt,Java,,,11,false,azure-resourcemanager-elastic,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elastic,10,false,1,10/21/2024
+Elastic,0,Resource Management - Elastic,mgmt,Java,,,11,false,azure-resourcemanager-elastic,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elastic,10,false,1,10/20/2025
 Elastic SAN,0,Resource Management - Elastic SAN,mgmt,Java,,,11,false,azure-resourcemanager-elasticsan,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/elasticsan,10,false,1,09/25/2024
 Event Grid,0,Resource Management - Event Grid,mgmt,Java,azure-mgmt-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,true,azure-resourcemanager-eventgrid,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid,10,false,1,03/24/2025
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Java,azure-mgmt-eventhub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-eventhubs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs,10,false,1,09/25/2025
@@ -1860,7 +1861,7 @@ Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opent
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
-Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,03/31/2023
+Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/17/2025
 Communication,0,Communication Identity,data,Python,,,11,false,azure-communication-identity,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,02/14/2024
 Communication,0,Communication JobRouter,data,Python,,,11,false,azure-communication-jobrouter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,11/15/2023
 Communication,0,Communication Messages,data,Python,,,11,false,azure-communication-messages,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/18/2024
@@ -2139,7 +2140,7 @@ Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,P
 Recoveryservicesbackup-Passivestamp,0,Resource Management - Recoveryservicesbackup-Passivestamp,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup-passivestamp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,3,false,1,
 Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,10/30/2024
 Redis,0,Resource Management - Redis,mgmt,Python,,,11,false,azure-mgmt-redis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redis,10,false,1,01/20/2025
-Redis,0,Resource Management - Redis Enterprise,mgmt,Python,,,11,false,azure-mgmt-redisenterprise,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redisenterprise,10,false,1,03/04/2024
+Redis,0,Resource Management - Redis Enterprise,mgmt,Python,,,11,false,azure-mgmt-redisenterprise,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redisenterprise,10,false,1,10/20/2025
 Region Move,0,Resource Management - Region Move,mgmt,Python,,,11,false,azure-mgmt-regionmove,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/regionmove,3,true,1,
 Relay,0,Resource Management - Relay,mgmt,Python,,,11,false,azure-mgmt-relay,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/relay,10,false,1,09/06/2021
 Reservations,0,Resource Management - Reservations,mgmt,Python,,,11,false,azure-mgmt-reservations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/reservations,10,false,1,03/20/2023
