@@ -189,4 +189,22 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Fixed a bug where non-HTTPS endpoints would not function correctly.
+- Name: azure-confidentialledger
+  Version: 2.0.0b1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_2.0.0b1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added models.
+
+    #### Breaking Changes
+
+    - Changed the input parameter on `create_user_defined_role` from a list of roles to a `Roles` model.
+    - Changed the input parameter on `update_user_defined_role` from a list of roles to a `Roles` model.
+    - `get_user_defined_role()` returns a `Roles` model instead of a list of roles.
+    - Removed the `azure.confidentialledger.certificate` namespace and the `ConfidentialLedgerCertificateClient` (see the `azure-confidentialledger-certificate` package to access client).
 
