@@ -207,4 +207,12 @@ entries:
     - Changed the input parameter on `update_user_defined_role` from a list of roles to a `Roles` model.
     - `get_user_defined_role()` returns a `Roles` model instead of a list of roles.
     - Removed the `azure.confidentialledger.certificate` namespace and the `ConfidentialLedgerCertificateClient` (see the `azure-confidentialledger-certificate` package to access client).
+- Name: azure-mgmt-mongocluster
+  Version: 1.1.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.1.0/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
 
