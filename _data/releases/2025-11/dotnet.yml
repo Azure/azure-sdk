@@ -187,4 +187,28 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where a legacy ownership record without checkpoint data was interpreted as a valid checkpoint and used to initialize a partition when no current generation checkpoint was present.
+- Name: Azure.ResourceManager.TrafficManager
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.TrafficManager_1.2.0-beta.1/sdk/trafficmanager/Azure.ResourceManager.TrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.13.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.13.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ProviderHub
+  Version: 1.2.0
+  DisplayName: Resource Management - Provider Hub
+  ServiceName: Provider Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ProviderHub_1.2.0/sdk/providerhub/Azure.ResourceManager.ProviderHub/CHANGELOG.md
+  ChangelogContent: ""
 
