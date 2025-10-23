@@ -365,4 +365,12 @@ entries:
 
     - Exposed `CborUtils` to extract values from CBOR maps, which would otherwise require working directly with a CBOR library
     - Added new static verification method `CodeTransparencyClient.VerifyTransparentStatement` which accepts `CodeTransparencyVerificationOptions`, this allows verifying receipts from specific issuers
+- Name: Azure.ResourceManager.ImpactReporting
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Impactreporting
+  ServiceName: Impactreporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ImpactReporting_1.0.0-beta.1/sdk/impactreporting/Azure.ResourceManager.ImpactReporting/CHANGELOG.md
+  ChangelogContent: ""
 
