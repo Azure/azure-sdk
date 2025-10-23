@@ -353,4 +353,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.13.0-beta.1/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.5
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.5/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `CborUtils` to extract values from CBOR maps, which would otherwise require working directly with a CBOR library
+    - Added new static verification method `CodeTransparencyClient.VerifyTransparentStatement` which accepts `CodeTransparencyVerificationOptions`, this allows verifying receipts from specific issuers
 
