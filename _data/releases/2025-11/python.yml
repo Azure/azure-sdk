@@ -275,4 +275,12 @@ entries:
 
     - Fix missing `await` in calls to asynchronous Agent methods, when `AIAgentsInstrumentor().instrument()`
     is called but no tracer is configured
+- Name: azure-mgmt-deviceregistry
+  Version: 1.1.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deviceregistry_1.1.0/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
 
