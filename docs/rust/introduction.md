@@ -648,7 +648,7 @@ The `azure_core` package provides common functionality for client libraries. Doc
 
 ### Errors {#rust-errors}
 
-{% include requirement/MUST id="rust-errors-core" %} return an `azure_core::Result<T>` which uses `azure_core::Error`.
+{% include requirement/MUST id="rust-errors-core" %} return or convert into an `azure_core::Result<T>` which uses `azure_core::Error`.
 
 {% include requirement/MUST id="rust-errors-core-methods" %} call appropriate methods on `azure_core::Error` to wrap or otherwise convert to an appropriate `azure_core::ErrorKind`.
 
@@ -678,6 +678,18 @@ impl Into<azure_core::Error> for Error {
     }
 }
 ```
+
+### Crate-specific errors {#rust-errors-crate}
+
+{% include requirement/MAY id="rust-errors-crate-specific" %} return a crate-specific `Error` and `Result<T, Error>` if they must expose more specific information appropriate for their domain to the callers.
+
+If you define a crate-specific `Error`,
+
+{% include requirement/MUST id="rust-errors-crate-definitions" %} define your `Error`, `Result`, `ErrorKind`, and other types like `azure_core` so that all types are exported from `crate::error`, and `Error` and `Result` are exported from the root module.
+
+{% include requirement/MUST id="rust-errors-crate-into-core" %} implement `From<crate::Error> for azure_core::Error` to convert your error into an `azure_core::Error`. If there is no other appropriate `azure_core::error::ErrorKind`, use `ErrorKind::Other`. This ensures callers can use the `?` operator in their own functions that might return an `azure_core::Result`.
+
+{% include requirement/MUST id="rust-errors-crate-from-core" %} implement `From<azure_core::Error> for crate::Error` to convert an `azure_core::Error` into your error. This ensures you can use the `?` operator with `azure_core` functions that return an `azure_core::Result`.
 
 ### Authentication {#rust-authentication}
 
