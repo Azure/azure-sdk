@@ -199,4 +199,20 @@ entries:
     #### Features Added
 
     Dynamic Enablement for PPAF(Per Partition Automatic Failover): Added support to dynamically enable or disable PPAF based on the `enablePartitionLevelFailover` flag retrieved from the database account properties removing the need of SDK restart.
+- Name: '@azure/arm-mongocluster'
+  Version: 1.1.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.1.0/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dashboard'
+  Version: 2.0.0
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dashboard_2.0.0/sdk/dashboard/arm-dashboard/CHANGELOG.md
+  ChangelogContent: ""
 
