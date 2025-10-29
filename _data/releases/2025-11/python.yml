@@ -291,4 +291,42 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_4.0.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.14.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.14.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed MyPy `attr-defined` errors for `QueueClient`.
+- Name: azure-storage-file-share
+  Version: 12.23.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.23.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed MyPy `attr-defined` errors for `ShareClient`, `ShareDirectoryClient`, and `ShareFileClient`.
+- Name: azure-storage-blob
+  Version: 12.27.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.27.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed MyPy `attr-defined` errors for `BlobClient`.
+- Name: azure-mgmt-netapp
+  Version: 14.0.0b4
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.0.0b4/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
 
