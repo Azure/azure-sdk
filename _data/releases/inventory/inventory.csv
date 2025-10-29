@@ -949,7 +949,7 @@ Management packages (old),0,Management packages (old),mgmt,Go,management ,https:
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/28/2025
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,05/02/2025
-Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/25/2025
+Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,10/28/2025
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,Token-as-password Authentication Core Library,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1930,11 +1930,11 @@ Schema Registry,0,Schema Registry,data,Python,,,11,false,azure-schemaregistry,ht
 Schema Registry,0,Schema Registry - Avro,data,Python,,,11,false,azure-schemaregistry-avroencoder,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry,10,false,1,05/10/2022
 Service Bus,0,Service Bus,data,Python,,,11,false,azure-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,04/09/2025
 Synapse,0,Spark,data,Python,,,11,false,azure-synapse-spark,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
-Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/15/2025
+Storage,0,Storage - Blobs,data,Python,,,11,false,azure-storage-blob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/28/2025
 Storage,0,Storage - Blobs Changefeed,data,Python,,,11,false,azure-storage-blob-changefeed,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,3,false,1,
 Storage,0,Storage - Files Data Lake,data,Python,azure-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-storage-file-datalake,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/15/2025
-Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/15/2025
-Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/15/2025
+Storage,0,Storage - Files Share,data,Python,,,11,false,azure-storage-file-share,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/28/2025
+Storage,0,Storage - Queues,data,Python,,,11,false,azure-storage-queue,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage,10,false,1,10/28/2025
 Synapse,0,Synapse - AccessControl,data,Python,,,11,false,azure-synapse-accesscontrol,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse Analytics,0,Synapse - Artifacts,data,Python,,,11,false,azure-synapse-artifacts,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
 Synapse,0,Synapse - Monitoring,data,Python,,,11,false,azure-synapse-monitoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/synapse,3,false,1,
@@ -4386,6 +4386,11 @@ HDInsight,0,HDInsight Kafka REST Proxy,data,Java,,,11,false,Missing: Created fro
 HDInsight,0,HDInsight Kafka REST Proxy,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
 HDInsight,0,HDInsight Kafka REST Proxy,data,Python,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
 HDInsight,0,HDInsight Kafka REST Proxy,data,Go,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
+Health Bot,0,Resource Management - HealthBot.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: healthbot/HealthBot.Management,,2,false,0,
+Health Bot,0,Resource Management - HealthBot.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: healthbot/HealthBot.Management,,2,false,0,
+Health Bot,0,Resource Management - HealthBot.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: healthbot/HealthBot.Management,,2,false,0,
+Health Bot,0,Resource Management - HealthBot.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: healthbot/HealthBot.Management,,2,false,0,
+Health Bot,0,Resource Management - HealthBot.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: healthbot/HealthBot.Management,,2,false,0,
 Healthcare APIs,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: healthcareapis/cspell.yaml,,2,false,0,
 Healthcare APIs,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: healthcareapis/cspell.yaml,,2,false,0,
 Healthcare APIs,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: healthcareapis/cspell.yaml,,2,false,0,
@@ -4962,11 +4967,6 @@ Managed Service Identity,0,cspell.yaml,data,Java,,,11,false,Missing: Created fro
 Managed Service Identity,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: msi/cspell.yaml,,2,false,0,
 Managed Service Identity,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: msi/cspell.yaml,,2,false,0,
 Managed Service Identity,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: msi/cspell.yaml,,2,false,0,
-MySQL,0,Resource Management - FlexibleServers.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: mysql/FlexibleServers.Management,,2,false,0,
-MySQL,0,Resource Management - FlexibleServers.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: mysql/FlexibleServers.Management,,2,false,0,
-MySQL,0,Resource Management - FlexibleServers.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: mysql/FlexibleServers.Management,,2,false,0,
-MySQL,0,Resource Management - FlexibleServers.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: mysql/FlexibleServers.Management,,2,false,0,
-MySQL,0,Resource Management - FlexibleServers.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: mysql/FlexibleServers.Management,,2,false,0,
 MySQL,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: mysql/cspell.yaml,,2,false,0,
 MySQL,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: mysql/cspell.yaml,,2,false,0,
 MySQL,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: mysql/cspell.yaml,,2,false,0,
@@ -5102,6 +5102,11 @@ orbitalplanetarycomputer,0,cspell.yaml,data,Java,,,11,false,Missing: Created fro
 orbitalplanetarycomputer,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/cspell.yaml,,2,false,0,
 orbitalplanetarycomputer,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/cspell.yaml,,2,false,0,
 orbitalplanetarycomputer,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/cspell.yaml,,2,false,0,
+paloaltonetworks,0,Resource Management - PaloAltoNetworks.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/PaloAltoNetworks.Management,,2,false,0,
+paloaltonetworks,0,Resource Management - PaloAltoNetworks.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/PaloAltoNetworks.Management,,2,false,0,
+paloaltonetworks,0,Resource Management - PaloAltoNetworks.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/PaloAltoNetworks.Management,,2,false,0,
+paloaltonetworks,0,Resource Management - PaloAltoNetworks.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/PaloAltoNetworks.Management,,2,false,0,
+paloaltonetworks,0,Resource Management - PaloAltoNetworks.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/PaloAltoNetworks.Management,,2,false,0,
 paloaltonetworks,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/cspell.yaml,,2,false,0,
 paloaltonetworks,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/cspell.yaml,,2,false,0,
 paloaltonetworks,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: paloaltonetworks/cspell.yaml,,2,false,0,
