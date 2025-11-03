@@ -450,4 +450,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.2.0/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.8.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.8.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientRequestId` property to `PipelineRequest` which exposes the value that is used in logging and distributed tracing.
 
