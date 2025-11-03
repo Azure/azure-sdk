@@ -266,7 +266,7 @@ IoT,0,Resource Management - Digital Twins,mgmt,.NET,Microsoft.Azure.Management.D
 Disconnectedoperations,0,Resource Management - Disconnectedoperations,mgmt,.NET,,,11,false,Azure.ResourceManager.DisconnectedOperations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/disconnectedoperations,3,false,1,
 DNS,0,Resource Management - DNS,mgmt,.NET,Microsoft.Azure.Management.Dns,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/dns/Microsoft.Azure.Management.Dns,10,true,Azure.ResourceManager.Dns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dns,10,false,1,04/29/2024
 DNS Resolver,0,Resource Management - DNS Resolver,mgmt,.NET,,,11,false,Azure.ResourceManager.DnsResolver,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dnsresolver,10,false,1,06/13/2025
-Durabletask,0,Resource Management - Durabletask,mgmt,.NET,,,11,false,Azure.ResourceManager.DurableTask,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/durabletask,3,false,1,
+Durabletask,0,Resource Management - Durabletask,mgmt,.NET,,,11,false,Azure.ResourceManager.DurableTask,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/durabletask,10,false,1,11/03/2025
 Dynatrace,0,Resource Management - Dynatrace,mgmt,.NET,,,11,false,Azure.ResourceManager.Dynatrace,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dynatrace,10,false,1,03/17/2025
 Edge Order,0,Resource Management - Edge Order,mgmt,.NET,,,11,false,Azure.ResourceManager.EdgeOrder,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/edgeorder,10,false,1,03/17/2025
 Edge Zones,0,Resource Management - Edge Zones,mgmt,.NET,,,11,false,Azure.ResourceManager.EdgeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/edgezones,3,false,1,
@@ -329,7 +329,7 @@ Mobile Network,0,Resource Management - Mobile Network,mgmt,.NET,,,11,false,Azure
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,.NET,,,11,false,Azure.ResourceManager.MongoCluster,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongocluster,10,false,1,10/21/2025
 Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,.NET,,,11,false,Azure.ResourceManager.MongoDBAtlas,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongodbatlas,10,false,1,07/07/2025
 Monitor,0,Resource Management - Monitor,mgmt,.NET,Microsoft.Azure.Management.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,true,Azure.ResourceManager.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,04/29/2024
-MySQL,0,Resource Management - MySQL,mgmt,.NET,Microsoft.Azure.Management.MySQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,10,false,1,08/12/2025
+MySQL,0,Resource Management - MySQL,mgmt,.NET,Microsoft.Azure.Management.MySQL,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,10,false,1,11/03/2025
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,.NET,,,11,false,Azure.ResourceManager.NeonPostgres,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/neonpostgres,10,false,1,05/22/2025
 NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,true,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,08/28/2025
 Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,10/20/2025
@@ -2463,6 +2463,10 @@ Data Share,0,Resource Management - Data Share,mgmt,JavaScript,,,11,false,Missing
 Dev Center,0,Resource Management - Dev Center,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DevCenter,,2,false,0,
 IoT,0,Resource Management - Device Registry,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DeviceRegistry,,2,false,0,
 IoT,0,Resource Management - Device Registry,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DeviceRegistry,,2,false,0,
+Durabletask,0,Resource Management - Durabletask,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DurableTask,,2,false,0,
+Durabletask,0,Resource Management - Durabletask,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DurableTask,,2,false,0,
+Durabletask,0,Resource Management - Durabletask,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DurableTask,,2,false,0,
+Durabletask,0,Resource Management - Durabletask,mgmt,Go,,,11,false,Missing: Created from existing package: Azure.ResourceManager.DurableTask,,2,false,0,
 Edge Order,0,Resource Management - Edge Order,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.EdgeOrder,,2,false,0,
 Elasticsan,0,Resource Management - ElasticSan,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ElasticSan,,2,false,0,
 Elasticsan,0,Resource Management - ElasticSan,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ElasticSan,,2,false,0,
@@ -4192,10 +4196,6 @@ durabletask,0,Resource Management - DurableTask.Management,mgmt,Java,,,11,false,
 durabletask,0,Resource Management - DurableTask.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: durabletask/DurableTask.Management,,2,false,0,
 durabletask,0,Resource Management - DurableTask.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: durabletask/DurableTask.Management,,2,false,0,
 durabletask,0,Resource Management - DurableTask.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: durabletask/DurableTask.Management,,2,false,0,
-durabletask,0,Resource Management - durabletask,mgmt,Java,,,11,false,Missing: Created from API in specs repo: durabletask/resource-manager,,2,false,0,
-durabletask,0,Resource Management - durabletask,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: durabletask/resource-manager,,2,false,0,
-durabletask,0,Resource Management - durabletask,mgmt,Python,,,11,false,Missing: Created from API in specs repo: durabletask/resource-manager,,2,false,0,
-durabletask,0,Resource Management - durabletask,mgmt,Go,,,11,false,Missing: Created from API in specs repo: durabletask/resource-manager,,2,false,0,
 Dynatrace,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: dynatrace/cspell.yaml,,2,false,0,
 Dynatrace,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: dynatrace/cspell.yaml,,2,false,0,
 Dynatrace,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dynatrace/cspell.yaml,,2,false,0,
