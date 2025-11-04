@@ -401,4 +401,17 @@ entries:
     #### Bugs Fixed
 
     - `image_tag` parameter in `AzureOpenAIPythonGrader` is now optional.
+- Name: azure-ai-voicelive
+  Version: 1.1.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.1.0/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Agent configuration through the new `AgentConfig` model
+    - Added `agent` field to `ResponseSession` model to support agent-based conversations
+    - The `AgentConfig` model includes properties for agent type, name, description, agent_id, and thread_id
 
