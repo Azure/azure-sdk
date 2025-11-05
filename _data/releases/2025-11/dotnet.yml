@@ -461,4 +461,17 @@ entries:
     #### Features Added
 
     - Added `ClientRequestId` property to `PipelineRequest` which exposes the value that is used in logging and distributed tracing.
+- Name: Azure.AI.Projects
+  Version: 1.1.0
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.1.0/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Remove `clientRequestId` parameter from `AIProjectConnectionsOperations` and `AIProjectDeploymentsOperations` methods as this value is controlled transparently by `System.ClientModel`.
+    - Remove `type` parameter from `AzureAIProjectsModelFactory.BlobReferenceSasCredential` as this is a hardcoded value.
+    - Remove `pendingUploadType` parameter from `AzureAIProjectsModelFactory.PendingUploadRequest` and `AzureAIProjectsModelFactory.PendingUploadConfiguration` as this is a hardcoded value.
 
