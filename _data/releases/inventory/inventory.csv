@@ -34,7 +34,7 @@ Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,h
 Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
 Tables,0,Tables,data,C++,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables,3,false,1,
 Cognitive Services,0,AI Agents Persistent,data,.NET,,,11,false,Azure.AI.Agents.Persistent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,07/25/2025
-Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,10/01/2025
+Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,11/04/2025
 Cognitive Services,0,AI Model Inference,data,.NET,,,11,false,Azure.AI.Inference,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,Anomaly Detector,data,.NET,Microsoft.Azure.CognitiveServices.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.AnomalyDetector_1.0.0-preview.1/sdk/cognitiveservices/AnomalyDetector,1,false,Azure.AI.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector,3,false,1,
 App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,05/09/2025
@@ -710,7 +710,7 @@ Consumption,0,Resource Management - Consumption,mgmt,Go,,,11,false,sdk/resourcem
 Container Apps,0,Resource Management - Container Apps,mgmt,Go,,,11,false,sdk/resourcemanager/appcontainers/armappcontainers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/appcontainers/armappcontainers,10,false,1,10/24/2025
 Container Instances,0,Resource Management - Container Instances,mgmt,Go,,,11,false,sdk/resourcemanager/containerinstance/armcontainerinstance,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerinstance/armcontainerinstance,10,false,1,11/23/2023
 Container Orchestrator Runtime,0,Resource Management - Container Orchestrator Runtime,mgmt,Go,,,11,false,sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime,3,false,1,
-Container Registry,0,Resource Management - Container Registry,mgmt,Go,,,11,false,sdk/resourcemanager/containerregistry/armcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerregistry/armcontainerregistry,10,false,1,11/17/2023
+Container Registry,0,Resource Management - Container Registry,mgmt,Go,,,11,false,sdk/resourcemanager/containerregistry/armcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerregistry/armcontainerregistry,10,false,1,11/05/2025
 Container Service,0,Resource Management - Container Service,mgmt,Go,,,11,false,sdk/resourcemanager/containerservice/armcontainerservice,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerservice/armcontainerservice,10,false,1,10/23/2025
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Go,,,11,false,sdk/resourcemanager/containerservicefleet/armcontainerservicefleet,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet,10,false,1,04/29/2025
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Go,,,11,false,sdk/resourcemanager/cdn/armcdn,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/cdn/armcdn,10,false,1,04/15/2024
@@ -1110,7 +1110,7 @@ Consumption,0,Resource Management - Consumption,mgmt,Java,,,11,false,azure-resou
 Container Apps,0,Resource Management - Container Apps,mgmt,Java,,,11,false,azure-resourcemanager-appcontainers,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appcontainers,10,false,1,10/24/2025
 Container Instances,0,Resource Management - Container Instances,mgmt,Java,azure-mgmt-containerinstance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerinstance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerinstance,10,false,1,10/27/2025
 Container Orchestrator Runtime,0,Resource Management - Container Orchestrator Runtime,mgmt,Java,,,11,false,azure-resourcemanager-containerorchestratorruntime,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerorchestratorruntime,3,false,1,
-Container Registry,0,Resource Management - Container Registry,mgmt,Java,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,10/27/2025
+Container Registry,0,Resource Management - Container Registry,mgmt,Java,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,11/05/2025
 Container Service,0,Resource Management - Container Service,mgmt,Java,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservice,10,false,1,10/27/2025
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Java,,,11,false,azure-resourcemanager-containerservicefleet,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservicefleet,10,false,1,05/14/2025
 Containerservicesafeguards,0,Resource Management - Containerservicesafeguards,mgmt,Java,,,11,false,azure-resourcemanager-containerservicesafeguards,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservicesafeguards,3,false,1,
@@ -1411,7 +1411,7 @@ AI,0,AI Agents,data,JavaScript,,,11,false,@azure/ai-agents,https://github.com/Az
 AI,0,AI Model Inference,data,JavaScript,,,11,false,@azure-rest/ai-inference,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/ai/ai-inference-rest/,3,false,1,
 AI,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,10/15/2025
 Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,true,1,
-App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,04/08/2025
+App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,11/05/2025
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Search,0,Azure AI Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,10/09/2025
@@ -1875,7 +1875,7 @@ Container Registry,0,Container Registry,data,Python,,,11,false,azure-containerre
 Cognitive Services,0,Content Safety,data,Python,azure-cognitiveservices-vision-contentmoderator,https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-vision-contentmoderator_1.0.0/azure-cognitiveservices-vision-contentmoderator/,10,true,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety,10,false,1,12/12/2023
 Cognitive Services,0,Conversational Language Understanding,data,Python,azure-cognitiveservices-language-luis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-language-conversations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,10,false,1,06/13/2023
 Cognitive Services,0,Conversations Authoring,data,Python,,,11,false,azure-ai-language-conversations-authoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,3,false,1,
-Cosmos DB,0,Cosmos DB,data,Python,pydocumentdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,true,azure-cosmos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,10/13/2025
+Cosmos DB,0,Cosmos DB,data,Python,pydocumentdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,true,azure-cosmos,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,11/04/2025
 Defender EASM,0,Defender EASM,data,Python,,,11,false,azure-defender-easm,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/easm,3,false,1,
 Dev Center,0,Dev Center,data,Python,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devcenter,10,false,1,06/14/2024
 IoT,0,Device Provisioning Services,data,Python,azure-iothub-provisioningserviceclient,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,1,false,azure-iot-deviceprovisioning,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub,3,false,1,
@@ -1945,7 +1945,7 @@ Cognitive Services,0,Text Translation,data,Python,,,11,false,azure-ai-translatio
 Maps,0,TimeZones,data,Python,,,11,false,azure-maps-timezone,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
 unknown,0,unknown,data,Python,,,11,false,azure-confidentialledger-certificate,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,Python,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/videoanalyzer,3,true,1,
-Cognitive Services,0,Voice Live,data,Python,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,10/02/2025
+Cognitive Services,0,Voice Live,data,Python,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,11/03/2025
 Web PubSub,0,Web PubSub,data,Python,,,11,false,azure-messaging-webpubsubservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,07/07/2025
 Web PubSub,0,Web PubSub Client,data,Python,,,11,false,azure-messaging-webpubsubclient,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,05/06/2024
 Astro,0,Resource Management -  Astro,mgmt,Python,,,11,false,azure-mgmt-astro,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/astro,3,false,1,
@@ -4033,6 +4033,11 @@ Data Catalog,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in spe
 Data Catalog,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: datacatalog/cspell.yaml,,2,false,0,
 Data Catalog,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: datacatalog/cspell.yaml,,2,false,0,
 Data Catalog,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: datacatalog/cspell.yaml,,2,false,0,
+Datadog,0,Resource Management - Datadog.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: datadog/Datadog.Management,,2,false,0,
+Datadog,0,Resource Management - Datadog.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: datadog/Datadog.Management,,2,false,0,
+Datadog,0,Resource Management - Datadog.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: datadog/Datadog.Management,,2,false,0,
+Datadog,0,Resource Management - Datadog.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: datadog/Datadog.Management,,2,false,0,
+Datadog,0,Resource Management - Datadog.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: datadog/Datadog.Management,,2,false,0,
 Datadog,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: datadog/cspell.yaml,,2,false,0,
 Datadog,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: datadog/cspell.yaml,,2,false,0,
 Datadog,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: datadog/cspell.yaml,,2,false,0,
@@ -4782,6 +4787,11 @@ Maintenance,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API i
 Maintenance,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: maintenance/suppressions.yaml,,2,false,0,
 Maintenance,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: maintenance/suppressions.yaml,,2,false,0,
 Maintenance,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: maintenance/suppressions.yaml,,2,false,0,
+managednetworkfabric,0,Resource Management - ManagedNetworkFabric.ResourceManager.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/ManagedNetworkFabric.ResourceManager.Management,,2,false,0,
+managednetworkfabric,0,Resource Management - ManagedNetworkFabric.ResourceManager.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/ManagedNetworkFabric.ResourceManager.Management,,2,false,0,
+managednetworkfabric,0,Resource Management - ManagedNetworkFabric.ResourceManager.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/ManagedNetworkFabric.ResourceManager.Management,,2,false,0,
+managednetworkfabric,0,Resource Management - ManagedNetworkFabric.ResourceManager.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/ManagedNetworkFabric.ResourceManager.Management,,2,false,0,
+managednetworkfabric,0,Resource Management - ManagedNetworkFabric.ResourceManager.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/ManagedNetworkFabric.ResourceManager.Management,,2,false,0,
 managednetworkfabric,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/cspell.yaml,,2,false,0,
 managednetworkfabric,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/cspell.yaml,,2,false,0,
 managednetworkfabric,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: managednetworkfabric/cspell.yaml,,2,false,0,
@@ -4877,6 +4887,11 @@ Migrate,0,Resource Management - AssessmentProjects.Management,mgmt,Java,,,11,fal
 Migrate,0,Resource Management - AssessmentProjects.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: migrate/AssessmentProjects.Management,,2,false,0,
 Migrate,0,Resource Management - AssessmentProjects.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: migrate/AssessmentProjects.Management,,2,false,0,
 Migrate,0,Resource Management - AssessmentProjects.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: migrate/AssessmentProjects.Management,,2,false,0,
+Migrate,0,Resource Management - Waves.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: migrate/Waves.Management,,2,false,0,
+Migrate,0,Resource Management - Waves.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: migrate/Waves.Management,,2,false,0,
+Migrate,0,Resource Management - Waves.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: migrate/Waves.Management,,2,false,0,
+Migrate,0,Resource Management - Waves.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: migrate/Waves.Management,,2,false,0,
+Migrate,0,Resource Management - Waves.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: migrate/Waves.Management,,2,false,0,
 Migrate,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: migrate/cspell.yaml,,2,false,0,
 Migrate,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: migrate/cspell.yaml,,2,false,0,
 Migrate,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: migrate/cspell.yaml,,2,false,0,
@@ -4997,16 +5012,21 @@ Network Function,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in
 Network Function,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: networkfunction/cspell.yaml,,2,false,0,
 Network Function,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: networkfunction/cspell.yaml,,2,false,0,
 Network Function,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: networkfunction/cspell.yaml,,2,false,0,
-New Relic,0,Resource Management - New Relic,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelic.Management,,2,false,0,
-New Relic,0,Resource Management - New Relic,mgmt,Java,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelic.Management,,2,false,0,
-New Relic,0,Resource Management - New Relic,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelic.Management,,2,false,0,
-New Relic,0,Resource Management - New Relic,mgmt,Python,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelic.Management,,2,false,0,
-New Relic,0,Resource Management - New Relic,mgmt,Go,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelic.Management,,2,false,0,
+New Relic,0,Resource Management - NewRelicObservability.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelicObservability.Management,,2,false,0,
+New Relic,0,Resource Management - NewRelicObservability.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelicObservability.Management,,2,false,0,
+New Relic,0,Resource Management - NewRelicObservability.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelicObservability.Management,,2,false,0,
+New Relic,0,Resource Management - NewRelicObservability.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelicObservability.Management,,2,false,0,
+New Relic,0,Resource Management - NewRelicObservability.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: newrelic/NewRelicObservability.Management,,2,false,0,
 New Relic,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: newrelic/cspell.yaml,,2,false,0,
 New Relic,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: newrelic/cspell.yaml,,2,false,0,
 New Relic,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: newrelic/cspell.yaml,,2,false,0,
 New Relic,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: newrelic/cspell.yaml,,2,false,0,
 New Relic,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: newrelic/cspell.yaml,,2,false,0,
+New Relic,0,Resource Management - New Relic,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
+New Relic,0,Resource Management - New Relic,mgmt,Java,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
+New Relic,0,Resource Management - New Relic,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
+New Relic,0,Resource Management - New Relic,mgmt,Python,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
+New Relic,0,Resource Management - New Relic,mgmt,Go,,,11,false,Missing: Created from API in specs repo: newrelic/resource-manager,,2,false,0,
 NGINX,0,Resource Management - Nginx.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: nginx/Nginx.Management,,2,false,0,
 NGINX,0,Resource Management - Nginx.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: nginx/Nginx.Management,,2,false,0,
 NGINX,0,Resource Management - Nginx.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: nginx/Nginx.Management,,2,false,0,
