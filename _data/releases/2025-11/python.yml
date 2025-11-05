@@ -414,4 +414,14 @@ entries:
     - Added support for Agent configuration through the new `AgentConfig` model
     - Added `agent` field to `ResponseSession` model to support agent-based conversations
     - The `AgentConfig` model includes properties for agent type, name, description, agent_id, and thread_id
+- Name: azure-cosmos
+  Version: 4.14.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.14.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug where queries using `feed_range` and `continuation` options would not work as expected. See [PR 43700](https://github.com/Azure/azure-sdk-for-python/pull/43700).
 
