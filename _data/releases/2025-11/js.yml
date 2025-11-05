@@ -223,4 +223,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/subscription/arm-subscriptions/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.9.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.2/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added internal pipeline policy to normalize (case-insensitive alphabetical) ordering of query parameters for deterministic request URLs. [#36344](https://github.com/Azure/azure-sdk-for-js/pull/36344)
 
