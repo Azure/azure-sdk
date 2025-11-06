@@ -220,4 +220,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerregistry/armcontainerregistry/v2.0.0/sdk/resourcemanager/containerregistry/armcontainerregistry/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.20.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.20.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `runtime.FetcherForNextLinkOptions.HTTPVerb` to specify the HTTP verb when fetching the next page via next link. Defaults to `http.MethodGet`.
+
+    #### Bugs Fixed
+
+    * Fixed potential panic when decoding base64 strings.
+    * Fixed an issue in resource identifier parsing which prevented it from returning an error for malformed resource IDs.
 
