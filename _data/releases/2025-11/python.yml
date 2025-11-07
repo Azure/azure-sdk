@@ -474,4 +474,15 @@ entries:
     #### Features Added
 
     - Added support for `WorkloadIdentityCredential` identity binding mode in AKS environments. This feature addresses Entra's limitation on the number of federated identity credentials (FICs) per managed identity by utilizing an AKS proxy that handles FIC exchanges on behalf of pods. ([#43287](https://github.com/Azure/azure-sdk-for-python/pull/43287))
+- Name: azure-ai-evaluation
+  Version: 1.13.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added App Insights redaction for agent safety run telemetry so adversarial prompts are not stored in collected logs.
 
