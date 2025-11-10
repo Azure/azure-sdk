@@ -507,4 +507,15 @@ entries:
     #### Other Changes
 
     - Added `scenario` property to red team evaluation request to align scores with red team concepts of attack success.
+- Name: azure-ai-evaluation
+  Version: 1.13.4
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.4/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle input data for evaluation result when evaluators.
 
