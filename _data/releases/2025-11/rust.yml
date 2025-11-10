@@ -122,4 +122,68 @@ entries:
     #### Other Changes
 
     - Increment version for re-release following a fix to publishing.
+- Name: azure_security_keyvault_keys
+  Version: 0.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.9.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `KeyClientListDeletedKeyPropertiesOptions::method_options` is now `PagerOptions`.
+    - `KeyClientListKeyPropertiesOptions::method_options` is now `PagerOptions`.
+    - `KeyClientListKeyPropertiesVersionsOptions::method_options` is now `PagerOptions`.
+    - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
+- Name: azure_security_keyvault_certificates
+  Version: 0.8.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.8.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `CertificateClient::create_certificate()` now returns a `Poller<CertificateOperation>`.
+    - `CertificateClientListCertificatePropertiesOptions::method_options` is now `PagerOptions`.
+    - `CertificateClientListCertificatePropertiesVersionsOptions::method_options` is now `PagerOptions`.
+    - `CertificateClientListDeletedCertificatePropertiesOptions::method_options` is now `PagerOptions`.
+    - `CertificateClientListIssuerPropertiesOptions::method_options` is now `PagerOptions`.
+    - Changed `PollerOptions::frequency` from `Option<Duration>` to `Duration`.
+    - Removed `CertificateClient::begin_create_certificate()`.
+    - Removed `CertificateClient::resume_create_certificate()`.
+    - Removed `wait()` function from `Poller<CertificateOperation>`.
+    - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
+- Name: azure_security_keyvault_secrets
+  Version: 0.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.9.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `SecretClientListDeletedSecretPropertiesOptions::method_options` is now `PagerOptions`.
+    - `SecretClientListSecretPropertiesOptions::method_options` is now `PagerOptions`.
+    - `SecretClientListSecretPropertiesVersionsOptions::method_options` is now `PagerOptions`.
+    - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
+- Name: azure_data_cosmos
+  Version: 0.29.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.29.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Regions to pass preferred regions through Cosmos Client Options. ([#3274](https://github.com/Azure/azure-sdk-for-rust/pull/3274))
+    - Adjusted the query engine abstraction to support future enhancements and optimizations. ([#3166](https://github.com/Azure/azure-sdk-for-rust/pull/3166))
+
+    #### Breaking Changes
+
+    - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
 
