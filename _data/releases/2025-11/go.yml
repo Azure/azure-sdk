@@ -286,4 +286,15 @@ entries:
     - Removed identity binding mode support from `DefaultAzureCredential`. To use this feature, use
     `WorkloadIdentityCredential` directly instead and set
     `WorkloadIdentityCredentialOptions.EnableAzureTokenProxy` to `true`
+- Name: sdk/ai/azopenai
+  Version: 0.9.0
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.9.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updating to /v3 of the OpenAI SDK (github.com/openai/openai-go/v3).
 
