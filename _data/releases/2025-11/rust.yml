@@ -78,4 +78,48 @@ entries:
     - Added `UrlExt::append_path()`.
     - Implemented `IntoFuture` for a `Poller`. Call `await` on a Poller to get the final model, or `into_stream()` to get a `futures::Stream` to poll the operation manually.
     - Re-exported `serde_json::Value` as `azure_core::Value` ([#1687](https://github.com/Azure/azure-sdk-for-rust/issues/1687))
+- Name: azure_core_macros
+  Version: 0.4.1
+  DisplayName: Core - Macros
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.4.1/sdk/core/azure_core_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: azure_core_amqp
+  Version: 0.9.1
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.9.1/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: azure_core
+  Version: 0.30.1
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.30.1/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: azure_core_opentelemetry
+  Version: 0.4.1
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.4.1/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
 
