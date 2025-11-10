@@ -236,4 +236,12 @@ entries:
 
     * Fixed potential panic when decoding base64 strings.
     * Fixed an issue in resource identifier parsing which prevented it from returning an error for malformed resource IDs.
+- Name: sdk/resourcemanager/keyvault/armkeyvault
+  Version: 2.0.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/keyvault/armkeyvault/v2.0.1/sdk/resourcemanager/keyvault/armkeyvault/CHANGELOG.md
+  ChangelogContent: ""
 
