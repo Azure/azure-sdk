@@ -218,4 +218,28 @@ entries:
     - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
 
     #### Bugs Fixed
+- Name: azure_messaging_eventhubs
+  Version: 0.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.9.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - All Event Hubs APIs now return an `azure_messaging_eventhubs::EventHubError` instead of an `azure_core::Error`.
+    - Several `azure_messaging_eventhubs::error::ErrorKind` enumerations have been removed because they are no longer needed.
+    - Modified several errors which previously used `azure_core::Error::with_message` to use `azure_messaging_eventhubs::EventHubsError::with_message`, changing their underlying type.
+- Name: azure_messaging_eventhubs_checkpointstore_blob
+  Version: 0.3.0
+  DisplayName: EventHubs Checkpoint Store for Azure Blob Storage
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.3.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
 
