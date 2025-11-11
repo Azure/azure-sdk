@@ -640,4 +640,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Initial release
+- Name: System.ClientModel
+  Version: 1.8.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.8.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with JsonPatch.TryGetValue throwing instead of returning false in some cases.
+    - Fixed an issue with JsonPatch decoding special characters in json when using GetString.
 
