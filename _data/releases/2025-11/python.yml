@@ -560,4 +560,17 @@ entries:
     - Improved stream mode error messsage.
 
     - Updated application insights related configuration environment variables.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b3/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Id generator format.
+
+    - Fixed trace initialization for agent-framework.
 
