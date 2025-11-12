@@ -17,10 +17,6 @@ Here's the general contribution process:
 1. Commit your changes to that branch.
 1. Do a PR from your fork/branch to azure-sdk/main.
 
-## Package Index Update Pull Requests
-
-**Do not comment on package index update PRs.** Automated pull requests that update the package index (typically updates to files in `_data/releases/`) are system-generated and should not receive reviews, feedback, or approvals from maintainers or contributors. These PRs are automated version bumps and similar maintenance updates that do not require manual review. Please refrain from adding comments, suggestions, or approval reviews to these PRs.
-
 ## Codespaces
 
 **(Recommended)**
