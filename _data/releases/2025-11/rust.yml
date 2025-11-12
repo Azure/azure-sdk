@@ -266,4 +266,91 @@ entries:
     - `client_certificate_password` parameter is now `password: Option<azure_core::credentials::Secret>` in `ClientCertificateCredentialOptions`
     - now returns an error when the given certificate can't be parsed
     - Removed `ClientCertificateCredentialOptions.send_certificate_chain`. Set environment variable `AZURE_CLIENT_SEND_CERTIFICATE_CHAIN` to "1" or "true" to enable this feature.
+- Name: typespec_client_core
+  Version: 0.9.1
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.9.1/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: typespec_client_core
+  Version: 0.9.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.9.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `S` type parameter to `xml::from_xml` congruent with `json::from_json()`.
+    - Moved deserializers and serializers for optional base64-encoded bytes to `base64::option` module. `base64` module now deserializes or serializes non-optional fields congruent with the `time` module.
+    - Removed `CustomHeaders` policy.
+    - Removed `ErrorKind::MockFramework`.
+    - Removed `xml::read_xml_str()`.
+    - Renamed `BufResponse` to `AsyncRawResponse` so that `AsyncRawResponse` is to `RawResponse` as `AsyncIterator` is to `Iterator`.
+    - Renamed `BufResponseBody` to `AsyncResponseBody` so that `AsyncResponseBody` is to `ResponseBody` as `AsyncIterator` is to `Iterator`.
+    - Renamed `Response<T, F>::into_body(self) -> Result<Response<T>>` to `into_model(self) -> Result<Response<T>>`. `into_body(self)` now returns a `ResponseBody`.
+    - Renamed `xml::read_xml()` to `xml::from_xml()` congruent with `json::from_json()`.
+
+    #### Features Added
+
+    - Added `Context::to_owned()` to create a static lifetime copy of an existing `Context`.
+    - Added `PipelineOptions::retry_status_codes` for configuring which status codes should trigger a retry.
+    - Added `Response<T, F>::body(&self) -> &ResponseBody`.
+    - Added `Response<T, F>::to_raw_response()` function to create a `RawResponse` from cloned data.
+    - Added `UrlExt::append_path()`.
+    - Added module `fmt::empty_as_null` containing some serde helpers for empty/null string values.
+    - Re-exported `serde_json::Value` as `typespec_client_core::Value` ([#1687](https://github.com/Azure/azure-sdk-for-rust/issues/1687))
+- Name: typespec_macros
+  Version: 0.9.1
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.9.1/sdk/core/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: typespec_macros
+  Version: 0.9.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.9.0/sdk/core/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec
+  Version: 0.10.1
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.10.1/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Increment version for re-release following a fix to publishing.
+- Name: typespec
+  Version: 0.10.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.10.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `S` type parameter to `xml::from_xml` congruent with `json::from_json()`.
+    - Removed `ErrorKind::MockFramework`.
+    - Removed `xml::read_xml_str()`.
+    - Renamed `xml::read_xml()` to `xml::from_xml()` congruent with `json::from_json()`.
 
