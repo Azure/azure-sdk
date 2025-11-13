@@ -329,4 +329,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/networkcloud/armnetworkcloud/v1.4.0-beta.1/sdk/resourcemanager/networkcloud/armnetworkcloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/aztables
+  Version: 1.4.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.4.1/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fix an issue that the Storage Table token audiences for sovereign clouds are incorrect.
 
