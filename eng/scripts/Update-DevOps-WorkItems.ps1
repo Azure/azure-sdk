@@ -358,7 +358,7 @@ function RefreshItems()
           continue
         }
 
-        $pkgWI = FindOrCreateClonePackageWorkItem (Get-LanguageName $pkgLang) $verInfo.PackageInfo $verMajorMinor -outputCommand $false
+        $pkgWI = FindOrCreateClonePackageWorkItem (Get-LanguageName $pkgLang) $verInfo.PackageInfo $verMajorMinor -outputCommand $true
         Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
         $pkgWI = UpdateShippedPackageVersions $pkgWI $verInfo.Versions
       }

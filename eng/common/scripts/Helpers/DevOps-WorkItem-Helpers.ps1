@@ -359,6 +359,18 @@ function CreateWorkItemParent($id, $parentId, $oldParentId, $outputCommand = $tr
   Invoke-AzBoardsCmd "work-item relation add" $parameters $outputCommand | Out-Null
 }
 
+function CheckUser($user)
+{
+  $azCmdStr = "az devops user show --user ${user} $($ReleaseDevOpsCommonParameters -join ' ')"
+  Invoke-Expression "$azCmdStr" | Out-Null
+
+  if ($LASTEXITCODE -ne 0) {
+    return $false
+  }
+
+  return $true
+}
+
 function CreateWorkItem($title, $type, $iteration, $area, $fields, $assignedTo, $parentId, $relatedId = $null, $outputCommand = $true, $tag = $null)
 {
   $parameters = $ReleaseDevOpsCommonParametersWithProject
@@ -366,7 +378,7 @@ function CreateWorkItem($title, $type, $iteration, $area, $fields, $assignedTo, 
   $parameters += "--type", "`"${type}`""
   $parameters += "--iteration", "`"${iteration}`""
   $parameters += "--area", "`"${area}`""
-  if ($assignedTo) {
+  if ($assignedTo -and (CheckUser $assignedTo)) {
     $parameters += "--assigned-to", "`"${assignedTo}`""
   }
   if ($tag)
@@ -424,7 +436,7 @@ function UpdateWorkItem($id, $fields, $title, $state, $assignedTo, $outputComman
   if ($state) {
     $parameters += "--state", "`"${state}`""
   }
-  if ($assignedTo) {
+  if ($assignedTo -and (CheckUser $assignedTo)) {
     $parameters += "--assigned-to", "`"${assignedTo}`""
   }
   if ($fields) {
