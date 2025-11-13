@@ -115,7 +115,7 @@ Monitor,0,OpenTelemetry LiveMetrics,data,.NET,,,11,false,Azure.Monitor.OpenTelem
 Cognitive Services,0,Personalizer,data,.NET,Microsoft.Azure.CognitiveServices.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Personalizer_1.0.0/sdk/cognitiveservices/Personalizer,1,false,Azure.AI.Personalizer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer,3,false,1,
 Load Testing,0,Playwright,data,.NET,,,11,false,Azure.Developer.Playwright,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,10,false,1,08/29/2025
 Load Testing,0,Playwright NUnit,data,.NET,,,11,false,Azure.Developer.Playwright.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,10,false,1,08/29/2025
-Communication,0,Programmable Connectivity,data,.NET,,,11,false,Azure.Communication.ProgrammableConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,false,1,
+Communication,0,Programmable Connectivity,data,.NET,,,11,false,Azure.Communication.ProgrammableConnectivity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,true,1,
 Provisioning,0,Provisioning,data,.NET,,,11,false,Azure.Provisioning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,08/01/2025
 Provisioning,0,Provisioning - Resources,data,.NET,,,11,false,Azure.Provisioning.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Purview,0,Purview Account,data,.NET,,,11,false,Azure.Analytics.Purview.Account,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/purview,3,false,1,
@@ -158,7 +158,7 @@ Web PubSub,0,Web PubSub,data,.NET,,,11,false,Azure.Messaging.WebPubSub,https://g
 Web PubSub,0,Web PubSub Client,data,.NET,,,11,false,Azure.Messaging.WebPubSub.Client,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,12/31/2023
 Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/29/2025
 Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.Storage.Queues,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,10/29/2025
-Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,3,false,1,
+Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,11/13/2025
 Provisioning,0,Provisioning - App Configuration,mgmt,.NET,,,11,false,Azure.Provisioning.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 App Containers,0,Provisioning - App Containers,mgmt,.NET,,,11,false,Azure.Provisioning.AppContainers,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 App Service,0,Provisioning - App Service,mgmt,.NET,,,11,false,Azure.Provisioning.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/26/2025
@@ -219,7 +219,7 @@ Carbonoptimization,0,Resource Management - Carbonoptimization,mgmt,.NET,,,11,fal
 Change Analysis,0,Resource Management - Change Analysis,mgmt,.NET,Microsoft.Azure.Management.ChangeAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ChangeAnalysis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/changeanalysis,10,false,1,03/14/2025
 Chaos,0,Resource Management - Chaos,mgmt,.NET,Microsoft.Azure.Management.Chaos,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Chaos,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/chaos,10,false,1,05/22/2025
 Cloudhealth,0,Resource Management - Cloudhealth,mgmt,.NET,,,11,false,Azure.ResourceManager.CloudHealth,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cloudhealth,3,false,1,
-Cognitive Services,0,Resource Management - Cognitive Services,mgmt,.NET,Microsoft.Azure.Management.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,true,Azure.ResourceManager.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,false,1,07/28/2025
+Cognitive Services,0,Resource Management - Cognitive Services,mgmt,.NET,Microsoft.Azure.Management.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,true,Azure.ResourceManager.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitiveservices,10,false,1,11/13/2025
 Communication,0,Resource Management - Communication,mgmt,.NET,,,11,false,Azure.ResourceManager.Communication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/11/2025
 Compute,0,Resource Management - Compute,mgmt,.NET,Microsoft.Azure.Management.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,10,true,Azure.ResourceManager.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,10,false,1,09/24/2025
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computefleet,10,false,1,10/22/2024
@@ -313,7 +313,7 @@ Monitor,0,Resource Management - Log Analytics,mgmt,.NET,Microsoft.Azure.Manageme
 Logic Apps,0,Resource Management - Logic Apps,mgmt,.NET,Microsoft.Azure.Management.Logic,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/logic/Microsoft.Azure.Management.Logic,10,true,Azure.ResourceManager.Logic,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/logic,10,false,1,11/30/2023
 Machine Learning,0,Resource Management - Machine Learning,mgmt,.NET,Microsoft.Azure.Management.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/machinelearning/Microsoft.Azure.Management.MachineLearning,10,true,Azure.ResourceManager.MachineLearning,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningservices,10,false,1,08/12/2025
 Machine Learning,0,Resource Management - Machine Learning Compute,mgmt,.NET,Microsoft.Azure.Management.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/machinelearningcompute/Microsoft.Azure.Management.MachineLearningCompute,3,true,Azure.ResourceManager.MachineLearningCompute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/machinelearningcompute,3,false,1,
-Maintenance,0,Resource Management - Maintenance,mgmt,.NET,Microsoft.Azure.Management.Maintenance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maintenance,10,true,Azure.ResourceManager.Maintenance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maintenance,10,false,1,03/13/2023
+Maintenance,0,Resource Management - Maintenance,mgmt,.NET,Microsoft.Azure.Management.Maintenance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maintenance,10,true,Azure.ResourceManager.Maintenance,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maintenance,10,false,1,11/13/2025
 Grafana,0,Resource Management - Managed Grafana,mgmt,.NET,,,11,false,Azure.ResourceManager.Grafana,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/grafana,10,false,1,03/17/2025
 Managed Network,0,Resource Management - Managed Network,mgmt,.NET,Microsoft.Azure.Management.ManagedNetwork,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/managednetwork,3,true,Azure.ResourceManager.ManagedNetwork,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/managednetwork,3,false,1,
 Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,.NET,,,11,false,Azure.ResourceManager.ManagedNetworkFabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/managednetworkfabric,10,false,1,03/17/2025
@@ -655,7 +655,7 @@ Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,ht
 Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,10/16/2025
 Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,10/16/2025
 Event Grid,0,System Events,data,Go,,,11,false,sdk/messaging/eventgrid/azsystemevents,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azsystemevents,10,false,1,06/26/2025
-Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,06/19/2025
+Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,11/13/2025
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
 Web PubSub,0,Web PubSub,data,Go,,,11,false,sdk/messaging/azwebpubsub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azwebpubsub,3,false,1,
 Active Directory,0,Resource Management - Active Directory,mgmt,Go,,,11,false,sdk/resourcemanager/aad/armaad,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/aad/armaad,10,false,1,11/23/2023
@@ -870,7 +870,7 @@ Power BI Embedded,0,Resource Management - Power BI Embedded,mgmt,Go,,,11,false,s
 Power Platform,0,Resource Management - Power Platform,mgmt,Go,,,11,false,sdk/resourcemanager/powerplatform/armpowerplatform,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/powerplatform/armpowerplatform,3,false,1,
 Private DNS,0,Resource Management - Private DNS,mgmt,Go,,,11,false,sdk/resourcemanager/privatedns/armprivatedns,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/privatedns/armprivatedns,10,false,1,09/26/2024
 Kubernetesconfiguration,0,Resource Management - Privatelinkscopes,mgmt,Go,,,11,false,sdk/resourcemanager/kubernetesconfiguration/armprivatelinkscopes,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/kubernetesconfiguration/armprivatelinkscopes,3,false,1,
-Programmableconnectivity,0,Resource Management - Programmableconnectivity,mgmt,Go,,,11,false,sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity,3,false,1,
+Programmableconnectivity,0,Resource Management - Programmableconnectivity,mgmt,Go,,,11,false,sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity,3,true,1,
 Provider Hub,0,Resource Management - Provider Hub,mgmt,Go,,,11,false,sdk/resourcemanager/providerhub/armproviderhub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/providerhub/armproviderhub,10,false,1,07/22/2025
 Purestorageblock,0,Resource Management - Purestorageblock,mgmt,Go,,,11,false,sdk/resourcemanager/purestorageblock/armpurestorageblock,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/purestorageblock/armpurestorageblock,10,false,1,07/03/2025
 Purview,0,Resource Management - Purview,mgmt,Go,,,11,false,sdk/resourcemanager/purview/armpurview,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/purview/armpurview,10,false,1,11/24/2023
@@ -1413,12 +1413,12 @@ AI,0,AI Agents,data,JavaScript,,,11,false,@azure/ai-agents,https://github.com/Az
 AI,0,AI Model Inference,data,JavaScript,,,11,false,@azure-rest/ai-inference,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/ai/ai-inference-rest/,3,false,1,
 AI,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,10/15/2025
 Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,true,1,
-App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,11/05/2025
+App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,11/13/2025
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Search,0,Azure AI Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,10/09/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,JavaScript,,,11,false,@azure/eventhubs-checkpointstore-blob,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,04/08/2025
-Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,09/16/2025
+Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,11/13/2025
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,true,1,
 Batch,0,Batch,data,JavaScript,@azure/batch,https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch,1,false,@azure-rest/batch,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/batch/batch-rest/,3,false,1,
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,10/16/2024
@@ -2232,7 +2232,7 @@ Storage,0,Storage - Blobs,data,Rust,,,11,false,azure_storage_blob,UNABLE TO DETE
 TypeSpec,0,TypeSpec Client Core,data,Rust,,,11,false,typespec_client_core,UNABLE TO DETERMINE REPO LINK,3,false,1,
 TypeSpec,0,TypeSpec Core,data,Rust,,,11,false,typespec,UNABLE TO DETERMINE REPO LINK,3,false,1,
 TypeSpec,0,TypeSpec Core Macros,data,Rust,,,11,false,typespec_macros,UNABLE TO DETERMINE REPO LINK,3,false,1,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Rust,azure_ai_anomalydetector,UNABLE TO DETERMINE REPO LINK,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Rust,azure_ai_anomalydetector,UNABLE TO DETERMINE REPO LINK,1,false,Replaced by: NA,,4,false,1,
 Cognitive Services,0,AI Agents Persistent,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
 Cognitive Services,0,AI Agents Persistent,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
 Cognitive Services,0,AI Agents Persistent,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
@@ -2349,6 +2349,10 @@ Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,Java
 Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Queues,,2,false,0,
 Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Queues,,2,false,0,
 Extensions,0,Functions extension for Storage Queues,UNABLE TO BE DETERMINED,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Queues,,2,false,0,
+Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,Java,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,,2,false,0,
+Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,JavaScript,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,,2,false,0,
+Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,Python,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,,2,false,0,
+Extensions,0,Functions extension for WebPubSub for SocketIO,UNABLE TO BE DETERMINED,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO,,2,false,0,
 Provisioning,0,Provisioning - App Configuration,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.Provisioning.AppConfiguration,,2,false,0,
 Provisioning,0,Provisioning - App Configuration,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.Provisioning.AppConfiguration,,2,false,0,
 Provisioning,0,Provisioning - App Configuration,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.Provisioning.AppConfiguration,,2,false,0,
@@ -4279,6 +4283,11 @@ edgezones,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs 
 edgezones,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: edgezones/cspell.yaml,,2,false,0,
 edgezones,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: edgezones/cspell.yaml,,2,false,0,
 edgezones,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: edgezones/cspell.yaml,,2,false,0,
+Elastic,0,Resource Management - Elastic.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: elastic/Elastic.Management,,2,false,0,
+Elastic,0,Resource Management - Elastic.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: elastic/Elastic.Management,,2,false,0,
+Elastic,0,Resource Management - Elastic.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: elastic/Elastic.Management,,2,false,0,
+Elastic,0,Resource Management - Elastic.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: elastic/Elastic.Management,,2,false,0,
+Elastic,0,Resource Management - Elastic.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: elastic/Elastic.Management,,2,false,0,
 Elastic,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: elastic/cspell.yaml,,2,false,0,
 Elastic,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: elastic/cspell.yaml,,2,false,0,
 Elastic,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: elastic/cspell.yaml,,2,false,0,
