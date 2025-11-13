@@ -623,4 +623,54 @@ entries:
     * Added support for forced refresh of configurations when using Key Vault references. Adds `secret_refresh_interval` to the `AzureAppConfigurationProvider` `load` method. This allows the provider to refresh Key Vault secrets at a specified interval. Is set to 60 seconds by default, and can only be set if using Key Vault references.
     * Added support for async `on_refresh_success`.
     * Added support for Configuration Setting Mapping, new `configuration_mapper` parameter to the `load` method, allows for a callback to be added to modify configurations.
+- Name: azure-mgmt-hdinsightcontainers
+  Version: 1.0.0b4
+  DisplayName: Resource Management - HDInsight Containers
+  ServiceName: HDInsight Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsightcontainers_1.0.0b4/sdk/hdinsight/azure-mgmt-hdinsightcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-language-questionanswering
+  Version: 2.0.0b1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_2.0.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Authoring functionality (project creation, knowledge source management, deployment operations) has been removed from this package and moved to a separate dedicated authoring package / namespace. All references to `AuthoringClient`, and related authoring operations have been eliminated from the runtime client distribution.
+    * Dropped support for Python versions earlier than 3.9 (aligns with Azure SDK Python support policy going forward).
+    * Model base class change: all public model types now inherit from `MutableMapping[str, Any]` (dict-like) instead of the previous `Model` base class. As a result they now support standard mutable mapping behavior (key iteration, item assignment, etc.) and any code depending on methods/properties inherited from the old base class should be reviewed/updated.
+    * Removed client constructor keyword argument `default_language`. Per-call language control is now done explicitly via the `language` property on `AnswersFromTextOptions` (and related options models). The service default remains `"en"` if a language is not supplied. To change the effective language:
+    * Pass `language="<bcp-47-code>"` when constructing `AnswersFromTextOptions` (e.g. `"es"`, `"zh-Hans"`).
+    * Or create / select a project in the desired language in [Language Studio](https://language.azure.com) when authoring knowledge bases.
+
+    The previous implicit fallback (client-level `default_language`) has been removed to avoid hidden state and to encourage explicit specification or project-level configuration.
+    * Removed support for passing metadata as `Dict[str,str]` to `MetadataFilter`. Tuple form `[("key","value"), ...]` and `List[MetadataRecord]` remain supported.
+
+    #### Features Added
+
+    * Documentation improvements: expanded README with authentication guidance, AAD usage, async examples, and troubleshooting section.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b45
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b45/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Modified logic for message body on Microsoft.ApplicationInsights.MessageData to include default message for messages with empty body and export logs
+    ([#43091](https://github.com/Azure/azure-sdk-for-python/pull/43091))
+
+    #### Features Added
+    - Added new log record processor to support Trace Based Sampling
+    ([#43811](https://github.com/Azure/azure-sdk-for-python/pull/43811))
+    - Added Operation Name Propagation for Dependencies and Logs
+    ([#43588](https://github.com/Azure/azure-sdk-for-python/pull/43588))
+    - Added local storage support for multiple users on the same Linux system
+    ([#43483](https://github.com/Azure/azure-sdk-for-python/pull/43483))
 
