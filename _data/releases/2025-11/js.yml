@@ -439,4 +439,54 @@ entries:
     - remove `project.telemetry` route
     - remove `project.getAzureOpenAIClient` method
     - remove `project.enableTelemetry` method
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.36
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.36/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed dynamic import of the exporter package.
+
+    - Add support for multiuser permissions in unix.
+
+    - Add support for log message serialization for complex objects.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.14.1
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.14.1/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix dynamically importing the monitor-opentelemetry packages in Next.js.
+- Name: '@azure/app-configuration'
+  Version: 1.10.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.10.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support snapshot reference [#36105](https://github.com/Azure/azure-sdk-for-js/pull/36105)
+    - New type for SnapshotReference - `ConfigurationSetting<SnapshotReferenceValue>`
+    - Upon using `getConfigurationSetting`(or add/update), use `parseSnapshotReference` methods to access the properties (to translate `ConfigurationSetting` into the type above).
+    - Helper method `isSnapshotReference` checks the contentType and return boolean values.
+
+    - Support `requirement_type` for feature flag. [#36104](https://github.com/Azure/azure-sdk-for-js/pull/36104)
+- Name: '@azure/arm-mysql-flexible'
+  Version: 4.0.0-beta.4
+  DisplayName: Resource Management - MySQL Flexible
+  ServiceName: Mysql-Flexible
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_4.0.0-beta.4/sdk/mysql/arm-mysql-flexible/CHANGELOG.md
+  ChangelogContent: ""
 
