@@ -422,4 +422,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.1.0/sdk/deviceregistry/arm-deviceregistry/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.0.0-beta.1
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.1/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - add `project.agents` route, built on top OpenAI's "Responses" protocol
+    - add `project.getOpenAIClient` method to get an authenticated OpenAI client for your AI Foundry Project
+    - add `project.redTeams` route
+    - remove `project.inference` route
+    - remove `project.telemetry` route
+    - remove `project.getAzureOpenAIClient` method
+    - remove `project.enableTelemetry` method
 
