@@ -1075,7 +1075,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 All Azure SDK libraries must include a target for [.NET Standard 2.0]. This ensures that they are compatible with all supported versions of .NET, covering both modern .NET and the .NET Framework.  
 
-Libraries built by the Azure SDK engineering system will also target the oldest supported [long term support (LTS)] version of .NET. This enables them to take advantage of modern runtime features, allows applications to fully benefit from modern runtimes, and obviates the need for applications to download polyfill shim packages for functionality already built-into modern runtimes. It is strongly encouraged that self-published libraries also include this target framework.
+Libraries built by the Azure SDK engineering system will also target the current [long term support (LTS)] version of .NET. This enables them to take advantage of modern runtime features, allows applications to fully benefit from modern runtimes, and obviates the need for applications to download polyfill shim packages for functionality already built-into modern runtimes. It is strongly encouraged that self-published libraries also include this target framework.
 
 For projects built by the Azure SDK engineering system, use the following target setting in the `.csproj` file:
 
@@ -1091,12 +1091,12 @@ If not building with the Azure SDK engineering system, use the following target 
 <TargetFrameworks>netstandard2.0</TargetFrameworks>
 ```
 
-{% include requirement/SHOULD id="dotnet-build-net-oldest-lts" %} build libraries for the oldest supported LTS version of .NET.
+{% include requirement/SHOULD id="dotnet-build-net-current-lts" %} build libraries for the current long term support (LTS) version of .NET.
 
-For example, if the oldest supported LTS version of .NET is `8.0`, use the following target setting in the `.csproj` file if not building with the Azure SDK engineering system:
+For example, if the current LTS version of .NET is `10.0`, use the following target setting in the `.csproj` file if not building with the Azure SDK engineering system:
 
 ```xml
-<TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+<TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
 ```
 
 {% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
@@ -1107,9 +1107,9 @@ The public API of client libraries must be the same for all targets including cl
 
 #### Target Framework Retirement
 
-When a new [long term support (LTS)] version of .NET is released and the previous version retired, Azure SDK libraries will add the new LTS target. Libraries will continue to target the previous LTS package for 6 months after it has reached end-of-life to minimize the impact to developers and allow time for migration. After that transition period, Azure SDK libraries will no longer target the retired LTS.  
+When a new [long term support (LTS)] version of .NET is released, Azure SDK libraries will add the new LTS target. Libraries will continue to target the previous LTS  until it is out of support to minimize the impact to developers and allow time for migration. Once the previous LTS has reached end-of-life, Azure SDK libraries will no longer target the retired LTS.  
 
-After 6 months, the retired LTS will be removed from the target frameworks. Because the `netstandard2.0` target will always be present, removal of the target should not break applications still using an unsupported runtime as they will fall back to the standard target. They will, however, gain a dependency on polyfill packages and lose performance improvements specific to modern runtimes. It is possible that the fallback will introduce an unintended break, but this risk is implicitly assumed by the application as they have chosen to rely on a runtime no longer supported by Microsoft.
+After .NET platform support for the runtime has ended, the retired LTS will be removed from the target frameworks. Because the `netstandard2.0` target will always be present, removal of the target should not break applications still using an unsupported runtime as they will fall back to the standard target. They will, however, gain a dependency on polyfill packages and lose performance improvements specific to modern runtimes. It is possible that the fallback will introduce an unintended break, but this risk is implicitly assumed by the application as they have chosen to rely on a runtime no longer supported by Microsoft.
 
 ### Dependencies {#dotnet-dependencies}
 
@@ -1132,7 +1132,7 @@ package that is now a part of the .NET platform instead. If you are using `Azure
 
 For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/Packages.Data.props) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
 
-{% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the oldest supported [long term support (LTS)] version of .NET. For example, if the oldest supported LTS version of .NET is `8.0`, references to runtime libraries such as `System.Text.Json` should target the minor and patch version with a major version of `8`.
+{% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the current [long term support (LTS)] version of .NET. For example, if the current LTS version is `10.0`, then references to runtime libraries such as `System.Text.Json` should target the latest with a major version of `10`.  These dependency versions are guarnteed to include targets for the current LTS and previous .NET runtimes still under support. 
 
 {% include requirement/MUST id="dotnet-dependency-supported-versions" %} ensure all dependencies reference a version supported by the publisher that is not marked as deprecated or flagged by NuGet for vulnerabilities. 
 
