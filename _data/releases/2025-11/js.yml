@@ -524,4 +524,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_2.0.0-beta.1/sdk/dnsresolver/arm-dnsresolver/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/data-tables'
+  Version: 13.3.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.2/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue [#36588](https://github.com/Azure/azure-sdk-for-js/pull/36588) where a ReferenceError is thrown in browser.
 
