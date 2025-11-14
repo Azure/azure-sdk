@@ -154,12 +154,12 @@ println!("{secret:#?}");
 But all those lines will render in plain markdown like in `README.md` on <https://github.com> and elsewhere.
 Instead, there's [`include-file`](https://crates.io/crates/include-file) that lets you achieve the same result in `README.md` while compiling or even executing those snippets as tests.
 
-{% include requirement/MAY id="rust-client-tests-doc-examples-include" %} use the `include_file::include_markdown!()` macro to render Rust code snippets while compiling or even executing those snippets as tests.
+{% include requirement/MAY id="rust-client-tests-doc-examples-include" %} use the [`include_file::include_markdown!()`][include-file] macro to render Rust code snippets while compiling or even executing those snippets as tests.
 
 In your `README.md`, you'll include only the code you want to show in a `rust ignore` code fence (it has to be ignored because it won't compile without a lot of setup code) along with a unique name within that file that identifies your example, like `get-secret`:
 
 ````markdown
-```rust ignore get-execret
+```rust ignore get-secret
 let secret = client.get_secret("my-secret", None).await?.into_model()?;
 println!("{secret:#?}");
 ```
@@ -176,7 +176,7 @@ use include_file::include_markdown;
 #[tokio::test]
 async fn readme() -> Result<(), Box<dyn std::error::Error>> {
     let credential = DeveloperToolsCredential::new(None)?;
-    let client = SecretClient::new("https://my-vault-vault.azure.net", credential, None)?;
+    let client = SecretClient::new("https://my-vault.vault.azure.net", credential, None)?;
 
     include_markdown("README.md", "get-secret");
 
@@ -204,7 +204,7 @@ async fn readme(ctx: TestContext) -> Result<()> {
     recording.instrument(&mut options.client_options);
 
     let client = SecretClient::new(
-        "https://my-vault-vault.azure.net",
+        "https://my-vault.vault.azure.net",
         recording.credential(),
         Some(options),
     )?;

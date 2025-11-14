@@ -955,9 +955,7 @@ let client = SecretClient::new(...);
 ````
 
 {% include requirement/MUST id="rust-documentation-readme-norun" %} add `no_run` to the code fence to make sure the sample compiles when included in source but does not execute if it requires external resources e.g.,
-any client library methods would require authentication and a provisioned resources. Alternatively, you can use [documentation examples][rust-doc-examples] to document code examples that can execute as recorded tests.
-
-Alternatively, you can use the [`include_markdown`]
+any client library methods would require authentication and provisioned resources. Alternatively, you can use [`include_file::include_markdown!()`][include-file] macro in [documentation examples][rust-doc-examples] to document code examples that can execute as recorded tests.
 
 {% include requirement/MUST id="rust-documentation-doc-auto-cfg" %} document which, if any, features a module, type, or function requires.
 
@@ -1079,7 +1077,7 @@ An example of a good client library `README.md` file is for [`azure_security_key
 
 {% include requirement/MUST id="rust-repository-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
 
-{% include requirement/MAY id="rust-repository-readme-doc-examples" %} may include snippets of source code for concise examples that are executed as recorded tests. See [documentation examples][rust-doc-examples] for details.
+{% include requirement/MAY id="rust-repository-readme-doc-examples" %} include snippets of source code for concise examples that are executed as recorded tests. See [documentation examples][rust-doc-examples] for details.
 
 The contributor guide (`CONTRIBUTING.md`) should be a separate file.
 

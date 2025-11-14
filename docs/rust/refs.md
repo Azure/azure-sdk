@@ -29,3 +29,6 @@
 [rust-doc-examples]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-client-tests-doc-examples
 [rust-safety-debug]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-safety-debug
 [rust-modules]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-modules
+
+<!-- Other links -->
+[include-file]: https://crates.io/crates/include-file
