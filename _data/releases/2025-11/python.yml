@@ -584,4 +584,338 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.9.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.23.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.23.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `ShareClient`'s `list_directories_and_files` API specified with `name_starts_with`
+    would not return all results when the share contains a large number of files and directories.
+    - Removed `__enter__` and `__exit__` attributes for all asynchronous client objects for raising explicit `TypeError`,
+    and let the `AttributeError` raise directly.
+
+    #### Features Added
+    - Stable release of features from 12.23.0b1
+- Name: azure-storage-blob
+  Version: 12.27.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.27.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.27.0b1
+- Name: azure-storage-queue
+  Version: 12.14.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.14.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.14.0b1
+- Name: azure-ai-evaluation
+  Version: 1.13.5
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.5/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - **TaskAdherenceEvaluator:** treat tool definitions as optional so evaluations with only query/response inputs no longer raise “Either 'conversation' or individual inputs must be provided.”
+- Name: azure-ai-evaluation
+  Version: 1.13.4
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.4/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle input data for evaluation result when evaluators.
+- Name: azure-ai-evaluation
+  Version: 1.13.3
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.3/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `scenario` property to red team evaluation request to align scores with red team concepts of attack success.
+- Name: azure-ai-evaluation
+  Version: 1.13.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added App Insights redaction for agent safety run telemetry so adversarial prompts are not stored in collected logs.
+- Name: azure-ai-evaluation
+  Version: 1.13.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed RedTeam evaluation error related to context handling for context-dependent risk categories
+    - Fixed RedTeam prompt application for model targets during Indirect Jailbreak XPIA (Cross-Platform Indirect Attack)
+
+    #### Features Added
+
+    - Improved RedTeam coverage across risk sub-categories to ensure comprehensive security testing
+    - Made RedTeam's `AttackStrategy.Tense` seed prompts dynamic to allow use of this strategy with additional risk categories
+    - Refactors error handling and result semantics in the RedTeam evaluation system to improve clarity and align with Attack Success Rate (ASR) conventions (passed=False means attack success)
+- Name: azure-ai-evaluation
+  Version: 1.13.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `image_tag` parameter in `AzureOpenAIPythonGrader` is now optional.
+
+    #### Features Added
+
+    - Updated `IndirectAttack` risk category for RedTeam to `IndirectJailbreak` to better reflect its purpose. This change allows users to apply cross-domain prompt injection (XPIA) attack strategies across all risk categories, enabling more comprehensive security testing of AI systems against indirect prompt injection attacks during red teaming.
+    - Added `TaskAdherence`, `SensitiveDataLeakage`, and `ProhibitedActions` as cloud-only agent safety risk categories for red teaming.
+    - Updated all evaluators' output to be of the following schema:
+    - `gpt_{evaluator_name}`, `{evaluator_name}`: float score,
+    - `{evaluator_name}_result`: pass/fail based on threshold,
+    - `{evaluator_name}_reason`, `{evaluator_name}_threshold`
+    - `{evaluator_name}_prompt_tokens`, `{evaluator_name}_completion_tokens`, `{evaluator_name}_total_tokens`, `{evaluator_name}_finish_reason`
+    - `{evaluator_name}_model`: model used for evaluation
+    - `{evaluator_name}_sample_input`, `{evaluator_name}_sample_output`: input and output used for evaluation
+
+    This change standardizes the output format across all evaluators and follows OTel convention.
+- Name: azure-mgmt-netapp
+  Version: 14.0.0b4
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.0.0b4/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b3/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Id generator format.
+
+    - Fixed trace initialization for agent-framework.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Id generator format.
+
+    - Improved stream mode error messsage.
+
+    - Updated application insights related configuration environment variables.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    First version
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b44
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b44/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where AAD authentication for Live Metrics failed for users in sovereign cloud environments
+    ([#43392](https://github.com/Azure/azure-sdk-for-python/pull/43392))
+- Name: azure-mgmt-containerservice
+  Version: 41.0.0b1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.0.0b1/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.14.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.14.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed `retry_write` from `bool` to `int` to match other retryable options. See [PR 43341](https://github.com/Azure/azure-sdk-for-python/pull/43341).
+
+    #### Bugs Fixed
+    * Fixed bug where exclusion list was not honored before falling back to global endpoint for multi-write region accounts. See[PR 43297](https://github.com/Azure/azure-sdk-for-python/pull/43297)
+
+    #### Features Added
+    * Added ability to return a tuple of a DatabaseProxy/ContainerProxy with the associated database/container properties when creating or reading databases/containers through `return_properties` parameter. See [PR 41742](https://github.com/Azure/azure-sdk-for-python/pull/41742)
+    * Added a new **preview feature** API for Semantic Reranking. See [PR 42991](https://github.com/Azure/azure-sdk-for-python/pull/42991)
+- Name: azure-appconfiguration-provider
+  Version: 2.3.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.3.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a bug where feature flags were using the configuration refresh timer instead of the feature flag refresh timer.
+    * When loading duplicate configurations only the priority configuration will be processed.
+
+    #### Features Added
+
+    * Added support for Azure App Configuration Snapshots, `SettingSelector` now has a `snapshot_name` parameter.
+    * Added support for forced refresh of configurations when using Key Vault references. Adds `secret_refresh_interval` to the `AzureAppConfigurationProvider` `load` method. This allows the provider to refresh Key Vault secrets at a specified interval. Is set to 60 seconds by default, and can only be set if using Key Vault references.
+    * Added support for async `on_refresh_success`.
+    * Added support for Configuration Setting Mapping, new `configuration_mapper` parameter to the `load` method, allows for a callback to be added to modify configurations.
+- Name: azure-search-documents
+  Version: 11.7.0b2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.7.0b2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes apply to the latest preview release only and do not affect generally available versions.
+
+    - Knowledge base naming and routing refresh:
+    - Renamed the knowledge agent surface area to the knowledge base equivalents:
+    - `azure.search.documents.indexes.models.KnowledgeAgent` -> `azure.search.documents.indexes.models.KnowledgeBase`
+    - `azure.search.documents.indexes.models.KnowledgeAgentAzureOpenAIModel` -> `azure.search.documents.indexes.models.KnowledgeBaseAzureOpenAIModel`
+    - `azure.search.documents.indexes.models.KnowledgeAgentModel` -> `azure.search.documents.indexes.models.KnowledgeBaseModel`
+    - `azure.search.documents.indexes.models.KnowledgeAgentModelKind` -> `azure.search.documents.indexes.models.KnowledgeBaseModelKind`
+    - Knowledge base clients now target `/knowledgebases` REST routes and accept `knowledge_base_name` instead of the agent name parameter.
+    - Replaced `azure.search.documents.indexes.models.KnowledgeAgentOutputConfiguration` with `azure.search.documents.indexes.models.KnowledgeBase.output_mode`.
+    - Replaced `azure.search.documents.indexes.models.KnowledgeAgentOutputConfigurationModality` with `azure.search.documents.indexes.models.KnowledgeRetrievalOutputMode`.
+    - Removed `azure.search.documents.indexes.models.KnowledgeAgentRequestLimits`; callers should apply request guardrails at the service level.
+    - Knowledge source parameterization updates:
+    - Updated `azure.search.documents.indexes.models.AzureBlobKnowledgeSourceParameters` to use `azure.search.documents.indexes.models.KnowledgeSourceIngestionParameters`, replacing the previous `identity`, `embedding_model`, `chat_completion_model`, `ingestion_schedule`, and `disable_image_verbalization` properties with the new `is_adls_gen2` and `ingestion_parameters` shape.
+    - Updated `azure.search.documents.indexes.models.KnowledgeSourceReference` to carry only the source name, moving the `include_references`, `include_reference_source_data`, `always_query_source`, `max_sub_queries`, and `reranker_threshold` options onto the concrete parameter types.
+    - Compression configuration cleanup:
+    - Removed the `default_oversampling` property from `azure.search.documents.indexes.models.BinaryQuantizationCompression`, `azure.search.documents.indexes.models.ScalarQuantizationCompression`, and `azure.search.documents.indexes.models.VectorSearchCompression`.
+    - Removed the `rerank_with_original_vectors` property from `azure.search.documents.indexes.models.BinaryQuantizationCompression`, `azure.search.documents.indexes.models.ScalarQuantizationCompression`, and `azure.search.documents.indexes.models.VectorSearchCompression`.
+    - Knowledge source parameter field realignment:
+    - Replaced `azure.search.documents.indexes.models.SearchIndexKnowledgeSourceParameters.source_data_select` with `azure.search.documents.indexes.models.SearchIndexKnowledgeSourceParameters.source_data_fields`.
+    - Added `azure.search.documents.indexes.models.SearchIndexKnowledgeSourceParameters.search_fields` for field mapping.
+    - Added optional `azure.search.documents.indexes.models.SearchIndexKnowledgeSourceParameters.semantic_configuration_name`.
+
+    #### Features Added
+
+    - Added new models:
+    - `azure.search.documents.indexes.models.AIServices`
+    - `azure.search.documents.indexes.models.CompletedSynchronizationState`
+    - `azure.search.documents.indexes.models.ContentUnderstandingSkill`
+    - `azure.search.documents.indexes.models.ContentUnderstandingSkillChunkingProperties`
+    - `azure.search.documents.indexes.models.ContentUnderstandingSkillChunkingUnit`
+    - `azure.search.documents.indexes.models.ContentUnderstandingSkillExtractionOptions`
+    - `azure.search.documents.indexes.models.IndexedOneLakeKnowledgeSource`
+    - `azure.search.documents.indexes.models.IndexedOneLakeKnowledgeSourceParameters`
+    - `azure.search.documents.indexes.models.IndexedSharePointContainerName`
+    - `azure.search.documents.indexes.models.IndexedSharePointKnowledgeSource`
+    - `azure.search.documents.indexes.models.IndexedSharePointKnowledgeSourceParameters`
+    - `azure.search.documents.indexes.models.IndexerRuntime`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalLowReasoningEffort`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalMediumReasoningEffort`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalMinimalReasoningEffort`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalOutputMode`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalReasoningEffort`
+    - `azure.search.documents.indexes.models.KnowledgeRetrievalReasoningEffortKind`
+    - `azure.search.documents.indexes.models.KnowledgeSourceAzureOpenAIVectorizer`
+    - `azure.search.documents.indexes.models.KnowledgeSourceContentExtractionMode`
+    - `azure.search.documents.indexes.models.KnowledgeSourceIngestionParameters`
+    - `azure.search.documents.indexes.models.KnowledgeSourceIngestionPermissionOption`
+    - `azure.search.documents.indexes.models.KnowledgeSourceStatistics`
+    - `azure.search.documents.indexes.models.KnowledgeSourceStatus`
+    - `azure.search.documents.indexes.models.KnowledgeSourceSynchronizationStatus`
+    - `azure.search.documents.indexes.models.KnowledgeSourceVectorizer`
+    - `azure.search.documents.indexes.models.RemoteSharePointKnowledgeSource`
+    - `azure.search.documents.indexes.models.RemoteSharePointKnowledgeSourceParameters`
+    - `azure.search.documents.indexes.models.SearchIndexFieldReference`
+    - `azure.search.documents.indexes.models.ServiceIndexersRuntime`
+    - `azure.search.documents.indexes.models.SynchronizationState`
+    - `azure.search.documents.indexes.models.WebKnowledgeSource`
+    - `azure.search.documents.indexes.models.WebKnowledgeSourceDomain`
+    - `azure.search.documents.indexes.models.WebKnowledgeSourceDomains`
+    - `azure.search.documents.indexes.models.WebKnowledgeSourceParameters`
+
+    - Expanded existing models and enums:
+    - Added support for `avg`, `min`, `max`, and `cardinality` metrics on `azure.search.documents.models.FacetResult`.
+    - Added `is_adls_gen2` and `ingestion_parameters` options on `azure.search.documents.indexes.models.AzureBlobKnowledgeSourceParameters`.
+    - Added support for `gpt-5`, `gpt-5-mini`, and `gpt-5-nano` values on `azure.search.documents.indexes.models.AzureOpenAIModelName`.
+    - Added support for `web`, `remoteSharePoint`, `indexedSharePoint`, and `indexedOneLake` values on `azure.search.documents.indexes.models.KnowledgeSourceKind`.
+    - Added support for `onelake` and `sharepoint` values on `azure.search.documents.indexes.models.SearchIndexerDataSourceConnection.type`.
+    - Added `azure.search.documents.indexes.models.SearchField.sensitivity_label`.
+    - Added `azure.search.documents.indexes.models.SearchIndexerStatus.runtime`.
+    - Added `azure.search.documents.indexes.models.SearchIndex.purview_enabled`.
+    - Added `azure.search.documents.indexes.models.SearchServiceLimits.max_cumulative_indexer_runtime_seconds`.
+    - Added `azure.search.documents.indexes.models.SearchServiceStatistics.indexers_runtime`.
+    - Added `product` aggregation support to `azure.search.documents.indexes.models.ScoringFunctionAggregation`.
+    - Added `share_point` to `azure.search.documents.indexes.models.SearchIndexerDataSourceType`.
+    - Added `include_references`, `include_reference_source_data`, `always_query_source`, and `reranker_threshold` options on `azure.search.documents.knowledgebases.models.SearchIndexKnowledgeSourceParams`.
+    - Added `error` tracking details on `azure.search.documents.knowledgebases.models.KnowledgeBaseActivityRecord` derivatives.
+
+    - Client and service enhancements:
+    - Added support for HTTP 206 partial content responses when calling `azure.search.documents.knowledgebases.KnowledgeBaseRetrievalClient.knowledge_retrieval.retrieve`.
+    - Added optional `x_ms_enable_elevated_read` keyword to `azure.search.documents.SearchClient.search` and `azure.search.documents.aio.SearchClient.search` for elevated document reads.
+- Name: azure-ai-voicelive
+  Version: 1.2.0b1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.2.0b1/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **MCP (Model Context Protocol) Support**: Added comprehensive support for Model Context Protocol integration:
+    - `MCPServer` tool type for defining MCP server configurations with authorization, headers, and approval requirements
+    - `MCPTool` model for representing MCP tool definitions with input schemas and annotations
+    - `MCPApprovalType` enum for controlling approval workflows (`never`, `always`, or tool-specific)
+    - New item types: `MCPApprovalResponseRequestItem`, `ResponseMCPApprovalRequestItem`, `ResponseMCPApprovalResponseItem`, `ResponseMCPCallItem`, and `ResponseMCPListToolItem`
+    - New server events: `ServerEventMcpListToolsInProgress`, `ServerEventMcpListToolsCompleted`, `ServerEventMcpListToolsFailed`, `ServerEventResponseMcpCallArgumentsDelta`, and `ServerEventResponseMcpCallArgumentsDone`
+    - Client event `MCP_APPROVAL_RESPONSE` for responding to approval requests
+    - Enhanced `ItemType` enum with MCP-related types: `mcp_list_tools`, `mcp_call`, `mcp_approval_request`, and `mcp_approval_response`
 
