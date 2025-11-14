@@ -936,7 +936,7 @@ pub struct Secret {
 #![doc = include_str!("../README.md")]
 ```
 
-This will impact line numbers, so you should only export APIs publicly from `lib.rs`.
+This will impact line numbers since the `README.md` is included as if it was typed directly into the source files, so you should only export APIs publicly from `lib.rs`.
 
 {% include requirement/MAY id="rust-documentation-module-readme" %} include a separate `README.md` for a module as module documentation e.g., for module `http` defined in `http/mod.rs`:
 
@@ -954,12 +954,15 @@ let client = SecretClient::new(...);
 ```
 ````
 
+{% include requirement/MUST id="rust-documentation-readme-norun" %} add `no_run` to the code fence to make sure the sample compiles when included in source but does not execute if it requires external resources e.g.,
+any client library methods would require authentication and provisioned resources. Alternatively, you can use [`include_file::include_markdown!()`][include-file] macro in [documentation examples][rust-doc-examples] to document code examples that can execute as recorded tests.
+
 {% include requirement/MUST id="rust-documentation-doc-auto-cfg" %} document which, if any, features a module, type, or function requires.
 
 Near the top of `src/lib.rs` after [inclusion of the README](#rust-documentation-readme), add:
 
 ```rust
-#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 ```
 
 {% include requirement/MUST id="rust-documentation-warn-missing-docs" %} warn for missing docs.
@@ -1070,9 +1073,11 @@ This prevents noisy subsequent pull requests if another maintainer formats sourc
 
 {% include requirement/MUST id="rust-repository-readme-file" %} have a `README.md` file in the component root folder.
 
-An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-rust/blob/main/sdk/core/azure_core/README.md).
+An example of a good client library `README.md` file is for [`azure_security_keyvault_secrets`](https://github.com/Azure/azure-sdk-for-rust/blob/main/sdk/keyvault/azure_security_keyvault_secrets/README.md).
 
 {% include requirement/MUST id="rust-repository-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
+
+{% include requirement/MAY id="rust-repository-readme-doc-examples" %} include snippets of source code for concise examples that are executed as recorded tests. See [documentation examples][rust-doc-examples] for details.
 
 The contributor guide (`CONTRIBUTING.md`) should be a separate file.
 

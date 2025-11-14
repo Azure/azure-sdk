@@ -129,6 +129,96 @@ mod tests {
 
 {% include requirement/SHOULD id="rust-client-tests-examples-location" %} include examples under the `examples/` subdirectory for primary use cases. These are written as standalone executables but may include shared code modules.
 
+#### Documentation examples {#rust-client-tests-doc-examples}
+
+[Documentation tests][rust-lang-doc-tests] are powerful. Not only are they compiled (unless `ignore`), but can be executed (unless `no_run`) with `cargo test --doc` (run by default with `cargo test`). They also allow you to hide setup code e.g., if you want to call an async function:
+
+```rust
+/// ```no_run
+/// # #[tokio::main] fn main() -> Result<(), Box<dyn std::error::Error>> {
+/// # let credential: DeveloperToolsCredential = unimplemented!();
+/// let client = SecretClient::new("https://my-vault.vault.azure.net", credential.clone(), None)?;
+/// let secret = client.get_secret("my-secret", None).await?.into_model()?;
+/// println!("{secret:#?}");
+/// # Ok(()) }
+```
+
+In Rust documentation comments, on <https://docs.rs>, etc., you'll only see:
+
+```rust
+let client = SecretClient::new("https://my-vault.vault.azure.net", credential.clone(), None)?;
+let secret = client.get_secret("my-secret", None).await?.into_model()?;
+println!("{secret:#?}");
+```
+
+But all those lines will render in plain markdown like in `README.md` on <https://github.com> and elsewhere.
+Instead, there's [`include-file`](https://crates.io/crates/include-file) that lets you achieve the same result in `README.md` while compiling or even executing those snippets as tests.
+
+{% include requirement/MAY id="rust-client-tests-doc-examples-include" %} use the [`include_file::include_markdown!()`][include-file] macro to render Rust code snippets while compiling or even executing those snippets as tests.
+
+In your `README.md`, you'll include only the code you want to show in a `rust ignore` code fence (it has to be ignored because it won't compile without a lot of setup code) along with a unique name within that file that identifies your example, like `get-secret`:
+
+````markdown
+```rust ignore get-secret
+let secret = client.get_secret("my-secret", None).await?.into_model()?;
+println!("{secret:#?}");
+```
+````
+
+Add a `tests/readme.rs` file that includes your setup code similar to what we would've hidden in Rust documentation comments and reference section in the `README.md` (relative to the crate root):
+
+```rust
+use azure_identity::DeveloperToolsCredential;
+use azure_security_keyvault_secrets::SecretClient;
+use include_file::include_markdown;
+
+#[ignore = "requires provisioned resources"]
+#[tokio::test]
+async fn readme() -> Result<(), Box<dyn std::error::Error>> {
+    let credential = DeveloperToolsCredential::new(None)?;
+    let client = SecretClient::new("https://my-vault.vault.azure.net", credential, None)?;
+
+    include_markdown("README.md", "get-secret");
+
+    Ok(())
+}
+```
+
+The test has `#[ignore]` because we can't actually execute it without provisioning resources, but we can compile it; however, you can use recorded tests.
+
+{% include requirement/MAY id="rust-client-tests-doc-examples-recorded" %} use recorded tests to actually execute documentation examples.
+
+The markdown is the same, but we change the signature of the test like so:
+
+```rust
+use azure_core::Result;
+use azure_core_test::{recorded, TestContext};
+use azure_security_keyvault_secrets::{SecretClient, SecretClientOptions};
+use include_file::include_markdown;
+
+#[recorded::test]
+async fn readme(ctx: TestContext) -> Result<()> {
+    let recording = ctx.recording();
+
+    let mut options = SecretClientOptions::default();
+    recording.instrument(&mut options.client_options);
+
+    let client = SecretClient::new(
+        "https://my-vault.vault.azure.net",
+        recording.credential(),
+        Some(options),
+    )?;
+
+    include_markdown("README.md", "get-secret");
+
+    Ok(())
+}
+```
+
+Now you can record and later play back your tests. See our [contribution guide for integration tests](https://github.com/Azure/azure-sdk-for-rust/blob/main/CONTRIBUTING.md#integration-tests) for details.
+
+For a complete example, see pull request [Azure/azure-sdk-for-rust#3337](https://github.com/Azure/azure-sdk-for-rust/pull/3337/files).
+
 ## Traits {#rust-traits}
 
 {% include requirement/MUST id="rust-traits-async" %} attribute traits and trait implementations with async functions with the `async_trait::async_trait` procedural macro to desugar the async functions. This allows requiring futures to also be `Send`. See [Azure/azure-sdk-for-rust#1796](https://github.com/Azure/azure-sdk-for-rust/issues/1796) for details.
