@@ -684,4 +684,29 @@ entries:
     #### Bugs Fixed
 
     * Fixed a bug where calling the refresh method would always trigger it.
+- Name: azure-monitor-opentelemetry
+  Version: 1.8.2
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.8.2/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix detector version
+    ([#43044](https://github.com/Azure/azure-sdk-for-python/pull/43044))
+    - Fix spelling for OTEL_PYTHON_EXCLUDED_URLS in samples
+    ([#43141](https://github.com/Azure/azure-sdk-for-python/pull/43141))
+
+    #### Features Added
+
+    - Add `trace_based_sampling` logger parameters to filter logs
+    ([#43811](https://github.com/Azure/azure-sdk-for-python/pull/43811))
+    - Performance Counters
+    ([#43262](https://github.com/Azure/azure-sdk-for-python/pull/43262))
+    - Adding more diagnostic log message IDs
+    ([#43183](https://github.com/Azure/azure-sdk-for-python/pull/43183))
+    - Enable Azure AI Project instrumentation
+    ([#43869](https://github.com/Azure/azure-sdk-for-python/pull/43869))
 
