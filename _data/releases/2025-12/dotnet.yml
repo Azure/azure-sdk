@@ -1,0 +1,34 @@
+entries:
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.4.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.4.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `EnableTraceBasedLogSampler` property to `AzureMonitorOptions` to enable
+    filtering logs based on trace sampling decisions, reducing log volume while
+    maintaining trace-log correlation.
+    ([#53441](https://github.com/Azure/azure-sdk-for-net/pull/53441))
+
+    * Update OpenTelemetry dependencies
+    ([#53910](https://github.com/Azure/azure-sdk-for-net/pull/53910))
+    - OpenTelemetry 1.14.0
+    - OpenTelemetry.Extensions.Hosting 1.14.0
+    - OpenTelemetry.Instrumentation.AspNetCore 1.14.0
+    - OpenTelemetry.Instrumentation.Http 1.14.0
+- Name: Azure.Identity
+  Version: 1.18.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Kubernetes token proxy support (identity binding mode) to `WorkloadIdentityCredential`. When enabled via the `IsAzureKubernetesTokenProxyEnabled` option, the credential redirects token requests to an AKS-provided proxy to support scenarios exceeding the [20 federated identity credential limit](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview#use-managed-identity-as-a-federated-identity-credential-fic-on-an-entra-id-app) per Entra ID application. This feature is opt-in and only available when using `WorkloadIdentityCredential` directly (not supported by `DefaultAzureCredential` or `ManagedIdentityCredential`).
+
