@@ -22,4 +22,38 @@ entries:
     - Changed function name from `get_assign_deployment_resources_status` to `get_assign_project_resources_status`, change its return type from `DeploymentResourcesState` to `ProjectResourcesState`.
 
     - Changed function name from `get_unassign_deployment_resources_status` to `get_unassign_project_resources_status`, change its return type from `DeploymentResourcesState` to `ProjectResourcesState`.
+- Name: azure-ai-projects
+  Version: 2.0.0b2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.0.0b2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Tracing: operation name attribute added to create agent span, token usage added to streaming response generation span.
+
+    #### Features Added
+
+    * Tracing: support for workflow agent tracing.
+    * Agent Memory operations, including code for custom LRO poller. See methods on the ".memory_store"
+    property of `AIProjectClient`.
+
+    #### Breaking changes
+
+    * `get_openai_client()` method on the asynchronous AIProjectClient is no longer an "async" method.
+    * Tracing: tool call output event content format updated to be in line with other events.
+- Name: azure-ai-evaluation
+  Version: 1.13.7
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.7/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed NoneType error when generating usage summary in evaluation results.
+    - Fixed results for f1_score.
 
