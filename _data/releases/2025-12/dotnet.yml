@@ -31,4 +31,26 @@ entries:
     #### Features Added
 
     - Added Kubernetes token proxy support (identity binding mode) to `WorkloadIdentityCredential`. When enabled via the `IsAzureKubernetesTokenProxyEnabled` option, the credential redirects token requests to an AKS-provided proxy to support scenarios exceeding the [20 federated identity credential limit](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview#use-managed-identity-as-a-federated-identity-credential-fic-on-an-entra-id-app) per Entra ID application. This feature is opt-in and only available when using `WorkloadIdentityCredential` directly (not supported by `DefaultAzureCredential` or `ManagedIdentityCredential`).
+- Name: Azure.AI.Projects
+  Version: 1.2.0-beta.3
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.2.0-beta.3/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue that caused paginated responses like conversation items to never terminate when large numbers of items are fetched
+- Name: Azure.AI.Projects.OpenAI
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_1.0.0-beta.3/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue that caused paginated responses like conversation items to never terminate when large numbers of items are fetched
 
