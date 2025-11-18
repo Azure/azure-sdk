@@ -112,4 +112,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_10.1.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-dnsresolver
+  Version: 2.0.0b1
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dnsresolver_2.0.0b1/sdk/dnsresolver/azure-mgmt-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b5/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed streaming generation issues.
+- Name: azure-ai-language-questionanswering-authoring
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering-authoring_1.0.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering-authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview release of `azure-ai-language-questionanswering-authoring` separated from the combined `azure-ai-language-questionanswering` package.
+    - Supports project listing, creation, update, deletion, import/export, deployments, synonym/source/QnA management operations aligned with the TypeSpec service definition (includes preview API version 2025-05-15-preview where applicable).
 
