@@ -17,4 +17,54 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dnsresolver_1.2.0-beta.1/sdk/dnsresolver/azure-resourcemanager-dnsresolver/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.9.0-beta.1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.9.0-beta.1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where multiple iterations / subscriptions of `SearchPagedFlux` and `SearchPagedIterable` would return the
+    same first page result of the initial iteration / subscription.
+
+    #### Breaking Changes
+
+    - **Knowledge Agent to Knowledge Base Migration**: Complete API rename from Knowledge Agent to Knowledge Base.
+    - All `KnowledgeAgent*` classes renamed to `KnowledgeBase*` (e.g., `KnowledgeAgent` → `KnowledgeBase`).
+    - API paths changed from `/agents` to `/knowledgebases`.
+    - Client parameter `AgentNameParameter` renamed to `KnowledgeBaseNameParameter`.
+    - All agent-related activity record types updated with new naming convention
+    - Removed deprecated Knowledge Agent classes: `KnowledgeAgentOutputConfiguration`, `KnowledgeAgentRequestLimits`, `KnowledgeAgentModel`, `KnowledgeAgentModelKind`, `KnowledgeAgentAzureOpenAIModel`.
+    - Removed properties from `KnowledgeSourceReference`:`includeReferences`,`includeReferenceSourceData`,`alwaysQuerySource`,`maxSubQueries`,`rerankerThreshold`
+    - Removed `sourceDataSelect` property from `SearchIndexKnowledgeSourceParameters`.
+    - Removed properties from `AzureBlobKnowledgeSourceParameters`: `identity`, `embeddingModel`, `chatCompletionModel`, `ingestionSchedule`, `disableImageVerbalization`.
+
+    - Updated `RescoringOptions` to match what was changed in `11.8.0` release.
+    - `isEnableRescoring` -> `isRescoringEnabled`
+    - `setEnableRescoring` -> `setRescoringEnabled`
+    - Changed `RankingOrder.RE_RANKER_SCORE` to `RankingOrder.RERANKER_SCORE`.
+    - Changed `SearchOptions.getDebug` and `.setDebug` to `.getDebugMode` and `.setDebugMode`.
+    - Default `SearchServiceVersion` changed from `2025_09_01` to `V2025_08_01_PREVIEW`.
+
+    #### Features Added
+
+    - Added back all service preview features dropped in `2025-09-01` service version release.
+    - Added optional parameter `x-ms-enable-elevated-read` for elevated read access that bypasses document-level permission checks.
+    - Added statistical aggregation properties to `FacetResult`: `avg`, `min`, `max`, and `cardinality` for enhanced analytics.
+    - Added support for new Azure OpenAI models: `gpt-5`, `gpt-5-mini`, and `gpt-5-nano`.
+    - Added support for `sharepoint` data source type in `SearchIndexerDataSourceType`.
+    - Added support for new `KnowledgeSourceKind` types: `web`, `remoteSharePoint`, `indexedSharePoint`, and `indexedOneLake`.
+    - Added `purviewEnabled` property to `SearchIndex` for Microsoft Purview integration.
+    - Added `maxCumulativeIndexerRuntimeSeconds` property to `ServiceLimits` for runtime monitoring.
+    - Added required `runtime` property to `SearchIndexerStatus` and `indexersRuntime` property to `ServiceStatistics`.
+    - Added `product` enum value to `ScoringFunctionAggregation`.
+    - Added enhanced knowledge source parameters: `sourceDataFields`, `searchFields`, `semanticConfigurationName` in `SearchIndexKnowledgeSourceParameters`.
+    - Added Azure Data Lake Storage Gen2 support with `isADLSGen2` and `ingestionParameters` in `AzureBlobKnowledgeSourceParameters`.
+    - Added partial content response support (HTTP 206) for knowledge base operations.
+    - Added `error` property to `KnowledgeBaseActivityRecord` for enhanced error handling.
+    - Added enhanced knowledge source parameters: `includeReferences`, `includeReferenceSourceData`, `alwaysQuerySource`, `rerankerThreshold` in `SearchIndexKnowledgeSourceParams`.
+  GroupId: com.azure
 
