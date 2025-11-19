@@ -216,4 +216,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0-beta.5/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.17.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.17.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.Identity.Client` and `Microsoft.Identity.Client.Extensions.Msal` dependencies to version 4.78.0.
+- Name: Azure.ResourceManager.DeviceRegistry
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceRegistry_1.1.0-beta.2/sdk/deviceregistry/Azure.ResourceManager.DeviceRegistry/CHANGELOG.md
+  ChangelogContent: ""
 
