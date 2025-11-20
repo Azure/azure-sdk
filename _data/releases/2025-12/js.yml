@@ -90,4 +90,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.8.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.8.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed MIN/MAX aggregate queries randomly returning incorrect results in multi-partition collections. Empty partitions (count:0) were incorrectly overwriting valid aggregate values with undefined, causing MIN or MAX values to be missing from query results.
+
+    #### Features Added
+
+    - [#36701](https://github.com/Azure/azure-sdk-for-js/issues/36701) Added support for `float16` data type in vector embedding.
+    - [#36700](https://github.com/Azure/azure-sdk-for-js/issues/36700) Added support for Priority level in Change feed.
+    - [#36699](https://github.com/Azure/azure-sdk-for-js/issues/36699) Add support for throughput buckets in Change Feed.
 
