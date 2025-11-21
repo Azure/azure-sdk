@@ -1,0 +1,272 @@
+entries:
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.4.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.4.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added `EnableTraceBasedLogSampler` property to `AzureMonitorOptions` to enable
+    filtering logs based on trace sampling decisions, reducing log volume while
+    maintaining trace-log correlation.
+    ([#53441](https://github.com/Azure/azure-sdk-for-net/pull/53441))
+
+    * Update OpenTelemetry dependencies
+    ([#53910](https://github.com/Azure/azure-sdk-for-net/pull/53910))
+    - OpenTelemetry 1.14.0
+    - OpenTelemetry.Extensions.Hosting 1.14.0
+    - OpenTelemetry.Instrumentation.AspNetCore 1.14.0
+    - OpenTelemetry.Instrumentation.Http 1.14.0
+- Name: Azure.Identity
+  Version: 1.18.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Kubernetes token proxy support (identity binding mode) to `WorkloadIdentityCredential`. When enabled via the `IsAzureKubernetesTokenProxyEnabled` option, the credential redirects token requests to an AKS-provided proxy to support scenarios exceeding the [20 federated identity credential limit](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview#use-managed-identity-as-a-federated-identity-credential-fic-on-an-entra-id-app) per Entra ID application. This feature is opt-in and only available when using `WorkloadIdentityCredential` directly (not supported by `DefaultAzureCredential` or `ManagedIdentityCredential`).
+- Name: Azure.AI.Projects
+  Version: 1.2.0-beta.3
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.2.0-beta.3/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue that caused paginated responses like conversation items to never terminate when large numbers of items are fetched
+- Name: Azure.AI.Projects.OpenAI
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_1.0.0-beta.3/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Addressed an issue that caused paginated responses like conversation items to never terminate when large numbers of items are fetched
+- Name: Azure.Storage.Blobs
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.27.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for the StartFrom parameter on BlobContainerClient.GetBlobs(), .GetBlobsAsync(), .GetBlobsByHierarchy(), and .GetBlobsByHierarchyAsync().
+    - Added support for Principal-Bound Identity User Delegation SAS
+    - Added support for conditional headers on BlobBaseClient.GetTags(), .GetTagsAsync(), .SetTags(), and .SetTagsAsync().
+- Name: Azure.Storage.Common
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.26.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Queues
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.25.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.25.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for the ShareServiceProperties.Protocol.SMB.EncryptionInTransit parameter on ShareServiceClient.SetProperties() and .SetPropertiesAsync().
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.25.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for Principal-Bound Identity User Delegation SAS
+    - Added support for the StartFrom parameter on DataLakeFileSystemClient.GetPaths() and .GetPathsAsync().
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.58
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.58/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.24.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+- Name: Azure.ResourceManager.Elastic
+  Version: 1.1.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Elastic_1.1.0/sdk/elastic/Azure.ResourceManager.Elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects.OpenAI
+  Version: 1.0.0-beta.4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_1.0.0-beta.4/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **Transitive from upgrade to System.ClientModel 1.8.1**:
+
+    - The extension `StructuredInputs` on `ResponseCreationOptions` will now correctly return a `BinaryData` instance with enclosing quotes included when retrieving an encoded string value
+- Name: Azure.AI.VoiceLive
+  Version: 1.1.0-beta.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.1.0-beta.1/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **WebSocket Content Logging**: Added comprehensive content logging for WebSocket operations following Azure SDK diagnostic patterns
+    - Introduced `AzureVoiceLiveEventSource` for WebSocket event logging with consistent event IDs and levels
+    - Added `VoiceLiveWebSocketContentLogger` that integrates with Azure SDK `DiagnosticsOptions`
+    - WebSocket connection lifecycle events (open/close) logged at `Informational` level
+    - Message operations (send/receive) logged at `Informational` level with optional content at `Verbose` level
+    - Error events logged at `Warning` level with error content at `Informational` level
+    - Content size truncation respects `DiagnosticsOptions.LoggedContentSizeLimit`
+    - Unified event listener experience works alongside Azure.Core HTTP logging
+    - **Enhanced Samples**: Added `ContentLoggingSample.cs` and `UnifiedEventListener.cs` demonstrating WebSocket content logging integration
+- Name: Azure.AI.Projects
+  Version: 1.2.0-beta.4
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.2.0-beta.4/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue preventing telemetry from being logged.
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.4.0-beta.4
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.4.0-beta.4/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.5.1
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.5.1/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetworkCloud
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.3.0-beta.1/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceFabricManagedClusters
+  Version: 1.3.0-beta.5
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0-beta.5/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.17.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.17.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.Identity.Client` and `Microsoft.Identity.Client.Extensions.Msal` dependencies to version 4.78.0.
+- Name: Azure.ResourceManager.DeviceRegistry
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceRegistry_1.1.0-beta.2/sdk/deviceregistry/Azure.ResourceManager.DeviceRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.18.0-beta.2
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.2/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.Identity.Client` and `Microsoft.Identity.Client.Extensions.Msal` dependencies to version 4.78.0.
+- Name: Azure.Identity.Broker
+  Version: 1.3.1
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.1/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.Identity.Client.Broker` dependency to version 4.78.0
+    - Updated `Azure.Identity` dependency to version 1.17.1
+- Name: Microsoft.Extensions.Azure
+  Version: 1.13.1
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.13.1/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Identity` dependency to version 1.17.1
+
