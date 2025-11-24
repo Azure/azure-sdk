@@ -190,4 +190,20 @@ entries:
     - `ServerEventResponseMcpCallCompleted` for successful MCP call completion
     - `ServerEventResponseMcpCallFailed` for failed MCP calls
     - **Pre-generated Assistant Messages**: Added support for pre-generated assistant messages in `ResponseCreateParams` via the `pre_generated_assistant_message` property
+- Name: azure-mgmt-resourcegraph
+  Version: 8.0.1
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcegraph_8.0.1/sdk/resources/azure-mgmt-resourcegraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 40.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_40.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
