@@ -353,4 +353,48 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.11.2/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Language.Text
+  Version: 1.0.0-beta.4
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.4/sdk/cognitivelanguage/Azure.AI.Language.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for **multiple redaction policies** in a single request.
+    - Added **synthetic replacement redaction**, enabling selected PII types (e.g., Person, Email) to be replaced with realistic synthetic values rather than masked.
+    - Added **confidence score thresholding**, allowing customers to define minimum confidence levels�globally or per-entity�so that only entities meeting the required confidence are returned.
+    - Added **entity validation control** with the `disableEntityValidation` parameter, allowing users to bypass entity validation when needed.
+- Name: Azure.AI.OpenAI
+  Version: 2.7.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.7.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **`[Experimental]` Chat Extensions**
+
+    - Explicitly assigning `null` to the `MaxOutputTokens` property of a `ChatCompletionOptions` instance will now reset opt-in to
+    contemporary serialization of `max_output_tokens` via `.SetNewMaxOutputTokensPropertyEnabled()`. Please ensure the extension
+    method is invoked after non-null assignment of `MaxOutputTokens`.
+
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see [the full OpenAI 2.5.0 release notes](https://github.com/openai/openai-dotnet/blob/main/CHANGELOG.md#270-2025-11-13) for details.
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.5
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.5/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new PII categories: DriversLicenseNumber, PassportNumber, PersonType, Organization, ABARoutingNumber, BankAccountNumber, DateOfBirth, InternationalBankingAccountNumber, SWIFTCode, VehicleIdentificationNumber, Age, Date, ZipCode, GovernmentIssuedId, CVV, HealthCardNumber, CASocialInsuranceNumber, USMedicareBeneficiaryId, GithubAccount, Location, and GPE.
 
