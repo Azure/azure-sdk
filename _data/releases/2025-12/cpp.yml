@@ -10,4 +10,69 @@ entries:
     #### Features Added
 
     - Bumped up Account SAS version to `2026-02-06`.
+- Name: azure-storage-blobs
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.16.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-02-06`.
+    - Added new field `StartFrom` parameter in `ListBlobsOptions`.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added new Sas parameter `DelegatedUserObjectId` in `BlobSasBuilder` which means the object id of the user in Azure AD to which the SAS is delegated.
+    - Added support for conditional headers in `SetBlobTagsOptions` and `GetBlobTagsOptions`.
+- Name: azure-storage-files-shares
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.16.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-02-06`.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added new Sas parameter `DelegatedUserObjectId` in `ShareSasBuilder` which means the object id of the user in Azure AD to which the SAS is delegated.
+    - Added support for `EncryptionInTransit` on `ShareServiceClient::SetProperties()`.
+    - Added new field `NfsSettings` in `ShareServiceProperties.Protocol`.
+    - Added new field `EncryptionInTransit` in `ShareServiceProperties.Protocol.Settings` and `ShareServiceProperties.Protocol.NfsSettings`.
+
+    #### Breaking Changes
+
+    - Changed the type of `MultiChannel` from `SmbMultichannel` to `Nullable<SmbMultichannel>` in `ShareServiceProperties`. This allows the property to be unset, which is useful for accounts that do not support Multi-Channel.
+    - Changed the type of `Settings` from `SmbSettings` to `Nullable<SmbSettings>` in `ShareServiceProperties`. This allows the property to be unset, which is useful for accounts that do not need to set SmbSettings.
+- Name: azure-storage-files-datalake
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.14.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-02-06`.
+    - Added new field `StartFrom` parameter in `ListPathsOptions`.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added new Sas parameter `DelegatedUserObjectId` in `DataLakeSasBuilder` which means the object id of the user in Azure AD to which the SAS is delegated.
+- Name: azure-storage-queues
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.6.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-02-06`.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added new Sas parameter `DelegatedUserObjectId` in `QueueSasBuilder` which means the object id of the user in Azure AD to which the SAS is delegated.
 
