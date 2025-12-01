@@ -405,4 +405,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dynatrace_1.2.0/sdk/dynatrace/Azure.ResourceManager.Dynatrace/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 2.7.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.7.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+
+    - Addressed a Thanksgiving mistake in the `beta.1` release wherein the `SetNewMaxCompletionTokensPropertyEnabled()` extension method was unintentionally removed from the public surface.
 
