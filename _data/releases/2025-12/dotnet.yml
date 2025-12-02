@@ -430,4 +430,31 @@ entries:
 
     #### Bugs Fixed
     - Fix the issue with `PersistentAgentsChatClient` when the run in incomplete state is encountered [issue](https://github.com/microsoft/agent-framework/issues/2298).
+- Name: Azure.Provisioning.Dns
+  Version: 1.0.0-beta.2
+  DisplayName: Provisioning - Dns
+  ServiceName: Dns
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Dns_1.0.0-beta.2/sdk/provisioning/Azure.Provisioning.Dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeLimit
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeLimit_1.0.0-beta.1/sdk/computelimit/Azure.ResourceManager.ComputeLimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.4.0-beta.3
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.4.0-beta.3/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug when assigning property to a collection throwing exceptions. ([#53862](https://github.com/Azure/azure-sdk-for-net/issues/53862))
 
