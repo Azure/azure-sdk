@@ -225,6 +225,7 @@ Compute,0,Resource Management - Compute,mgmt,.NET,Microsoft.Azure.Management.Com
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computefleet,10,false,1,10/22/2024
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeSchedule,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computeschedule,10,false,1,09/11/2025
 Compute.Recommender,0,Resource Management - Compute.Recommender,mgmt,.NET,,,11,false,Azure.ResourceManager.Compute.Recommender,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computerecommender,3,false,1,
+Computelimit,0,Resource Management - Computelimit,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeLimit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computelimit,3,false,1,
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,.NET,,,11,false,Azure.ResourceManager.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,02/16/2023
 Confluent,0,Resource Management - Confluent,mgmt,.NET,Microsoft.Azure.Management.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confluent,10,false,1,03/11/2025
 Connected VMware vSphere,0,Resource Management - Connected VMware vSphere,mgmt,.NET,,,11,false,Azure.ResourceManager.ConnectedVMwarevSphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/connectedvmwarevsphere,10,false,1,03/11/2025
@@ -644,8 +645,6 @@ Key Vault,0,Key Vault - Secrets,data,Go,,,11,false,sdk/security/keyvault/azsecre
 Monitor,0,Monitor Ingestion,data,Go,,,11,false,sdk/monitor/azingest,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azingest,3,false,1,
 Monitor,0,Monitor Query,data,Go,,,11,false,sdk/monitor/azquery,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/azquery,10,false,1,07/17/2025
 Cognitive Services,0,OpenAI,data,Go,,,11,false,sdk/ai/azopenai,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai,3,false,1,
-Cognitive Services,0,OpenAI Assistants,data,Go,,,11,false,sdk/ai/azopenaiassistants,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenaiassistants,3,false,1,
-AI,0,OpenAI Extensions,data,Go,,,11,false,sdk/ai/azopenaiextensions,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenaiextensions,3,false,1,
 Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/tracing/azotel,3,false,1,
 Monitor,0,Query - Logs,data,Go,,,11,false,sdk/monitor/query/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azlogs,10,false,1,07/21/2025
 Monitor,0,Query - Metrics,data,Go,,,11,false,sdk/monitor/query/azmetrics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azmetrics,10,false,1,07/17/2025
@@ -1709,7 +1708,7 @@ Policy,0,Resource Management - Policy,mgmt,JavaScript,,,11,false,@azure/arm-poli
 Policy Insights,0,Resource Management - Policy Insights,mgmt,JavaScript,,,11,false,@azure/arm-policyinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights,10,false,1,01/13/2025
 Portal,0,Resource Management - Portal,mgmt,JavaScript,,,11,false,@azure/arm-portal,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/portal,3,false,1,
 Portalservicescopilot,0,Resource Management - Portalservicescopilot,mgmt,JavaScript,,,11,false,@azure/arm-portalservicescopilot,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/portalservices,3,false,1,
-PostgreSQL,0,Resource Management - PostgreSQL,mgmt,JavaScript,azure-arm-postgresql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-postgresql-flexible,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql,10,false,1,01/09/2025
+PostgreSQL,0,Resource Management - PostgreSQL,mgmt,JavaScript,azure-arm-postgresql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-postgresql-flexible,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql,10,false,1,12/01/2025
 Power BI Dedicated,0,Resource Management - Power BI Dedicated,mgmt,JavaScript,,,11,false,@azure/arm-powerbidedicated,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated,10,false,1,02/03/2023
 Power BI Embedded,0,Resource Management - Power BI Embedded,mgmt,JavaScript,azure-arm-powerbiembedded,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,@azure/arm-powerbiembedded,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbiembedded/arm-powerbiembedded,10,false,1,12/05/2022
 Private DNS,0,Resource Management - Private DNS,mgmt,JavaScript,,,11,false,@azure/arm-privatedns,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns,10,false,1,09/26/2024
