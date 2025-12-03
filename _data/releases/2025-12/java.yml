@@ -360,4 +360,134 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.57.0-beta.1/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-blob-batch
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.29.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `BlobBatchSetBlobAccessTierOptions` would not properly handle blob names with special characters.
+
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.32.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.32.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.29.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for the `ShareServiceProperties.Protocol.SMB.EncryptionInTransit` parameter on `ShareServiceClient.setProperties()` APIs.
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.33.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.33.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the StartFrom parameter on `BlobContainerClient.listBlobs()` and `BlobContainerClient.listBlobsByHierarchy()` APIs.
+    - Added support for conditional headers on `BlobClientBase.getTags()` and `BlobClientBase.setTags()` APIs.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.33
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.33/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.28.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.28.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.32.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.32.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Addressed a performance regression introduced in version 12.27.0+ of the Azure Storage SDK for Java, where token
+    retrieval became thread-local, causing a consistent 4 to 5-second delay across threads during initial authorization.
+
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.34
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.34/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where the copy file operation would fail when using SAS token credentials.
+
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.26.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the StartFrom parameter on `DataLakeFileSystemClient.listPaths()` APIs.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.18.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+  GroupId: com.azure
 
