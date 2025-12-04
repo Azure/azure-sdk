@@ -7,7 +7,7 @@ sidebar: general_sidebar
 
 ## Introduction
 
-The Azure SDK Architecture Board is a board of language architects specializing in Java, Python, JavaScript/TypeScript, C#, C, C++, Go, Rust, Android, and iOS.
+The Azure SDK Architecture Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Rust, Android, and iOS.
 
 We expect all Azure client libraries to pass rigorous SDK API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs). In addition to detailed reviews of new libraries, **all changes** to an SDK API must be approved by an architect of the specific language before release.
 
