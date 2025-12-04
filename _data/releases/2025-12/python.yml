@@ -281,4 +281,81 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.1.0b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.15.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.15.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added new `get_user_delegation_key` API to `QueueServiceClient` to obtain a user delegation key
+    for the purposes of signing SAS tokens.
+    - Added support for the keyword `user_delegation_oid` to `generate_queue_sas`, which specifies the Entra ID
+    of the user that is authorized to use the generated SAS URL.
+    - Added support for the keyword `user_delegation_key` to `generate_queue_sas` used with
+    `user_delegation_oid` to authenticate the request to generate a new SAS URL.
+    - Added support for `UseDevelopmentStorage=true;` as a valid connection string for Azurite.
+- Name: azure-storage-file-share
+  Version: 12.24.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.24.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added new `get_user_delegation_key` API to `ShareServiceClient` to obtain a user delegation key
+    for the purposes of signing SAS tokens.
+    - Added support for the keyword `user_delegation_oid` to `generate_share_sas` and `generate_file_sas`,
+    which specifies the Entra ID of the user that is authorized to use the generated SAS URL.
+    - Added support for the keyword `user_delegation_key` to `generate_share_sas` and `generate_file_sas` used with
+    `user_delegation_oid` to authenticate the request to generate a new SAS URL.
+    - Added support for the keyword `encryption_in_transit`in `ShareSmbSettings` used by `set_service_properties`
+    for the SMB protocol to specify whether encryption in transit is required.
+    - Added the ability to skip auto decompression on `ShareFileClient.download_file` via the `decompress` keyword.
+
+    #### Bugs Fixed
+    - Fixed an issue where `FileProperties` and `DirectoryProperties` did not contain timezone information for
+    `change_time`, `creation_time`, and `last_write_time` attributes.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b46
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b46/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Fix to accommodate breaking log changes from Otel
+    ([#43626](https://github.com/Azure/azure-sdk-for-python/pull/43626))
+    - Pin OpenTelemetry versions to guard against upstream logging breaking changes
+    ([#44220](https://github.com/Azure/azure-sdk-for-python/pull/44220))
+
+    #### Bugs Fixed
+    - Fixes LogDeprecated warnings - `LogDeprecatedInitWarning: LogRecord init with trace_id, span_id, and/or trace_flags is deprecated since 1.35.0. Use context instead`
+    ([#44090](https://github.com/Azure/azure-sdk-for-python/pull/44090))
+    - Fixes issue #43442: SyntaxWarning: 'return' in a 'finally' block in azure-monitor-opentelemetry-exporter with Python 3.14
+    ([#44053](https://github.com/Azure/azure-sdk-for-python/pull/44053))
+- Name: azure-storage-blob
+  Version: 12.28.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.28.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for the keywords `if_modified_since`, `if_unmodified_since`, `etag`, and `match_condition` to
+    conditionally perform `BlobClient`'s `set_blob_tags` and `get_blob_tags` operations.
+    - Added support for the keyword `start_from` in `ContainerClient`'s `list_blobs`, `list_blob_names`, and `walk_blobs`
+    APIs, which specifies the full path to start listing paths from.
+    - Added support for the keyword `user_delegation_oid` to `generate_blob_sas` and `generate_container_sas`, which
+    specifies the Entra ID of the user that is authorized to use the generated SAS URL.
+    - Added support for `UseDevelopmentStorage=true;` as a valid connection string for Azurite.
+    - Added the ability to skip auto decompression on `BlobClient.download_blob` via the `decompress` keyword.
 
