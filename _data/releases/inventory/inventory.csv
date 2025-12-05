@@ -181,7 +181,7 @@ Network,0,Provisioning - Network,mgmt,.NET,,,11,false,Azure.Provisioning.Network
 Provisioning,0,Provisioning - Operational Insights,mgmt,.NET,,,11,false,Azure.Provisioning.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/19/2025
 Provisioning,0,Provisioning - PostgreSQL,mgmt,.NET,,,11,false,Azure.Provisioning.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/25/2025
 Provisioning,0,Provisioning - Redis,mgmt,.NET,,,11,false,Azure.Provisioning.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
-Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,08/28/2025
+Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
 Provisioning,0,Provisioning - Search,mgmt,.NET,,,11,false,Azure.Provisioning.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
 Provisioning,0,Provisioning - Service Bus,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - SignalR,mgmt,.NET,,,11,false,Azure.Provisioning.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
@@ -238,7 +238,7 @@ Container Registry,0,Resource Management - Container Registry,mgmt,.NET,Microsof
 Container Service,0,Resource Management - Container Service,mgmt,.NET,Microsoft.Azure.Management.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,true,Azure.ResourceManager.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerservice,10,false,1,07/28/2025
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,.NET,,,11,false,Azure.ResourceManager.ContainerServiceFleet,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/fleet,10,false,1,04/22/2025
 Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,.NET,Microsoft.Azure.Management.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,true,Azure.ResourceManager.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,10,false,1,11/18/2025
-Cosmos DB,0,Resource Management - Cosmos DB,mgmt,.NET,Microsoft.Azure.Management.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,true,Azure.ResourceManager.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,false,1,03/26/2024
+Cosmos DB,0,Resource Management - Cosmos DB,mgmt,.NET,Microsoft.Azure.Management.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,true,Azure.ResourceManager.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdb,10,false,1,12/05/2025
 Cosmos DB for PostgreSQL,0,Resource Management - Cosmos DB for PostgreSQL,mgmt,.NET,,,11,false,Azure.ResourceManager.CosmosDBForPostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cosmosdbforpostgresql,10,false,1,09/23/2023
 Cost Management,0,Resource Management - Costmanagement,mgmt,.NET,,,11,false,Azure.ResourceManager.CostManagement,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/costmanagement,10,false,1,03/14/2025
 Customer Insights,0,Resource Management - Customer Insights,mgmt,.NET,Microsoft.Azure.Management.CustomerInsights,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/customer-insights/Microsoft.Azure.Management.CustomerInsights,3,true,Azure.ResourceManager.CustomerInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/customer-insights,3,false,1,
@@ -1864,7 +1864,7 @@ Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://g
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,11/14/2025
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,12/04/2025
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
@@ -3944,21 +3944,6 @@ Container Registry,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API 
 Container Registry,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: containerregistry/cspell.yaml,,2,false,0,
 Container Registry,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: containerregistry/cspell.yaml,,2,false,0,
 Container Registry,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: containerregistry/cspell.yaml,,2,false,0,
-Container Service,0,Resource Management - DeploymentSafeguards.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/DeploymentSafeguards.Management,,2,false,0,
-Container Service,0,Resource Management - DeploymentSafeguards.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: containerservice/DeploymentSafeguards.Management,,2,false,0,
-Container Service,0,Resource Management - DeploymentSafeguards.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/DeploymentSafeguards.Management,,2,false,0,
-Container Service,0,Resource Management - DeploymentSafeguards.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/DeploymentSafeguards.Management,,2,false,0,
-Container Service,0,Resource Management - DeploymentSafeguards.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/DeploymentSafeguards.Management,,2,false,0,
-Container Service,0,Resource Management - Fleet.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
-Container Service,0,Resource Management - Fleet.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
-Container Service,0,Resource Management - Fleet.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
-Container Service,0,Resource Management - Fleet.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
-Container Service,0,Resource Management - Fleet.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/Fleet.Management,,2,false,0,
-Container Service,0,Resource Management - NodeCustomization.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
-Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
-Container Service,0,Resource Management - NodeCustomization.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
-Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
-Container Service,0,Resource Management - NodeCustomization.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: containerservice/NodeCustomization.Management,,2,false,0,
 Container Service,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
 Container Service,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
 Container Service,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: containerservice/cspell.yaml,,2,false,0,
@@ -4868,26 +4853,6 @@ MariaDB,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs re
 MariaDB,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: mariadb/cspell.yaml,,2,false,0,
 MariaDB,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: mariadb/cspell.yaml,,2,false,0,
 MariaDB,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: mariadb/cspell.yaml,,2,false,0,
-Marketplace Catalog,0,Products,data,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products,,2,false,0,
-Marketplace Catalog,0,Products,data,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products,,2,false,0,
-Marketplace Catalog,0,Products,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products,,2,false,0,
-Marketplace Catalog,0,Products,data,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products,,2,false,0,
-Marketplace Catalog,0,Products,data,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products,,2,false,0,
-Marketplace Catalog,0,Resource Management - Products.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Products.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Products.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Products.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Products.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Products.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Reviews.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Reviews.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Reviews.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Reviews.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Reviews.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Reviews.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Reviews.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Reviews.Management,,2,false,0,
-Marketplace Catalog,0,Resource Management - Reviews.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Reviews.Management,,2,false,0,
-Marketplace Catalog,0,Search,data,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Search,,2,false,0,
-Marketplace Catalog,0,Search,data,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Search,,2,false,0,
-Marketplace Catalog,0,Search,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Search,,2,false,0,
-Marketplace Catalog,0,Search,data,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Search,,2,false,0,
-Marketplace Catalog,0,Search,data,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/Search,,2,false,0,
 Marketplace Catalog,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/cspell.yaml,,2,false,0,
 Marketplace Catalog,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/cspell.yaml,,2,false,0,
 Marketplace Catalog,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/cspell.yaml,,2,false,0,
@@ -4898,16 +4863,6 @@ Marketplace Catalog,0,Marketplace Catalog,data,Java,,,11,false,Missing: Created 
 Marketplace Catalog,0,Marketplace Catalog,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/data-plane,,2,false,0,
 Marketplace Catalog,0,Marketplace Catalog,data,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/data-plane,,2,false,0,
 Marketplace Catalog,0,Marketplace Catalog,data,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/data-plane,,2,false,0,
-Marketplace Catalog,0,Resource Management - Marketplace Catalog,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/resource-manager,,2,false,0,
-Marketplace Catalog,0,Resource Management - Marketplace Catalog,mgmt,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/resource-manager,,2,false,0,
-Marketplace Catalog,0,Resource Management - Marketplace Catalog,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/resource-manager,,2,false,0,
-Marketplace Catalog,0,Resource Management - Marketplace Catalog,mgmt,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/resource-manager,,2,false,0,
-Marketplace Catalog,0,Resource Management - Marketplace Catalog,mgmt,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/resource-manager,,2,false,0,
-Marketplace Catalog,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/suppressions.yaml,,2,false,0,
-Marketplace Catalog,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/suppressions.yaml,,2,false,0,
-Marketplace Catalog,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/suppressions.yaml,,2,false,0,
-Marketplace Catalog,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/suppressions.yaml,,2,false,0,
-Marketplace Catalog,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: marketplacecatalog/suppressions.yaml,,2,false,0,
 Marketplace Notifications,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: marketplacenotifications/cspell.yaml,,2,false,0,
 Marketplace Notifications,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: marketplacenotifications/cspell.yaml,,2,false,0,
 Marketplace Notifications,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: marketplacenotifications/cspell.yaml,,2,false,0,
@@ -5288,11 +5243,6 @@ purestorage,0,Resource Management - purestorage,mgmt,Java,,,11,false,Missing: Cr
 purestorage,0,Resource Management - purestorage,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: purestorage/resource-manager,,2,false,0,
 purestorage,0,Resource Management - purestorage,mgmt,Python,,,11,false,Missing: Created from API in specs repo: purestorage/resource-manager,,2,false,0,
 purestorage,0,Resource Management - purestorage,mgmt,Go,,,11,false,Missing: Created from API in specs repo: purestorage/resource-manager,,2,false,0,
-Purview,0,Azure.Analytics.Purview.DataMap,data,.NET,,,11,false,Missing: Created from API in specs repo: purview/Azure.Analytics.Purview.DataMap,,2,false,0,
-Purview,0,Azure.Analytics.Purview.DataMap,data,Java,,,11,false,Missing: Created from API in specs repo: purview/Azure.Analytics.Purview.DataMap,,2,false,0,
-Purview,0,Azure.Analytics.Purview.DataMap,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/Azure.Analytics.Purview.DataMap,,2,false,0,
-Purview,0,Azure.Analytics.Purview.DataMap,data,Python,,,11,false,Missing: Created from API in specs repo: purview/Azure.Analytics.Purview.DataMap,,2,false,0,
-Purview,0,Azure.Analytics.Purview.DataMap,data,Go,,,11,false,Missing: Created from API in specs repo: purview/Azure.Analytics.Purview.DataMap,,2,false,0,
 Purview,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: purview/cspell.yaml,,2,false,0,
 Purview,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: purview/cspell.yaml,,2,false,0,
 Purview,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/cspell.yaml,,2,false,0,
@@ -5303,11 +5253,6 @@ Purview,0,Purview,data,Java,,,11,false,Missing: Created from API in specs repo: 
 Purview,0,Purview,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Python,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
 Purview,0,Purview,data,Go,,,11,false,Missing: Created from API in specs repo: purview/data-plane,,2,false,0,
-Purview,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
-Purview,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
-Purview,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
-Purview,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
-Purview,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: purview/suppressions.yaml,,2,false,0,
 purviewdatagovernace,0,Azure.Analaytics.Purview.DataQuality,data,.NET,,,11,false,Missing: Created from API in specs repo: purviewdatagovernace/Azure.Analaytics.Purview.DataQuality,,2,false,0,
 purviewdatagovernace,0,Azure.Analaytics.Purview.DataQuality,data,Java,,,11,false,Missing: Created from API in specs repo: purviewdatagovernace/Azure.Analaytics.Purview.DataQuality,,2,false,0,
 purviewdatagovernace,0,Azure.Analaytics.Purview.DataQuality,data,JavaScript,,,11,false,Missing: Created from API in specs repo: purviewdatagovernace/Azure.Analaytics.Purview.DataQuality,,2,false,0,
@@ -5413,16 +5358,6 @@ Resource Mover,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in s
 Resource Mover,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: resourcemover/cspell.yaml,,2,false,0,
 Resource Mover,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: resourcemover/cspell.yaml,,2,false,0,
 Resource Mover,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: resourcemover/cspell.yaml,,2,false,0,
-Resources,0,Resource Management - Bicep.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
-Resources,0,Resource Management - Bicep.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
-Resources,0,Resource Management - Bicep.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
-Resources,0,Resource Management - Bicep.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
-Resources,0,Resource Management - Bicep.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: resources/Bicep.Management,,2,false,0,
-Resources,0,Resource Management - DeploymentStacks.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
-Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
-Resources,0,Resource Management - DeploymentStacks.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
-Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
-Resources,0,Resource Management - DeploymentStacks.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: resources/DeploymentStacks.Management,,2,false,0,
 Resources,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
 Resources,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
 Resources,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: resources/cspell.yaml,,2,false,0,
@@ -5467,7 +5402,6 @@ Search,0,Cognitive Search,data,.NET,,,11,false,Missing: Created from API in spec
 Search,0,Cognitive Search,data,Java,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
 Search,0,Cognitive Search,data,Python,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
 Search,0,Cognitive Search,data,Go,,,11,false,Missing: Created from API in specs repo: search/data-plane,,2,false,0,
-Search,0,Resource Management - Cognitive Search,mgmt,Python,,,11,false,Missing: Created from API in specs repo: search/resource-manager,,2,false,0,
 Security,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: security/cspell.yaml,,2,false,0,
 Security,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: security/cspell.yaml,,2,false,0,
 Security,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: security/cspell.yaml,,2,false,0,
