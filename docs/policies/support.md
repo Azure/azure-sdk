@@ -20,7 +20,7 @@ Here are the stages of a typical package lifecycle (for major versions)
    The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.
    Customers are encouraged to use the latest version as that is the version that will get fixes and updates.
 
-3. **Deprecated** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), or has been superseded by a more recent release. In both cases, the current library is deprecated in favor of a newer library. Typically, deprecation occurs at the same time the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months.
+3. **Deprecated** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), or has been superseded by a more recent release. In both cases, the current library is deprecated in favor of a newer library. Typically, deprecation occurs at the same time the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months. If breaking changes are involved, critical bug fixes and security fixes generally occur for 3 years.
 
 4. **Community** - SDK will no longer receive updates from Microsoft unless otherwise specified in the separate customer agreement.
    The package will remain available via public package managers and the GitHub repo, which can be maintained by the community.
