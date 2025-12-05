@@ -531,4 +531,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.4.0/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Language.QuestionAnswering.Inference
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering.Inference_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Introduces standalone inference package for runtime Q&A.
+    - Supports knowledge base and text queries using preview service version `2025-05-15-preview`.
+    - Adds query tuning and ranking configuration:
+    - Adds `AnswersOptions.QueryPreferences` property.
+    - Adds models: `QueryPreferences`, `MatchingPolicy`, `PrebuiltQueryMatchingPolicy`.
+    - Adds unions/enums: `Scorer` (Classic, Transformer, Semantic), `MatchingPolicyKind` (Prebuilt), MatchingPolicyFieldsType (Questions, Answer).
 
