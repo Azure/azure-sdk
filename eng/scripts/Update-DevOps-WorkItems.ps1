@@ -42,7 +42,10 @@ function GetVersionGroupForPackage($lang, $pkg)
   $langPkgVersions = $allLangPkgVersions[$lang]
 
   # Consider adding the versions from the csv but we don't have a date for them currently
-  if ($langPkgVersions.ContainsKey($pkg.Package)) {
+  if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langPkgVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
+    $versions += $langPkgVersions["$($pkg.GroupId)+$($pkg.Package)"].Versions
+  }
+  elseif ($langPkgVersions.ContainsKey($pkg.Package)) {
     $versions += $langPkgVersions[$pkg.Package].Versions
   }
   if ($pkg.VersionGA -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionGA)) {
@@ -106,6 +109,7 @@ function InitializeVersionInformation()
           PackageInfo = $pkg
         }
       }
+      #TODO: Should this be Group+Package for java?
       $packageSet[$pkg.Package] = New-Object PSObject -Property @{
         VersionGroups = $pkgVerGroups
         PackageInfo = $pkg
@@ -194,6 +198,7 @@ function RefreshItems()
   foreach ($pkgWI in $allPackageWorkItems)
   {
     $pkgLang = $pkgWI.fields["Custom.Language"]
+    #TODO: Should we split Group+Package for java? If we split we could hit conflicts.
     $pkgName = $pkgWI.fields["Custom.Package"]
     $version = $pkgWI.fields["Custom.PackageVersionMajorMinor"]
 
@@ -226,7 +231,12 @@ function RefreshItems()
     }
     else
     {
-      $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({ $pkgName -eq $_.Package })
+      $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({ 
+        if ($pkgLang -eq "Java" -and $pkgName -eq "$($_.GroupId)+$($_.Package)") {
+          return $true
+        }
+        return $pkgName -eq $_.Package
+      })
 
       # For java filter down to com.azure* groupId
       if ($pkgLang -eq "Java") {
@@ -242,7 +252,7 @@ function RefreshItems()
         else {
           $csvEntry = $pkgFromCsv[0]
           if ($csvEntry.Hide -eq "true") {
-            # For any entry that is explicitly marked as hidden we should skip any udpating
+            # For any entry that is explicitly marked as hidden we should skip any updating
             continue
           }
 
@@ -301,6 +311,8 @@ function RefreshItems()
               }
             }
           }
+
+          #TODO: We should update the Package to contain the GroupId+Package for java so it ends up in the workitem that way.
           $pkg = $csvEntry
         }
       }

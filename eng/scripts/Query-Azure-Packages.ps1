@@ -72,9 +72,13 @@ function Get-java-Packages
   
   foreach ($tag in $repoTags.Keys)
   {
-    if ($packages.Package -notcontains $tag) {
-      $version = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)[0]
-      Write-Host "${tag}_${version} - Didn't find this package using the maven search $baseMavenQueryUrl, so not adding."
+    $artifactId = $tag
+    if ($tag.Contains("+")) {
+      $_, $artifactId = $tag -split "+"
+    }
+
+    if ($packages.Package -notcontains $artifactId) {
+      Write-Host "${tag} - Didn't find this package using the maven search $baseMavenQueryUrl."
     }
   }
 

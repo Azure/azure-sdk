@@ -139,16 +139,16 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 
 function CheckRequiredLinks($linkTemplates, $pkg, $version)
 {
-  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
-  $valid = $true;
-  if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink $srcLink)
-  }
-
   # GroupId only exists for java so we need to test before we try and access
   $groupId = $null
   if ([bool]($pkg.PSobject.Properties.name -match "GroupId")) {
     $groupId = $pkg.GroupId
+  }
+
+  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+  $valid = $true;
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink $srcLink)
   }
 
   $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
@@ -219,7 +219,17 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
-    if ($langVersions.ContainsKey($pkg.Package)) {
+    
+    if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
+      # Some java packages use the GroupId+Package as the tag name so check for that case
+      $pkgVersion = $langVersions["$($pkg.GroupId)+$($pkg.Package)"]
+
+      if($pkg.RepoPath -match "^https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/(?<serviceDirectory>.*)/item.Package/") {
+        # Reset the RepoPath to just the service directory if we have shipped a new version because it should now follow the new GroupId+Package format
+        $pkg.RepoPath = $matches["serviceDirectory"]
+      }
+    }
+    elseif ($langVersions.ContainsKey($pkg.Package)) {
       $pkgVersion = $langVersions[$pkg.Package]
     }
     elseif ($langVersions.ContainsKey("")) {
