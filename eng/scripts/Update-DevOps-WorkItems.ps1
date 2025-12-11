@@ -238,11 +238,8 @@ function RefreshItems()
     }
     else
     {
-      $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({ 
-        if ($pkgLang -eq "Java" -and $pkgName -eq $_.Package -and $groupId -eq $_.GroupId) {
-          return $true
-        }
-        return $pkgName -eq $_.Package
+      $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({
+        return $pkgName -eq $_.Package -and ($_.PSObject.Properties.Name -notcontains "GroupId" -or $groupId -eq $_.GroupId)
       })
 
       if ($pkgFromCsv.Count -ne 0)
