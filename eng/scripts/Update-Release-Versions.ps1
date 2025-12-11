@@ -59,6 +59,12 @@ function CheckLink($link, $showWarningIfMissing=$true)
     return $checkedLinks[$link]
   }
 
+  if ($link -match "^https://www.npmjs\.com/package/(?<package>.*)/v(?<version>.*)") {
+    # npmjs.com started using Cloudflare which returns 403 and we need to instead check the registry api for existence checks
+    # https://github.com/orgs/community/discussions/174098#discussioncomment-14461226
+    $link = "https://registry.npmjs.org/$($matches["package"] + $matches["version"])"
+  }
+
   try
   {
     Write-Verbose "Checking $link"
