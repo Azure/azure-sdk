@@ -631,7 +631,7 @@ App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzur
 App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,10/17/2025
 Batch,0,Batch,data,Go,,,11,false,sdk/batch/azbatch,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/batch/azbatch,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
-Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,08/27/2025
+Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,12/09/2025
 Event Grid,0,Event Grid,data,Go,,,11,false,sdk/messaging/eventgrid/azeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azeventgrid,10,false,1,04/02/2024
 Event Grid,0,Event Grid Namespaces,data,Go,,,11,false,sdk/messaging/eventgrid/aznamespaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/aznamespaces,10,false,1,06/11/2024
 Event Hubs,0,Event Hubs,data,Go,azure-event-hubs-go,https://github.com/Azure/azure-event-hubs-go/,1,false,sdk/messaging/azeventhubs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs,10,false,1,10/07/2025
@@ -1277,7 +1277,7 @@ Service Networking,0,Resource Management - Service Networking,mgmt,Java,,,11,fal
 SignalR,0,Resource Management - SignalR,mgmt,Java,azure-mgmt-signalr,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/signalr/mgmt-v2020_05_01,3,true,azure-resourcemanager-signalr,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/signalr/item.Package/,10,false,1,12/24/2024
 Sitemanager,0,Resource Management - Sitemanager,mgmt,Java,,,11,false,azure-resourcemanager-sitemanager,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sitemanager/item.Package/,10,false,1,09/29/2025
 Sphere,0,Resource Management - Sphere,mgmt,Java,,,11,false,azure-resourcemanager-sphere,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sphere/item.Package/,10,false,1,12/19/2024
-SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/resourcemanager/item.Package/,10,false,1,11/24/2025
+SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sql/item.Package/,10,false,1,11/24/2025
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Java,,,11,false,azure-resourcemanager-sqlvirtualmachine,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sqlvirtualmachine/item.Package/,3,false,1,
 Standby Pool,0,Resource Management - Standby Pool,mgmt,Java,,,11,false,azure-resourcemanager-standbypool,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/standbypool/item.Package/,10,false,1,04/21/2025
 Storage,0,Resource Management - Storage,mgmt,Java,azure-mgmt-storage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-storage,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/storage/item.Package/,10,false,1,11/24/2025
@@ -1861,6 +1861,7 @@ App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfigurat
 App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,11/13/2025
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,10/09/2025
+Cognitive Services,0,Azure AI Transcription,data,Python,,,11,false,azure-ai-transcription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,1,
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
@@ -1916,7 +1917,7 @@ Maps,0,Maps Route,data,Python,,,11,false,azure-maps-route,https://github.com/Azu
 Maps,0,Maps Search,data,Python,,,11,false,azure-maps-search,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
 Media,0,Media Analytics Edge,data,Python,,,11,false,azure-media-analytics-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,Python,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/metricsadvisor,10,true,1,08/26/2024
-unknown,0,Microsoft Planetary Microsoft Pro,data,Python,,,11,false,azure-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,Python,,,11,false,azure-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
 Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,false,1,
 IoT,0,Models Repository,data,Python,,,11,false,azure-iot-modelsrepository,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/modelsrepository,3,true,1,
 Monitor,0,Monitor Ingestion,data,Python,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,07/18/2025
@@ -2076,7 +2077,7 @@ IoT,0,Resource Management - IoT Central,mgmt,Python,,,11,false,azure-mgmt-iotcen
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,Python,,,11,false,azure-mgmt-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iotfirmwaredefense,10,false,1,09/04/2025
 IoT,0,Resource Management - IoT Hub,mgmt,Python,,,11,false,azure-mgmt-iothub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub,10,false,1,04/09/2025
 IoT,0,Resource Management - IoT Operations,mgmt,Python,,,11,false,azure-mgmt-iotoperations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iotoperations,10,false,1,12/19/2024
-Key Vault,0,Resource Management - Key Vault,mgmt,Python,,,11,false,azure-mgmt-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,10/09/2025
+Key Vault,0,Resource Management - Key Vault,mgmt,Python,,,11,false,azure-mgmt-keyvault,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault,10,false,1,12/11/2025
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,Python,,,11,false,azure-mgmt-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/kubernetesconfiguration,10,false,1,09/19/2023
 Kubernetesconfiguration-Extensions,0,Resource Management - Kubernetesconfiguration-Extensions,mgmt,Python,,,11,false,azure-mgmt-kubernetesconfiguration-extensions,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/kubernetesconfiguration,3,false,1,
 Kubernetesconfiguration-Extensiontypes,0,Resource Management - Kubernetesconfiguration-Extensiontypes,mgmt,Python,,,11,false,azure-mgmt-kubernetesconfiguration-extensiontypes,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/kubernetesconfiguration,3,false,1,
