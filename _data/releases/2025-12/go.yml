@@ -106,4 +106,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerregistry/armcontainerregistry/v3.0.0-beta.1/sdk/resourcemanager/containerregistry/armcontainerregistry/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 1.4.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.4.2/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed issue with read endpoint selection causing most-preferred region to be skipped when selecting read region. See [PR 25738](https://github.com/Azure/azure-sdk-for-go/pull/25738)
 
