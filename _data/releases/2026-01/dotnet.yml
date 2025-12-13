@@ -1,0 +1,28 @@
+entries:
+- Name: Azure.AI.Projects.OpenAI
+  Version: 1.0.0-beta.5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_1.0.0-beta.5/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added transitive compatibility for `OpenAI 2.8.0`, including significant changes to the `[Experimental]` Responses API surface
+    - Added possibility of authentication to MCP server using project connection.
+- Name: Azure.AI.Projects
+  Version: 1.2.0-beta.5
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.2.0-beta.5/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated for transitive compatibility with `OpenAI 2.8.0`, including substantial changes to the `[Experimental]` Responses API
+
+    #### Bugs Fixed
+    * Fixed the uploading of files fore fine tuning.
+
