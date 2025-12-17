@@ -72,4 +72,16 @@ entries:
     - Added support for service version 2025-11-15-preview.
 
     - Added support for service version 2025-11-01.
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.6
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.6/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A new option to pass transparent statement verification key sets mapped to domain names for offline verification using `CodeTransparencyVerificationOptions.OfflineKeys`
+    - A new option to restrict the use of a network resolution of the ledger keys when using `OfflineKeys` with `CodeTransparencyVerificationOptions.OfflineKeysBehavior`
 
