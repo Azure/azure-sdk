@@ -35,4 +35,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed bug where sdk was not properly retrying requests in some edge cases after partition splits.See [PR 44425](https://github.com/Azure/azure-sdk-for-python/pull/44425)
+- Name: azure-mgmt-avs
+  Version: 10.0.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-avs_10.0.0/sdk/compute/azure-mgmt-avs/CHANGELOG.md
+  ChangelogContent: ""
 
