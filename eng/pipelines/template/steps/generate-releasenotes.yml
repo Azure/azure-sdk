@@ -37,17 +37,17 @@ steps:
 
         # Add any overrides for months where the release week isn't the second friday of the month
         # These entries can be cleaned up after we are more than one month past the exception month.
-        if ($d.Year -eq 2025 -and $d.Month -eq 1)
+        if ($d.Year -eq 2026 -and $d.Month -eq 1)
         {
-          $secondFridayOfMonth = [DateTime]"2025-01-17"
+          $secondFridayOfMonth = [DateTime]"2026-01-16"
         }
-        elseif ($d.Year -eq 2025 -and $d.Month -eq 7)
+        elseif ($d.Year -eq 2026 -and $d.Month -eq 7)
         {
-          $secondFridayOfMonth = [DateTime]"2025-07-18"
+          $secondFridayOfMonth = [DateTime]"2026-07-17"
         }
-        elseif ($d.Year -eq 2025 -and $d.Month -eq 9)
+        elseif ($d.Year -eq 2026 -and $d.Month -eq 9)
         {
-          $secondFridayOfMonth = [DateTime]"2025-09-19"
+          $secondFridayOfMonth = [DateTime]"2026-09-18"
         }
 
         return $secondFridayOfMonth
