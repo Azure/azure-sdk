@@ -90,4 +90,12 @@ entries:
 
     - Added support for `default_deployment_template` property in Model entity, allowing models to specify a default deployment template for online deployments.
     - Online deployments now display informational messages when deploying models with configured default deployment templates.
+- Name: azure-mgmt-loganalytics
+  Version: 13.1.1
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.1.1/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
 
