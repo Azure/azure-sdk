@@ -1,0 +1,269 @@
+entries:
+- Name: '@azure/arm-containerservice'
+  Version: 24.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.1/sdk/ai/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial version of Voice Live Typescript SDK.
+- Name: '@azure/arm-networkcloud'
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0-beta.1/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-newrelicobservability'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-newrelicobservability_2.0.0-beta.1/sdk/newrelicobservability/arm-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 23.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 8.1.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 24.1.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appservice'
+  Version: 18.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 17.0.0-beta.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 34.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 22.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.8.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.8.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed MIN/MAX aggregate queries randomly returning incorrect results in multi-partition collections. Empty partitions (count:0) were incorrectly overwriting valid aggregate values with undefined, causing MIN or MAX values to be missing from query results.
+
+    #### Features Added
+
+    - [#36701](https://github.com/Azure/azure-sdk-for-js/issues/36701) Added support for `float16` data type in vector embedding.
+    - [#36700](https://github.com/Azure/azure-sdk-for-js/issues/36700) Added support for Priority level in Change feed.
+    - [#36699](https://github.com/Azure/azure-sdk-for-js/issues/36699) Add support for throughput buckets in Change Feed.
+- Name: '@azure/arm-certificateregistration'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Certificateregistration
+  ServiceName: Certificateregistration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-certificateregistration_1.0.0-beta.1/sdk/certificateregistration/arm-certificateregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computelimit'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.0.0-beta.1/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 4.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 35.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.9.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.9.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for continuation tokens in queries. This capability is available when using the `enableQueryControl` feature in `FeedOptions`.
+- Name: '@azure/arm-domainregistration'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Domainregistration
+  ServiceName: Domainregistration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-domainregistration_1.0.0-beta.1/sdk/domainregistration/arm-domainregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elastic'
+  Version: 2.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_2.0.0/sdk/elastic/arm-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.30.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-02-06.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+    - Added support for the ShareServiceProperties.Protocol.SMB.EncryptionInTransit parameter on ShareServiceClient.setProperties().
+- Name: '@azure/storage-common'
+  Version: 12.2.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.2.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for UserDelegationKeyCredential.
+- Name: '@azure/storage-blob'
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.30.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-02-06.
+    - Added support for the StartFrom parameter on BlobContainerClient.listBlobs() and .listBlobsByHierarchy().
+    - Added support for Principal-Bound Identity User Delegation SAS
+    - Added support for conditional headers on BlobBaseClient.getTags(), and .getTags().
+- Name: '@azure/storage-file-datalake'
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.29.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-02-06.
+    - Added support for Principal-Bound Identity User Delegation SAS
+    - Added support for the StartFrom parameter on DataLakeFileSystemClient.listPaths()
+- Name: '@azure/storage-queue'
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.29.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-02-06.
+    - Added support for User Delegation SAS.
+    - Added support for Principal-Bound Identity User Delegation SAS.
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.6/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-postgresql-flexible'
+  Version: 9.0.0
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_9.0.0/sdk/postgresql/arm-postgresql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.0.0-beta.2
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.2/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - add back `project.telemetry` route, give users access to get Application Insights connection string for their AI Foundry Project
+- Name: '@azure/arm-netapp'
+  Version: 22.1.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+
