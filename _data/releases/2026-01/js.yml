@@ -47,4 +47,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.2/sdk/ai/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Model Context Protocol (MCP) support for integrating external tools and services
+    - `MCPServer` tool type for connecting to MCP servers
+    - MCP approval workflow with `MCPApprovalType` and approval request/response items
+    - MCP tool listing events (`ServerEventMcpListToolsInProgress`, `ServerEventMcpListToolsCompleted`, `ServerEventMcpListToolsFailed`)
+    - MCP call execution with streaming support (`ResponseMCPCallItem`, `ServerEventResponseMcpCallArgumentsDelta`, `ServerEventResponseMcpCallArgumentsDone`, `ServerEventResponseMcpCallInProgress`, `ServerEventResponseMcpCallCompleted`, `ServerEventResponseMcpCallFailed`)
+    - MCP approval request and response items (`ResponseMCPApprovalRequestItem`, `ResponseMCPApprovalResponseItem`)
+    - Added avatar configuration enhancements
+    - `AvatarConfigTypes` enum with support for `video-avatar` and `photo-avatar`
+    - `PhotoAvatarBaseModes` enum with `vasa-1` model support
+    - `AvatarOutputProtocol` enum for choosing between `webrtc` and `websocket` output
+    - Enhanced `AvatarConfig` with `type`, `model`, and `outputProtocol` properties
+    - Added image content support
+    - `RequestImageContentPart` for including images in conversation input
+    - `RequestImageContentPartDetail` for controlling image detail levels
+    - Added new voice options
+    - `Marin` and `Cedar` voice types
+    - Enhanced voice configuration with `style`, `pitch`, `rate`, `volume` properties
+    - Added `customLexiconUrl`, `preferLocales`, and `locale` options for voice customization
+    - Added automatic proxy support with environment variable detection (HTTPS_PROXY, HTTP_PROXY)
 
