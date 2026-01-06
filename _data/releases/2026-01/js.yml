@@ -75,4 +75,39 @@ entries:
     - Enhanced voice configuration with `style`, `pitch`, `rate`, `volume` properties
     - Added `customLexiconUrl`, `preferLocales`, and `locale` options for voice customization
     - Added automatic proxy support with environment variable detection (HTTPS_PROXY, HTTP_PROXY)
+- Name: '@azure/create-playwright'
+  Version: 1.1.0
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.1.0/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added reporting configuration support in service config.
+- Name: '@azure/arm-operationalinsights'
+  Version: 10.1.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.1.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.0/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Azure Playwright Reporter that uploads Playwright HTML test reports to Azure Storage after test execution completes.
+
+    #### Bugs Fixed
+
+    - Improved error handling for authentication scenarios.
+    - Changed test run creation failures from fatal to non-fatal errors.
 
