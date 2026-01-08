@@ -151,4 +151,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.0.0-beta.3/sdk/provisioning/Azure.Provisioning.Network/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Translation.Text
+  Version: 2.0.0-beta.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the Azure AI Translator API 2025-10-01-preview, including translations using LLM models, adaptive custom translation, tone variant translations, and gender-specific language translations.
+    - Added `TranslationTarget` class for configuring translation options.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+
+    #### Breaking Changes
+
+    - Added `Models` property to `GetSupportedLanguagesResult` to include the list of LLM models available for translations.
+    - Changed the name of the model factory `AITranslationTextModelFactory` to `TranslationTextModelFactory` matching the new project structure.
+    - Changed the name of `TargetLanguage` property to `Language` in `TranslationText`.
+    - Changed the name of `Confidence` property to `Score` in `DetectedLanguage`.
+    - Removed `TextTranslationTranslateOptions` and `TextTranslationTransliterateOptions`.
+    - `SourceText` property in `TranslatedTextItem` deprecated and marked as obsolete.
+    - Dictionary, sentence boundaries and text alignments features have been removed and relevant classes and properties have been marked as deprecated.
 
