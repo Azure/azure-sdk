@@ -110,4 +110,19 @@ entries:
 
     - Improved error handling for authentication scenarios.
     - Changed test run creation failures from fatal to non-fatal errors.
+- Name: '@azure/event-hubs'
+  Version: 6.0.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed dangling promises in the library to prevent `UnhandledPromiseRejection` errors that could crash applications. [#36250](https://github.com/Azure/azure-sdk-for-js/pull/36250)
+
+    #### Features Added
+
+    - Added React Native ESM dialect support for React Native environments. [#36281](https://github.com/Azure/azure-sdk-for-js/pull/36281)
 
