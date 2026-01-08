@@ -1,0 +1,449 @@
+entries:
+- Name: azure-ai-language-conversations-authoring
+  Version: 1.0.0b2
+  DisplayName: Conversations Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations-authoring_1.0.0b2/sdk/cognitivelanguage/azure-ai-language-conversations-authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-11-15-preview.
+
+    #### Breaking Changes
+    - Changed parameter type from `DeleteDeploymentDetails` to `ProjectResourceIds` when calling `begin_delete_deployment_from_resources`, with property name changed from `assigned_resource_ids` to `azure_resource_ids`.
+
+    - Changed function name from `list_deployment_Resources` to `list_project_resources`, change its return type from `AssignedDeploymentResource` to `AssignedProjectResource`.
+
+    - Changed function name from `begin_assign_deployment_resources` to `begin_assign_project_resources`, and its parameter type from `AssignDeploymentResourcesDetails` to `AssignProjectResourcesDetails`.
+
+    - Changed function name from `begin_unassign_deployment_resources` to `begin_unassign_project_resources`, changed its parameter type from `UnassignDeploymentResourcesDetails` to `ProjectResourceIds`.
+
+    - Changed function name from `get_assign_deployment_resources_status` to `get_assign_project_resources_status`, change its return type from `DeploymentResourcesState` to `ProjectResourcesState`.
+
+    - Changed function name from `get_unassign_deployment_resources_status` to `get_unassign_project_resources_status`, change its return type from `DeploymentResourcesState` to `ProjectResourcesState`.
+- Name: azure-ai-projects
+  Version: 2.0.0b2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.0.0b2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Tracing: operation name attribute added to create agent span, token usage added to streaming response generation span.
+
+    #### Features Added
+
+    * Tracing: support for workflow agent tracing.
+    * Agent Memory operations, including code for custom LRO poller. See methods on the ".memory_store"
+    property of `AIProjectClient`.
+
+    #### Breaking changes
+
+    * `get_openai_client()` method on the asynchronous AIProjectClient is no longer an "async" method.
+    * Tracing: tool call output event content format updated to be in line with other events.
+- Name: azure-ai-evaluation
+  Version: 1.13.7
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.13.7/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed NoneType error when generating usage summary in evaluation results.
+    - Fixed results for f1_score.
+- Name: azure-mgmt-monitor
+  Version: 8.0.0b2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_8.0.0b2/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-networkcloud
+  Version: 2.2.0b1
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_2.2.0b1/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.0.0b2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.0.0b2/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-newrelicobservability
+  Version: 2.0.0b1
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-newrelicobservability_2.0.0b1/sdk/newrelicobservability/azure-mgmt-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 37.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_37.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-elastic
+  Version: 2.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-elastic_2.0.0/sdk/elastic/azure-mgmt-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-web
+  Version: 10.1.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_10.1.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dnsresolver
+  Version: 2.0.0b1
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dnsresolver_2.0.0b1/sdk/dnsresolver/azure-mgmt-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b5/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed streaming generation issues.
+- Name: azure-ai-language-questionanswering-authoring
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering-authoring_1.0.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering-authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview release of `azure-ai-language-questionanswering-authoring` separated from the combined `azure-ai-language-questionanswering` package.
+    - Supports project listing, creation, update, deletion, import/export, deployments, synonym/source/QnA management operations aligned with the TypeSpec service definition (includes preview API version 2025-05-15-preview where applicable).
+- Name: azure-mgmt-netapp
+  Version: 14.0.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.0.1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 30.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_30.1.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-voicelive
+  Version: 1.2.0b2
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.2.0b2/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **Enhanced Avatar Configuration**: Expanded avatar functionality with new configuration options:
+    - Added `AvatarConfigTypes` enum with support for `video-avatar` and `photo-avatar` types
+    - Added `PhotoAvatarBaseModes` enum for photo avatar base models (e.g., `vasa-1`)
+    - Added `AvatarOutputProtocol` enum for avatar streaming protocols (`webrtc`, `websocket`)
+    - Enhanced `AvatarConfig` model with new properties: `type`, `model`, and `output_protocol`
+    - **Image Content Support**: Added support for image inputs in conversations:
+    - New `RequestImageContentPart` model for including images in requests
+    - New `RequestImageContentPartDetail` enum for controlling image detail levels (`auto`, `low`, `high`)
+    - Added `INPUT_IMAGE` to `ContentPartType` enum
+    - Enhanced token details models (`InputTokenDetails`, `CachedTokenDetails`) with `image_tokens` tracking
+    - **Enhanced OpenAI Voices**: Added new OpenAI voice options:
+    - Added `marin` and `cedar` voices to `OpenAIVoiceName` enum
+    - **Extended Azure Personal Voice Configuration**: Enhanced `AzurePersonalVoice` with additional customization options:
+    - Added support for custom lexicon via `custom_lexicon_url`
+    - Added `prefer_locales` for locale preferences
+    - Added `locale`, `style`, `pitch`, `rate`, and `volume` properties for fine-tuned voice control
+    - **Enhanced MCP Server Events**: Added completion status events for MCP tool calls:
+    - `ServerEventResponseMcpCallInProgress` for tracking in-progress MCP calls
+    - `ServerEventResponseMcpCallCompleted` for successful MCP call completion
+    - `ServerEventResponseMcpCallFailed` for failed MCP calls
+    - **Pre-generated Assistant Messages**: Added support for pre-generated assistant messages in `ResponseCreateParams` via the `pre_generated_assistant_message` property
+- Name: azure-mgmt-resourcegraph
+  Version: 8.0.1
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcegraph_8.0.1/sdk/resources/azure-mgmt-resourcegraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 40.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_40.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-computelimit
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computelimit_1.0.0b1/sdk/computelimit/azure-mgmt-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 2.0.0
+  DisplayName: Resource Management - PostgreSQL  Flexible Servers
+  ServiceName: PostgreSQL  Flexible Servers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_2.0.0/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-rdbms
+  Version: 10.1.1
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.1.1/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mysqlflexibleservers
+  Version: 1.1.0b1
+  DisplayName: Resource Management - MySQL Flexible Servers
+  ServiceName: MySQL Flexible Servers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mysqlflexibleservers_1.1.0b1/sdk/mysqlflexibleservers/azure-mgmt-mysqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabricmanagedclusters
+  Version: 2.1.0b5
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabricmanagedclusters_2.1.0b5/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.15.0b1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.15.0b1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Per Partition Automatic Failover. To enable this feature, you must follow the guide [here](https://learn.microsoft.com/azure/cosmos-db/how-to-configure-per-partition-automatic-failover). See [PR 41588](https://github.com/Azure/azure-sdk-for-python/pull/41588).
+    * Added support for AvailabilityStrategy to help improve request latency and availability in multi-region deployments. See [PR 42584](https://github.com/Azure/azure-sdk-for-python/pull/42584)
+
+    #### Bugs Fixed
+    * Fixed bug where client timeout/read_timeout values were not properly enforced[PR 42652](https://github.com/Azure/azure-sdk-for-python/pull/42652).
+    * Fixed bug when passing in None for some option in `query_items` would cause unexpected errors. See [PR 44098](https://github.com/Azure/azure-sdk-for-python/pull/44098)
+    * Fixed bug where first metadata requests have duplicated custom `user_agent` in headers. See [PR 44189](https://github.com/Azure/azure-sdk-for-python/pull/44189)
+- Name: azure-ai-transcription
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-transcription_1.0.0b1/sdk/cognitiveservices/azure-ai-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial version
+- Name: azure-mgmt-netapp
+  Version: 14.1.0b1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_14.1.0b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.15.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.15.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added new `get_user_delegation_key` API to `QueueServiceClient` to obtain a user delegation key
+    for the purposes of signing SAS tokens.
+    - Added support for the keyword `user_delegation_oid` to `generate_queue_sas`, which specifies the Entra ID
+    of the user that is authorized to use the generated SAS URL.
+    - Added support for the keyword `user_delegation_key` to `generate_queue_sas` used with
+    `user_delegation_oid` to authenticate the request to generate a new SAS URL.
+    - Added support for `UseDevelopmentStorage=true;` as a valid connection string for Azurite.
+- Name: azure-storage-file-share
+  Version: 12.24.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.24.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added new `get_user_delegation_key` API to `ShareServiceClient` to obtain a user delegation key
+    for the purposes of signing SAS tokens.
+    - Added support for the keyword `user_delegation_oid` to `generate_share_sas` and `generate_file_sas`,
+    which specifies the Entra ID of the user that is authorized to use the generated SAS URL.
+    - Added support for the keyword `user_delegation_key` to `generate_share_sas` and `generate_file_sas` used with
+    `user_delegation_oid` to authenticate the request to generate a new SAS URL.
+    - Added support for the keyword `encryption_in_transit`in `ShareSmbSettings` used by `set_service_properties`
+    for the SMB protocol to specify whether encryption in transit is required.
+    - Added the ability to skip auto decompression on `ShareFileClient.download_file` via the `decompress` keyword.
+
+    #### Bugs Fixed
+    - Fixed an issue where `FileProperties` and `DirectoryProperties` did not contain timezone information for
+    `change_time`, `creation_time`, and `last_write_time` attributes.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b46
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b46/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Fix to accommodate breaking log changes from Otel
+    ([#43626](https://github.com/Azure/azure-sdk-for-python/pull/43626))
+    - Pin OpenTelemetry versions to guard against upstream logging breaking changes
+    ([#44220](https://github.com/Azure/azure-sdk-for-python/pull/44220))
+
+    #### Bugs Fixed
+    - Fixes LogDeprecated warnings - `LogDeprecatedInitWarning: LogRecord init with trace_id, span_id, and/or trace_flags is deprecated since 1.35.0. Use context instead`
+    ([#44090](https://github.com/Azure/azure-sdk-for-python/pull/44090))
+    - Fixes issue #43442: SyntaxWarning: 'return' in a 'finally' block in azure-monitor-opentelemetry-exporter with Python 3.14
+    ([#44053](https://github.com/Azure/azure-sdk-for-python/pull/44053))
+- Name: azure-storage-blob
+  Version: 12.28.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.28.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for the keywords `if_modified_since`, `if_unmodified_since`, `etag`, and `match_condition` to
+    conditionally perform `BlobClient`'s `set_blob_tags` and `get_blob_tags` operations.
+    - Added support for the keyword `start_from` in `ContainerClient`'s `list_blobs`, `list_blob_names`, and `walk_blobs`
+    APIs, which specifies the full path to start listing paths from.
+    - Added support for the keyword `user_delegation_oid` to `generate_blob_sas` and `generate_container_sas`, which
+    specifies the Entra ID of the user that is authorized to use the generated SAS URL.
+    - Added support for `UseDevelopmentStorage=true;` as a valid connection string for Azurite.
+    - Added the ability to skip auto decompression on `BlobClient.download_blob` via the `decompress` keyword.
+- Name: azure-monitor-opentelemetry
+  Version: 1.8.3
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.8.3/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Pin OpenTelemetry versions to guard against upstream logging breaking changes
+    ([#44220](https://github.com/Azure/azure-sdk-for-python/pull/44220))
+
+    #### Bugs Fixed
+    - Fix default value overriding user-configured sampling ratio in distro
+    ([#44162](https://github.com/Azure/azure-sdk-for-python/pull/44162))
+- Name: azure-storage-file-datalake
+  Version: 12.23.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.23.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-02-06.
+    - Added support for the keyword `start_from` for `DataLakeServiceClient`'s `get_paths` and
+    `DataLakeDirectoryClient`'s `get_paths` APIs, which specifies the full path to start listing paths from.
+    - Added support for the keyword `user_delegation_oid` to `generate_file_system_sas`, `generate_directory_sas`, and
+    `generate_file_sas`, which specifies the Entra ID of the user that is authorized to use the generated SAS URL.
+    - Added support for `UseDevelopmentStorage=true;` as a valid connection string for Azurite.
+    - Added the ability to skip auto decompression on `DataLakeFileClient.download_file` via the `decompress` keyword.
+- Name: azure-mgmt-containerregistry
+  Version: 14.1.0b4
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_14.1.0b4/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b7
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b7/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update response with created_by
+- Name: azure-cosmos
+  Version: 4.14.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.14.3/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug where client timeout/read_timeout values were not properly enforced. See [PR 42652](https://github.com/Azure/azure-sdk-for-python/pull/42652).
+    * Fixed bug when passing in None for some options in `query_items` would cause unexpected errors. See [PR 44098](https://github.com/Azure/azure-sdk-for-python/pull/44098)
+- Name: azure-mgmt-loganalytics
+  Version: 13.1.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.1.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 13.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_13.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.37.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.37.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `get_backcompat_attr_name` to `azure.core.serialization`. `get_backcompat_attr_name` gets the backcompat name of an attribute using backcompat attribute access.  #44084
+
