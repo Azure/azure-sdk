@@ -1289,7 +1289,7 @@ Storage,0,Resource Management - Storage Mover,mgmt,Java,,,11,false,azure-resourc
 Storage,0,Resource Management - Storage Pool,mgmt,Java,,,11,false,azure-resourcemanager-storagepool,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/storagepool/item.Package/,10,false,1,01/03/2025
 Storagediscovery,0,Resource Management - Storagediscovery,mgmt,Java,,,11,false,azure-resourcemanager-storagediscovery,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/storagediscovery/item.Package/,10,false,1,10/02/2025
 Stream Analytics,0,Resource Management - Stream Analytics,mgmt,Java,azure-mgmt-streamanalytics,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/streamanalytics/mgmt-v2016_03_01,3,true,azure-resourcemanager-streamanalytics,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/streamanalytics/item.Package/,10,false,1,01/03/2025
-Subscriptions,0,Resource Management - Subscriptions,mgmt,Java,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-subscription,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/subscription/item.Package/,10,false,1,12/25/2024
+Subscriptions,0,Resource Management - Subscriptions,mgmt,Java,azure-mgmt-subscription,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-subscription,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/subscription,10,false,1,12/25/2024
 Support,0,Resource Management - Support,mgmt,Java,azure-mgmt-support,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/support/mgmt-v2020_04_01,10,true,azure-resourcemanager-support,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/support/item.Package/,10,false,1,12/19/2024
 Synapse,0,Resource Management - Synapse,mgmt,Java,azure-mgmt-synapse,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/synapse/mgmt-v2019_06_01_preview,3,true,azure-resourcemanager-synapse,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/synapse/item.Package/,10,false,1,12/23/2024
 System Center Virtual Machine Manager,0,Resource Management - System Center Virtual Machine Manager,mgmt,Java,,,11,false,azure-resourcemanager-scvmm,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/scvmm/item.Package/,10,false,1,06/26/2024
@@ -1452,7 +1452,7 @@ Cognitive Services,0,Document Translation,data,JavaScript,,,11,false,@azure-rest
 Event Grid,0,Event Grid,data,JavaScript,,,11,false,@azure/eventgrid,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,05/15/2025
 Event Grid,0,Event Grid Namespaces,data,JavaScript,,,11,false,@azure/eventgrid-namespaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,10,false,1,06/10/2024
 Event Grid,0,Event Grid System Events,data,JavaScript,,,11,false,@azure/eventgrid-system-events,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid,3,false,1,
-Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,04/08/2025
+Event Hubs,0,Event Hubs,data,JavaScript,,,11,false,@azure/event-hubs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub,10,false,1,01/07/2026
 farmbeats,0,farmbeats,data,JavaScript,,,11,false,@azure-rest/agrifood-farming,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/agrifood/agrifood-farming-rest/,3,false,1,
 Cognitive Services,0,Form Recognizer,data,JavaScript,@azure/cognitiveservices-formrecognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-form-recognizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer,10,false,1,05/12/2025
 Health Deidentification,0,Health Deidentification,data,JavaScript,,,11,false,@azure-rest/health-deidentification,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthdataaiservices/health-deidentification-rest/,10,false,1,07/02/2025
@@ -4308,16 +4308,6 @@ ElasticSAN,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs
 ElasticSAN,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: elasticsan/cspell.yaml,,2,false,0,
 ElasticSAN,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: elasticsan/cspell.yaml,,2,false,0,
 ElasticSAN,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: elasticsan/cspell.yaml,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid,data,.NET,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid,data,Java,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid,data,JavaScript,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid,data,Python,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid,data,Go,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,.NET,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Java,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,JavaScript,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Python,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
-Event Grid,0,Azure.Messaging.EventGrid.SystemEvents,data,Go,,,11,false,Missing: Created from API in specs repo: eventgrid/Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Event Grid,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: eventgrid/cspell.yaml,,2,false,0,
 Event Grid,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: eventgrid/cspell.yaml,,2,false,0,
 Event Grid,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: eventgrid/cspell.yaml,,2,false,0,
@@ -4408,6 +4398,11 @@ HDInsight,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs 
 HDInsight,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
 HDInsight,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
 HDInsight,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: hdinsight/cspell.yaml,,2,false,0,
+HDInsight,0,HDInsight,data,.NET,,,11,false,Missing: Created from API in specs repo: hdinsight/data-plane,,2,false,0,
+HDInsight,0,HDInsight,data,Java,,,11,false,Missing: Created from API in specs repo: hdinsight/data-plane,,2,false,0,
+HDInsight,0,HDInsight,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hdinsight/data-plane,,2,false,0,
+HDInsight,0,HDInsight,data,Python,,,11,false,Missing: Created from API in specs repo: hdinsight/data-plane,,2,false,0,
+HDInsight,0,HDInsight,data,Go,,,11,false,Missing: Created from API in specs repo: hdinsight/data-plane,,2,false,0,
 HDInsight,0,HDInsight Kafka REST Proxy,data,.NET,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
 HDInsight,0,HDInsight Kafka REST Proxy,data,Java,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
 HDInsight,0,HDInsight Kafka REST Proxy,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hdinsight/hdinsight-kafka-rest-proxy,,2,false,0,
@@ -5443,6 +5438,11 @@ Security Insights,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API i
 Security Insights,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: securityinsights/cspell.yaml,,2,false,0,
 Security Insights,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: securityinsights/cspell.yaml,,2,false,0,
 Security Insights,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: securityinsights/cspell.yaml,,2,false,0,
+Security Insights,0,Security Insights,data,.NET,,,11,false,Missing: Created from API in specs repo: securityinsights/data-plane,,2,false,0,
+Security Insights,0,Security Insights,data,Java,,,11,false,Missing: Created from API in specs repo: securityinsights/data-plane,,2,false,0,
+Security Insights,0,Security Insights,data,JavaScript,,,11,false,Missing: Created from API in specs repo: securityinsights/data-plane,,2,false,0,
+Security Insights,0,Security Insights,data,Python,,,11,false,Missing: Created from API in specs repo: securityinsights/data-plane,,2,false,0,
+Security Insights,0,Security Insights,data,Go,,,11,false,Missing: Created from API in specs repo: securityinsights/data-plane,,2,false,0,
 Service Map,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: service-map/cspell.yaml,,2,false,0,
 Service Map,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: service-map/cspell.yaml,,2,false,0,
 Service Map,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: service-map/cspell.yaml,,2,false,0,
