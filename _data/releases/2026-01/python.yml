@@ -169,4 +169,23 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Stable release of features from 12.15.0b1
+- Name: azure-ai-translation-text
+  Version: 2.0.0b1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-text_2.0.0b1/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Dictionary, sentence boundaries and text alignments features have been removed, and relevant models and properties have been removed.
+    - Added `models` property to `GetSupportedLanguagesResult` to include the list of LLM models available for translations.
+    - Renamed property `confidence` to `score` in `DetectedLanguage`.
+    - Removed property `source_text` in `TranslatedTextItem`.
+
+    #### Features Added
+
+    - Added support for the Azure AI Translator API 2025-10-01-preview, including translations using LLM models, adaptive custom translations, tone variant translations, and gender-specific language translations.
+    - Added `TranslationTarget` for configuring translation options.
 
