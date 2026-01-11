@@ -105,6 +105,8 @@ Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedRea
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/05/2025
 Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,true,1,08/12/2025
+Monitor,0,Monitor Query Logs,data,.NET,,,11,false,Azure.Monitor.Query.Logs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
+Monitor,0,Monitor Query Metrics,data,.NET,,,11,false,Azure.Monitor.Query.Metrics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
 Microsoft Playwright Testing,0,NUnit ? Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 Online Experimentation,0,Online Experimentation,data,.NET,,,11,false,Azure.Analytics.OnlineExperimentation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
@@ -1853,7 +1855,7 @@ Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,http
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
 Cognitive Services,0,AI Agents,data,Python,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,08/05/2025
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,11/15/2025
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,01/09/2026
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,07/30/2025
@@ -2316,6 +2318,8 @@ Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Python,,,11,false,Missing: Cr
 Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
 Mixed Reality,0,Mixed Reality Authentication,data,Go,,,11,false,Missing: Created from existing package: Azure.MixedReality.Authentication,,2,false,0,
 Monitor,0,Monitor Query,data,Python,,,11,false,Missing: Created from existing package: Azure.Monitor.Query,,2,false,0,
+Monitor,0,Monitor Query Logs,data,Go,,,11,false,Missing: Created from existing package: Azure.Monitor.Query.Logs,,2,false,0,
+Monitor,0,Monitor Query Metrics,data,Go,,,11,false,Missing: Created from existing package: Azure.Monitor.Query.Metrics,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
@@ -2566,10 +2570,6 @@ Cosmos,0,Cosmos Spark 3.5,data,Go,,,11,false,Missing: Created from existing pack
 Identity,0,Identity,data,.NET,,,11,false,Missing: Created from existing package: azure-identity,,2,false,0,
 Identity,0,Identity Broker,data,.NET,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
 Identity,0,Identity Broker,data,Go,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
-Monitor,0,Monitor Query Logs,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-query-logs,,2,false,0,
-Monitor,0,Monitor Query Logs,data,Go,,,11,false,Missing: Created from existing package: azure-monitor-query-logs,,2,false,0,
-Monitor,0,Monitor Query Metrics,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-query-metrics,,2,false,0,
-Monitor,0,Monitor Query Metrics,data,Go,,,11,false,Missing: Created from existing package: azure-monitor-query-metrics,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,JavaScript,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,Python,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
