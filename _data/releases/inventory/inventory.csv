@@ -28,10 +28,10 @@ Key Vault,0,Key Vault - Administration,data,C++,,,11,false,azure-security-keyvau
 Key Vault,0,Key Vault - Certificates,data,C++,,,11,false,azure-security-keyvault-certificates,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
 Key Vault,0,Key Vault - Keys,data,C++,,,11,false,azure-security-keyvault-keys,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
 Key Vault,0,Key Vault - Secrets,data,C++,,,11,false,azure-security-keyvault-secrets,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/keyvault,10,false,1,01/16/2024
-Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
-Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
-Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
-Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,10/16/2025
+Storage,0,Storage - Blobs,data,C++,,,11,false,azure-storage-blobs,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,01/08/2026
+Storage,0,Storage - Files Data Lake,data,C++,,,11,false,azure-storage-files-datalake,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,01/08/2026
+Storage,0,Storage - Files Share,data,C++,,,11,false,azure-storage-files-shares,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,01/08/2026
+Storage,0,Storage - Queues,data,C++,,,11,false,azure-storage-queues,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage,10,false,1,01/08/2026
 Tables,0,Tables,data,C++,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables,3,false,1,
 Cognitive Services,0,AI Agents Persistent,data,.NET,,,11,false,Azure.AI.Agents.Persistent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,07/25/2025
 Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,11/04/2025
@@ -105,6 +105,8 @@ Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedRea
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/05/2025
 Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,true,1,08/12/2025
+Monitor,0,Monitor Query Logs,data,.NET,,,11,false,Azure.Monitor.Query.Logs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
+Monitor,0,Monitor Query Metrics,data,.NET,,,11,false,Azure.Monitor.Query.Metrics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,
 Microsoft Playwright Testing,0,NUnit ? Microsoft Playwright Testing,data,.NET,,,11,false,Azure.Developer.MicrosoftPlaywrightTesting.NUnit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/playwrighttesting,3,true,1,
 Online Experimentation,0,Online Experimentation,data,.NET,,,11,false,Azure.Analytics.OnlineExperimentation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/onlineexperimentation,3,false,1,
 Cognitive Services,0,OpenAI Assistants,data,.NET,,,11,false,Azure.AI.OpenAI.Assistants,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai,3,false,1,
@@ -1853,7 +1855,7 @@ Monitor,0,Resource Management - Insights,mgmt,JavaScript,azure-arm-insights,http
 Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobileengagement,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: NA,,4,false,1,
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
 Cognitive Services,0,AI Agents,data,Python,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,08/05/2025
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,11/15/2025
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,01/09/2026
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,07/30/2025
@@ -2316,6 +2318,8 @@ Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Python,,,11,false,Missing: Cr
 Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebPubSub.Common,,2,false,0,
 Mixed Reality,0,Mixed Reality Authentication,data,Go,,,11,false,Missing: Created from existing package: Azure.MixedReality.Authentication,,2,false,0,
 Monitor,0,Monitor Query,data,Python,,,11,false,Missing: Created from existing package: Azure.Monitor.Query,,2,false,0,
+Monitor,0,Monitor Query Logs,data,Go,,,11,false,Missing: Created from existing package: Azure.Monitor.Query.Logs,,2,false,0,
+Monitor,0,Monitor Query Metrics,data,Go,,,11,false,Missing: Created from existing package: Azure.Monitor.Query.Metrics,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
 Cognitive Services,0,OpenAI Inference,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.OpenAI,,2,false,0,
@@ -2566,10 +2570,6 @@ Cosmos,0,Cosmos Spark 3.5,data,Go,,,11,false,Missing: Created from existing pack
 Identity,0,Identity,data,.NET,,,11,false,Missing: Created from existing package: azure-identity,,2,false,0,
 Identity,0,Identity Broker,data,.NET,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
 Identity,0,Identity Broker,data,Go,,,11,false,Missing: Created from existing package: azure-identity-broker,,2,false,0,
-Monitor,0,Monitor Query Logs,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-query-logs,,2,false,0,
-Monitor,0,Monitor Query Logs,data,Go,,,11,false,Missing: Created from existing package: azure-monitor-query-logs,,2,false,0,
-Monitor,0,Monitor Query Metrics,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-query-metrics,,2,false,0,
-Monitor,0,Monitor Query Metrics,data,Go,,,11,false,Missing: Created from existing package: azure-monitor-query-metrics,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,.NET,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,JavaScript,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
 Monitor,0,OpenTelemetry AutoConfigure,data,Python,,,11,false,Missing: Created from existing package: azure-monitor-opentelemetry-autoconfigure,,2,false,0,
@@ -3765,6 +3765,11 @@ Content Delivery Network,0,cspell.yaml,data,Java,,,11,false,Missing: Created fro
 Content Delivery Network,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
+certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
+certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
+certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
+certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
+certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
 certificateregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
 certificateregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
 certificateregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
@@ -4204,6 +4209,11 @@ DNS,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: 
 DNS,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
+domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
+domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
+domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
+domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
+domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
 domainregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
 domainregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
 domainregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
