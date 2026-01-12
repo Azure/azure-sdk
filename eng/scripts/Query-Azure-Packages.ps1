@@ -74,7 +74,7 @@ function Get-java-Packages
   {
     $artifactId = $tag
     if ($tag.Contains("+")) {
-      $_, $artifactId = $tag -split "+"
+      $_, $artifactId = $tag.Split("+")
     }
 
     if ($packages.Package -notcontains $artifactId) {
