@@ -653,10 +653,10 @@ Tracing,0,OpenTelemetry,data,Go,,,11,false,sdk/tracing/azotel,https://github.com
 Monitor,0,Query - Logs,data,Go,,,11,false,sdk/monitor/query/azlogs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azlogs,10,false,1,07/21/2025
 Monitor,0,Query - Metrics,data,Go,,,11,false,sdk/monitor/query/azmetrics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/monitor/query/azmetrics,10,false,1,07/17/2025
 Service Bus,0,Service Bus,data,Go,azure-service-bus-go,https://github.com/Azure/azure-service-bus-go/,3,true,sdk/messaging/azservicebus,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus,10,false,1,08/05/2025
-Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,10/16/2025
-Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,10/16/2025
-Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,10/16/2025
-Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,10/16/2025
+Storage,0,Storage - Blobs,data,Go,azblob,https://github.com/Azure/azure-storage-blob-go/,3,true,sdk/storage/azblob,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob,10,false,1,01/13/2026
+Storage,0,Storage - Files Data Lake,data,Go,,,11,false,sdk/storage/azdatalake,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake,10,false,1,01/13/2026
+Storage,0,Storage - Files Share,data,Go,azfile,https://github.com/Azure/azure-storage-file-go/,3,true,sdk/storage/azfile,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile,10,false,1,01/13/2026
+Storage,0,Storage - Queues,data,Go,azqueue,https://github.com/Azure/azure-storage-queue-go/,3,true,sdk/storage/azqueue,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue,10,false,1,01/13/2026
 Event Grid,0,System Events,data,Go,,,11,false,sdk/messaging/eventgrid/azsystemevents,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/eventgrid/azsystemevents,10,false,1,06/26/2025
 Tables,0,Tables,data,Go,,,11,false,sdk/data/aztables,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables,10,false,1,11/13/2025
 Template,0,Template,data,Go,,,11,false,sdk/template/aztemplate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/template/aztemplate,3,false,1,
@@ -1282,7 +1282,7 @@ Service Networking,0,Resource Management - Service Networking,mgmt,Java,,,11,fal
 SignalR,0,Resource Management - SignalR,mgmt,Java,azure-mgmt-signalr,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/signalr/mgmt-v2020_05_01,3,true,azure-resourcemanager-signalr,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/signalr/item.Package/,10,false,1,12/24/2024
 Sitemanager,0,Resource Management - Sitemanager,mgmt,Java,,,11,false,azure-resourcemanager-sitemanager,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sitemanager/item.Package/,10,false,1,09/29/2025
 Sphere,0,Resource Management - Sphere,mgmt,Java,,,11,false,azure-resourcemanager-sphere,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sphere/item.Package/,10,false,1,12/19/2024
-SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sql/item.Package/,10,false,1,11/24/2025
+SQL,0,Resource Management - SQL,mgmt,Java,azure-mgmt-sql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-sql,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk,10,false,1,11/24/2025
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,Java,,,11,false,azure-resourcemanager-sqlvirtualmachine,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sqlvirtualmachine/item.Package/,3,false,1,
 Standby Pool,0,Resource Management - Standby Pool,mgmt,Java,,,11,false,azure-resourcemanager-standbypool,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/standbypool/item.Package/,10,false,1,04/21/2025
 Storage,0,Resource Management - Storage,mgmt,Java,azure-mgmt-storage,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-storage,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/storage/item.Package/,10,false,1,11/24/2025
@@ -1870,7 +1870,7 @@ Cognitive Services,0,Azure AI Transcription,data,Python,,,11,false,azure-ai-tran
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,12/04/2025
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/12/2026
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
@@ -3766,11 +3766,6 @@ Content Delivery Network,0,cspell.yaml,data,Java,,,11,false,Missing: Created fro
 Content Delivery Network,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
 Content Delivery Network,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: cdn/cspell.yaml,,2,false,0,
-certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
-certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
-certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
-certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
-certificateregistration,0,Resource Management - CertificateRegistration.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: certificateregistration/CertificateRegistration.Management,,2,false,0,
 certificateregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
 certificateregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
 certificateregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: certificateregistration/cspell.yaml,,2,false,0,
@@ -4210,11 +4205,6 @@ DNS,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: 
 DNS,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
 DNS,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: dns/cspell.yaml,,2,false,0,
-domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
-domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
-domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
-domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
-domainregistration,0,Resource Management - DomainRegistration.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: domainregistration/DomainRegistration.Management,,2,false,0,
 domainregistration,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
 domainregistration,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
 domainregistration,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: domainregistration/cspell.yaml,,2,false,0,
