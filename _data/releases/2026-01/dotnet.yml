@@ -1,0 +1,300 @@
+entries:
+- Name: Azure.AI.Projects.OpenAI
+  Version: 1.0.0-beta.5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_1.0.0-beta.5/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added transitive compatibility for `OpenAI 2.8.0`, including significant changes to the `[Experimental]` Responses API surface
+    - Added possibility of authentication to MCP server using project connection.
+- Name: Azure.AI.Projects
+  Version: 1.2.0-beta.5
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.2.0-beta.5/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated for transitive compatibility with `OpenAI 2.8.0`, including substantial changes to the `[Experimental]` Responses API
+
+    #### Bugs Fixed
+    * Fixed the uploading of files fore fine tuning.
+- Name: Azure.ResourceManager.StorageSync
+  Version: 1.3.1
+  DisplayName: Resource Management - Storage Sync
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageSync_1.3.1/sdk/storagesync/Azure.ResourceManager.StorageSync/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Nginx
+  Version: 1.1.0-beta.4
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.1.0-beta.4/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations.Authoring
+  Version: 1.0.0-beta.3
+  DisplayName: Conversations Authoring
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.3/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed parameter type from `ConversationAuthoringDeleteDeploymentDetails` to `ConversationAuthoringProjectResourceIds` when calling `DeleteDeploymentFromResources`, with property name changed from `AssignedResourceIds` to `AzureResourceIds`.
+
+    - Changed function name from `GetDeploymentResources` to `GetProjectResources`, change its return type from `ConversationAuthoringAssignedDeploymentResource` to `ConversationAuthoringAssignedProjectResource`.
+
+    - Changed function name from `AssignDeploymentResources` to `AssignProjectResources`, and its parameter type from `ConversationAuthoringAssignDeploymentResourcesDetails` to `ConversationAuthoringAssignProjectResourcesDetails`.
+
+    - Changed function name from `UnassignDeploymentResources` to `UnassignProjectResources`, changed its parameter type from `ConversationAuthoringUnassignDeploymentResourcesDetails` to `ConversationAuthoringProjectResourceIds`.
+
+    - Changed function name from `GetAssignDeploymentResourcesStatus` to `GetAssignProjectResourcesStatus`, change its return type from `ConversationAuthoringDeploymentResourcesState` to `ConversationAuthoringProjectResourcesState`.
+
+    - Changed function name from `GetUnassignDeploymentResourcesStatus` to `GetUnassignProjectResourcesStatus`, change its return type from `ConversationAuthoringDeploymentResourcesState` to `ConversationAuthoringProjectResourcesState`.
+
+    - For function `CreateProject`, include `projectName` when constructing `ConversationAuthoringCreateProjectDetails`.
+
+    #### Bugs Fixed
+
+    - Fixed diagnostic scope names in `ConversationAuthoringProject` methods.
+
+    #### Features Added
+    - Added support for service version 2025-11-15-preview.
+
+    - Added support for service version 2025-11-01.
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.6
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.6/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A new option to pass transparent statement verification key sets mapped to domain names for offline verification using `CodeTransparencyVerificationOptions.OfflineKeys`
+    - A new option to restrict the use of a network resolution of the ledger keys when using `OfflineKeys` with `CodeTransparencyVerificationOptions.OfflineKeysBehavior`
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.3.0/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeActions
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Edgeactions
+  ServiceName: Edgeactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeActions_1.0.0-beta.1/sdk/edgeactions/Azure.ResourceManager.EdgeActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotOperations
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - IoT Operations
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotOperations_1.1.0-beta.1/sdk/iotoperations/Azure.ResourceManager.IotOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Dell.Storage
+  Version: 1.0.0
+  DisplayName: Resource Management - Dell.Storage
+  ServiceName: Dell.Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dell.Storage_1.0.0/sdk/dellstorage/Azure.ResourceManager.Dell.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Communication
+  Version: 1.3.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.3.0/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppService
+  Version: 1.3.1
+  DisplayName: Provisioning - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppService_1.3.1/sdk/provisioning/Azure.Provisioning.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.3.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.3.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added four public authentication methods for the ContainerRegistryClient: GetAcrAccessTokenAsync, GetAcrAccessToken, ExchangeAadAccessTokenAsync, and ExchangeAadAccessToken. These methods make it easier for users to programmatically obtain and exchange authentication tokens when interacting with Azure Container Registry. ([#51701](https://github.com/Azure/azure-sdk-for-net/pull/51701))
+- Name: Azure.Provisioning.Network
+  Version: 1.0.0-beta.3
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.0.0-beta.3/sdk/provisioning/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Translation.Text
+  Version: 2.0.0-beta.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0-beta.1/sdk/translation/Azure.AI.Translation.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the Azure AI Translator API 2025-10-01-preview, including translations using LLM models, adaptive custom translation, tone variant translations, and gender-specific language translations.
+    - Added `TranslationTarget` class for configuring translation options.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+
+    #### Breaking Changes
+
+    - Added `Models` property to `GetSupportedLanguagesResult` to include the list of LLM models available for translations.
+    - Changed the name of the model factory `AITranslationTextModelFactory` to `TranslationTextModelFactory` matching the new project structure.
+    - Changed the name of `TargetLanguage` property to `Language` in `TranslationText`.
+    - Changed the name of `Confidence` property to `Score` in `DetectedLanguage`.
+    - Removed `TextTranslationTranslateOptions` and `TextTranslationTransliterateOptions`.
+    - `SourceText` property in `TranslatedTextItem` deprecated and marked as obsolete.
+    - Dictionary, sentence boundaries and text alignments features have been removed and relevant classes and properties have been marked as deprecated.
+- Name: Azure.ResourceManager.FileShares
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fileshares
+  ServiceName: Fileshares
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FileShares_1.0.0-beta.1/sdk/fileshares/Azure.ResourceManager.FileShares/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Common
+  Version: 12.26.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.26.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.25.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.25.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.25.0-beta.1
+- Name: Azure.Storage.Queues
+  Version: 12.25.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.25.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.25.0-beta.1
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.59
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.59/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Blobs
+  Version: 12.27.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.27.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.27.0-beta.1
+- Name: Azure.Storage.Files.Shares
+  Version: 12.25.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.25.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.25.0-beta.1
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.24.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.24.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Includes all features from 12.24.0-beta.1
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.6.0-beta.2
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.6.0-beta.2/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * **Default Sampler Changed** ([#54942](https://github.com/Azure/azure-sdk-for-net/pull/54942)): The default sampling behavior has been changed from
+    `ApplicationInsightsSampler` with 100% sampling (all traces sampled) to
+    `RateLimitedSampler` with 5.0 traces per second. This change significantly
+    reduces telemetry volume for high-traffic applications and provides better
+    cost optimization out of the box.
+    **Impact**: Applications with more than 5 requests per second will see fewer
+    traces exported by default.
+    **Migration**: To maintain the previous behavior (100% sampling), explicitly
+    configure the sampler:
+    ```csharp
+    // Option 1: Set SamplingRatio and clear TracesPerSecond
+    builder.Services.AddOpenTelemetry()
+    .UseAzureMonitorExporter(options =>
+    {
+    options.SamplingRatio = 1.0f;
+    options.TracesPerSecond = null;
+    });
+    // Option 2: Use environment variables
+    // OTEL_TRACES_SAMPLER=microsoft.fixed_percentage
+    // OTEL_TRACES_SAMPLER_ARG=1.0
+    ```
+
+    #### Bugs Fixed
+
+    * Fixed performance counter metrics not using configured resource attributes
+    (cloud_RoleName and cloud_RoleInstance), which previously showed
+    "unknown_service:appName" instead of the configured values.
+    ([#54944](https://github.com/Azure/azure-sdk-for-net/pull/54944))
+- Name: Azure.ResourceManager.ConnectedCache
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Connectedcache
+  ServiceName: Connectedcache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedCache_1.0.0-beta.2/sdk/connectedcache/Azure.ResourceManager.ConnectedCache/CHANGELOG.md
+  ChangelogContent: ""
+
