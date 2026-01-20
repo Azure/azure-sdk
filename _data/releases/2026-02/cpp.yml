@@ -1,0 +1,24 @@
+entries:
+- Name: azure-identity
+  Version: 1.13.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.13.3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#6897]](https://github.com/Azure/azure-sdk-for-cpp/issues/6897) `DefaultAzureCredential` causes an access violation if cast to a `TokenCredential` reference.
+- Name: azure-core
+  Version: 1.16.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.16.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#6817]](https://github.com/Azure/azure-sdk-for-cpp/issues/6817) Fix CPU spinning when curl_easy_send returns 0 bytes on SSL socket writes. (A community contribution, courtesy of _[harshitkr12](https://github.com/harshitkr12)_)
+
