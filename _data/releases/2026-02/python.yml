@@ -15,4 +15,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-communication_2.2.0/sdk/communication/azure-mgmt-communication/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-contentunderstanding
+  Version: 1.0.0b1
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.0.0b1/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial release of Azure AI Content Understanding client library for Python
+    - Added `ContentUnderstandingClient` for analyzing documents, audio, and video content
 
