@@ -84,4 +84,44 @@ entries:
     - Renamed `content_length` to `size` for `PageBlobClient`'s `create()` method.
     - Removed `Pager::with_continuation_token()` for methods that return a `Pager`.
     - Changed `BlobClient`'s `set_tags` parameter `tags` type from `HashMap<String, String>` to `RequestContent<BlobTags, XmlFormat>`.
+- Name: azure_data_cosmos
+  Version: 0.30.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.30.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added GlobalEndpointManager, LocationCache to support Cross Regional Retry.
+    - Added `continuation_token` to `PagerOptions` for methods that return a `Pager`.
+    - Added `throughput_bucket`, `priority`, and `custom_headers` to different request options. ([#3482](https://github.com/Azure/azure-sdk-for-rust/pull/3482))
+    - Added several new options to `QueryOptions`. ([#3482](https://github.com/Azure/azure-sdk-for-rust/pull/3482))
+
+    #### Breaking Changes
+
+    - Removed `Pager::with_continuation_token()` for methods that return a `Pager`.
+- Name: azure_messaging_eventhubs
+  Version: 0.10.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.10.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_messaging_eventhubs_checkpointstore_blob
+  Version: 0.4.0
+  DisplayName: EventHubs Checkpoint Store for Azure Blob Storage
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.4.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
 
