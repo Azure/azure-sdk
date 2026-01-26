@@ -1,14 +1,24 @@
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
 
-function Get-GitHubHeaders()
+function Get-GitHubHeaders([switch]$FailIfMissing)
 {
   <#
   .SYNOPSIS
   Creates headers for GitHub API requests with optional authentication.
   
+  .PARAMETER FailIfMissing
+  If set, writes an error and returns $null when github_pat is not set
+  
   .RETURNS
-  A hashtable containing headers for GitHub API requests
+  A hashtable containing headers for GitHub API requests, or $null if FailIfMissing is set and github_pat is not available
   #>
+  
+  if (!$github_pat) {
+    if ($FailIfMissing) {
+      Write-Error "github_pat was not set so retrieving tag information might be rate-limited"
+      return $null
+    }
+  }
   
   $headers = @{
     "Accept" = "application/vnd.github+json"
@@ -23,12 +33,10 @@ function Get-GitHubHeaders()
 
 function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1))
 {
-  if (!$github_pat) {
-    Write-Error "github_pat was not set so retrieving tag information might be rate-limited"
+  $GithubHeaders = Get-GitHubHeaders -FailIfMissing
+  if (!$GithubHeaders) {
     return $null
   }
-
-  $GithubHeaders = Get-GitHubHeaders
 
   # https://docs.github.com/en/graphql/overview/explorer is a good tool for debugging these graph queries
   $query = @'
