@@ -748,7 +748,7 @@ The bar to make a breaking change is extremely high for stable client libraries.
 
 {% include_relative approved_dependencies.md %}
 
-{% include requirement/MUSTNOT id="python-dependencies-external" %} use external dependencies outside the list of well known dependencies. To get a new dependency added, contact the [Architecture Board].
+{% include requirement/MUSTNOT id="python-dependencies-external" %} use ANY external dependencies.
 
 {% include requirement/MUSTNOT id="python-dependencies-vendor" %} vendor dependencies unless approved by the [Architecture Board].
 
