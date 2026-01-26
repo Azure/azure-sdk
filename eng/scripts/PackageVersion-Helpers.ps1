@@ -1,17 +1,34 @@
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
 
+function Get-GitHubHeaders()
+{
+  <#
+  .SYNOPSIS
+  Creates headers for GitHub API requests with optional authentication.
+  
+  .RETURNS
+  A hashtable containing headers for GitHub API requests
+  #>
+  
+  $headers = @{
+    "Accept" = "application/vnd.github+json"
+  }
+  
+  if ($github_pat) {
+    $headers["Authorization"] = "bearer ${github_pat}"
+  }
+  
+  return $headers
+}
+
 function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1))
 {
-  $GithubHeaders = @{}
   if (!$github_pat) {
     Write-Error "github_pat was not set so retrieving tag information might be rate-limited"
     return $null
   }
-  else {
-    $GithubHeaders = @{
-      Authorization = "bearer ${github_pat}"
-    }
-  }
+
+  $GithubHeaders = Get-GitHubHeaders
 
   # https://docs.github.com/en/graphql/overview/explorer is a good tool for debugging these graph queries
   $query = @'
@@ -205,13 +222,7 @@ function Get-GitHubTag($repo, $tagName)
   The tag object with SHA if found, $null otherwise
   #>
   
-  $headers = @{
-    "Accept" = "application/vnd.github+json"
-  }
-  
-  if ($github_pat) {
-    $headers["Authorization"] = "bearer ${github_pat}"
-  }
+  $headers = Get-GitHubHeaders
   
   try {
     $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/ref/tags/$tagName" `
@@ -254,16 +265,11 @@ function New-GitHubTag($repo, $tagName, $sha)
   $true if tag was created successfully, $false otherwise
   #>
   
-  $headers = @{
-    "Accept" = "application/vnd.github+json"
-  }
-  
-  if ($github_pat) {
-    $headers["Authorization"] = "bearer ${github_pat}"
-  }
-  else {
+  if (!$github_pat) {
     Write-Warning "github_pat is not set. Tag creation may fail due to authentication."
   }
+  
+  $headers = Get-GitHubHeaders
   
   try {
     $createTagBody = @{
