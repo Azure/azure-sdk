@@ -220,13 +220,33 @@ function GetFirstPreviewDate($pkg, $previewVersions)
   return ""
 }
 
+function Ensure-JavaTag($pkg, $version)
+{
+    $newTag = "$($pkg.GroupId)+$($pkg.Package)_${version}"
+    $newTagSha = git rev-parse -q --verify $newTag
+
+    if (!$newTagSha) {
+      $oldTag = "$($pkg.Package)_${version}"
+      $oldTagSha = git rev-parse -q --verify $oldTag
+
+      if ($oldTagSha) {
+        git tag $newTag $oldTagSha
+        git push origin $newTag
+        Write-Host "Created new java tag format for older version $newTag"
+      }
+      else {
+        Write-Host "Didn't find tag $newTag and expected to find an old tag $oldTag but didn't so we couldn't create the new tag."
+      }
+    }
+}
+
 function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
 
-    $checkGAVersionTagsForJava = $false
+    $checkVersionTagsForJava = $false
     if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
       # Some java packages use the GroupId+Package as the tag name so check for that case
       $pkgVersion = $langVersions["$($pkg.GroupId)+$($pkg.Package)"]
@@ -234,7 +254,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if($pkg.RepoPath -match "^https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/(?<serviceDirectory>.*)/item.Package/") {
         # Reset the RepoPath to just the service directory if we have shipped a new version because it should now follow the new GroupId+Package format
         $pkg.RepoPath = $matches["serviceDirectory"]
-        $checkGAVersionTagsForJava = $true
+        $checkVersionTagsForJava = $true
       }
     }
     elseif ($langVersions.ContainsKey($pkg.Package)) {
@@ -294,25 +314,9 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
-    elseif ($checkGAVersionTagsForJava -and $latestPreview -ne $pkg.VersionPreview) {
-      # We aren't updating the ga version so it must be just the preview version and while we are in transition
-      # we need to ensure that the GA version tag matches the new format and if not then we will create a duplicate
-      # tag with the new format so both the GA and preview versions use the new format.
-      $newGaTag = "$($pkg.GroupId)+$($pkg.Package)_$($pkg.VersionGA)"
-      $newGaTagSha = git rev-parse -q --verify $newGaTag
-
-      if (!$newGaTagSha) {
-        $oldGaTag = "$($pkg.Package)_$($pkg.VersionGA)"
-        $oldGaTagSha = git rev-parse -q --verify $oldGaTag
-
-        if ($oldGaTagSha) {
-          git tag $newGaTag $oldGaTagSha
-          git push origin $newGaTag
-        }
-        else {
-          Write-Host "Didn't find tag $newGaTag and expected to find an old tag $oldGaTag but didn't so we couldn't create the new tag."
-        }
-      }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionGA
     }
 
     if ($pkg.VersionGA) {
@@ -346,6 +350,10 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       else {
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
+    }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionPreview
     }
 
     CheckOptionalLinks $langLinkTemplates $pkg
