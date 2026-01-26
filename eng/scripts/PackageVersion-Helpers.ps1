@@ -188,3 +188,102 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
   }
   return $packageVersions
 }
+
+function Get-GitHubTag($repo, $tagName)
+{
+  <#
+  .SYNOPSIS
+  Gets a GitHub tag reference from a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to retrieve
+  
+  .RETURNS
+  The tag object with SHA if found, $null otherwise
+  #>
+  
+  $headers = @{
+    "Accept" = "application/vnd.github+json"
+  }
+  
+  if ($github_pat) {
+    $headers["Authorization"] = "Bearer $github_pat"
+  }
+  
+  try {
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/ref/tags/$tagName" `
+      -Headers $headers `
+      -Method Get `
+      -SkipHttpErrorCheck
+    
+    if ($response -and $response.object) {
+      return $response
+    }
+  }
+  catch {
+    Write-Verbose "Tag '$tagName' not found in repository '$repo'"
+  }
+  
+  return $null
+}
+
+function New-GitHubTag($repo, $tagName, $sha)
+{
+  <#
+  .SYNOPSIS
+  Creates a new GitHub tag reference in a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to create
+  
+  .PARAMETER sha
+  The SHA of the commit to tag
+  
+  .RETURNS
+  $true if tag was created successfully, $false otherwise
+  #>
+  
+  $headers = @{
+    "Accept" = "application/vnd.github+json"
+  }
+  
+  if ($github_pat) {
+    $headers["Authorization"] = "Bearer $github_pat"
+  }
+  else {
+    Write-Warning "github_pat is not set. Tag creation may fail due to authentication."
+  }
+  
+  try {
+    $createTagBody = @{
+      ref = "refs/tags/$tagName"
+      sha = $sha
+    }
+
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/refs" `
+      -Headers $headers `
+      -Method Post `
+      -Body ($createTagBody | ConvertTo-Json) `
+      -ContentType "application/json" `
+      -SkipHttpErrorCheck
+    
+    if ($response -and $response.ref) {
+      Write-Verbose "Successfully created tag '$tagName' in repository '$repo'"
+      return $true
+    }
+    else {
+      Write-Warning "Failed to create tag '$tagName' in repository '$repo'"
+      return $false
+    }
+  }
+  catch {
+    Write-Warning "Failed to create tag '$tagName' in repository '$repo': $_"
+    return $false
+  }
+}
