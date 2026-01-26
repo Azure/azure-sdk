@@ -306,8 +306,8 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         $oldGaTagSha = git rev-parse -q --verify $oldGaTag
 
         if ($oldGaTagSha) {
-          git tag $newGaTagSha $oldGaTagSha
-          git push origin $newGaTagSha
+          git tag $newGaTag $oldGaTag
+          git push origin $newGaTag
         }
         else {
           Write-Host "Didn't find tag $newGaTag and expected to find an old tag $oldGaTag but didn't so we couldn't create the new tag."
