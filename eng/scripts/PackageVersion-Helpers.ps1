@@ -210,7 +210,7 @@ function Get-GitHubTag($repo, $tagName)
   }
   
   if ($github_pat) {
-    $headers["Authorization"] = "Bearer $github_pat"
+    $headers["Authorization"] = "bearer ${github_pat}"
   }
   
   try {
@@ -254,7 +254,7 @@ function New-GitHubTag($repo, $tagName, $sha)
   }
   
   if ($github_pat) {
-    $headers["Authorization"] = "Bearer $github_pat"
+    $headers["Authorization"] = "bearer ${github_pat}"
   }
   else {
     Write-Warning "github_pat is not set. Tag creation may fail due to authentication."
