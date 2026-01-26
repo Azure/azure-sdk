@@ -225,7 +225,8 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
-    
+
+    $checkGAVersionTagsForJava = $false
     if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
       # Some java packages use the GroupId+Package as the tag name so check for that case
       $pkgVersion = $langVersions["$($pkg.GroupId)+$($pkg.Package)"]
@@ -233,6 +234,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if($pkg.RepoPath -match "^https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/(?<serviceDirectory>.*)/item.Package/") {
         # Reset the RepoPath to just the service directory if we have shipped a new version because it should now follow the new GroupId+Package format
         $pkg.RepoPath = $matches["serviceDirectory"]
+        $checkGAVersionTagsForJava = $true
       }
     }
     elseif ($langVersions.ContainsKey($pkg.Package)) {
@@ -290,6 +292,26 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
       else {
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      }
+    }
+    elseif ($checkGAVersionTagsForJava -and $latestPreview -ne $pkg.VersionPreview) {
+      # We aren't updating the ga version so it must be just the preview version and while we are in transition
+      # we need to ensure that the GA version tag matches the new format and if not then we will create a duplicate
+      # tag with the new format so both the GA and preview versions use the new format.
+      $newGaTag = "$($pkg.GroupId)+$($pkg.Package)_$($pkg.VersionGA)"
+      $newGaTagSha = git rev-parse -q --verify $newGaTag
+
+      if (!$newGaTagSha) {
+        $oldGaTag = "$($pkg.Package)_$($pkg.VersionGA)"
+        $oldGaTagSha = git rev-parse -q --verify $oldGaTag
+
+        if ($oldGaTagSha) {
+          git tag $newGaTagSha $oldGaTagSha
+          git push origin $newGaTagSha
+        }
+        else {
+          Write-Host "Didn't find tag $newGaTag and expected to find an old tag $oldGaTag but didn't so we couldn't create the new tag."
+        }
       }
     }
 
