@@ -222,21 +222,29 @@ function GetFirstPreviewDate($pkg, $previewVersions)
 
 function Ensure-JavaTag($pkg, $version)
 {
+    $repo = "Azure/azure-sdk-for-java"
     $newTag = "$($pkg.GroupId)+$($pkg.Package)_${version}"
-    $newTagSha = git rev-parse -q --verify $newTag
-
-    if (!$newTagSha) {
-      $oldTag = "$($pkg.Package)_${version}"
-      $oldTagSha = git rev-parse -q --verify $oldTag
-
-      if ($oldTagSha) {
-        git tag $newTag $oldTagSha
-        git push origin $newTag
-        Write-Host "Created new java tag format for older version $newTag"
-      }
-      else {
-        Write-Host "Didn't find tag $newTag and expected to find an old tag $oldTag but didn't so we couldn't create the new tag."
-      }
+    
+    # Check if the new tag exists
+    $newTagRef = Get-GitHubTag $repo $newTag
+    
+    if (!$newTagRef) {
+        $oldTag = "$($pkg.Package)_${version}"
+        
+        # Check if the old tag exists
+        $oldTagRef = Get-GitHubTag $repo $oldTag
+        
+        if ($oldTagRef -and $oldTagRef.object.sha) {
+            # Create the new tag using the same SHA as the old tag
+            $created = New-GitHubTag $repo $newTag $oldTagRef.object.sha
+            
+            if ($created) {
+                Write-Host "Created new java tag format for older version $newTag"
+            }
+        }
+        else {
+            Write-Host "Didn't find tag $newTag and expected to find an old tag $oldTag but didn't so we couldn't create the new tag."
+        }
     }
 }
 
