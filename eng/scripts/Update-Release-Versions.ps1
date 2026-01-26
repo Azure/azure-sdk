@@ -306,7 +306,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         $oldGaTagSha = git rev-parse -q --verify $oldGaTag
 
         if ($oldGaTagSha) {
-          git tag $newGaTag $oldGaTag
+          git tag $newGaTag $oldGaTagSha
           git push origin $newGaTag
         }
         else {
