@@ -217,14 +217,19 @@ function Get-GitHubTag($repo, $tagName)
     $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/ref/tags/$tagName" `
       -Headers $headers `
       -Method Get `
+      -StatusCodeVariable statusCode `
       -SkipHttpErrorCheck
     
-    if ($response -and $response.object) {
+    if ($statusCode -eq 200 -and $response -and $response.object) {
       return $response
+    }
+    
+    if ($statusCode -ne 200 -and $statusCode -ne 404) {
+      Write-Verbose "Failed to retrieve tag '$tagName' from repository '$repo': HTTP $statusCode"
     }
   }
   catch {
-    Write-Verbose "Tag '$tagName' not found in repository '$repo'"
+    Write-Verbose "Error retrieving tag '$tagName' from repository '$repo': $_"
   }
   
   return $null
@@ -271,14 +276,15 @@ function New-GitHubTag($repo, $tagName, $sha)
       -Method Post `
       -Body ($createTagBody | ConvertTo-Json) `
       -ContentType "application/json" `
+      -StatusCodeVariable statusCode `
       -SkipHttpErrorCheck
     
-    if ($response -and $response.ref) {
+    if ($statusCode -eq 201 -and $response -and $response.ref) {
       Write-Verbose "Successfully created tag '$tagName' in repository '$repo'"
       return $true
     }
     else {
-      Write-Warning "Failed to create tag '$tagName' in repository '$repo'"
+      Write-Warning "Failed to create tag '$tagName' in repository '$repo': HTTP $statusCode"
       return $false
     }
   }
