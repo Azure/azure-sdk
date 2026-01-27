@@ -165,4 +165,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.3.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.9.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.9.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with `ClientRetryPolicy` where delays were being calculated using the retry count instead of the attempt count, causing the initial retry to occur without delay and subsequent retries to be performed more quickly than intended.
+
+    #### Features Added
+
+    - Added core support for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection.
+    - Added `JsonModel<T>` abstract base class that provides a simplified way to implement `IJsonModel<T>` for JSON serialization and deserialization.
 
