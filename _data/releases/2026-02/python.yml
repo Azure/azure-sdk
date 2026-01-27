@@ -118,4 +118,46 @@ entries:
     - Added support for the keyword `user_delegation_tid` to `QueueServiceClient.get_user_delegation_key` API, which
     can be used in `generate_queue_sas` to specify the Tenant ID that is authorized to use the generated SAS URL.
     Note that `user_delegation_tid` must be used together with `user_delegation_oid`.
+- Name: azure-mgmt-appconfiguration
+  Version: 6.0.0b1
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_6.0.0b1/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.8.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Fixed AudiencePolicy to correctly handle AAD audience errors and return ClientAuthenticationError as expected.
+    - Added a `match_conditions` parameter to the `by_page()` method exposed by the page iterator returned by `list_configuration_settings()` to efficiently monitor configuration changes using etags without fetching unchanged data.
+    - Added query parameter normalization to support Azure Front Door as a CDN. Query parameter keys are now converted to lowercase and sorted alphabetically.
+    - Added support for providing Entra ID authentication audiences via the `audience` keyword argument in the `AzureAppConfigurationClient` constructor to enable authentication against sovereign clouds.
+- Name: azure-storage-file-datalake
+  Version: 12.24.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.24.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+    - Added support for the keyword `user_delegation_tid` to `DataLakeServiceClient.get_user_delegation_key`
+    API, which can be used in `generate_file_system_sas`, `generate_directory_sas`, and `generate_file_sas`
+    to specify the Tenant ID that is authorized to use the generated SAS URL. Note that `user_delegation_tid`
+    must be used together with `user_delegation_oid`.
+    - Added support for the keyword `request_headers` to `generate_file_system_sas`, `generate_directory_sas`,
+    and `generate_file_sas` which specifies a set of headers and their corresponding values that
+    must be present in the request header when using the generated SAS.
+    - Added support for the keyword `request_query_params` to `generate_file_system_sas`, `generate_directory_sas`,
+    and `generate_file_sas` which specifies a set of query parameters and their corresponding values that
+    must be present in the request URL when using the generated SAS.
 
