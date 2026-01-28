@@ -341,7 +341,7 @@ Neon Postgres,0,Resource Management - Neon Postgres,mgmt,.NET,,,11,false,Azure.R
 NetApp Files,0,Resource Management - NetApp Files,mgmt,.NET,Microsoft.Azure.Management.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,true,Azure.ResourceManager.NetApp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/netapp,10,false,1,11/26/2025
 Network,0,Resource Management - Network,mgmt,.NET,Microsoft.Azure.Management.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,true,Azure.ResourceManager.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,12/04/2025
 Network Analytics,0,Resource Management - Network Analytics,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkAnalytics,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkanalytics,10,true,1,03/18/2025
-Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkCloud,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkcloud,10,false,1,06/25/2025
+Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkCloud,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkcloud,10,false,1,01/27/2026
 Network Function,0,Resource Management - Network Function,mgmt,.NET,,,11,false,Azure.ResourceManager.NetworkFunction,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/networkfunction,3,false,1,
 New Relic Observability,0,Resource Management - New Relic Observability,mgmt,.NET,,,11,false,Azure.ResourceManager.NewRelicObservability,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/newrelicobservability,10,false,1,03/13/2025
 Nginx,0,Resource Management - Nginx,mgmt,.NET,,,11,false,Azure.ResourceManager.Nginx,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/nginx,10,false,1,01/03/2024
@@ -994,11 +994,11 @@ Batch,0,Compute Batch,data,Java,,,11,false,azure-compute-batch,https://github.co
 Confidential Ledger,0,Confidential Ledger,data,Java,azure-data-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,1,false,azure-security-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/confidentialledger/item.Package/,10,false,1,10/27/2025
 Container Registry,0,Container Registry,data,Java,,,11,false,azure-containers-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/containerregistry/item.Package/,10,false,1,10/27/2025
 Cognitive Services,0,Content Safety,data,Java,azure-cognitiveservices-contentmoderator,https://github.com/Azure/azure-sdk-for-java/tree/ee79d2413826f904a9f7b2e78d3c9ca7040d2fbe/sdk/cognitiveservices/ms-azure-cs-computervision,3,true,azure-ai-contentsafety,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/contentsafety/item.Package/,10,false,1,10/27/2025
-Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/cosmos/item.Package/,10,false,1,12/09/2025
-Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/cosmos/item.Package/,10,false,1,12/09/2025
+Cosmos DB,0,Cosmos DB,data,Java,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos,1,false,azure-cosmos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/26/2026
+Cosmos DB,0,Cosmos Kafka Connect,data,Java,,,11,false,azure-cosmos-kafka-connect,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,01/26/2026
 Cosmos DB,0,Cosmos Spark 3.4,data,Java,,,11,false,azure-cosmos-spark_3-4_2-12,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/cosmos/item.Package/,10,false,1,12/09/2025
 Cosmos,0,Cosmos Spark 3.5,data,Java,,,11,false,azure-cosmos-spark_3-5_2-12,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/cosmos/item.Package/,10,false,1,12/09/2025
-Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/cosmos/item.Package/,3,false,1,
+Cosmos DB,0,Cosmos Test,data,Java,,,11,false,azure-cosmos-test,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,3,false,1,
 Defender EASM,0,Defender EASM,data,Java,,,11,false,azure-analytics-defender-easm,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/easm/item.Package/,3,false,1,
 Dev Center,0,Dev Center,data,Java,,,11,false,azure-developer-devcenter,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/devcenter/item.Package/,10,false,1,10/27/2025
 IoT,0,Device Update,data,Java,,,11,false,azure-iot-deviceupdate,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/deviceupdate/item.Package/,10,false,1,10/27/2025
@@ -1493,7 +1493,7 @@ Cognitive Services,0,OpenAI,data,JavaScript,,,11,false,@azure/openai,https://git
 Cognitive Services,0,OpenAI Assistants,data,JavaScript,,,11,false,@azure/openai-assistants,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai,3,false,1,
 Monitor,0,OpenTelemetry Exporter,data,JavaScript,,,11,false,@azure/monitor-opentelemetry-exporter,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 Cognitive Services,0,Personalizer,data,JavaScript,@azure/cognitiveservices-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure-rest/ai-personalizer,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/personalizer/ai-personalizer-rest/,3,false,1,
-Load Testing,0,Playwright,data,JavaScript,,,11,false,@azure/playwright,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/loadtesting,10,false,1,01/06/2026
+Load Testing,0,Playwright,data,JavaScript,,,11,false,@azure/playwright,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/loadtesting,10,false,1,01/28/2026
 Purview,0,Purview Account,data,JavaScript,,,11,false,@azure-rest/purview-account,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-account-rest/,3,true,1,
 Purview,0,Purview Administration,data,JavaScript,,,11,false,@azure-rest/purview-administration,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-administration-rest/,3,false,1,
 Purview,0,Purview Catalog,data,JavaScript,,,11,false,@azure-rest/purview-catalog,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/purview/purview-catalog-rest/,3,true,1,
@@ -1864,7 +1864,7 @@ Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inferenc
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,07/30/2025
 Cognitive Services,0,AI Resources,data,Python,,,11,false,azure-ai-resources,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,Anomaly Detector,data,Python,azure-cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector,3,false,1,
-App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,10/20/2025
+App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,01/27/2026
 App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,11/13/2025
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,10/09/2025
@@ -1873,7 +1873,7 @@ Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Content Understanding,0,Azure Content Understanding in Foundry Tools,data,Python,,,11,false,azure-ai-contentunderstanding,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentunderstanding,3,false,1,
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/12/2026
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/27/2026
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
@@ -2004,7 +2004,7 @@ Cloudhealth,0,Resource Management - Cloudhealth,mgmt,Python,,,11,false,azure-mgm
 Cognitive Services,0,Resource Management - Cognitive Services,mgmt,Python,,,11,false,azure-mgmt-cognitiveservices,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,10,false,1,10/24/2025
 Commerce,0,Resource Management - Commerce,mgmt,Python,,,11,false,azure-mgmt-commerce,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/commerce,10,false,1,01/04/2021
 Communication,0,Resource Management - Communication,mgmt,Python,,,11,false,azure-mgmt-communication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,01/19/2026
-Compute,0,Resource Management - Compute,mgmt,Python,,,11,false,azure-mgmt-compute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,11/17/2025
+Compute,0,Resource Management - Compute,mgmt,Python,,,11,false,azure-mgmt-compute,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,01/27/2026
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,Python,,,11,false,azure-mgmt-computefleet,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computefleet,10,false,1,10/22/2024
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,Python,,,11,false,azure-mgmt-computeschedule,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computeschedule,10,false,1,06/16/2025
 Computelimit,0,Resource Management - Computelimit,mgmt,Python,,,11,false,azure-mgmt-computelimit,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computelimit,3,false,1,
