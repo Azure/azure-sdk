@@ -67,4 +67,27 @@ entries:
     #### Bugs Fixed
 
     - Fixed `speechLanguage` property support in `CallMediaRecognizeSpeechOrDtmfOptions` to correctly pass speech language configuration for speech-or-DTMF recognition requests.
+- Name: '@azure/ai-projects'
+  Version: 2.0.0-beta.4
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.4/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    * To align with OpenAI naming conventions, use "Tool" suffix for class names describing Azure tools that are generally available (stable release):
+    * Rename class `AzureAISearchAgentTool` to `AzureAISearchTool`
+    * Rename class `OpenApiAgentTool` to OpenApiTool`
+    * Rename class `AzureFunctionAgentTool` to `AzureFunctionTool`
+    * Rename class `BingGroundingAgentTool` to `BingGroundingTool`
+    * To align with OpenAI naming conventions, use "PreviewTool" suffix for class names describing Azure tools in preview:
+    * Rename class `MicrosoftFabricAgentTool` to `MicrosoftFabricPreviewTool`
+    * Rename class `SharepointAgentTool` to `SharepointPreviewTool`
+    * Rename class `BingCustomSearchAgentTool` to `BingCustomSearchPreviewTool`
+    * Rename class `BrowserAutomationAgentTool` to `BrowserAutomationPreviewTool`
+    * Rename class `A2ATool` to `A2APreviewTool`
+
+    - `ResponsesUserMessageItemParam` removed as a valid ItemUnion member.
 
