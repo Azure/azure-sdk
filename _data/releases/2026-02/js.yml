@@ -90,4 +90,16 @@ entries:
     * Rename class `A2ATool` to `A2APreviewTool`
 
     - `ResponsesUserMessageItemParam` removed as a valid ItemUnion member.
+- Name: '@azure/playwright'
+  Version: 1.1.1
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.1/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Improved error messages for better clarity and troubleshooting.
+    - Fixed trace viewer logic for HTML reporter to correctly handle Azure Portal and local scenarios.
 
