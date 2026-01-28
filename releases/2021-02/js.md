@@ -151,7 +151,7 @@ We're releasing a new beta for the Text Analytics service including new features
 
 We are releasing a new  preview version for metrics advisor with AAD support feature
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
 
 ##### New Features in @azure/ai-metrics-advisor@1.0.0@beta.3
 
