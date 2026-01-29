@@ -200,4 +200,15 @@ entries:
     `APPLICATIONINSIGHTS_SDKSTATS_DISABLED=false`.
     - The old environment variable `APPLICATIONINSIGHTS_SDKSTATS_ENABLED_PREVIEW`
     is no longer recognized.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.8.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new methods, `CheckConfigurationSettings` and `CheckConfigurationSettingsAsync`, which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body. [#54669](https://github.com/Azure/azure-sdk-for-net/pull/54669)
 
