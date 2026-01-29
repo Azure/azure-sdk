@@ -181,4 +181,23 @@ entries:
 
     - Added core support for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection.
     - Added `JsonModel<T>` abstract base class that provides a simplified way to implement `IJsonModel<T>` for JSON serialization and deserialization.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.6.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.6.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * The customer-facing SDK stats feature
+    metric names have been updated to match the stable specification.
+    - **Metric names changed**: `preview.item.success.count` → `Item_Success_Count`,
+    `preview.item.dropped.count` → `Item_Dropped_Count`,
+    `preview.item.retry.count` → `Item_Retry_Count`.
+    - **New environment variable**: To enable, set environment variable
+    `APPLICATIONINSIGHTS_SDKSTATS_DISABLED=false`.
+    - The old environment variable `APPLICATIONINSIGHTS_SDKSTATS_ENABLED_PREVIEW`
+    is no longer recognized.
 
