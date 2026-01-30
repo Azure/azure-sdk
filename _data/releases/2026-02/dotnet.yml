@@ -211,4 +211,31 @@ entries:
     #### Features Added
 
     - Added new methods, `CheckConfigurationSettings` and `CheckConfigurationSettingsAsync`, which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body. [#54669](https://github.com/Azure/azure-sdk-for-net/pull/54669)
+- Name: Azure.Communication.CallAutomation
+  Version: 1.5.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.5.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for MicrosoftTeamsAppIdentifier CommunicationIdentifier
+- Name: Azure.Core
+  Version: 1.51.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.51.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added core support for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection.
+    - Implements support for client certificate rotation in the Azure.Core transport layer to enable dynamic token binding scenarios. The changes allow transport instances to be updated with new client certificate configurations at runtime without requiring full pipeline reconstruction.
+
+    #### Bugs Fixed
+
+    - Fixed `NullReferenceException` when calling `GetHashCode()` on `default(AzureLocation)`.
 
