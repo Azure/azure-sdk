@@ -238,4 +238,14 @@ entries:
     ([#44855](https://github.com/Azure/azure-sdk-for-python/pull/44855))
     - Fix customer SDK stats metrics to display drop code and retry code enum values without the prefix
     ([#44852](https://github.com/Azure/azure-sdk-for-python/pull/44852))
+- Name: azure-cosmos
+  Version: 4.14.6
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.14.6/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed async client crash (`AttributeError: 'NoneType' object has no attribute '_WritableLocations'`) during region discovery when `database_account` was `None`. See [PR 44939](https://github.com/Azure/azure-sdk-for-python/pull/44939)
 
