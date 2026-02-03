@@ -114,4 +114,19 @@ entries:
 
     - [#37178](https://github.com/Azure/azure-sdk-for-js/pull/37178) Fixed memory leak in full-text search queries by improving continuation token handling for hybrid component query scenarios.
     - [#37194](https://github.com/Azure/azure-sdk-for-js/pull/37194) Added support for `SQLQuerySpec` in hybrid search queries. Previously, only string queries were supported.
+- Name: '@azure/storage-common'
+  Version: 12.3.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.3.0/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed duplicate ESM exports that caused compatibility issues with ESM loaders like `import-in-the-middle`.
+
+    #### Features Added
+
+    - Added `NodeJSReadableStream` interface that extends `NodeJS.ReadableStream` with a `destroy()` method, enabling type-safe stream cancellation across storage packages.
 
