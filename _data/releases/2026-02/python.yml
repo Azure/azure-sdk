@@ -265,4 +265,19 @@ entries:
 
     - Enable live metrics by default
     ([#44902](https://github.com/Azure/azure-sdk-for-python/pull/44902))
+- Name: azure-ai-transcription
+  Version: 1.0.0b3
+  DisplayName: Azure AI Transcription
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-transcription_1.0.0b3/sdk/cognitiveservices/azure-ai-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Enhanced Mode not being activated when using `EnhancedModeProperties` without explicitly setting `enabled=True`
+
+    #### Features Added
+
+    - Enhanced Mode now automatically sets `enabled=True` when `task`, `target_language`, or `prompt` are specified
 
