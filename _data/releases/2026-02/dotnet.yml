@@ -265,4 +265,32 @@ entries:
     #### Features Added
 
     - Support for MicrosoftTeamsAppIdentifier CommunicationIdentifier
+- Name: Azure.Provisioning.AppContainers
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - App Containers
+  ServiceName: App Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppContainers_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.51.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.51.1/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update the APIs for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection to enable Azure.Identity use cases.
+    - Updated BCL dependencies to 10.x.
+- Name: Azure.ResourceManager.FileShares
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Fileshares
+  ServiceName: Fileshares
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FileShares_1.0.0-beta.2/sdk/fileshares/Azure.ResourceManager.FileShares/CHANGELOG.md
+  ChangelogContent: ""
 
