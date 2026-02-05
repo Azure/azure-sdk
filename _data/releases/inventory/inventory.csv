@@ -1421,7 +1421,7 @@ AI,0,AI Agents,data,JavaScript,,,11,false,@azure/ai-agents,https://github.com/Az
 AI,0,AI Model Inference,data,JavaScript,,,11,false,@azure-rest/ai-inference,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/ai/ai-inference-rest/,3,false,1,
 AI,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,10/15/2025
 Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,true,1,
-App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,11/13/2025
+App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,02/05/2026
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Search,0,Azure AI Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,10/09/2025
@@ -1873,7 +1873,7 @@ Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Content Understanding,0,Azure Content Understanding in Foundry Tools,data,Python,,,11,false,azure-ai-contentunderstanding,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentunderstanding,3,false,1,
-Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,01/27/2026
+Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,02/04/2026
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
@@ -2168,9 +2168,18 @@ Resource Graph,0,Resource Management - Resource Graph,mgmt,Python,,,11,false,azu
 Resource Health,0,Resource Management - Resource Health,mgmt,Python,,,11,false,azure-mgmt-resourcehealth,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resourcehealth,3,false,1,
 Resource Mover,0,Resource Management - Resource Mover,mgmt,Python,,,11,false,azure-mgmt-resourcemover,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resourcemover,10,false,1,10/23/2023
 Resource-Bicep,0,Resource Management - Resource-Bicep,mgmt,Python,,,11,false,azure-mgmt-resource-bicep,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Changes,0,Resource Management - Resource-Changes,mgmt,Python,,,11,false,azure-mgmt-resource-changes,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,Python,,,11,false,azure-mgmt-resource-databoundaries,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Deployments,0,Resource Management - Resource-Deployments,mgmt,Python,,,11,false,azure-mgmt-resource-deployments,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Deploymentscripts,0,Resource Management - Resource-Deploymentscripts,mgmt,Python,,,11,false,azure-mgmt-resource-deploymentscripts,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Deploymentstacks,0,Resource Management - Resource-Deploymentstacks,mgmt,Python,,,11,false,azure-mgmt-resource-deploymentstacks,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Features,0,Resource Management - Resource-Features,mgmt,Python,,,11,false,azure-mgmt-resource-features,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Links,0,Resource Management - Resource-Links,mgmt,Python,,,11,false,azure-mgmt-resource-links,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Locks,0,Resource Management - Resource-Locks,mgmt,Python,,,11,false,azure-mgmt-resource-locks,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Managedapplications,0,Resource Management - Resource-Managedapplications,mgmt,Python,,,11,false,azure-mgmt-resource-managedapplications,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Policy,0,Resource Management - Resource-Policy,mgmt,Python,,,11,false,azure-mgmt-resource-policy,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Privatelinks,0,Resource Management - Resource-Privatelinks,mgmt,Python,,,11,false,azure-mgmt-resource-privatelinks,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Subscriptions,0,Resource Management - Resource-Subscriptions,mgmt,Python,,,11,false,azure-mgmt-resource-subscriptions,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Templatespecs,0,Resource Management - Resource-Templatespecs,mgmt,Python,,,11,false,azure-mgmt-resource-templatespecs,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resources,0,Resource Management - Resources,mgmt,Python,,,11,false,azure-mgmt-resource,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,10,false,1,06/17/2025
 Scheduler,0,Resource Management - Scheduler,mgmt,Python,,,11,false,azure-mgmt-scheduler,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-scheduler_2.0.0/azure-mgmt-scheduler/,10,true,1,10/31/2024
@@ -3901,6 +3910,16 @@ Compute,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in sp
 Compute,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: compute/suppressions.yaml,,2,false,0,
 Compute,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: compute/suppressions.yaml,,2,false,0,
 Compute,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: compute/suppressions.yaml,,2,false,0,
+computebulkactions,0,Resource Management - ComputeBulkActions.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: computebulkactions/ComputeBulkActions.Management,,2,false,0,
+computebulkactions,0,Resource Management - ComputeBulkActions.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: computebulkactions/ComputeBulkActions.Management,,2,false,0,
+computebulkactions,0,Resource Management - ComputeBulkActions.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: computebulkactions/ComputeBulkActions.Management,,2,false,0,
+computebulkactions,0,Resource Management - ComputeBulkActions.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: computebulkactions/ComputeBulkActions.Management,,2,false,0,
+computebulkactions,0,Resource Management - ComputeBulkActions.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: computebulkactions/ComputeBulkActions.Management,,2,false,0,
+computebulkactions,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: computebulkactions/cspell.yaml,,2,false,0,
+computebulkactions,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: computebulkactions/cspell.yaml,,2,false,0,
+computebulkactions,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: computebulkactions/cspell.yaml,,2,false,0,
+computebulkactions,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: computebulkactions/cspell.yaml,,2,false,0,
+computebulkactions,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: computebulkactions/cspell.yaml,,2,false,0,
 computeschedule,0,Resource Management - ComputeSchedule.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: computeschedule/ComputeSchedule.Management,,2,false,0,
 computeschedule,0,Resource Management - ComputeSchedule.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: computeschedule/ComputeSchedule.Management,,2,false,0,
 computeschedule,0,Resource Management - ComputeSchedule.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: computeschedule/ComputeSchedule.Management,,2,false,0,
