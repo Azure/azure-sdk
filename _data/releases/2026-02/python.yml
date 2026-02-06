@@ -418,4 +418,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_25.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.15.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Prevent recursive stdout/stderr forwarding when NodeLogManager is nested, avoiding RecursionError in concurrent evaluation runs.
 
