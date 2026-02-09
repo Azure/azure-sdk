@@ -41,8 +41,8 @@ App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfigu
 App Configuration,0,App Configuration Provider,data,.NET,,,11,false,Microsoft.Extensions.Configuration.AzureAppConfiguration,https://github.com/Azure/AppConfiguration-DotnetProvider,10,false,1,
 Attestation,0,Attestation,data,.NET,Microsoft.Azure.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Attestation_0.10.0-preview/sdk/attestation/Microsoft.Azure.Attestation,3,true,Azure.Security.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,10,false,1,05/07/2021
 Search,0,Azure AI Search,data,.NET,,,11,false,Azure.Search.Documents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,10/09/2025
-Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.MixedReality.ObjectAnchors.Conversion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/objectanchors,3,false,1,
-Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,false,1,09/17/2021
+Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.MixedReality.ObjectAnchors.Conversion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/objectanchors,3,true,1,
+Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,true,1,09/17/2021
 Communication,0,Calling Server,data,.NET,,,11,false,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,true,1,
 Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.CodeTransparency,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,3,false,1,
 Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,01/29/2026
@@ -101,7 +101,7 @@ Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,.NET,,,11,false
 AuthenticationEvents,0,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,data,.NET,,,11,false,Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra,10,false,1,07/29/2025
 Web PubSub,0,Microsoft.Azure.WebPubSub.AspNetCore,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.AspNetCore,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,09/23/2025
 Web PubSub,0,Microsoft.Azure.WebPubSub.Common,data,.NET,,,11,false,Microsoft.Azure.WebPubSub.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub,10,false,1,10/20/2025
-Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,09/09/2022
+Mixed Reality,0,Mixed Reality Authentication,data,.NET,,,11,false,Azure.MixedReality.Authentication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,true,1,09/09/2022
 IoT,0,Models Repository,data,.NET,,,11,false,Azure.IoT.ModelsRepository,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/modelsrepository,3,false,1,
 Monitor,0,Monitor Ingestion,data,.NET,,,11,false,Azure.Monitor.Ingestion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,false,1,08/05/2025
 Monitor,0,Monitor Query,data,.NET,,,11,false,Azure.Monitor.Query,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,10,true,1,08/12/2025
@@ -331,7 +331,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,.NET,Micr
 Media,0,Resource Management - Media,mgmt,.NET,,,11,false,Azure.ResourceManager.Media,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mediaservices,10,true,1,03/18/2025
 Migration,0,Resource Management - Migration Assessment,mgmt,.NET,,,11,false,Azure.ResourceManager.Migration.Assessment,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/migrationassessment,3,false,1,
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,.NET,,,11,false,Azure.ResourceManager.MigrationDiscoverySap,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/migrationdiscoverysap,3,false,1,
-Mixed Reality,0,Resource Management - Mixed Reality,mgmt,.NET,Microsoft.Azure.Management.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,true,Azure.ResourceManager.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,false,1,03/18/2025
+Mixed Reality,0,Resource Management - Mixed Reality,mgmt,.NET,Microsoft.Azure.Management.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,true,Azure.ResourceManager.MixedReality,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mixedreality,10,true,1,03/18/2025
 Mobile Network,0,Resource Management - Mobile Network,mgmt,.NET,,,11,false,Azure.ResourceManager.MobileNetwork,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mobilenetwork,10,true,1,03/23/2024
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,.NET,,,11,false,Azure.ResourceManager.MongoCluster,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongocluster,10,false,1,10/21/2025
 Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,.NET,,,11,false,Azure.ResourceManager.MongoDBAtlas,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongodbatlas,10,false,1,07/07/2025
@@ -835,7 +835,7 @@ Media Services,0,Resource Management - Media Services,mgmt,Go,,,11,false,sdk/res
 Migrate,0,Resource Management - Migrate,mgmt,Go,,,11,false,sdk/resourcemanager/migrate/armmigrate,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrate/armmigrate,10,false,1,11/24/2023
 Migration,0,Resource Management - Migration Assessment,mgmt,Go,,,11,false,sdk/resourcemanager/migrationassessment/armmigrationassessment,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrationassessment/armmigrationassessment,3,false,1,
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,Go,,,11,false,sdk/resourcemanager/migrationdiscovery/armmigrationdiscoverysap,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/migrationdiscovery/armmigrationdiscoverysap,3,false,1,
-Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Go,,,11,false,sdk/resourcemanager/mixedreality/armmixedreality,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mixedreality/armmixedreality,3,false,1,
+Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Go,,,11,false,sdk/resourcemanager/mixedreality/armmixedreality,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mixedreality/armmixedreality,3,true,1,
 Mobile Network,0,Resource Management - Mobile Network,mgmt,Go,,,11,false,sdk/resourcemanager/mobilenetwork/armmobilenetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mobilenetwork/armmobilenetwork,10,true,1,12/19/2025
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,Go,,,11,false,sdk/resourcemanager/mongocluster/armmongocluster,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongocluster/armmongocluster,10,false,1,10/21/2025
 Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,Go,,,11,false,sdk/resourcemanager/mongodbatlas/armmongodbatlas,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongodbatlas/armmongodbatlas,10,false,1,07/03/2025
@@ -844,7 +844,7 @@ MySQL,0,Resource Management - MySQL,mgmt,Go,,,11,false,sdk/resourcemanager/mysql
 MySQL,0,Resource Management - MySQL Flexible Server,mgmt,Go,,,11,false,sdk/resourcemanager/mysql/armmysqlflexibleservers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mysql/armmysqlflexibleservers,10,false,1,11/27/2023
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,Go,,,11,false,sdk/resourcemanager/neonpostgres/armneonpostgres,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/neonpostgres/armneonpostgres,10,false,1,04/23/2025
 Net App,0,Resource Management - Net App,mgmt,Go,,,11,false,sdk/resourcemanager/netapp/armnetapp,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/netapp/armnetapp,10,false,1,11/17/2025
-Network,0,Resource Management - Network,mgmt,Go,,,11,false,sdk/resourcemanager/network/armnetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/network/armnetwork,10,false,1,12/23/2025
+Network,0,Resource Management - Network,mgmt,Go,,,11,false,sdk/resourcemanager/network/armnetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/network/armnetwork,10,false,1,02/09/2026
 Network Analytics,0,Resource Management - Network Analytics,mgmt,Go,,,11,false,sdk/resourcemanager/networkanalytics/armnetworkanalytics,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkanalytics/armnetworkanalytics,10,true,1,01/25/2024
 Operator Nexus - Network Cloud,0,Resource Management - Network Cloud,mgmt,Go,,,11,false,sdk/resourcemanager/networkcloud/armnetworkcloud,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkcloud/armnetworkcloud,10,false,1,12/23/2025
 Network Function,0,Resource Management - Network Function,mgmt,Go,,,11,false,sdk/resourcemanager/networkfunction/armnetworkfunction,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/networkfunction/armnetworkfunction,10,false,1,11/24/2023
@@ -1026,7 +1026,7 @@ Maps,0,Maps Render,data,Java,,,11,false,azure-maps-render,https://github.com/Azu
 Maps,0,Maps Route,data,Java,,,11,false,azure-maps-route,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/maps/item.Package/,3,false,1,
 Maps,0,Maps Search,data,Java,,,11,false,azure-maps-search,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/maps/item.Package/,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,Java,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor,10,false,1,01/29/2026
-Mixed Reality,0,Mixed Reality Authentication,data,Java,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mixedreality,10,false,1,01/29/2026
+Mixed Reality,0,Mixed Reality Authentication,data,Java,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mixedreality,10,true,1,01/29/2026
 IoT,0,Models Repository,data,Java,,,11,false,azure-iot-modelsrepository,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/modelsrepository/item.Package/,3,false,1,
 Monitor,0,Monitor Ingestion,data,Java,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,10,false,1,01/29/2026
 Monitor,0,Monitor Query,data,Java,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/monitor/item.Package/,10,true,1,08/12/2025
@@ -1217,7 +1217,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Java,azur
 Media Services,0,Resource Management - Media Services,mgmt,Java,azure-mgmt-media,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/mediaservices/mgmt-v2019_05_01_preview,3,true,azure-resourcemanager-mediaservices,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mediaservices/item.Package/,10,true,1,05/27/2025
 Migration,0,Resource Management - Migration Assessment,mgmt,Java,,,11,false,azure-resourcemanager-migration-assessment,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/migration/item.Package/,3,false,1,
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,Java,,,11,false,azure-resourcemanager-migrationdiscoverysap,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/migrationdiscoverysap/item.Package/,3,false,1,
-Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Java,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/mixedreality/mgmt-v2020_05_01,3,true,azure-resourcemanager-mixedreality,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mixedreality/item.Package/,10,false,1,12/23/2024
+Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Java,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/mixedreality/mgmt-v2020_05_01,3,true,azure-resourcemanager-mixedreality,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mixedreality/item.Package/,10,true,1,12/23/2024
 Mobile Network,0,Resource Management - Mobile Network,mgmt,Java,,,11,false,azure-resourcemanager-mobilenetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mobilenetwork,10,true,1,12/17/2025
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,Java,,,11,false,azure-resourcemanager-mongocluster,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mongocluster/item.Package/,10,false,1,10/21/2025
 Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,Java,,,11,false,azure-resourcemanager-mongodbatlas,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mongodbatlas/item.Package/,10,false,1,07/04/2025
@@ -1483,7 +1483,7 @@ Maps,0,Maps Route,data,JavaScript,,,11,false,@azure-rest/maps-route,https://gith
 Maps,0,Maps Search,data,JavaScript,,,11,false,@azure-rest/maps-search,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/maps/maps-search-rest/,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,JavaScript,azure-ai-metrics-advisor,UNABLE TO DETERMINE REPO LINK,1,false,@azure/ai-metrics-advisor,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor,10,false,1,07/06/2021
 Microsoft Playwright Testing,0,Microsoft Playwright Testing,data,JavaScript,,,11,false,@azure/microsoft-playwright-testing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/playwrighttesting,3,true,1,
-Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,false,1,
+Mixed Reality,0,Mixed Reality Authentication,data,JavaScript,,,11,false,@azure/mixed-reality-authentication,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality,3,true,1,
 Monitor,0,Monitor Ingestion,data,JavaScript,,,11,false,@azure/monitor-ingestion,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/16/2025
 Monitor,0,Monitor Query,data,JavaScript,,,11,false,@azure/monitor-query,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,true,1,08/12/2025
 Monitor,0,Monitor Query Logs,data,JavaScript,,,11,false,@azure/monitor-query-logs,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,10,false,1,07/30/2025
@@ -1683,7 +1683,7 @@ Media Services,0,Resource Management - Media Services,mgmt,JavaScript,azure-arm-
 Migrate,0,Resource Management - Migrate,mgmt,JavaScript,,,11,false,@azure/arm-migrate,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate,10,false,1,02/03/2023
 Migration,0,Resource Management - Migration Assessment,mgmt,JavaScript,,,11,false,@azure/arm-migrationassessment,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate,3,false,1,
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,JavaScript,,,11,false,@azure/arm-migrationdiscoverysap,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrationdiscovery,3,false,1,
-Mixed Reality,0,Resource Management - Mixed Reality,mgmt,JavaScript,,,11,false,@azure/arm-mixedreality,https://github.com/Azure/azure-sdk-for-js/tree/1133631dbc5a5d6e7dd21aa735f91c48173f81b7/sdk/mixedreality/arm-mixedreality,10,false,1,01/20/2022
+Mixed Reality,0,Resource Management - Mixed Reality,mgmt,JavaScript,,,11,false,@azure/arm-mixedreality,https://github.com/Azure/azure-sdk-for-js/tree/1133631dbc5a5d6e7dd21aa735f91c48173f81b7/sdk/mixedreality/arm-mixedreality,10,true,1,01/20/2022
 Machine Learning,0,Resource Management - ML Web Services,mgmt,JavaScript,,,11,false,@azure/arm-webservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices,10,false,1,12/02/2022
 Mobile Network,0,Resource Management - Mobile Network,mgmt,JavaScript,,,11,false,@azure/arm-mobilenetwork,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mobilenetwork,10,true,1,06/21/2024
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,JavaScript,,,11,false,@azure/arm-mongocluster,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mongocluster,10,false,1,10/28/2025
@@ -1926,7 +1926,7 @@ Maps,0,Maps Search,data,Python,,,11,false,azure-maps-search,https://github.com/A
 Media,0,Media Analytics Edge,data,Python,,,11,false,azure-media-analytics-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,Python,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/metricsadvisor,10,true,1,08/26/2024
 Planetary Computer,0,Microsoft Planetary Computer Pro,data,Python,,,11,false,azure-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
-Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,false,1,
+Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,true,1,
 IoT,0,Models Repository,data,Python,,,11,false,azure-iot-modelsrepository,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/modelsrepository,3,true,1,
 Monitor,0,Monitor Ingestion,data,Python,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,07/18/2025
 Monitor,0,Monitor Query Logs,data,Python,,,11,false,azure-monitor-query,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,07/30/2025
@@ -2115,7 +2115,7 @@ Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Python,,,
 Media Services,0,Resource Management - Media Services,mgmt,Python,,,11,false,azure-mgmt-media,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,10,true,1,06/03/2025
 Migration,0,Resource Management - Migration Assessment,mgmt,Python,,,11,false,azure-mgmt-migrationassessment,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/migrate,3,false,1,
 Migration,0,Resource Management - Migration Discovery SAP,mgmt,Python,,,11,false,azure-mgmt-migrationdiscoverysap,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/migrationdiscovery,3,false,1,
-Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Python,,,11,false,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,10,false,1,04/27/2021
+Mixed Reality,0,Resource Management - Mixed Reality,mgmt,Python,,,11,false,azure-mgmt-mixedreality,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,10,true,1,04/27/2021
 Mobile Network,0,Resource Management - Mobile Network,mgmt,Python,,,11,false,azure-mgmt-mobilenetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mobilenetwork,10,true,1,12/16/2025
 Mongo Cluster,0,Resource Management - Mongo Cluster,mgmt,Python,,,11,false,azure-mgmt-mongocluster,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mongocluster,10,false,1,10/21/2025
 Mongodbatlas,0,Resource Management - Mongodbatlas,mgmt,Python,,,11,false,azure-mgmt-mongodbatlas,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mongodbatlas,10,false,1,07/03/2025
