@@ -62,7 +62,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release of Azure.Security.Attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
 
-### Authentication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-preview2-2021-01-12)
+### Authentication
 
 - Configured with shared source.
 
