@@ -78,6 +78,18 @@ In all options above except if merely re-exposing public APIs without alteration
 
 {% include requirement/MUST id="rust-client-convenience-telemetry-telemeter" %} telemeter the convenience client methods just like any service client methods.
 
+### Dependencies
+
+{% include important.html content="The following guidance applies to crates published after `azure_core` is made Generally Available. Until then, always only use workspace dependencies unless you are instructed otherwise e.g., those crates building on `azure_core_amqp`." %}
+
+{% include requirement/MUST id="rust-client-dependencies-general" %} follow [general guidelines on dependencies][rust-lang-dependencies].
+
+{% include requirement/MAY id="rust-client-dependencies-core-changes" %} use a `path` + `version` dependency on crates like `azure_core` within the workspace when new features are required. The version of the dependency should represent the next semver-compliant version and match the version specified in the `Cargo.toml` of the crate your `path` is referencing.
+
+This allows crates to work with changes in dependencies like `azure_core` while all the other crates continue to be built on the released version.
+
+{% include requirement/MUST id="rust-client-dependencies-core-release" %} switch back to using only a workspace dependency after the crate requiring feature updates has been released. `path` + `version` dependencies are only allowed while those features are in development.
+
 ### Tests {#rust-client-tests}
 
 We will implement tests [idiomatically with cargo][rust-lang-tests].
