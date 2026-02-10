@@ -88,7 +88,7 @@ In all options above except if merely re-exposing public APIs without alteration
 
 This allows crates to work with changes in dependencies like `azure_core` while all the other crates continue to be built on the released version.
 
-{% include requirement/MUST id="rust-client-dependencies-core-release" %} switch back to using only a workspace dependency after the crate requiring feature updates has been released. `path` + `version` dependencies are only allows while those features are in development.
+{% include requirement/MUST id="rust-client-dependencies-core-release" %} switch back to using only a workspace dependency after the crate requiring feature updates has been released. `path` + `version` dependencies are only allowed while those features are in development.
 
 ### Tests {#rust-client-tests}
 
