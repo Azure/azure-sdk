@@ -429,4 +429,12 @@ entries:
     #### Bugs Fixed
 
     - Prevent recursive stdout/stderr forwarding when NodeLogManager is nested, avoiding RecursionError in concurrent evaluation runs.
+- Name: azure-mgmt-resource-deploymentstacks
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource-Deploymentstacks
+  ServiceName: Resource-Deploymentstacks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deploymentstacks_1.0.0/sdk/resources/azure-mgmt-resource-deploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
 
