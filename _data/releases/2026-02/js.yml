@@ -170,4 +170,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where setting `content-type` header was ignored when the request has no body. [#37181](https://github.com/Azure/azure-sdk-for-js/pull/37181)
+- Name: '@azure/storage-blob'
+  Version: 12.31.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.31.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enhanced `readableStreamBody` type to include `.destroy()` method, making stream cancellation more type-safe without requiring type casting.
 
