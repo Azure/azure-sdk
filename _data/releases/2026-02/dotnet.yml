@@ -324,4 +324,17 @@ entries:
     #### Other Changes
 
     - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.7
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Foundry conversation history hydration via `FoundryConversationThreadRepository` and Core conversation items API integration.
+    - Added `RunAIAgentAsync` and `RunWorkflowAgentAsync` overloads accepting `TokenCredential` and optional project endpoint for Foundry-backed thread hydration.
+    - Enabled automatic Foundry-backed thread repository creation in existing run extension methods when `AZURE_AI_PROJECT_ENDPOINT` is configured.
 
