@@ -22,6 +22,7 @@
 
 <!-- Links within site -->
 [general-design-namespaces]: {{ site.baseurl }}{% link docs/general/design.md %}#namespaces
+[general-package-lifecycle]: {{ site.baseurl }}{% link docs/policies/support.md %}#package-lifecycle
 [general-recorded-tests]: {{ site.baseurl }}{% link docs/general/implementation.md %}#recorded-tests
 [registered package list]: {{ site.baseurl }}{% link docs/tables/registered_namespaces.md %}
 [rust-client-convenience]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-client-convenience

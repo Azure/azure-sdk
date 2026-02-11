@@ -87,6 +87,16 @@ These may lead to name collisions, especially when multiple versions of a crate 
 
 This document contains guidelines developed primarily for typical Azure REST services i.e., stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
+### Platform Support {#rust-platform-support}
+
+{% include requirement/MUST id="rust-platform-msrv" %} support a Minimum Supported Rust Version (MSRV) no newer than 6 months old. See the [general package lifecycle][general-package-lifecycle] for more details on Azure SDK support policies.
+
+The MSRV is declared in the `rust-version` field of the root `Cargo.toml` workspace. As noted in the [rust-general-version] requirement, you MUST NOT use grammar or features newer than this declared version.
+
+{% include requirement/MUST id="rust-platform-test-msrv" %} test all crates with the MSRV as specified in [rust-engsys-stable].
+
+{% include requirement/MUST id="rust-platform-msrv-approval" %} get approval from the [Architecture Board] before updating the MSRV, even if the new version still falls within the 6-month window.
+
 ## Azure SDK API Design {#rust-api}
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
