@@ -460,4 +460,17 @@ entries:
     #### Bugs Fixed
 
     - Fixed `PipelineClient.format_url` to avoid adding trailing slashes when the URL template contains only query parameters.  #45044
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b11
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b11/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added conversation persistence: automatically save input and output items to conversation when `store=True` in request
+    - Added deduplication check to avoid saving duplicate input items
+    - Added server startup success log message
 
