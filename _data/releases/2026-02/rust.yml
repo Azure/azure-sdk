@@ -124,4 +124,94 @@ entries:
     #### Other Changes
 
     - Updated dependencies.
+- Name: azure_core_opentelemetry
+  Version: 0.6.0
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.6.0/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+- Name: azure_core_macros
+  Version: 0.6.0
+  DisplayName: Core - Macros
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.6.0/sdk/core/azure_core_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+- Name: typespec_macros
+  Version: 0.11.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.11.0/sdk/core/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+- Name: typespec
+  Version: 0.12.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.12.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+- Name: azure_core
+  Version: 0.32.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.32.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `PagerContinuation` for `Pager` continuation.
+    - Added `PollerContinuation` for `Poller` continuation.
+
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+    - Changed paging APIs to use `PagerContinuation` and non-generic `PagerState`/`PagerResult` types.
+    - Changed polling APIs to use `PollerContinuation` and non-generic `PollerState`/`PollerResult` types.
+    - Renamed `PagerOptions::continuation_token` to `continuation`.
+    - Renamed `Pager::continuation_token` to `continuation`.
+    - Renamed `Pager::into_continuation_token` to `into_continuation`.
+    - Renamed `PageIterator::continuation_token` to `continuation`.
+    - Renamed `PageIterator::into_continuation_token` to `into_continuation`.
+    - `Pager` callbacks must now return `Result`.
+- Name: typespec_client_core
+  Version: 0.11.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.11.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+- Name: azure_core_amqp
+  Version: 0.11.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.11.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
 
