@@ -474,7 +474,7 @@ def get_thing(self, name: str, **kwargs) -> "Thing":
     :return: The thing.
     :rtype: ~Thing
 
-    For additional request configuration options, please see
+    For additional request configuration keyword arguments, please see
     https://aka.ms/azsdk/python/options.
     """
     request = self._build_get_thing_request(name)
