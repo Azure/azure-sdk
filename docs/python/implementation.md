@@ -427,9 +427,7 @@ class BadThing:
         return self._something
 ```
 
-{% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments, or `**kwargs`.
-
-See TODO: insert link for general guidance on positional vs. optional parameters here.
+{% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments.
 
 {% include requirement/MUST id="python-codestyle-optional-args" %} use keyword-only arguments for optional or less-often-used arguments.
 
@@ -449,6 +447,38 @@ def copy(source, dest, *, recurse=False, overwrite=False) ...
 
 # No
 def copy(source, dest, recurse=False, overwrite=False) ...
+```
+
+{% include requirement/MUSTNOT id="python-codestyle-no-kwargs-for-arguments" %} use `**kwargs` to accept arguments that are consumed directly by the method. Use keyword-only arguments instead.
+
+```python
+# Yes - keyword-only arguments are explicit and discoverable:
+def create_thing(name: str, *, size: int = 0, color: str = "blue") -> None: ...
+
+# No - using **kwargs to accept arguments consumed by the method:
+def create_thing(name: str, **kwargs) -> None:
+    size = kwargs.pop("size", 0)
+    color = kwargs.pop("color", "blue")
+    ...
+```
+
+{% include requirement/MAY id="python-codestyle-kwargs-passthrough" %} use `**kwargs` when the method needs to pass parameters through to other methods (e.g. pipeline policies or an underlying API). When doing so, you **must** document which API(s) will be called with the forwarded `**kwargs`.
+
+```python
+# Yes - kwargs are passed through to the pipeline, and this is documented:
+def get_thing(self, name: str, **kwargs) -> "Thing":
+    """Get the thing with the given name.
+
+    :param name: The name of the thing.
+    :type name: str
+    :return: The thing.
+    :rtype: ~Thing
+
+    For additional request configuration options, please see
+    https://aka.ms/azsdk/python/options.
+    """
+    request = self._build_get_thing_request(name)
+    return self._pipeline.send(request, **kwargs)
 ```
 
 {% include requirement/MUST id="python-codestyle-positional-params" %} specify the parameter name when calling methods with more than two required positional parameters.

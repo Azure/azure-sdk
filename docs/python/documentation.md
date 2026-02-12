@@ -33,7 +33,7 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, and methods.
 
-{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method and add a ref link to [core options](https://aka.ms/azsdk/python/options) to provide introduction for shared options. You may refer to the signature of a called method if the `**kwargs` are passed through.
+{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method and add a ref link to [core options](https://aka.ms/azsdk/python/options) to provide introduction for shared options. If `**kwargs` are passed through to another API, you **must** document which API(s) will be called with the forwarded `**kwargs`.
 
 Example:
 ```python
@@ -45,6 +45,7 @@ def get(*args, **kwargs):
     :param str method-param: The method-param parameter
     :keyword int method-kwarg: The optional method-kwarg parameter
 
+    Keyword arguments are passed to :func:`request`.
     For additional request configuration options, please see https://aka.ms/azsdk/python/options.
     """
     return request("GET", *args, **kwargs)

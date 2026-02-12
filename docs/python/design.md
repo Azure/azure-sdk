@@ -768,14 +768,17 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, constants and functions.
 
-{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
+{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. If `**kwargs` are passed through to another API, you **must** document which API(s) will be called with the forwarded `**kwargs`.
 
 Example:
 ```python
 def request(method, url, headers, **kwargs): ...
 
 def get(*args, **kwargs):
-    "Calls `request` with the method "GET" and forwards all other arguments."
+    """Calls `request` with the method "GET" and forwards all other arguments.
+
+    Keyword arguments are passed to :func:`request`.
+    """
     return request("GET", *args, **kwargs)
 ```
 
