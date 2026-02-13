@@ -379,4 +379,15 @@ entries:
     #### Bugs Fixed
 
     - Make conversationId Optional
+- Name: Azure.Compute.Batch
+  Version: 1.0.0-beta.5
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Compute.Batch_1.0.0-beta.5/sdk/batch/Azure.Compute.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `DataDisk.StorageAccountType`.  Use `DataDisk.ManagedDisk.StorageAccountType` instead
 
