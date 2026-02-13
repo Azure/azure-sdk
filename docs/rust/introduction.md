@@ -581,7 +581,7 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-builders-return-params" %} define required parameters in the final `build(&self)` method if not using a typestate pattern e.g., `build(&self, endpoint: &str)`.
 
-{% include requirement/MUST id="rust-builders-private-fields" %} ensure all fields of the options type being constructed by the builder are private. All fields must have `with_` setting functions.
+{% include requirement/MUST id="rust-builders-private-fields" %} ensure all fields of the options type being constructed by the builder are private. All fields must have `with_` setter functions.
 
 #### Enumerations {#rust-enums}
 
