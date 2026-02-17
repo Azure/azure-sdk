@@ -677,6 +677,7 @@ App Service,0,Resource Management - App Service,mgmt,Go,,,11,false,sdk/resourcem
 Application Insights,0,Resource Management - Application Insights,mgmt,Go,,,11,false,sdk/resourcemanager/applicationinsights/armapplicationinsights,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/applicationinsights/armapplicationinsights,10,false,1,11/23/2023
 Arc Data,0,Resource Management - Arc Data,mgmt,Go,,,11,false,sdk/resourcemanager/azurearcdata/armazurearcdata,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azurearcdata/armazurearcdata,3,false,1,
 Arize AI,0,Resource Management - Arize AI Observability Eval,mgmt,Go,,,11,false,sdk/resourcemanager/arizeaiobservabilityeval/armarizeaiobservabilityeval,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/arizeaiobservabilityeval/armarizeaiobservabilityeval,10,false,1,07/03/2025
+Artifactsigning,0,Resource Management - Artifactsigning,mgmt,Go,,,11,false,sdk/resourcemanager/artifactsigning/armartifactsigning,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/artifactsigning/armartifactsigning,3,false,1,
 Astro,0,Resource Management - Astro,mgmt,Go,,,11,false,sdk/resourcemanager/astro/armastro,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/astro/armastro,3,false,1,
 Attestation,0,Resource Management - Attestation,mgmt,Go,,,11,false,sdk/resourcemanager/attestation/armattestation,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/attestation/armattestation,10,false,1,11/23/2023
 Authorization,0,Resource Management - Authorization,mgmt,Go,,,11,false,sdk/resourcemanager/authorization/armauthorization,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/authorization/armauthorization,10,false,1,11/27/2023
@@ -1275,7 +1276,7 @@ Resource Health,0,Resource Management - Resource Health,mgmt,Java,azure-mgmt-res
 Resource Mover,0,Resource Management - Resource Mover,mgmt,Java,azure-mgmt-resourcemover,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-resourcemover,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/resourcemover/item.Package/,10,false,1,12/11/2024
 Resources,0,Resource Management - Resources,mgmt,Java,azure-mgmt-resources,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-resources,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resources,10,false,1,01/29/2026
 Resources-Bicep,0,Resource Management - Resources-Bicep,mgmt,Java,,,11,false,azure-resourcemanager-resources-bicep,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/resources/item.Package/,3,false,1,
-Resources-Deploymentstacks,0,Resource Management - Resources-Deploymentstacks,mgmt,Java,,,11,false,azure-resourcemanager-resources-deploymentstacks,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/resources/item.Package/,10,false,1,07/11/2025
+Resources-Deploymentstacks,0,Resource Management - Resources-Deploymentstacks,mgmt,Java,,,11,false,azure-resourcemanager-resources-deploymentstacks,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resources,10,false,1,02/11/2026
 Secretsstoreextension,0,Resource Management - Secretsstoreextension,mgmt,Java,,,11,false,azure-resourcemanager-secretsstoreextension,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/secretsstoreextension/item.Package/,3,false,1,
 Security,0,Resource Management - Security,mgmt,Java,,,11,false,azure-resourcemanager-security,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/security/item.Package/,10,false,1,12/26/2024
 Security DevOps,0,Resource Management - Security DevOps,mgmt,Java,,,11,false,azure-resourcemanager-securitydevops,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/securitydevops/item.Package/,3,false,1,
@@ -1872,7 +1873,7 @@ Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https:
 Cognitive Services,0,AI Resources,data,Python,,,11,false,azure-ai-resources,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,Anomaly Detector,data,Python,azure-cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,true,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector,3,false,1,
 App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,01/27/2026
-App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,11/13/2025
+App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,02/17/2026
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,10/09/2025
 Cognitive Services,0,Azure AI Transcription,data,Python,,,11,false,azure-ai-transcription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,1,
@@ -2854,7 +2855,6 @@ Elastic SAN,0,Resource Management -  Elastic SAN,mgmt,Go,,,11,false,Missing: Cre
 Artifactsigning,0,Resource Management - Artifactsigning,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-artifactsigning,,2,false,0,
 Artifactsigning,0,Resource Management - Artifactsigning,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-artifactsigning,,2,false,0,
 Artifactsigning,0,Resource Management - Artifactsigning,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-artifactsigning,,2,false,0,
-Artifactsigning,0,Resource Management - Artifactsigning,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-artifactsigning,,2,false,0,
 Batch AI,0,Resource Management - Batch AI,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-batchai,,2,false,0,
 Batch AI,0,Resource Management - Batch AI,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-batchai,,2,false,0,
 Custom Providers,0,Resource Management - Custom Providers,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-customproviders,,2,false,0,
