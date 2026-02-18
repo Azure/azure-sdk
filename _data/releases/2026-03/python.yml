@@ -33,4 +33,15 @@ entries:
 
     - Fixes a bug where `feature_flag_selects` could be passed in as `None` which resulted in an exception on load, doing this now results in loading the default feature flags.
     - Fixes a bug where `feature_flag_selects` couldn't load snapshots.
+- Name: azure-core
+  Version: 1.38.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.38.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `PipelineClient.format_url` to preserve the leading slash when the URL template starts with `/?`. #45218
 
