@@ -7,4 +7,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managedops_1.0.0-beta.1/sdk/managedops/arm-managedops/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.3/sdk/ai/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `KnownOutputAudioFormat` enum values changed from hyphens to underscores (this fixes a bug where the SDK's format was wrong):
+    - `pcm16-8000hz` → `pcm16_8000hz`
+    - `pcm16-16000hz` → `pcm16_16000hz`
+
+    #### Features Added
+
+    - Added reasoning effort configuration with `ReasoningEffort` and `KnownReasoningEffort`
+    - Added interim response configuration for generating responses while waiting
+    - `InterimResponseConfig`, `StaticInterimResponseConfig`, `LlmInterimResponseConfig` types
+    - `InterimResponseConfigBase`, `InterimResponseConfigBaseUnion` base types
+    - `InterimResponseConfigType`, `KnownInterimResponseConfigType` for configuration type selection
+    - `InterimResponseTrigger`, `KnownInterimResponseTrigger` for trigger configuration
+    - Added metadata support for responses
+    - `metadata` property added to `ResponseCreateParams` and `Response` for storing key-value pairs
+    - Added voice customization enhancements
+    - `customTextNormalizationUrl` property for voice configuration
+    - Added event handler subscriptions for MCP events in `VoiceLiveSessionHandlers`
+    - MCP event handlers: `onMcpListToolsInProgress`, `onMcpListToolsCompleted`, `onMcpListToolsFailed`, `onResponseMcpCallArgumentsDelta`, `onResponseMcpCallArgumentsDone`, `onResponseMcpCallInProgress`, `onResponseMcpCallCompleted`, `onResponseMcpCallFailed`
+    - Added agent session mode for targeting AI Foundry agents directly
+    - `AgentSessionConfig` and `SessionTarget` types for session configuration
+    - `isAgentSessionTarget` and `isModelSessionTarget` helper functions
 
