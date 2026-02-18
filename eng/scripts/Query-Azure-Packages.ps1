@@ -108,10 +108,20 @@ function Get-dotnet-Packages
   # Rest API docs
   # https://docs.microsoft.com/nuget/api/search-query-service-resource
   # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
-  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000" -MaximumRetryCount 3
+  $nugetSkip = 0
+  $nugetTake = 1000
+  $nugetPackages = @()
 
-  Write-Host "Found $($nugetQuery.totalHits) nuget packages"
-  $packages = $nugetQuery.data | Foreach-Object { CreatePackage $_.id $_.version }
+  do {
+    $nugetUrl = "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=$nugetTake&skip=$nugetSkip"
+    Write-Host "Calling $nugetUrl"
+    $nugetQuery = Invoke-RestMethod $nugetUrl -MaximumRetryCount 3
+    $nugetPackages += $nugetQuery.data
+    $nugetSkip += $nugetQuery.data.Count
+  } while ($nugetQuery.data.Count -gt 0 -and $nugetSkip -lt $nugetQuery.totalHits)
+
+  Write-Host "Found $($nugetPackages.Count) nuget packages"
+  $packages = $nugetPackages | Foreach-Object { CreatePackage $_.id $_.version }
 
   $repoTags = GetPackageVersions "dotnet"
 
