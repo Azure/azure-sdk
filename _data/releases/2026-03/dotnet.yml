@@ -127,4 +127,21 @@ entries:
     - `StartSessionAsync(SessionTarget target, VoiceLiveSessionOptions sessionConfig, ...)` - Starts a connected session from a target with additional configuration
 
     - **New Service Version**: Added `ServiceVersion.V2026_01_01_PREVIEW` to `VoiceLiveClientOptions`
+- Name: Azure.Identity
+  Version: 1.18.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `WorkloadIdentityCredentialOptions.IsAzureKubernetesTokenProxyEnabled` to `IsAzureProxyEnabled` to follow .NET naming conventions for boolean properties.
+
+    #### Bugs Fixed
+
+    - Fixed a NullReferenceException that occurred during X509Chain validation on Linux when using the Identity Bindings feature.
+
+    - Disabled MSAL's internal retry logic for `ConfidentialClientApplication` and `PublicClientApplication` to prevent double retries when combined with Azure SDK's retry policy. Only the configured Azure SDK retry policy is applied, avoiding unexpected additional retry attempts.
 
