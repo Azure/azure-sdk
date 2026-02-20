@@ -1,0 +1,79 @@
+entries:
+- Name: azure-mgmt-artifactsigning
+  Version: 1.0.0
+  DisplayName: Resource Management - Artifactsigning
+  ServiceName: Artifactsigning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-artifactsigning_1.0.0/sdk/artifactsigning/azure-mgmt-artifactsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managedops
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Managedops
+  ServiceName: Managedops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managedops_1.0.0b1/sdk/managedops/azure-mgmt-managedops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 2.4.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.4.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added startup retry, if the initial load fails, the provider will retry until the startup timeout is reached. By default the retry period is 100s, and can be configured via the `startup_timeout` kwarg on the `load` method.
+    - Adds support for adding `audience` to the kwargs for `load` allowing it to specify the audience for the request.
+    - Added support for snapshot references. Configuration settings that reference a snapshot are automatically resolved and expanded during `load`.
+
+    #### Bugs Fixed
+
+    - Fixes a bug where `feature_flag_selects` could be passed in as `None` which resulted in an exception on load, doing this now results in loading the default feature flags.
+    - Fixes a bug where `feature_flag_selects` couldn't load snapshots.
+- Name: azure-core
+  Version: 1.38.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.38.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `PipelineClient.format_url` to preserve the leading slash when the URL template starts with `/?`. #45218
+- Name: azure-mgmt-computebulkactions
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Computebulkactions
+  ServiceName: Computebulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computebulkactions_1.0.0b1/sdk/computebulkactions/azure-mgmt-computebulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.15.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Red Team Agent Scenario Integration: integrated PyRIT's FoundryScenario for attack orchestration with Azure-specific scoring and result processing.
+    - Fixed total tokens calculation errors in evaluation results.
+    - Fixed red team SDK run status updates not firing consistently, preventing runs from being stuck as "Running" in the UI.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b13
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b13/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded azure-ai-projects version.
+
