@@ -52,4 +52,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computebulkactions_1.0.0b1/sdk/computebulkactions/azure-mgmt-computebulkactions/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.15.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Red Team Agent Scenario Integration: integrated PyRIT's FoundryScenario for attack orchestration with Azure-specific scoring and result processing.
+    - Fixed total tokens calculation errors in evaluation results.
+    - Fixed red team SDK run status updates not firing consistently, preventing runs from being stuck as "Running" in the UI.
 
