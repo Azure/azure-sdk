@@ -11,5 +11,6 @@ sidebar: releases_sidebar
 {% include releases/js.md type="deprecated" %}
 {% include releases/python.md type="deprecated" %}
 {% include releases/go.md type="deprecated" %}
+{% include releases/cpp.md type="deprecated" %}
 
 {% include refs.md %}
