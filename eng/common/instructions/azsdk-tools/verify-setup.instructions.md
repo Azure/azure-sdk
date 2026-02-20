@@ -9,7 +9,7 @@ Your goal is to identify the project repo root, and pass in the `packagePath` to
 
 ## Instructions
 1. Check what's missing by calling verify setup with just language and package path parameters. The tool will respond with missing requirements, and if any are installable by the tool itself.
-2. Ask the user if they want help installing any missing requirements that the tool can install. On approval, **use the tool again WITH THE EXACT PARAMETERS (langs=<language(s)>, packagePath=<path>, requirementsToInstall=["req", "req2", ...])**
+2. Ask the user if they want help installing any missing requirements that the tool can install. On approval, **use the tool again WITH THE EXACT PARAMETERS (langs=<language(s)>, packagePath=<path>, requirementsToInstall=["req", "req2", ...])**.
 
 ## Examples
 - in `azure-sdk-for-js`, run `azsdk_verify_setup` with `(langs=javascript, packagePath=<path>/azure-sdk-for-js)`.
