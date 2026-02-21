@@ -50,7 +50,7 @@ function Get-java-Packages
     "io.clientcore"
   )
   $groupIds = $groupIds | % { "g:" + $_ }
-  $groupIdQuery = $groupIds -join "+"
+  $groupIdQuery = $groupIds -join "+OR+"
   $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${groupIdQuery}&rows=100&wt=json"
   Write-Host "Calling $baseMavenQueryUrl"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
