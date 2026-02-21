@@ -42,7 +42,7 @@ from azure.core.pipeline.policies import (
     UserAgentPolicy,
 )
 
-class ExampleClient(object):
+class ExampleClient:
 
     ...
 
@@ -375,15 +375,15 @@ def DoSomething():
 
 ```python
 # Yes:
-class ThisIsCorrect(object):
+class ThisIsCorrect:
     pass
 
 # No:
-class this_is_not_correct(object):
+class this_is_not_correct:
     pass
 
 # No:
-class camelCasedTypeName(object):
+class camelCasedTypeName:
     pass
 ```
 
@@ -412,7 +412,7 @@ Static methods are rare and usually forced by other libraries.
 
 ```python
 # Yes
-class GoodThing(object):
+class GoodThing:
 
     @property
     def something(self):
@@ -420,18 +420,16 @@ class GoodThing(object):
         return self._something
 
 # No
-class BadThing(object):
+class BadThing:
 
     def get_something(self):
         """ Example of a bad 'getter' style method."""
         return self._something
 ```
 
-{% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments, or `**kwargs`.
+{% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments.
 
-See TODO: insert link for general guidance on positional vs. optional parameters here.
-
-{% include requirement/MUST id="python-codestyle-optional-args" %} use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
+{% include requirement/MUST id="python-codestyle-optional-args" %} use keyword-only arguments for optional or less-often-used arguments.
 
 ```python
 # Yes
@@ -449,6 +447,38 @@ def copy(source, dest, *, recurse=False, overwrite=False) ...
 
 # No
 def copy(source, dest, recurse=False, overwrite=False) ...
+```
+
+{% include requirement/MUSTNOT id="python-codestyle-no-kwargs-for-arguments" %} use `**kwargs` to accept arguments that are consumed directly by the method. Use keyword-only arguments instead.
+
+```python
+# Yes - keyword-only arguments are explicit and discoverable:
+def create_thing(name: str, *, size: int = 0, color: str = "blue") -> None: ...
+
+# No - using **kwargs to accept arguments consumed by the method:
+def create_thing(name: str, **kwargs) -> None:
+    size = kwargs.pop("size", 0)
+    color = kwargs.pop("color", "blue")
+    ...
+```
+
+{% include requirement/MAY id="python-codestyle-kwargs-passthrough" %} use `**kwargs` when the method needs to pass parameters through to other methods (e.g. pipeline policies or an underlying API). When doing so, you **must** document which API(s) will be called with the forwarded `**kwargs`.
+
+```python
+# Yes - kwargs are passed through to the pipeline, and this is documented:
+def get_thing(self, name: str, **kwargs) -> "Thing":
+    """Get the thing with the given name.
+
+    :param name: The name of the thing.
+    :type name: str
+    :return: The thing.
+    :rtype: ~Thing
+
+    For additional request configuration keyword arguments, please see
+    https://aka.ms/azsdk/python/options.
+    """
+    request = self._build_get_thing_request(name)
+    return self._pipeline.send(request, **kwargs)
 ```
 
 {% include requirement/MUST id="python-codestyle-positional-params" %} specify the parameter name when calling methods with more than two required positional parameters.
@@ -510,11 +540,37 @@ azure.exampleservice.some_internal_module
 
 {% include requirement/MUST id="python-codestyle-structural-subtyping" %} prefer structural subtyping and protocols over explicit type checks.
 
-{% include requirement/MUST id="python-codestyle-abstract-collections" %} derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) to provide custom mapping types.
+{% include requirement/MUST id="python-codestyle-abstract-collections" %} derive from the abstract collections base classes `collections.abc` to provide custom mapping types.
 
 {% include requirement/MUST id="python-codestyle-pep484" %} provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) for publicly documented classes and functions.
 
-- See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. Do not do this for code that is Python 3 specific (e.g. `async` clients.)
+{% include requirement/MUST id="python-codestyle-use-builtin-generics" %} use built-in generic types (`list`, `dict`, `tuple`, `set`) in type annotations instead of their `typing` module counterparts (`typing.List`, `typing.Dict`, `typing.Tuple`, `typing.Set`). This is supported as of Python 3.9 ([PEP 585](https://www.python.org/dev/peps/pep-0585/)).
+
+```python
+# Yes (Python 3.9+):
+def get_things() -> list[str]: ...
+def get_mapping() -> dict[str, int]: ...
+
+# No:
+from typing import List, Dict
+def get_things() -> List[str]: ...
+def get_mapping() -> Dict[str, int]: ...
+```
+
+{% include requirement/MUST id="python-codestyle-union-optional" %} use `typing.Union` and `typing.Optional` for union types.
+
+<!-- NOTE: If the minimum supported Python version is raised to 3.10+, use the `X | Y` union syntax
+(PEP 604) instead of `typing.Union[X, Y]` and `X | None` instead of `typing.Optional[X]`.
+For example: `def foo(x: int | str) -> str | None: ...` -->
+
+```python
+# Yes (Python 3.9):
+from typing import Optional, Union
+def foo(x: Union[int, str]) -> Optional[str]: ...
+
+# No (requires Python 3.10+):
+def foo(x: int | str) -> str | None: ...
+```
 
 ### Threading
 
