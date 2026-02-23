@@ -103,4 +103,15 @@ entries:
     * Fixed bug where sdk was encountering a timeout issue caused by infinite recursion during the 410 (Gone) error. See [PR 44770](https://github.com/Azure/azure-sdk-for-python/pull/44770)
     * Fixed crash in sync and async clients when `force_refresh_on_startup` was set to `None`, which could surface as `AttributeError: 'NoneType' object has no attribute '_WritableLocations'` during region discovery when `database_account` was `None`. See [PR 44987](https://github.com/Azure/azure-sdk-for-python/pull/44987)
     * Fixed bug where unavailable regional endpoints were dropped from the routing list instead of being kept as fallback options. See [PR 45200](https://github.com/Azure/azure-sdk-for-python/pull/45200)
+- Name: azure-ai-evaluation
+  Version: 1.15.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed batch evaluation to report per-line errors only on the rows that failed.
 
