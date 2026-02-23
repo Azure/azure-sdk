@@ -38,7 +38,7 @@ It’s critical that library owners engage with the architecture board early eno
 ## Types of review meetings and what to prepare
 
 There are two types of meetings that may be scheduled: Introduction and Follow-Up. 
-For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) to schedule review sessions. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of meeting are detailed below.
+For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/onboarding/archboardschedule) to schedule review sessions. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of meeting are detailed below.
 
 ### 1. Introductory Session
 
