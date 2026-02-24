@@ -144,4 +144,17 @@ entries:
     - Fixed a NullReferenceException that occurred during X509Chain validation on Linux when using the Identity Bindings feature.
 
     - Disabled MSAL's internal retry logic for `ConfidentialClientApplication` and `PublicClientApplication` to prevent double retries when combined with Azure SDK's retry policy. Only the configured Azure SDK retry policy is applied, avoiding unexpected additional retry attempts.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.9
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.9/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a performance issue in `PersistentAgentsChatClient.GetStreamingResponseAsync` [issue](https://github.com/Azure/azure-sdk-for-net/issues/54326).
+
+    #### Features Added
+    - Added support for `CodeInterpreterToolCallContent` from `Microsoft.Extensions.AI` abstractions when executing `HostedCodeInterpreterTool` tool.
 
