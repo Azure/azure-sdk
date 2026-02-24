@@ -72,4 +72,21 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where telemetry rejected by ingestion-side sampling was incorrectly persisted for retry, causing offline storage to fill up unnecessarily.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.16.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.16.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed OpenTelemetry API version mismatch causing Noop providers in VS Code extensions. When a different version of `@opentelemetry/api` was already loaded (e.g. by the VS Code extension host), `useAzureMonitor` would silently fall back to Noop providers, discarding all telemetry. The fix clears the stale global API state before initializing the SDK.
+
+    #### Breaking Changes
+
+    - Default Sampler Changed: The default sampling behavior has been changed from `ApplicationInsightsSampler` with 100% sampling (all traces sampled) to `RateLimitedSampler` with 5.0 traces per second. This change significantly reduces telemetry volume for high-traffic applications and provides better cost optimization out of the box.
+    - **Impact**: Applications with more than 5 requests per second will see fewer traces exported by default.
+    - **Migration**: To maintain the previous behavior (100% sampling), explicitly configure the sampler by setting `tracesPerSecond: 0` which will fall back to using `samplingRatio: 1.0`.
 
