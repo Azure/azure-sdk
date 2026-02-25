@@ -157,4 +157,17 @@ entries:
 
     #### Features Added
     - Added support for `CodeInterpreterToolCallContent` from `Microsoft.Extensions.AI` abstractions when executing `HostedCodeInterpreterTool` tool.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.9.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SecretClientSettings` to support creating a `SecretClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added the `outContentType` query parameter to the `SecretClient.GetSecret` and `SecretClient.GetSecretAsync` to specify the format in which the certificate will be returned.
+    - Added the `previousVersion` property to `SecretProperties`.
 
