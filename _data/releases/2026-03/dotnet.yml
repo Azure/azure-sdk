@@ -170,4 +170,68 @@ entries:
     - Added `SecretClientSettings` to support creating a `SecretClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
     - Added the `outContentType` query parameter to the `SecretClient.GetSecret` and `SecretClient.GetSecretAsync` to specify the format in which the certificate will be returned.
     - Added the `previousVersion` property to `SecretProperties`.
+- Name: Azure.AI.Projects.OpenAI
+  Version: 2.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_2.0.0-beta.1/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    * To align with OpenAI naming conventions, use "Tool" suffix for class names describing Azure tools that are generally available (stable release):
+    * Rename class `AzureAISearchAgentTool` to `AzureAISearchTool`
+    * Rename class `OpenApiAgentTool` to `OpenAPITool`
+    * Rename class `AzureFunctionAgentTool` to `AzureFunctionTool`
+    * Rename class `BingGroundingAgentTool` to `BingGroundingTool`
+    * To align with OpenAI naming conventions, use "PreviewTool" suffix for class names descirbing Azure tools in preview:
+    * Rename class `MicrosoftFabricAgentTool` to `MicrosoftFabricPreviewTool`
+    * Rename class `MemorySearchTool` to `MemorySearchPreviewTool`
+    * Rename class `SharepointAgentTool` to `SharepointPreviewTool`
+    * Rename class `BingCustomSearchAgentTool` to `BingCustomSearchPreviewTool`
+    * Rename class `BrowserAutomationAgentTool` to `BrowserAutomationPreviewTool`
+    * Rename class `A2ATool` to `A2APreviewTool`
+    * Removed class `LocalShellAgentTool`
+    * `ImageBasedHostedAgentDefinition` has been merged into `HostedAgentDefinition`
+    * `Image` is now an optional property on `HostedAgentDefinition`; no other net change
+
+    #### Features Added
+
+    - Updated for full `net10` framework compatibility, including removal of `<EnablePreviewFeatures>` flagging.
+- Name: Azure.ResourceManager.ElasticSan
+  Version: 1.2.0
+  DisplayName: Resource Management - ElasticSan
+  ServiceName: Elasticsan
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ElasticSan_1.2.0/sdk/elasticsan/Azure.ResourceManager.ElasticSan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 2.0.0-beta.1
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.0.0-beta.1/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **Transitive from Azure.AI.Projects.OpenAI**:
+    * `ImageBasedHostedAgentDefinition` has been merged into `HostedAgentDefinition`
+    * `Image` is now an optional property on `HostedAgentDefinition`; no other net change
+    - Tracing: gen_ai.system.instructions event changed to gen_ai.system_instructions attribute.
+    - Tracing: provider name change from "azure.ai.agents" to "microsoft.foundry".
+
+    #### Features Added
+
+    - Updated for full `net10` framework compatibility, including removal of `<EnablePreviewFeatures>` flagging.
+- Name: Azure.ResourceManager.CertificateRegistration
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Certificateregistration
+  ServiceName: Certificateregistration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CertificateRegistration_1.0.0-beta.1/sdk/certificateregistration/Azure.ResourceManager.CertificateRegistration/CHANGELOG.md
+  ChangelogContent: ""
 
