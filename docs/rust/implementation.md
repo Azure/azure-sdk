@@ -231,6 +231,100 @@ Now you can record and later play back your tests. See our [contribution guide f
 
 For a complete example, see pull request [Azure/azure-sdk-for-rust#3337](https://github.com/Azure/azure-sdk-for-rust/pull/3337/files).
 
+## Errors {#rust-errors}
+
+All client methods return an `azure_core::Result<T>` by default, which is defined as:
+
+```rust
+pub type Result<T> = std::result::Result<T, azure_core::Error>;
+```
+
+`azure_core::Error` provides consistent error handling for all clients built upon `azure_core`. You can get detailed HTTP information including the service response like so:
+
+```rust
+use azure_core::error::{ErrorKind, ErrorResponse};
+
+let result = client.get_model("example", None).await;
+let model = match result {
+    Ok(response) => response.into_model()?,
+    Err(err) => match err.kind() {
+        ErrorKind::HttpResponse { raw_response: Some(raw_response), .. } => {
+            let error: ErrorResponse = raw_response.body().json()?;
+            eprintln!("Error: {:?}", &error.error);
+            return Err(err);
+        },
+        _ => return Err(err),
+    },
+};
+```
+
+### Custom error models {#rust-errors-models}
+
+If you want to make service-specific error information more accessible, you can expose error models that can deserialize the body and/or read headers from the raw response.
+
+{% include requirement/MAY id="rust-errors-models-try-from" %} implement `TryFrom<azure_core::Error>` for your error model(s).
+
+If you do implement `TryFrom<azure_core::Error>` for your error model(s):
+
+{% include requirement/MUST id="rust-errors-models-fallback" %} return the original `azure_core::Error` if the `ErrorKind` is not `ErrorKind::HttpResponse` or the response does not indicate a service-specific error.
+
+```rust
+// src/error.rs
+use azure_core::{error::ErrorKind, http::StatusCode};
+use serde::Deserialize;
+use std::fmt;
+
+pub type Result<T> = std::result::Result<T, StorageError>;
+
+#[derive(Debug, Clone)]
+pub struct StorageError {
+    pub status_code: StatusCode,
+    pub message: Option<String>,
+    pub reason: Option<String>,
+    // ...
+}
+
+impl fmt::Display for StorageError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        todo!()
+    }
+}
+
+impl std::error::Error for StorageError {}
+
+impl TryFrom<azure_core::Error> for StorageError {
+    type Error = azure_core::Error;
+
+    fn try_from(err: azure_core::Error) -> azure_core::Result<Self> {
+        match err.kind() {
+            ErrorKind::HttpResponse {
+                status,
+                raw_response: Some(raw_response),
+                ..
+            } => {
+                #[derive(Deserialize)]
+                struct StorageErrorXml {
+                    message: Option<String>,
+                    reason: Option<String>,
+                }
+
+                let error: StorageErrorXml = raw_response.body().xml()?;
+                let error = StorageError {
+                    status_code: *status,
+                    message: error.message,
+                    reason: error.reason,
+                };
+                Ok(error)
+            }
+            _ => Err(azure_core::Error::new(
+                ErrorKind::DataConversion,
+                "not a service error",
+            )),
+        }
+    }
+}
+```
+
 ## Traits {#rust-traits}
 
 {% include requirement/MUST id="rust-traits-async" %} attribute traits and trait implementations with async functions with the `async_trait::async_trait` procedural macro to desugar the async functions. This allows requiring futures to also be `Send`. See [Azure/azure-sdk-for-rust#1796](https://github.com/Azure/azure-sdk-for-rust/issues/1796) for details.
