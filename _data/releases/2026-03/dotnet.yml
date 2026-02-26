@@ -249,4 +249,21 @@ entries:
     - The `WorkloadIdentityCredentialOptions.IsAzureProxyEnabled` property, which enables Azure Kubernetes token proxy mode, is only available in beta releases of this package.
 
     - `AzureDeveloperCliCredential` now parses JSON error output from `azd auth token` to extract clean error messages instead of including raw JSON in exceptions. Error messages like `{"type":"consoleMessage","data":{"message":"ERROR: fetching token: ..."}}` are now displayed as `ERROR: fetching token: ...`.
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.0/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of Azure AI Content Understanding client library for .NET
+    - Each `ContentField` subclass now exposes a strongly-typed `Value` property (e.g., `ContentStringField.Value` returns `string?`, `ContentNumberField.Value` returns `double?`)
+    - Added `ContentSource` hierarchy (`DocumentSource`, `AudioVisualSource`) for strongly-typed parsing of grounding source strings on `ContentField`
+    - Added `ContentRange` value type with static factory methods (`Page`, `Pages`, `TimeRange`, etc.) for specifying content ranges on `AnalysisInput`
+    - Added convenience methods and indexers on `ContentArrayField` and `ContentObjectField`
+    - Added support for `clientRequestId` parameter in `Analyze` and `AnalyzeBinary` operations
+    - Updated to service API version `2025-11-01`
 
