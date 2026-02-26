@@ -230,4 +230,12 @@ entries:
     - Fixed incorrect per_testing_criteria that showed attack strategies alongside risk categories.
     - Fixed metadata leak of internal scorer fields (attack_success, attack_strategy, score) into results.json.
     - Improved error logging with run_id, display_name, and full stack traces for red team scan failures.
+- Name: azure-mgmt-connectedcache
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedcache_1.0.0b2/sdk/connectedcache/azure-mgmt-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
 
