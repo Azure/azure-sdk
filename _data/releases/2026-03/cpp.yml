@@ -1,0 +1,94 @@
+entries:
+- Name: azure-storage-files-datalake
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.15.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-04-06`.
+    - Added cross-tenant support for Principal-Bound Identity User Delegation SAS.
+    - Added new field `SignedDelegatedUserTid` in `UserDelegationKey`.
+    - Added new field `DelegatedUserTid` in `GetUserDelegationKeyOptions`.
+    - Added support for Storage Structured Message (Content Validation).
+    - Added new fields `UploadValidationOptions` and `DownloadValidationOptions` in `DataLakeClientOptions`.
+    - Upload APIs:
+    - Added new field `ValidationOptions` in `AppendFileOptions` and `UploadFileFromOptions`.
+    - Download APIs:
+    - Added new field `ValidationOptions` in `DownloadFileOptions`.
+    - Added support for Dynamic User Delegation SAS.
+    - Added new fields `RequestHeaders` and `RequestQueryParameters` in `DataLakeSasBuilder`.
+- Name: azure-storage-blobs
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.17.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-04-06`.
+    - Added cross-tenant support for Principal-Bound Identity User Delegation SAS.
+    - Added new field `SignedDelegatedUserTid` in `UserDelegationKey`.
+    - Added new field `DelegatedUserTid` in `GetUserDelegationKeyOptions`.
+    - Added support for Content Validation via Structured Message.
+    - Added new fields `UploadValidationOptions` and `DownloadValidationOptions` in `BlobClientOptions`.
+    - Upload APIs:
+    - Added new field `ValidationOptions` in `UploadBlockBlobOptions`, `UploadBlockBlobFromOptions`, `StageBlockOptions`, `StageBlockFromUriOptions`, `AppendBlockOptions`, and `UploadPagesOptions`.
+    - Download APIs:
+    - Added new field `ValidationOptions` in `DownloadBlobOptions` and `DownloadBlobToOptions`.
+    - Added support for `AccessTierConditions` in Delete Blob API.
+    - Added support for `SourceCustomerProvidedKey` for copy APIs.
+    - Added support for Dynamic User Delegation SAS.
+    - Added new fields `RequestHeaders` and `RequestQueryParameters` in `BlobSasBuilder`.
+- Name: azure-storage-queues
+  Version: 12.7.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.7.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-04-06`.
+    - Added support for Cross Tenant User Bound Delegation SAS.
+    - Added new field `SignedDelegatedUserTid` in `UserDelegationKey`.
+    - Added new field `DelegatedUserTid` in `GetUserDelegationKeyOptions`.
+- Name: azure-storage-common
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.13.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2026-04-06`.
+    - Added new enum `StorageChecksumAlgorithm` for configuring checksum validation in Structured Message uploads and downloads.
+- Name: azure-storage-files-shares
+  Version: 12.17.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.17.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2026-04-06`.
+    - Added support for Cross Tenant User Bound Delegation SAS.
+    - Added new field `SignedDelegatedUserTid` in `UserDelegationKey`.
+    - Added new field `DelegatedUserTid` in `GetUserDelegationKeyOptions`.
+    - Added support for Storage Structured Message (Content Validation).
+    - Added new fields `UploadValidationOptions` and `DownloadValidationOptions` in `ShareClientOptions`.
+    - Upload APIs:
+    - Added new field `ValidationOptions` in `UploadFileRangeOptions` and `UploadFileFromOptions`.
+    - Download APIs:
+    - Added new field `ValidationOptions` in `DownloadFileOptions` and `DownloadFileToOptions`.
+
