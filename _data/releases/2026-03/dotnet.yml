@@ -266,4 +266,23 @@ entries:
     - Added convenience methods and indexers on `ContentArrayField` and `ContentObjectField`
     - Added support for `clientRequestId` parameter in `Analyze` and `AnalyzeBinary` operations
     - Updated to service API version `2025-11-01`
+- Name: Azure.Identity.Broker
+  Version: 1.4.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.4.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added experimental `Microsoft.Extensions.Configuration` and `Microsoft.Extensions.DependencyInjection` integration for Azure SDK clients. For details, see the [Configuration and Dependency Injection](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/docs/ConfigurationAndDependencyInjection.md) documentation.
+- Name: Azure.ResourceManager.Batch
+  Version: 1.6.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.6.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
 
