@@ -1060,3 +1060,23 @@ The following service names did not previously exist in any CSV and were newly c
 | azure_ai_translation_text | ServiceName | Translator | AI |
 | azure_ai_vision_face | ServiceName | Face | AI |
 | azure_ai_vision_imageanalysis | ServiceName | Image Analysis | AI |
+
+## Service Name Override Correction
+
+Corrected the Azure AI package service name changes to only apply "AI" to packages that originally
+had unknown values. Packages that already had established service names (e.g., "Cognitive Services",
+"Metrics Advisor", "Transcription", "Machine Learning") were restored to their original values.
+For packages that were originally unknown, the service name was resolved by cross-referencing
+the same package in other language CSVs.
+
+**Result**: No Azure AI packages use "AI" as a service name. All were either restored to their
+original values or matched to cross-language equivalents (primarily "Cognitive Services").
+
+| File | Packages Corrected |
+|------|--------------------|
+| dotnet-packages.csv | 29 |
+| java-packages.csv | 22 |
+| js-packages.csv | 17 |
+| python-packages.csv | 28 |
+| rust-packages.csv | 20 |
+| **Total** | **116** |
