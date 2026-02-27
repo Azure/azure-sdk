@@ -877,3 +877,186 @@ After fixing all unknown values, the following "Needs Review" entries were clear
 
 - Java `core` package (GroupId: com.microsoft.azure): DisplayName corrected to "Azure Core (Legacy)"
 - Java `web` package (GroupId: com.microsoft.azure): DisplayName corrected to "Azure Web (Legacy)"
+
+## Feedback-Based Corrections
+
+The following additional corrections were made based on review feedback:
+
+- **Total additional changes**: 495
+- All `Azure.AI.*` / `azure-ai-*` / `@azure/ai-*` / `azure_ai_*` packages: ServiceName → "AI"
+- `Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo`: ServiceName → "Extensions" (consistent with other WebJobs packages)
+- `Microsoft.Extensions.Caching.Postgres`: ServiceName → "Postgres"
+- `Microsoft.Fabric.Mcp.*`: ServiceName → "MCP" (consistent with Azure.Mcp packages)
+- JS `@azure-tools/*` packages: ServiceName → "Other", Hide → "true" (internal tools)
+- Rust namespace-claim packages: Hide → "true" (291 packages)
+
+### ⚠️ New Service Names Introduced
+
+The following service names did not previously exist in any CSV and were newly created:
+
+- **Postgres**
+
+### DOTNET (dotnet-packages.csv)
+
+| Package | Field | Old Value | New Value |
+|---------|-------|-----------|-----------|
+| Azure.AI.Agents.Persistent | ServiceName | Cognitive Services | AI |
+| Azure.AI.Projects | ServiceName | Cognitive Services | AI |
+| Azure.AI.Inference | ServiceName | Cognitive Services | AI |
+| Azure.AI.AnomalyDetector | ServiceName | Cognitive Services | AI |
+| Azure.AI.Speech.Transcription | ServiceName | Transcription | AI |
+| Azure.AI.ContentSafety | ServiceName | Cognitive Services | AI |
+| Azure.AI.Language.Conversations | ServiceName | Cognitive Services | AI |
+| Azure.AI.Language.Conversations.Authoring | ServiceName | Cognitive Services | AI |
+| Azure.AI.DocumentIntelligence | ServiceName | Cognitive Services | AI |
+| Azure.AI.Translation.Document | ServiceName | Cognitive Services | AI |
+| Azure.AI.Vision.Face | ServiceName | Cognitive Services | AI |
+| Azure.AI.FormRecognizer | ServiceName | Cognitive Services | AI |
+| Azure.AI.Vision.ImageAnalysis | ServiceName | Cognitive Services | AI |
+| Azure.AI.Language.Text | ServiceName | Cognitive Services | AI |
+| Azure.AI.MetricsAdvisor | ServiceName | Metrics Advisor | AI |
+| Azure.AI.OpenAI.Assistants | ServiceName | Cognitive Services | AI |
+| Azure.AI.OpenAI | ServiceName | Cognitive Services | AI |
+| Azure.AI.Personalizer | ServiceName | Cognitive Services | AI |
+| Azure.AI.Language.QuestionAnswering | ServiceName | Cognitive Services | AI |
+| Azure.AI.TextAnalytics | ServiceName | Cognitive Services | AI |
+| Azure.AI.Language.Text.Authoring | ServiceName | Cognitive Services | AI |
+| Azure.AI.Translation.Text | ServiceName | Cognitive Services | AI |
+| Azure.AI.ContentUnderstanding | ServiceName | Content Understanding | AI |
+| Azure.AI.Language.QuestionAnswering.Authoring | ServiceName | Cognitive Language | AI |
+| Azure.AI.Language.QuestionAnswering.Inference | ServiceName | Cognitive Language | AI |
+| Azure.AI.Vision.Common | ServiceName | Cognitive Services | AI |
+| Azure.AI.VoiceLive | ServiceName | Cognitive Services | AI |
+| Azure.AI.ContentSafety.Extension.Embedded.Image | ServiceName | Cognitive Services | AI |
+| Azure.AI.ContentSafety.Extension.Embedded.Text | ServiceName | Cognitive Services | AI |
+| Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo | ServiceName | Cosmos DB | Extensions |
+| Microsoft.Extensions.Caching.Postgres | ServiceName | Caching | Postgres |
+| Microsoft.Fabric.Mcp | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.linux-arm64 | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.linux-x64 | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.osx-arm64 | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.osx-x64 | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.win-arm64 | ServiceName | Fabric | MCP |
+| Microsoft.Fabric.Mcp.win-x64 | ServiceName | Fabric | MCP |
+| Azure.AI.InkRecognizer | ServiceName | Ink Recognizer | AI |
+| Azure.AI.Vision.Core | ServiceName | Cognitive Services | AI |
+
+### JAVA (java-packages.csv)
+
+| Package | Field | Old Value | New Value |
+|---------|-------|-----------|-----------|
+| azure-ai-agents | ServiceName | Cognitive Services | AI |
+| azure-ai-agents-persistent | ServiceName | Cognitive Services | AI |
+| azure-ai-projects | ServiceName | Cognitive Services | AI |
+| azure-ai-anomalydetector | ServiceName | Cognitive Services | AI |
+| azure-ai-inference | ServiceName | Cognitive Services | AI |
+| azure-ai-speech-transcription | ServiceName | Transcription | AI |
+| azure-ai-contentsafety | ServiceName | Cognitive Services | AI |
+| azure-ai-documentintelligence | ServiceName | Cognitive Services | AI |
+| azure-ai-documenttranslator | ServiceName | Cognitive Services | AI |
+| azure-ai-translation-document | ServiceName | Cognitive Services | AI |
+| azure-ai-vision-face | ServiceName | Cognitive Services | AI |
+| azure-ai-formrecognizer | ServiceName | Cognitive Services | AI |
+| azure-ai-vision-imageanalysis | ServiceName | Cognitive Services | AI |
+| azure-ai-metricsadvisor | ServiceName | Metrics Advisor | AI |
+| azure-ai-openai | ServiceName | Cognitive Services | AI |
+| azure-ai-openai-assistants | ServiceName | Cognitive Services | AI |
+| azure-ai-personalizer | ServiceName | Cognitive Services | AI |
+| azure-ai-textanalytics | ServiceName | Cognitive Services | AI |
+| azure-ai-translation-text | ServiceName | Cognitive Services | AI |
+| azure-ai-voicelive | ServiceName | Cognitive Services | AI |
+| azure-ai-vision-face-ui | ServiceName | Face | AI |
+| azure-ai-vision-common | ServiceName | Computer Vision | AI |
+| azure-ai-vision-common-internal | ServiceName | Computer Vision | AI |
+
+### JS (js-packages.csv)
+
+*68 packages had Hide set to "true"*
+
+| Package | Field | Old Value | New Value |
+|---------|-------|-----------|-----------|
+| @azure/ai-anomaly-detector | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-content-safety | ServiceName | Cognitive Services | AI |
+| @azure/ai-language-conversations | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-document-intelligence | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-document-translator | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-translation-document | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-vision-face | ServiceName | Cognitive Services | AI |
+| @azure/ai-form-recognizer | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-vision-image-analysis | ServiceName | Cognitive Services | AI |
+| @azure/ai-language-text | ServiceName | Cognitive Services | AI |
+| @azure/ai-metrics-advisor | ServiceName | Metrics Advisor | AI |
+| @azure-rest/ai-personalizer | ServiceName | Cognitive Services | AI |
+| @azure/ai-text-analytics | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-translation-text | ServiceName | Cognitive Services | AI |
+| @azure/ai-voicelive | ServiceName | Cognitive Services | AI |
+| @azure-rest/ai-anomaly-detector | ServiceName | Cognitive Services | AI |
+| @azure-tools/azcopy-win-arm64 | ServiceName | Storage | Other |
+| @azure-tools/liftr-extract-rp-metadata | ServiceName | Liftr | Other |
+| @azure-tools/openai-typespec | ServiceName | OpenAI | Other |
+| @azure-tools/test-utils-vitest | ServiceName | Test | Other |
+| @azure-tools/typespec-liftr-emitter | ServiceName | Liftr | Other |
+| @azure-tools/typespec-metadata | ServiceName | TypeSpec | Other |
+| @azure/ai-vision-face-ui | ServiceName | Face | AI |
+| azure-ai-metrics-advisor | ServiceName | Metrics Advisor | AI |
+
+### PYTHON (python-packages.csv)
+
+| Package | Field | Old Value | New Value |
+|---------|-------|-----------|-----------|
+| azure-ai-agents | ServiceName | Cognitive Services | AI |
+| azure-ai-evaluation | ServiceName | Cognitive Services | AI |
+| azure-ai-generative | ServiceName | Cognitive Services | AI |
+| azure-ai-inference | ServiceName | Cognitive Services | AI |
+| azure-ai-projects | ServiceName | Cognitive Services | AI |
+| azure-ai-resources | ServiceName | Cognitive Services | AI |
+| azure-ai-anomalydetector | ServiceName | Cognitive Services | AI |
+| azure-ai-transcription | ServiceName | Cognitive Services | AI |
+| azure-ai-vision | ServiceName | Cognitive Services | AI |
+| azure-ai-contentunderstanding | ServiceName | Content Understanding | AI |
+| azure-ai-contentsafety | ServiceName | Cognitive Services | AI |
+| azure-ai-language-conversations | ServiceName | Cognitive Services | AI |
+| azure-ai-language-conversations-authoring | ServiceName | Cognitive Services | AI |
+| azure-ai-documentintelligence | ServiceName | Cognitive Services | AI |
+| azure-ai-translation-document | ServiceName | Cognitive Services | AI |
+| azure-ai-vision-face | ServiceName | Cognitive Services | AI |
+| azure-ai-formrecognizer | ServiceName | Cognitive Services | AI |
+| azure-ai-vision-imageanalysis | ServiceName | Cognitive Services | AI |
+| azure-ai-ml | ServiceName | Machine Learning | AI |
+| azure-ai-metricsadvisor | ServiceName | Metrics Advisor | AI |
+| azure-ai-personalizer | ServiceName | Cognitive Services | AI |
+| azure-ai-language-questionanswering | ServiceName | Cognitive Services | AI |
+| azure-ai-textanalytics | ServiceName | Cognitive Services | AI |
+| azure-ai-textanalytics-authoring | ServiceName | Cognitive Services | AI |
+| azure-ai-translation-text | ServiceName | Cognitive Services | AI |
+| azure-ai-language-questionanswering-authoring | ServiceName | Cognitive Language | AI |
+| azure-ai-voicelive | ServiceName | Cognitive Services | AI |
+| azure-ai-mlmonitoring | ServiceName | Cognitive Services | AI |
+| azure-ai-language-nspkg | ServiceName |  | AI |
+| azure-ai-translation-nspkg | ServiceName |  | AI |
+| azure-ai-nspkg | ServiceName | Text Analytics | AI |
+
+### RUST (rust-packages.csv)
+
+*291 packages had Hide set to "true"*
+
+| Package | Field | Old Value | New Value |
+|---------|-------|-----------|-----------|
+| azure_ai_anomalydetector | ServiceName | Anomaly Detector | AI |
+| azure_ai_contentsafety | ServiceName | Content Safety | AI |
+| azure_ai_documentintelligence | ServiceName | Document Intelligence | AI |
+| azure_ai_formrecognizer | ServiceName | Form Recognizer | AI |
+| azure_ai_language_conversations | ServiceName | Cognitive Language | AI |
+| azure_ai_language_conversations_authoring | ServiceName | Cognitive Language | AI |
+| azure_ai_language_questionanswering | ServiceName | Cognitive Language | AI |
+| azure_ai_language_text | ServiceName | Cognitive Language | AI |
+| azure_ai_language_text_authoring | ServiceName | Cognitive Language | AI |
+| azure_ai_metricsadvisor | ServiceName | Metrics Advisor | AI |
+| azure_ai_openai | ServiceName | OpenAI | AI |
+| azure_ai_openai_assistants | ServiceName | OpenAI | AI |
+| azure_ai_personalizer | ServiceName | Personalizer | AI |
+| azure_ai_textanalytics | ServiceName | Cognitive Services | AI |
+| azure_ai_translation_document | ServiceName | Translator | AI |
+| azure_ai_translation_text | ServiceName | Translator | AI |
+| azure_ai_vision_face | ServiceName | Face | AI |
+| azure_ai_vision_imageanalysis | ServiceName | Image Analysis | AI |
