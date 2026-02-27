@@ -174,7 +174,7 @@ impl SecretClient {
 
 {% include requirement/MAY id="rust-client-constructors-credential" %} accept a different credential type if the service does not support AAD authentication.
 
-{% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes a `TokenCredential` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
+{% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes an `Arc<dyn TokenCredential>` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
 
 In cases when different credential types are supported, we want the primary use case to support AAD authentication over other authentication schemes.
 
