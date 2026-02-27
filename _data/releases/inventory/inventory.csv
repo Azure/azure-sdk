@@ -152,7 +152,7 @@ Cognitive Services,0,Text Authoring,data,.NET,,,11,false,Azure.AI.Language.Text.
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,.NET,,,11,false,Azure.AI.AgentServer.AgentFramework,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agentserver,3,false,1,
+unknown,0,unknown,data,.NET,,,11,false,Azure.AI.ContentUnderstanding,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentunderstanding,10,false,1,02/26/2026
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Cognitive Services,0,Voice Live,data,.NET,,,11,false,Azure.AI.VoiceLive,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,10/02/2025
@@ -214,7 +214,7 @@ Automation,0,Resource Management - Automation,mgmt,.NET,Microsoft.Azure.Manageme
 Search,0,Resource Management - Azure AI Search,mgmt,.NET,,,11,false,Azure.ResourceManager.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,07/29/2025
 Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,.NET,,,11,false,Azure.ResourceManager.Hci,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/azurestackhci,10,false,1,03/11/2025
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,.NET,Microsoft.Azure.Management.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,true,Azure.ResourceManager.Avs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/avs,10,false,1,01/16/2026
-Batch,0,Resource Management - Batch,mgmt,.NET,Microsoft.Azure.Management.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,true,Azure.ResourceManager.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,1,09/14/2024
+Batch,0,Resource Management - Batch,mgmt,.NET,Microsoft.Azure.Management.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,true,Azure.ResourceManager.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,1,02/26/2026
 Billing,0,Resource Management - Billing,mgmt,.NET,Microsoft.Azure.Management.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,true,Azure.ResourceManager.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,false,1,03/11/2025
 Billing Benefits,0,Resource Management - Billing Benefits,mgmt,.NET,,,11,false,Azure.ResourceManager.BillingBenefits,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billingbenefits,3,false,1,
 Blueprint,0,Resource Management - Blueprint,mgmt,.NET,Microsoft.Azure.Management.Blueprint,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/blueprint,3,true,Azure.ResourceManager.Blueprint,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/blueprint,3,false,1,
@@ -381,7 +381,7 @@ Reservations,0,Resource Management - Reservations,mgmt,.NET,Microsoft.Azure.Mana
 Resource Connector,0,Resource Management - Resource Connector,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceConnector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourceconnector,3,false,1,
 Resource Graph,0,Resource Management - Resource Graph,mgmt,.NET,Microsoft.Azure.Management.ResourceGraph,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcegraph,10,true,Azure.ResourceManager.ResourceGraph,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcegraph,10,false,1,10/17/2025
 Resource Health,0,Resource Management - Resource Health,mgmt,.NET,,,11,false,Azure.ResourceManager.ResourceHealth,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcehealth,10,false,1,05/06/2023
-Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,07/18/2025
+Resource Manager,0,Resource Management - Resource Manager,mgmt,.NET,Microsoft.Azure.Management.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemanager,10,false,1,02/27/2026
 Resource Mover,0,Resource Management - Resource Mover,mgmt,.NET,Microsoft.Azure.Management.Migrate.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.ResourceMover,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcemover,10,false,1,12/01/2023
 Resource Manager,0,Resource Management - Resources,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,11/26/2025
 Resources.Deploymentstacks,0,Resource Management - Resources.Deploymentstacks,mgmt,.NET,,,11,false,Azure.ResourceManager.Resources.DeploymentStacks,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resources,10,false,1,02/10/2026
@@ -2383,6 +2383,7 @@ Storage,0,Storage - Blobs Batch,data,Go,,,11,false,Exception: Library not needed
 Event Grid,0,System Events,data,Python,,,11,false,Missing: Created from existing package: Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Cognitive Services,0,Text Analytics,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.TextAnalytics,,2,false,0,
 Cognitive Services,0,Text Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Text,,2,false,0,
+unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.ContentUnderstanding,,2,false,0,
 Cognitive Services,0,Voice Live,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.VoiceLive,,2,false,0,
 Cognitive Services,0,Voice Live,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.VoiceLive,,2,false,0,
 Cognitive Services,0,Voice Live,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.VoiceLive,,2,false,0,
@@ -2623,7 +2624,6 @@ Storage,0,Storage - Internal Avro,data,.NET,,,11,false,Exception: Internal libra
 Storage,0,Storage - Internal Avro,data,JavaScript,,,11,false,Exception: Internal library,,10,false,1,
 Storage,0,Storage - Internal Avro,data,Python,,,11,false,Exception: Internal library,,10,false,1,
 Storage,0,Storage - Internal Avro,data,Go,,,11,false,Exception: Internal library,,10,false,1,
-unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: fabric-cosmos-spark-auth_3,,2,false,0,
 Arc Data,0,Resource Management - Arc Data,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-azurearcdata,,2,false,0,
 Arc Data,0,Resource Management - Arc Data,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-resourcemanager-azurearcdata,,2,false,0,
 Arize AI,0,Resource Management - Arize AI Observability Eval,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-resourcemanager-arizeaiobservabilityeval,,2,false,0,
@@ -3882,6 +3882,11 @@ Communication,0,Communication.JobRouter,data,Java,,,11,false,Missing: Created fr
 Communication,0,Communication.JobRouter,data,JavaScript,,,11,false,Missing: Created from API in specs repo: communication/Communication.JobRouter,,2,false,0,
 Communication,0,Communication.JobRouter,data,Python,,,11,false,Missing: Created from API in specs repo: communication/Communication.JobRouter,,2,false,0,
 Communication,0,Communication.JobRouter,data,Go,,,11,false,Missing: Created from API in specs repo: communication/Communication.JobRouter,,2,false,0,
+Communication,0,Resource Management - Communication.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: communication/Communication.Management,,2,false,0,
+Communication,0,Resource Management - Communication.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: communication/Communication.Management,,2,false,0,
+Communication,0,Resource Management - Communication.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: communication/Communication.Management,,2,false,0,
+Communication,0,Resource Management - Communication.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: communication/Communication.Management,,2,false,0,
+Communication,0,Resource Management - Communication.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: communication/Communication.Management,,2,false,0,
 Communication,0,Communication.Messages,data,.NET,,,11,false,Missing: Created from API in specs repo: communication/Communication.Messages,,2,false,0,
 Communication,0,Communication.Messages,data,Java,,,11,false,Missing: Created from API in specs repo: communication/Communication.Messages,,2,false,0,
 Communication,0,Communication.Messages,data,JavaScript,,,11,false,Missing: Created from API in specs repo: communication/Communication.Messages,,2,false,0,
