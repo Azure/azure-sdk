@@ -121,4 +121,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_2.0.0/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-computebulkactions'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computebulkactions
+  ServiceName: Computebulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computebulkactions_1.0.0-beta.1/sdk/computebulkactions/arm-computebulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-content-understanding'
+  Version: 1.0.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-understanding_1.0.0/sdk/contentunderstanding/ai-content-understanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the Azure AI Content Understanding client library for JavaScript (`@azure/ai-content-understanding`). This package provides `ContentUnderstandingClient` for analyzing documents, audio, and video content, as well as creating, managing, and configuring analyzers. Service API version `2025-11-01`.
 
