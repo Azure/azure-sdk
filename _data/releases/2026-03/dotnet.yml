@@ -325,4 +325,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.14.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.9.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.9.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConfigurationClientSettings` to support creating a `ConfigurationClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
 
