@@ -238,4 +238,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-connectedcache_1.0.0b2/sdk/connectedcache/azure-mgmt-connectedcache/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-contentunderstanding
+  Version: 1.0.0
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.0.0/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of Azure AI Content Understanding client library for Python
+    - Each `ContentField` subclass (e.g., `StringField`, `NumberField`) now exposes a `value` property with a type appropriate to that subclass (e.g., `str` for `StringField`, `float` for `NumberField`)
 
