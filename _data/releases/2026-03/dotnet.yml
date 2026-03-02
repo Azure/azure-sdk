@@ -408,4 +408,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppService_1.4.0-beta.2/sdk/provisioning/Azure.Provisioning.AppService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.8
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.8/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes thread unsafe code in `VerifyTransparentStatement`. The code reused sha256 instances across multiple threads, which caused exceptions to be thrown when multiple threads were verifying statements at the same time. The fix was to create new sha256 instances for each verification operation instead of reusing them.
 
