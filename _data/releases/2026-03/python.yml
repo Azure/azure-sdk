@@ -249,4 +249,15 @@ entries:
     #### Features Added
     - GA release of Azure AI Content Understanding client library for Python
     - Each `ContentField` subclass (e.g., `StringField`, `NumberField`) now exposes a `value` property with a type appropriate to that subclass (e.g., `str` for `StringField`, `float` for `NumberField`)
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b15
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b15/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded starlette>=1.0.0rc1.
 
