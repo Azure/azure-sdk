@@ -443,4 +443,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ContainerService_1.0.0-beta.5/sdk/provisioning/Azure.Provisioning.ContainerService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.1.0-beta.3
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.1.0-beta.3/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added public `InterimResponseConfigBase InterimResponse`
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **SessionResponse changes:**
+
+    - Removed public `Object` property (now internal)
+    - Renamed `ModalitiesInternal` property to `Modalities`
+    - Changed `Voice` property type from `BinaryData` to strongly typed `VoiceProvider`
+    - Changed `MaxOutputTokens` property type from `BinaryData` to strongly typed `MaxResponseOutputTokensOption`
+
+    - **SessionResponseItem changes:**
+
+    - Removed public `Object` property (now internal)
+
+    - **VoiceLiveSessionResponse changes:**
+
+    - No longer inherits from `VoiceLiveSessionOptions`
+    - Constructor changed from internal to public
+    - Properties now have public setters: `Id`, `Model`, `Animation`, `Instructions`, `InputAudioSamplingRate`, `InputAudioFormat`, `OutputAudioFormat`, `InputAudioNoiseReduction`, `InputAudioEchoCancellation`, `Avatar`, `InputAudioTranscription`, `Temperature`
+    - Added new read-only properties: `Voice`, `MaxResponseOutputTokens`, `ToolChoice`, `TurnDetection`
+
+    - **VoiceProvider changes:**
+    - Removed internal `ToBinaryData()` method
 
