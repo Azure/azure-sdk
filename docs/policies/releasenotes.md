@@ -73,7 +73,7 @@ You may optionally provide social media outreach for out-of-band releases.  Cont
 
 ## Source-Breaking Changes
 
-When a release includes source-breaking changes (changes that are not binary-breaking but require recompilation), these MUST be prominently documented in the release notes under a **"Breaking Changes"** heading, even though they are not binary breaks. Each entry should:
+When a release includes source-breaking changes (changes that are not binary-breaking but require changes to consumer source code and recompilation), these MUST be prominently documented in the release notes under a **"Breaking Changes"** heading, even though they are not binary breaks. Each entry should:
 
 - Clearly state that the change is source-breaking (not binary-breaking)
 - Describe the old API and the new API
