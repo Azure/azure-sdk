@@ -220,12 +220,41 @@ function GetFirstPreviewDate($pkg, $previewVersions)
   return ""
 }
 
+function Ensure-JavaTag($pkg, $version)
+{
+    $repo = "Azure/azure-sdk-for-java"
+    $newTag = "$($pkg.GroupId)+$($pkg.Package)_${version}"
+    
+    # Check if the new tag exists
+    $newTagRef = Get-GitHubTag $repo $newTag
+    
+    if (!$newTagRef) {
+        $oldTag = "$($pkg.Package)_${version}"
+        
+        # Check if the old tag exists
+        $oldTagRef = Get-GitHubTag $repo $oldTag
+        
+        if ($oldTagRef -and $oldTagRef.object.sha) {
+            # Create the new tag using the same SHA as the old tag
+            $created = New-GitHubTag $repo $newTag $oldTagRef.object.sha
+            
+            if ($created) {
+                Write-Host "Created new java tag format for older version $newTag"
+            }
+        }
+        else {
+            Write-Host "Didn't find tag $newTag and expected to find an old tag $oldTag but didn't so we couldn't create the new tag."
+        }
+    }
+}
+
 function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
-    
+
+    $checkVersionTagsForJava = $false
     if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
       # Some java packages use the GroupId+Package as the tag name so check for that case
       $pkgVersion = $langVersions["$($pkg.GroupId)+$($pkg.Package)"]
@@ -233,6 +262,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if($pkg.RepoPath -match "^https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/(?<serviceDirectory>.*)/item.Package/") {
         # Reset the RepoPath to just the service directory if we have shipped a new version because it should now follow the new GroupId+Package format
         $pkg.RepoPath = $matches["serviceDirectory"]
+        $checkVersionTagsForJava = $true
       }
     }
     elseif ($langVersions.ContainsKey($pkg.Package)) {
@@ -292,6 +322,10 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionGA
+    }
 
     if ($pkg.VersionGA) {
       if (!$pkg.FirstGADate) {
@@ -324,6 +358,10 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       else {
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
+    }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionPreview
     }
 
     CheckOptionalLinks $langLinkTemplates $pkg

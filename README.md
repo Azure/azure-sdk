@@ -14,6 +14,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Java        |[Design Guidelines for Java]                 |[Java Packages]       |[azure-sdk-for-java Repository]   | [Java Documentation]             |
 | JavaScript  |[Design Guidelines for TypeScript]           |[JavaScript Packages] |[azure-sdk-for-js Repository]     | [JavaScript Documentation]       |
 | Python      |[Design Guidelines for Python]               |[Python Packages]     |[azure-sdk-for-python Repository] | [Python Documentation]           |
+| Rust        |[Design Guidelines for Rust]                 |[Rust Packages]       |[azure-sdk-for-rust Repository]   | Coming Soon                      |
 
 Service teams should schedule reviews of their client libraries with the Azure SDK Architecture Board.  See the [Review Process][revproc] for more information.
 
@@ -29,6 +30,7 @@ Service teams should schedule reviews of their client libraries with the Azure S
    - An npm package for a JavaScript library
    - A Python wheel for a Python library
    - A Go module for a Go library
+   - A Crate for a Rust library
 
 # Contributing
 
@@ -60,6 +62,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
 [Design Guidelines for TypeScript]: https://azure.github.io/azure-sdk/typescript_introduction.html
 [Design Guidelines for Python]: https://azure.github.io/azure-sdk/python_design.html
+[Design Guidelines for Rust]: https://azure.github.io/azure-sdk/rust_introduction.html
 [revproc]: https://azure.github.io/azure-sdk/policies_reviewprocess.html
 
 [azure-sdk Repository]: https://github.com/Azure/azure-sdk
@@ -72,6 +75,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [azure-sdk-for-java Repository]: https://github.com/Azure/azure-sdk-for-java
 [azure-sdk-for-js Repository]: https://github.com/Azure/azure-sdk-for-js
 [azure-sdk-for-python Repository]: https://github.com/Azure/azure-sdk-for-python
+[azure-sdk-for-rust Repository]: https://github.com/Azure/azure-sdk-for-rust
 
 [Official Azure Documentation]: https://aka.ms/azure-sdk-docs
 [.NET Documentation]: https://aka.ms/net-docs
@@ -91,3 +95,4 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Android Packages]: https://azure.github.io/azure-sdk/releases/latest/android.html
 [iOS Packages]: https://azure.github.io/azure-sdk/releases/latest/ios.html
 [Go Packages]: https://azure.github.io/azure-sdk/releases/latest/go.html
+[Rust Packages]: https://azure.github.io/azure-sdk/releases/latest/rust.html

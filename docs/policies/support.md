@@ -64,6 +64,7 @@ Below are the test configurations covering different operating systems and runti
 - [JavaScript test configuration](https://github.com/Azure/azure-sdk-for-js/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [Python test configuration](https://github.com/Azure/azure-sdk-for-python/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [Go test configuration](https://github.com/Azure/azure-sdk-for-go/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
+- [Rust test configuration](https://github.com/Azure/azure-sdk-for-rust/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [C++ test configuration](https://github.com/Azure/azure-sdk-for-cpp/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 
 ### **Support**:

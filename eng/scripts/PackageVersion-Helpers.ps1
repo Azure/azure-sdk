@@ -1,16 +1,36 @@
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
 
-function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1))
+function Get-GitHubHeaders()
 {
-  $GithubHeaders = @{}
+  <#
+  .SYNOPSIS
+  Creates headers for GitHub API requests with optional authentication.
+  
+  .RETURNS
+  A hashtable containing headers for GitHub API requests, or $null if github_pat is not available
+  #>
+  
   if (!$github_pat) {
     Write-Error "github_pat was not set so retrieving tag information might be rate-limited"
     return $null
   }
-  else {
-    $GithubHeaders = @{
-      Authorization = "bearer ${github_pat}"
-    }
+  
+  $headers = @{
+    "Accept" = "application/vnd.github+json"
+  }
+  
+  if ($github_pat) {
+    $headers["Authorization"] = "bearer ${github_pat}"
+  }
+  
+  return $headers
+}
+
+function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1))
+{
+  $GithubHeaders = Get-GitHubHeaders
+  if (!$GithubHeaders) {
+    return $null
   }
 
   # https://docs.github.com/en/graphql/overview/explorer is a good tool for debugging these graph queries
@@ -187,4 +207,100 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
     }
   }
   return $packageVersions
+}
+
+function Get-GitHubTag($repo, $tagName)
+{
+  <#
+  .SYNOPSIS
+  Gets a GitHub tag reference from a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to retrieve
+  
+  .RETURNS
+  The tag object with SHA if found, $null otherwise
+  #>
+  
+  $headers = Get-GitHubHeaders
+  if (!$headers) {
+    return $null
+  }
+  
+  try {
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/ref/tags/$tagName" `
+      -Headers $headers `
+      -Method Get `
+      -StatusCodeVariable statusCode `
+      -SkipHttpErrorCheck
+    
+    if ($statusCode -eq 200 -and $response -and $response.object) {
+      return $response
+    }
+    
+    if ($statusCode -ne 200 -and $statusCode -ne 404) {
+      Write-Verbose "Failed to retrieve tag '$tagName' from repository '$repo': HTTP $statusCode"
+    }
+  }
+  catch {
+    Write-Verbose "Error retrieving tag '$tagName' from repository '$repo': $_"
+  }
+  
+  return $null
+}
+
+function New-GitHubTag($repo, $tagName, $sha)
+{
+  <#
+  .SYNOPSIS
+  Creates a new GitHub tag reference in a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to create
+  
+  .PARAMETER sha
+  The SHA of the commit to tag
+  
+  .RETURNS
+  $true if tag was created successfully, $false otherwise
+  #>
+  
+  $headers = Get-GitHubHeaders
+  if (!$headers) {
+    return $false
+  }
+  
+  try {
+    $createTagBody = @{
+      ref = "refs/tags/$tagName"
+      sha = $sha
+    }
+
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/refs" `
+      -Headers $headers `
+      -Method Post `
+      -Body ($createTagBody | ConvertTo-Json) `
+      -ContentType "application/json" `
+      -StatusCodeVariable statusCode `
+      -SkipHttpErrorCheck
+    
+    if ($statusCode -eq 201 -and $response -and $response.ref) {
+      Write-Verbose "Successfully created tag '$tagName' in repository '$repo'"
+      return $true
+    }
+    else {
+      Write-Warning "Failed to create tag '$tagName' in repository '$repo': HTTP $statusCode"
+      return $false
+    }
+  }
+  catch {
+    Write-Warning "Failed to create tag '$tagName' in repository '$repo': $_"
+    return $false
+  }
 }

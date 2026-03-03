@@ -59,7 +59,7 @@ Our authentication library is being released with some minor changes and fixes t
 
 ### Azure Metrics Advisor
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta1-2020-10-07)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta1-2020-10-07)
 
 We're happy to announce an initial preview of a client library that supports the newly announced preview of the Azure Metrics Advisor service. This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 

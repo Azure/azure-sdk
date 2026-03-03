@@ -22,11 +22,13 @@
 
 <!-- Links within site -->
 [general-design-namespaces]: {{ site.baseurl }}{% link docs/general/design.md %}#namespaces
+[general-package-lifecycle]: {{ site.baseurl }}{% link docs/policies/support.md %}#package-lifecycle
 [general-recorded-tests]: {{ site.baseurl }}{% link docs/general/implementation.md %}#recorded-tests
 [registered package list]: {{ site.baseurl }}{% link docs/tables/registered_namespaces.md %}
 [rust-client-convenience]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-client-convenience
 [rust-directories]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-directories
 [rust-doc-examples]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-client-tests-doc-examples
+[rust-errors-models]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-errors-models
 [rust-safety-debug]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-safety-debug
 [rust-modules]: {{ site.baseurl }}{% link docs/rust/implementation.md %}#rust-modules
 

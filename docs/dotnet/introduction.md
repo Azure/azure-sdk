@@ -1130,13 +1130,13 @@ package that is now a part of the .NET platform instead. If you are using `Azure
 
 #### Package Dependency Versions
 
-For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/Packages.Data.props) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
+For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/centralpackagemanagement/README.md) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
 
 {% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the current [long term support (LTS)] version of .NET. For example, if the current LTS version is `10.0`, then references to runtime libraries such as `System.Text.Json` should target the latest with a major version of `10`.  These dependency versions are guarnteed to include targets for the current LTS and previous .NET runtimes still under support. 
 
 {% include requirement/MUST id="dotnet-dependency-supported-versions" %} ensure all dependencies reference a version supported by the publisher that is not marked as deprecated or flagged by NuGet for vulnerabilities. 
 
-{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications.  _(see: [Packages.Data.props](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/Packages.Data.props#L57-L83) for more information.)_
+{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications. 
 
 #### Common Libraries
 

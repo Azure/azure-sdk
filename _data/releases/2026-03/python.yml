@@ -1,0 +1,210 @@
+entries:
+- Name: azure-mgmt-artifactsigning
+  Version: 1.0.0
+  DisplayName: Resource Management - Artifactsigning
+  ServiceName: Artifactsigning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-artifactsigning_1.0.0/sdk/artifactsigning/azure-mgmt-artifactsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managedops
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Managedops
+  ServiceName: Managedops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managedops_1.0.0b1/sdk/managedops/azure-mgmt-managedops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 2.4.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.4.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added startup retry, if the initial load fails, the provider will retry until the startup timeout is reached. By default the retry period is 100s, and can be configured via the `startup_timeout` kwarg on the `load` method.
+    - Adds support for adding `audience` to the kwargs for `load` allowing it to specify the audience for the request.
+    - Added support for snapshot references. Configuration settings that reference a snapshot are automatically resolved and expanded during `load`.
+
+    #### Bugs Fixed
+
+    - Fixes a bug where `feature_flag_selects` could be passed in as `None` which resulted in an exception on load, doing this now results in loading the default feature flags.
+    - Fixes a bug where `feature_flag_selects` couldn't load snapshots.
+- Name: azure-core
+  Version: 1.38.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.38.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `PipelineClient.format_url` to preserve the leading slash when the URL template starts with `/?`. #45218
+- Name: azure-mgmt-computebulkactions
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Computebulkactions
+  ServiceName: Computebulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computebulkactions_1.0.0b1/sdk/computebulkactions/azure-mgmt-computebulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.15.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Red Team Agent Scenario Integration: integrated PyRIT's FoundryScenario for attack orchestration with Azure-specific scoring and result processing.
+    - Fixed total tokens calculation errors in evaluation results.
+    - Fixed red team SDK run status updates not firing consistently, preventing runs from being stuck as "Running" in the UI.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b13
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b13/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded azure-ai-projects version.
+- Name: azure-mixedreality-authentication
+  Version: 1.0.0b2
+  DisplayName: Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mixedreality-authentication_1.0.0b2/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Python 2.7 is no longer supported. Please use Python version 3.7 or later.
+    - This package has been deprecated and will no longer be maintained after 10-01-2025. This package will only receive security fixes until 10-01-2025.
+- Name: azure-cosmos
+  Version: 4.15.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.15.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * GA support of Per Partition Automatic Failover and AvailabilityStrategy features.
+
+    #### Bugs Fixed
+    * Fixed bug where sdk was encountering a timeout issue caused by infinite recursion during the 410 (Gone) error. See [PR 44770](https://github.com/Azure/azure-sdk-for-python/pull/44770)
+    * Fixed crash in sync and async clients when `force_refresh_on_startup` was set to `None`, which could surface as `AttributeError: 'NoneType' object has no attribute '_WritableLocations'` during region discovery when `database_account` was `None`. See [PR 44987](https://github.com/Azure/azure-sdk-for-python/pull/44987)
+    * Fixed bug where unavailable regional endpoints were dropped from the routing list instead of being kept as fallback options. See [PR 45200](https://github.com/Azure/azure-sdk-for-python/pull/45200)
+- Name: azure-ai-evaluation
+  Version: 1.15.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.15.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed batch evaluation to report per-line errors only on the rows that failed.
+- Name: azure-confidentialledger
+  Version: 2.0.0b2
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_2.0.0b2/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed authentication failure on HTTP redirects by preserving sensitive headers during service-managed redirects within the Confidential Ledger endpoint.
+- Name: azure-mgmt-mixedreality
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Mixed Reality
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mixedreality_1.1.0b2/sdk/mixedreality/azure-mgmt-mixedreality/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.0.0b4
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.0.0b4/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Tracing: included agent ID in response generation traces when available.
+    * Tracing: Added support for opt-in trace context propagation.
+
+    #### Breaking changes
+
+    * A Responses call on OpenAPI client (`openai_client.responses.create()`) that uses an Agent reference, now needs to specify
+    `extra_body={"agent_reference": {"name": agent_name, "type": "agent_reference"}}` instead of `extra_body={"agent": {"name": agent_name, "type": "agent_reference"}}`.
+    * Agent methods `.agents.create()`, `.agents.create_from_manifest()`, `.agents.update()` and `.agents.update_from_manifest()` were removed. Use
+    the remaining methods `.agents.create_version()` and `.agents.create_version_from_manifest()` instead.
+    * To align with OpenAI naming conventions, use "Tool" suffix for class names describing Azure tools that are generally available (stable release):
+    * Rename class `AzureAISearchAgentTool` to `AzureAISearchTool`.
+    * Rename class `AzureFunctionAgentTool` to `AzureFunctionTool`.
+    * Rename class `BingGroundingAgentTool` to `BingGroundingTool`.
+    * Rename class `OpenApiAgentTool` to `OpenApiTool`.
+    * To align with OpenAI naming conventions, use "PreviewTool" suffix for class names describing Azure tools in preview:
+    * Rename class `A2ATool` to `A2APreviewTool`.
+    * Rename class `BingCustomSearchAgentTool` to `BingCustomSearchPreviewTool`.
+    * Rename class `BrowserAutomationAgentTool` to `BrowserAutomationPreviewTool`.
+    * Rename class `MemorySearchTool` to `MemorySearchPreviewTool`.
+    * Rename class `MicrosoftFabricAgentTool` to `MicrosoftFabricPreviewTool`.
+    * Rename class `SharepointAgentTool` to `SharepointPreviewTool`.
+    * Other class renames:
+    * Rename class `PromptAgentDefinitionText` to `PromptAgentDefinitionTextOptions`
+    * Rename class `EvaluationComparisonRequest` to `InsightRequest`
+    * To use Workflow Agents, which are still in preview, you now need to set an additional input
+    argument `foundry_features=FoundryFeaturesOptInKeys.WORKFLOW_AGENTS_V1_PREVIEW` when calling
+    `.agents.create_version()`.
+    * To use Hosted Agents, which are still in preview, you now need to set an additional input
+    argument `foundry_features=FoundryFeaturesOptInKeys.HOSTED_AGENTS_V1_PREVIEW` when calling
+    `.agents.create_version()`.
+    * To use `.evaluation_rules.create_or_update()` with `HumanEvaluationPreviewRuleAction`, you now
+    need to set an additional input argument `foundry_features=FoundryFeaturesOptInKeys.EVALUATIONS_V1_PREVIEW`.
+    * Operation sets that are still in preview now have the ".beta" subclient in their call path. So for example
+    `project_client.memory_stores.create()` has changed to `project_client.beta.memory_stores.create()`.
+    Similarly for the operation sets: `evaluators`, `insights`, `evaluation_taxonomies`, `schedules` and `red_teams`.
+    * The method `begin_update_memories()` in Memory Stores operation now accept optional `items` of type `List[dict[str, Any]]`
+    instead of `List[ItemParam]`. Similarly for `items` in method `search_memories()`. As a result around 100 classes
+    that are derived from `ItemParam` were removed as they are no longer used by the client library.
+    * Tracing instrumentation, is an experimental preview feature, now requires explicitly opt in by setting the environment variable:
+    `AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING=true`
+    * Tracing: workflow actions in conversation item listings are now emitted as "gen_ai.conversation.item" events
+    (with role="workflow") instead of "gen_ai.workflow.action" events in the list_conversation_items span.
+    * Tracing: response generation span names changed from "responses {model_name}" to "chat {model_name}" for model
+    calls and from "responses {agent_name}" to "invoke_agent {agent_name}" for agent calls.
+    * Tracing: response generation operation names changed from "responses" to "chat" for model calls and from "responses"
+    to "invoke_agent" for agent calls.
+    * Tracing: response generation uses gen_ai.input.messages and gen_ai.output.messages attributes directly under the
+    span instead of events.
+    * Tracing: agent creation uses gen_ai.system_instructions attribute directly under the span instead of an event.
+    Note that the attribute name is gen_ai.system_instructions not gen_ai.system.instructions.
+    * Tracing: "gen_ai.provider.name" attribute value changed to "microsoft.foundry".
+    * Tracing: the format of the function tool call related traces in input and output messages changed to
+    {"type": "tool_call", "id": "...", "name": "...", "arguments": {...}} and {"type": "tool_call_response", "id": "...", "result": "..."}
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b14
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b14/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Pin opentelemetry-semantic-conventions-ai==0.4.13.
+
