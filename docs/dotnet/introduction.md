@@ -1040,7 +1040,7 @@ There are occasions when common code needs to be shared between several client l
 
 #### Client Versions
 
-{% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation. Binary-breaking changes require a new major version or a new package.
+{% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation.
 
 {% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce source-breaking changes in a minor release when the change improves API consistency and a straightforward migration path exists. Source-breaking changes are changes that require recompilation but do not affect already-compiled binaries.
 
@@ -1048,7 +1048,7 @@ For detailed rules on what constitutes a binary vs. source break, see [.NET Brea
 
 {% include requirement/MUST id="dotnet-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do a binary-breaking API change.
 
-Binary-breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
+Binary-breaking changes should never be introduced in an existing package.  If you believe a binary-breaking change is necessary, register your intent with [adparch]. You'll need to have a discussion with the language architect before approval.
 
 ##### Acceptable Source-Breaking Changes {#dotnet-source-breaking-changes}
 
