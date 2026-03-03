@@ -15,7 +15,7 @@ Note that the library review process described here is currently an **internal**
 
 ## SDK API review process roadmap
 
-Typically, there will be a minimum of three meetings with the Architecture Board:
+Typically, there will be a minimum of three review engagements with the Architecture Board:
 
 1.	Introductory session
 2.	SDK API reviews
@@ -28,17 +28,17 @@ It’s critical that library owners engage with the architecture board early eno
 
 1. **New libraries, large feature work, and/or pipeline changes**
 
-    These changes should be discussed in an architecture board meeting at least three times. See “Types of review meetings and what to prepare” section below.
+    These changes should be reviewed by the architecture board at least three times. See “Types of reviews and what to prepare” section below.
 
 
 2. **Small, targeted changes and bug fixes**
 
     See “Getting approval for small, targeted changes and bug fixes” section below.
 
-## Types of review meetings and what to prepare
+## Types of reviews and what to prepare
 
-There are two types of meetings that may be scheduled: Introduction and Follow-Up. 
-For internal teams, use the [Scheduling Tool](https://aka.ms/azsdk/onboarding/archboardschedule) to schedule review sessions. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of meeting are detailed below.
+There are two types of reviews: Introduction and Follow-Up. Reviews are conducted asynchronously by default; meetings are scheduled only when an architect determines a deeper discussion is needed.
+For internal teams, use the [Review Request Tool](https://aka.ms/azsdk/onboarding/archboardschedule) to request a review. Select whether you are introducing a new service to the review board ("Introduction") or following up on a previous introduction, need an SDK API review or an SDK API approval ("Follow-Up"). Requirements for each type of review are detailed below.
 
 ### 1. Introductory Session
 
@@ -56,9 +56,9 @@ This purely informational/educational session is to let the Azure SDK Architectu
 ### 2. SDK API Review
 During SDK API reviews, we look at sample code and detailed SDK API listings. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/main/docs/dotnet/APIListingExample.md).
 
-Depending on the situation and service, more than one SDK API review may be needed (because there are major changes between API versions, for example). If that is the case, scheduler another meeting when the team is ready for another review.
+Depending on the situation and service, more than one SDK API review may be needed (because there are major changes between API versions, for example). If that is the case, request another review when the team is ready.
 
-**All SDK API languages must be approved before any stable release.** When there have been limited changes made to the SDK API since the previous review, *architects may choose to approve over email* without the need for a full meeting.
+**All SDK API languages must be approved before any stable release.** When there have been limited changes made to the SDK API since the previous review, *architects may choose to approve asynchronously* without the need for a dedicated discussion.
 
 #### Prerequisites
 
@@ -74,33 +74,35 @@ Depending on the situation and service, more than one SDK API review may be need
 
 ## What happens during review
 
-### Who should be present?
+Reviews are conducted asynchronously by default through [APIView](https://apiview.dev/) and other review tools. If an architect determines that a synchronous discussion is needed, a meeting will be scheduled. The guidance below describes what to expect for each review stage.
 
-The people familiar with the SDK APIs and service (usually the Engineering and/or PM Lead) should be present.
+### Who should be available?
+
+The people familiar with the SDK APIs and service (usually the Engineering and/or PM Lead) should be available to respond to reviewer feedback.
 
 ### Introductory sessions
-The typical agenda starts with service team presenting the service for about 30 minutes. Then hero scenarios will be presented, each followed by discussions. This will take up majority of the time. If there are REST API Specs available, the Board will discuss them if time allows. And finally, there’ll be a short summary of action items to be done before the next review meeting.
+The introductory review covers the service overview, hero scenarios, REST API specs (if available), and initial API direction. When conducted as a meeting, the typical agenda starts with the service team presenting the service for about 30 minutes, followed by hero scenario discussions and a summary of action items. When conducted asynchronously, the same materials should be provided for architect review through APIView.
 
 ### SDK API reviews
 
-Language architects will have reviewed the SDK API Listings provided by the time of review. They’ll jump right into discussing the SDK API and samples provided. The meeting will end with a short summary of action items to be taken.
+Language architects will review the SDK API listings provided. They will provide feedback on the SDK API and samples, resulting in a set of action items to be addressed.
 
 ### SDK API approval
 
-Typically, there’ll be some unsettled/controversial questions on the SDK API either from language architects who reviewed the SDK API or from the presenting team. Since the goal of this review is to approve the SDK API, the Board usually jumps right into discussing these questions. The review will end with a final approval of the SDK API or follow up items to get the SDK API to be approved.
+Typically, there will be some unsettled or controversial questions on the SDK API either from language architects who reviewed it or from the presenting team. Since the goal of this review is to approve the SDK API, the Board focuses on resolving these questions. The review will end with a final approval of the SDK API or follow-up items to get the SDK API approved.
 
 ### Required quorum
 
-For an SDK API to be approved, the following conditions must be met at the Architecture Board meeting:
+For an SDK API to be approved, the following conditions must be met:
 
-* Representatives from all Tier-1 languages (Java, Python, TS/JS, C#), and all languages under consideration must be present.
-* A minimum of THREE architects from different language groups must be present.
+* Representatives from all Tier-1 languages (Java, Python, TS/JS, C#), and all languages under consideration must participate in the review.
+* A minimum of THREE architects from different language groups must participate.
 
-If a language architect is *not* present at the meeting, a deputy architect can be the representative of that specific language instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
+If a language architect is unavailable, a deputy architect can represent that specific language instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
 
 ## What happens after review
 
-For introductory and SDK API review sessions, there will usually be a list of action items to take before the next meeting. Be sure to follow up on these items. Sometimes, one of these action items could be to schedule for another SDK API review once the architects' suggested changes have been made.
+For introductory and SDK API review sessions, there will usually be a list of action items to take before the next review. Be sure to follow up on these items. Sometimes, one of these action items could be to request another SDK API review once the architects' suggested changes have been made.
 
 ## Previewing SDK API changes
 
