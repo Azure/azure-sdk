@@ -32,7 +32,7 @@ It might seem that additions to the APIs would be non-breaking, and removals wou
 API changes can be categorized as:
 
 - **Binary-breaking**: Changes that cause already-compiled consumer code to fail at runtime. These are **never permitted** in minor or patch releases.
-- **Source-breaking**: Changes that require consumer code to be recompiled but do not affect already-compiled binaries. These **may be permitted** in minor releases under language-specific guidelines and with Architecture Board approval.
+- **Source-breaking**: Changes that prevent existing consumer source code from compiling until it is updated. They require source changes followed by recompilation but do not affect already-compiled binaries. These **may be permitted** in minor releases under language-specific guidelines and with Architecture Board approval.
 
 Language-specific guidelines define which source-breaking changes are acceptable and under what conditions. Refer to individual language guidelines for details.
 

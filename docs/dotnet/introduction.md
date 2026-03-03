@@ -1073,7 +1073,7 @@ public virtual Response DoSomething(
     int param3 = default,
     CancellationToken cancellationToken = default);
 
-// After (source-breaking: callers using named/positional args may need to update)
+// After (source-breaking: callers relying on omitted arguments / default values must update)
 public virtual Response DoSomething(
     string param1,
     string param2,
