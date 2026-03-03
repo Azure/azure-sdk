@@ -262,7 +262,7 @@ let model = match result {
 
 If you want to make service-specific error information more accessible, you can expose error models that can deserialize the body and/or read headers from the raw response.
 
-{% include requirement/MAY id="rust-error-models-custom" %} define service-specific error models which customers may deserialize e.g.,
+{% include requirement/MAY id="rust-errors-models-custom" %} define service-specific error models which customers may deserialize e.g.,
 
 ```rust
 use serde::Deserialize;
@@ -283,7 +283,7 @@ pub struct ServiceError {
 }
 ```
 
-{% include requirement/SHOULD id="rust-error-models-custom-example" %} include an example under your crate's `examples/` folder of how customers can deserialize your custom error e.g.,
+{% include requirement/SHOULD id="rust-errors-models-custom-example" %} include an example under your crate's `examples/` folder of how customers can deserialize your custom error e.g.,
 
 ```rust
 use azure_core::{
