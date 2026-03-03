@@ -262,6 +262,87 @@ let model = match result {
 
 If you want to make service-specific error information more accessible, you can expose error models that can deserialize the body and/or read headers from the raw response.
 
+{% include requirement/MAY id="rust-errors-models-custom" %} define service-specific error models which customers may deserialize e.g.,
+
+```rust
+use serde::Deserialize;
+
+#[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ServiceErrorResponse {
+    pub error: Option<ServiceError>,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ServiceError {
+    pub code: Option<u32>,
+    pub message: Option<String>,
+    #[serde(default)]
+    pub inner_errors: Vec<ServiceError>,
+}
+```
+
+{% include requirement/SHOULD id="rust-errors-models-custom-example" %} include an example under your crate's `examples/` folder of how customers can deserialize your custom error e.g.,
+
+```rust
+use azure_core::{
+    error::ErrorKind,
+    http::{RawResponse, StatusCode, headers::Headers},
+};
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Simulate an error response
+    let response = br#"{
+        "error": {
+            "code": 43004,
+            "message": "failed to make fetch happen",
+            "innerErrors": [
+                {
+                    "message": "no response"
+                }
+            ]
+        }
+    }"#;
+    let raw_response = RawResponse::from_bytes(
+        StatusCode::InternalServerError,
+        Headers::new(),
+        response.as_ref(),
+    );
+    let result: Result<(), azure_core::Error> = Err(ErrorKind::HttpResponse {
+        status: raw_response.status(),
+        error_code: Some("Internal service error".into()),
+        raw_response: Some(Box::new(raw_response)),
+    }
+    .into());
+
+    // Handle the error case
+    if let Err(err) = result {
+        match err.kind() {
+            ErrorKind::HttpResponse {
+                raw_response: Some(raw_response),
+                ..
+            } => {
+                let error = raw_response
+                    .body()
+                    .json::<ServiceErrorResponse>()?
+                    .error
+                    .ok_or("failed to deserialize service error")?;
+                eprintln!(
+                    "Service returned error {}: {}",
+                    error.code.unwrap_or_default(),
+                    error.message.unwrap_or_else(|| "unknown".into())
+                );
+                return Err(Box::new(err));
+            }
+            _ => return Err(Box::new(err)),
+        }
+    };
+
+    Ok(())
+}
+```
+
 {% include requirement/MAY id="rust-errors-models-try-from" %} implement `TryFrom<azure_core::Error>` for your error model(s).
 
 If you do implement `TryFrom<azure_core::Error>` for your error model(s):
