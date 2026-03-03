@@ -88,7 +88,7 @@ function Get-java-Packages
     # then treat it as a new mgmt library
     if ($package.GroupId -eq "com.azure.resourcemanager" `
         -and $package.Package -match "^azure-resourcemanager-(?<serviceName>.*?)$" `
-        -and $repoTags.ContainsKey($package.Package))
+        -and ($repoTags.ContainsKey($package.Package) -or $repoTags.ContainsKey("$($package.GroupId)+$($package.Package)")))
     {
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
