@@ -1062,8 +1062,8 @@ Source-breaking changes are permitted in minor releases when **all** of the foll
 **Example: Options Bag Migration**
 
 A method where all parameters have default values may be replaced with:
-- A new overload where all parameters (except `CancellationToken`) are required, AND
-- A new overload that accepts an options bag containing the same parameters
+- Updating the existing overload so that all parameters (except `CancellationToken`) are required, AND
+- Adding an additional overload that accepts an options bag containing the same parameters
 
 ```csharp
 // Before (all parameters optional via defaults)
