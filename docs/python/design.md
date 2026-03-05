@@ -64,7 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 3.8+.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.9+.
 
 ## Azure SDK API Design
 
@@ -613,11 +613,11 @@ Here are some examples of namespaces that meet these guidelines:
 
 ### Async support
 
-The `asyncio` library has been available since Python 3.4, and the `async`/`await` keywords were introduced in Python 3.5. Despite such availability, most Python developers aren't familiar with or comfortable using libraries that only provide asynchronous methods.
+Despite the availability of the `asyncio` library and the `async`/`await` keywords, most Python developers aren't familiar with or comfortable using libraries that only provide asynchronous methods.
 
 {% include requirement/MUST id="python-client-sync-async" %} provide both sync and async versions of your APIs
 
-{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords (requires Python 3.5+). Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords. Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
 
 {% include requirement/MUST id="python-client-separate-sync-async" %} provide two separate client classes for synchronous and asynchronous operations.  Do not combine async and sync operations in the same class.
 
@@ -685,17 +685,13 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 {% include requirement/MUST id="python-packaging-follow-repo-rules" %} follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
 
-{% include requirement/MUST id="python-packaging-follow-python-rules" %} follow the [namespace package recommendations for Python 3.x](https://docs.python.org/3/reference/import.html#namespace-packages) for packages that only need to target 3.x.
+{% include requirement/MUST id="python-packaging-follow-python-rules" %} follow the [namespace package recommendations for Python 3.x](https://docs.python.org/3/reference/import.html#namespace-packages).
 
 {% include requirement/MUST id="python-general-supply-sdist" %} provide both source distributions (`sdist`) and wheels.
 
 {% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
 
 {% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels.
-
-{% include requirement/MUST id="python-packaging-nspkg" %} depend on `azure-nspkg` for Python 2.x.
-
-{% include requirement/MUST id="python-packaging-group-nspkg" %} depend on `azure-<group>-nspkg` for Python 2.x if you are using namespace grouping.
 
 {% include requirement/MUST id="python-packaging-init" %} include `__init__.py` for the namespace(s) in sdists
 
@@ -772,14 +768,17 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, constants and functions.
 
-{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
+{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. If `**kwargs` are passed through to another API, you **must** document which API(s) will be called with the forwarded `**kwargs`.
 
 Example:
 ```python
 def request(method, url, headers, **kwargs): ...
 
 def get(*args, **kwargs):
-    "Calls `request` with the method "GET" and forwards all other arguments."
+    """Calls `request` with the method "GET" and forwards all other arguments.
+
+    Keyword arguments are passed to :func:`request`.
+    """
     return request("GET", *args, **kwargs)
 ```
 
@@ -832,7 +831,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.8.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current minimum supported Python version is 3.9.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 
