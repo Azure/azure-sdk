@@ -175,4 +175,31 @@ entries:
     #### Bugs Fixed
 
     - The redirect policy now only follows same-origin redirects by default. Set `allowCrossOriginRedirects` to `true` to restore the previous behavior. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+- Name: '@azure/container-registry'
+  Version: 1.1.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.2/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Opted in to cross-origin redirects to ensure blob downloads continue to work when the service redirects to Blob Storage. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+    - Updated minimum dependency on `@azure/core-rest-pipeline` to `^1.23.0`.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.23.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.23.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `allowCrossOriginRedirects` option to `RedirectPolicyOptions`. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+
+    #### Bugs Fixed
+
+    - The redirect policy now only follows same-origin redirects by default. Set `allowCrossOriginRedirects` to `true` to restore the previous behavior. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
 
