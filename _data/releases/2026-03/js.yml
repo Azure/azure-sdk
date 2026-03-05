@@ -159,4 +159,20 @@ entries:
     #### Other Changes
 
     - Updated `@opentelemetry/instrumentation` dependency to ^0.211.0.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.4
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.4/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `allowCrossOriginRedirects` option to `RedirectPolicyOptions`. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+    - Support function type and `Blob` type for request body. ([#37300](https://github.com/Azure/azure-sdk-for-js/pull/37300), [#37424](https://github.com/Azure/azure-sdk-for-js/pull/37424))
+
+    #### Bugs Fixed
+
+    - The redirect policy now only follows same-origin redirects by default. Set `allowCrossOriginRedirects` to `true` to restore the previous behavior. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
 
