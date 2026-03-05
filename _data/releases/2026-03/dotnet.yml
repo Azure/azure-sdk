@@ -538,4 +538,19 @@ entries:
     #### Bugs Fixed
 
     - Fixed challenge-based authentication to correctly parse tenant ID from DSTSv2 authority URIs.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.5.0
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.5.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle `OperationCanceledException` in `PollForSecretChangesAsync` so the background polling loop exits cleanly when the provider is disposed.
+
+    #### Features Added
+
+    - Added `AddKeyVaultSecrets` extension methods on `IConfigurationBuilder` that create a `SecretClient` from configuration using the `Azure.Core` configuration extensions (built on `System.ClientModel`).
 
