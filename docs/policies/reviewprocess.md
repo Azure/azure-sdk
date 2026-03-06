@@ -21,7 +21,7 @@ There are three types of Architecture Board engagements:
 
 ## How to request a review
 
-For the complete review process, including how to request a review, required materials, and what to expect, see the [Azure SDK Architecture Board Review Process](https://aka.ms/azsdk/review-process).
+For the complete review process, including how to request a review, required materials, and what to expect, see the [Azure SDK Architecture Board Review Process](https://aka.ms/azsdk/onboarding/archboardschedule).
 
 ## Previewing SDK API changes
 
