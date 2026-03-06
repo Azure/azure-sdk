@@ -1041,13 +1041,59 @@ For example, if the component is in the `Azure.Storage.Blobs` namespace, the com
 
 #### Client Versions
 
-{% include requirement/MUST id="dotnet-versioning-backwards-compatibility" %} be 100% backwards compatible with older versions of the same package.
+In .NET, we distinguish between three types of breaking changes:
 
-For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
+- **API-breaking changes**: Changes that modify or remove elements of the public API surface, such as removing a public type or member, changing a method signature, or renaming a public element. These changes prevent existing code from compiling or binding to the modified API.
+- **Binary-breaking changes**: Changes that cause existing compiled assemblies to fail when used with a newer version of the library without recompilation. These affect runtime binding and are never permitted in minor or patch releases.
+- **Source-breaking changes**: Changes that require existing source code to be updated and recompiled, but do not affect already-compiled binaries. These may be permitted in minor releases under specific conditions (see below).
 
-{% include requirement/MUST id="dotnet-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do an API breaking change.
+{% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation.
 
-Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
+{% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce source-breaking changes in a minor release when the change improves API consistency and a straightforward migration path exists. Source-breaking changes are changes that require recompilation but do not affect already-compiled binaries.
+
+For detailed rules on what constitutes a binary vs. source break, see [.NET Breaking Change Rules](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
+
+{% include requirement/MUST id="dotnet-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do a binary-breaking API change.
+
+Binary-breaking changes should never be introduced in an existing package.  If you believe a binary-breaking change is necessary, register your intent with [adparch]. You'll need to have a discussion with the language architect before approval.
+
+##### Acceptable Source-Breaking Changes {#dotnet-source-breaking-changes}
+
+Source-breaking changes are permitted in minor releases when **all** of the following conditions are met:
+
+1. **No API-breaking changes** — the change must not remove or modify the public API surface (no methods/types removed, no signature changes).
+2. **Binary compatibility is preserved** — existing compiled assemblies continue to work without recompilation.
+3. **The migration path is straightforward** — the required source change is mechanical and can be resolved by following compiler error messages.
+4. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the source-breaking change and how to migrate.
+5. **The change has been approved** — source-breaking changes must be reviewed and approved by the Architecture Board.
+
+**Example: Options Bag Migration**
+
+A method where all parameters have default values may be replaced with:
+- Updating the existing overload so that all parameters (except `CancellationToken`) are required, AND
+- Adding an additional overload that accepts an options bag containing the same parameters
+
+```csharp
+// Before (all parameters optional via defaults)
+public virtual Response DoSomething(
+    string param1 = default,
+    string param2 = default,
+    int param3 = default,
+    CancellationToken cancellationToken = default);
+
+// After (source-breaking: callers relying on omitted arguments / default values must update)
+public virtual Response DoSomething(
+    string param1,
+    string param2,
+    int param3,
+    CancellationToken cancellationToken = default);
+
+public virtual Response DoSomething(
+    DoSomethingOptions options,
+    CancellationToken cancellationToken = default);
+```
+
+This is a source break (callers relying on default values must update call sites) but NOT a binary break (the original method signature is still present in the compiled assembly, just with different metadata for defaults).
 
 #### Package Version Numbers {#dotnet-versionnumbers}
 
