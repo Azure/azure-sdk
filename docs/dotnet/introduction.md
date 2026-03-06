@@ -1040,6 +1040,12 @@ There are occasions when common code needs to be shared between several client l
 
 #### Client Versions
 
+In .NET, we distinguish between three types of breaking changes:
+
+- **API-breaking changes**: Changes that modify or remove elements of the public API surface, such as removing a public type or member, changing a method signature, or renaming a public element. These changes prevent existing code from compiling or binding to the modified API.
+- **Binary-breaking changes**: Changes that cause existing compiled assemblies to fail when used with a newer version of the library without recompilation. These affect runtime binding and are never permitted in minor or patch releases.
+- **Source-breaking changes**: Changes that require existing source code to be updated and recompiled, but do not affect already-compiled binaries. These may be permitted in minor releases under specific conditions (see below).
+
 {% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation.
 
 {% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce source-breaking changes in a minor release when the change improves API consistency and a straightforward migration path exists. Source-breaking changes are changes that require recompilation but do not affect already-compiled binaries.
@@ -1054,10 +1060,11 @@ Binary-breaking changes should never be introduced in an existing package.  If y
 
 Source-breaking changes are permitted in minor releases when **all** of the following conditions are met:
 
-1. **Binary compatibility is preserved** — existing compiled assemblies continue to work without recompilation.
-2. **The migration path is straightforward** — the required source change is mechanical and can be resolved by following compiler error messages.
-3. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the source-breaking change and how to migrate.
-4. **The change has been approved** — source-breaking changes must be reviewed and approved by the Architecture Board.
+1. **No API-breaking changes** — the change must not remove or modify the public API surface (no methods/types removed, no signature changes).
+2. **Binary compatibility is preserved** — existing compiled assemblies continue to work without recompilation.
+3. **The migration path is straightforward** — the required source change is mechanical and can be resolved by following compiler error messages.
+4. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the source-breaking change and how to migrate.
+5. **The change has been approved** — source-breaking changes must be reviewed and approved by the Architecture Board.
 
 **Example: Options Bag Migration**
 
