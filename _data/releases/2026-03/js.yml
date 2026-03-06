@@ -1,0 +1,259 @@
+entries:
+- Name: '@azure/arm-managedops'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managedops
+  ServiceName: Managedops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managedops_1.0.0-beta.1/sdk/managedops/arm-managedops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.3/sdk/ai/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `KnownOutputAudioFormat` enum values changed from hyphens to underscores (this fixes a bug where the SDK's format was wrong):
+    - `pcm16-8000hz` → `pcm16_8000hz`
+    - `pcm16-16000hz` → `pcm16_16000hz`
+
+    #### Features Added
+
+    - Added reasoning effort configuration with `ReasoningEffort` and `KnownReasoningEffort`
+    - Added interim response configuration for generating responses while waiting
+    - `InterimResponseConfig`, `StaticInterimResponseConfig`, `LlmInterimResponseConfig` types
+    - `InterimResponseConfigBase`, `InterimResponseConfigBaseUnion` base types
+    - `InterimResponseConfigType`, `KnownInterimResponseConfigType` for configuration type selection
+    - `InterimResponseTrigger`, `KnownInterimResponseTrigger` for trigger configuration
+    - Added metadata support for responses
+    - `metadata` property added to `ResponseCreateParams` and `Response` for storing key-value pairs
+    - Added voice customization enhancements
+    - `customTextNormalizationUrl` property for voice configuration
+    - Added event handler subscriptions for MCP events in `VoiceLiveSessionHandlers`
+    - MCP event handlers: `onMcpListToolsInProgress`, `onMcpListToolsCompleted`, `onMcpListToolsFailed`, `onResponseMcpCallArgumentsDelta`, `onResponseMcpCallArgumentsDone`, `onResponseMcpCallInProgress`, `onResponseMcpCallCompleted`, `onResponseMcpCallFailed`
+    - Added agent session mode for targeting AI Foundry agents directly
+    - `AgentSessionConfig` and `SessionTarget` types for session configuration
+    - `isAgentSessionTarget` and `isModelSessionTarget` helper functions
+- Name: '@azure/arm-artifactsigning'
+  Version: 1.0.0
+  DisplayName: Resource Management - Artifactsigning
+  ServiceName: Artifactsigning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-artifactsigning_1.0.0/sdk/artifactsigning/arm-artifactsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.1.2-beta.4
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.1.2-beta.4/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed redirect handling to preserve the `Authorization` header when Confidential Ledger redirects write operations from a secondary node to the primary node (307 redirect). Previously, the default redirect policy stripped the `Authorization` header, causing 401 Unauthorized errors.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.39
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.39/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add ownership checks for storage directories.
+
+    #### Bugs Fixed
+
+    - Fixed an issue where telemetry rejected by ingestion-side sampling was incorrectly persisted for retry, causing offline storage to fill up unnecessarily.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.16.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.16.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed OpenTelemetry API version mismatch causing Noop providers in VS Code extensions. When a different version of `@opentelemetry/api` was already loaded (e.g. by the VS Code extension host), `useAzureMonitor` would silently fall back to Noop providers, discarding all telemetry. The fix clears the stale global API state before initializing the SDK.
+
+    #### Breaking Changes
+
+    - Default Sampler Changed: The default sampling behavior has been changed from `ApplicationInsightsSampler` with 100% sampling (all traces sampled) to `RateLimitedSampler` with 5.0 traces per second. This change significantly reduces telemetry volume for high-traffic applications and provides better cost optimization out of the box.
+    - **Impact**: Applications with more than 5 requests per second will see fewer traces exported by default.
+    - **Migration**: To maintain the previous behavior (100% sampling), explicitly configure the sampler by setting `tracesPerSecond: 0` which will fall back to using `samplingRatio: 1.0`.
+- Name: '@azure/ai-projects'
+  Version: 2.0.0-beta.5
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.5/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add `project.beta` route for accessing beta features, including:
+    - `project.beta.schedules`
+    - `project.beta.redTeams`
+    - `project.beta.memoryStores`
+    - `project.beta.insights`
+    - `project.beta.evaluators`
+    - `project.beta.evaluationTaxonomies`
+- Name: '@azure/arm-connectedcache'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedcache_1.0.0-beta.2/sdk/connectedcache/arm-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elasticsan'
+  Version: 2.0.0
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_2.0.0/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computebulkactions'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computebulkactions
+  ServiceName: Computebulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computebulkactions_1.0.0-beta.1/sdk/computebulkactions/arm-computebulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-content-understanding'
+  Version: 1.0.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-understanding_1.0.0/sdk/contentunderstanding/ai-content-understanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the Azure AI Content Understanding client library for JavaScript (`@azure/ai-content-understanding`). This package provides `ContentUnderstandingClient` for analyzing documents, audio, and video content, as well as creating, managing, and configuring analyzers. Service API version `2025-11-01`.
+- Name: '@azure/arm-netapp'
+  Version: 23.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/opentelemetry-instrumentation-azure-sdk'
+  Version: 1.0.0-beta.10
+  DisplayName: OpenTelemetry Instrumentation
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.10/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@opentelemetry/instrumentation` dependency to ^0.211.0.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.4
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.4/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `allowCrossOriginRedirects` option to `RedirectPolicyOptions`. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+    - Support function type and `Blob` type for request body. ([#37300](https://github.com/Azure/azure-sdk-for-js/pull/37300), [#37424](https://github.com/Azure/azure-sdk-for-js/pull/37424))
+
+    #### Bugs Fixed
+
+    - The redirect policy now only follows same-origin redirects by default. Set `allowCrossOriginRedirects` to `true` to restore the previous behavior. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+- Name: '@azure/container-registry'
+  Version: 1.1.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.2/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Opted in to cross-origin redirects to ensure blob downloads continue to work when the service redirects to Blob Storage. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+    - Updated minimum dependency on `@azure/core-rest-pipeline` to `^1.23.0`.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.23.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.23.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `allowCrossOriginRedirects` option to `RedirectPolicyOptions`. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+
+    #### Bugs Fixed
+
+    - The redirect policy now only follows same-origin redirects by default. Set `allowCrossOriginRedirects` to `true` to restore the previous behavior. [#37384](https://github.com/Azure/azure-sdk-for-js/pull/37384)
+- Name: '@azure/storage-blob'
+  Version: 12.32.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.32.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-04-06.
+    - Added support for Content Validation via Structured Message.
+    - Added support for Delete Blob Conditional Tier.
+    - Added support for Server-side Encryption Rekeying.
+    - Added cross-tenant support for Principal-Bound User Delegation SAS.
+    - Added support for Dynamic User Delegation SAS.
+- Name: '@azure/storage-common'
+  Version: 12.4.0-beta.1
+  DisplayName: Storage Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.4.0-beta.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added functions `structuredMessageDecodingStream` and `structuredMessageEncoding` to parsing and construct structured message with CRC64 checksum for content validation.
+    - Added property of `signedDelegatedUserTid` in `UserDelegationKey`
+- Name: '@azure/arm-disconnectedoperations'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Disconnectedoperations
+  ServiceName: Disconnectedoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-disconnectedoperations_1.0.0-beta.1/sdk/disconnectedoperations/arm-disconnectedoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.0.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - change `RedTeam` property `target` from required to optional.
+    - remove `container_app` from `AgentKind` and `ContainerAppAgentDefinition` from `AgentDefinitionUnion`.
+    - rename `CodeInterpreterContainerAuto` type (see API reference for the new type name).
+    - update memory store `items` property type to match the latest service API (this may require code changes where `items` is accessed).
+    - rename `ImageGenActionEnum` type to `ImageGenAction`.
+    - rename `project.beta.evaluators.listLatestVersions` method to `project.beta.evaluators.list`.
+    - change `project.connections.get` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
+    - change `project.connections.getDefault` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
+
