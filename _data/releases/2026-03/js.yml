@@ -238,4 +238,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-disconnectedoperations_1.0.0-beta.1/sdk/disconnectedoperations/arm-disconnectedoperations/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.0.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - change `RedTeam` property `target` from required to optional.
+    - remove `container_app` from `AgentKind` and `ContainerAppAgentDefinition` from `AgentDefinitionUnion`.
+    - rename `CodeInterpreterContainerAuto` type (see API reference for the new type name).
+    - update memory store `items` property type to match the latest service API (this may require code changes where `items` is accessed).
+    - rename `ImageGenActionEnum` type to `ImageGenAction`.
+    - rename `project.beta.evaluators.listLatestVersions` method to `project.beta.evaluators.list`.
+    - change `project.connections.get` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
+    - change `project.connections.getDefault` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
 
