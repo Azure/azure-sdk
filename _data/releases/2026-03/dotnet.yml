@@ -584,4 +584,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.15.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.1
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.1/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Set the default initial polling interval to 3 seconds for `Analyze`, `AnalyzeAsync`, `AnalyzeBinary`, and `AnalyzeBinaryAsync` to optimize polling efficiency.
 
