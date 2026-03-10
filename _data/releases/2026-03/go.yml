@@ -71,4 +71,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/batch/armbatch/v4.0.0/sdk/resourcemanager/batch/armbatch/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/messaging/azeventhubs
+  Version: 2.0.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v2.0.2/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added immediate retry for AMQP link detach errors, avoiding unnecessary backoff delays when errors originate from earlier detaches. (PR#25630)
+- Name: sdk/data/azcosmos
+  Version: 1.5.0-beta.5
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.5.0-beta.5/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Removed `QueryEngine` field from `ReadManyOptions`. ReadMany now always uses the built-in Go-native implementation.
+
+    #### Features Added
+
+    * Adds support for float 16 datatype for vector embedding policy. See [PR 25707](https://github.com/Azure/azure-sdk-for-go/pull/25707)
+    * Improved the performance of the built-in ReadMany implementation. See [PR 26007](https://github.com/Azure/azure-sdk-for-go/pull/26007)
 
