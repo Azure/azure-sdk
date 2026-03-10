@@ -256,4 +256,57 @@ entries:
     - rename `project.beta.evaluators.listLatestVersions` method to `project.beta.evaluators.list`.
     - change `project.connections.get` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
     - change `project.connections.getDefault` method parameter `includeCredentials` to be part of options bag parameter instead of a separate boolean parameter.
+- Name: '@azure/service-bus'
+  Version: 7.10.0-beta.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.10.0-beta.4/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Restored previous message batch delete behavior
+- Name: '@azure/storage-file-datalake'
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.30.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enhanced `readableStreamBody` type to include `.destroy()` method, making stream cancellation more type-safe without requiring type casting.
+    - Added support for service version 2026-04-06.
+    - Added support for Content Validation via Structured Message
+    - Added cross-tenant support for Principal-Bound User Delegation SAS.
+    - Added support for Dynamic User Delegation SAS.
+- Name: '@azure/storage-file-share'
+  Version: 12.31.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.31.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enhanced `readableStreamBody` type to include `.destroy()` method, making stream cancellation more type-safe without requiring type casting.
+    - Added support for service version 2026-04-06.
+    - Added support for Content Validation via Structured Message
+    - Added cross-tenant support for Principal-Bound User Delegation SAS.
+    - Added support for Files Provisioned V2 Guardrails
+- Name: '@azure/storage-queue'
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.30.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-04-06.
+    - Added cross-tenant support for Principal-Bound User Delegation SAS.
 
