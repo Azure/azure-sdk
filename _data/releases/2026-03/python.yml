@@ -323,4 +323,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-policy_1.0.0b2/sdk/resources/azure-mgmt-resource-policy/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-contentunderstanding
+  Version: 1.0.1
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.0.1/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed `_models.pyi` stub file that caused type checkers (pyright, mypy) to only resolve 10 of 51 model classes, hiding types like `AnalysisResult` and `AnalyzerDefinition`. The `.value` property type information is now provided via `TYPE_CHECKING` class redeclarations in `models/_patch.py`.
 
