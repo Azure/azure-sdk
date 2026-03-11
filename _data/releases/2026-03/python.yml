@@ -333,4 +333,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Removed `_models.pyi` stub file that caused type checkers (pyright, mypy) to only resolve 10 of 51 model classes, hiding types like `AnalysisResult` and `AnalyzerDefinition`. The `.value` property type information is now provided via `TYPE_CHECKING` class redeclarations in `models/_patch.py`.
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b16
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b16/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded to support agent-framework v1.0.0rc3.
 
