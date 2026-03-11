@@ -644,4 +644,37 @@ entries:
     #### Other Changes
 
     - Package version alignment only. No functional changes.
+- Name: Azure.Identity
+  Version: 1.19.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.19.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support in `ClientCertificateCredential` to specify a path in the form of `cert:/StoreLocation/StoreName/Thumbprint` to refer to a certificate in the platform certificate store - such as the Windows Certificate Store on Windows, and the KeyChain on MacOS - instead of a file on disk. For example to load a certificate from the "My" store in the "CurrentUser" location use the path `cert:/CurrentUser/My/E661583E8FABEF4C0BEF694CBC41C28FB81CD870` (A community contribution, courtesy of _[fowl2](https://github.com/fowl2)_).
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.2
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.2/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `GetRehydrationToken()` returning `null` on operations started with `WaitUntil.Started`, preventing cross-process operation handoff ([#56840](https://github.com/Azure/azure-sdk-for-net/issues/56840))
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.10
+  DisplayName: AI Agent Server - Agent Framework
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.10/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Microsoft.Agents.AI, Microsoft.Agents.AI.Workflows, Microsoft.Agents.AI.OpenAI packages to 1.0.0-rc3
 
