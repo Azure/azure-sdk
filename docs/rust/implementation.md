@@ -451,7 +451,7 @@ Azure/azure-sdk-for-rust/
 ├─ eng/ # engineering system pipeline, scripts, etc.
 └─ sdk/
    └─ {service directory}/ # example: keyvault
-      ├─ .dict.txt
+      ├─ .cspell.json
       └─ {service client crate}/ # example: azure_security_keyvault_secrets
          ├─ assets.json # best location for most crates, or in {service directory} for all crates
          ├─ examples/
@@ -534,27 +534,17 @@ pub struct ExtraModel {
 
 {% include requirement/SHOULD id="rust-miscellaneous-spelling-general" %} put general words used across different services and client libraries in the `.vscode/cspell.json` file.
 
-{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.dict.txt` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
-If you're creating this file, add an entry to `.vscode/cspell.json` as shown below:
+{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.cspell.json` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
+This file should import the root `.vscode/cspell.json` and list service-specific words in `ignoreWords`:
 
 ```json
 {
-  "dictionaryDefinitions": [
-    {
-      "name": "service-name",
-      "path": "../sdk/service-directory/.dict.txt",
-      "noSuggest": true
-    }
+  "import": [
+    "../../.vscode/cspell.json"
   ],
-  "overrides": [
-    {
-      "filename": "sdk/service-directory/**",
-      "dictionaries": [
-        "crates",
-        "rust-custom",
-        "service-name"
-      ]
-    }
+  "ignoreWords": [
+    "ciphertext",
+    "oaep"
   ]
 }
 ```
