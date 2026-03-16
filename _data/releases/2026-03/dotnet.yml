@@ -725,4 +725,58 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.4.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Agent Framework
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support UseFoundryTools to accept optional TokenCredential parameter
+- Name: Azure.AI.OpenAI
+  Version: 2.9.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.9.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **`[Experimental]` Realtime Migration**
+
+    Previous support in `Azure.AI.OpenAI` for `RealtimeClient` was based on the Realtime API Beta that has been [deprecated by OpenAI](https://developers.openai.com/api/docs/deprecations) in favor of the newer Realtime surface. With this change, the additional logic in `Azure.AI.OpenAI` is no longer applicable and incompatible with the general availability API. In deference to this, direct, experimental support from `Azure.AI.OpenAI` for Realtime Beta is removed in favor of contemporary `OpenAI` library use. Please migrate to the latest `OpenAI` library for these new features and continuing API compatibility.
+
+    **`[Experimental]` Responses**
+
+    A number of breaking changes, including the removal of model-/deployment-based client constructor variants in favor of `CreateResponseOptions` having a `Model` property, are propagated from the `OpenAI` release. Please see the `OpenAI` release notes for full details.
+
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see the full release notes, linked above, for details.
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Contracts
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support UseFoundryTools to accept optional TokenCredential parameter
 
