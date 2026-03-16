@@ -7,4 +7,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkfunction_1.0.0b2/sdk/networkfunction/azure-mgmt-networkfunction/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 1.0.0b17
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_1.0.0b17/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Pin langchain-azure-ai[opentelemetry]==1.1.0b1 to mitigate installation issue.
 
