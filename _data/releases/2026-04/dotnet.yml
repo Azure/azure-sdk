@@ -15,4 +15,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DomainRegistration_1.0.0-beta.1/sdk/domainregistration/Azure.ResourceManager.DomainRegistration/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Developer.LoadTesting
+  Version: 1.3.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.3.0-beta.1/sdk/loadtestservice/Azure.Developer.LoadTesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated the client library to use API Version `2025-11-01-preview`. This adds all the capabilities that were introduced until this API version.
+    - This release adds models and enums for all the APIs supported by Azure Load Testing.
+    - Support for Notification Rules
+    - Added methods `CreateOrUpdateNotificationRule`, `CreateOrUpdateNotificationRuleAsync`, `GetNotificationRule`, `GetNotificationRuleAsync`, `DeleteNotificationRule`, `DeleteNotificationRuleAsync`, `GetNotificationRules`, and `GetNotificationRulesAsync` in `LoadTestAdministrationClient` to work with notification rules.
+    - Support for Triggers
+    - Added methods `CreateOrUpdateTrigger`, `CreateOrUpdateTriggerAsync`, `GetTrigger`, `GetTriggerAsync`, `DeleteTrigger`, `DeleteTriggerAsync`, `GetTriggers`, and `GetTriggersAsync` in `LoadTestAdministrationClient` to work with scheduling test triggers.
+    - Support for Actionable Insights
+    - Added methods `GenerateTestRunInsights`, `GenerateTestRunInsightsAsync`, `UpdateLatestTestRunInsights`, `UpdateLatestTestRunInsightsAsync`, `GetLatestTestRunInsights`, and `GetLatestTestRunInsightsAsync` in `LoadTestRunClient` to work with actionable insights.
+    - Support for generating test plan recommendations
+    - Added methods `GenerateTestPlanRecommendations` and `GenerateTestPlanRecommendationsAsync` in `LoadTestAdministrationClient` which generates AI recommendations to author a load test plan using an uploaded browser recording file.
+    - Support for Cloning load test
+    - Added methods `CloneTest` and `CloneTestAsync` in `LoadTestAdministrationClient` to clone a load test.
 
