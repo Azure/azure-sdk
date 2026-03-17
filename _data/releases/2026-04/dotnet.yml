@@ -37,4 +37,28 @@ entries:
     - Added methods `GenerateTestPlanRecommendations` and `GenerateTestPlanRecommendationsAsync` in `LoadTestAdministrationClient` which generates AI recommendations to author a load test plan using an uploaded browser recording file.
     - Support for Cloning load test
     - Added methods `CloneTest` and `CloneTestAsync` in `LoadTestAdministrationClient` to clone a load test.
+- Name: System.ClientModel
+  Version: 1.10.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.10.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `JsonPatch.EnumerateArray` method that iterates over JSON array elements at a specified path, yielding each element as raw UTF-8 bytes.
+    - Added `CollectionResult<T>.FromPages` and `AsyncCollectionResult<T>.FromPages` static factory methods that create collection result instances from pre-existing pages of values for testing.
+    - Added `IsReadOnly` property to `ClientPipelineOptions` and `ClientLoggingOptions` so callers can check whether options can still be modified without catching an exception.
+    - Added `Clone()` method to `ClientPipelineOptions` and `ClientLoggingOptions` that creates a new mutable instance from an existing instance that may be read-only.
+    - Added `ConfigurationSchema.json` to the NuGet package via the MSBuild `JsonSchemaSegment` feature, enabling automatic JSON IntelliSense and validation for `appsettings.json` when configuring System.ClientModel-based clients.
+    - Updated BCL dependencies to 10.x.
+
+    #### Breaking Changes
+
+    - Added nullability annotation to the `ClientResult<T>` implicit conversion operator parameter to indicate that null is a valid input. This change was made because throwing exceptions from implicit conversions violates the [Framework Design Guidelines](https://learn.microsoft.com/dotnet/standard/design-guidelines/operator-overloads).
+
+    #### Bugs Fixed
+
+    - Fixed implicit conversion operator for `ClientResult<T>` to not throw exceptions on null inputs per Framework Design Guidelines. Null inputs now return `default`.
 
