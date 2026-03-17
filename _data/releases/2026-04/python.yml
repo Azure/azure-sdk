@@ -18,4 +18,33 @@ entries:
     #### Other Changes
 
     - Pin langchain-azure-ai[opentelemetry]==1.1.0b1 to mitigate installation issue.
+- Name: azure-developer-loadtesting
+  Version: 1.2.0b1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-loadtesting_1.2.0b1/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This release adds models and enums for all the APIs supported by Azure Load Testing
+    - Support for Notification Rules
+    - Added methods `create_or_update_notification_rule`, `get_notification_rule`, `delete_notification_rule` and `list_notification_rules` in `LoadTestAdministrationClient` to work with Notification rules.
+    - Support for Trigger
+    - Added methods `create_or_update_trigger`, `get_trigger`, `delete_trigger` and `list_triggers` in `LoadTestAdministrationClient` to work with Scheduling test triggers.
+    - Support for Actionable Insights
+    - Added methods `begin_generate_test_run_insights`, `update_latest_test_run_insights` and `get_latest_test_run_insights` in `LoadTestRunClient` to work with actionable insights.
+    - Support for generating test plan recommendations
+    - Added method `begin_generate_test_plan_recommendations` in `LoadTestAdministrationClient` which generates test plan recommendations.
+    - Support for Cloning load test
+    - Added method `begin_clone_test` in `LoadTestAdministrationClient` to Clone a load test.
+- Name: azure-mgmt-containerservice
+  Version: 41.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
