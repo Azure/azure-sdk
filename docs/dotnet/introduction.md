@@ -1042,13 +1042,18 @@ There are occasions when common code needs to be shared between several client l
 
 In .NET, we distinguish between three types of breaking changes:
 
-- **API-breaking changes**: Changes that modify or remove elements of the public API surface, such as removing a public type or member, changing a method signature, or renaming a public element. These changes prevent existing code from compiling or binding to the modified API.
-- **Binary-breaking changes**: Changes that cause existing compiled assemblies to fail when used with a newer version of the library without recompilation. These affect runtime binding and are never permitted in minor or patch releases.
-- **Source-breaking changes**: Changes that require existing source code to be updated and recompiled, but do not affect already-compiled binaries. These may be permitted in minor releases under specific conditions (see below).
+- **API-breaking changes**: Changes that modify or remove elements of the public API surface, preventing existing code from compiling or binding to the modified API. API-breaking changes are **never** permitted in any release of an existing package.
+  - *Examples:* removing a public method or type, renaming a public class or member, changing a method's return type.
+- **Binary-breaking changes**: Changes that cause existing compiled assemblies to fail at runtime when used with a newer version of the library without recompilation.
+  - *Examples:* removing a method that compiled code calls (even if replaced by a new overload), changing a method signature in a way that breaks IL binding, changing a base class in a way that invalidates existing vtable layouts.
+- **Source-breaking changes**: Changes that require existing source code to be modified and recompiled, but do not affect already-compiled binaries. These may be permitted only in major releases under specific conditions (see below).
+  - *Examples:* adding a required parameter with no default value to an existing method, removing default values from existing parameters, adding an overload that introduces compile-time ambiguity.
+
+{% include requirement/MUSTNOT id="dotnet-versioning-no-api-breaking" %} introduce API-breaking changes in any release of an existing package. API-breaking changes — removing or modifying public API surface — are never permitted, regardless of release type (major, minor, or patch). If you need to make an API-breaking change, you must introduce a new package (see below).
 
 {% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation.
 
-{% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce source-breaking changes in a minor release when the change improves API consistency and a straightforward migration path exists. Source-breaking changes are changes that require recompilation but do not affect already-compiled binaries.
+{% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce non-API breaking changes (binary-breaking or source-breaking) only in a **major** release, and only when the value to users clearly exceeds the cost of porting. Source-breaking and binary-breaking changes outside of major releases are not permitted. The justification for any such change must be documented and approved by the Architecture Board.
 
 For detailed rules on what constitutes a binary vs. source break, see [.NET Breaking Change Rules](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
 
@@ -1056,15 +1061,15 @@ For detailed rules on what constitutes a binary vs. source break, see [.NET Brea
 
 Binary-breaking changes should never be introduced in an existing package.  If you believe a binary-breaking change is necessary, register your intent with [adparch]. You'll need to have a discussion with the language architect before approval.
 
-##### Acceptable Source-Breaking Changes {#dotnet-source-breaking-changes}
+##### Acceptable Non-API Breaking Changes {#dotnet-source-breaking-changes}
 
-Source-breaking changes are permitted in minor releases when **all** of the following conditions are met:
+Non-API breaking changes (binary-breaking or source-breaking) are permitted **only in major releases** when **all** of the following conditions are met:
 
-1. **No API-breaking changes** — the change must not remove or modify the public API surface (no methods/types removed, no signature changes).
-2. **Binary compatibility is preserved** — existing compiled assemblies continue to work without recompilation.
+1. **No API-breaking changes** — the change must not remove or modify the public API surface (no methods/types removed, no signature changes). API-breaking changes are never permitted.
+2. **Value exceeds porting cost** — the benefit to users must clearly outweigh the effort required for them to update their code or binaries.
 3. **The migration path is straightforward** — the required source change is mechanical and can be resolved by following compiler error messages.
-4. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the source-breaking change and how to migrate.
-5. **The change has been approved** — source-breaking changes must be reviewed and approved by the Architecture Board.
+4. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the breaking change and how to migrate.
+5. **The change has been approved** — breaking changes must be reviewed and approved by the Architecture Board.
 
 **Example: Options Bag Migration**
 
