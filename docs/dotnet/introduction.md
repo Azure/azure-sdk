@@ -1040,14 +1040,14 @@ There are occasions when common code needs to be shared between several client l
 
 #### Client Versions
 
-In .NET, we distinguish between three types of breaking changes:
+In .NET, breaking changes are classified along two axes: **what changed** (API vs. behavioral) and **how it manifests** (binary vs. source). Since API-breaking changes are absolutely prohibited, the binary/source distinction is primarily relevant for behavioral changes where the public API surface was not reduced. We distinguish three types:
 
 - **API-breaking changes**: Changes that modify or remove elements of the public API surface, preventing existing code from compiling or binding to the modified API. API-breaking changes are **never** permitted in any release of an existing package.
   - *Examples:* removing a public method or type, renaming a public class or member, changing a method's return type.
-- **Binary-breaking changes**: Changes that cause existing compiled assemblies to fail at runtime when used with a newer version of the library without recompilation.
-  - *Examples:* removing a method that compiled code calls (even if replaced by a new overload), changing a method signature in a way that breaks IL binding, changing a base class in a way that invalidates existing vtable layouts.
-- **Source-breaking changes**: Changes that require existing source code to be modified and recompiled, but do not affect already-compiled binaries. These may be permitted only in major releases under specific conditions (see below).
-  - *Examples:* adding a required parameter with no default value to an existing method, removing default values from existing parameters, adding an overload that introduces compile-time ambiguity.
+- **Binary-breaking changes**: Non-API changes where the public API surface is unchanged, but existing compiled assemblies fail or behave differently at runtime without recompilation. These are typically behavioral changes whose previous values or bindings were inlined into caller IL at compile time.
+  - *Examples:* changing a `const` field value (the old value is inlined into caller IL), removing or altering a `TypeForwardedTo` attribute when moving types between assemblies, changing default parameter values (defaults are compiled into the caller's IL, so pre-compiled callers retain the old value).
+- **Source-breaking changes**: Non-API changes where the public API only grew (nothing removed or renamed), but recompilation causes existing source code to fail or resolve differently. Already-compiled binaries are unaffected because IL explicitly binds to specific method overloads. These may be permitted only in major releases under specific conditions (see below).
+  - *Examples:* adding a new overload that causes existing call sites to resolve to a different method upon recompilation (pre-compiled IL is unaffected because it explicitly names the target overload), adding implicit conversions that introduce compile-time ambiguity for existing expressions.
 
 {% include requirement/MUSTNOT id="dotnet-versioning-no-api-breaking" %} introduce API-breaking changes in any release of an existing package. API-breaking changes — removing or modifying public API surface — are never permitted, regardless of release type (major, minor, or patch). If you need to make an API-breaking change, you must introduce a new package (see below).
 
