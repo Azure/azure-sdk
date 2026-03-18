@@ -61,4 +61,40 @@ entries:
     #### Bugs Fixed
 
     - Fixed implicit conversion operator for `ClientResult<T>` to not throw exceptions on null inputs per Framework Design Guidelines. Null inputs now return `default`.
+- Name: Azure.AI.Projects
+  Version: 2.0.0-beta.2
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.0.0-beta.2/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * The `Azure.AI.Projects.OpenAI` package was renamed to `Azure.AI.Extensions.OpenAI`
+    * The Agents administration was moved to the `Azure.AI.Projects.Agents` package.
+    * OpenAI dependency was upgraded to 2.9.1.
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 2.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_2.0.0-beta.1/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    This is the first release of the `Azure.AI.Extensions.OpenAI` library, a new extension package for the official `OpenAI` .NET library that facilitates and simplifies use of Microsoft Foundry extensions to OpenAI APIs. This package replaces the `Azure.AI.Projects.OpenAI` package. All features, related to `Agents` management were moved to `Azure.AI.Projects.Agents`.
+
+    #### Breaking Changes
+    * The Agents tools were moved to the `Azure.AI.Projects.Agents` package.
+    * `GetProjectResponsesClientForAgent` cannot be used with `AgentDefinition` and `AgentRecord` as these classes are the part of the `Azure.AI.Projects.Agents` package.
+- Name: Azure.AI.Projects.Agents
+  Version: 2.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_2.0.0-beta.1/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    This is the first release of the `Azure.AI.Projects.Agents`. It provides the administrative tools for working with Agents.
 
