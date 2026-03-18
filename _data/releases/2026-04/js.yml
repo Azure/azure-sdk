@@ -49,4 +49,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerregistrytasks_1.0.0-beta.1/sdk/containerregistry/arm-containerregistrytasks/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.1.3
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.3/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `useCloudHostedBrowsers` option to allow users to opt out of connecting to cloud-hosted browsers while still using the reporting feature.
 
