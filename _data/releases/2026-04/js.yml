@@ -10,4 +10,43 @@ entries:
     #### Features Added
 
     This is the first preview version of @azure/ai-speech-transcription
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.4
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.4/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that `sequenceId` with value `0` would not be sent to the service, which caused keepalive to not work when no messages had been received.
+
+    #### Features Added
+
+    - Added `invokeEvent` method to `WebPubSubClient` that allows invoking server-side event handlers and receiving responses back.
+    - Added application-layer ping/pong mechanism for more accurate keepalive detection. This enables the client to detect its own disconnection quickly even when WebSocket-level ping/pong frames are inaccessible (e.g., in browser environments). Added `keepAliveTimeoutInMs` option to `WebPubSubClientOptions`.
+- Name: '@azure-rest/load-testing'
+  Version: 1.2.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.2.0-beta.1/sdk/loadtesting/load-testing-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Notification Rules
+    - Support for Triggers
+    - Support for Actionable Insights
+    - Support for Test Plan Recommendations
+    - Support for Cloning Load Tests
+- Name: '@azure/arm-containerregistrytasks'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerregistrytasks
+  ServiceName: Containerregistrytasks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerregistrytasks_1.0.0-beta.1/sdk/containerregistry/arm-containerregistrytasks/CHANGELOG.md
+  ChangelogContent: ""
 
