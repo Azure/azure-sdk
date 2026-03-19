@@ -93,4 +93,47 @@ entries:
     ([#45118](https://github.com/Azure/azure-sdk-for-python/pull/45118))
     - Fix fallback logic when connection string is provided only via environment variable
     ([#45252](https://github.com/Azure/azure-sdk-for-python/pull/45252))
+- Name: azure-mgmt-kubernetesconfiguration-extensions
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-extensions_1.0.0b2/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration-extensiontypes
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensiontypes
+  ServiceName: Kubernetesconfiguration-Extensiontypes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-extensiontypes_1.0.0b2/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-extensiontypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.39.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.39.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed the previously undocumented `azure_cloud` setting environment variable from `AZURE_CLOUD` to `AZURE_SDK_CLOUD_CONF`.
+- Name: azure-mgmt-kubernetesconfiguration-fluxconfigurations
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-fluxconfigurations_1.0.0b2/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration-privatelinkscopes
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Kubernetesconfiguration-Privatelinkscopes
+  ServiceName: Kubernetesconfiguration-Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-privatelinkscopes_1.0.0b2/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-privatelinkscopes/CHANGELOG.md
+  ChangelogContent: ""
 
