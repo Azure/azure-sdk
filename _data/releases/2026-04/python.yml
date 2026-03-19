@@ -47,4 +47,50 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Agentic evaluators (Groundedness, ToolCallAccuracy, ToolCallSuccess, ToolInputAccuracy, ToolOutputUtilization, ToolSelection) now accept plain string inputs directly, skipping structured parsing when string format is provided.
+
+    #### Bugs Fixed
+
+    - Fixed inconsistency where sample data in evaluation result items did not match the generated sample data from corresponding input rows, ensuring proper synchronization between row-level input samples and their associated evaluation output items.
+    - Fixed indirect jailbreak (XPIA) `ValueError` when targeting models by converting `binary_path` file-based context prompts to inline text before invoking the callback target.
+    - Fixed content-filter responses showing raw JSON API payloads in red team results by detecting blocked responses and replacing them with human-readable messages.
+    - Fixed missing `token_usage` on row-level output items for agent targets using the Foundry execution path by extracting usage data from piece labels.
+    - Fixed 7 backwards-compatibility bugs with the `_use_legacy_endpoint=True` feature flag including metric name mapping, result parsing, conversation evaluation mode, and Foundry scorer integration.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b49
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b49/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a 256kb custom properties truncation limit on specific GenAI attributes
+    ([#45749](https://github.com/Azure/azure-sdk-for-python/pull/45749))
+    - Add Browser SDK loader SDK Stats feature bit
+    ([#42904](https://github.com/Azure/azure-sdk-for-python/pull/42904))
+
+    #### Bugs Fixed
+    - Exempt specific GenAI attributes values from custom properties truncation
+    ([#45596](https://github.com/Azure/azure-sdk-for-python/pull/45596))
+    - Fix attributes override in Rate Limited Sampler
+    ([#45592](https://github.com/Azure/azure-sdk-for-python/pull/45592))
+    - Add environment variable to disable/enable custom properties truncation
+    ([#45479](https://github.com/Azure/azure-sdk-for-python/pull/45479))
+    - Fix io counters import issue in performance counters
+    ([#45286](https://github.com/Azure/azure-sdk-for-python/pull/45286))
+    - Remove custom properties truncation
+    ([#45118](https://github.com/Azure/azure-sdk-for-python/pull/45118))
+    - Fix fallback logic when connection string is provided only via environment variable
+    ([#45252](https://github.com/Azure/azure-sdk-for-python/pull/45252))
 
