@@ -147,7 +147,7 @@ function Get-dotnet-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt" # provisioning is a special case of mgmt so this is the correct type.
       $package.New = "true"
-      # $package.RepoPath = "provisioning" -- moved away from common folder to service but the path should be set by the pipeilnes
+      # $package.RepoPath = "provisioning" -- moved away from common folder to service but the path should be set by the pipelines
       $package.ServiceName = $serviceName
       $package.DisplayName = "Provisioning - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
