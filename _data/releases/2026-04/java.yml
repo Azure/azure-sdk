@@ -1,0 +1,172 @@
+entries:
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerregistry-tasks
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerregistry-Tasks
+  ServiceName: Containerregistry-Tasks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerregistry-tasks_1.0.0-beta.1/sdk/containerregistry/azure-resourcemanager-containerregistry-tasks/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-developer-loadtesting
+  Version: 1.2.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-developer-loadtesting_1.2.0-beta.1/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This release adds models and enums for all the APIs supported by Azure Load Testing
+    - Support for Notification Rules
+    - Added methods `createOrUpdateNotificationRule`, `getNotificationRule`, `deleteNotificationRule` and `listNotificationRules` in `LoadTestAdministrationClient` to work with Notification rules.
+    - Support for Trigger
+    - Added methods `createOrUpdateTrigger`, `getTrigger`, `deleteTrigger` and `listTriggers` in `LoadTestAdministrationClient` to work with Scheduling test triggers.
+    - Support for Actionable Insights
+    - Added methods `beginGenerateTestRunInsights`, `updateLatestTestRunInsights` and `getLatestTestRunInsights` in `LoadTestRunClient` to work with actionable insights.
+    - Support for generating test plan recommendations
+    - Added method `beginGenerateTestPlanRecommendations` in `LoadTestAdministrationClient` which generates test plan recommendations.
+    - Support for Cloning load test
+    - Added method `beginCloneTest` in `LoadTestAdministrationClient` to Clone a load test.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-netapp
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-netapp_2.2.0-beta.1/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-keyvault
+  Version: 2.55.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-keyvault_2.55.0/sdk/keyvault/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: io.clientcore+linting-extensions
+  Version: 1.0.0-beta.2
+  DisplayName: Client Core Linting Extensions
+  ServiceName: Client Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/io.clientcore+linting-extensions_1.0.0-beta.2/sdk/tools/linting-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SerializableMethodsCheck` to validate that `JsonSerializable` and `XmlSerializable` implementations have the required methods for serialization and deserialization.
+  GroupId: io.clientcore
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerregistry
+  Version: 2.56.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerregistry_2.56.0-beta.1/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerregistry
+  Version: 2.55.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerregistry_2.55.0/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.0.0-beta.3
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.0.0-beta.3/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `generateInsight(Insight, FoundryFeaturesOptInKeys)` convenience method to `InsightsClient` and `InsightsAsyncClient`.
+
+    #### Breaking Changes
+
+    - `FoundryFeaturesOptInKeys` changed from an `ExpandableStringEnum`-based class to a standard Java `enum` type. The `values()` method now returns an array instead of a `Collection`, and the deprecated no-arg constructor is removed.
+    - The `timeZone` property in `RecurrenceTrigger` changed from `String` to `java.util.TimeZone`.
+    - Removed `EvaluationsClient` and `EvaluationsAsyncClient`. Use `builder.buildOpenAIClient().evals()` (returns `EvalService`) and `builder.buildOpenAIAsyncClient().evals()` (returns `EvalServiceAsync`) from the Stainless OpenAI SDK directly. The corresponding `buildEvaluationsClient()` and `buildEvaluationsAsyncClient()` methods on `AIProjectClientBuilder` have also been removed.
+    - `InsightsClient` and `InsightsAsyncClient` no longer auto-set the `Foundry-Features: Insights=V1Preview` header. The `FoundryFeaturesOptInKeys` parameter must now be passed explicitly to `generateInsight()`, `getInsight()`, and `listInsights()` overloads that require it.
+    - `getInsight(String, Boolean)` overload removed; replaced by `getInsight(String)` and `getInsight(String, FoundryFeaturesOptInKeys, Boolean)`.
+    - `listInsights(InsightType, String, String, String, Boolean)` signature changed to `listInsights(FoundryFeaturesOptInKeys, InsightType, String, String, String, Boolean)`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.0.0-beta.3
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.0.0-beta.3/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `readSpecFromFile(Path)` static convenience method to `OpenApiFunctionDefinition` for loading OpenAPI specification JSON files as the `Map<String, BinaryData>` required by the constructor, eliminating the need for manual `JsonReader`/`BinaryData` wiring.
+    - Added new `OpenApiSync`/`OpenApiAsync` samples demonstrating end-to-end OpenAPI tool integration: loading a spec file, creating an agent with an `OpenApiTool`, and invoking an external API via conversation.
+    - Added new tool samples for parity with the Python SDK: `AzureFunctionSync`/`AzureFunctionAsync`, `BingCustomSearchSync`/`BingCustomSearchAsync`, `MemorySearchSync`/`MemorySearchAsync`, `McpWithConnectionSync`/`McpWithConnectionAsync`, and `OpenApiWithConnectionSync`/`OpenApiWithConnectionAsync`.
+    - Added type-safe accessors on `CodeInterpreterTool` for the `container` property: `setContainer(String)`, `setContainer(AutoCodeInterpreterToolParam)`, `getContainerAsString()`, and `getContainerAsAutoCodeInterpreterToolParam()`.
+    - Added type-safe accessors on `McpTool` for the `allowedTools` property: `setAllowedTools(List<String>)`, `setAllowedTools(McpToolFilter)`, `getAllowedToolsAsStringList()`, and `getAllowedToolsAsMcpToolFilter()`.
+    - Added type-safe accessors on `McpTool` for the `requireApproval` property: `setRequireApproval(String)`, `setRequireApproval(McpToolRequireApproval)`, `getRequireApprovalAsString()`, and `getRequireApprovalAsMcpToolRequireApproval()`.
+    - Added `setComparisonFilter(ComparisonFilter)` and `setCompoundFilter(CompoundFilter)` convenience methods on `FileSearchTool`, accepting the openai-java filter types directly.
+    - Added `listAgentConversations` operation to `AgentsClient` and `AgentsAsyncClient` to list conversations attached to a specific agent filtering by `agentName` and `agentId`.
+    - Added streaming response methods to `ResponsesClient` and `ResponsesAsyncClient`:
+    - `createStreamingWithAgent` and `createStreamingWithAgentConversation` on `ResponsesClient` return `IterableStream<ResponseStreamEvent>` for synchronous streaming.
+    - `createStreamingWithAgent` and `createStreamingWithAgentConversation` on `ResponsesAsyncClient` return `Flux<ResponseStreamEvent>` for asynchronous streaming.
+    - Added `StreamingUtils` implementation helper that bridges OpenAI `StreamResponse` to `IterableStream` and `AsyncStreamResponse` to `Flux`.
+    - Added streaming samples: `SimpleStreamingSync`/`SimpleStreamingAsync`, `FunctionCallStreamingSync`/`FunctionCallStreamingAsync`, and `CodeInterpreterStreamingSync`/`CodeInterpreterStreamingAsync`.
+    - Added structured input convenience methods to `ResponsesClient` and `ResponsesAsyncClient` for creating responses with agent-defined template parameters:
+    - `createWithAgentStructuredInput` accepts a `Map<String, Object>` of runtime values that are substituted into the agent's prompt template.
+    - `createStreamingWithAgentStructuredInput` provides the streaming equivalent, returning `IterableStream<ResponseStreamEvent>` (sync) or `Flux<ResponseStreamEvent>` (async).
+    - Added `CreateResponseWithStructuredInput` sample demonstrating how to define structured inputs on an agent and pass runtime values when creating a response.
+
+    #### Breaking Changes
+
+    - Removed deprecated convenience methods from `ResponsesClient` and `ResponsesAsyncClient`: `createWithAgent`, `createWithAgentConversation`, `createStreamingWithAgent`, `createStreamingWithAgentConversation`, `createWithAgentStructuredInput`, and `createStreamingWithAgentStructuredInput`. Use `createAzureResponse` and `createStreamingAzureResponse` with `AzureCreateResponseOptions` instead.
+    - `deleteAgent(String)` on `AgentsClient` now returns `void` instead of `DeleteAgentResponse`. The corresponding async method on `AgentsAsyncClient` now returns `Mono<Void>` instead of `Mono<DeleteAgentResponse>`. The public protocol method `deleteAgentWithResponse` has been removed; use the convenience method instead.
+    - `deleteAgentVersion(String, String)` on `AgentsClient` now returns `void` instead of `DeleteAgentVersionResponse`. The corresponding async method on `AgentsAsyncClient` now returns `Mono<Void>` instead of `Mono<DeleteAgentVersionResponse>`.
+    - `DeleteAgentResponse` removed from `com.azure.ai.agents.models` and is no longer part of the public API.
+    - `DeleteAgentVersionResponse` removed from `com.azure.ai.agents.models` and is no longer part of the public API.
+    - `AgentDefinitionOptInKeys` and `FoundryFeaturesOptInKeys` changed from `ExpandableStringEnum`-based classes to standard Java `enum` types. The `values()` method now returns an array instead of a `Collection`, and the deprecated no-arg constructor is removed.
+    - The `timezone` property in `ApproximateLocation` and `WebSearchApproximateLocation` changed from `String` to `java.util.TimeZone`.
+    - The `container` property on `CodeInterpreterTool` no longer exposes `BinaryData` getter/setter publicly. Use the new typed accessors instead (e.g., `setContainer("container-id")` or `setContainer(new AutoCodeInterpreterToolParam())`).
+    - The `allowedTools` and `requireApproval` properties on `McpTool` no longer expose `BinaryData` getter/setter publicly. Use the new typed accessors instead (e.g., `setRequireApproval("always")` or `setAllowedTools(List.of("tool_a", "tool_b"))`).
+    - The `filters` property on `FileSearchTool` no longer exposes `BinaryData` getter/setter publicly.
+    - The `reasoning` property on `PromptAgentDefinition` now uses `com.openai.models.Reasoning` from the openai-java library instead of the previously generated `Reasoning` class. Use `Reasoning.builder().effort(ReasoningEffort.HIGH).build()` to construct values.
+    - Removed `ComparisonFilter`, `ComparisonFilterType`, `CompoundFilter`, `CompoundFilterType`, `Reasoning`, `ReasoningEffort`, `ReasoningSummary`, and `ReasoningGenerateSummary` from `com.azure.ai.agents.models`. Use the equivalent types from `com.openai.models` instead (e.g., `com.openai.models.ComparisonFilter`, `com.openai.models.Reasoning`).
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-nginx
+  Version: 1.1.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-nginx_1.1.0/sdk/nginx/azure-resourcemanager-nginx/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-neonpostgres
+  Version: 1.0.1
+  DisplayName: Resource Management - Neon Postgres
+  ServiceName: Neon Postgres
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-neonpostgres_1.0.1/sdk/neonpostgres/azure-resourcemanager-neonpostgres/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-resources
+  Version: 2.54.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-resources_2.54.0/sdk/resources/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
