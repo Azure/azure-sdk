@@ -1,0 +1,977 @@
+entries:
+- Name: com.azure.resourcemanager+azure-resourcemanager-disconnectedoperations
+  Version: 1.0.0
+  DisplayName: Resource Management - Disconnected Operations
+  ServiceName: Disconnected Operations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-disconnectedoperations_1.0.0/sdk/disconnectedoperations/azure-resourcemanager-disconnectedoperations/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.45.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.45.0/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `vectorEmbeddingPolicy` support in Spark catalog `TBLPROPERTIES` for creating vector-search-enabled containers. - See [PR 48349](https://github.com/Azure/azure-sdk-for-java/pull/48349)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.44.2
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.44.2/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Changed azure-resourcemanager-cosmos usage to a pinned version which is deployed across all public and non-public clouds - [PR 48268](https://github.com/Azure/azure-sdk-for-java/pull/48268)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.44.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.44.1/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noisy warning logs in Gateway mode - [PR 48189](https://github.com/Azure/azure-sdk-for-java/pull/48189)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.44.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.44.0/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added config entry `spark.cosmos.account.azureEnvironment.management.scope` to allow specifying the Entra ID scope/audience to be used when retrieving tokens to authenticate against the ARM/management endpoint of non-public clouds. - See [PR 48137](https://github.com/Azure/azure-sdk-for-java/pull/48137)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.43.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.43.1/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `TransientIOErrorsRetryingIterator` would trigger extra query during retries and on close. - See [PR 47996](https://github.com/Azure/azure-sdk-for-java/pull/47996)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-compute-batch
+  Version: 1.0.0-beta.6
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-compute-batch_1.0.0-beta.6/sdk/batch/azure-compute-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Models:
+    - Added `BatchJobDefaultOrder`
+    - Added `BatchPoolIdentityReference`
+    - Added `DiskCustomerManagedKey`
+    - Added `DiskEncryptionSetParameters`
+    - Added `HostEndpointSettings`
+    - Added `HostEndpointSettingsModeTypes`
+    - Added `IPFamily`
+    - Added `IpTag`
+    - Added `ProxyAgentSettings`
+
+    - Added Properties:
+    - Added `ipv6Address` to `BatchNode`
+    - Added `Ipv6RemoteLoginIpAddress` and `Ipv6RemoteLoginPort` to `BatchNodeRemoteLoginSettings`
+    - Added `IpFamilies` and `IpTags` to `BatchPublicAddressConfiguration`
+    - Added `JobDefaultOder` to `BatchTaskSchedulingPolicy`
+    - Added `ManagedDisk` to `DataDisk`
+    - Added `CustomerManagedKey` to `DiskEncryptionConfiguration`
+    - Added `DiskEncryptionSet` to `ManagedDisk`
+    - Added `DiskWithVMGuestStateValue` to `SecurityEncryptionTypes`
+    - Added `ProxyAgentSetting` to `SecurityProfile`
+
+    #### Breaking Changes
+
+    - Removed Certificate operations and properties
+    - `createCertificate`
+    - `getCertificate`
+    - `listCertificates`
+    - `beginDeleteCertificate`
+    - `cancelCertificateDeletion`
+    Please migrate to use Azure Key Vault. For more information, see [Migrate Batch account certificates to Azure Key Vault](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide)
+
+    - Removed models:
+    - `BatchCertificate`
+    - `BatchCertificateDeleteError`
+    - `BatchCertificateFormat`
+    - `BatchCertificateReference`
+    - `BatchCertificateState`
+    - `BatchCertificateStoreLocation`
+    - `BatchCertificateVisibility`
+    - `BatchNodeCommunicationMode`
+    Transition Batch pools to the Simplified compute node communication model
+
+    - Removed properties:
+    - Removed `CertificateReferences` from `BatchNode`
+    - Removed `ResourceTags` and `CertificateReferences` from `BatchPool`
+    - Removed `CertificateReferences`, `ResourceTags`, and `TargetNodeCommunicationMode` from `BatchPoolCreateOptions`
+    - Removed `CertificateReferences` and `TargetNodeCommunicationMode` from `BatchPoolReplaceOptions`
+    - Removed `CertificateReferences`, `ResourceTags`, and `TargetNodeCommunicationMode` from `BatchPoolSpecifications`
+    - Removed `CertificateReferences`, `ResourceTags`, and `TargetNodeCommunicationMode` from `BatchPoolUpdateOptions`
+    - Removed `CertificateReferences`, `ResourceTags`, and `TargetNodeCommunicationMode` from `ComputeBatchModelFactory`
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerinstance
+  Version: 2.53.8
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerinstance_2.53.8/sdk/containerinstance/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-netapp
+  Version: 2.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-netapp_2.1.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-sdk-bom
+  Version: 1.3.5
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-sdk-bom_1.3.5/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+    - Added a new libary entry to the BOM:
+    - [`azure-ai-contentunderstanding`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/README.md)
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob
+  Version: 12.34.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob_12.34.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for specifying a source customer-provided encryption key when using `AppendBlobClient.appendBlockFromUrl()`,
+    `BlockBlobClient.stageBlockFromUrl()`, `BlockBlobClient.uploadFromUrl()`, and `PageBlobClient.uploadPagesFromUrl()` APIs.
+    - Added support for `AccessTierIfModifiedSince` and `AccessTierIfUnmodifiedSince` to conditionally perform `BlobClient.delete` operations.
+    - Added support for missing SKU names `STANDARD_GZRS`, `STANDARD_RAGZRS` and `PREMIUM_ZRS` when using `getAccountInfo()` API.
+    - Added support for error code `INCREMENTAL_COPY_OF_EARLIER_SNAPSHOT_NOT_ALLOWED`. This replaces `INCREMENTAL_COPY_OF_EARLIER_VERSION_SNAPSHOT_NOT_ALLOWED` which has been deprecated.
+    - Added support for Dynamic User Delegation SAS.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.0.0-beta.2
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.0.0-beta.2/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `buildOpenAIClient()` and `buildOpenAIAsyncClient()` methods to `AgentsClientBuilder` for simplified creation of OpenAI clients with default Azure setup
+    - Added new agent tool samples: `CodeInterpreterAgent`, `FileSearchAgent`, `FunctionCallAgent`, `McpAgent`, and `WebSearchAgent` (sync and async variants)
+    - Added `action` property to `ImageGenTool` with new `ImageGenActionEnum` (values: `GENERATE`, `EDIT`, `AUTO`).
+    - Added `GPT_IMAGE_1_5` to `ImageGenToolModel`.
+    - Added container skill types: `ContainerSkill`, `ContainerSkillType`, `ContainerAutoParam`, `ContainerNetworkPolicyParam`, and related network policy types (`ContainerNetworkPolicyAllowlistParam`, `ContainerNetworkPolicyDisabledParam`, `ContainerNetworkPolicyDomainSecretParam`, `ContainerNetworkPolicyParamType`).
+    - Added environment configuration for `FunctionShellToolParameter` and `InputItemFunctionShellCallItemParam` via new `FunctionShellToolParamEnvironment`, `FunctionShellCallItemParamEnvironment`, and related container/local environment parameter types. `InputItemFunctionShellCallItemParam`, `FunctionShellCallItemParamEnvironment`, and related types moved to `implementation/models` (internal).
+    - Added `MessageContent` and `MessageContentType` model types; subsequently moved to `implementation/models` (internal).
+    - Added skill parameter types: `InlineSkillParam`, `InlineSkillSourceParam`, `LocalSkillParam`, `SkillReferenceParam`.
+
+    #### Bugs Fixed
+
+    - Fixed Memory Stores long-running operations (e.g. `beginUpdateMemories`) failing because the required `Foundry-Features` header was not included in poll requests, and custom LRO terminal states (`"completed"`, `"superseded"`) were not mapped to standard `LongRunningOperationStatus` values, causing pollers to hang indefinitely.
+    - Fixed request parameter name from `"agent"` to `"agent_reference"` in `ResponsesClient` and `ResponsesAsyncClient` methods `createWithAgent` and `createWithAgentConversation`
+
+    #### Breaking Changes
+
+    - Removed `ContainerAppAgentDefinition` class and `AgentKind.CONTAINER_APP` enum value. The `container_app` agent kind is no longer supported.
+    - Removed `CONTAINER_AGENTS_V1_PREVIEW` from `AgentDefinitionOptInKeys` and `FoundryFeaturesOptInKeys`. The `ContainerAgents=V1Preview` feature flag is no longer valid.
+    - Renamed computer action classes to use `Param` suffix and moved to `implementation/models` (internal):
+    - `Drag` → `DragParam`
+    - `DragPoint` → `CoordParam`
+    - `Move` → `MoveParam`
+    - `Screenshot` → `ScreenshotParam`
+    - `Scroll` → `ScrollParam`
+    - `Type` → `TypeParam`
+    - `Wait` → `WaitParam`
+    - `CodeInterpreterContainerAuto` renamed to `AutoCodeInterpreterToolParam`.
+    - `Summary` renamed to `SummaryTextContent` and moved to `implementation/models` (internal).
+    - Moved ~100 model classes from `com.azure.ai.agents.models` to `com.azure.ai.agents.implementation.models`, removing them from the public API surface. This includes `InputItem` and all subtypes, `Annotation`, output content types, and related types.
+    - Removed public methods from `MemoryStoresClient`/`MemoryStoresAsyncClient`: `searchMemoriesWithResponse` and `beginUpdateMemories` (protocol methods accepting `BinaryData`), `searchMemories(name, scope)` (minimal convenience overload), and `searchMemories`/`beginUpdateMemories` overloads accepting `List<ResponseInputItem>`.
+    - Renamed model classes for naming consistency:
+    - `AgentObjectVersions` renamed to `AgentDetailsVersions`
+    - `OpenAIError` renamed to `ApiError`
+    - `AzureFunctionDefinitionFunction` renamed to `AzureFunctionDefinitionDetails`
+    - Renamed tool classes from `*Param` suffix to `*Parameter`:
+    - `ApplyPatchToolParam` renamed to `ApplyPatchToolParameter`
+    - `CustomGrammarFormatParam` renamed to `CustomGrammarFormatParameter`
+    - `CustomToolParam` renamed to `CustomToolParameter`
+    - `FunctionShellToolParam` renamed to `FunctionShellToolParameter`
+    - `LocalShellToolParam` renamed to `LocalShellToolParameter`
+    - `OpenApiFunctionDefinition`: `getDefaultParams()` and `setDefaultParams()` renamed to `getDefaultParameters()` and `setDefaultParameters()`
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.0.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.0.0-beta.1/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New `MemorySearchAgent` sample was added demonstrating memory search functionality
+    - Tests for `MemoryStoresClient` and `MemoryStoresAsyncClient`
+    - Various documentation updates
+    - Using unified `HttpClient` setup for Azure specifics and `openai` client library wrapping methods
+    - Added new `ComputerUse` samples demonstrating Computer Use tool integration (sync and async)
+    - Added new tool models: `ApplyPatchToolParam`, `CustomToolParam`, `FunctionShellToolParam`, `McpTool`, `WebSearchTool`, and related types
+    - Added `HybridSearchOptions` for file search configuration
+    - Added new input item types for tool call outputs (e.g., `InputItemFunctionCallOutputItemParam`, `InputItemComputerCallOutputItemParam`, `InputItemApplyPatchToolCallItemParam`)
+    - Added status enums for output items (e.g., `OutputItemCodeInterpreterToolCallStatus`, `OutputItemFunctionToolCallStatus`, `OutputItemWebSearchToolCallStatus`)
+
+    #### Bugs Fixed
+
+    - Fixed base URL construction in `AgentsClientBuilder` to append `/openai/v1` directly, removing dependency on `AzureOpenAIServiceVersion` and `AzureUrlPathMode` for URL path resolution
+
+    #### Breaking Changes
+
+    - `MemoryStoreObject` was renamed to `MemoryStoreDetails`
+    - Service version changed from date-based versions (`V2025_05_01`, `V2025_05_15_PREVIEW`, `V2025_11_15_PREVIEW`) to `V1`
+    - `ListAgentsRequestOrder` was renamed to `PageOrder`
+    - Widespread model renaming to align with the latest API spec. Key patterns include:
+    - Tool classes renamed to use `Tool` or `PreviewTool` suffix (e.g., `AzureAISearchAgentTool` → `AzureAISearchTool`, `BingGroundingAgentTool` → `BingGroundingTool`, `SharepointAgentTool` → `SharepointPreviewTool`, `MemorySearchTool` → `MemorySearchPreviewTool`)
+    - Computer action classes simplified (e.g., `ComputerActionClick` → `ClickParam`, `ComputerActionScroll` → `Scroll`, `ComputerActionScreenshot` → `Screenshot`, `ComputerActionKeyPress` → `KeyPressAction`)
+    - Item content classes renamed (e.g., `ItemContentInputText` → `InputContentInputTextContent`, `ItemContentOutputText` → `OutputMessageContentOutputTextContent`, `ItemContentRefusal` → `OutputMessageContentRefusalContent`)
+    - Tool call item param classes renamed to `InputItem*` pattern (e.g., `FunctionToolCallItemParam` → `InputItemFunctionToolCall`, `ComputerToolCallItemParam` → `InputItemComputerToolCall`)
+    - Annotation classes renamed (e.g., `AnnotationFileCitation` → `FileCitationBody`, `AnnotationUrlCitation` → `UrlCitationBody`, `AnnotationFilePath` → `FilePath`)
+    - `Error` renamed to `OpenAIError`
+    - `DeleteMemoryStoreResponse` renamed to `DeleteMemoryStoreResult`
+    - `ImageGenToolSize` enum values renamed (e.g., `SIZE_1024X1024` → `RESOLUTION_1024_X_1024`)
+    - Several models were removed: `AgentId`, `ImageBasedHostedAgentDefinition`, `MCPTool`, `MCPToolAllowedTools`, `MCPToolRequireApprovalAlways`, `MCPToolRequireApprovalNever`, `ResponsesMessageItemParam` and its role-specific subclasses
+    - `ItemReferenceItemParam` and `ResponsesMessageRole` moved to internal implementation package
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-computebulkactions
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computebulkactions
+  ServiceName: Computebulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-computebulkactions_1.0.0-beta.1/sdk/computebulkactions/azure-resourcemanager-computebulkactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-commerce
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-commerce_1.0.0-beta.3/sdk/commerce/azure-resourcemanager-commerce/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-networkfunction
+  Version: 1.0.0
+  DisplayName: Resource Management - Network Function
+  ServiceName: Network Function
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-networkfunction_1.0.0/sdk/networkfunction/azure-resourcemanager-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-communication-callautomation
+  Version: 1.6.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-callautomation_1.6.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.4.4` to version `1.4.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.56.2
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.56.2/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-providerhub
+  Version: 2.1.0
+  DisplayName: Resource Management - Provider Hub
+  ServiceName: Provider Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-providerhub_2.1.0/sdk/providerhub/azure-resourcemanager-providerhub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-durabletask
+  Version: 1.1.0
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-durabletask_1.1.0/sdk/durabletask/azure-resourcemanager-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.45.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.45.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `vectorEmbeddingPolicy` support in Spark catalog `TBLPROPERTIES` for creating vector-search-enabled containers. - See [PR 48349](https://github.com/Azure/azure-sdk-for-java/pull/48349)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.44.2
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.44.2/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Changed azure-resourcemanager-cosmos usage to a pinned version which is deployed across all public and non-public clouds - [PR 48268](https://github.com/Azure/azure-sdk-for-java/pull/48268)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.44.1
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.44.1/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noisy warning logs in Gateway mode - [PR 48189](https://github.com/Azure/azure-sdk-for-java/pull/48189)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.44.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.44.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added config entry `spark.cosmos.account.azureEnvironment.management.scope` to allow specifying the Entra ID scope/audience to be used when retrieving tokens to authenticate against the ARM/management endpoint of non-public clouds. - See [PR 48137](https://github.com/Azure/azure-sdk-for-java/pull/48137)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.43.1
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.43.1/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `TransientIOErrorsRetryingIterator` would trigger extra query during retries and on close. - See [PR 47996](https://github.com/Azure/azure-sdk-for-java/pull/47996)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.45.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.45.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `vectorEmbeddingPolicy` support in Spark catalog `TBLPROPERTIES` for creating vector-search-enabled containers. - See [PR 48349](https://github.com/Azure/azure-sdk-for-java/pull/48349)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.44.2
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.44.2/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Changed azure-resourcemanager-cosmos usage to a pinned version which is deployed across all public and non-public clouds - [PR 48268](https://github.com/Azure/azure-sdk-for-java/pull/48268)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.44.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.44.1/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noisy warning logs in Gateway mode - [PR 48189](https://github.com/Azure/azure-sdk-for-java/pull/48189)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.44.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.44.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added config entry `spark.cosmos.account.azureEnvironment.management.scope` to allow specifying the Entra ID scope/audience to be used when retrieving tokens to authenticate against the ARM/management endpoint of non-public clouds. - See [PR 48137](https://github.com/Azure/azure-sdk-for-java/pull/48137)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.43.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.43.1/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `TransientIOErrorsRetryingIterator` would trigger extra query during retries and on close. - See [PR 47996](https://github.com/Azure/azure-sdk-for-java/pull/47996)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-storage-blob-nio
+  Version: 12.0.0-beta.36
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-nio_12.0.0-beta.36/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-file-datalake
+  Version: 12.27.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-file-datalake_12.27.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Dynamic User Delegation SAS.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-elasticsan
+  Version: 1.2.0
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-elasticsan_1.2.0/sdk/elasticsan/azure-resourcemanager-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicefabricmanagedclusters
+  Version: 1.1.0
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicefabricmanagedclusters_1.1.0/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-managedops
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Managed Ops
+  ServiceName: Managed Ops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-managedops_1.0.0-beta.2/sdk/managedops/azure-resourcemanager-managedops/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-managedops
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managed Ops
+  ServiceName: Managed Ops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-managedops_1.0.0-beta.1/sdk/managedops/azure-resourcemanager-managedops/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-blob-cryptography
+  Version: 12.32.2
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-cryptography_12.32.2/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.1` to version `12.34.0-beta.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-cryptography
+  Version: 12.33.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-cryptography_12.33.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-postgresqlflexibleserver
+  Version: 2.1.0-beta.1
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-postgresqlflexibleserver_2.1.0-beta.1/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-powerbidedicated
+  Version: 1.1.0
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-powerbidedicated_1.1.0/sdk/powerbidedicated/azure-resourcemanager-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.0.0-beta.2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.0.0-beta.2/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `Index` model to `AIProjectIndex` across the SDK; all `IndexesClient` and `IndexesAsyncClient` methods now use `AIProjectIndex` instead of `Index`
+    - Replaced `DayOfWeek` custom enum (`com.azure.ai.projects.models.DayOfWeek`) with the JDK standard `java.time.DayOfWeek` in `WeeklyRecurrenceSchedule`
+    - Removed `CONTAINER_AGENTS_V1_PREVIEW`, `HOSTED_AGENTS_V1_PREVIEW`, and `WORKFLOW_AGENTS_V1_PREVIEW` constants from `FoundryFeaturesOptInKeys` (agent-specific feature flags moved to `azure-ai-agents`)
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.0.0-beta.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.0.0-beta.1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `getOpenAIClient` methods to obtain an instance of the Stainless OpenAI client
+    - Added documentation on how to get an `AgentsClient`
+    - Added `buildOpenAIClient()` and `buildOpenAIAsyncClient()` methods to `AIProjectClientBuilder` for directly obtaining an OpenAI client instance
+    - Added `FoundryFeaturesOptInKeys` enum for preview feature opt-in flags (e.g., `EVALUATIONS_V1_PREVIEW`, `SCHEDULES_V1_PREVIEW`, `RED_TEAMS_V1_PREVIEW`, `INSIGHTS_V1_PREVIEW`, `MEMORY_STORES_V1_PREVIEW`)
+    - Added `ModelSamplingParams` and `AzureAIModelTarget` models
+
+    #### Bugs Fixed
+
+    - Fixed base URL construction in `AIProjectClientBuilder` to append `/openai/v1` directly, removing dependency on `AzureOpenAIServiceVersion` and `AzureUrlPathMode` for URL path resolution
+
+    #### Breaking Changes
+
+    - Updated service version from `2025-11-15-preview` to `v1`
+    - Renamed `AgenticIdentityCredentials` to `AgenticIdentityPreviewCredentials`
+    - Renamed `AgentClusterInsightsRequest` to `AgentClusterInsightRequest`
+    - `ConnectionType.REMOTE_TOOL` value changed to `RemoteTool_Preview`
+    - `CredentialType.AGENTIC_IDENTITY` renamed to `AGENTIC_IDENTITY_PREVIEW`
+    - `ConnectionType.APIKEY` renamed to `API_KEY`
+    - `EvaluationsClient.getOpenAIClient()` renamed to `getEvalService()`
+    - `BlobReference.getBlobUri()` renamed to `getBlobUrl()`
+    - `HumanEvaluationRuleAction` renamed to `HumanEvaluationPreviewRuleAction`
+    - `EvaluationComparisonRequest` renamed to `EvaluationComparisonInsightRequest`; `EvaluationCompareReport` renamed to `EvaluationComparisonInsightResult`
+    - `EvaluationRunClusterInsightsRequest` renamed to `EvaluationRunClusterInsightRequest`
+    - Credential model classes dropped the plural suffix (e.g., `ApiKeyCredentials` → `ApiKeyCredential`, `EntraIdCredentials` → `EntraIdCredential`, `SasCredentials` → `SasCredential`, `BaseCredentials` → `BaseCredential`, `NoAuthenticationCredentials` → `NoAuthenticationCredential`)
+    - Methods across sub-clients were renamed to include the resource name for disambiguation:
+    - `DeploymentsClient`: `get()` → `getDeployment()`, `list()` → `listDeployments()`
+    - `InsightsClient`: `generate()` → `generateInsight()`, `get()` → `getInsight()`, `list()` → `listInsights()`
+    - `RedTeamsClient`: `get()` → `getRedTeam()`, `list()` → `listRedTeams()`, `create()` → `createRedTeamRun()`
+    - `SchedulesClient`: `delete()` → `deleteSchedule()`, `createOrUpdate()` → `createOrUpdateSchedule()`, `getRun()` → `getScheduleRun()`, `listRuns()` → `listScheduleRuns()`
+    - `EvaluationRulesClient`: `get()` → `getEvaluationRule()`, `list()` → `listEvaluationRules()`, `delete()` → `deleteEvaluationRule()`, `createOrUpdate()` → `createOrUpdateEvaluationRule()`
+    - `EvaluationTaxonomiesClient`: `get()` → `getEvaluationTaxonomy()`, `list()` → `listEvaluationTaxonomies()`, `create()` → `createEvaluationTaxonomy()`, `update()` → `updateEvaluationTaxonomy()`, `delete()` → `deleteEvaluationTaxonomy()`
+    - `IndexesClient`: `createOrUpdate()` → `createOrUpdateVersion()`
+    - `DatasetsClient`: `listLatest()` → `listLatestVersion()`
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-changefeed
+  Version: 12.0.0-beta.35
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-changefeed_12.0.0-beta.35/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-newrelicobservability
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-newrelicobservability_1.3.0-beta.2/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-blob-batch
+  Version: 12.29.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-batch_12.29.2/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.1` to version `12.34.0-beta.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-batch
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-batch_12.30.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.45.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.45.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `vectorEmbeddingPolicy` support in Spark catalog `TBLPROPERTIES` for creating vector-search-enabled containers. - See [PR 48349](https://github.com/Azure/azure-sdk-for-java/pull/48349)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.44.2
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.44.2/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Changed azure-resourcemanager-cosmos usage to a pinned version which is deployed across all public and non-public clouds - [PR 48268](https://github.com/Azure/azure-sdk-for-java/pull/48268)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.44.1
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.44.1/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noisy warning logs in Gateway mode - [PR 48189](https://github.com/Azure/azure-sdk-for-java/pull/48189)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.44.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.44.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added config entry `spark.cosmos.account.azureEnvironment.management.scope` to allow specifying the Entra ID scope/audience to be used when retrieving tokens to authenticate against the ARM/management endpoint of non-public clouds. - See [PR 48137](https://github.com/Azure/azure-sdk-for-java/pull/48137)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.43.1
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.43.1/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `TransientIOErrorsRetryingIterator` would trigger extra query during retries and on close. - See [PR 47996](https://github.com/Azure/azure-sdk-for-java/pull/47996)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.resourcemanager+azure-resourcemanager-maintenance
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-maintenance_1.1.0-beta.3/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-contentunderstanding
+  Version: 1.0.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-contentunderstanding_1.0.0/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial GA release of the Azure Content Understanding client library for Java.
+    - Support for creating, getting, listing, and deleting analyzers.
+    - Support for analyzing content with `beginAnalyze` long-running operations.
+    - Support for getting and deleting analysis results.
+    - Synchronous and asynchronous client support via `ContentUnderstandingClient` and `ContentUnderstandingAsyncClient`.
+    - Builder pattern for client construction with `ContentUnderstandingClientBuilder`.
+  GroupId: com.azure
+- Name: com.azure+azure-identity
+  Version: 1.19.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-identity_1.19.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `NullPointerException` in `IdentityClientOptions` when running in GraalVM native images (e.g., Quarkus applications). Replaced reflection-dependent `AzureIdentityEnvVars` enum usage with direct string literal to ensure compatibility with native compilation.
+    - Fixed logging for token authentication errors to include full stack traces with inner exceptions. Previously, error logs referenced "inner exceptions" but only logged the error message, making debugging difficult.
+
+    #### Breaking Changes
+
+    - Renamed `enableAzureTokenProxy()` method in `WorkloadIdentityCredentialBuilder` to `enableAzureProxy()`. These changes only affect code written against beta version 1.19.0-beta.1.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-connectedcache
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-connectedcache_1.0.0-beta.2/sdk/connectedcache/azure-resourcemanager-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-queue
+  Version: 12.29.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-queue_12.29.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.4
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventhubs-checkpointstore-blob_1.21.4/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.0` to version `12.33.2`.
+    - Upgraded `azure-messaging-eventhubs` from `5.21.3` to version `5.22.0-beta.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-internal-avro
+  Version: 12.18.2
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-internal-avro_12.18.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-common` from `12.32.1` to version `12.33.0-beta.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-internal-avro
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-internal-avro_12.19.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-elastic
+  Version: 1.2.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-elastic_1.2.0/sdk/elastic/azure-resourcemanager-elastic/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-selfhelp
+  Version: 1.1.0-beta.6
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-selfhelp_1.1.0-beta.6/sdk/selfhelp/azure-resourcemanager-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-voicelive
+  Version: 1.0.0-beta.5
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-voicelive_1.0.0-beta.5/sdk/ai/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AgentSessionConfig` class for configuring Azure AI Foundry agent sessions:
+    - Constructor takes required `agentName` and `projectName` parameters
+    - Fluent setters for optional parameters: `setAgentVersion()`, `setConversationId()`, `setAuthenticationIdentityClientId()`, `setFoundryResourceOverride()`
+    - `toQueryParameters()` method for converting configuration to WebSocket query parameters
+    - Added new `startSession(AgentSessionConfig)` overload to `VoiceLiveAsyncClient` for connecting directly to Azure AI Foundry agents
+    - Added `startSession(AgentSessionConfig, VoiceLiveRequestOptions)` overload for agent sessions with custom request options
+    - Added `Scene` class for configuring avatar's zoom level, position, rotation and movement amplitude in the video frame
+    - Added `scene` property to `AvatarConfiguration` for avatar scene configuration
+    - Added `outputAuditAudio` property to `AvatarConfiguration` to enable audit audio forwarding via WebSocket for review/debugging purposes
+    - Added `ServerEventWarning` and `ServerEventWarningDetails` classes for non-interrupting warning events
+    - Added `ServerEventType.WARNING` enum value
+    - Added interim response configuration for handling latency and tool calls (replaces filler response):
+    - `InterimResponseConfigBase` base class for interim response configurations
+    - `StaticInterimResponseConfig` for static/random text interim responses
+    - `LlmInterimResponseConfig` for LLM-generated context-aware interim responses
+    - `InterimResponseConfigType` enum (static_interim_response, llm_interim_response)
+    - `InterimResponseTrigger` enum for trigger conditions (latency, tool)
+    - Added `interimResponse` property to `VoiceLiveSessionOptions` and `VoiceLiveSessionResponse`
+
+    #### Breaking Changes
+
+    - Changed token authentication scope from `https://cognitiveservices.azure.com/.default` to `https://ai.azure.com/.default`
+    - Removed `FoundryAgentTool` class - use `AgentSessionConfig` with `startSession(AgentSessionConfig)` for direct agent connections instead
+    - Removed `FoundryAgentContextType` enum
+    - Removed `ResponseFoundryAgentCallItem` class
+    - Removed Foundry agent call lifecycle server events: `ServerEventResponseFoundryAgentCallArgumentsDelta`, `ServerEventResponseFoundryAgentCallArgumentsDone`, `ServerEventResponseFoundryAgentCallInProgress`, `ServerEventResponseFoundryAgentCallCompleted`, `ServerEventResponseFoundryAgentCallFailed`
+    - Removed `ItemType.FOUNDRY_AGENT_CALL` enum value
+    - Removed `ToolType.FOUNDRY_AGENT` enum value
+    - Removed `ServerEventType.MCP_APPROVAL_REQUEST` and `ServerEventType.MCP_APPROVAL_RESPONSE` enum values
+    - Renamed filler response API to interim response:
+    - `FillerResponseConfigBase` → `InterimResponseConfigBase`
+    - `BasicFillerResponseConfig` → `StaticInterimResponseConfig`
+    - `LlmFillerResponseConfig` → `LlmInterimResponseConfig`
+    - `FillerResponseConfigType` → `InterimResponseConfigType`
+    - `FillerTrigger` → `InterimResponseTrigger`
+    - `VoiceLiveSessionOptions.getFillerResponse()`/`setFillerResponse()` → `getInterimResponse()`/`setInterimResponse()`
+    - Type values changed: `static_filler` → `static_interim_response`, `llm_filler` → `llm_interim_response`
+  GroupId: com.azure
+- Name: com.azure+azure-storage-common
+  Version: 12.33.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-common_12.33.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.45.0
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.45.0/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `vectorEmbeddingPolicy` support in Spark catalog `TBLPROPERTIES` for creating vector-search-enabled containers. - See [PR 48349](https://github.com/Azure/azure-sdk-for-java/pull/48349)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.44.2
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.44.2/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Changed azure-resourcemanager-cosmos usage to a pinned version which is deployed across all public and non-public clouds - [PR 48268](https://github.com/Azure/azure-sdk-for-java/pull/48268)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.44.1
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.44.1/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Reduced noisy warning logs in Gateway mode - [PR 48189](https://github.com/Azure/azure-sdk-for-java/pull/48189)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.44.0
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.44.0/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added config entry `spark.cosmos.account.azureEnvironment.management.scope` to allow specifying the Entra ID scope/audience to be used when retrieving tokens to authenticate against the ARM/management endpoint of non-public clouds. - See [PR 48137](https://github.com/Azure/azure-sdk-for-java/pull/48137)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.43.1
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.43.1/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `TransientIOErrorsRetryingIterator` would trigger extra query during retries and on close. - See [PR 47996](https://github.com/Azure/azure-sdk-for-java/pull/47996)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.resourcemanager+azure-resourcemanager
+  Version: 2.60.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager_2.60.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-cosmosdbforpostgresql
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Cosmos DB for PostgreSQL
+  ServiceName: Cosmos DB for PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cosmosdbforpostgresql_1.1.0-beta.3/sdk/cosmosdbforpostgresql/azure-resourcemanager-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-file-share
+  Version: 12.30.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-file-share_12.30.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for improved error handling for file share provisioning.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+
