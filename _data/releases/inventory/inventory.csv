@@ -176,6 +176,7 @@ Provisioning,0,Provisioning - Application Insights,mgmt,.NET,,,11,false,Azure.Pr
 Cdn,0,Provisioning - Cdn,mgmt,.NET,,,11,false,Azure.Provisioning.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Provisioning,0,Provisioning - Cognitive Services,mgmt,.NET,,,11,false,Azure.Provisioning.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
 Communication,0,Provisioning - Communication,mgmt,.NET,,,11,false,Azure.Provisioning.Communication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
+Compute,0,Provisioning - Compute,mgmt,.NET,,,11,false,Azure.Provisioning.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,3,false,1,
 Container Registry,0,Provisioning - Container Registry,mgmt,.NET,,,11,false,Azure.Provisioning.ContainerRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Container Service,0,Provisioning - Container Service,mgmt,.NET,,,11,false,Azure.Provisioning.ContainerService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Provisioning,0,Provisioning - CosmosDB,mgmt,.NET,,,11,false,Azure.Provisioning.CosmosDB,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
@@ -279,7 +280,7 @@ IoT,0,Resource Management - Device Provisioning Services,mgmt,.NET,Microsoft.Azu
 IoT,0,Resource Management - Device Registry,mgmt,.NET,,,11,false,Azure.ResourceManager.DeviceRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceregistry,10,false,1,03/01/2025
 IoT,0,Resource Management - Device Update,mgmt,.NET,Microsoft.Azure.Management.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.DeviceUpdate,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceupdate,10,false,1,03/17/2025
 DevOps Infrastructure,0,Resource Management - DevOps Infrastructure,mgmt,.NET,,,11,false,Azure.ResourceManager.DevOpsInfrastructure,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devopsinfrastructure,3,false,1,
-DevTest Labs,0,Resource Management - DevTest Labs,mgmt,.NET,Microsoft.Azure.Management.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/devtestlabs/Microsoft.Azure.Management.DevTestLabs,10,true,Azure.ResourceManager.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devtestlabs,10,false,1,12/24/2024
+DevTest Labs,0,Resource Management - DevTest Labs,mgmt,.NET,Microsoft.Azure.Management.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/devtestlabs/Microsoft.Azure.Management.DevTestLabs,10,true,Azure.ResourceManager.DevTestLabs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/devtestlabs,10,false,1,03/25/2026
 IoT,0,Resource Management - Digital Twins,mgmt,.NET,Microsoft.Azure.Management.DigitalTwins,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,true,Azure.ResourceManager.DigitalTwins,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins,10,false,1,03/17/2025
 Disconnectedoperations,0,Resource Management - Disconnectedoperations,mgmt,.NET,,,11,false,Azure.ResourceManager.DisconnectedOperations,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/disconnectedoperations,10,false,1,03/10/2026
 DNS,0,Resource Management - DNS,mgmt,.NET,Microsoft.Azure.Management.Dns,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/dns/Microsoft.Azure.Management.Dns,10,true,Azure.ResourceManager.Dns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/dns,10,false,1,04/29/2024
@@ -1177,7 +1178,7 @@ Container Apps,0,Resource Management - Container Apps,mgmt,Java,,,11,false,azure
 Container Instances,0,Resource Management - Container Instances,mgmt,Java,azure-mgmt-containerinstance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerinstance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerinstance,10,false,1,02/26/2026
 Container Orchestrator Runtime,0,Resource Management - Container Orchestrator Runtime,mgmt,Java,,,11,false,azure-resourcemanager-containerorchestratorruntime,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/containerorchestratorruntime/item.Package/,3,false,1,
 Container Registry,0,Resource Management - Container Registry,mgmt,Java,azure-mgmt-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,10,false,1,03/19/2026
-Container Service,0,Resource Management - Container Service,mgmt,Java,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservice,10,false,1,01/29/2026
+Container Service,0,Resource Management - Container Service,mgmt,Java,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-containerservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservice,10,false,1,03/25/2026
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Java,,,11,false,azure-resourcemanager-containerservicefleet,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerservicefleet,10,false,1,05/14/2025
 Containerregistry-Tasks,0,Resource Management - Containerregistry-Tasks,mgmt,Java,,,11,false,azure-resourcemanager-containerregistry-tasks,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry,3,false,1,
 Containerservicesafeguards,0,Resource Management - Containerservicesafeguards,mgmt,Java,,,11,false,azure-resourcemanager-containerservicesafeguards,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/containerservicesafeguards/item.Package/,3,false,1,
@@ -1342,6 +1343,7 @@ Service Fabric,0,Resource Management - Service Fabric,mgmt,Java,azure-mgmt-servi
 Service Fabric Managed Clusters,0,Resource Management - Service Fabric Managed Clusters,mgmt,Java,,,11,false,azure-resourcemanager-servicefabricmanagedclusters,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicefabricmanagedclusters,10,false,1,03/12/2026
 Service Linker,0,Resource Management - Service Linker,mgmt,Java,,,11,false,azure-resourcemanager-servicelinker,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/servicelinker/item.Package/,10,false,1,12/26/2024
 Service Networking,0,Resource Management - Service Networking,mgmt,Java,,,11,false,azure-resourcemanager-servicenetworking,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/servicenetworking/item.Package/,10,false,1,02/06/2025
+Servicegroups,0,Resource Management - Servicegroups,mgmt,Java,,,11,false,azure-resourcemanager-servicegroups,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicegroups,3,false,1,
 SignalR,0,Resource Management - SignalR,mgmt,Java,azure-mgmt-signalr,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/signalr/mgmt-v2020_05_01,3,true,azure-resourcemanager-signalr,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/signalr/item.Package/,10,false,1,12/24/2024
 Sitemanager,0,Resource Management - Sitemanager,mgmt,Java,,,11,false,azure-resourcemanager-sitemanager,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sitemanager/item.Package/,10,false,1,09/29/2025
 Sphere,0,Resource Management - Sphere,mgmt,Java,,,11,false,azure-resourcemanager-sphere,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/sphere/item.Package/,10,false,1,12/19/2024
@@ -5112,26 +5114,6 @@ Monitor,0,Resource Management - Microsoft.Monitor.PipelineGroups.Management,mgmt
 Monitor,0,Resource Management - Microsoft.Monitor.PipelineGroups.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.PipelineGroups.Management,,2,false,0,
 Monitor,0,Resource Management - Microsoft.Monitor.PipelineGroups.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.PipelineGroups.Management,,2,false,0,
 Monitor,0,Resource Management - Microsoft.Monitor.PipelineGroups.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: monitor/Microsoft.Monitor.PipelineGroups.Management,,2,false,0,
-Monitor,0,Monitor.Ingestion,data,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Ingestion,,2,false,0,
-Monitor,0,Monitor.Ingestion,data,Java,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Ingestion,,2,false,0,
-Monitor,0,Monitor.Ingestion,data,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Ingestion,,2,false,0,
-Monitor,0,Monitor.Ingestion,data,Python,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Ingestion,,2,false,0,
-Monitor,0,Monitor.Ingestion,data,Go,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Ingestion,,2,false,0,
-Monitor,0,Monitor.Query.Logs,data,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Logs,,2,false,0,
-Monitor,0,Monitor.Query.Logs,data,Java,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Logs,,2,false,0,
-Monitor,0,Monitor.Query.Logs,data,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Logs,,2,false,0,
-Monitor,0,Monitor.Query.Logs,data,Python,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Logs,,2,false,0,
-Monitor,0,Monitor.Query.Logs,data,Go,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Logs,,2,false,0,
-Monitor,0,Monitor.Query.Metrics,data,.NET,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Metrics,,2,false,0,
-Monitor,0,Monitor.Query.Metrics,data,Java,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Metrics,,2,false,0,
-Monitor,0,Monitor.Query.Metrics,data,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Metrics,,2,false,0,
-Monitor,0,Monitor.Query.Metrics,data,Python,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Metrics,,2,false,0,
-Monitor,0,Monitor.Query.Metrics,data,Go,,,11,false,Missing: Created from API in specs repo: monitor/Monitor.Query.Metrics,,2,false,0,
-Monitor,0,common-types,data,.NET,,,11,false,Missing: Created from API in specs repo: monitor/common-types,,2,false,0,
-Monitor,0,common-types,data,Java,,,11,false,Missing: Created from API in specs repo: monitor/common-types,,2,false,0,
-Monitor,0,common-types,data,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/common-types,,2,false,0,
-Monitor,0,common-types,data,Python,,,11,false,Missing: Created from API in specs repo: monitor/common-types,,2,false,0,
-Monitor,0,common-types,data,Go,,,11,false,Missing: Created from API in specs repo: monitor/common-types,,2,false,0,
 Monitor,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: monitor/cspell.yaml,,2,false,0,
 Monitor,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: monitor/cspell.yaml,,2,false,0,
 Monitor,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: monitor/cspell.yaml,,2,false,0,
