@@ -237,4 +237,31 @@ entries:
 
     - Fixed an issue where certain `HttpResponseException.getResponse()` calls could cause a `NullPointerException`. ([#47801](https://github.com/Azure/azure-sdk-for-java/issues/47801))
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.58.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.58.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservicefleet
+  Version: 1.3.0-beta.3
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservicefleet_1.3.0-beta.3/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicegroups
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Servicegroups
+  ServiceName: Servicegroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicegroups_1.0.0-beta.1/sdk/servicegroups/azure-resourcemanager-servicegroups/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
