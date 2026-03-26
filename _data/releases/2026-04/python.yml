@@ -262,4 +262,20 @@ entries:
     - Expanded endpoint normalization (`/openai/v1` suffix) to all Azure OpenAI host suffixes (including sovereign clouds), fixing 404 errors for classic AOAI endpoints with PyRIT 0.11+.
     - Added `aml-aca-token` credential fallback for agent-type seed requests when running locally without ACA managed identity.
     - Extract RAI scorer token metrics (prompt_tokens, completion_tokens, total_tokens) into Score metadata and propagate through result processing for downstream aggregation.
+- Name: azure-mgmt-redisenterprise
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_4.0.0b1/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-frontdoor
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-frontdoor_2.0.0b1/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
 
