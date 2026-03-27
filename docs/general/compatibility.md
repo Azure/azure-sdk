@@ -27,6 +27,15 @@ Azure SDK guidelines define details of what's considered a compatible change in 
 ### API Changes
 It might seem that additions to the APIs would be non-breaking, and removals would be breaking. Unfortunately, it's not as simple. Languages differ quite significantly in terms of what API changes would result in breaks in the caller. In particular, there are very significant differences between dynamic and static languages. Therefore, you should refer to language specific guidelines for details of what constitutes an acceptable API change.
 
+#### Source vs. Binary Compatibility
+
+API changes can be categorized as:
+
+- **Binary-breaking**: Changes that cause already-compiled consumer code to fail at runtime. These are **never permitted** in minor or patch releases.
+- **Source-breaking**: Changes that prevent existing consumer source code from compiling until it is updated. They require source changes followed by recompilation but do not affect already-compiled binaries. These **may be permitted** in minor releases under language-specific guidelines and with Architecture Board approval.
+
+Language-specific guidelines define which source-breaking changes are acceptable and under what conditions. Refer to individual language guidelines for details.
+
 Behavioral compatibility is more language independent, and so it's described below. 
 
 ### Behavioral Changes
