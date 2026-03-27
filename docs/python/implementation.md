@@ -82,7 +82,7 @@ Some services may require custom policies to be implemented. For example, custom
 
 {% include requirement/MUST id="python-custom-policy-review" %} review the proposed policy with the Azure SDK [Architecture Board]. There may already be an existing policy that can be modified/parameterized to satisfy your need.
 
-{% include requirement/MUST id="python-custom-policy-base-class" %} derive from [HTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.HTTPPolicy)/[AsyncHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.AsyncHTTPPolicy) (if you need to make network calls) or [SansIOHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.SansIOHTTPPolicy) (if you do not).
+{% include requirement/MUST id="python-custom-policy-base-class" %} derive from [HTTPPolicy](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/azure.core.pipeline.policies.html#azure.core.pipeline.policies.HTTPPolicy)/[AsyncHTTPPolicy](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/azure.core.pipeline.policies.html#azure.core.pipeline.policies.AsyncHTTPPolicy) (if you need to make network calls) or [SansIOHTTPPolicy](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/azure.core.pipeline.policies.html#azure.core.pipeline.policies.SansIOHTTPPolicy) (if you do not).
 
 {% include requirement/MUST id="python-custom-policy-thread-safe" %} ensure thread-safety for custom policies. A practical consequence of this is that you should keep any per-request or connection bookkeeping data in the context rather than in the policy instance itself.
 
@@ -108,11 +108,10 @@ Any Enums defined in the SDK should be interchangeable with case-insensitive str
 
 ```python
 from enum import Enum
-from six import with_metaclass
 
 from azure.core import CaseInsensitiveEnumMeta
 
-class MyCustomEnum(with_metaclass(CaseInsensitiveEnumMeta, str, Enum)):
+class MyCustomEnum(str, Enum, metaclass=CaseInsensitiveEnumMeta):
     FOO = 'foo'
     BAR = 'bar'
 ```
@@ -219,7 +218,7 @@ Any other keys that are used should be common across all client libraries for a 
 
 {% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
 
-{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-sdk-for-python/tree/main/tools/azure-devtools) package for scenario tests.
+{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services.
 
 {% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
 

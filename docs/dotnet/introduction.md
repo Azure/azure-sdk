@@ -341,7 +341,7 @@ public class ContainerRepository {
 
 While API usability is the primary reason for subclients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using subclients allows an application to cache the top level client and create instances of subclients on demand.  In addition, if there is an expensive shared resource (e.g. an AMQP connection), subclients are preferred, as they naturally lead to resource sharing.
 
-{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
+{% include requirement/SHOULD id="dotnet-service-client-" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
 
 {% include requirement/MUSTNOT id="dotnet-subclient-no-constructor" %} provide a public constructor on a subclient.  Subclients are non-instantiable by design.
 
@@ -427,7 +427,7 @@ Most methods in Azure SDK libraries should be named following the typical .NET m
 
 ##### Cancellation
 
-{% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_.
+{% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_ or, in case of protocol methods, an optional `RequestContext` parameter called _context_.
 
 The token should be further passed to all calls that take a cancellation token. DO NOT check the token manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
 
@@ -501,11 +501,11 @@ public class BlobCreateOptions {
 
 The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties.
 
-{% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
+{% include requirement/MUST id="dotnet-params-complex-methods" %} use the _options_ parameter pattern for complex service methods.
 
-{% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+{% include requirement/MAY id="dotnet-params-growing-methods" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
 
-{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern.
+{% include requirement/MAY id="dotnet-params-simple-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
@@ -559,9 +559,11 @@ Some service operations, known as _Long Running Operations_ or _LROs_ take a lon
 
 Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
+Note that some older libraries use a slightly different, older LRO pattern. In the old pattern, LRO methods started with the prefix 'Start' and did not take the ```WaitUntil``` parameter. Such libraries are free to continue using this older pattern, or they can transition to the new pattern.
+
 ```csharp
 // the following type is located in Azure.Core
-public abstract class Operation<T> {
+public abstract class Operation<T> : Operation {
 
     public abstract bool HasCompleted { get; }
     public abstract bool HasValue { get; }
@@ -574,8 +576,16 @@ public abstract class Operation<T> {
     public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
     public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
 
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
+    public virtual Response<T> WaitForCompletion(CancellationToken cancellationToken = default);
+    public virtual Response<T> WaitForCompletion(TimeSpan pollingInterval, CancellationToken cancellationToken);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
+
+    // inherited  members returning untyped responses
+    public virtual Response WaitForCompletionResponse(CancellationToken cancellationToken = default);	
+    public virtual Response WaitForCompletionResponse(TimeSpan pollingInterval, CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(CancellationToken cancellationToken = default);	
+    public virtual ValueTask<Response> WaitForCompletionResponseAsync(TimeSpan pollingInterval, CancellationToken cancellationToken = default);
 }
 ```
 
@@ -589,8 +599,8 @@ public class CopyFromUriOperation : Operation<long> {
 
 public class BlobBaseClient {
 
-    public virtual CopyFromUriOperation StartCopyFromUri(..., CancellationToken cancellationToken = default);
-    public virtual Task<CopyFromUriOperation> StartCopyFromUriAsync(..., CancellationToken cancellationToken = default);
+    public virtual CopyFromUriOperation CopyFromUri(WaitUntil wait, ..., CancellationToken cancellationToken = default);
+    public virtual Task<CopyFromUriOperation> CopyFromUriAsync(WaitUntil wait, ..., CancellationToken cancellationToken = default);
 }
 ```
 
@@ -601,17 +611,17 @@ BlobBaseClient client = ...
 
 // automatic polling
 {
-    Response<long> response = await client.StartCopyFromUri(...).WaitForCompletionAsync();
-    Console.WriteLine(response.Value);
+    Operation<long> operation = await client.CopyFromUri(WaitUntil.Completed, ...);
+    Console.WriteLine(operation.Value);
 }
 
 // manual polling
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     while (true)
     {
-        await client.UpdateStatusAsync();
-        if (client.HasCompleted) break;
+        await operation.UpdateStatusAsync();
+        if (operation.HasCompleted) break;
         await Task.Delay(1000); // play some elevator music
     }
     if (operation.HasValue) Console.WriteLine(operation.Value);
@@ -619,7 +629,7 @@ BlobBaseClient client = ...
 
 // saving operation ID
 {
-    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    CopyFromUriOperation operation = await client.CopyFromUriAsync(WaitUntil.Started, ...);
     string operationId = operation.Id;
 
     // two days later
@@ -628,12 +638,14 @@ BlobBaseClient client = ...
 }
 ```
 
-{% include requirement/MUST id="dotnet-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
-
 {% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
 
+{% include requirement/MUST id="dotnet-lro-waituntil" %} take ```WaitUntil``` as the first parameter to LRO methods.
+
+{% include requirement/MUST id="dotnet-lro-subclass-operations" %} put methods that cannot be called until after the long-running operation has started on the subclass of ```Operation<T>```.  For example, if a service provides an API to cancel an operation, the ```Cancel``` method should appear on the subclass of ```Operation```.
+
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
-For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
+For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID.  Some service operations have intermediate states they pass through prior to completion.  These can be represented with an added ```Status``` property to augment the ```HasCompleted``` property on the base ```Operation``` type.
 
 {% include requirement/MUST id="dotnet-lro-constructor" %} provide a public constructor on subclasses of ```Operation<T>``` to allow users to access an existing LRO.
 
@@ -655,11 +667,11 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using `If-Match` headers and ETags. See [Managing Concurrency in Blob Storage](https://learn.microsoft.com/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
-{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
+{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://learn.microsoft.com/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://learn.microsoft.com/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
 TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
 
@@ -814,24 +826,27 @@ The exception is available in ```Azure.Core``` package:
 ```csharp
 public class RequestFailedException : Exception {
 
-    public RequestFailedException(int status, string message);
-    public RequestFailedException(int status, string message, Exception innerException);
+    public RequestFailedException(Response response);
+    public RequestFailedException(Response response, Exception innerException);
+    public RequestFailedException(Response response, Exception innerException, RequestFailedDetailsParser detailsParser);
 
     public int Status { get; }
 }
 ```
 
-{% include requirement/SHOULD id="dotnet-errors-response-exception-extensions" %} use `ResponseExceptionExtensions` to create `RequestFailedException` instances.
-
-The exception message should contain detailed response information.  For example:
+The exception message will be formed from the passed in `Response` content. For example:
 
 ```csharp
 if (response.Status != 200) {
-    throw await response.CreateRequestFailedExceptionAsync(message);
+    throw new RequestFailedException(response);
 }
 ```
 
 {% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
+
+{% include requirement/MUST id="dotnet-request-failed-details-parser" %} provide `RequestFailedDetailsParser` for non-standard error formats.
+
+If customization is required to parse the response content, e.g. because the service does not adhere to the standard error format as represented by the `ResponseError` type, libraries can must implement a `RequestFailedDetailsParser` and pass the parser into the construction of the `HttpPipeline` via the `HttpPipelineOptions` type. If more granular control is required than associating the parser per pipeline, there is a constructor of `RequestFailedException` that takes a `RequestFailedDetailsParser` that may be used.
 
 Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
 
@@ -904,7 +919,7 @@ For example, `Azure.Storage.Blobs`.
     - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
     - Do not use `IoT` more than once in a namespace.
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
-- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub/sub.
 - `Azure.Monitor` for observability and Azure Monitor client libraries.
 - `Azure.ResourceManager.[ResourceProvider]` for management plane client libraries for a given resource provider.
     - For example the compute management plane namespace would be Azure.ResourceManager.Compute.
@@ -943,7 +958,7 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.md) in the GitHub repository.
+For more details on mocking, see [Unit testing and mocking with the Azure SDK for .NET](https://learn.microsoft.com/dotnet/azure/sdk/unit-testing-mocking).
 
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 
@@ -1014,27 +1029,13 @@ public static class ConfigurationModelFactory {
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs.
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://learn.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft-owned packages, we need to support both Windows (for Windows dump diagnostics) and portable (for cross-platform debugging) pdb formats. This means you need to publish them to the Microsoft symbol server and not the NuGet symbol server which only supports portable pdbs.
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
-For example, if the component is in the `Azure.Storage.Blobs` namespace, the component DLL will be `Azure.Storage.Blobs.dll` and the NuGet package will b`Azure.Storage.Blobs```.
+For example, if the component is in the `Azure.Storage.Blobs` namespace, the component DLL will be `Azure.Storage.Blobs.dll` and the NuGet package will be `Azure.Storage.Blobs`.
 
 {% include requirement/SHOULD id="dotnet-packaging-granularity" %} place small related components that evolve together in a single NuGet package.
-
-{% include requirement/MUST id="dotnet-build-net-standard" %} build all libraries for [.NET Standard 2.0].
-
-Use the following target setting in the `.csproj` file:
-
-```
-<TargetFramework>netstandard2.0</TargetFramework>
-```
-
-#### Common Libraries
-
-There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
-
-{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] discuss how to design such common library.
 
 ### Versioning {#dotnet-versioning}
 
@@ -1099,11 +1100,11 @@ public virtual Response DoSomething(
 
 This is a source break (callers relying on default values must update call sites) but NOT a binary break (the original method signature is still present in the compiled assembly, just with different metadata for defaults).
 
-##### Package Version Numbers {#dotnet-versionnumbers}
+#### Package Version Numbers {#dotnet-versionnumbers}
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
-{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
+{% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library `.dll` and the NuGet package.
 
 Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
@@ -1119,35 +1120,109 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/SHOULD id="dotnet-version-major-changes" %} increment the major version when making large feature changes.
 
-{% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
+{% include requirement/MUST id="dotnet-version-change-from-track-1" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
+
+### Target Frameworks
+
+All Azure SDK libraries must include a target for [.NET Standard 2.0]. This ensures that they are compatible with all supported versions of .NET, covering both modern .NET and the .NET Framework.  
+
+Libraries built by the Azure SDK engineering system will also target the current [long term support (LTS)] version of .NET. This enables them to take advantage of modern runtime features, allows applications to fully benefit from modern runtimes, and obviates the need for applications to download polyfill shim packages for functionality already built-into modern runtimes. It is strongly encouraged that self-published libraries also include this target framework.
+
+For projects built by the Azure SDK engineering system, use the following target setting in the `.csproj` file:
+
+```xml
+<TargetFrameworks>$(RequiredTargetFrameworks)</TargetFrameworks>
+```
+
+{% include requirement/MUST id="dotnet-build-net-standard" %} build all libraries for [.NET Standard 2.0].
+
+If not building with the Azure SDK engineering system, use the following target setting in the `.csproj` file:
+
+```xml
+<TargetFrameworks>netstandard2.0</TargetFrameworks>
+```
+
+{% include requirement/SHOULD id="dotnet-build-net-current-lts" %} build libraries for the current long term support (LTS) version of .NET.
+
+For example, if the current LTS version of .NET is `10.0`, use the following target setting in the `.csproj` file if not building with the Azure SDK engineering system:
+
+```xml
+<TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+```
+
+{% include requirement/MUST id="dotnet-build-multi-targeting-api" %} define the same APIs for all [target framework monikers (TFMs)][.NET Target Framework Monikers].
+
+The public API of client libraries must be the same for all targets including class, interface, parameter, and return types.
+
+{% include requirement/MUST id="dotnet-specialtfm-approval" %} engage the [Architecture Board] if your client library has special needs for targeting additional frameworks or is unable to target the required set.
+
+#### Target Framework Retirement
+
+When a new [long term support (LTS)] version of .NET is released, Azure SDK libraries will add the new LTS target. Libraries will continue to target the previous LTS  until it is out of support to minimize the impact to developers and allow time for migration. Once the previous LTS has reached end-of-life, Azure SDK libraries will no longer target the retired LTS.  
+
+After .NET platform support for the runtime has ended, the retired LTS will be removed from the target frameworks. Because the `netstandard2.0` target will always be present, removal of the target should not break applications still using an unsupported runtime as they will fall back to the standard target. They will, however, gain a dependency on polyfill packages and lose performance improvements specific to modern runtimes. It is possible that the fallback will introduce an unintended break, but this risk is implicitly assumed by the application as they have chosen to rely on a runtime no longer supported by Microsoft.
 
 ### Dependencies {#dotnet-dependencies}
 
 {% include requirement/SHOULD id="dotnet-dependencies-minimize" %} minimize dependencies outside of the .NET Standard and `Azure.Core` packages.
 
-{% include requirement/MUSTNOT id="dotnet-dependencies-list" %} depend on any NuGet package except the following packages:
+{% include requirement/MUSTNOT id="dotnet-dependencies-list" %} depend on any NuGet package except the following:
 
 * `Azure.*` packages from the [azure/azure-sdk-for-net] repository.
-* `System.Text.Json`.
-* `Microsoft.BCL.AsyncInterfaces`.
-* packages produced by your own team.
+* `System.*` packages published by the Microsoft .NET team.
+* `Microsoft.*` packages approved by the [Architecture Board]. 
+* Third-party packages explicitly approved by the [Architecture Board] for specific scenarios with special needs.
+* Packages produced by your own team.
 
-In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
-package that is now a part of the .NET platform instead.
+In the past, [JSON.NET](https://www.newtonsoft.com/json), aka Newtonsoft.Json, was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
+package that is now a part of the .NET platform instead. If you are using `Azure.Core`, there is no need for a direct reference to the `System.Text.Json` package. Your client library will have access to it automatically.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
+
+#### Package Dependency Versions
+
+For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/centralpackagemanagement/README.md) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
+
+{% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the current [long term support (LTS)] version of .NET. For example, if the current LTS version is `10.0`, then references to runtime libraries such as `System.Text.Json` should target the latest with a major version of `10`.  These dependency versions are guarnteed to include targets for the current LTS and previous .NET runtimes still under support. 
+
+{% include requirement/MUST id="dotnet-dependency-supported-versions" %} ensure all dependencies reference a version supported by the publisher that is not marked as deprecated or flagged by NuGet for vulnerabilities. 
+
+{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications. 
+
+#### Common Libraries
+
+There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="dotnet-commonlib-approval" %} engage the [Architecture Board] to discuss how to design such common library.
+
+#### .NET Runtime Polyfill Packages
+
+To ensure consistency across runtimes, the Microsoft .NET team publishes polyfill packages on NuGet for some features built into modern .NET runtimes. On runtimes where these features are missing, such as .NET Framework, the polyfill packages provide them. On runtimes where the features are natively available, the polyfill packages pass through the calls and do nothing.
+ 
+{% include requirement/SHOULD id="dotnet-trim-polyfills" %} reference the .NET runtime polyfill packages only for `netstandard2.0` and legacy target frameworks. For libraries using the Azure SDK for .NET repository, these dependencies are automatically trimmed from your library for modern target frameworks as part of the Azure SDK engineering system builds.
+
+Some commonly used examples of .NET runtime polyfill packages are:
+- `Microsoft.Bcl.AsyncInterfaces`
+- `System.Buffers`
+- `System.Diagnostics.DiagnosticSource`
+- `System.Net.Http`
+- `System.Numerics.Vectors`
+- `System.Text.Encodings.Web`
+- `System.Text.Json`
+- `System.Threading.Channels`
+- `System.Threading.Tasks.Extensions`
 
 ### Native Code
 
 Native dependencies introduce lots of complexities to .NET libraries and so they should be avoided.
 
-{% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} native dependencies.
+{% include requirement/SHOULDNOT id="dotnet-problems-native-dependencies" %} have native dependencies.
 
 ### Documentation Comments {#dotnet-documentation}
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
-{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
+{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://learn.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
@@ -1214,7 +1289,11 @@ var client = new ConfigurationClient(connectionString);
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
 
-TODO: Update guidance on samples to reflect what we do in most places.
+## Package Publishing
+
+{% include requirement/SHOULDNOT id="dotnet-empty-release" %} publish new package releases just to keep to a regular cadence. Generally, it is recommended that packages only be published when bugs are fixed or new features are added.
+
+{% include requirement/SHOULD id="dotnet-dependency-release" %} publish dependency-only releases when no active work is taking place on the library, but a dependency addressed a vulnerability or the .NET runtime package dependencies have been updated to a new major version.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 

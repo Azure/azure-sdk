@@ -1,0 +1,644 @@
+entries:
+- Name: Azure.Developer.LoadTesting
+  Version: 1.0.2
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.LoadTesting_1.0.2/sdk/loadtestservice/Azure.Developer.LoadTesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Add NOT_VALIDATED to the list of terminal states for the file validation poller.
+- Name: Azure.ResourceManager.Quota
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.1.0-beta.3/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid
+  Version: 4.29.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.29.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `RecipientMailServerHostName` property to `AcsEmailDeliveryReportStatusDetails`.
+    - Added `InternetMessageId` property to `AcsEmailDeliveryReportReceivedEventData` event.
+    - Added `SegmentCount` property to `AcsSmsReceivedEventData` event.
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.6.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.6.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.3
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.3/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed the bug preventing addition of a single Azure blob URI to the VectorStore.
+    * Fixed deserialization of Run Step when the file search is used [issue](https://github.com/Azure/azure-sdk-for-net/issues/47836).
+    * Fixed the issue preventing using streaming with function tools [issue](https://github.com/Azure/azure-sdk-for-net/issues/47797).
+- Name: Azure.ResourceManager.AppConfiguration
+  Version: 1.4.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppConfiguration_1.4.0/sdk/appconfiguration/Azure.ResourceManager.AppConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.0.0
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.0.0/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceRegistry
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceRegistry_1.0.0-beta.2/sdk/deviceregistry/Azure.ResourceManager.DeviceRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotOperations
+  Version: 1.0.0
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotOperations_1.0.0/sdk/iotoperations/Azure.ResourceManager.IotOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.4.1-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.4.1-beta.1/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the ability to list users and roles.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.4.0-beta.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.4.0-beta.2/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Media streaming with AudioFormat default Pcm24kMono is removed and changed to null if AudioFormat is not passed.
+- Name: Azure.ResourceManager.NetworkCloud
+  Version: 1.1.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.1.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.2
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added three differenct type of Redaction Policy `CharacterMaskPolicyType`, `EntityMaskTypePolicyType` and `NoMaskPolicyType` for the function `AnalyzeConversations`
+    - Added support for analyze-conversation API Versions
+    - 2024-11-01
+    - 2024-11-15-preview
+- Name: Azure.ResourceManager.ServiceNetworking
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceNetworking_1.1.0-beta.1/sdk/servicenetworking/Azure.ResourceManager.ServiceNetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.45.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.45.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MexicoCentral` and `SpainCentral` locations to `AzureLocation` struct. This was a community contribution, courtesy of [jerobado](https://github.com/jerobado).  ([#47862](https://github.com/Azure/azure-sdk-for-net/pull/47862))
+
+    #### Bugs Fixed
+
+    - Fixed an issue where `BearerTokenAuthenticationPolicy` throws `ArgumentOutOfRangeException` if the `ExpiresOn` property of the token is the default value. ([#47040](https://github.com/Azure/azure-sdk-for-net/pull/47040))
+- Name: System.ClientModel
+  Version: 1.3.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.3.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Use `BinaryData.Empty` for `PipelineResponse.Content` when HTTP message has no content ([#46669](https://github.com/Azure/azure-sdk-for-net/pull/46669)).
+- Name: Microsoft.Extensions.Azure
+  Version: 1.10.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.10.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.6.0-beta.1
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.6.0-beta.1/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.4.0
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.4.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.4.0
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.4.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.5.0
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.5.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.2.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.2.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies to ensure they are up-to-date with the latest targets and trimming from built-in dependencies.
+- Name: Azure.AI.OpenAI
+  Version: 2.2.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.2.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Batch**: files uploaded for batch operations (`UploadFile` with `FileUploadPurpose.Batch`) will now report a `status` of `processed`, matching expected behavior against OpenAI's `/v1` endpoint. This is a change from past behavior where such files would initially report `pending` and a later `processed`, `error`, or other status depending on operation progress. Batch input validation is instead consistently performed from the batch client.
+- Name: Azure.ResourceManager.ContainerRegistry
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.3.0-beta.2/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.3.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.3.0/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of Number Insight.
+    - API version `(2025-02-11)` is the default
+
+    #### Bugs Fixed
+    - OperatorDetails.Name is now optional in OperatorInformation Response.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.22.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The following APIs no longer send the x-ms-file-permission-key, x-ms-file-attributes, x-ms-file-creation-time, and x-ms-file-last-write-time request headers by default.  These headers have been optional in the REST API since x-ms-version 2021-06-08:
+    - ShareFileClient.Create() and .CreateAsync()
+    - ShareFileClient.SetHttpHeaders() and .SetHttpHeadersAsync()
+    - ShareDirectoryClient.Create() and .CreateAsync()
+    - ShareDirectoryClient.SetHttpHeaders() and .SetHttpHeadersAsync()
+
+    #### Features Added
+    - Added support for service version 2025-05-05.
+    - Added support for NFS over REST.
+
+    #### Bugs Fixed
+    - Fixed \[BUG\] Unable to create directory with only whiteSpaceChars #42891
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.0.0
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.0.0/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `BlobStorageResourceContainerOptions.BlobType` type from `DataTransferProperty<BlobType>` to `BlobType`
+    - Changed `BlobStorageResourceOptions.Metadata` type from `DataTransferProperty<IDictionary<string, string>>` to `IDictionary<string, string>`
+    - Changed the following types from `DataTranferProperty<string>` to `string`
+    - `BlobStorageResourceOptions.ContentType`
+    - `BlobStorageResourceOptions.ContentLanguage`
+    - `BlobStorageResourceOptions.ContentEncoding`
+    - `BlobStorageResourceOptions.ContentDisposition`
+    - `BlobStorageResourceOptions.CacheControl`
+    - Renamed `BlobStorageResourceContainerOptions.BlobDirectoryPrefix` to `BlobPrefix`
+    - Changed `BlobContainerClient.StartUploadDirectoryAsync` to `BlobContainerClient.UploadDirectoryAsync` and added a required `waitUntil` parameter.
+    - Changed `BlobContainerClient.StartDownloadToDirectoryAsync` to `BlobContainerClient.DownloadToDirectoryAsync` and added a required `waitUntil` parameter.
+    - Several refactors to `BlobsStorageResourceProvider`:
+    - Removed nested delegates `GetStorageSharedKeyCredential`, `GetTokenCredential`, and `GetAzureSasCredential`.
+    - Removed default constructor.
+    - Removed constructor overload for `GetTokenCredential` entirely.
+    - Changed constructor overloads for `GetStorageSharedKeyCredential` and `GetAzureSasCredential` to use `Func`. These callbacks are also now async, returning a `ValueTask`, and the `readOnly` parameter was removed.
+    - Changed `FromBlob` and `FromContainer` to async, returning a `ValueTask`, and renamed to `FromBlobAsync` and `FromContainerAsync` respectively.
+    - Changed `FromClient` methods to `static` methods.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.22.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs
+  Version: 12.24.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.24.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.53
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.53/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.0.0
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.0.0/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `ShareFileStorangeResourceOptions.FilePermissions` from `DataTransferProperty` to `bool?`
+    - Changed the following types from `DataTranferProperty<string>` to `string`
+    - `ShareFileStorageResourceOptions.ContentType`
+    - `ShareFileStorageResourceOptions.ContentDisposition`
+    - `ShareFileStorageResourceOptions.CacheControl`
+    - Changed the following types from `DataTransferProperty<string[]>` to `string[]`
+    - `ShareFileStorageResourceOptions.ContentEncoding`
+    - `ShareFileStorageResourceOptions.ContentLanguage`
+    - Changed the following types from `DataTransferProperty<IDictionary<string, string>>` to `IDictionary<string, string>`
+    - `ShareFileStorageResourceOptions.FileMetadata`
+    - `ShareFileStorageResourceOptions.DirectoryMetadata`
+    - Changed the following types from `DataTransferProperty<DateTimeOffset?>` to `DateTimeOffset?`
+    -  `ShareFileStorageResourceOptions.FileCreatedOn`
+    - `ShareFileStorageResourceOptions.FileLastWrittenOn`
+    - `ShareFileStorageResourceOptions.FileChangedOn`
+    - Changed `ShareDirectoryClient.StartUploadDirectoryAsync` to `ShareDirectoryClient.UploadDirectoryAsync` and added a required `waitUntil` parameter.
+    - Changed `ShareDirectoryClient.StartDownloadToDirectoryAsync` to `ShareDirectoryClient.DownloadToDirectoryAsync` and added a required `waitUntil` parameter.
+    - Several refactors to `ShareFilesStorageResourceProvider`:
+    - Removed nested delegates `GetStorageSharedKeyCredential`, `GetTokenCredential`, and `GetAzureSasCredential`.
+    - Removed default constructor.
+    - Removed constructor overload for `GetTokenCredential` entirely.
+    - Changed constructor overloads for `GetStorageSharedKeyCredential` and `GetAzureSasCredential` to use `Func`. These callbacks are also now async, returning a `ValueTask`, and the `readOnly` parameter was removed.
+    - Changed `FromFile` and `FromDirectory` to async, returning a `ValueTask`, and renamed to `FromFileAsync` and `FromDirectoryAsync` respectively.
+    - Changed `FromClient` methods to `static` methods.
+
+    #### Bugs Fixed
+    - Fixed File Attributes with ReadOnly does not transfer / copy correctly bug #2167
+- Name: Azure.Identity
+  Version: 1.14.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a `Subscription` property to `AzureCliCredentialOptions` to allow specifying the Azure subscription ID or name to use when authenticating with the Azure CLI.
+
+    #### Bugs Fixed
+    - Null or empty responses from IMDS probe attempts will now fall through to the next credential in the chain ([#47844](https://github.com/Azure/azure-sdk-for-net/issues/47844))
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `DataTransferProperty` and `DataTransferProperty<T>`
+    - Renamed the following types/properties:
+    - `DataTransfer` -> `TransferOperation`
+    - Addtionally renamed the `TransferStatus` property to `Status`
+    - `DataTransferEventArgs` -> `TransferEventArgs`
+    - `DataTransferOptions` -> `TransferOptions`
+    - `DataTransferOrder` -> `TransferOrder`
+    - `DataTransferProgress` -> `TransferProgress`
+    - `DataTransferProperties` -> `TransferProperties`
+    - `DataTransferState` -> `TransferState`
+    - `DataTransferStatus` -> `TransferStatus`
+    - `DataTransferErrorMode` -> `TransferErrorMode`
+    - `ProgressHandlerOptions` -> `TransferProgressHandlerOptions`
+    - Also removed the constructor since properties are settable.
+    - `StorageResourceCheckpointData` -> `StorageResourceCheckpointDetails`
+    - `StorageResource.GetDestinationCheckpointData` -> `StorageResource.GetDestinationCheckpointDetails`
+    - `StorageResource.GetSourceCheckpointData` -> `StorageResource.GetSourceCheckpointDetails`
+    - `TransferProperties.DestinationCheckpointData` -> `TransferProperties.DestinationCheckpointDetails`
+    - `TransferProperties.SourceCheckpointData` -> `TransferProperties.SourceCheckpointDetails`
+    - `StorageResourceCreationPreference` -> `StorageResourceCreateMode`
+    - `TransferManager.PauseTransferIfRunningAsync` -> `TransferManager.PauseTransferAsync`
+    - `TransferManagerOptions.ErrorHandling` -> `TransferManagerOptions.ErrorMode`
+    - `TransferManagerOptions.CheckpointerOptions` -> `TransferManagerOptions.CheckpointStoreOptions`
+    - `TransferItemCompletedEventArgs.SourceResource` -> `TransferItemCompletedEventArgs.Source` and `TransferItemCompletedEventArgs.DestinationResource` -> `TransferItemCompletedEventArgs.Destination`
+    - `TransferItemFailedEventArgs.SourceResource` -> `TransferItemFailedEventArgs.Source` and `TransferItemFailedEventArgs.DestinationResource` -> `TransferItemFailedEventArgs.Destination`
+    - `TransferItemSkippedEventArgs.SourceResource` -> `TransferItemSkippedEventArgs.Source` and `TransferItemSkippedEventArgs.DestinationResource` -> `TransferItemSkippedEventArgs.Destination`
+    - `TransferCheckpointStoreOptions.Local` -> `TransferCheckpointStoreOptions.CreateLocalStore`
+    - `TransferCheckpointStoreOptions.Disabled` -> `TransferCheckpointStoreOptions.DisableCheckpoint`
+    - Renamed `TransferOptions.CreationPreference` to `TransferOptions.CreateMode`
+    - Removed properties from `StorageResourceItemProperties` constructor since properties are settable.
+    - Changed type of `StorageResourceItemProperties.RawProperties` to `IDictionary`.
+    - Changed `List<StorageResourceProvider> TransferManagerOptions.ResumeProviders` to `IList<StorageResourceProvider> TransferManagerOptions.ProvidersForResuming`
+    - Changed the following `LocalFilesStorageResourceProvider` methods to `static` methods:
+    - `FromFile(string)`
+    - `FromDirectory(string)`
+
+    #### Bugs Fixed
+    - Fixed bug where adding multiple transfers in parallel could cause a collision (`InvalidOperationException`) in the data transfers stored within the `TransferManager`.
+- Name: Azure.Storage.Common
+  Version: 12.23.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.23.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Queues
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.22.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.21.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.21.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2025-05-05.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.4
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.4/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where calling StopAsync in QueueListener while drain mode was enabled would cancel the execution cancellation token.
+    - Fixed bug where the cancellation token passed to QueueListener.ProcessMessageAsync was being propagated to the QueueProcessor.CompleteProcessingMessageAsync call. Since this token is always canceled when QueueListener.StopAsync is invoked, it caused messages to be processed but not deleted.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.4
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.4/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.12.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.12.0-beta.2/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Querying runtime data and other management operations will now correctly guards against the race condition where an AMQP link is in the process of closing as the operation attempts to use it.  These errors will now properly be classified as retriable as they are for producer and consumer operations.
+
+    - Fixed an obscure edge case in the `EventHubBufferedProducer` client where an obscure race condition when flushing/enqueuing events concurrently with disposing the producer could cause a semaphore to be released inappropriately.  This error superseded the `TaskCanceledException` that should have been surfaced.
+
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - `EventData.Offset`
+    - `LastEnqueuedEventProperties.Offset`
+    - `PartitionProperties.LastEnqueuedOffset`
+
+    Obsoleted method overloads:
+    - EventPosition.FromOffset
+    - EventHubsModelFactory.EventData
+    - BlobCheckpointStore.UpdateCheckpointAsync
+    - EventProcessorClient.UpdateCheckpointAsync
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.18.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.18.4/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with the `AmqpReceiver` class where a drain failure during a `ReceiveMessagesAsync` operation would cause message ordering to be violated. ([#47822](https://github.com/Azure/azure-sdk-for-net/issues/47822))
+
+    - Fixed an issue where an error response from the Service Bus administration service without a body was incorrectly parsed, resulting in a null argument exception obscuring the actual failure response. ([#47517](https://github.com/Azure/azure-sdk-for-net/issues/47517))
+- Name: Azure.Communication.Messages
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Messages_1.2.0-beta.1/sdk/communication/Azure.Communication.Messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Interactive Message.
+    - Added Reaction Message.
+    - Added Sticker Message.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.12.0-beta.2
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.12.0-beta.2/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for the Event Hubs geographic data replication feature has been enabled. Checking for whether or not this feature is enabled for your namespace can be done by querying for Event Hub properties using `EventHubProducerClient` or `EventHubConsumerClient` and referencing the the `IsGeoReplicationEnabled` property of the result.
+
+    As part of this feature, the type of offset-related data has been changed from `long` to `string` to align with changes to the Event Hubs service API. To preserve backwards compatibility, the existing offset-related members have not been changed, and new members with names similar to `OffsetString` and string-based parameters for method overloads have been introduced.
+
+    The long-based offset members will continue to work for Event Hubs namespaces that do not have GeoDR replication enabled, but are discouraged for use and have been marked as obsolete.
+
+    Obsoleted properties:
+    - `EventData.Offset`
+    - `LastEnqueuedEventProperties.Offset`
+    - `PartitionProperties.LastEnqueuedOffset`
+
+    Obsoleted method overloads:
+    - EventPosition.FromOffset
+    - EventHubsModelFactory.EventData
+    - BlobCheckpointStore.UpdateCheckpointAsync
+    - EventProcessorClient.UpdateCheckpointAsync
+- Name: Azure.ResourceManager.DataProtectionBackup
+  Version: 1.6.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.6.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.6
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.6/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an obscure edge case in the `EventHubBufferedProducer` client where an obscure race condition when flushing/enqueuing events concurrently with disposing the producer could cause a semaphore to be released inappropriately.  This error superseded the `TaskCanceledException` that should have been surfaced.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.11.6
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.11.6/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Messaging.EventHubs` dependency to 5.11.6, which includes bumps to several transitive dependencies.
+- Name: Azure.AI.Inference
+  Version: 1.0.0-beta.3
+  DisplayName: AI Model Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Inference_1.0.0-beta.3/sdk/ai/Azure.AI.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `usage` wasn't being properly included in chat responses.
+
+    #### Breaking Changes
+
+    - `ChatCompletionsResponseFormatJSON` has been renamed to `ChatCompletionsResponseFormatJsonObject`.
+
+    #### Features Added
+
+    - Added new `ImageEmbeddingsClient`, to provide support for generating embeddings with model input. See sample for more information.
+    - Added support for Chat Completions with audio input, for supported models.
+    - Added support for Chat Completions with structured output.
+    - Added support for providing a "Developer" message to models which support it.
+- Name: Azure.ResourceManager.Network
+  Version: 1.11.0-beta.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.11.0-beta.1/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.4.0-beta.2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.4.0-beta.2/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Nginx
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.1.0-beta.3/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
+  ChangelogContent: ""
+

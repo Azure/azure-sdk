@@ -55,7 +55,7 @@ $(function() {
 
 const doFilterOnTable = filter => {
     $("#myTable tr").filter(function() {
-        $(this).toggle($(this).find("td:first, td:last").text().toLowerCase().indexOf(filter) > -1)
+        $(this).toggle($(this).find("td:first, td:last").text().toLowerCase().indexOf(filter.toLowerCase()) > -1)
     });
     if (filter.length == 0) 
     {
@@ -91,7 +91,7 @@ $(document).ready(function(){
     }
 
     $("#myInput").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
+      var value = $(this).val();
       doFilterOnTable(value);
     });
 

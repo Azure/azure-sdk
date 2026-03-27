@@ -1,3 +1,19 @@
+## Release highlights
+
+{% include releases/notes/release_highlights.md %}
+
+## Need help
+
+- For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).
+- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for Android repository](https://github.com/azure/azure-sdk-for-android/).
+- File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-android/issues/new/choose).
+- Check [previous questions](https://stackoverflow.com/questions/tagged/azure-android-sdk) or ask new ones on
+ StackOverflow using the `azure-android-sdk` tag.
+
+## Latest Releases
+
+View all the latest versions of Android packages [here][android-latest-releases].
+
 ## Installation Instructions
 
 To use the latest GA and beta libraries, refer to the dependency information below, which may be copied into your projects Gradle `build.gradle` or Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -64,21 +80,5 @@ dependencies {
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-android/issues).
-
-## Release highlights
-
-{% include releases/notes/release_highlights.md %}
-
-## Need help
-
-- For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).
-- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for Android repository](https://github.com/azure/azure-sdk-for-android/).
-- File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-android/issues/new/choose).
-- Check [previous questions](https://stackoverflow.com/questions/tagged/azure-android-sdk) or ask new ones on
- StackOverflow using the `azure-android-sdk` tag.
-
-## Latest Releases
-
-View all the latest versions of Android packages [here][android-latest-releases].
 
 {% include refs.md %}

@@ -1,0 +1,157 @@
+entries:
+- Name: azure_core
+  Version: 0.24.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.24.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `TaskSpawner` abstraction to spawn asynchronous tasks for different async runtimes. Defaults to optional `tokio` runtime.
+
+    #### Breaking Changes
+
+    - `PagerResult` always returns items of type `T` instead of `Response<T>`.
+- Name: typespec
+  Version: 0.4.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.4.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec_macros
+  Version: 0.3.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.3.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Deriving `SafeDebug` formats non-exhaustive types by default. Enable `debug` feature to format normal `Debug` output.
+    - Updated dependencies.
+- Name: typespec_client_core
+  Version: 0.3.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.3.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The `reqwest_rustls` feature enables `rustls-tls-native-roots-no-provider` instead of `rustls-tls-native-roots` to remove the dependency on the `ring` crate.
+- Name: azure_core_amqp
+  Version: 0.3.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.3.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+    - Converted AMQP traits to use `async_trait` rather than attempting to implement the `async_trait` functionality manually.
+    - Restructured and refactored AMQP errors to make them easier to interpret.
+- Name: azure_identity
+  Version: 0.24.0
+  DisplayName: Identity
+  ServiceName: identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.24.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AzureDeveloperCliCredential` authenticates the identity logged in to the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).
+    - Added the `AzureDeveloperCliCredential` to the `DefaultAzureCredential`.
+
+    #### Breaking Changes
+
+    - Moved `WorkloadIdentityCredential::new` arguments into `WorkloadIdentityCredentialOptions` except `token`, which has been removed (the credential now reads service account tokens only from a file).
+    - Removed `ClientAssertionCredential::from_env` and `ClientCertificateCredential::from_env`.
+    - Removed `WorkloadIdentityCredential::from_env`. `::new` now reads the same environment variables except for `AZURE_FEDERATED_TOKEN` (the Workload Identity webhook doesn't set that variable). `WorkloadIdentityCredentialOptions` overrides environment variable values.
+- Name: azure_security_keyvault_certificates
+  Version: 0.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.2.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_data_cosmos
+  Version: 0.23.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.23.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Query APIs (`CosmosClient::query_databases`, `DatabaseClient::query_containers`, `ContainerClient::query_items`) now return a `FeedPager` instead of an `azure_core::Pager`. The `FeedPager` type provides an abstraction over the transport layer, allowing for more flexibility when queries are executed over non-HTTP transports or are decoupled from specific HTTP responses (such as in cross-partition queries). ([#2393](https://github.com/Azure/azure-sdk-for-rust/pull/2393))
+
+    #### Features Added
+
+    * Decoupled query responses from HTTP to allow for handling non-HTTP transports for queries. ([#2393](https://github.com/Azure/azure-sdk-for-rust/pull/2393))
+- Name: azure_security_keyvault_keys
+  Version: 0.3.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.3.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_security_keyvault_secrets
+  Version: 0.3.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.3.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    ### Other Changes
+
+    - Updated dependencies.
+- Name: azure_messaging_eventhubs
+  Version: 0.3.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.3.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added EventHubs token refresh.
+    - Added retries for failed EventHubs operations.
+
+    #### Breaking Changes
+
+    - The `fully_qualified_domain` parameter to the `open` method on the `ProducerClient` and `ConsumerClient` builder now takes an `&str` instead of a `String` to better follow the Azure SDK for Rust API guidelines.
+- Name: azure_core_amqp
+  Version: 0.3.1
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.3.1/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `From<&AmqpValue>` converters for fundamental types.
+

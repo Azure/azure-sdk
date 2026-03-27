@@ -6,8 +6,6 @@ folder: golang
 sidebar: general_sidebar
 ---
 
-{% include draft.html content="The Go Language guidelines are in DRAFT status" %}
-
 ## Introduction
 
 The Go guidelines are for the benefit of client library designers targeting service applications written in [Go](https://golang.org/).
@@ -60,7 +58,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="golang-general-use-azcore-pipeline" %} use `azcore.Pipeline` to implement all methods that call Azure REST services.
 
-{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is https://golang.org/doc/effective_go.  Do **NOT** simply attempt to translate your language of choice into Go.
+{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is <https://golang.org/doc/effective_go>.  Do **NOT** simply attempt to translate your language of choice into Go.
 
 ### Support for non-HTTP Protocols
 
@@ -84,33 +82,28 @@ type WidgetClient struct {
 
 #### Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.  Constructors MUST return the client instance by reference.
+{% include requirement/MUST id="golang-client-constructors" %} provide one or more constructors in the following format that return a new instance of a service client type.  The "simple named" constructor MUST use an `azcore.TokenCredential`, assuming the service supports AAD authentication.  If not, then the preferred credential type is used instead.  Constructors MUST return the client instance by reference.
 
 ```go
-// NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+// NewWidgetClient creates a new instance of WidgetClient with the specified values.
 // endpoint - The URI of the Widget.
-// cred - The credential used to authenticate with the Widget service.
+// cred - The AAD token credential used to authenticate with the Widget service.
 // options - Optional WidgetClient values.  Pass nil to accept default values.
-func NewWidgetClient(endpoint string, cred azcore.Credential, options *WidgetClientOptions) (*WidgetClient, error) {
+func NewWidgetClient(endpoint string, cred azcore.TokenCredential, options *WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 
-// NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
-// endpoint - The URI of the Widget.
-// p - The pipeline used to process HTTP requests and responses for this WidgetClient.
-func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetClient, error) {
+// NewWidgetClientWithNoCredential creates a new instance of WidgetClient with the specified values.
+// endpoint - The URI of the Widget that supports anonymous/SAS authentication
+// options - Optional WidgetClient values.  Pass nil to accept default values.
+func NewWidgetClientWithNoCredential(endpoint string, options *WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
-```
 
-{% include requirement/MUST id="golang-client-constructors" %} provide a default constructor in the following format for services with a default endpoint (management plane is the most common example).
-
-```go
-// NewDefaultClient creates a new instance of WidgetClient with the specified values.  It uses the default endpoint and pipeline configuration.
-// cred - The credential used to authenticate with the Widget service.
-// options - Optional Client values.  Pass nil to accept default values.
-func NewDefaultClient(cred azcore.Credential, options *ClientOptions) (*WidgetClient, error) {
-
+// NewWidgetClientFromConnectionString creates a new instance of WidgetClient from the specified connection string.
+// options - Optional WidgetClient values.  Pass nil to accept default values.
+func NewWidgetClientFromConnectionString(connectionString string, options *WidgetClientOptions) (*WidgetClient, error) {
+	// ...
 }
 ```
 
@@ -118,11 +111,11 @@ func NewDefaultClient(cred azcore.Credential, options *ClientOptions) (*WidgetCl
 
 ##### Service Client Configuration
 
-TODO
-
 ##### Setting the Service Version
 
-TODO
+{% include requirement/MUST id="golang-api-service-client-versioning-highest-api" %} call the highest supported service API version by default.
+
+{% include requirement/MUST id="golang-api-service-client-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
 
 ##### Client Immutability
 
@@ -164,24 +157,21 @@ The Go idiom is to expose only synchronous methods.  This allows callers to impl
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
-The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers, body, and the HTTP response. For example, you may expose an `ETag` header as a property on the response envelope. `<Resource>Response` is the ‘response envelope’. It contains HTTP headers, the object (a deserialized object created from the response body), and the raw HTTP response.  Response envelopes MUST be returned by value.
+The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers and response body. For example, you may expose an `ETag` header as a property on the response envelope. `<Client><Method>Response` is the ‘response envelope’. It contains HTTP headers and the object (a deserialized object created from the response body).  Response envelopes MUST be returned by value.
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the response envelope for the normal form of a service method. The response envelope MUST represent the information needed in the 99%+ case.
 
 ```go
-// WidgetResponse is the response envelope for operations that return a Widget type.
-type WidgetResponse struct {
+// WidgetClientGetResponse contains the response from method WidgetClient.Get.
+type WidgetClientGetResponse struct {
 	// ETag contains the value from the ETag header.
-	ETag *string
+	ETag *azcore.ETag
 
 	// LastModified contains the value from the last-modified header.
 	LastModified *time.Time
 
 	// Widget contains the unmarshalled response body in Widget format.
-	Widget *Widget
-
-	// RawResponse contains the underlying HTTP response.
-	RawResponse *http.Response
+	Widget
 }
 
 type Widget struct {
@@ -189,7 +179,7 @@ type Widget struct {
 	Color WidgetColor
 }
 
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
+func (c *WidgetClient) Get(ctx context.Context, name string, options *WidgetClientGetOptions) (WidgetClientGetResponse, error) {
 	// ...
 }
 ```
@@ -197,11 +187,15 @@ func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetW
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
 ```go
-func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options *GetBinaryResponseOptions) (*http.Response, error) {
-	// ...
+// WidgetClientGetBinaryResponse contains the response from method WidgetClient.GetBinaryResponse.
+type WidgetClientGetBinaryResponse struct {
+	// Body contains the streaming response.
+	Body io.ReadCloser
 }
 
-// callers read from the io.ReadCloser Body field on the HTTP response.
+func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options *WidgetClientGetBinaryResponseOptions) (WidgetClientGetBinaryResponse, error) {
+	// ...
+}
 ```
 
 {% include requirement/MUST id="golang-response-logical-paging" %} provide an idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For more information on what to return for List operations, refer to [Pagination](#pagination).
@@ -236,31 +230,31 @@ Cancellation is handled via the `context.Context` paramater, which is _always_ t
 
 ##### Optional Parameters
 
-{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.  If the method contains no optional parameters, the `options` struct should have a comment indicating it's a placeholder for future optional parameters.
+{% include requirement/MUST id="golang-api-options-struct" %} define a `<Client><Method>Options` structure for every method.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.  If the method contains no optional parameters, the `options` struct should have a comment indicating it's a placeholder for future optional parameters.
 
 ```go
-// GetWidgetOptions contains the optional parameters for the Widget.Get method.
-type GetWidgetOptions struct {
+// WidgetClientGetOptions contains the optional parameters for the WidgetClient.Get method.
+type WidgetClientGetOptions struct {
 	Tag *string
 	Length *int
 }
 
-// SetWidgetOptions contains the optional parameters for the Widget.Set method.
-type SetWidgetOptions struct {
+// WidgetClientSetOptions contains the optional parameters for the WidgetClient.Set method.
+type WidgetClientSetOptions struct {
 	// placeholder for future optional parameters
 }
 ```
 
-{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
+{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<Client><Method>Options` structure **are required** to be semantically equivalent.
 
 {% include requirement/MUST id="golang-api-params" %} document all parameters as part of the method block comment.
 
 ```go
-// GetWidget retrieves the specified Widget.
+// Get retrieves the specified Widget.
 // ctx - The context used to control the lifetime of the request.
 // name - The name of the Widget to retrieve.
 // options - Any optional parameters.
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
+func (c *WidgetClient) Get(ctx context.Context, name string, options *WidgetClientGetOptions) (WidgetClientGetResponse, error) {
 	// ...
 }
 ```
@@ -277,122 +271,66 @@ The service client will have several methods that perform requests on the servic
 
 #### Methods Returning Collections (Paging)
 
-{% include requirement/MUST id="golang-pagination" %} return a value that implements the Pager interface for operations that return pages.  The Pager interface allows consumers to iterate over all pages as defined by the service.
+{% include requirement/MUST id="golang-pagination" %} return an instance of `*runtime.Pager[T]` for operations that return pages.  `runtime.Pager[T]` allows consumers to iterate over all pages as defined by the service.
 
-{% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface types with the name `<Resource>Pager` that are to be returned from their respective operations.
+{% include requirement/MUST id="golang-paged-method-naming" %} name methods that return a `*runtime.Pager[T]` with pattern `New<Operation>Pager`.
 
-{% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `PageResponse()`, and `Err()` on the `<Resource>Pager` type.
-
-```go
-// WidgetPager provides iteration over ListWidgets pages.
-type WidgetPager interface {
-	// NextPage returns true if the pager advanced to the next page.
-	// Returns false if there are no more pages or an error occurred.
-	NextPage(context.Context) bool
-
-	// PageResponse returns the current WidgetsPage.
-	PageResponse() ListWidgetsResponse
-
-	// Err returns the last error encountered while paging.
-	Err() error
-}
-
-type ListWidgetsResponse struct {
-	RawResponse *http.Response
-	Widgets *[]Widget
-}
-```
-
-{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return a Pager.  The `List` method creates the Pager but does NOT perform an IO operation.
+{% include requirement/MUSTNOT id="golang-paging-io" %} perform any IO when creating the `runtime.Pager[T]`.  This implies that the method does NOT take a context and does NOT return an error.
 
 ```go
-func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
+func (c *WidgetClient) NewListPager(options *WidgetClientListOptions) *runtime.Pager[WidgetClientListResponse] {
 	// ...
 }
 
-pager := client.ListWidgets(options)
-for pager.NextPage(ctx) {
-	for _, w := range pager.PageResponse().Widgets {
+type WidgetClientListResponse struct {
+	WidgetsListResult
+}
+
+type WidgetsListResult struct {
+	Values []*Widget
+
+	NextLink *string
+}
+
+pager := client.NewListPager(nil)
+for pager.More() {
+	page, err := pager.NextPage(context.Background())
+	if err != nil {
+		// handle error...
+	}
+	for _, w := range page.Value {
 		process(w)
 	}
 }
-if pager.Err() != nil {
-	// handle error...
-}
 ```
 
-{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize a Pager so that paging can pause and continue, potentially on another machine.
+{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize a `runtime.Pager[T]` so that paging can pause and continue, potentially on another machine.
 
 #### Methods Invoking Long Running Operations
 
-{% include requirement/MUST id="golang-lro-poller" %} return a value that implements the Poller interface for long-running operation methods.  The Poller interface encapsulates the polling and status of the long-running operation.
+{% include requirement/MUST id="golang-lro-poller" %} return an instance of `*runtime.Poller[T]` for long-running operation methods.  `runtime.Poller[T]` encapsulates the polling and status of the long-running operation.
 
-{% include requirement/MUST id="golang-lro-poller-name" %} create Poller interface types with the name `<Resource>Poller` that are to be returned from their respective operations.
-
-{% include requirement/MUST id="golang-lro-poller-def" %} provide the following methods on a `<Resource>Poller` type: `Done()`, `ResumeToken()`, `Poll()`, and `FinalResponse()`.
+{% include requirement/MUST id="golang-lro-method-naming" %} prefix methods which return a `*runtime.Poller[T]` with `Begin`.
 
 ```go
-// Poller provides operations for checking the state of a long-running operation.
-// An LRO can be in either a non-terminal or terminal state.  A non-terminal state
-// indicates the LRO is still in progress.  A terminal state indicates the LRO has
-// completed successfully, failed, or was cancelled.
-type WidgetPoller interface {
-	// Done returns true if the LRO has reached a terminal state.
-	Done() bool
-
-	// ResumeToken returns a value representing the poller that can be used to resume
-	// the LRO at a later time. ResumeTokens are unique per service operation.
-	ResumeToken() string
-
-	// Poll fetches the latest state of the LRO.  It returns an HTTP response or error.
-	// If the LRO has completed successfully, the poller's state is update and the HTTP
-	// response is returned.
-	// If the LRO has completed with failure or was cancelled, the poller's state is
-	// updated and the error is returned.
-	// If the LRO has not reached a terminal state, the poller's state is updated and
-	// the latest HTTP response is returned.
-	// If Poll fails, the poller's state is unmodified and the error is returned.
-	// Calling Poll on an LRO that has reached a terminal state will return the final
-	// HTTP response or error.
-	Poll(context.Context) (*http.Response, error)
-
-	// FinalResponse performs a final GET to the service and returns the final response
-	// for the polling operation. If there is an error performing the final GET then an error is returned.
-	// If the final GET succeeded then the final WidgetResponse will be returned.
-	FinalResponse(context.Context) (WidgetResponse, error)
-}
-```
-
-{% include requirement/MUST id="golang-lro-wait-method" %} accept a `pollingInterval` argument in the `PollUntilDone()` method to be used in the absence of relevant retry-after headers from the service.
-
-{% include requirement/MUST id="golang-lro-method-naming" %} prefix methods which return a `<Resource>Poller` with `Begin`.
-
-```go
-// WidgetPollerResponse is the response envelope for operations that asynchronously return a Widget type.
-type WidgetPollerResponse struct {
-	// PollUntilDone will poll the service endpoint until a terminal state is reached or an error is received.
-	PollUntilDone func(context.Context, time.Duration) (WidgetResponse, error)
-
-	// Poller contains an initialized WidgetPoller.
-	Poller WidgetPoller
-
-	// RawResponse contains the underlying HTTP response.
-	RawResponse *http.Response
-}
-
 // BeginCreate creates a new widget with the specified name.
-func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (WidgetPollerResponse, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *WidgetClientBeginCreateOptions) (*runtime.Poller[WidgetClientCreateResponse], error) {
 	// ...
+}
+
+// WidgetClientCreateResponse contains the response from method WidgetClient.BeginCreate.
+type WidgetClientCreateResponse struct {
+	Widget
 }
 ```
 
-{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `<Resource>Poller` type with the `ResumeToken` from a previous call to `Poller.ResumeToken()`.
+{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a field named `ResumeToken` in the `<Client><Method>Options` type used to instantiate a `*runtime.Poller[T]` type with the `ResumeToken` from a previous call to `Poller[T].ResumeToken()`.
 
 ```go
-// ResumeWidgetPoller creates a new WidgetPoller from the specified ResumtToken.
-// resumeToken - The value must come from a previous call to WidgetPoller.ResumeToken().
-func (c WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
-	// ...
+// WidgetClientBeginCreateOptions contains the optional parameters for the WidgetClient.BeginCreate method.
+type WidgetClientBeginCreateOptions struct {
+	// Resumes the LRO from the provided token.
+	ResumeToken string
 }
 ```
 
@@ -402,22 +340,24 @@ func (c WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
 
 ```go
 // example #1, blocking call to PollUntilDone()
-resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
+poller, err := client.BeginCreate(context.Background(), "blue_widget", nil)
 if err != nil {
 	// handle error...
 }
-w, err = resp.PollUntilDone(context.Background(), 5*time.Second)
+
+w, err = poller.PollUntilDone(context.Background(), &runtime.PollUntilDoneOptions{Frequency: 5*time.Second})
 if err != nil {
 	// handle error...
 }
+
 process(w)
 
 // example #2, customized poll loop
-resp, err := client.BeginCreate(context.Background(), "green_widget")
+poller, err := client.BeginCreate(context.Background(), "green_widget")
 if err != nil {
 	// handle error...
 }
-poller := resp.Poller
+
 for {
 	resp, err := poller.Poll(context.Background())
 	if err != nil {
@@ -426,13 +366,13 @@ for {
 	if poller.Done() {
 		break
 	}
-	if delay := azcore.RetryAfter(resp); delay > 0 {
+	if delay := runtime.RetryAfter(resp); delay > 0 {
 		time.Sleep(delay)
 	} else {
 		time.Sleep(frequency)
 	}
 }
-w, err := poller.FinalResponse(ctx)
+w, err := poller.Result(context.Background())
 if err != nil {
 	// handle error ...
 }
@@ -440,44 +380,34 @@ process(w)
 
 // example #3, resuming from a previous operation
 // getting the resume token from a previous poller instance
-poller := resp.Poller
+poller, err := client.BeginCreate(context.Background(), "blue_widget", nil)
+if err != nil {
+	// handle error...
+}
+
 tk, err := poller.ResumeToken()
 if err != nil {
 	// handle error ...
 }
+
 // resuming from the resume token that was previously saved
-poller, err := client.ResumeWidgetPoller(tk)
+poller, err = client.BeginCreate(context.Background(), "", &WidgetClientBeginCreateOptions{
+	ResumeToken: tk,
+})
 if err != nil {
 	// handle error ...
 }
-for {
-	resp, err := poller.Poll(context.Background())
-	if err != nil {
-		// handle error ...
-	}
-	if poller.Done() {
-		break
-	}
-	if delay := azcore.RetryAfter(resp); delay > 0 {
-		time.Sleep(delay)
-	} else {
-		time.Sleep(frequency)
-	}
-}
-w, err := poller.FinalResponse(ctx)
+
+w, err = poller.PollUntilDone(context.Background(), nil)
 if err != nil {
-	// handle error ...
+	// handle error...
 }
 process(w)
 ```
 
 ##### Conditional Request Methods
 
-TODO
-
 ##### Hierarchical Clients
-
-TODO
 
 ### Supporting Types
 
@@ -485,11 +415,7 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 #### Model Types
 
-TODO
-
 ##### Model Type Naming
-
-TODO
 
 #### Constants as Enumerations
 
@@ -497,11 +423,7 @@ TODO
 
 #### Azure Core Types
 
-TODO
-
 #### Primitive Types
-
-TODO
 
 ### Error Handling
 
@@ -555,8 +477,6 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ### Package Naming
 
-TODO (namespaces in other languages)
-
 ### Support for Mocking
 
 One of the key things we want to support is to allow consumers of the package to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
@@ -579,7 +499,7 @@ Go groups related types in a package.  In Go, the package should be named `<pref
 
 {% include requirement/MUST id="golang-package-name" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure compute management package would be named `armcompute` and the Azure blob storage package would be named `azblob`.
 
-{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
+{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list] for a list of the currently registered packages.
 
 #### Directory Structure
 
@@ -653,7 +573,7 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 {% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, credential handling, and more.
 
-{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `sdk/internal` package for functionality that is common across all client packages that should not be publicly exported.  This package includes helpers for creating errors with stack frame information, and more.
+{% include requirement/MUST id="golang-dependencies-sdk-internal" %} depend on the `sdk/internal` package for functionality that is common across all client packages that should not be publicly exported.  This package includes helpers for creating errors with stack frame information, and more.
 
 {% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
 
@@ -661,7 +581,9 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 ### Native Code
 
-TODO
+Native dependencies introduce lots of complexities and should be avoided.
+
+{% include requirement/SHOULDNOT id="golang-problems-native-dependencies" %} use native dependencies.
 
 ### Doc Comments
 
@@ -681,7 +603,13 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 ### README
 
-TODO
+{% include requirement/MUST id="golang-docs-readme" %} have a README.md file in the package root folder.
+
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/security/keyvault/azkeys/README.md).
+
+{% include requirement/MUST id="golang-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
+
+The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to from the main component `README.md`.
 
 ### Samples
 

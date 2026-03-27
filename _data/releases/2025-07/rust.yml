@@ -1,0 +1,163 @@
+entries:
+- Name: azure_core
+  Version: 0.26.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.26.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `http::PollerOptions` parameter to `http::poller::get_retry_after`.
+    - Implemented `FromStr` where `FromStr::Err = Infallible` for `PollerStatus` instead of `From<&str>`.
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - `azure_core::http::Pipeline::new` now takes an `azure_core::http::ClientOptions` which is defined in `azure_core`, but convertible to `typespec_client_core::http::ClientOptions`.
+    - Moved `process::Executor` to `azure_identity`.
+    - Removed `Pipeline::replace_policy`.
+    - Removed unused `location` and `body` modules from `http::poller`.
+    - Renamed `azure_core::date` to `azure_core::time` and added `azure_core::time::Duration` as the standard "duration" type for the SDK.
+    - Renamed `http::poller::body_content` to `http::poller::body`.
+    - Renamed `PagerResult::More { next }` to `continuation`.
+    - Renamed `PollerStatus::Other` to `PollerStatus::UnknownValue` following [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html#rust-enum-extensible).
+    - Renamed `TelemetryOptions` to `UserAgentOptions`.
+    - Renamed `TelemetryPolicy` to `UserAgentPolicy`.
+
+    #### Features Added
+
+    - Added `get_async_runtime()` and `set_async_runtime()` to allow customers to replace the asynchronous runtime used by the Azure SDK.
+    - Added `PageIterator::continuation_token()` and `PageIterator::with_continuation_token()` to support reconstructing a `PageIterator` in another process or on another machine to continue paging.
+    - Added `Poller<T>` for long-running operations (LROs).
+    - Added `Request::set_method()` to allow changing the HTTP method of a request.
+    - Added `StatusMonitor` for long-running operations.
+- Name: azure_core_amqp
+  Version: 0.5.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.5.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Converted all `time::Duration` references to be `azure_core::time::Duration`.
+- Name: typespec_macros
+  Version: 0.5.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.5.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: typespec_client_core
+  Version: 0.5.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.5.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Removed `Pipeline::replace_policy`.
+    - Renamed `typespec_client_core::date` to `typespec_client_core::time` and added `typespec_client_core::time::Duration`
+
+    #### Features Added
+
+    - Added `get_async_runtime()` and `set_async_runtime()` to allow customers to replace
+    the default asynchronous runtime with another.
+    - Added `Request::set_method()` to allow changing the HTTP method of a request.
+- Name: typespec
+  Version: 0.6.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.6.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: azure_security_keyvault_certificates
+  Version: 0.4.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.4.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `CertificateClientExt` trait for `CertificateClient` with `begin_create_certificate` and `resume_certificate_operation` methods that return the new `Poller<CertificateOperation>`.
+    These extension methods are likely temporary until `Poller` support is added to the TypeSpec emitter and we update `CertificateClient::create_certificate` and `get_certificate_operation` to return a `Poller<CertificateOperation>`.
+
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: azure_security_keyvault_secrets
+  Version: 0.5.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.5.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: azure_security_keyvault_keys
+  Version: 0.5.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.5.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+- Name: azure_identity
+  Version: 0.26.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.26.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Converted all `time::Duration` types to `azure_core::time::Duration`
+    - Replaced `azure_core::process::Executor` with `azure_identity::process::Executor`.
+    - Renamed `azure_core::date` module to `azure_core::time`
+- Name: azure_storage_blob
+  Version: 0.3.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.3.0/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added lease support (`acquire_lease`, `break_lease`, `change_lease`, `release_lease`, and `renew_lease`) to `BlobContainerClient` and `BlobClient`.
+    * Added two new blob client types, `AppendBlobClient` and `PageBlobClient`.
+    * Added support for `list_containers` to `BlobServiceClient`.
+- Name: azure_messaging_eventhubs
+  Version: 0.5.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.5.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Minimum supported Rust version (MSRV) is now 1.85.
+    - Converted all `time::Duration` types to `azure_core::time::Duration`
+

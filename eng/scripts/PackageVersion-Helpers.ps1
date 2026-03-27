@@ -1,16 +1,36 @@
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
 
-function GetLatestTags($repo, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-1))
+function Get-GitHubHeaders()
 {
-  $GithubHeaders = @{}
+  <#
+  .SYNOPSIS
+  Creates headers for GitHub API requests with optional authentication.
+  
+  .RETURNS
+  A hashtable containing headers for GitHub API requests, or $null if github_pat is not available
+  #>
+  
   if (!$github_pat) {
     Write-Error "github_pat was not set so retrieving tag information might be rate-limited"
     return $null
   }
-  else {
-    $GithubHeaders = @{
-      Authorization = "bearer ${github_pat}"
-    }
+  
+  $headers = @{
+    "Accept" = "application/vnd.github+json"
+  }
+  
+  if ($github_pat) {
+    $headers["Authorization"] = "bearer ${github_pat}"
+  }
+  
+  return $headers
+}
+
+function GetLatestTags($repo, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1))
+{
+  $GithubHeaders = Get-GitHubHeaders
+  if (!$GithubHeaders) {
+    return $null
   }
 
   # https://docs.github.com/en/graphql/overview/explorer is a good tool for debugging these graph queries
@@ -71,30 +91,35 @@ function GetLatestTags($repo, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-
 
       foreach ($tagNode in $response.data.repository.refs.nodes)
       {
+        $annotatedTag = $false
+        # Capture the dates as datetimeoffset as they are usually utc and we mostly only care about the date part and not the time
         if ($tagNode.target.psobject.members.name -contains "committedDate")
         {
           # For lightweight tags the target is directly a commit
-          $tagDate = [DateTime]$tagNode.target.committedDate
+          $tagDate = [DateTimeOffset]$tagNode.target.committedDate
         }
         else {
           # For annotated tags the target is one more level deep from the commit
-          $tagDate = [DateTime]$tagNode.target.target.committedDate
+          $tagDate = [DateTimeOffset]$tagNode.target.target.committedDate
+          $annotatedTag = $true
         }
-
-        # Convert the commit times from UTC to local for comparison
-        $tagDate = $tagDate.ToLocalTime();
 
         if ($tagDate -ge $afterDate) {
           Write-Verbose "Found $($tagNode.name) in repo $repo with date ${tagDate}"
           $tags += [PSCustomObject]@{
             Tag = $tagNode.name
-            Date = $tagDate
+            # Remove the time part of this date and note this date is UTC so depending on usage context
+            # this can cause an off-by-one day issue if used to compare against local
+            Date = $tagDate.ToString("MM/dd/yyy")
           }
         }
         else {
-          Write-Verbose "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
-          $done = $true
-          break
+          # Don't break to loop on annotated tags as they can point at really old commits
+          if (!$annotatedTag) {
+            Write-Verbose "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
+            $done = $true
+            break
+          }
         }
       }
     } until ($done)
@@ -117,11 +142,21 @@ function ToSemVer($version, $tagDate = "Unknown")
   return $sv
 }
 
-function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-1), $tagSplit = "_")
+function Get-DateFromSemVer($semVer)
+{
+  $d = $semVer.Date -as [DateTime]
+  if ($d) {
+    return $d.ToString("MM/dd/yyyy")
+  }
+  return ""
+}
+
+function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]::UtcNow.AddMonths(-1), $tagSplit = "_")
 {
   $repoName = "azure-sdk-for-$lang"
   if ($lang -eq "dotnet") { $repoName = "azure-sdk-for-net" }
   if ($lang -eq "go") { $tagSplit = "/v" }
+  if ($lang -eq "rust") { $tagSplit = "@" }
   if ($lang -eq "c") { $tagSplit = $null }
 
   $tags = GetLatestTags $repoName $afterDate
@@ -133,14 +168,15 @@ function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMon
 
     if ($tagSplit)
     {
-      $sp = $tagName -split $tagSplit
-      if ($sp.Length -ne 2) {
-        Write-Verbose "Failed to split tag correctly in language '$lang' with tag '$tagName'."
+      $splitIndex = $tagName.LastIndexOf($tagSplit)
+
+      if ($splitIndex -lt 0) {
+        Write-Verbose "Failed to file '$tagSplit' in tag in language '$lang' for tag '$tagName'."
         continue
       }
 
-      $package = $sp[0]
-      $version = $sp[1]
+      $package = $tagName.Substring(0, $splitIndex)
+      $version = $tagName.Substring($splitIndex + $tagSplit.Length)
     }
     else
     {
@@ -171,4 +207,100 @@ function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMon
     }
   }
   return $packageVersions
+}
+
+function Get-GitHubTag($repo, $tagName)
+{
+  <#
+  .SYNOPSIS
+  Gets a GitHub tag reference from a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to retrieve
+  
+  .RETURNS
+  The tag object with SHA if found, $null otherwise
+  #>
+  
+  $headers = Get-GitHubHeaders
+  if (!$headers) {
+    return $null
+  }
+  
+  try {
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/ref/tags/$tagName" `
+      -Headers $headers `
+      -Method Get `
+      -StatusCodeVariable statusCode `
+      -SkipHttpErrorCheck
+    
+    if ($statusCode -eq 200 -and $response -and $response.object) {
+      return $response
+    }
+    
+    if ($statusCode -ne 200 -and $statusCode -ne 404) {
+      Write-Verbose "Failed to retrieve tag '$tagName' from repository '$repo': HTTP $statusCode"
+    }
+  }
+  catch {
+    Write-Verbose "Error retrieving tag '$tagName' from repository '$repo': $_"
+  }
+  
+  return $null
+}
+
+function New-GitHubTag($repo, $tagName, $sha)
+{
+  <#
+  .SYNOPSIS
+  Creates a new GitHub tag reference in a repository.
+  
+  .PARAMETER repo
+  The repository name in format "owner/repo"
+  
+  .PARAMETER tagName
+  The name of the tag to create
+  
+  .PARAMETER sha
+  The SHA of the commit to tag
+  
+  .RETURNS
+  $true if tag was created successfully, $false otherwise
+  #>
+  
+  $headers = Get-GitHubHeaders
+  if (!$headers) {
+    return $false
+  }
+  
+  try {
+    $createTagBody = @{
+      ref = "refs/tags/$tagName"
+      sha = $sha
+    }
+
+    $response = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/git/refs" `
+      -Headers $headers `
+      -Method Post `
+      -Body ($createTagBody | ConvertTo-Json) `
+      -ContentType "application/json" `
+      -StatusCodeVariable statusCode `
+      -SkipHttpErrorCheck
+    
+    if ($statusCode -eq 201 -and $response -and $response.ref) {
+      Write-Verbose "Successfully created tag '$tagName' in repository '$repo'"
+      return $true
+    }
+    else {
+      Write-Warning "Failed to create tag '$tagName' in repository '$repo': HTTP $statusCode"
+      return $false
+    }
+  }
+  catch {
+    Write-Warning "Failed to create tag '$tagName' in repository '$repo': $_"
+    return $false
+  }
 }

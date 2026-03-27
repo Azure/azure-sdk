@@ -59,6 +59,12 @@ function CheckLink($link, $showWarningIfMissing=$true)
     return $checkedLinks[$link]
   }
 
+  if ($link -match "^https://www.npmjs\.com/package/(?<package>.*)/v(?<version>.*)") {
+    # npmjs.com started using Cloudflare which returns 403 and we need to instead check the registry api for existence checks
+    # https://github.com/orgs/community/discussions/174098#discussioncomment-14461226
+    $link = "https://registry.npmjs.org/$($matches["package"] + $matches["version"])"
+  }
+
   try
   {
     Write-Verbose "Checking $link"
@@ -86,7 +92,7 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$skipIfNA -or $pkg.MSDocs -eq "")
   {
     $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
-    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package $pkg.VersionGA
+    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
     if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
       $msdocLink += $preSuffix
@@ -103,6 +109,13 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
         $pkg.MSDocs = "NA"
       }
     }
+  }
+
+  # We always perfer to the MSDoc links over GHDocs so they will never be displayed if MSDoc is setup so we
+  # don't need to worry about checking the GHDoc links unless MSDocs is NA.
+  if ($pkg.MSDocs -ne "NA") 
+  {
+    return
   }
 
   if (!$skipIfNA -or $pkg.GHDocs -eq "")
@@ -132,16 +145,16 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 
 function CheckRequiredLinks($linkTemplates, $pkg, $version)
 {
-  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
-  $valid = $true;
-  if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink $srcLink)
-  }
-
   # GroupId only exists for java so we need to test before we try and access
   $groupId = $null
   if ([bool]($pkg.PSobject.Properties.name -match "GroupId")) {
     $groupId = $pkg.GroupId
+  }
+
+  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+  $valid = $true;
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink $srcLink)
   }
 
   $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
@@ -151,7 +164,7 @@ function CheckRequiredLinks($linkTemplates, $pkg, $version)
   return $valid
 }
 
-function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
+function GetFirstGADate($pkg, $gaVersions)
 {
   if ($gaVersions.Count -gt 0) {
     $gaIndex = $gaVersions.Count - 1;
@@ -168,9 +181,9 @@ function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
     }
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
-    $committeDate = $gaVersion.Date
+    $committeDate = $gaVersion.Date -as [DateTime]
 
-    if ($committeDate -is [DateTime]) {
+    if ($committeDate) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
       Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
       return $committeDate
@@ -179,12 +192,80 @@ function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
   return ""
 }
 
+function GetFirstPreviewDate($pkg, $previewVersions)
+{
+  if ($previewVersions.Count -gt 0) {
+    $previewIndex = $previewVersions.Count - 1;
+    $otherPackage = $global:otherPackages.Where({ $_.Package -eq $pkg.Package })
+
+    if ($otherPackage.Count -gt 0 -and $otherPackage[0].VersionPreview) {
+      Write-Verbose "Found other package entry for '$($pkg.Package)'";
+      for ($i = 0; $i -lt $previewVersions.Count; $i++) {
+        if ($otherPackage[0].VersionPreview -eq $previewVersions[$i].RawVersion) {
+          Write-Verbose "Found older package entry for '$($pkg.Package)' Preview version of $($otherPackage[0].VersionPreview) so picking the next Preview for first Preview date."
+          $gaIndex = ($i - 1)
+        }
+      }
+    }
+    if ($previewIndex -lt 0) { return "" }
+    $previewVersion = $previewVersions[$previewIndex]
+    $committeDate = $previewVersion.Date -as [DateTime]
+
+    if ($committeDate) {
+      $committeDate = $committeDate.ToString("MM/dd/yyyy")
+      Write-Host "For package '$($pkg.Package)' picking Preview '$($previewVersion.RawVersion)' shipped on '$committeDate' as the first new Preview date."
+      return $committeDate
+    }
+  }
+  return ""
+}
+
+function Ensure-JavaTag($pkg, $version)
+{
+    $repo = "Azure/azure-sdk-for-java"
+    $newTag = "$($pkg.GroupId)+$($pkg.Package)_${version}"
+    
+    # Check if the new tag exists
+    $newTagRef = Get-GitHubTag $repo $newTag
+    
+    if (!$newTagRef) {
+        $oldTag = "$($pkg.Package)_${version}"
+        
+        # Check if the old tag exists
+        $oldTagRef = Get-GitHubTag $repo $oldTag
+        
+        if ($oldTagRef -and $oldTagRef.object.sha) {
+            # Create the new tag using the same SHA as the old tag
+            $created = New-GitHubTag $repo $newTag $oldTagRef.object.sha
+            
+            if ($created) {
+                Write-Host "Created new java tag format for older version $newTag"
+            }
+        }
+        else {
+            Write-Host "Didn't find tag $newTag and expected to find an old tag $oldTag but didn't so we couldn't create the new tag."
+        }
+    }
+}
+
 function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
-    if ($langVersions.ContainsKey($pkg.Package)) {
+
+    $checkVersionTagsForJava = $false
+    if ($pkg.PSObject.Properties.Name -contains "GroupId" -and $langVersions.ContainsKey("$($pkg.GroupId)+$($pkg.Package)")) {
+      # Some java packages use the GroupId+Package as the tag name so check for that case
+      $pkgVersion = $langVersions["$($pkg.GroupId)+$($pkg.Package)"]
+
+      if($pkg.RepoPath -match "^https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/(?<serviceDirectory>.*)/item.Package/") {
+        # Reset the RepoPath to just the service directory if we have shipped a new version because it should now follow the new GroupId+Package format
+        $pkg.RepoPath = $matches["serviceDirectory"]
+        $checkVersionTagsForJava = $true
+      }
+    }
+    elseif ($langVersions.ContainsKey($pkg.Package)) {
       $pkgVersion = $langVersions[$pkg.Package]
     }
     elseif ($langVersions.ContainsKey("")) {
@@ -192,8 +273,9 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       $pkgVersion = $langVersions[""]
     }
 
-    if ($null -eq $pkgVersion) {
+    if ($null -eq $pkgVersion -or !$pkgVersion.Versions) {
       Write-Verbose "Skipping update for $($pkg.Package) as we don't have version info for it. "
+      CheckOptionalLinks $langLinkTemplates $pkg
       continue;
     }
 
@@ -208,10 +290,12 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     $versions = [AzureEngSemanticVersion]::SortVersions($versions)
 
     $latestPreview = $versions[0].RawVersion
+    $previewVersions = $versions.Where({ $_.IsPrerelease })
     $gaVersions = $versions.Where({ !$_.IsPrerelease })
     if ($gaVersions.Count -ne 0)
     {
       $latestGA = $gaVersions[0].RawVersion
+      $latestGADate = Get-DateFromSemVer $gaVersions[0]
       if ($latestGA -eq $latestPreview) {
         $latestPreview = ""
       }
@@ -231,20 +315,30 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionGA -ne $version) {
       if (CheckRequiredLinks $langLinkTemplates $pkg $version){
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        Write-Host "Updating VersionGA for '$($pkg.Package)' from '$($pkg.VersionGA)' to '$version'"
         $pkg.VersionGA = $version;
       }
       else {
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionGA
+    }
 
-    if ($pkg.VersionGA -and $pkg.Type -eq "client") {
-      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
-        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
+    if ($pkg.VersionGA) {
+      if (!$pkg.FirstGADate) {
+        $pkg.FirstGADate = GetFirstGADate $pkg $gaVersions
+      }
+      if ($latestGADate) {
+        $pkg.LatestGADate = $latestGADate
       }
     }
 
+    if (!$pkg.FirstPreviewDate) {
+      $pkg.FirstPreviewDate = GetFirstPreviewDate $pkg $previewVersions
+    }
     $version = $latestPreview
 
     if ($compareTagVsGHIOVersions) {
@@ -258,13 +352,18 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     elseif ($pkg.VersionPreview -ne $version) {
       if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        Write-Host "Updating VersionPreview for '$($pkg.Package)' from '$($pkg.VersionPreview)' to '$version'"
         $pkg.VersionPreview = $version;
       }
       else {
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
+    elseif ($checkVersionTagsForJava) {
+      # When we found a new tag format but we didn't update this version we need to check that the tag is in the correct format
+      Ensure-JavaTag $pkg $pkg.VersionPreview
+    }
+
     CheckOptionalLinks $langLinkTemplates $pkg
   }
 }
@@ -282,6 +381,7 @@ function OutputVersions($lang)
   Write-Host "Checking doc links for other packages"
   foreach ($otherPackage in $otherPackages)
   {
+    if ($otherPackage.Hide) { continue }
     CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
   }
 
@@ -305,7 +405,35 @@ function CheckAll($langs)
   {
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
     $csvFile = Get-LangCsvFilePath $lang
-
+    $allClientPackages = Get-PackageListForLanguage $lang
+ 
+    foreach ($pkg in $allClientPackages){
+      if(($pkg.Support -eq "deprecated")) {
+        if (!$pkg.EOLDate -or $pkg.EOLDate -eq "NA")
+        {
+          Write-Warning "No EOLDate specified for deprecated package '$($pkg.Package)' in $csvFile."
+          $foundIssues = $true
+        }
+        if (!$pkg.Replace)
+        {
+          Write-Warning "No replacement package specified for deprecated package '$($pkg.Package)' in $csvFile."
+          Write-Warning "If the package name hasn't changed, copy the package name to the replacement library field."
+          $foundIssues = $true
+        }
+        # If a replacement package exists, check if the replacement name matches the deprecated name.
+        # Skip the migration guide check if the names are the same.
+        elseif ($pkg.Replace -ne $pkg.Package)
+        {
+          if (!$pkg.ReplaceGuide)
+          {
+            Write-Warning "No migration guide set for deprecated package '$($pkg.Package)' in $csvFile."
+            Write-Warning "Migration guide link should adhere to the following convention 'aka.ms/azsdk/<language>/migrate/<library>'"
+            $foundIssues = $true
+          }
+        }
+      }
+    }
+    
     foreach ($pkg in $clientPackages)
     {
       $serviceNames += [PSCustomObject][ordered]@{
@@ -352,7 +480,16 @@ function CheckAll($langs)
   $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
-  $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+  foreach ($service in $serviceGroups)
+  {
+    $languages = $service.Group.Lang | Sort-Object -Unique
+    $pkgGroups = $service.Group.PkgInfo | Group-Object DisplayName
+    Write-Host "$($service.Name) [$($languages -join ', ')]"
+    foreach ($pg in $pkgGroups)
+    {
+      Write-Host "        $($pg.Name) [$($pg.Group.Package -join ', ')]"
+    }
+  }
 
   if ($foundIssues) {
     Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."
@@ -360,7 +497,37 @@ function CheckAll($langs)
   }
 }
 
-if ($language -eq 'check') {
+function DumpAllShippedPackage()
+{
+  $packageList = @()
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    $langName = Get-LanguageName $lang
+
+    $packageVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddYears(-10))
+    Write-Host "Found $($packageVersions.Values.Count) packages for language $langName"
+
+    foreach ($pkg in $packageVersions.Values)
+    {
+      foreach ($pkgVersion in $pkg.Versions) 
+      {
+        $packageList += [PSCustomObject][ordered]@{
+          Language = $langName
+          Package = $pkg.Package
+          Version = $pkgVersion.RawVersion
+          Date = $pkgVersion.Date
+        }
+      }
+    }
+  }
+
+  Set-Content -Path "shipped-packages.csv" -Value ($packageList | ConvertTo-Csv -NoTypeInformation)
+}
+
+if ($language -eq "allShipped") {
+  DumpAllShippedPackage
+}
+elseif ($language -eq 'check') {
   CheckAll $languageNameMapping.Keys
 }
 elseif ($language -eq 'all') {

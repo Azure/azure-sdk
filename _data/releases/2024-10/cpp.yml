@@ -1,0 +1,128 @@
+entries:
+- Name: azure-storage-files-datalake
+  Version: 12.12.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.12.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.12.0-beta.1` are now generally available.
+- Name: azure-storage-blobs
+  Version: 12.13.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.13.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.13.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.8.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.8.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.8.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.11.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.11.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.11.0-beta.1` are now generally available.
+- Name: azure-storage-queues
+  Version: 12.4.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.4.0/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.4.0-beta.1` are now generally available.
+- Name: azure-core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new constructor for `Azure::Core::Context` that takes an `Azure::DateTime` deadline. This enables creating a new context directly with a deadline.
+    - Request logs to now include the `accept-range`, `content-range`, `range`, `WWW-Authenticate`, `x-ms-date`, `x-ms-error-code`, `x-ms-range`, and `x-ms-version` headers.
+    - Added default constructor, `Parse()`, and equality comparison operators to `Azure::Core::Uuid`.
+    - Added an `Azure::Core::ResourceIdentifier` type.
+
+    #### Breaking Changes
+
+    - Deprecated the `Azure::Core::Context::ApplicationContext` object.
+    - If customer code is using `Azure::Core::Context::ApplicationContext`, the customer should instead create their own root context object which is used
+    wherever the customer would have previously used `Azure::Core::Context::ApplicationContext`, i.e. `Azure::Core::Context(deadline)` instead of `Azure::Core::Context::ApplicationContext.WithDeadline(deadline)`.
+
+    #### Bugs Fixed
+
+    - Throw `std::invalid_argument` if the value of `TimeFractionFormat` enum passed in to `DateTime::ToString()` is invalid.
+    - `Azure::Core::Uuid::ToString()` is now `const`.
+    - Make the HTTP transport behavior consistent between WinHTTP and libcurl by disabling automatically following redirects on Windows.
+    - Added basic input validation to `Azure::Core::ResourceIdentifier` to ensure the prefix match what is expected.
+- Name: azure-identity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.10.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the request sent in `AzurePipelinesCredential` so it doesn't result in a redirect response when an invalid system access token is provided.
+
+    #### Breaking Changes
+
+    - Previously, if a clientId was specified for Cloud Shell managed identity, which is not supported, the clientId was passed into the request body. Now, an exception will be thrown if a clientId is specified for Cloud Shell managed identity.
+
+    #### Features Added
+
+    - Added support for providing an object ID or a resource ID to `ManagedIdentityCredential`.
+    - Added support for passing in the x509 certificate and its corresponding private key directly to `ClientCertificateCredential`, rather than reading from a pem file.
+    - Added support for sending an x5c parameter in `ClientCertificateCredential`.
+- Name: azure-storage-files-shares
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.12.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2025-01-05`.
+    - Added support for the provisioned V2 billing model.
+    - Added support for specifying the binary file permission format for `ShareFileClient::StartCopy()`.
+- Name: azure-storage-common
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.9.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Bumped up Account SAS version to `2025-01-05`.
+

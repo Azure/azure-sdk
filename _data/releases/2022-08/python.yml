@@ -1,0 +1,426 @@
+entries:
+- Name: azure-mgmt-extendedlocation
+  Version: 1.1.0
+  DisplayName: Resource Management - Extended Location
+  ServiceName: Extended Location
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-extendedlocation_1.1.0/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-digitaltwins-core
+  Version: 1.2.0
+  DisplayName: Digital Twins Core
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-digitaltwins-core_1.2.0/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: '- GA release'
+- Name: azure-mgmt-rdbms
+  Version: 10.2.0b1
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b1/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-ingestion
+  Version: 1.0.0b1
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-ingestion_1.0.0b1/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    ## Features
+    - Version (1.0.0b1) is the first preview of our efforts to create a user-friendly and Pythonic client library for Azure Monitor Ingestion.
+    For more information about this, and preview releases of other Azure SDK libraries, please visit https://azure.github.io/azure-sdk/releases/latest/python.html.
+    - Added `~azure.monitor.ingestion.LogsIngestionClient` to send logs to Azure Monitor along with `~azure.monitor.ingestion.aio.LogsIngestionClient`.
+- Name: azure-mgmt-automation
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-automation_1.1.0b2/sdk/automation/azure-mgmt-automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-confidentialledger
+  Version: 1.0.0
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.0.0/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed all models. Methods now return JSON directly.
+    - `sub_ledger_id` fields are now named `collection_id`.
+    - `azure.confidentialledger.identity_service` has been renamed to `azure.confidentialledger.certificate`.
+    - `ConfidentialLedgerIdentityServiceClient` is now `ConfidentialLedgerCertificateClient`.
+    - `post_ledger_entry` has been renamed to `create_ledger_entry`.
+
+    #### Bugs Fixed
+    - User ids that are certificate fingerprints are no longer URL-encoded in the request URI.
+- Name: azure-ai-language-questionanswering
+  Version: 1.1.0b2
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added Azure Active Directory (AAD) authentication support
+- Name: azure-eventhub
+  Version: 5.8.0a5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a5/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug that prevented token refresh at regular intervals.
+    - Fixed bug that was improperly passing the debug keyword argument, so that network trace debug logs are output when requested.
+- Name: azure-mgmt-containerservice
+  Version: 20.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_20.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 7.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 20.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_20.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-securityinsight
+  Version: 1.0.0
+  DisplayName: Resource Management - Security Insight
+  ServiceName: Sentinel
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-securityinsight_1.0.0/sdk/securityinsight/azure-mgmt-securityinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservices
+  Version: 2.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Site Recovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_2.1.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-chaos
+  Version: 1.0.0b5
+  DisplayName: Resource Management -  Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-chaos_1.0.0b5/sdk/chaos/azure-mgmt-chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mobilenetwork
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mobilenetwork_1.0.0b3/sdk/mobilenetwork/azure-mgmt-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-rdbms
+  Version: 10.2.0b2
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b2/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-identity
+  Version: 1.1.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.1.0/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to integrate communication as Teams user with Azure Communication Services:
+    - Added `get_token_for_teams_user(aad_token, client_id, user_object_id)` method that provides the ability to exchange an Azure AD access token of a Teams user for a Communication Identity access token to `CommunicationIdentityClient`.
+    - Removed `ApiVersion.V2021_10_31_preview` from API versions.
+    - Added a new API version `ApiVersion.V2022_06_01` that is now the default API version
+- Name: azure-mgmt-netapp
+  Version: 8.1.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_8.1.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 4.0.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_4.0.0/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-automanage
+  Version: 1.0.0
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-automanage_1.0.0/sdk/automanage/azure-mgmt-automanage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitor
+  Version: 4.0.1
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_4.0.1/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 8.0.0b1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-fluidrelay
+  Version: 1.0.0
+  DisplayName: Resource Management - Fluid Relay
+  ServiceName: Fluid Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-fluidrelay_1.0.0/sdk/fluidrelay/azure-mgmt-fluidrelay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.25.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.25.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CaseInsensitiveDict` implementation in `azure.core.utils` removing dependency on `requests` and `aiohttp`
+- Name: azure-storage-blob
+  Version: 12.13.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.13.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed two rare issues with ranged blob download when using client-side encryption V1 or V2.
+- Name: azure-mgmt-network
+  Version: 21.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_21.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicebus
+  Version: 8.0.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_8.0.0/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-rdbms
+  Version: 10.2.0b3
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.2.0b3/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.11.0b3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.11.0b3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to specify `tenant_id` for `AzureCliCredential` (thanks @tikicoder)    ([#25207](https://github.com/Azure/azure-sdk-for-python/pull/25207))
+
+    #### Breaking Changes
+
+    - Removed `VisualStudioCodeCredential` from `DefaultAzureCredential` token chain. ([#23249](https://github.com/Azure/azure-sdk-for-python/issues/23249))
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b6
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `source` argument to `blob_container_url` on `begin_build_model()` and made it a required keyword-only argument.
+    - Changed argument order on `begin_build_model()`. `build_mode` is the first expected argument, followed by `blob_container_url`.
+    - Renamed `begin_create_composed_model()` on `DocumentModelAdministrationClient` to `begin_compose_model()`.
+    - Renamed `get_account_info()` on `DocumentModelAdministrationClient` to `get_resource_details()`.
+    - Renamed `DocumentBuildMode` to `ModelBuildMode`.
+    - Renamed `AccountInfo` model to `ResourceDetails`.
+    - Renamed `DocTypeInfo` model to `DocumentTypeDetails`.
+    - Renamed `DocumentModelInfo` model to `DocumentModelSummary`.
+    - Renamed `DocumentModel` to `DocumentModelDetails`.
+    - Renamed `ModelOperation` to `DocumentModelOperationDetails`.
+    - Renamed `ModelOperationInfo` to `DocumentModelOperationSummary`.
+    - Renamed `model` parameter to `model_id` on `begin_analyze_document()` and `begin_analyze_document_from_url()`.
+    - Removed `continuation_token` keyword from `begin_analyze_document()` and `begin_analyze_document_from_url()` on `DocumentAnalysisClient` and from `begin_build_model()`, `begin_compose_model()` and `begin_copy_model_to()` on `DocumentModelAdministrationClient`.
+    - Changed return type of `get_copy_authorization()` from `dict[str, str]` to `TargetAuthorization`.
+    - Changed expected `target` parameter in `begin_copy_to()` from `dict[str, str]` to `TargetAuthorization`.
+    - Long-running operation metadata is now accessible through the `details` property on the returned `DocumentModelAdministrationLROPoller` and `AsyncDocumentModelAdministrationLROPoller` instances.
+
+    #### Features Added
+    - Added `TargetAuthorization` of type `dict[str, str]`.
+- Name: azure-mgmt-storage
+  Version: 20.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_20.1.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 10.1.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.1.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicebus
+  Version: 8.1.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_8.1.0/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b5
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `begin_recognize_custom_entities` client method to recognize custom named entities in documents.
+    - Added `begin_single_label_classify` client method to perform custom single label classification on documents.
+    - Added `begin_multi_label_classify` client method to perform custom multi label classification on documents.
+    - Added property `details` on returned poller objects which contain long-running operation metadata.
+    - Added `TextAnalysisLROPoller` and `AsyncTextAnalysisLROPoller` protocols to describe the return types from long-running operations.
+    - Added `cancel` method on the poller objects. Call it to cancel a long-running operation that's in progress.
+    - Added property `kind` to `RecognizeEntitiesResult`, `RecognizePiiEntitiesResult`, `AnalyzeHealthcareEntitiesResult`,
+    `DetectLanguageResult`, `ExtractKeyPhrasesResult`, `RecognizeLinkedEntitiesResult`, `AnalyzeSentimentResult`,
+    `RecognizeCustomEntitiesResult`, `ClassifyDocumentResult`, and `DocumentError`.
+    - Added enum `TextAnalysisKind`.
+
+    #### Breaking Changes
+
+    - Removed the Extractive Text Summarization feature and related models: `ExtractSummaryAction`, `ExtractSummaryResult`, and `SummarySentence`. To access this beta feature, install the `5.2.0b4` version of the client library.
+    - Removed the `FHIR` feature and related keyword argument and property: `fhir_version` and `fhir_bundle`. To access this beta feature, install the `5.2.0b4` version of the client library.
+    - `SingleCategoryClassifyResult` and `MultiCategoryClassifyResult` models have been merged into one model: `ClassifyDocumentResult`.
+    - Renamed `SingleCategoryClassifyAction` to `SingleLabelClassifyAction`
+    - Renamed `MultiCategoryClassifyAction` to `MultiLabelClassifyAction`.
+
+    #### Bugs Fixed
+
+    - A `HttpResponseError` will be immediately raised when the call quota volume is exceeded in a `F0` tier Language resource.
+- Name: azure-communication-rooms
+  Version: 1.0.0b1
+  DisplayName: Communication Rooms
+  ServiceName: Rooms
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-rooms_1.0.0b1/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: '- Initial version'
+- Name: azure-keyvault-certificates
+  Version: 4.5.1
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.5.1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Documentation improvements
+    ([#25039](https://github.com/Azure/azure-sdk-for-python/issues/25039))
+- Name: azure-keyvault-administration
+  Version: 4.1.1
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.1.1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Documentation improvements
+    ([#25039](https://github.com/Azure/azure-sdk-for-python/issues/25039))
+- Name: azure-keyvault-keys
+  Version: 4.6.1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.6.1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Documentation improvements
+    ([#25039](https://github.com/Azure/azure-sdk-for-python/issues/25039))
+- Name: azure-keyvault-secrets
+  Version: 4.5.1
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.5.1/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Documentation improvements
+    ([#25039](https://github.com/Azure/azure-sdk-for-python/issues/25039))
+- Name: azure-mgmt-cosmosdb
+  Version: 8.0.0b2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_8.0.0b2/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-keys
+  Version: 4.7.0b1
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.7.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - An attempt will be made to generate an IV if one isn't provided for local encryption
+    ([#25380](https://github.com/Azure/azure-sdk-for-python/pull/25380))
+

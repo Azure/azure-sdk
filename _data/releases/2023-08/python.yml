@@ -1,0 +1,608 @@
+entries:
+- Name: azure-mgmt-paloaltonetworksngfw
+  Version: 1.0.0
+  DisplayName: Resource Management - Cloud NGFW by Palo Alto Networks
+  ServiceName: Cloud NGFW by Palo Alto Networks
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-paloaltonetworksngfw_1.0.0/sdk/paloaltonetworks/azure-mgmt-paloaltonetworksngfw/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b15
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b15/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgrading to OpenTelemetry SDK/API 1.19.
+    ([#31170](https://github.com/Azure/azure-sdk-for-python/pull/31170))
+- Name: azure-purview-sharing
+  Version: 1.0.0b3
+  DisplayName: Purview Sharing
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-sharing_1.0.0b3/sdk/purview/azure-purview-sharing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - In _operations.py, under the list_attached definition, the `skip_token` parameter was removed list definitions in favor of placing it within `nextLink`.
+
+    #### Bugs Fixed
+
+    - Fixed Samples and Tests
+
+    #### Features Added
+
+    - Added the new share resources capability that allows listing resources associated with sent and received shares.
+    - Added missing test cases to test_sent_shares and test_received_shares
+- Name: azure-mgmt-costmanagement
+  Version: 4.0.1
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-costmanagement_4.0.1/sdk/costmanagement/azure-mgmt-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-networkcloud
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_1.0.0b2/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iotfirmwaredefense
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Iotfirmwaredefense
+  ServiceName: Iotfirmwaredefense
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iotfirmwaredefense_1.0.0b1/sdk/iotfirmwaredefense/azure-mgmt-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_1.2.0/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-elasticsan
+  Version: 1.0.0b2
+  DisplayName: Resource Management -  Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-elasticsan_1.0.0b2/sdk/elasticsan/azure-mgmt-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kusto
+  Version: 3.2.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_3.2.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.5.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.5.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 30.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_30.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 10.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_10.1.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managednetworkfabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Managednetworkfabric
+  ServiceName: Managednetworkfabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managednetworkfabric_1.0.0/sdk/managednetworkfabric/azure-mgmt-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-batch
+  Version: 17.1.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-batch_17.1.0/sdk/batch/azure-mgmt-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hdinsight
+  Version: 9.0.0b2
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_9.0.0b2/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-quantum
+  Version: 1.0.0b4
+  DisplayName: Resource Management - Quantum
+  ServiceName: Quantum
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quantum_1.0.0b4/sdk/quantum/azure-mgmt-quantum/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-webpubsub
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-webpubsub_2.0.0b1/sdk/webpubsub/azure-mgmt-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagemover
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_2.0.0b1/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 24.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_24.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-authorization
+  Version: 4.0.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-authorization_4.0.0/sdk/authorization/azure-mgmt-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mobilenetwork
+  Version: 3.0.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mobilenetwork_3.0.0/sdk/mobilenetwork/azure-mgmt-mobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.4.1b1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.4.1b1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug with async patch_item method. See [PR 30804](https://github.com/Azure/azure-sdk-for-python/pull/30804).
+
+    #### Features Added
+    * Added ability to limit continuation token size when querying for items. See [PR 30731](https://github.com/Azure/azure-sdk-for-python/pull/30731)
+- Name: azure-ai-ml
+  Version: 1.9.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.9.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to enable gpu access (local_enable_gpu) for local deployment.
+- Name: azure-mgmt-containerservice
+  Version: 25.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_25.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 10.2.3
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.2.3/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sphere
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sphere_1.0.0b1/sdk/sphere/azure-mgmt-sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b11
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b11/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-synapse-artifacts
+  Version: 0.17.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.17.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added operation group RunNotebookOperations
+    - Model Activity has a new parameter on_inactive_mark_as
+    - Model Activity has a new parameter state
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter always_encrypted_settings
+    - Model AmazonRdsForSqlServerSource has a new parameter isolation_level
+    - Model AppendVariableActivity has a new parameter on_inactive_mark_as
+    - Model AppendVariableActivity has a new parameter state
+    - Model AzureBatchLinkedService has a new parameter credential
+    - Model AzureBlobFSLinkedService has a new parameter credential
+    - Model AzureBlobStorageLinkedService has a new parameter credential
+    - Model AzureDataExplorerCommandActivity has a new parameter on_inactive_mark_as
+    - Model AzureDataExplorerCommandActivity has a new parameter state
+    - Model AzureDataExplorerLinkedService has a new parameter credential
+    - Model AzureDataLakeStoreLinkedService has a new parameter credential
+    - Model AzureDatabricksDeltaLakeLinkedService has a new parameter credential
+    - Model AzureDatabricksLinkedService has a new parameter credential
+    - Model AzureFunctionActivity has a new parameter on_inactive_mark_as
+    - Model AzureFunctionActivity has a new parameter state
+    - Model AzureFunctionLinkedService has a new parameter authentication
+    - Model AzureFunctionLinkedService has a new parameter credential
+    - Model AzureFunctionLinkedService has a new parameter resource_id
+    - Model AzureKeyVaultLinkedService has a new parameter credential
+    - Model AzureMLBatchExecutionActivity has a new parameter on_inactive_mark_as
+    - Model AzureMLBatchExecutionActivity has a new parameter state
+    - Model AzureMLExecutePipelineActivity has a new parameter on_inactive_mark_as
+    - Model AzureMLExecutePipelineActivity has a new parameter state
+    - Model AzureMLLinkedService has a new parameter authentication
+    - Model AzureMLServiceLinkedService has a new parameter authentication
+    - Model AzureMLUpdateResourceActivity has a new parameter on_inactive_mark_as
+    - Model AzureMLUpdateResourceActivity has a new parameter state
+    - Model AzureSqlDWLinkedService has a new parameter credential
+    - Model AzureSqlDatabaseLinkedService has a new parameter always_encrypted_settings
+    - Model AzureSqlDatabaseLinkedService has a new parameter credential
+    - Model AzureSqlMILinkedService has a new parameter always_encrypted_settings
+    - Model AzureSqlMILinkedService has a new parameter credential
+    - Model AzureSqlSource has a new parameter isolation_level
+    - Model ControlActivity has a new parameter on_inactive_mark_as
+    - Model ControlActivity has a new parameter state
+    - Model CopyActivity has a new parameter on_inactive_mark_as
+    - Model CopyActivity has a new parameter state
+    - Model CosmosDbLinkedService has a new parameter credential
+    - Model CustomActivity has a new parameter on_inactive_mark_as
+    - Model CustomActivity has a new parameter state
+    - Model DataLakeAnalyticsUSQLActivity has a new parameter on_inactive_mark_as
+    - Model DataLakeAnalyticsUSQLActivity has a new parameter state
+    - Model DatabricksNotebookActivity has a new parameter on_inactive_mark_as
+    - Model DatabricksNotebookActivity has a new parameter state
+    - Model DatabricksSparkJarActivity has a new parameter on_inactive_mark_as
+    - Model DatabricksSparkJarActivity has a new parameter state
+    - Model DatabricksSparkPythonActivity has a new parameter on_inactive_mark_as
+    - Model DatabricksSparkPythonActivity has a new parameter state
+    - Model DeleteActivity has a new parameter on_inactive_mark_as
+    - Model DeleteActivity has a new parameter state
+    - Model DynamicsLinkedService has a new parameter credential
+    - Model ExecuteDataFlowActivity has a new parameter on_inactive_mark_as
+    - Model ExecuteDataFlowActivity has a new parameter state
+    - Model ExecutePipelineActivity has a new parameter on_inactive_mark_as
+    - Model ExecutePipelineActivity has a new parameter state
+    - Model ExecuteSSISPackageActivity has a new parameter on_inactive_mark_as
+    - Model ExecuteSSISPackageActivity has a new parameter state
+    - Model ExecutionActivity has a new parameter on_inactive_mark_as
+    - Model ExecutionActivity has a new parameter state
+    - Model FailActivity has a new parameter on_inactive_mark_as
+    - Model FailActivity has a new parameter state
+    - Model FilterActivity has a new parameter on_inactive_mark_as
+    - Model FilterActivity has a new parameter state
+    - Model ForEachActivity has a new parameter on_inactive_mark_as
+    - Model ForEachActivity has a new parameter state
+    - Model GetMetadataActivity has a new parameter on_inactive_mark_as
+    - Model GetMetadataActivity has a new parameter state
+    - Model HDInsightHiveActivity has a new parameter on_inactive_mark_as
+    - Model HDInsightHiveActivity has a new parameter state
+    - Model HDInsightMapReduceActivity has a new parameter on_inactive_mark_as
+    - Model HDInsightMapReduceActivity has a new parameter state
+    - Model HDInsightOnDemandLinkedService has a new parameter credential
+    - Model HDInsightPigActivity has a new parameter on_inactive_mark_as
+    - Model HDInsightPigActivity has a new parameter state
+    - Model HDInsightSparkActivity has a new parameter on_inactive_mark_as
+    - Model HDInsightSparkActivity has a new parameter state
+    - Model HDInsightStreamingActivity has a new parameter on_inactive_mark_as
+    - Model HDInsightStreamingActivity has a new parameter state
+    - Model IfConditionActivity has a new parameter on_inactive_mark_as
+    - Model IfConditionActivity has a new parameter state
+    - Model LinkConnectionTargetDatabaseTypeProperties has a new parameter action_on_existing_target_table
+    - Model LookupActivity has a new parameter on_inactive_mark_as
+    - Model LookupActivity has a new parameter state
+    - Model MongoDbAtlasLinkedService has a new parameter driver_version
+    - Model RestServiceLinkedService has a new parameter credential
+    - Model ScriptActivity has a new parameter on_inactive_mark_as
+    - Model ScriptActivity has a new parameter state
+    - Model SetVariableActivity has a new parameter on_inactive_mark_as
+    - Model SetVariableActivity has a new parameter policy
+    - Model SetVariableActivity has a new parameter state
+    - Model SqlDWSource has a new parameter isolation_level
+    - Model SqlMISource has a new parameter isolation_level
+    - Model SqlPoolStoredProcedureActivity has a new parameter on_inactive_mark_as
+    - Model SqlPoolStoredProcedureActivity has a new parameter state
+    - Model SqlServerLinkedService has a new parameter always_encrypted_settings
+    - Model SqlServerSource has a new parameter isolation_level
+    - Model SqlServerStoredProcedureActivity has a new parameter on_inactive_mark_as
+    - Model SqlServerStoredProcedureActivity has a new parameter state
+    - Model SwitchActivity has a new parameter on_inactive_mark_as
+    - Model SwitchActivity has a new parameter state
+    - Model SynapseNotebookActivity has a new parameter configuration_type
+    - Model SynapseNotebookActivity has a new parameter on_inactive_mark_as
+    - Model SynapseNotebookActivity has a new parameter spark_config
+    - Model SynapseNotebookActivity has a new parameter state
+    - Model SynapseNotebookActivity has a new parameter target_spark_configuration
+    - Model SynapseSparkJobDefinitionActivity has a new parameter on_inactive_mark_as
+    - Model SynapseSparkJobDefinitionActivity has a new parameter state
+    - Model UntilActivity has a new parameter on_inactive_mark_as
+    - Model UntilActivity has a new parameter state
+    - Model ValidationActivity has a new parameter on_inactive_mark_as
+    - Model ValidationActivity has a new parameter state
+    - Model WaitActivity has a new parameter on_inactive_mark_as
+    - Model WaitActivity has a new parameter state
+    - Model WebActivity has a new parameter on_inactive_mark_as
+    - Model WebActivity has a new parameter state
+    - Model WebActivityAuthentication has a new parameter credential
+    - Model WebActivityAuthentication has a new parameter user_tenant
+    - Model WebHookActivity has a new parameter on_inactive_mark_as
+    - Model WebHookActivity has a new parameter state
+- Name: azure-appconfiguration
+  Version: 1.5.0b2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.5.0b2/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in deserializing and serializing Snapshot when `filters` property is `None`.
+    - Fixed a bug when creating `FeatureFlagConfigurationSetting` from SDK but having an error in portal.([#31326](https://github.com/Azure/azure-sdk-for-python/issues/31326))
+- Name: azure-search-documents
+  Version: 11.4.0b7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added multi-vector search support. Now instead of passing in `vector`, `top_k` and `vector_fields`, search method accepts `vectors` which is a list of `Vector` object.
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.3.0.
+    > Only code written against a beta version such as 11.4.0b6 may be affected.
+    - Stopped supporting `vector`, `top_k` and `vector_fields` in `SearchClient.search` method.
+- Name: azure-storage-queue
+  Version: 12.7.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.7.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Bumped `azure-core` minimum dependency to 1.28.0 and `typing-extensions` to 4.3.0.
+- Name: azure-search-documents
+  Version: 11.4.0b8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.4.0b8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.3.0.
+    > Only code written against a beta version such as 11.4.0b6 may be affected.
+    - Instead of using `VectorSearchAlgorithmConfiguration`, now you need to use concrete types like `HnswVectorSearchAlgorithmConfiguration`.
+    - Stopped supporting `vector`, `top_k` and `vector_fields` in `SearchClient.search` method.
+
+    #### Features Added
+
+    - Exposed `HnswVectorSearchAlgorithmConfiguration`
+    - Added multi-vector search support. Now instead of passing in `vector`, `top_k` and `vector_fields`, search method accepts `vectors` which is a list of `Vector` object.
+- Name: azure-storage-file-share
+  Version: 12.14.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.14.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+- Name: azure-storage-file-datalake
+  Version: 12.13.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.13.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+- Name: azure-storage-blob
+  Version: 12.18.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.18.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service versions 2023-05-03 and 2023-08-03.
+    - Added `version_id` as a client constructor parameter to `BlobClient`. This change makes `BlobClient`s version-aware, such that
+    all APIs that accept `version_id` will operate on the version ID provided during client construction by default.
+    - Added optional keyword `version_id` to `get_blob_client` APIs which, if provided, will result in a version-aware `BlobClient` in which
+    all APIs that accept `version_id` will operate on the version ID provided to the `get_blob_client` API call by default.
+- Name: azure-core-experimental
+  Version: 1.0.0b4
+  DisplayName: Core - Client - Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-experimental_1.0.0b4/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Create new httpx client when used without "with" ([#31362](https://github.com/Azure/azure-sdk-for-python/pull/31370))
+    - Fix httpx sample with right API name
+- Name: azure-core
+  Version: 1.29.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A keyword argument `enable_cae` was added to the `get_token` method of the `TokenCredential` protocol.  #31012
+    - `BearerTokenCredentialPolicy` and `AsyncBearerTokenCredentialPolicy` now accept `enable_cae` keyword arguments in their constructors. This is used in determining if [Continuous Access Evaluation (CAE)](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) should be enabled for each `get_token` request.  #31012
+- Name: azure-eventhub
+  Version: 5.11.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.11.4/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug [#31258](https://github.com/Azure/azure-sdk-for-python/issues/31258) where async `BlobCheckpointStore` was reprocessing old events after an error.
+
+    #### Features Added
+
+    - A new float keyword argument `socket_timeout` has been added to the sync and async `EventHubConsumerClient` and `EventHubProducerClient`.
+- Name: azure-ai-formrecognizer
+  Version: 3.3.0
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > Note: The following changes are only breaking from the previous beta. They are not breaking against previous stable versions.
+
+    - Going forward this library will default to service API version `2023-07-31`.
+    - Removed `query_fields` keyword argument from `begin_analyze_document()` and `begin_analyze_document_from_url()`.
+    - Removed `kind` property from `DocumentPage`.
+    - Removed `images` property from `DocumentPage`.
+    - Removed `DocumentImage` model.
+    - Removed `annotations` property from `DocumentPage`.
+    - Removed `DocumentAnnotation` model.
+    - Removed `common_name` property from `DocumentKeyValuePair`.
+    - Changed `AnalysisFeature` enum member names and values. Supported enum members are: `OCR_HIGH_RESOLUTION`, `LANGUAGES`, `BARCODES`, `FORMULAS`, `KEY_VALUE_PAIRS`, `STYLE_FONT`.
+    - Renamed `custom_neural_document_model_builds` property to `neural_document_model_quota` on `ResourceDetails` model.
+    - Renamed `AzureBlobSource` model to `BlobSource`.
+    - Renamed `AzureBlobFileListSource` model to `BlobFileListSource`.
+    - Marked `neural_document_model_quota` as optional on `ResourceDetails`.
+- Name: azure-identity
+  Version: 1.14.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.14.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - CP1 client capabilities for CAE is no longer always-on by default for user credentials. This capability will now be configured as-needed in each `get_token` request by each SDK.  ([#30777](https://github.com/Azure/azure-sdk-for-python/pull/30777))
+    - Suffixes are now appended to persistent cache names to indicate whether CAE or non-CAE tokens are stored in the cache. This is to prevent CAE and non-CAE tokens from being mixed/overwritten in the same cache. This could potentially cause issues if you are trying to share the same cache between applications that are using different versions of the Azure Identity library as each application would be reading from a different cache file.
+    - Since CAE is no longer always enabled for user-credentials, the `AZURE_IDENTITY_DISABLE_CP1` environment variable is no longer supported.
+
+    #### Features Added
+
+    - Continuous Access Evaluation (CAE) is now configurable per-request by setting the `enable_cae` keyword argument to `True` in `get_token`. This applies to user credentials and service principal credentials.  ([#30777](https://github.com/Azure/azure-sdk-for-python/pull/30777))
+
+    #### Bugs Fixed
+
+    - Credential types correctly implement `azure-core`'s `TokenCredential` protocol.  ([#25175](https://github.com/Azure/azure-sdk-for-python/issues/25175))
+- Name: azure-communication-phonenumbers
+  Version: 1.2.0b1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.2.0b1/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Number Lookup API public preview
+    - API version `2023-05-01-preview` is the default
+- Name: azure-cosmos
+  Version: 4.5.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.5.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for continuation tokens for streamable cross partition queries. See [PR 31189](https://github.com/Azure/azure-sdk-for-python/pull/31189).
+
+    #### Bugs Fixed
+    * Fixed bug with async `create_database_if_not_exists` method not working when passing `offer_throughput` as an option. See [PR 31478](https://github.com/Azure/azure-sdk-for-python/pull/31478).
+- Name: azure-core
+  Version: 1.29.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.29.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Not pass `enabled_cae` unless it is explicitly enabled.
+- Name: azure-schemaregistry
+  Version: 1.3.0b2
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.3.0b2/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    The following features are experimental and may be removed:
+
+    - Sync and async `JsonSchemaEncoder` have been added under `azure.schemaregistry.encoder.jsonencoder`.
+    - `InvalidContentError` and `JsonSchemaDraftIdentifier` have been added under `azure.schemaregistry.encoder.jsonencoder` for use with the `JsonSchemaEncoder`.
+    - `MessageType`, `MessageContent`, `SchemaContentValidate`, `SchemaEncoder` have been added under `azure.schemaregistry` as protocols to define/for use with the `JsonSchemaEncoder` and future encoder implementations.
+- Name: azure-confidentialledger
+  Version: 1.1.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.1.1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Allow some `ResourceNotFoundError` occurrences in `begin_wait_for_commit` to account for unexpected loss of session stickiness. These errors may occur when the connected node changes and transactions have not been fully replicated.
+

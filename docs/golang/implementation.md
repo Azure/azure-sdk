@@ -8,15 +8,13 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-TODO
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### The Service Client
 
-TODO
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
 
 #### Service Methods
-
-TODO
 
 ##### Using azcore.Pipeline
 
@@ -40,27 +38,15 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 ##### Using azcore.Policy
 
-TODO
-
 #### Service Method Parameters
-
-TODO
 
 ##### Parameter validation
 
-TODO
-
 ### Supporting Types
-
-TODO
 
 #### Model Types
 
-TODO
-
 ##### Serialization
-
-TODO
 
 #### Constants as Enumerations
 
@@ -72,8 +58,6 @@ TODO
 
 {% include requirement/MUST id="golang-enum-type-values" %} define a function named `<EnumTypeName>Values()` that returns a slice containing all possible values for the enumeration.
 
-{% include requirement/MUST id="golang-enum-type-values" %} define a method named `ToPtr()` on the enumerated type that returns a pointer to the enum value.
-
 ```go
 // WidgetColor specifies a Widget's color from the list of possible values.
 type WidgetColor string
@@ -84,20 +68,14 @@ const (
 	WidgetColorRed   WidgetColor = "red"
 )
 
-// WidgetColorValues returns a slice of possible values for WidgetColor.
-func WidgetColorValues() []WidgetColor {
+// PossibleWidgetColorValues returns a slice of possible values for WidgetColor.
+func PossibleWidgetColorValues() []WidgetColor {
 	// ...
-}
-
-func (c WidgetColor) ToPtr() *WidgetColor {
-	return &c
 }
 
 ```
 
 ## SDK Feature Implementation
-
-TODO
 
 ### Configuration
 
@@ -166,8 +144,4 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 ### Telemetry
 
-TODO
-
 ### Testing
-
-TODO

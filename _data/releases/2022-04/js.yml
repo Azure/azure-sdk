@@ -79,7 +79,7 @@ entries:
   ServiceName: App Platform
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appplatform_3.0.0/sdk/appplatform/arm-appplatform/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-appconfiguration'
   Version: 3.0.0-beta.2
@@ -164,7 +164,7 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
 
-    - Fixed a bug that caused [Continuous Access Enforcement (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) and [Conditional Access authentication context](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775) authentication to fail with newer versions of MSAL.
+    - Fixed a bug that caused [Continuous Access Enforcement (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) and Conditional Access authentication context authentication to fail with newer versions of MSAL.
 
     #### Features Added
 
@@ -324,8 +324,8 @@ entries:
   ChangelogContent: ""
 - Name: '@azure/arm-hardwaresecuritymodules'
   Version: 1.0.0
-  DisplayName: Resource Management - Hardwaresecuritymodules
-  ServiceName: Hardwaresecuritymodules
+  DisplayName: Resource Management - Hardware Security Modules
+  ServiceName: Hardware Security Modules
   VersionType: GA
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hardwaresecuritymodules_1.0.0/sdk/hardwaresecuritymodules/arm-hardwaresecuritymodules/CHANGELOG.md

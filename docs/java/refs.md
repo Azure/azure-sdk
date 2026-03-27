@@ -1,12 +1,13 @@
 <!-- Project Links -->
 [Project Reactor]: https://projectreactor.io
-[reactor-context]: https://projectreactor.io/docs/core/release/reference/#context
+[reactor-context]: https://projectreactor.io 
+<!-- https://projectreactor.io/docs/core/release/reference/#context direct link is 404'ing currently -->
 [RxJava]: https://github.com/ReactiveX/RxJava
 [BlockHound]: https://github.com/reactor/BlockHound
 [OpenTelemetry]: https://opentelemetry.io
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[SLF4J]: http://www.slf4j.org/
-[SLF4J user manual]: http://www.slf4j.org/manual.html
+[SLF4J]: https://www.slf4j.org/
+[SLF4J user manual]: https://www.slf4j.org/manual.html
 [azure/azure-sdk-for-java]: https://github.com/azure/azure-sdk-for-java
 [azure-sdk-for-java/parent/pom.xml]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/parents/azure-sdk-parent/pom.xml
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s

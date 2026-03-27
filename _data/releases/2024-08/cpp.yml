@@ -1,0 +1,126 @@
+entries:
+- Name: azure-identity
+  Version: 1.9.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.9.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientAssertionCredential` to enable applications to authenticate with custom client assertions.
+    - Added support for providing a Resource ID to `ManagedIdentityCredential`.
+    - Added support for customizing the IMDS endpoint within `ManagedIdentityCredential`.
+- Name: azure-core
+  Version: 1.14.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new constructor for `Azure::Core::Context` that takes an `Azure::DateTime` deadline. This enables creating a new context directly with a deadline.
+
+    #### Breaking Changes
+
+    - Deprecated the `Azure::Core::Context::ApplicationContext` object.
+    - If customer code is using `Azure::Core::Context::ApplicationContext`, the customer should instead create their own root context object which is used
+    wherever the customer would have previously used `Azure::Core::Context::ApplicationContext`, i.e. `Azure::Core::Context(deadline)` instead of `Azure::Core::Context::ApplicationContext.WithDeadline(deadline)`.
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential` for authenticating an Azure Pipelines service connection with workload identity federation.
+    - Added `ClientAssertionCredential` to enable applications to authenticate with custom client assertions.
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0-beta.5
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-administration_4.0.0-beta.5/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Backup/Restore operations for Key Vault HSM.
+- Name: azure-data-tables
+  Version: 1.0.0-beta.4
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.4/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5781]](https://github.com/Azure/azure-sdk-for-cpp/pull/5781) Fixed exception when deserializing numeric values from JSON. (A community contribution, courtesy of _[0xar1](https://github.com/0xar1)_)
+- Name: azure-storage-common
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.8.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2024-11-04`.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: azure-storage-files-datalake
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.12.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: azure-storage-blobs
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.13.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: azure-storage-files-shares
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.11.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2024-11-04`.
+    - Added support for token-based authentication for all APIs.
+    - Added support for paid bursting on premium file share accounts.
+    - Added support for binary format for file permissions.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: azure-storage-queues
+  Version: 12.4.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.4.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+

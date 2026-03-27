@@ -20,7 +20,7 @@ Here are the stages of a typical package lifecycle (for major versions)
    The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.
    Customers are encouraged to use the latest version as that is the version that will get fixes and updates.
 
-3. **Deprecated** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), or has been superseded by a more recent release. In both cases, the current library is deprecated in favor of a newer library. Typically, deprecation occurs at the same time the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months.
+3. **Deprecated** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), or has been superseded by a more recent release. In both cases, the current library is deprecated in favor of a newer library. Typically, deprecation occurs at the same time the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months. If breaking changes are involved, critical bug fixes and security fixes generally occur for 3 years.
 
 4. **Community** - SDK will no longer receive updates from Microsoft unless otherwise specified in the separate customer agreement.
    The package will remain available via public package managers and the GitHub repo, which can be maintained by the community.
@@ -41,15 +41,15 @@ The Azure SDK libraries depend on Azure Service REST API, programming language r
 
 Below is a list of supported Azure SDK platforms and runtimes for your reference:
 
-**Operating Systems:** Windows 10, macOS-10.15 , Linux (tested on Ubuntu 18.04)
+**Operating Systems:** Windows, MacOS, Linux (tested on Ubuntu)
 For Mobile development, please check the [IOS supported platforms](https://azure.github.io/azure-sdk/ios_design.html#ios-library-support), and the [Android supported platforms](https://azure.github.io/azure-sdk/android_design.html)
 
 **Runtime:**
 
 - Any [supported .NET versions](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) that implement .NET Standard 2.0.
 - Java: Java 8 , Java 11
-- Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
-- Python 3.6+
+- Node.js: [LTS versions of Node.js](https://nodejs.org/en/download) including not just the ones in Active status, but also the ones in Maintainence status.
+- Python 3.8+. Please check the [Azure SDK for Python policy planning](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy) for more details on future Python versions.
 - Go: Latest 2 major Go releases, refer to [Go releases](https://golang.org/doc/devel/release.html) for more details.
 - C++: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms).
 - Embedded C: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html#supported-platforms).
@@ -64,6 +64,7 @@ Below are the test configurations covering different operating systems and runti
 - [JavaScript test configuration](https://github.com/Azure/azure-sdk-for-js/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [Python test configuration](https://github.com/Azure/azure-sdk-for-python/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [Go test configuration](https://github.com/Azure/azure-sdk-for-go/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
+- [Rust test configuration](https://github.com/Azure/azure-sdk-for-rust/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [C++ test configuration](https://github.com/Azure/azure-sdk-for-cpp/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 
 ### **Support**:

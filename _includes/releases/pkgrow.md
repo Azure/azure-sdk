@@ -23,7 +23,12 @@
         <td>{% include releases/links.md version="VersionPreview" preview="true" %}</td>
         <td class="text-nowrap">{% include releases/roadmap.md %}</td>
     {% else %}
-        <td>{% include releases/links.md version="VersionGA" %}</td>
+        <!-- For deprecated packages we just want whichever version we have it doesn't matter if it is GA or preview -->
+        {% if item.VersionGA != "" %}
+            <td>{% include releases/links.md version="VersionGA" %}</td>
+        {% else %}
+            <td>{% include releases/links.md version="VersionPreview" %}</td>
+        {% endif %}
     {% endif %}
     </tr>
 

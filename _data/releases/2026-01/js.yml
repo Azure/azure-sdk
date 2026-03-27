@@ -1,0 +1,192 @@
+entries:
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.1.0-beta.2
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.2/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 24.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 12.0.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 24.2.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-operationalinsights'
+  Version: 10.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkcloud'
+  Version: 1.3.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.2/sdk/ai/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Model Context Protocol (MCP) support for integrating external tools and services
+    - `MCPServer` tool type for connecting to MCP servers
+    - MCP approval workflow with `MCPApprovalType` and approval request/response items
+    - MCP tool listing events (`ServerEventMcpListToolsInProgress`, `ServerEventMcpListToolsCompleted`, `ServerEventMcpListToolsFailed`)
+    - MCP call execution with streaming support (`ResponseMCPCallItem`, `ServerEventResponseMcpCallArgumentsDelta`, `ServerEventResponseMcpCallArgumentsDone`, `ServerEventResponseMcpCallInProgress`, `ServerEventResponseMcpCallCompleted`, `ServerEventResponseMcpCallFailed`)
+    - MCP approval request and response items (`ResponseMCPApprovalRequestItem`, `ResponseMCPApprovalResponseItem`)
+    - Added avatar configuration enhancements
+    - `AvatarConfigTypes` enum with support for `video-avatar` and `photo-avatar`
+    - `PhotoAvatarBaseModes` enum with `vasa-1` model support
+    - `AvatarOutputProtocol` enum for choosing between `webrtc` and `websocket` output
+    - Enhanced `AvatarConfig` with `type`, `model`, and `outputProtocol` properties
+    - Added image content support
+    - `RequestImageContentPart` for including images in conversation input
+    - `RequestImageContentPartDetail` for controlling image detail levels
+    - Added new voice options
+    - `Marin` and `Cedar` voice types
+    - Enhanced voice configuration with `style`, `pitch`, `rate`, `volume` properties
+    - Added `customLexiconUrl`, `preferLocales`, and `locale` options for voice customization
+    - Added automatic proxy support with environment variable detection (HTTPS_PROXY, HTTP_PROXY)
+- Name: '@azure/create-playwright'
+  Version: 1.1.0
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.1.0/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added reporting configuration support in service config.
+- Name: '@azure/arm-operationalinsights'
+  Version: 10.1.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.1.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.0/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Azure Playwright Reporter that uploads Playwright HTML test reports to Azure Storage after test execution completes.
+
+    #### Bugs Fixed
+
+    - Improved error handling for authentication scenarios.
+    - Changed test run creation failures from fatal to non-fatal errors.
+- Name: '@azure/event-hubs'
+  Version: 6.0.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed dangling promises in the library to prevent `UnhandledPromiseRejection` errors that could crash applications. [#36250](https://github.com/Azure/azure-sdk-for-js/pull/36250)
+
+    #### Features Added
+
+    - Added React Native ESM dialect support for React Native environments. [#36281](https://github.com/Azure/azure-sdk-for-js/pull/36281)
+- Name: '@azure/arm-avs'
+  Version: 7.1.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-translation-text'
+  Version: 2.0.0-beta.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-text_2.0.0-beta.1/sdk/translation/ai-translation-text-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the Azure AI Translator API 2025-10-01-preview, including translations using LLM models, adaptive custom translation, tone variant translations, and gender-specific translations.
+    - Added `TranslationTarget` for configuring translation options.
+
+    #### Breaking Changes
+
+    - Added `Models` property to `GetSupportedLanguagesResultOutput` to list the LLM models available for translations.
+    - Removed `transliteration` in `TranslationTextOutput`.
+    - Removed `sourceText` in `TranslatedTextItemOutput`.
+    - Dictionary, sentence boundaries and text alignments features have been deprecated and relevant classes and properties have been removed.
+- Name: '@azure/ai-projects'
+  Version: 2.0.0-beta.3
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.3/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - fix response json schema deserializer
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.37
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.37/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Populate the `microsoft.applicationId` resource attribute from the Application Insights connection string when it is not already provided.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.15.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.15.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allow configuring additional metric views through `AzureMonitorOpenTelemetryOptions` and pass them to the NodeSDK.
+    - Honor `OTEL_EXPORTER_OTLP_METRICS_DEFAULT_HISTOGRAM_AGGREGATION` for selecting default histogram aggregation (explicit or exponential).
+    - Support `OTEL_TRACES_SAMPLER`/`OTEL_TRACES_SAMPLER_ARG` environment variables for sampler selection.
+
+    - Add support for automatic instrumentation in ESM environments.
+

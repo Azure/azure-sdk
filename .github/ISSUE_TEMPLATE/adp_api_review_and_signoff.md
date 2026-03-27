@@ -3,12 +3,14 @@ name: Architecture Board Review Request - API Review/API Sign Off
 about: Request for API review or API sign off for an Azure client library 
 title: 'Board Review: <client library name>'
 labels: architecture, board-review
-assignees: kyle-patterson, lilyjma
+assignees: kyle-patterson, ronniegeraghty
 ---
+# Attention
+**For internal teams, our process for scheduling review sessions with the Azure SDK Architecture team has changed. The Azure SDK Architecture team has moved to using a [Scheduling Tool](https://aka.ms/azsdk/schedulesdkreview) for the scheduling of both Introduction and SDK Review meetings.**
 
 Thank you for submitting this review request. Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 
 
-**The Architecture Board reviews [Track 2 libraries](https://azure.github.io/azure-sdk/general_introduction.html) only.** If your library does not meet this requirement, please reach out to [Architecture Board](adparch@microsoft.com) before creating the issue. 
+**The Architecture Board reviews [Track 2 libraries](https://azure.github.io/azure-sdk/general_introduction.html) only.** If your library does not meet this requirement, please reach out to [Architecture Board](azsdkarch@microsoft.com) before creating the issue.
 
 Please reference our [review process guidelines](https://azure.github.io/azure-sdk/policies_reviewprocess.html) to understand what is being asked for in the issue template.
 

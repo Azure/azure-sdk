@@ -1,0 +1,18 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.4.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.4.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Added support for Callkit Integration
+    - Application will be able to configure call capabilities with CallKitOptions.
+    - Application will be able to pass the means to reach a call recipient and the display name with CallKitRemoteInfo.
+    - Application will be able to use reportIncomingCallToCallKit to handle notification when the app is in kill state.
+
+    Added support for Raw Outgoing Video
+    Added support for Raw Audio
+

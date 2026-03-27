@@ -1,0 +1,35 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Verify Site
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup pages
+      uses: actions/configure-pages@v5
+
+    - name: Build site
+      uses: actions/jekyll-build-pages@v1
+      with:
+        destination: "./_site/azure-sdk"
+
+    - name: Upload site artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: "./_site/azure-sdk"
+
+    - name: Verify CSV data contents
+      shell: pwsh
+      run: |
+        ./eng/scripts/Update-Release-Versions.ps1 "check"
+
+    - name: Verify site links
+      shell: pwsh
+      run: |
+        ./eng/common/scripts/Verify-Links.ps1 -urls ./_site/azure-sdk/index.html -ignoreLinksFile ./eng/ignore-links.txt -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt" -baseUrl "file://$PWD/_site/azure-sdk"

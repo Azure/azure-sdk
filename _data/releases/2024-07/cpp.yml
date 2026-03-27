@@ -1,0 +1,92 @@
+entries:
+- Name: azure-identity
+  Version: 1.9.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.9.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzurePipelinesCredential` for authenticating an Azure Pipelines service connection with workload identity federation.
+- Name: azure-core
+  Version: 1.13.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.13.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#5589]](https://github.com/Azure/azure-sdk-for-cpp/pull/5589) Fix possible endless loop while polling curl socket.  (A community contribution, courtesy of _[CurtizJ](https://github.com/CurtizJ)_)
+- Name: azure-storage-files-datalake
+  Version: 12.11.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.11.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.11.0-beta.1` are now generally available.
+- Name: azure-storage-blobs
+  Version: 12.12.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.12.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.12.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.7.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.7.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.7.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.10.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.10.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.10.0-beta.1` are now generally available.
+- Name: azure-storage-queues
+  Version: 12.3.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.3.0/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.3.0-beta.1` are now generally available.
+- Name: azure-identity
+  Version: 1.9.0-beta.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.9.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientAssertionCredential` to enable applications to authenticate with custom client assertions.
+    - Added support for providing a Resource ID to `ManagedIdentityCredential`.
+    - Added support for customizing the IMDS endpoint within `ManagedIdentityCredential`.
+

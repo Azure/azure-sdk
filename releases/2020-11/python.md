@@ -112,11 +112,11 @@ This release contains minor bug fixes and improvements.
 * `get_*_session_receiver` functions have been incorporated into their `get_*_receiver` counterparts, activated by passing a `session_id` parameter.
 * Continued Exception behavior cleanup, normalization, and documentation, as well as naming polish in line with the broad name prefix alignment.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/3f1ad07b16d73107bb6c465859d224c44b6a3f55/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
 
 #### Breaking Changes
 
-- Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
+- Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/3f1ad07b16d73107bb6c465859d224c44b6a3f55/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
 
 ### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 

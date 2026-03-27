@@ -509,7 +509,7 @@ entries:
 
     #### Breaking Changes
 
-    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`. The value should now be a host, for example "http://169.254.169.254" (the default).
+    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`. The value should now be a host, for example `http://169.254.169.254` (the default).
 - Name: Azure.Data.Tables
   Version: 12.2.0-beta.1
   DisplayName: Tables

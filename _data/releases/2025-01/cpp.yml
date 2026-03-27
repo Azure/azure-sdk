@@ -1,0 +1,25 @@
+entries:
+- Name: azure-core
+  Version: 1.15.0-beta.2
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.15.0-beta.2/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made default constructor for `Azure::Core::Uuid` implicit.
+- Name: azure-data-tables
+  Version: 1.0.0-beta.6
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.6/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed constructor for SAS token authentication in `TableServiceClient` and `TableClient`.
+    - Simplified APIs by removing redundant structures.
+    - Changes to the Update/Upsert APIs.
+

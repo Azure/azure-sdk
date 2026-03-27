@@ -1,0 +1,445 @@
+entries:
+- Name: '@azure/ai-agents'
+  Version: 1.1.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0-beta.1/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add MCP tool
+    - Add Deep Research tool
+    - Add Deep Research sample
+    - Add back agent tool `SharepointGroundingTool`, `BingCustomSearchTool`, `MicrosoftFabricTool`, `SharepointTool`
+
+    #### Breaking changes
+
+    - The `DeepResearchDetails` type has been updated: the field `deepResearchBingGroundingConnections` has been renamed to `bingGroundingConnections` and the field `deepResearchModel` has been renamed to `model`.
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.5.0-beta.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.5.0-beta.1/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for mobile number types
+    - mobile numbers are location associated phone numbers with SMS capabilities
+    - API version `2025-06-01` is the default.
+- Name: '@azure-rest/batch'
+  Version: 1.0.0-beta.3
+  DisplayName: Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.3/sdk/batch/batch-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **Renamed/Refactored Model Types:**
+    - Replaced all `*Content` and related types with new `*Options` types for request bodies (e.g., `BatchPoolReplaceContent` → `BatchPoolReplaceOptions`, `BatchNodeReimageContent` → `BatchNodeReimageOptions`, etc.).
+    - Updated all corresponding request parameter interfaces to use the new `*Options` types.
+    - Updated output types to use new `Batch*Output` types where appropriate.
+    - Replaced `MetadataItem`/`MetadataItemOutput` with `BatchMetadataItem`/`BatchMetadataItemOutput`.
+    - Replaced `ImageReference`/`ImageReferenceOutput` with `BatchVmImageReference`/`BatchVmImageReferenceOutput`.
+    - Replaced `PublicIpAddressConfiguration`/`PublicIpAddressConfigurationOutput` with `BatchPublicIpAddressConfiguration`/`BatchPublicIpAddressConfigurationOutput`.
+    - Replaced `UefiSettings`/`UefiSettingsOutput` with `BatchUefiSettings`/`BatchUefiSettingsOutput`.
+    - Replaced `VMDiskSecurityProfile`/`VMDiskSecurityProfileOutput` with `BatchVmDiskSecurityProfile`/`BatchVmDiskSecurityProfileOutput`.
+    - Replaced `ContainerConfiguration`/`ContainerConfigurationOutput` with `BatchContainerConfiguration`/`BatchContainerConfigurationOutput`.
+    - Replaced `OSDisk`/`OSDiskOutput` with `BatchOsDisk`/`BatchOsDiskOutput`.
+    - Replaced `UserAssignedIdentityOutput` with `BatchUserAssignedIdentityOutput`.
+    - Replaced `HttpHeader`/`HttpHeaderOutput` with `OutputFileUploadHeader`/`OutputFileUploadHeaderOutput`.
+    - Replaced `InboundNatPool`/`InboundNatPoolOutput` with `BatchInboundNatPool`/`BatchInboundNatPoolOutput`.
+
+    - **Removed Types:**
+    - Removed legacy types such as `DiffDiskSettings`, `DiffDiskSettingsOutput`, `OnAllBatchTasksComplete`, `OnBatchTaskFailure`, and others that are now replaced by new types.
+
+    - **Changed Field Types:**
+    - Changed several numeric fields to string types for improved precision (e.g., `diskReadIOps`, `diskWriteIOps`, `readIOps`, `writeIOps`).
+    - Updated model properties to use new types (e.g., `affinityInfo` now uses `BatchAffinityInfo`).
+
+    - **API Surface Changes:**
+    - Updated all API operation parameter interfaces to use the new `*Options` types.
+    - Updated all output and response types to use the new output model types.
+- Name: '@azure/ai-agents'
+  Version: 1.1.0-beta.2
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0-beta.2/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed [Github issue](https://github.com/Azure/azure-sdk-for-js/issues/35203) with `messages.create` method type error when upload image file.
+    - Fixed [Github issue](https://github.com/Azure/azure-sdk-for-js/issues/34885) with `runs.create` method deserialization of stream event data.
+- Name: '@azure/arm-msi'
+  Version: 2.2.0
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/msi/arm-msi/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.27.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.27.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.27.0-beta.1.
+- Name: '@azure/storage-blob'
+  Version: 12.28.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.28.0-beta.2.
+- Name: '@azure/arm-containerservice'
+  Version: 23.0.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-datalake'
+  Version: 12.27.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.27.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.27.0-beta.1.
+- Name: '@azure/storage-file-share'
+  Version: 12.28.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.28.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.28.0-beta.1.
+- Name: '@azure/storage-common'
+  Version: 12.0.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Including all features released in 12.0.0-beta.2
+    - Moved policies and credentials to this common package
+- Name: '@azure/arm-search'
+  Version: 3.3.0
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datamigration'
+  Version: 3.0.0-beta.4
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 7.7.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.6.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 7.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-carbonoptimization'
+  Version: 1.0.0
+  DisplayName: Resource Management - Carbonoptimization
+  ServiceName: Carbonoptimization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-carbonoptimization_1.0.0/sdk/carbonoptimization/arm-carbonoptimization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 15.0.0-beta.1
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 22.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagediscovery'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storagediscovery
+  ServiceName: Storagediscovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagediscovery_1.0.0-beta.1/sdk/storagediscovery/arm-storagediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 23.0.0-beta.3
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservicesdatareplication'
+  Version: 1.0.0
+  DisplayName: Resource Management - Recovery Services Data Replication
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-recoveryservicesdatareplication_1.0.0/sdk/recoveryservicesdatareplication/arm-recoveryservicesdatareplication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-agents'
+  Version: 1.1.0-beta.3
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0-beta.3/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix method `runs.createAndPoll` missing required parameter `json_schema` but get `jsonSchema`
+- Name: '@azure/arm-compute'
+  Version: 23.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-query-logs'
+  Version: 1.0.0
+  DisplayName: Monitor Query Logs
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-logs_1.0.0/sdk/monitor/monitor-query-logs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `@azure/monitor-query-logs` package
+    - This package contains the logs querying functionality split from `@azure/monitor-query`
+    - Provides `LogsQueryClient` for querying Azure Monitor Logs using KQL (Kusto Query Language)
+    - Supports querying Azure Log Analytics workspaces and resource-centric queries
+    - Includes batch query capabilities for multiple queries
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.5.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.5.0-beta.2/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for SIP routing API version `2024-11-15-preview` which includes new advanced trunk settings.
+- Name: '@azure/monitor-query-metrics'
+  Version: 1.0.0
+  DisplayName: Monitor Query Metrics
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-metrics_1.0.0/sdk/monitor/monitor-query-metrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `@azure/monitor-query-metrics` package
+    - This package contains the metrics querying functionality split from `@azure/monitor-query`
+    - Provides `MetricsClient` for querying Azure Monitor Metrics
+- Name: '@azure/ai-agents'
+  Version: 1.1.0
+  DisplayName: AI Agents
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0/sdk/ai/ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - Features that are still in preview were removed from this stable release. This includes
+    - Remove MCP tool
+    - Remove Deep Research tool
+    - Remove Sharepoint tool
+    - Remove BingCustomSearch tool
+    - Remove MicrosoftFabric tool
+- Name: '@azure/identity'
+  Version: 4.11.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.11.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed deprecation warnings in `AzureCliCredential` and `AzureDeveloperCliCredential`. [#34878](https://github.com/Azure/azure-sdk-for-js/pull/34878)
+    - Fixed an issue where `InteractiveBrowserCredential` did not resolve correctly on Mac OS. [#35406](https://github.com/Azure/azure-sdk-for-js/pull/35406)
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.12.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.12.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add RateLimitedSampler.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.33
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.33/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Track CLIENT_READONLY and CLIENT_TIMEOUT customer statsbeat.
+
+    #### Bugs Fixed
+
+    - Fix auto-detection of RP environment for azure functions.
+- Name: '@azure/identity-vscode'
+  Version: 2.0.0
+  DisplayName: VS Code Authentication Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.0.0/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    All the features shipped as part of 2.0.0-beta.1 will be GA with this version. The most important feature is providing `vsCodePlugin` compatible with `@azure/identity` v4.11.0.
+- Name: '@azure/arm-hybridconnectivity'
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_2.0.0-beta.2/sdk/hybridconnectivity/arm-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.11.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.11.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue in which `AzurePowerShellCredential` command is not parsed correctly. [#35469](https://github.com/Azure/azure-sdk-for-js/pull/35469)
+- Name: '@azure/arm-mongocluster'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.1.0-beta.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/create-playwright'
+  Version: 1.0.0-beta.2
+  DisplayName: Create Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0-beta.2/sdk/loadtesting/create-playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+
+    #### Features Added
+
+    - Added support for authentication using Entra ID for the service.
+- Name: '@azure/playwright'
+  Version: 1.0.0-beta.2
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.0.0-beta.2/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated all README documents for better clarity and accuracy.
+    - Improved error handling.
+
+    #### Features Added
+
+    - Added Support for activity log.
+- Name: '@azure/ai-projects'
+  Version: 1.0.0
+  DisplayName: AI Projects
+  ServiceName: AI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - remove `project.redTeams`
+    - remove `project.evaluations`
+    - remove `project.inference.chatCompletions`, `project.inference.embeddings` and `project.inference.imageEmbeddings`. For guidance on obtaining an authenticated `azure-ai-inference` client for your AI Foundry Project,
+    refer to the updated samples in the `samples\inference` directory.
+    - rename `project.telemetry.getConnectionString` to `project.telemetry.getApplicationInsightsConnectionString`
+    - rename `project.inference.azureOpenAI` to `project.getAzureOpenAIClient`
+    - remove `project.inference`
+- Name: '@azure/arm-dashboard'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Managed Grafana
+  ServiceName: Grafana
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dashboard_2.0.0-beta.1/sdk/dashboard/arm-dashboard/CHANGELOG.md
+  ChangelogContent: ""
+

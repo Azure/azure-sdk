@@ -1,0 +1,105 @@
+entries:
+- Name: azure-storage-queues
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.5.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+
+    #### Breaking Changes
+
+    - `QueueProperties.ApproximateMessageCount` is deprecated. The value is `-1` if the value exceeds `INT32_MAX`. Use `QueueProperties.ApproximateMessageCountLong` instead.
+- Name: azure-storage-common
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.11.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+    - Bumped up Account SAS version to `2025-07-05`.
+- Name: azure-storage-files-datalake
+  Version: 12.13.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.13.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: azure-storage-blobs
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.15.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: azure-storage-files-shares
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.15.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ShareClient::DeleteIfExists()` will return `false` when error code is `ShareSnapshotNotFound`.
+    - Added more useful error message when the SDK encounters an x-ms-version mis-match issue.
+- Name: azure-core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.16.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed WinHTTP FailFast exception raised when a request is cancelled before the request is actually sent on the wire.
+
+    #### Features Added
+
+    - [[#6535]](https://github.com/Azure/azure-sdk-for-cpp/issues/6535) Enable SSL caching for libcurl transport by default, which is backwards compatible behavior with older libcurl versions, so using the default settings won't result in transport error when using libcurl >= 8.12. The option is controlled by `CurlTransportOptions::EnableCurlSslCaching`, and is on by default. (A community contribution, courtesy of _[sushshring](https://github.com/sushshring)_)
+- Name: azure-identity
+  Version: 1.12.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.12.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the `AZURE_TOKEN_CREDENTIALS` environment variable to `DefaultAzureCredential`, which allows for choosing between 'deployed service' and 'developer tool' credentials. Valid values are 'dev' for developer tools and 'prod' for deployed service.
+
+    #### Bugs Fixed
+
+    - [[#4952]](https://github.com/Azure/azure-sdk-for-cpp/issues/4952) Fixed `ManagedIdentityCredential` to fail fast if IMDS authentication is not available.
+    - [[#4669]](https://github.com/Azure/azure-sdk-for-cpp/issues/4669) Fixed the order of credentials in `DefaultAzureCredential`: `ManagedIdentityCredential` before `AzureCliCredential`.
+- Name: azure-identity
+  Version: 1.13.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.13.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for more `AZURE_TOKEN_CREDENTIALS` environment variable values to specify a single credential type to use in `DefaultAzureCredential`. In addition to `dev` and `prod`, possible values now include `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, and `AzureCliCredential` - each for the corresponding credential type.
+

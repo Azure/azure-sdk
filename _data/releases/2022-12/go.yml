@@ -1,0 +1,219 @@
+entries:
+- Name: sdk/resourcemanager/elastic/armelastic
+  Version: 0.6.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elastic/armelastic/v0.6.0/sdk/resourcemanager/elastic/armelastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation
+  Version: 0.1.0
+  DisplayName: Resource Management - Appcomplianceautomation
+  ServiceName: Appcomplianceautomation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation/v0.1.0/sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/messaging/azservicebus
+  Version: 1.1.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.1.3/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removing changes for client-side idle timer and closing without timeout. Combined these are
+    causing issues with links not properly recovering or closing. Investigating an alternative
+    for a future release.
+- Name: sdk/resourcemanager/loadtesting/armloadtesting
+  Version: 1.0.1
+  DisplayName: Resource Management - Loadtesting
+  ServiceName: Loadtesting
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/loadtesting/armloadtesting/v1.0.1/sdk/resourcemanager/loadtesting/armloadtesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/loadtesting/armloadtesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Loadtesting
+  ServiceName: Loadtesting
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/loadtesting/armloadtesting/v1.0.0/sdk/resourcemanager/loadtesting/armloadtesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/loadtesting/armloadtesting
+  Version: 0.1.0
+  DisplayName: Resource Management - Loadtesting
+  ServiceName: Loadtesting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/loadtesting/armloadtesting/v0.1.0/sdk/resourcemanager/loadtesting/armloadtesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/loadtestservice/armloadtestservice
+  Version: 1.0.1
+  DisplayName: Resource Management - Loadtestservice
+  ServiceName: Loadtestservice
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/loadtestservice/armloadtestservice/v1.0.1/sdk/resourcemanager/loadtestservice/armloadtestservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.2.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/machinelearning/armmachinelearning
+  Version: 3.0.0
+  DisplayName: Resource Management - Machinelearning
+  ServiceName: Machinelearning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/machinelearning/armmachinelearning/v3.0.0/sdk/resourcemanager/machinelearning/armmachinelearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/devcenter/armdevcenter
+  Version: 0.3.0
+  DisplayName: Resource Management - Devcenter
+  ServiceName: Devcenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devcenter/armdevcenter/v0.3.0/sdk/resourcemanager/devcenter/armdevcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/workloadmonitor/armworkloadmonitor
+  Version: 0.5.1
+  DisplayName: Resource Management - Workloadmonitor
+  ServiceName: Workloadmonitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/workloadmonitor/armworkloadmonitor/v0.5.1/sdk/resourcemanager/workloadmonitor/armworkloadmonitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/datafactory/armdatafactory
+  Version: 3.0.0
+  DisplayName: Resource Management - Datafactory
+  ServiceName: Datafactory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datafactory/armdatafactory/v3.0.0/sdk/resourcemanager/datafactory/armdatafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/security/armsecurity
+  Version: 0.9.0
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/security/armsecurity/v0.9.0/sdk/resourcemanager/security/armsecurity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appplatform/armappplatform
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appplatform/armappplatform/v1.1.0-beta.2/sdk/resourcemanager/appplatform/armappplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.3.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.3.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/trafficmanager/armtrafficmanager
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Trafficmanager
+  ServiceName: Trafficmanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/trafficmanager/armtrafficmanager/v1.1.0-beta.1/sdk/resourcemanager/trafficmanager/armtrafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/batch/armbatch
+  Version: 1.1.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/batch/armbatch/v1.1.0/sdk/resourcemanager/batch/armbatch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/webpubsub/armwebpubsub
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Webpubsub
+  ServiceName: Webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/webpubsub/armwebpubsub/v1.1.0-beta.1/sdk/resourcemanager/webpubsub/armwebpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/signalr/armsignalr
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Signalr
+  ServiceName: Signalr
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/signalr/armsignalr/v1.1.0-beta.1/sdk/resourcemanager/signalr/armsignalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerinstance/armcontainerinstance
+  Version: 2.1.0
+  DisplayName: Resource Management - Containerinstance
+  ServiceName: Containerinstance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerinstance/armcontainerinstance/v2.1.0/sdk/resourcemanager/containerinstance/armcontainerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/eventgrid/armeventgrid
+  Version: 0.6.0
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/eventgrid/armeventgrid/v0.6.0/sdk/resourcemanager/eventgrid/armeventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 0.6.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.6.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Corrected signing of User Delegation SAS. Fixes [#19372](https://github.com/Azure/azure-sdk-for-go/issues/19372) and [#19454](https://github.com/Azure/azure-sdk-for-go/issues/19454)
+    * Added formatting of start and expiry time in [SetAccessPolicy](https://learn.microsoft.com/rest/api/storageservices/set-container-acl#request-body). Fixes [#18712](https://github.com/Azure/azure-sdk-for-go/issues/18712)
+    * Uploading block blobs larger than 256MB can fail in some cases with error `net/http: HTTP/1.x transport connection broken`.
+    * Blob name parameters are URL-encoded before constructing the complete blob URL.
+
+    #### Breaking Changes
+
+    * Corrected the name for `saoid` and `suoid` SAS parameters in `BlobSignatureValues` struct as per [this](https://learn.microsoft.com/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas)
+    * Updated type of `BlockSize` from int to int64 in `UploadStreamOptions`
+    * CRC64 transactional hashes are now supplied with a `uint64` rather than a `[]byte` to conform with Golang's `hash/crc64` package
+    * Field `XMSContentCRC64` has been renamed to `ContentCRC64`
+    * The `Lease*` constant types and values in the `blob` and `container` packages have been moved to the `lease` package and their names fixed up to avoid stuttering.
+    * Fields `TransactionalContentCRC64` and `TransactionalContentMD5` have been replaced by `TransactionalValidation`.
+    * Fields `SourceContentCRC64` and `SourceContentMD5` have been replaced by `SourceContentValidation`.
+    * Field `TransactionalContentMD5` has been removed from type `AppendBlockFromURLOptions`.
+
+    #### Features Added
+
+    * Added BlobDeleteType to DeleteOptions to allow access to ['Permanent'](https://learn.microsoft.com/rest/api/storageservices/delete-blob#permanent-delete) DeleteType.
+    * Added [Set Blob Expiry API](https://learn.microsoft.com/rest/api/storageservices/set-blob-expiry).
+    * Added method `ServiceClient()` to the `azblob.Client` type, allowing access to the underlying service client.
+    * Added support for object level immutability policy with versioning (Version Level WORM).
+    * Added the custom CRC64 polynomial used by storage for transactional hashes, and implemented automatic hashing for transactions.
+- Name: sdk/storage/azblob
+  Version: 0.6.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.6.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix compilation error on Darwin.
+

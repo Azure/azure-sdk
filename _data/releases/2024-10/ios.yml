@@ -1,0 +1,24 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.13.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.13.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: ""
+- Name: AzureCommunicationCalling
+  Version: 2.14.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.14.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Reactions support.
+    * Support of MicrosoftTeamsApp identifier (not on ACS SDK API level).
+    * Error info updates.
+    #### Bugs Fixed
+    * Stopped ACS events after calls reached disconnected state.
+

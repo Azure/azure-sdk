@@ -1,0 +1,37 @@
+entries:
+- Name: azure-security-keyvault-certificates
+  Version: 4.3.0-beta.4
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.3.0-beta.4/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `PreserveCertificateOrder` option.
+    - Updated API version to `7.6-preview.2`.
+- Name: azure-storage-blobs
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.14.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2025-07-05`.
+    - Added new field `FileRequestIntent` in `CopyBlobFromUriOptions`, `UploadBlockBlobFromOptions`, `StageBlockFromUriOptions`, `AppendBlockFromUriOptions`, `UploadPagesFromUriOptions`
+- Name: azure-storage-files-shares
+  Version: 12.14.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.14.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new APIs `ShareFileClient::CreateSymbolicLink()` and `ShareFileClient::GetSymbolicLink()`.
+

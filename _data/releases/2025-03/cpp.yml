@@ -1,0 +1,53 @@
+entries:
+- Name: azure-core
+  Version: 1.15.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.15.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made default constructor for `Azure::Core::Uuid` implicit.
+    - Added mTLS support to WinHTTP transport.
+    - To enable mTLS, first create an appropriate Windows `PCCERT_CONTEXT` object and set the `TlsClientCertificate` field in `WinHttpTransportOptions` to that certificate before creating the `WinHttpTransport` object.
+- Name: azure-identity
+  Version: 1.11.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.11.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Subscription` to `AzureCliCredentialOptions` which allows the caller to specify an Azure subscription that does not match the current Azure CLI subscription.
+    - [[#6321]](https://github.com/Azure/azure-sdk-for-cpp/issues/6321) Log Client ID used in `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - [[#5235]](https://github.com/Azure/azure-sdk-for-cpp/issues/5235) Warnings in `azure/identity.hpp` cause strict builds to fail.
+- Name: azure-storage-files-shares
+  Version: 12.13.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.13.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.13.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.10.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.10.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.10.0-beta.1` are now generally available.
+

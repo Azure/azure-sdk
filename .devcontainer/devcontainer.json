@@ -1,20 +1,49 @@
 {
     "name": "Jekyll",
-    "dockerFile": "Dockerfile",
+    "image": "mcr.microsoft.com/devcontainers/ruby:3.3-bullseye",
+    "customizations": {
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "csv-edit.quoteAllFields": true,
+                "csv-edit.quoteEmptyOrNullFields": "true",
+                "csv-edit.readOption_hasHeader": "true",
+                "csv-edit.writeOption_hasHeader": "true"
+            },
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": { 
-        "terminal.integrated.shell.linux": "/bin/bash"
+            // Extensions we want installed when the container is created.
+            "extensions": [
+                "docsmsft.docs-authoring-pack",
+                "github.vscode-pull-request-github",
+                "janisdd.vscode-edit-csv"
+            ]
+        }
+    },
+    
+    // ENV Variables required by Jekyll
+    "containerEnv": {
+        "LANG":"en_US.UTF-8",
+        "LANGUAGE":"en_US:en",
+        "LC_ALL":"en_US.UTF-8",
+        "TZ":"America/Chicago"
     },
 
-    // Extensions we want installed when the container is created.
-    "extensions": [
-        "docsmsft.docs-authoring-pack",
-        "github.vscode-pull-request-github"
-    ],
+    "features": {
+        // Use the GitHub CLI to easily push and create PRs from terminal.
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/powershell:1": {}
+    },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [4000],
+    "portsAttributes": {
+        // Suppress prompt to open browser to wrong address. VSCode will open root site and not /azure-sdk.
+        "4000": {
+            "label": "Site",
+            "onAutoForward": "silent"
+        }
+    },
 
     // Install the bundle after the container is created.
     "postCreateCommand": "bundle install",

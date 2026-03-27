@@ -1,0 +1,1072 @@
+entries:
+- Name: Azure.Messaging.EventGrid
+  Version: 4.30.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.30.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MessageId`, `MessageType`, and `Reaction` properties to the `AcsMessageReceivedEventData` event.
+    - Added the `Animated` property to `AcsMessageMediaContent` event.
+- Name: Azure.AI.OpenAI
+  Version: 2.2.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.2.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+
+    - Addressed a problem calling the `SetNewMaxCompletionTokensPropertyEnabled()` method, needed for o1/o3 model support, on `ChatCompletionOptions` instances prior to use in a method call. Related issue: [azure-sdk-for-net#46545](https://github.com/Azure/azure-sdk-for-net/issues/46545) with thanks to the PR  [azure-sdk-for-net#48218](https://github.com/Azure/azure-sdk-for-net/pull/48218).
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.9.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.9.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.21
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.21/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Model Dataset has a new parameter schema
+    - Model LinkedService parameter AzureFileStorageLinkedService support MI auth
+    - Model LinkedService parameter AzureTableStorageLinkedService support MI auth
+    - Model LinkedService parameter DynamicsCrmLinkedService has a new properties credential
+    - Model LinkedService parameter DynamicsLinkedService has a new properties domain
+    - Model LinkedService parameter GreenplumLinkedService has some new connection properties
+    - Model LinkedService parameter MySqlLinkedService has some new properties
+    - Model LinkedService parameter OracleLinkedService update properties
+    - Model LinkedService parameter RestService and SharePointOnlineList support ServicePrincipalCert auth
+    - Model LinkedService parameter SAP ODP update properties sncMode
+    - Model LinkedService parameter SnowflakeV2LinkedService has a new properties host
+    - Model LinkedService parameter SqlServerLinkedService add authenticationType UserAssignedManagedIdentity
+    - Model LinkedService parameter TeradataLinkedService has some new Teradata connection properties
+    - Model LinkedService parameter VerticaLinkedService support Vertica V2
+    - Model LinkedService has a new parameter version
+    - Model Pipeline Add credential reference in notebook and spark job definition activity
+    - Model Pipeline feature snowflake support multi-resultset
+    - Model Pipeline feature snowflake support storage integration
+    - Model Pipeline parameter ExecuteDataFlowActivity has a new properties continuationSettings
+    - Model Pipeline parameter ExpressionV2 has a new properties page_size
+    - Model Pipeline parameter SalesforceV2Source has a new properties page_size
+    - Model Pipeline support Iceberg Format As Sink
+    - Model Pipeline support TeradataSink
+    - Model Dataset support Iceberg Format As Sink
+    - Model runNotebook parameter runId update description
+    - Model LinkedService support sslMode and useSystemTrustStore for MariaDB
+
+    #### Breaking Changes
+
+    - Model LinkedService parameter PostgreSqlV2LinkedService has a new required properties authentication_type
+    - Model LinkedService parameter SapOdpLinkedService update properties sncMode
+    - Model LinkedService parameter AzureSqlDWLinkedService update required properties
+    - Model LinkedService parameter SqlServerLinkedService update required properties
+    - Model LinkedService parameter AmazonRdsForSqlServerLinkedService update required properties
+    - Model LinkedService parameter AzureSqlDatabaseLinkedService update required properties
+    - Model LinkedService parameter AzureSqlMILinkedService update required properties
+- Name: Azure.ResourceManager.Compute
+  Version: 1.8.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.8.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.EventGrid.SystemEvents
+  Version: 1.0.0-beta.2
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid.SystemEvents_1.0.0-beta.2/sdk/eventgrid/Azure.Messaging.EventGrid.SystemEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - MQTT event naming was fixed to use correct casing.
+    - Media services events were removed as the service has been deprecated.
+    - Various properties were changed to be nullable.
+
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+    - Added various new system events and properties for existing events.
+- Name: Azure.ResourceManager.Compute
+  Version: 1.9.0-beta.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.9.0-beta.1/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.1.0
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.1.0/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that would prevent transfers of large files (>200 GiB) for certain destination resource types.
+
+    #### Features added
+    - Added support for anonymous access by adding a default constructor for `ShareFilesStorageResourceProvider`.
+- Name: Azure.Storage.DataMovement
+  Version: 12.1.0
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.1.0/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that would prevent transfers of large files (>200 GiB) for certain destination resource types.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.1.0
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.1.0/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that would prevent transfers of large files (>200 GiB) for certain destination resource types.
+
+    #### Features Added
+    - Added support for anonymous access by adding a default constructor for `BlobsStorageResourceProvider`.
+- Name: Azure.ResourceManager.Quota
+  Version: 1.1.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.1.0/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceRegistry
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceRegistry_1.0.0/sdk/deviceregistry/Azure.ResourceManager.DeviceRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.4.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.4.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.4
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.4/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed deserialization failure for AzureBlobStorage connection [issue](https://github.com/Azure/azure-sdk-for-net/issues/47874)
+    * Fixed a bug on deserialization of RunStepDeltaFileSearchToolCall [issue](https://github.com/Azure/azure-sdk-for-net/issues/48333)
+- Name: Azure.ResourceManager.ServiceNetworking
+  Version: 1.1.0
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceNetworking_1.1.0/sdk/servicenetworking/Azure.ResourceManager.ServiceNetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.2.3
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.2.3/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Text.Authoring
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Text.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of Azure.AI.Language.Text.Authoring library.
+- Name: Azure.AI.Language.Conversations.Authoring
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations.Authoring_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations.Authoring/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Initial release of Azure.AI.Language.Conversations.Authoring library.
+- Name: Azure.ResourceManager.Search
+  Version: 1.3.0-beta.4
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Search_1.3.0-beta.4/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.4.0-beta.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.4.0-beta.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new connection management types in the `System.ClientModel.Primitives` namespace:
+    - `ConnectionProvider`: Abstract base class for managing client connections, including retrieval of connection settings and subclient caching.
+    - `ClientConnection`: Readonly struct that encapsulates connection options with support for API key, token, or no authentication.
+    - `ConnectionCollection`: A keyed collection of client connections, supporting JSON serialization and providing an enhanced debugger view.
+    - `ClientCache`: Implements an LRU-based cache for efficient reuse of client instances and optimized retrieval.
+
+    #### Bugs Fixed
+
+    - Removed debugging statement in pipeline creation when applying the `ClientLoggingOptions.AllowedHeaderNames` option.
+- Name: Azure.ResourceManager.FrontDoor
+  Version: 1.3.1
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FrontDoor_1.3.1/sdk/frontdoor/Azure.ResourceManager.FrontDoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Consumption
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Consumption_1.1.0-beta.3/sdk/consumption/Azure.ResourceManager.Consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApplicationInsights
+  Version: 1.0.1
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApplicationInsights_1.0.1/sdk/applicationinsights/Azure.ResourceManager.ApplicationInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ScVmm
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - ScVmm
+  ServiceName: ScVmm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ScVmm_1.0.0-beta.6/sdk/arc-scvmm/Azure.ResourceManager.ScVmm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApiManagement
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiManagement_1.3.0-beta.2/sdk/apimanagement/Azure.ResourceManager.ApiManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Astro
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Astro
+  ServiceName: Astro
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Astro_1.0.0-beta.2/sdk/astronomer/Azure.ResourceManager.Astro/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.LargeInstance
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Large Instance
+  ServiceName: Large Instance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.LargeInstance_1.0.0-beta.2/sdk/azurelargeinstance/Azure.ResourceManager.LargeInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DesktopVirtualization
+  Version: 1.3.1
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DesktopVirtualization_1.3.1/sdk/desktopvirtualization/Azure.ResourceManager.DesktopVirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ResourceGraph
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceGraph_1.1.0-beta.3/sdk/resourcegraph/Azure.ResourceManager.ResourceGraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Chaos
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Chaos_1.1.0-beta.2/sdk/chaos/Azure.ResourceManager.Chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Communication
+  Version: 1.2.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.2.1/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Confluent
+  Version: 1.2.1
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Confluent_1.2.1/sdk/confluent/Azure.ResourceManager.Confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Hci
+  Version: 1.2.1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.2.1/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.3.1
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.3.1/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppPlatform
+  Version: 1.1.2
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppPlatform_1.1.2/sdk/appplatform/Azure.ResourceManager.AppPlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConnectedVMwarevSphere
+  Version: 1.1.1
+  DisplayName: Resource Management - Connected VMware vSphere
+  ServiceName: Connected VMware vSphere
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedVMwarevSphere_1.1.1/sdk/connectedvmwarevsphere/Azure.ResourceManager.ConnectedVMwarevSphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConfidentialLedger
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConfidentialLedger_1.1.0-beta.5/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.1.0-beta.6
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.1.0-beta.6/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Billing
+  Version: 1.2.1
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Billing_1.2.1/sdk/billing/Azure.ResourceManager.Billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppComplianceAutomation
+  Version: 1.0.1
+  DisplayName: Resource Management - App Compliance Automation
+  ServiceName: App Compliance Automation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppComplianceAutomation_1.0.1/sdk/appcomplianceautomation/Azure.ResourceManager.AppComplianceAutomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceProvisioningServices
+  Version: 1.2.1
+  DisplayName: Resource Management - Device Provisioning Services
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceProvisioningServices_1.2.1/sdk/deviceprovisioningservices/Azure.ResourceManager.DeviceProvisioningServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.6.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.6.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for specifying the token credential's Microsoft Entra audience when creating a client.
+- Name: Azure.Storage.Queues
+  Version: 12.22.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.22.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a `QueueServiceClient`, `QueueClient` created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+    - Fixed bug where a `QueueServiceClient`, `QueueClient` created with a `StorageSharedKeyCredential`, the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+
+
+    #### Features Added
+    - Includes all features from 12.22.0-beta.1
+    - Added the following Client Builders: `AddQueueServiceClient(Uri, Azure.SasCredential)`, `AddQueueServiceClient(Uri, TokenCredential)`
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.54
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.54/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Identity
+  Version: 1.14.0-beta.2
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.14.0-beta.2/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `VisualStudioCredential` will now correctly fall through to the next credential in the chain when no account is found by Visual Studio. ([#48464](https://github.com/Azure/azure-sdk-for-net/issues/48464))
+- Name: Azure.Storage.Blobs
+  Version: 12.24.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.24.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a `BlobServiceClient`, `BlobContainerClient`, `BlobBaseClient` created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+    - Fixed bug where a `BlobServiceClient`, `BlobContainerClient`, `BlobBaseClient` created with a `StorageSharedKeyCredential`, the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+
+    #### Features Added
+    - Includes all features from 12.24.0-beta.1
+    - Added the following Client Builders: `AddBlobServiceClient(Uri, Azure.SasCredential)`, `AddBlobServiceClient(Uri, TokenCredential)`
+- Name: Azure.Identity.Broker
+  Version: 1.3.0-beta.1
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.0-beta.1/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated Microsoft.Identity.Client.Broker dependency to version 4.69.1.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.22.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.22.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a `ShareServiceClient`, `ShareClient`, `ShareDirectoryClient`, `ShareFileClient` created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+    - Fixed bug where a `ShareServiceClient`, `ShareClient`, `ShareDirectoryClient`, `ShareFileClient` created with a `StorageSharedKeyCredential`, the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+
+    #### Features Added
+    - Includes all features from 12.22.0-beta.1
+    - Added the following Client Builders: `AddShareServiceClient(Uri, Azure.SasCredential)`, `AddShareServiceClient(Uri, TokenCredential)`
+- Name: Azure.Storage.Common
+  Version: 12.23.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.23.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where in rare cases, a `NullReferenceException` could be thrown when parsing an error response from the service.
+    - Fixed bug to ensure that the accumulated disposables within the internal `StorageWriteStream` are disposed properly in the event that an exception is thrown during the disposal process. (#47781)
+    - Fixed bug to Redact SAS credentials from Error.SasCredentialRequiresUriWithoutSas message.
+    - Fixed bug where LazyLoadingReadOnlyStream overprovisions the default buffer memory for OpenRead
+    - Fixed bug where a client created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.22.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.22.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where a `DataLakeServiceClient`, `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, `DataLakeFileClient`, `DataLakePathClient` created with a connection string with an account name specified (e.g. "AccountName=..;"), the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+    - Fixed bug where a `DataLakeServiceClient`, `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, `DataLakeFileClient`, `DataLakePathClient` created with a `StorageSharedKeyCredential`, the account name was not populated on the Storage Clients if the account name was not also specified in the endpoint. (#42925)
+
+    #### Features Added
+    - Includes all features from 12.22.0-beta.1
+    - Added the following Client Builders: `AddDataLakeServiceClient(Uri, Azure.SasCredential)`, `AddDataLakeServiceClient(Uri, TokenCredential)`
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.21.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.21.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where batch subrequests would not authenticate properly if using `TokenCredential` authentication when the `BlobBatchClient` was created from `BlobContianerClient.GetBlobBatchClient`.
+
+    #### Features Added
+    - Includes all features from 12.21.0-beta.1
+- Name: Azure.ResourceManager.Quantum
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Quantum
+  ServiceName: Quantum
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quantum_1.0.0-beta.6/sdk/quantum/Azure.ResourceManager.Quantum/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HDInsight.Containers
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - HDInsight Containers
+  ServiceName: HDInsight Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight.Containers_1.0.0-beta.5/sdk/hdinsightcontainers/Azure.ResourceManager.HDInsight.Containers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.9
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.9/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RedisEnterprise
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedisEnterprise_1.2.0-beta.2/sdk/redisenterprise/Azure.ResourceManager.RedisEnterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HDInsight
+  Version: 1.2.0-beta.4
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight_1.2.0-beta.4/sdk/hdinsight/Azure.ResourceManager.HDInsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OracleDatabase
+  Version: 1.0.1
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OracleDatabase_1.0.1/sdk/oracle/Azure.ResourceManager.OracleDatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.3.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.3.1/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.GuestConfiguration
+  Version: 1.2.1
+  DisplayName: Resource Management - Guest Configuration
+  ServiceName: Guest Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.GuestConfiguration_1.2.1/sdk/guestconfiguration/Azure.ResourceManager.GuestConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MigrationDiscoverySap
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Migration Discovery SAP
+  ServiceName: Migration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MigrationDiscoverySap_1.0.0-beta.2/sdk/migrationdiscoverysap/Azure.ResourceManager.MigrationDiscoverySap/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesSiteRecovery
+  Version: 1.2.1
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesSiteRecovery_1.2.1/sdk/recoveryservices-siterecovery/Azure.ResourceManager.RecoveryServicesSiteRecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HealthcareApis
+  Version: 1.3.1
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: Healthcare APIs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HealthcareApis_1.3.1/sdk/healthcareapis/Azure.ResourceManager.HealthcareApis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NotificationHubs
+  Version: 1.1.1
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NotificationHubs_1.1.1/sdk/notificationhubs/Azure.ResourceManager.NotificationHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MachineLearning
+  Version: 1.2.2
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MachineLearning_1.2.2/sdk/machinelearningservices/Azure.ResourceManager.MachineLearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Qumulo
+  Version: 1.1.1
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Qumulo_1.1.1/sdk/qumulo/Azure.ResourceManager.Qumulo/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MySql
+  Version: 1.1.1
+  DisplayName: Resource Management - MySQL
+  ServiceName: MySQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.1.1/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.0.1
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.0.1/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridContainerService
+  Version: 1.0.1
+  DisplayName: Resource Management - Hybrid Container Service
+  ServiceName: Hybrid Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridContainerService_1.0.1/sdk/hybridaks/Azure.ResourceManager.HybridContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NewRelicObservability
+  Version: 1.1.1
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NewRelicObservability_1.1.1/sdk/newrelicobservability/Azure.ResourceManager.NewRelicObservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Purview
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Purview_1.2.0-beta.2/sdk/purview/Azure.ResourceManager.Purview/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Authorization
+  Version: 1.1.4
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Authorization_1.1.4/sdk/authorization/Azure.ResourceManager.Authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NotificationHubs
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NotificationHubs_1.2.0-beta.2/sdk/notificationhubs/Azure.ResourceManager.NotificationHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Automation
+  Version: 1.1.1
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Automation_1.1.1/sdk/automation/Azure.ResourceManager.Automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sphere
+  Version: 1.0.1
+  DisplayName: Resource Management - Sphere
+  ServiceName: Sphere
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sphere_1.0.1/sdk/sphere/Azure.ResourceManager.Sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AgFoodPlatform
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Agrifood
+  ServiceName: Agrifood
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AgFoodPlatform_1.0.0-beta.5/sdk/agrifood/Azure.ResourceManager.AgFoodPlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataBoxEdge
+  Version: 1.1.1
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Data Box Edge
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataBoxEdge_1.1.1/sdk/databoxedge/Azure.ResourceManager.DataBoxEdge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.2.1
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.2.1/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Datadog
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Datadog
+  ServiceName: Datadog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Datadog_1.0.0-beta.5/sdk/datadog/Azure.ResourceManager.Datadog/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeAnalytics
+  Version: 1.1.1
+  DisplayName: Resource Management - Data Lake Analytics
+  ServiceName: Data Lake Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeAnalytics_1.1.1/sdk/datalake-analytics/Azure.ResourceManager.DataLakeAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ChangeAnalysis
+  Version: 1.1.1
+  DisplayName: Resource Management - Change Analysis
+  ServiceName: Change Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ChangeAnalysis_1.1.1/sdk/changeanalysis/Azure.ResourceManager.ChangeAnalysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Analysis
+  Version: 1.1.1
+  DisplayName: Resource Management - Analysis
+  ServiceName: Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Analysis_1.1.1/sdk/analysisservices/Azure.ResourceManager.Analysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataBox
+  Version: 1.0.4
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataBox_1.0.4/sdk/databox/Azure.ResourceManager.DataBox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceFabric
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabric_1.2.0-beta.2/sdk/servicefabric/Azure.ResourceManager.ServiceFabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SelfHelp
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SelfHelp_1.1.0-beta.5/sdk/selfhelp/Azure.ResourceManager.SelfHelp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.7.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.7.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataShare
+  Version: 1.1.1
+  DisplayName: Resource Management - Data Share
+  ServiceName: Data Share
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataShare_1.1.1/sdk/datashare/Azure.ResourceManager.DataShare/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Automanage
+  Version: 1.1.1
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Automanage_1.1.1/sdk/automanage/Azure.ResourceManager.Automanage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Advisor
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Advisor_1.0.0-beta.5/sdk/advisor/Azure.ResourceManager.Advisor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Sql
+  Version: 1.3.0-beta.10
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.3.0-beta.10/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.BotService
+  Version: 1.1.1
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BotService_1.1.1/sdk/botservice/Azure.ResourceManager.BotService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CustomerInsights
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Customer Insights
+  ServiceName: Customer Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CustomerInsights_1.0.0-beta.5/sdk/customer-insights/Azure.ResourceManager.CustomerInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SecurityCenter
+  Version: 1.2.0-beta.6
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityCenter_1.2.0-beta.6/sdk/securitycenter/Azure.ResourceManager.SecurityCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.TrafficManager
+  Version: 1.1.3
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.TrafficManager_1.1.3/sdk/trafficmanager/Azure.ResourceManager.TrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Attestation
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Attestation_1.0.0-beta.5/sdk/attestation/Azure.ResourceManager.Attestation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Support
+  Version: 1.1.1
+  DisplayName: Resource Management - Support
+  ServiceName: Support
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Support_1.1.1/sdk/support/Azure.ResourceManager.Support/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CostManagement
+  Version: 1.0.2
+  DisplayName: Resource Management - Costmanagement
+  ServiceName: Cost Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CostManagement_1.0.2/sdk/costmanagement/Azure.ResourceManager.CostManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SecurityInsights
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Security Insights
+  ServiceName: Security Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityInsights_1.2.0-beta.2/sdk/securityinsights/Azure.ResourceManager.SecurityInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.TrustedSigning
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Trusted Signing
+  ServiceName: Trusted Signing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.TrustedSigning_1.0.0-beta.2/sdk/trustedsigning/Azure.ResourceManager.TrustedSigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DefenderEasm
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Defender EASM
+  ServiceName: Defender EASM
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DefenderEasm_1.0.0-beta.3/sdk/defendereasm/Azure.ResourceManager.DefenderEasm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataMigration
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataMigration_1.0.0-beta.5/sdk/datamigration/Azure.ResourceManager.DataMigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AlertsManagement
+  Version: 1.1.1
+  DisplayName: Resource Management - Alerts Management
+  ServiceName: Alerts Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AlertsManagement_1.1.1/sdk/alertsmanagement/Azure.ResourceManager.AlertsManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDBForPostgreSql
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Cosmos DB for PostgreSQL
+  ServiceName: Cosmos DB for PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDBForPostgreSql_1.1.0-beta.2/sdk/cosmosdbforpostgresql/Azure.ResourceManager.CosmosDBForPostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Blueprint
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Blueprint
+  ServiceName: Blueprint
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Blueprint_1.0.0-beta.5/sdk/blueprint/Azure.ResourceManager.Blueprint/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeStore
+  Version: 1.1.1
+  DisplayName: Resource Management - Data Lake Store
+  ServiceName: Data Lake Store
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeStore_1.1.1/sdk/datalake-store/Azure.ResourceManager.DataLakeStore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageCache
+  Version: 1.3.1
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageCache_1.3.1/sdk/storagecache/Azure.ResourceManager.StorageCache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.BillingBenefits
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Billing Benefits
+  ServiceName: Billing Benefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BillingBenefits_1.0.0-beta.4/sdk/billingbenefits/Azure.ResourceManager.BillingBenefits/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApiCenter
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - API Center
+  ServiceName: API Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiCenter_1.0.0-beta.3/sdk/apicenter/Azure.ResourceManager.ApiCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Resources
+  Version: 1.9.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.9.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageActions
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Storage Actions
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageActions_1.0.0-beta.2/sdk/storageactions/Azure.ResourceManager.StorageActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.5
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.5/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    Updated GetProcessorCount to not override the processor count for flex consumption. (#45970)
+
+    #### Other Changes
+
+    - Updating .NET runtime dependencies to the 6.x line, the Azure extensions to 1.8.0, and the latest dependencies for the Functions host.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.11.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.11.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for [AzurePipelinesCredential](https://learn.microsoft.com/dotnet/api/azure.identity.azurepipelinescredential?view=azure-dotnet) in the client factory by specifying configuration item `credential` as "azurepipelines" and providing each credential parameter as a named configuration item.
+
+    #### Bugs Fixed
+
+    - Fixed an issue when creating clients from configuration using the ASP.NET Core integration testing library, `Microsoft.AspNetCore.Mvc.Testing`.  Due to a difference in how an section value is represented, logic was interpreting a setting with a child object as an empty connection string value.  The child object is now properly parsed and applied for client construction.  ([#48368](https://github.com/Azure/azure-sdk-for-net/issues/48368))
+- Name: Microsoft.Azure.WebJobs.Extensions.Tables
+  Version: 1.3.3
+  DisplayName: Functions extension for Azure Tables
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Tables_1.3.3/sdk/tables/Microsoft.Azure.WebJobs.Extensions.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updating .NET runtime dependencies to the 6.x line, the Azure extensions to 1.8.0, and the latest dependencies for the Functions host.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.4.4
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.4.4/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updating .NET runtime dependencies to the 6.x line, the Azure extensions to 1.8.0, and the latest dependencies for the Functions host.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.4.0-beta.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.4.0-beta.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a misspelling of "PartitionId" in the trigger input data passed to the function executor.  This caused function logs and metrics reported by AppInsights and the portal to reflect the wrong label.  To ensure that applications that rely on the misspelling are not impacted, a new member with the correct spelling was added.
+

@@ -1,0 +1,580 @@
+entries:
+- Name: azure-ai-projects
+  Version: 1.0.0b6
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b6/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * Added `trace_function` decorator for conveniently tracing function calls in Agents using OpenTelemetry. Please see the README.md for updated documentation.
+
+    #### Bugs Fixed
+
+    * Lowered the logging level of "Toolset is not available in the client" from `warning` to `debug` to prevent unnecessary log entries in agent application runs.
+- Name: azure-maps-timezone
+  Version: 1.0.0b1
+  DisplayName: Timezone
+  ServiceName: Timezone
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-maps-timezone_1.0.0b1/sdk/maps/azure-maps-timezone/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release
+- Name: azure-ai-resources
+  Version: 1.0.0b9
+  DisplayName: AI Resources
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b9/sdk/ai/azure-ai-resources/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecation message added.
+- Name: azure-mgmt-containerregistry
+  Version: 11.0.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_11.0.0/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 22.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_22.1.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 34.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_34.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-databoxedge
+  Version: 2.0.0
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Data Box Edge
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databoxedge_2.0.0/sdk/databoxedge/azure-mgmt-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-synapse-artifacts
+  Version: 0.20.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.20.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Model LinkedService parameter PostgreSqlV2LinkedService has a new required properties authentication_type
+    - Model LinkedService parameter SapOdpLinkedService update properties sncMode
+    - Model LinkedService parameter AzureSqlDWLinkedService parameter connection_string now is not required
+    - Model LinkedService parameter SqlServerLinkedService parameter connection_string now is not required
+    - Model LinkedService parameter AmazonRdsForSqlServerLinkedService parameter connection_string now is not required
+    - Model LinkedService parameter AzureSqlDatabaseLinkedService parameter connection_string now is not required
+    - Model LinkedService parameter AzureSqlMILinkedService parameter connection_string now is not required
+    - Model SharePointOnlineListLinkedService parameter service_principal_key now is not required
+
+    #### Features Added
+
+    - Add a new Model IcebergDataset
+    - Add a new Model IcebergSink
+    - Add a new Model TeradataSink
+    - Model AzureFileStorageLinkedService has a new parameter service_endpoint
+    - Model AzureFileStorageLinkedService has a new parameter credential
+    - Model AzureTableStorageLinkedService has a new parameter service_endpoint
+    - Model AzureTableStorageLinkedService has a new parameter credential
+    - Model DynamicsCrmLinkedService has a new properties credential
+    - Model DynamicsLinkedService has a new properties domain
+    - Model GreenplumLinkedService has a new parameter authentication_type
+    - Model GreenplumLinkedService has a new parameter host
+    - Model GreenplumLinkedService has a new parameter port
+    - Model GreenplumLinkedService has a new parameter username
+    - Model GreenplumLinkedService has a new parameter database
+    - Model GreenplumLinkedService has a new parameter ssl_mode
+    - Model GreenplumLinkedService has a new parameter connection_timeout
+    - Model GreenplumLinkedService has a new parameter command_timeout
+    - Model GreenplumLinkedService has a new parameter password
+    - Model MySqlLinkedService has a new parameter allow_zero_date_time
+    - Model MySqlLinkedService has a new parameter connection_timeout
+    - Model MySqlLinkedService has a new parameter convert_zero_date_time
+    - Model MySqlLinkedService has a new parameter guid_format
+    - Model MySqlLinkedService has a new parameter ssl_cert
+    - Model MySqlLinkedService has a new parameter ssl_key
+    - Model MySqlLinkedService has a new parameter treat_tiny_as_boolean
+    - Model OracleLinkedService has a new parameter server
+    - Model OracleLinkedService has a new parameter authentication_type
+    - Model OracleLinkedService has a new parameter username
+    - Model OracleLinkedService has a new parameter encryption_client
+    - Model OracleLinkedService has a new parameter encryption_types_client
+    - Model OracleLinkedService has a new parameter crypto_checksum_client
+    - Model OracleLinkedService has a new parameter crypto_checksum_types_client
+    - Model OracleLinkedService has a new parameter initial_lob_fetch_size
+    - Model OracleLinkedService has a new parameter fetch_size
+    - Model OracleLinkedService has a new parameter statement_cache_size
+    - Model OracleLinkedService has a new parameter initialization_string
+    - Model OracleLinkedService has a new parameter enable_bulk_load
+    - Model OracleLinkedService has a new parameter support_v1_data_types
+    - Model OracleLinkedService has a new parameter fetch_tswtz_as_timestamp
+    - Model RestServiceLinkedService has a new parameter service_principal_credential_type
+    - Model RestServiceLinkedService has a new parameter service_principal_embedded_cert
+    - Model RestServiceLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model SharePointOnlineListLinkedService has a new parameter service_principal_credential_type
+    - Model SharePointOnlineListLinkedService has a new parameter service_principal_embedded_cert
+    - Model SharePointOnlineListLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model SapTableLinkedService update parameter snc_mode
+    - Model SnowflakeV2LinkedService has a new properties host
+    - Model SqlServerLinkedService has a new parameter server
+    - Model SqlServerLinkedService has a new parameter database
+    - Model SqlServerLinkedService has a new parameter encrypt
+    - Model SqlServerLinkedService has a new parameter trust_server_certificate
+    - Model SqlServerLinkedService has a new parameter host_name_in_certificate
+    - Model SqlServerLinkedService has a new parameter application_intent
+    - Model SqlServerLinkedService has a new parameter connect_timeout
+    - Model SqlServerLinkedService has a new parameter connect_retry_count
+    - Model SqlServerLinkedService has a new parameter connect_retry_interval
+    - Model SqlServerLinkedService has a new parameter load_balance_timeout
+    - Model SqlServerLinkedService has a new parameter command_timeout
+    - Model SqlServerLinkedService has a new parameter integrated_security
+    - Model SqlServerLinkedService has a new parameter failover_partner
+    - Model SqlServerLinkedService has a new parameter max_pool_size
+    - Model SqlServerLinkedService has a new parameter min_pool_size
+    - Model SqlServerLinkedService has a new parameter multiple_active_result_sets
+    - Model SqlServerLinkedService has a new parameter multi_subnet_failover
+    - Model SqlServerLinkedService has a new parameter packet_size
+    - Model SqlServerLinkedService has a new parameter pooling
+    - Model SqlServerLinkedService has a new parameter authentication_type
+    - Model SqlServerLinkedService has a new parameter credential
+    - Model AzureSqlDWLinkedService has a new parameter server
+    - Model AzureSqlDWLinkedService has a new parameter database
+    - Model AzureSqlDWLinkedService has a new parameter encrypt
+    - Model AzureSqlDWLinkedService has a new parameter trust_server_certificate
+    - Model AzureSqlDWLinkedService has a new parameter host_name_in_certificate
+    - Model AzureSqlDWLinkedService has a new parameter application_intent
+    - Model AzureSqlDWLinkedService has a new parameter connect_timeout
+    - Model AzureSqlDWLinkedService has a new parameter connect_retry_count
+    - Model AzureSqlDWLinkedService has a new parameter connect_retry_interval
+    - Model AzureSqlDWLinkedService has a new parameter load_balance_timeout
+    - Model AzureSqlDWLinkedService has a new parameter command_timeout
+    - Model AzureSqlDWLinkedService has a new parameter integrated_security
+    - Model AzureSqlDWLinkedService has a new parameter failover_partner
+    - Model AzureSqlDWLinkedService has a new parameter max_pool_size
+    - Model AzureSqlDWLinkedService has a new parameter min_pool_size
+    - Model AzureSqlDWLinkedService has a new parameter multiple_active_result_sets
+    - Model AzureSqlDWLinkedService has a new parameter multi_subnet_failover
+    - Model AzureSqlDWLinkedService has a new parameter packet_size
+    - Model AzureSqlDWLinkedService has a new parameter pooling
+    - Model AzureSqlDWLinkedService has a new parameter authentication_type
+    - Model AzureSqlDWLinkedService has a new parameter username
+    - Model AzureSqlDWLinkedService has a new parameter service_principal_credential_type
+    - Model AzureSqlDWLinkedService has a new parameter service_principal_credential
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter server
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter database
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter encrypt
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter trust_server_certificate
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter host_name_in_certificate
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter application_intent
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter connect_timeout
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter connect_retry_count
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter connect_retry_interval
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter load_balance_timeout
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter command_timeout
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter integrated_security
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter failover_partner
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter max_pool_size
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter min_pool_size
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter multiple_active_result_sets
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter multi_subnet_failover
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter packet_size
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter pooling
+    - Model AmazonRdsForSqlServerLinkedService has a new parameter authentication_type
+    - Model AzureSqlDatabaseLinkedService has a new parameter server
+    - Model AzureSqlDatabaseLinkedService has a new parameter database
+    - Model AzureSqlDatabaseLinkedService has a new parameter encrypt
+    - Model AzureSqlDatabaseLinkedService has a new parameter trust_server_certificate
+    - Model AzureSqlDatabaseLinkedService has a new parameter host_name_in_certificate
+    - Model AzureSqlDatabaseLinkedService has a new parameter application_intent
+    - Model AzureSqlDatabaseLinkedService has a new parameter connect_timeout
+    - Model AzureSqlDatabaseLinkedService has a new parameter connect_retry_count
+    - Model AzureSqlDatabaseLinkedService has a new parameter connect_retry_interval
+    - Model AzureSqlDatabaseLinkedService has a new parameter load_balance_timeout
+    - Model AzureSqlDatabaseLinkedService has a new parameter command_timeout
+    - Model AzureSqlDatabaseLinkedService has a new parameter integrated_security
+    - Model AzureSqlDatabaseLinkedService has a new parameter failover_partner
+    - Model AzureSqlDatabaseLinkedService has a new parameter max_pool_size
+    - Model AzureSqlDatabaseLinkedService has a new parameter min_pool_size
+    - Model AzureSqlDatabaseLinkedService has a new parameter multiple_active_result_sets
+    - Model AzureSqlDatabaseLinkedService has a new parameter multi_subnet_failover
+    - Model AzureSqlDatabaseLinkedService has a new parameter packet_size
+    - Model AzureSqlDatabaseLinkedService has a new parameter pooling
+    - Model AzureSqlDatabaseLinkedService has a new parameter authentication_type
+    - Model AzureSqlDatabaseLinkedService has a new parameter username
+    - Model AzureSqlDatabaseLinkedService has a new parameter service_principal_credential_type
+    - Model AzureSqlDatabaseLinkedService has a new parameter service_principal_credential
+    - Model AzureSqlMILinkedService has a new parameter server
+    - Model AzureSqlMILinkedService has a new parameter database
+    - Model AzureSqlMILinkedService has a new parameter encrypt
+    - Model AzureSqlMILinkedService has a new parameter trust_server_certificate
+    - Model AzureSqlMILinkedService has a new parameter host_name_in_certificate
+    - Model AzureSqlMILinkedService has a new parameter application_intent
+    - Model AzureSqlMILinkedService has a new parameter connect_timeout
+    - Model AzureSqlMILinkedService has a new parameter connect_retry_count
+    - Model AzureSqlMILinkedService has a new parameter connect_retry_interval
+    - Model AzureSqlMILinkedService has a new parameter load_balance_timeout
+    - Model AzureSqlMILinkedService has a new parameter command_timeout
+    - Model AzureSqlMILinkedService has a new parameter integrated_security
+    - Model AzureSqlMILinkedService has a new parameter failover_partner
+    - Model AzureSqlMILinkedService has a new parameter max_pool_size
+    - Model AzureSqlMILinkedService has a new parameter min_pool_size
+    - Model AzureSqlMILinkedService has a new parameter multiple_active_result_sets
+    - Model AzureSqlMILinkedService has a new parameter multi_subnet_failover
+    - Model AzureSqlMILinkedService has a new parameter packet_size
+    - Model AzureSqlMILinkedService has a new parameter pooling
+    - Model AzureSqlMILinkedService has a new parameter authentication_type
+    - Model AzureSqlMILinkedService has a new parameter username
+    - Model AzureSqlMILinkedService has a new parameter service_principal_credential_type
+    - Model AzureSqlMILinkedService has a new parameter service_principal_credential
+    - Model TeradataLinkedService a new parameter ssl_mode
+    - Model TeradataLinkedService a new parameter port_number
+    - Model TeradataLinkedService a new parameter https_port_number
+    - Model TeradataLinkedService a new parameter use_data_encryption
+    - Model TeradataLinkedService a new parameter character_set
+    - Model TeradataLinkedService a new parameter max_resp_size
+    - Model VerticaLinkedService a new parameter server
+    - Model VerticaLinkedService a new parameter port
+    - Model VerticaLinkedService a new parameter uid
+    - Model VerticaLinkedService a new parameter database
+    - Model LinkedService has a new parameter version
+    - Model SynapseNotebookActivity has a new parameter authentication
+    - Model SynapseSparkJobDefinitionActivity has a new parameter authentication
+    - Model ScriptActivity has a new parameter return_multistatement_result
+    - Model ExecuteDataFlowActivity has a new properties continuation_settings
+    - Model ExpressionV2 has a new parameter operators
+    - Model SalesforceV2Source has a new parameter page_size
+    - Model SalesforceV2Source has a new parameter query
+    - Model MariaDBLinkedService has a new parameter ssl_mode
+    - Model MariaDBLinkedService has a new parameter use_system_trust_store
+- Name: azure-mgmt-containerregistry
+  Version: 12.0.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_12.0.0/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-networkcloud
+  Version: 2.0.0
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_2.0.0/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 13.4.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_13.4.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 23.3.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.3.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-quota
+  Version: 2.0.0
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-quota_2.0.0/sdk/quota/azure-mgmt-quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-nginx
+  Version: 3.1.0b2
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-nginx_3.1.0b2/sdk/nginx/azure-mgmt-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.3.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.3.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Multimodal specific evaluators `ContentSafetyMultimodalEvaluator`, `ViolenceMultimodalEvaluator`, `SexualMultimodalEvaluator`, `SelfHarmMultimodalEvaluator`, `HateUnfairnessMultimodalEvaluator` and `ProtectedMaterialMultimodalEvaluator` has been removed. Please use `ContentSafetyEvaluator`, `ViolenceEvaluator`, `SexualEvaluator`, `SelfHarmEvaluator`, `HateUnfairnessEvaluator` and `ProtectedMaterialEvaluator` instead.
+    - Metric name in ProtectedMaterialEvaluator's output is changed from `protected_material.fictional_characters_label` to `protected_material.fictional_characters_defect_rate`. It's now consistent with other evaluator's metric names (ending with `_defect_rate`).
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b34
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b34/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support AAD for sovereign clouds
+    ([#39379](https://github.com/Azure/azure-sdk-for-python/pull/39379))
+    - Support stable http semantic conventions for breeze exporter - REQUESTS
+    ([#39208](https://github.com/Azure/azure-sdk-for-python/pull/39208))
+    - Support stable http semantic conventions for breeze exporter - DEPENDENCIES
+    ([#39441](https://github.com/Azure/azure-sdk-for-python/pull/39441))
+    - Support stable http semantic conventions for standard metrics + synthetic type for server standard metrics
+    ([#39799](https://github.com/Azure/azure-sdk-for-python/pull/39799))
+- Name: azure-mgmt-impactreporting
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Impactreporting
+  ServiceName: Impactreporting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-impactreporting_1.0.0b1/sdk/impactreporting/azure-mgmt-impactreporting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-databasewatcher
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Databasewatcher
+  ServiceName: Databasewatcher
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databasewatcher_1.0.0b1/sdk/databasewatcher/azure-mgmt-databasewatcher/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-messaging-webpubsubservice
+  Version: 1.2.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.2.2/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for SocketIO when generating client access token
+- Name: azure-mgmt-storage
+  Version: 22.1.1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_22.1.1/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-deviceregistry
+  Version: 1.0.0
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deviceregistry_1.0.0/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-migrationassessment
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Migrationassessment
+  ServiceName: Migrationassessment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-migrationassessment_1.0.0b1/sdk/migrate/azure-mgmt-migrationassessment/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b35
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b35/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support sending `customEvent` telemetry through special `microsoft` marker
+    ([#39886](https://github.com/Azure/azure-sdk-for-python/pull/39886))
+    - Populate `client_Ip` on `customEvent` telemetry
+    ([#39923](https://github.com/Azure/azure-sdk-for-python/pull/39923))
+
+    #### Bugs Fixed
+
+    - Implement `from_log_record` for `Trace` data types in live metrics
+    ([#39922](https://github.com/Azure/azure-sdk-for-python/pull/39922))
+- Name: azure-mgmt-applicationinsights
+  Version: 4.1.0
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_4.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 2.0.1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Updates the failure to load from a config store from a debug level log to a warning level log.
+    * Fixes an issue where the stack trace from the azure sdk wasn't being logged on startup.
+    * Fixes a bug where feature flags could be loaded as configurations.
+- Name: azure-ai-projects
+  Version: 1.0.0b7
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b7/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    * Add support for parsing URL citations in Agent text messages. See new classes `MessageTextUrlCitationAnnotation` and `MessageDeltaTextUrlCitationAnnotation`.
+    * Add enum value `ConnectionType.API_KEY` to support enumeration of generic connections that uses API Key authentication.
+
+    #### Breaking Changes
+
+    * Rename input argument `assistant_id` to `agent_id` in all Agent methods to align with the "Agent" terminology. Similarly, rename all `assistant_id` properties on classes.
+
+    #### Bugs Fixed
+
+    * Fix a bug in deserialization of `RunStepDeltaFileSearchToolCall` returned during Agent streaming (see [GitHub issue 48333](https://github.com/Azure/azure-sdk-for-net/issues/48333)).
+    * Fix for Exception raised while parsing Agent streaming response, in some rare cases, for multibyte UTF-8 languages like Chinese.
+- Name: azure-ai-ml
+  Version: 1.26.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.26.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - #37464 - Allowing to update a component in register with anonymousEnvironment environment.
+    - #39744 - Fixing a serialization issue in RecurrencePattern schedule.
+    - Fix environment archiving and restore
+
+    #### Features Added
+    - Adding parent job support for command job.
+    - Adding multiple docker argument support for command job.
+    - spark version upgrade from 3.3 to 3.4
+- Name: azure-search-documents
+  Version: 11.6.0b10
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b10/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SearchIndexClient.list_index_stats_summary`.
+    - Added `SearchIndexerCache.id`.
+    - Added new model `azure.search.documents.indexes.models.IndexStatisticsSummary`.
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 11.5.0.
+    > Only code written against a beta version such as 11.6.0b9 may be affected.
+    - Renamed `azure.search.documents.indexes.models.AIStudioModelCatalogName` to `azure.search.documents.indexes.models.AIFoundryModelCatalogName`.
+- Name: azure-storage-blob
+  Version: 12.25.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.25.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.25.0b1
+- Name: azure-storage-file-share
+  Version: 12.21.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.21.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.21.0b1
+- Name: azure-identity
+  Version: 1.21.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.21.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the asynchronous `CertificateCredential` to use the PS256 algorithm with PSS padding for certificate authentication in non-ADFS tenants. ([#39761](https://github.com/Azure/azure-sdk-for-python/pull/39761))
+    - Deprecated `UsernamePasswordCredential`, as it doesn't support multifactor authentication (MFA). MFA will soon be enforced on all Microsoft Entra tenants. For more details, see [Planning for mandatory MFA](https://aka.ms/mfaforazure). ([#39785](https://github.com/Azure/azure-sdk-for-python/pull/39785))
+- Name: azure-storage-file-datalake
+  Version: 12.19.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.19.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.19.0b1
+- Name: azure-servicebus
+  Version: 7.14.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.14.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where service errors were incorrectly expected to have info/description fields set in all cases.
+    - Fixed a bug where the type in azure.servicebus.management.AuthorizationRule was not being correctly passed to the request.
+- Name: azure-mgmt-keyvault
+  Version: 11.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_11.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-documentintelligence
+  Version: 1.0.1
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-documentintelligence_1.0.1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix polling for `begin_copy_model_to()` to stop on success response from the "Operation-Location" endpoint and correctly parse the result.
+- Name: azure-eventhub
+  Version: 5.15.0b2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.15.0b2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implemented a new websockets library so that using `AmqpOverWebsocket` no longer requires separate optional dependency installations.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where service errors were incorrectly required and expected to have info/description fields.
+

@@ -1,0 +1,17 @@
+entries:
+- Name: azure-identity
+  Version: 1.13.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.13.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - By default, `ManagedIdentityCredential` does not send a probe request, unless it is a part of credential chain in `DefaultAzureCredential`.
+
+    #### Features Added
+
+    - When `AZURE_TOKEN_CREDENTIALS` environment variable is configured to `ManagedIdentityCredential`, the `DefaultAzureCredential` does not issue a probe request and performs retries with exponential backoff.
+

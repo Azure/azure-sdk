@@ -37,6 +37,7 @@ git remote -v
 # upstream  https://github.com/Azure/azure-sdk-for-<lang>.git (fetch)
 # upstream  https://github.com/Azure/azure-sdk-for-<lang>.git (push)
 ```
+
 After you have ran those commands you should be all setup with your local cloned repo, a remote for your forked repo called origin, and a remote for the main repo called upstream.
 
 ### Sync your local and forked repo with latest changes from the main repo
@@ -66,9 +67,11 @@ git reset --hard upstream/main
 # If you also have your forked main out of sync you might need to use the force option when you push those changes
 git push origin main -f
 ```
+
 ### Creating a branch and pushing it to your fork
 
 After your local main branch is in-sync with the upstream main you can now create a branch and do work.
+
 ```bash
 git checkout <branch-name>
 
@@ -79,12 +82,15 @@ git commit
 
 git push origin <branch-name>
 ```
+
 At this point you should be able to go to the main repository on github and see a link to create a pull request with the changes you pushed.
 
 _Tip_: Some folks like to quickly stage and commit with a simple message at the same time you can use the following command for that.
+
 ```bash
 git commit -am "Commit message"
 ```
+
 Note that `-a` means commit all files that have changes so be sure to not have any other modified files in your working directory. The `-m` allows you to pass a commit message at the command line and is useful for quick commits but you might want to use your configured editor for better commit messages when pushing changes you want to be reviewed and merged into the main repo.
 
 ### Rebase changes on top of latest main
@@ -124,9 +130,10 @@ Format of the tag should be `<package-name>_<package-version>`
 ## Release branches
 
 There are potentially 3 different types of release branches in the order of preference:
- - `main`
- - `release/<release name>`
- - `feature/<feature name>`
+
+- `main`
+- `release/<release name>`
+- `feature/<feature name>`
 
 In general there should not be a need for release branches because most releases will happen directly from main. In some cases there may be a need to lock down the branch to stabilize a package and in these cases we should create a release branch named `release/<release name>` and push it to the main repository. We do this to avoid ever locking down the main branch from taking other work. After any changes have been made and the release build produced the branch should be merged (not rebased) back into main, including the tagged release commit, and then the release branch should be deleted.
 
@@ -150,6 +157,15 @@ After you have the main hotfix branch created you should use your usual workflow
 
 After the changes are merged into the `hotfix/<hotfix name>` branch the same release process we use for main can be used to produce a release out of that branch but when you queue the build be sure to set the branch name to the `hotfix/<hotfix name>`.
 
-If the changes were not cherry-picked from `main` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `main`. When merging accept the version numbers from `main` and make sure CHANGELOG entries are sorted by date then version.
+If the changes were not cherry-picked from `main` and they are needed there:
+
+1. Fetch the latest upstream `main` e.g., `git fetch upstream main`
+2. Create and check out a topic branch from upstream `main` e.g., `git checkout -b merge-hotfix/<hotfix name> upstream/main`
+3. Merge your `hotfix/<hotfix name>` branch e.g., `git merge hotfix/<hotfix name>`
+
+   When merging accept the version numbers from `main` and make sure CHANGELOG entries are sorted by date then version.
+
+4. Push the topic branch to your origin remote e.g., `git push origin merge-hotfix/<hotfix name>`
+5. Create a PR to merge into `main`. The output from pushing to a remote should include a link you can click to simplify this process.
 
 Once the hotfix has been released and any changes merged back to `main` then you should delete the `hotfix/<hotfix name>` branch, it can always be recreated in the future from the last release tag if needed.

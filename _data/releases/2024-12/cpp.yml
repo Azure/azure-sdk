@@ -1,0 +1,54 @@
+entries:
+- Name: azure-core
+  Version: 1.15.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.15.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added mTLS support to WinHTTP transport.
+    - To enable mTLS, first create an appropriate Windows `PCCERT_CONTEXT` object and set the `TlsClientCertificate` field in `WinHttpTransportOptions` to that certificate before creating the `WinHttpTransport` object.
+- Name: azure-storage-files-shares
+  Version: 12.12.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.12.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.12.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.9.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.9.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.9.0-beta.1` are now generally available.
+- Name: azure-data-tables
+  Version: 1.0.0-beta.5
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.5/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `tables_clients.hpp` to `table_client.hpp` and split `TableServiceClient` into its own file, `table_service_client.hpp`.
+    - Removed the `TablesAudience` field from `TableClientOptions` since it is not required.
+    - Removed ServiceVersion type and changed the ApiVersion field within `TableClientOptions` to be std::string.
+    - Removed the `TableServiceClient` constructor that only accepts one defaulted options parameter.
+
+    #### Bugs Fixed
+
+    - Use the package version for telemetry, rather than API version.
+

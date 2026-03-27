@@ -1,0 +1,322 @@
+entries:
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.4.3
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.4.3/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New field has been added to ACSIncomingCallEventData: OnBehalfOfCallee.
+- Name: sdk/resourcemanager/hybridcompute/armhybridcompute
+  Version: 2.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcompute/armhybridcompute/v2.0.0/sdk/resourcemanager/hybridcompute/armhybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.16.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * `BearerTokenPolicy` now rewinds request bodies before retrying
+
+    #### Features Added
+
+    * Added field `Kind` to `runtime.StartSpanOptions` to allow a kind to be set when starting a span.
+- Name: sdk/resourcemanager/redisenterprise/armredisenterprise
+  Version: 2.1.0-beta.2
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis Enterprise
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redisenterprise/armredisenterprise/v2.1.0-beta.2/sdk/resourcemanager/redisenterprise/armredisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.2.0
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.2.0/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add CAE support
+    * Client requests tokens from the Vault's tenant, overriding any credential default
+    (thanks @francescomari)
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.2.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.2.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added CAE support
+    * Client requests tokens from the Vault's tenant, overriding any credential default
+    (thanks @francescomari)
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.2.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added CAE support
+    * Client requests tokens from the Vault's tenant, overriding any credential default
+    (thanks @francescomari)
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.2.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.2.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added CAE support
+    * Client requests tokens from the Vault's tenant, overriding any credential default
+    (thanks @francescomari)
+- Name: sdk/resourcemanager/databoundaries/armdataboundaries
+  Version: 0.1.0
+  DisplayName: Resource Management - Databoundaries
+  ServiceName: Databoundaries
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/databoundaries/armdataboundaries/v0.1.0/sdk/resourcemanager/databoundaries/armdataboundaries/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/fabric/armfabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/fabric/armfabric/v1.0.0/sdk/resourcemanager/fabric/armfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/servicelinker/armservicelinker
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicelinker/armservicelinker/v2.0.0-beta.2/sdk/resourcemanager/servicelinker/armservicelinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mongocluster/armmongocluster
+  Version: 1.0.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mongocluster/armmongocluster/v1.0.1/sdk/resourcemanager/mongocluster/armmongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computefleet/armcomputefleet
+  Version: 1.0.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computefleet/armcomputefleet/v1.0.0/sdk/resourcemanager/computefleet/armcomputefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elastic/armelastic
+  Version: 1.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elastic/armelastic/v1.0.0/sdk/resourcemanager/elastic/armelastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservicefleet/armcontainerservicefleet
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/v1.3.0-beta.1/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.5.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.5.0-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.16.0`
+    * Updated `azidentity` version to `1.8.0`
+- Name: sdk/storage/azfile
+  Version: 1.4.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.4.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add Paid Burst IOPS/Bandwidth support for Premium Files.
+    * REST API for binary ACE in Azure Files.
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 7.3.0
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v7.3.0/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dns/armdns
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dns/armdns/v1.3.0-beta.1/sdk/resourcemanager/dns/armdns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsan/armelasticsan
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsan/armelasticsan/v1.2.0-beta.1/sdk/resourcemanager/elasticsan/armelasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 6.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v6.2.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dnsresolver/armdnsresolver
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dnsresolver/armdnsresolver/v1.3.0-beta.1/sdk/resourcemanager/dnsresolver/armdnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters
+  Version: 0.2.0
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/v0.2.0/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerinstance/armcontainerinstance
+  Version: 2.5.0-beta.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerinstance/armcontainerinstance/v2.5.0-beta.1/sdk/resourcemanager/containerinstance/armcontainerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcontainers/armappcontainers
+  Version: 3.1.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcontainers/armappcontainers/v3.1.0-beta.1/sdk/resourcemanager/appcontainers/armappcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/iotoperations/armiotoperations
+  Version: 0.1.0
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iotoperations/armiotoperations/v0.1.0/sdk/resourcemanager/iotoperations/armiotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azdatalake
+  Version: 1.3.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.3.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated `azcore` version to `1.16.0`
+    * Updated `azblob` version to `v1.5.0-beta.1`
+    * Updated `azidentity` version to `1.8.0`
+- Name: sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime
+  Version: 0.1.0
+  DisplayName: Resource Management - Containerorchestratorruntime
+  ServiceName: Containerorchestratorruntime
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime/v0.1.0/sdk/resourcemanager/containerorchestratorruntime/armcontainerorchestratorruntime/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity/cache
+  Version: 0.3.1
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.1/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `New` no longer returns an error when called simultaneously in two processes
+- Name: sdk/data/aztables
+  Version: 1.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.3.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Client/ServiceClient now supports `azcore.TokenCredential` authentication with Azure Cosmos DB for Table.
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.3.0
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.3.0/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersioncd
+- Name: sdk/monitor/query/azlogs
+  Version: 1.1.0
+  DisplayName: Query - Logs
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/query/azlogs/v1.1.0/sdk/monitor/query/azlogs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.3.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.3.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersion
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.3.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.3.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added API Version support. Users can now change the default API Version by setting ClientOptions.APIVersion
+

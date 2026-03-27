@@ -68,7 +68,7 @@ $changedPkgList = Get-Content $CSVPath | ConvertFrom-Csv | Where-Object {
 
   $matchingPkg = $unchangedPkgList.Where({
     if ($pkgName -ne $_.Package) { return $false }
-    if (($pkgPlannedDate-as [DateTime]) -ne ($_.PlannedDate -as [DateTime])) { return $false }
+    if (($pkgPlannedDate -as [DateTime]) -ne ($_.PlannedDate -as [DateTime])) { return $false }
     if ($pkgPlannedVersion -ne $_.PlannedVersion) { return $false }
     return $true
   })

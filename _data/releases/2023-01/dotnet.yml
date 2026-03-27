@@ -1,0 +1,335 @@
+entries:
+- Name: Azure.AI.AnomalyDetector
+  Version: 3.0.0-preview.6
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.6/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+    - Added `OneTable` and `MultiTable` two data schemas.
+    - Added Azure Managed Identity data reader access for Azure Blob Storage.
+    - Added `topContributorCount` in the request body for `DetectMultivariateBatchAnomaly` and `DetectMultivariateLastAnomaly`.
+
+    **Breaking Changes**
+    - Renamed `Model` to `AnomalyDetectionModel`.
+    - Renamed `DetectionRequest` to `MultivariateBatchDetectionOptions`.
+    - Renamed `DetectionResult` to `MultivariateDetectionResult`.
+    - Renamed `DetectionStatus` to `MultivariateBatchDetectionStatus`.
+    - Renamed `DetectionResultSummary` to `MultivariateBatchDetectionResultSummary`.
+    - Renamed `FillNaMethod` to `FillNAMethod`.
+    - Renamed `LastDetectionRequest` to `MultivariateLastDetectionOptions`.
+    - Renamed `LastDetectionResult` to `MultivariateLastDetectionResult`.
+    - Replaced `ModelSnapshot` with `AnomalyDetectionModel` in `listMultivariateModel`.
+    - Renamed `listMultivariateModel` to `GetMultivariateModelValues`.
+    - Renamed `DetectAnomaly` to `DetectMultivariateBatchAnomaly`
+    - Renamed `GetDetectionResult` to `GetMultivariateBatchDetectionResultValue`.
+    - Renamed `GetMultivariateModel`to `GetMultivariateModelValue`
+    - Renamed `LastDetectAnomaly` to `DetectMultivariateLastAnomaly`.
+    - Renamed `DetectRequest` to `UnivariateDetectionOptions`.
+    - Renamed `EntireDetectResponse` to `UnivariateEntireDetectionResult`.
+    - Renamed `LastDetectResponse` to `UnivariateLastDetectionResult`.
+    - Renamed `ChangePointDetectRequest` to `UnivariateChangePointDetectionOptions`.
+    - Renamed `ChangePointDetectResponse` to `UnivariateChangePointDetectionResult`.
+    - Renamed `DetectEntireSeries` to `DetectUnivariateEntireSeries`.
+    - Renamed `DetectLastPoint` to `DetectUnivariateLastPoint`.
+    - Renamed `DetectChangePoint` to `DetectUnivariateChangePoint`.
+    - Renamed `ApiVersion` to `ServiceVersion` in `AnomalyDetectorClientOptions`
+    - Removed `ExportModel`.
+    - Removed `AnomalyDetectorModelFactory`
+    - Added `DataSchema` to `ModelInfo`
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.0.0-beta.1/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.1.0/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Peering
+  Version: 1.1.0
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Peering_1.1.0/sdk/peering/Azure.ResourceManager.Peering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.DataMovement
+  Version: 12.0.0-beta.1
+  DisplayName: Data Movement
+  ServiceName: Data Movement
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.0.0-beta.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    - This preview is the first release of a ground-up rewrite of our client data movement
+    libraries to ensure consistency, idiomatic design, productivity, and an
+    excellent developer experience.  It was created following the Azure SDK Design
+    Guidelines for .NET at https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html.
+
+    For more information, please visit: https://aka.ms/azure-sdk-preview1-net.
+- Name: Azure.ResourceManager.BillingBenefits
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Billingbenefits
+  ServiceName: Billingbenefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BillingBenefits_1.0.0-beta.1/sdk/billingbenefits/Azure.ResourceManager.BillingBenefits/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesSiteRecovery
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Recovery Services - Site Recovery
+  ServiceName: Recovery Services - Site Recovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesSiteRecovery_1.0.0-beta.2/sdk/recoveryservices-siterecovery/Azure.ResourceManager.RecoveryServicesSiteRecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Relay
+  Version: 1.1.0
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Relay_1.1.0/sdk/relay/Azure.ResourceManager.Relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Analysis
+  Version: 1.0.0
+  DisplayName: Resource Management - Analysis
+  ServiceName: Analysis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Analysis_1.0.0/sdk/analysisservices/Azure.ResourceManager.Analysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.0.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.0.0/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ManagedServices
+  Version: 1.0.0
+  DisplayName: Resource Management - Managed Services
+  ServiceName: Managed Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ManagedServices_1.0.0/sdk/managedservices/Azure.ResourceManager.ManagedServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KubernetesConfiguration
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration_1.0.0/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SecurityInsights
+  Version: 1.0.0
+  DisplayName: Resource Management - Security Insights
+  ServiceName: Security Insights
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecurityInsights_1.0.0/sdk/securityinsights/Azure.ResourceManager.SecurityInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppPlatform
+  Version: 1.0.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppPlatform_1.0.0/sdk/appplatform/Azure.ResourceManager.AppPlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.0.0
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.0.0/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.0.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.0.1/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MixedReality
+  Version: 1.0.0
+  DisplayName: Resource Management - MixedReality
+  ServiceName: MixedReality
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MixedReality_1.0.0/sdk/mixedreality/Azure.ResourceManager.MixedReality/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Synapse
+  Version: 1.0.0
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Synapse_1.0.0/sdk/synapse/Azure.ResourceManager.Synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ResourceGraph
+  Version: 1.0.0
+  DisplayName: Resource Management - ResourceGraph
+  ServiceName: ResourceGraph
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceGraph_1.0.0/sdk/resourcegraph/Azure.ResourceManager.ResourceGraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.SignalR
+  Version: 1.0.0
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SignalR_1.0.0/sdk/signalr/Azure.ResourceManager.SignalR/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Chaos
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Chaos_1.0.0-beta.2/sdk/chaos/Azure.ResourceManager.Chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.LoadTesting
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.LoadTesting_1.0.0-beta.2/sdk/loadtestservice/Azure.ResourceManager.LoadTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.0.0-beta.6
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.0.0-beta.6/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * AAD Support ([#32986](https://github.com/Azure/azure-sdk-for-net/pull/32986))
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.2.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.2.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.27.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.27.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made `RedirectPolicy` public to provide `SetAllowAutoRedirect()` method to library authors.
+    - Added `RetryPolicy` property to `ClientOptions` to allow library authors to set a custom retry policy.
+    - Added `MessageProcessingContext` type and `ProcessingContext` property to `HttpMessage` which contains information about the message as it traverses through the pipeline.
+    - Added `SetProperty` and `TryGetProperty` overloads to `HttpMessage` to allow setting property values using a `Type` as the key.
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.1.0-beta.3
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.1.0-beta.3/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for API version `2022-12-01`, giving users the ability to:
+    - Get all supported countries
+    - Get all supported localities given a country code.
+    - Get all Toll-Free area codes from a given country code.
+    - Get all Geographic area codes from a given country code / locality.
+    - Get all offerings from a given country code.
+    - Added new SIP routing client for handling Direct routing numbers.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.17
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.17/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Added `workspaceResourceId` to AzureSynapseArtifactsLinkedServiceTypeProperties
+    - Added `pythonCodeReference`, `filesV2`, `scanFolder`, `configurationType`, `targetSparkConfiguration` and `sparkConfig` properties to SparkJobActivity
+    - Added `authHeaders` proprety to RestServiceLinkedService
+    - Added new apis of Pause/Resume for Synapse Link
+    - Added PowerBIWorkspaceLinkedService
+- Name: Azure.Messaging.WebPubSub.Client
+  Version: 1.0.0-beta.1
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub Client
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Client_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial beta release
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.5
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.5/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ContainerRegistryBlobClient.UploadBlob()` method now uploads a blob using multiple requests if it exceeds the maximum chunk size.  Chunk size defaults to 4MB and can be modified by passing `UploadBlobOptions`.
+    - Added `Pipeline` property to `ContainerRegistryClient` and `ContainerRegistryBlobClient` to enable advanced message processing scenarios.
+
+    #### Breaking Changes
+
+    - Changed type of `Manifest` property on `DownloadManifestResult` from `OciManifest` to `ArtifactManfest` to accommodate non-OCI manifest types in the future.  Callers must now downcast `Manifest` to the appropriate type.
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.0.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.0.1/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceBus
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceBus_1.1.0-beta.1/sdk/servicebus/Azure.ResourceManager.ServiceBus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.12.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.12.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `UpdatePrefetchCount` methods to `ServiceBusProcessor` and `ServiceBusSessionProcessor` to allow updating the prefetch count of a running processor. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    #### Bugs Fixed
+
+    - Fixed issue with `MaxConcurrentCallsPerSession` setting which resulted in the setting not always being respected.
+

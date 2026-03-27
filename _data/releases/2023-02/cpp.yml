@@ -1,0 +1,108 @@
+entries:
+- Name: azure-core
+  Version: 1.8.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.8.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug in WinHTTP client which caused the `IgnoreUnknownCertificateAuthority` and `EnableCertificateRevocationListCheck` fields to be ignored if they were passed in from `TransportOptions`.
+    - [[#4206]](https://github.com/Azure/azure-sdk-for-cpp/issues/4206) Fixed connectivity issues in libcurl HTTP transport which can occur if a TCP connection is dropped prematurely. (A community contribution, courtesy of _[ahojnnes](https://github.com/ahojnnes)_)
+
+    #### Features Added
+
+    - Added support for parsing space character in place of 'T' in RFC3339 DateTimes.
+    - Added support for HTTP proxy servers, both unauthenticated and with basic authentication.
+    - Added universal support for several TLS options:
+    - Added the ability to set the expected TLS root certificate for TLS connection (useful if a proxy server uses a TLS certificate that is not chained to a known root).
+    - Added the ability to enable TLS certificate revocation list checks (off by default).
+    - For libcurl only: Allow TLS connection to succeed if CRL retrieval fails.
+    - *NOTE*: This change only applies if libcurl is built using the OpenSSL crypto backend. It does NOT apply if libcurl uses the schannel (Windows default) or SecureTransport (macOS/iOS default).
+
+    #### Breaking Changes
+
+    - Changed the name of several distributed tracing HTTP span attributes:
+    - `requestId` is renamed to `az.client_request_id`
+    - `serviceRequestId` is renamed to `az.service_request_id`
+
+    - Bearer token authentication will not work for endpoint URL protocol schemes other than `"https"`. This ensures token security and is consistent with the Azure SDKs for other languages.
+
+    - Removed `noexcept` specification from `Azure::DateTime::clock::now()`.
+
+    - Updated retry policy timeouts to conform to Azure guidelines.
+    - The default delay between retries is changed from 4 seconds to 800ms.
+    - The maximum retry delay is changed from 2 minutes to 60 seconds (one minute).
+
+    If the original behavior is desired, customers can adjust these timeouts by changing the `RetryDelay` and `MaxRetryDelay` fields in the `RetryOptions` structure.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.4
+  DisplayName: Tracing
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-tracing-opentelemetry_1.0.0-beta.4/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Aligned OpenTelemetry tracing infrastructure with OpenTelemetry 1.17.0 conventions for use with Azure Monitor.
+- Name: azure-identity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.4.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added token caching. To benefit from it, share the `shared_ptr` to the same credential instance between multiple client instances.
+    - Added Azure CLI Credential.
+    - Added authority host overriding support for `ClientCertificateCredential`.
+    - Added Azure Stack support for `ClientCertificateCredential`.
+    - Added Azure App Service API version `2019-08-01` support for `ManagedIdentityCredential`.
+- Name: azure-security-attestation
+  Version: 1.1.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-attestation_1.1.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `AttestationClient::AttestTpm` to match `AttestOpenEnclave` and `AttestSgxEnclave`:
+    - Added `std::vector<uint8_t>` dataToAttest parameter to the `AttestTpm()` client method.
+    - Removed `Payload` in `TpmAttestationOptions`.
+    - Changed `TpmResult` in `TpmAttestationResult` to type `std::vector<uint8_t>`.
+- Name: azure-storage-blobs
+  Version: 12.7.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.7.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2021-12-02`.
+    - Added support for new access tier `Cold`.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where setting premium page blob tier operations always fail.
+- Name: azure-storage-files-shares
+  Version: 12.4.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.4.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2021-12-02`.
+    - Added support for invalid xml characters in file and directory names for `ShareDirectoryClient::ListFilesAndDirectories()`, `ShareDirectoryClient::ListHandles()` and `ShareFileClient::ListHandles()`.
+

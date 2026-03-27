@@ -6,6 +6,9 @@ sidebar: releases_sidebar
 repository: Azure/azure-sdk-for-c
 ---
 
+No packages released this month.
+
+<!--
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
 #### Stable
@@ -43,3 +46,4 @@ If you have a bug or feature request for one of the libraries, please post an is
 View all the latest versions of C packages [here][c-latest-releases].
 
 {% include refs.md %}
+-->

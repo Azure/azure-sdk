@@ -1,0 +1,668 @@
+entries:
+- Name: Azure.ResourceManager.AppService
+  Version: 1.4.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.4.1/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppContainers
+  Version: 1.4.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppContainers_1.4.1/sdk/containerapps/Azure.ResourceManager.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.11.2
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.11.2/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.6.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.6.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `UserAgentPolicy` pipeline policy to allow adding the user agent to the request headers.
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.6
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.6/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Enable the new model serialization using System.ClientModel, refer to this [document](https://aka.ms/azsdk/net/mrw) for more details.
+    - Added new AOT-compatible overloads for `Search<T>` and `SearchAsync<T>` that take `JsonTypeInfo<T>`.
+- Name: Azure.ResourceManager.MySql
+  Version: 1.1.2
+  DisplayName: Resource Management - MySQL
+  ServiceName: MySQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MySql_1.1.2/sdk/mysql/Azure.ResourceManager.MySql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataMigration
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataMigration_1.0.0-beta.6/sdk/datamigration/Azure.ResourceManager.DataMigration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MachineLearning
+  Version: 1.2.3
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MachineLearning_1.2.3/sdk/machinelearningservices/Azure.ResourceManager.MachineLearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerServiceFleet
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.2.0-beta.1/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.11.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.11.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerRegistry
+  Version: 1.3.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.3.1/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DesktopVirtualization
+  Version: 1.3.2
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DesktopVirtualization_1.3.2/sdk/desktopvirtualization/Azure.ResourceManager.DesktopVirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.3.0-beta.3
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.3.0-beta.3/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.47.2
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.47.2/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.6.0
+- Name: Azure.Monitor.Query
+  Version: 1.7.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.7.1/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Updated internal serialization paths to use an AOT-friendly approach.  The package now fully supports AOT and is trimmable.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.2
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.2/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the deserialization issue, when agent service returns the customized lists of trusted and requiring authentication MCP tools.
+    - Added classes for deserialization of `RunStepDeltaAzureAISearchToolCall`, `RunStepDeltaOpenAPIToolCall` and `RunStepDeltaDeepResearchToolCall`, required to get the real time updates when Azure AI Search, OpenAPI or Deep Research tools are being used during streaming scenarios.
+    - Added `RunStepConnectedAgentToolCall` and `RunStepDeltaConnectedAgentToolCall` for deserializing Connected Agent tool updates in non-streaming and streaming scenarios.
+
+    #### Features Added
+
+    - Implemented streaming scenario for MCP tool.
+    - Added `RunStepDetailsActivity`, describing MCP function parameters.
+- Name: Azure.ResourceManager.Resources
+  Version: 1.11.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.11.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.6.1
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.6.1/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Fix the behavior of Roslyn not properly handling partial classes with attributes in different files
+- Name: Azure.Core
+  Version: 1.47.3
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.47.3/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adopt System.ClientModel 1.6.1
+- Name: Azure.AI.Projects
+  Version: 1.0.0-beta.11
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_1.0.0-beta.11/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Class changes:
+    * `AIDeployment` has been renamed `AssetDeployment`
+    * `AssetCredentialResponse` has been renamed `DatasetCredential`
+    * `DatasetIndex` has been renamed `SearchIndex`
+    * `PendingUploadRequest` has been renamed `PendingUploadConfiguration`
+    * `PendingUploadResponse` has been renamed `PendingUploadResult`
+    * In `Datasets`, methods `PendingUpload` and `PendingUploadAsync`, argument `body` was replaced with `configuration`
+    * `GetAzureOpenAIChatClient` and `GetAzureOpenAIEmbeddingClient` methods have been removed and replaced with a single `GetOpenAIClient` method. This method returns an OpenAI client which has properties for accessing individual operation clients. More information is available in the `Inference` samples.
+    * All operations methods have been renamed to include the object the operation is for. For example, `Connections.GetDefault` has been renamed to `Connections.GetDefaultConnection`, and `Datasets.Get` has been renamed to `Datasets.GetDatasets`.
+    * `Deployments.GetModelDeployment` and `Deployments.GetModelDeploymentAsync` methods have been removed. Use `Deployments.GetDeployment` and `Deployments.GetDeploymentAsync` instead.`
+
+    #### Features Added
+    * Added a constructor for `AIProjectClient` which takes a `System.ClientModel.AuthenticationTokenProvider` object for authentication. We will be switching away from `Azure.Core.TokenCredential` with the upcoming stable release.
+- Name: Azure.ResourceManager.ResourceHealth
+  Version: 1.1.0-beta.5
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResourceHealth_1.1.0-beta.5/sdk/resourcehealth/Azure.ResourceManager.ResourceHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.11.3
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.11.3/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.OpenAI
+  Version: 2.3.0-beta.2
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.3.0-beta.2/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This small update includes `[Experimental]` additions to `AzureOpenAIClientOptions` that enables providing custom key/value pairs for headers and query string parameters via `DefaultHeaders` and `DefaultQueryParameters`, respectively.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.3
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.3/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added delete operation for `ThreadMessages`.
+    - Add `RunStepDeltaCustomBingGroundingToolCall`, describing `BingCustomSearchTool` updates in streaming scenario.
+    - Add `RunStepDeltaMicrosoftFabricToolCall`, describing `FabricTool` updates in streaming scenario.
+    - Add `RunStepDeltaSharepointToolCall`, describing `SharepointTool` updates in streaming scenario.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.5.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.5.0/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in create call, add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+    - Adds support for SIP headers prefixed with 'X-' and 'X-MS-Custom-' within the CustomCallingContext.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.6.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.6.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+    - Added support for Personally Identifiable Information (PII) redaction and summarization in transcription, improving privacy and providing concise summaries of transcribed content.
+    - Added support for sentiment analysis in both speech and choice recognition, allowing detection of participant sentiment during call interactions.
+- Name: Azure.ResourceManager.StorageCache
+  Version: 1.3.2
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageCache_1.3.2/sdk/storagecache/Azure.ResourceManager.StorageCache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.12.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.12.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.PhoneNumbers
+  Version: 1.5.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.PhoneNumbers_1.5.0/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of mobile number types
+- Name: Azure.Developer.Playwright
+  Version: 1.0.0
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright_1.0.0/sdk/loadtestservice/Azure.Developer.Playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed useCloudHostedBrowsers.
+- Name: Azure.Developer.Playwright.NUnit
+  Version: 1.0.0
+  DisplayName: Playwright NUnit
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Developer.Playwright.NUnit_1.0.0/sdk/loadtestservice/Azure.Developer.Playwright.NUnit/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed useCloudHostedBrowsers.
+- Name: Azure.ResourceManager.EventGrid
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventGrid_1.2.0-beta.2/sdk/eventgrid/Azure.ResourceManager.EventGrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.4.0-beta.1
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.4.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new protected API in `ProvisionableConstruct` to support a `ProvisionableResource` as property of another `ProvisionableConstruct`.
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.6.2
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.6.2/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity.Broker
+  Version: 1.3.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.3.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Deprecated `SharedTokenCacheCredentialBrokerOptions`. The supporting credential (`SharedTokenCacheCredential`) was a legacy mechanism for authenticating clients using credentials provided to Visual Studio. For brokered authentication, consider using `InteractiveBrowserCredential` instead.
+- Name: Azure.ResourceManager.Playwright
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Playwright_1.0.0/sdk/playwright/Azure.ResourceManager.Playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.4
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.4/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated `Microsoft.Extensions.AI.Abstractions` dependency to version 9.8.0.
+    - Added support of `FileSearchTool` and `CodeInterpreterTool` for `PersistentAgentsChatClient`.
+    - Make `Azure.AI.Agents.Persistent` compatible with [ahead-of-time compilation process (AOT)](https://learn.microsoft.com/aspnet/core/fundamentals/native-aot).
+    - Improved the way `RequireApproval` is being set. See the [issue](https://github.com/Azure/azure-sdk-for-net/issues/52213).
+
+    #### Bugs Fixed
+    - Fix issues related to `ResponseFormat` when using `PersistentAgentsChatClient` with Structured Outputs.
+    - Fix handling of streaming update of unexpected type [issue](https://github.com/Azure/azure-sdk-for-net/issues/52407).
+- Name: Azure.Search.Documents
+  Version: 11.7.0-beta.7
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.7.0-beta.7/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Dropped support for Knowledge Agent target index. Use knowledge sources instead.
+    - Moved `QueryDebugMode` from `SemanticSearchOptions` to `SearchOptions` as it is no longer tied only to semantic queries.
+
+    #### Features Added
+    - Added support for Knowledge Agent knowledge sources.
+    - Added support for Knowledge Agent answer synthesis.
+    - Added `VectorFilterMode.StrictPostFilter`.
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.0.0/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.48.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.48.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue that prevented unbranded generated clients from utilizing an instance of `TokenCredential` with APIs that accept `AuthenticationTokenProvider`.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+  Version: 5.3.6
+  DisplayName: Functions extension for Storage Queues
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Queues_5.3.6/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - This release contains bug fixes to improve quality.
+- Name: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+  Version: 5.3.6
+  DisplayName: Functions extension for Blob Storage
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs_5.3.6/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Reverted change where the scan will continue scanning AzureWebJobsStorage even when configuring a target storage account
+- Name: Azure.Identity
+  Version: 1.16.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.16.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new `DefaultAzureCredential` constructor that accepts a custom environment variable name for credential configuration. This provides flexibility beyond the default `AZURE_TOKEN_CREDENTIALS` environment variable. The constructor accepts any environment variable name and uses the same credential selection logic as the existing `AZURE_TOKEN_CREDENTIALS` processing.
+    - Added `DefaultAzureCredential.DefaultEnvironmentVariableName` constant property that returns `"AZURE_TOKEN_CREDENTIALS"` for convenience when referencing the default environment variable name.
+    - `AzureCliCredential`, `AzurePowerShellCredential`, and `AzureDeveloperCliCredential` now throw an `AuthenticationFailedException` when the `TokenRequestContext` includes claims, as these credentials do not support claims challenges. The exception message includes guidance for handling such scenarios.
+    - When `AZURE_TOKEN_CREDENTIALS` or the equivalent custom environment variable is configured to `ManagedIdentityCredential`, the `DefaultAzureCredential` does not issue a probe request and performs retries with exponential backoff.
+
+    #### Bugs Fixed
+
+    - Fixed `AzureDeveloperCliCredential` hanging when the `AZD_DEBUG` environment variable is set by adding the `--no-prompt` flag to prevent interactive prompts ([#52005](https://github.com/Azure/azure-sdk-for-net/issues/52005)).
+    - `BrokerCredential` is now included in the chain when `AZURE_TOKEN_CREDENTIALS` is set to `dev`.
+    - Fixed an issue that prevented ManagedIdentityCredential from utilizing the token cache in Workload Identity Federation environments.
+    - Fixed a bug in `DefaultAzureCredential` that caused the credential chain to be constructed incorrectly when using AZURE_TOKEN_CREDENTIALS in combination with `DefaultAzureCredentialOptions`.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.2.2
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.2.2/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.Storage.DataMovement
+  Version: 12.2.2
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.2.2/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.2.2
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.2.2/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue on upload transfers where file/directory names on the destination may be incorrect. The issue could occur if the path passed to `LocalFilesStorageResourceProvider.FromDirectory` contained a trailing slash.
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.1.0
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.1.0/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.2.0-beta.1/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.22
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.22/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Model OracleLinkedService parameter connection_string now is not required
+    - Model GreenplumLinkedService remove parameter password
+    - Model ExpressionV2 parameter value change its type from string to object
+
+    #### Features Added
+    - Model ServiceNowV2ObjectDataset has a new parameter value_type
+    - Added Presto server linked service
+    - Model DynamicsSink has a new parameter bypass_business_logic_execution
+    - Model DynamicsSink has a new parameter bypass_power_automate_flows
+    - Model AzurePostgreSqlSink has a new parameter write_method
+    - Model AzurePostgreSqlSink has a new parameter upsert_settings
+    - Model SnowflakeV2LinkedService has a new parameter role
+    - Model SnowflakeV2LinkedService has a new parameter schema
+    - Model AzurePostgreSqlLinkedService has a new parameter service_principal_embedded_cert
+    - Model AzurePostgreSqlLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model ODataLinkedService has a new parameter service_principal_embedded_cert
+    - Model ODataLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model Office365LinkedService has a new parameter service_principal_embedded_cert
+    - Model Office365LinkedService has a new parameter service_principal_embedded_cert_password
+    - Model RestServiceLinkedService has a new parameter service_principal_embedded_cert
+    - Model RestServiceLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model SharePointOnlineListLinkedService has a new parameter service_principal_embedded_cert
+    - Model SharePointOnlineListLinkedService has a new parameter service_principal_embedded_cert_password
+    - Model AzureDatabricksLinkedService has a new parameter data_security_mode
+    - Model AmazonRdsForOracleLinkedService has a new parameter server
+    - Model AmazonRdsForOracleLinkedService has a new parameter authentication_type
+    - Model AmazonRdsForOracleLinkedService has a new parameter username
+    - Model AmazonRdsForOracleLinkedService has a new parameter encryption_client
+    - Model AmazonRdsForOracleLinkedService has a new parameter encryption_types_client
+    - Model AmazonRdsForOracleLinkedService has a new parameter crypto_checksum_client
+    - Model AmazonRdsForOracleLinkedService has a new parameter crypto_checksum_types_client
+    - Model AmazonRdsForOracleLinkedService has a new parameter initial_lob_fetch_size
+    - Model AmazonRdsForOracleLinkedService has a new parameter fetch_size
+    - Model AmazonRdsForOracleLinkedService has a new parameter statement_cache_size
+    - Model AmazonRdsForOracleLinkedService has a new parameter initialization_string
+    - Model AmazonRdsForOracleLinkedService has a new parameter enable_bulk_load
+    - Model AmazonRdsForOracleLinkedService has a new parameter fetch_tswtz_as_timestamp
+    - Model AmazonRdsForOracleLinkedService has a new parameter support_v1_data_types
+    - Model FtpServerLinkedService has a new parameter enable_server_certificate_validation
+    - Model HiveLinkedService has a new parameter enable_server_certificate_validation
+    - Model HttpLinkedService has a new parameter enable_server_certificate_validation
+    - Model ImpalaLinkedService has a new parameter enable_server_certificate_validation
+    - Model RestServiceLinkedService has a new parameter enable_server_certificate_validation
+    - Model SparkLinkedService has a new parameter enable_server_certificate_validation
+    - Model QuickBooksLinkedService has a new parameter refresh_token
+    - Model AmazonRdsForOracleSource has a new parameter number_precision
+    - Model AmazonRdsForOracleSource has a new parameter number_scale
+    - Model OracleSource has a new parameter number_precision
+    - Model OracleSource has a new parameter number_scale
+    - Model LakeHouseLinkedService has a new parameter authentication_type
+    - Model LakeHouseLinkedService has a new parameter credential
+    - Model WarehouseLinkedService has a new parameter authentication_type
+    - Model WarehouseLinkedService has a new parameter credential
+    - Model HDInsightLinkedService has a new parameter cluster_auth_type
+    - Model HDInsightLinkedService has a new parameter credential
+- Name: Azure.Storage.DataMovement
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
+- Name: Azure.Storage.DataMovement.Files.Shares
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Files.Shares_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed property/permission/metadata preservation when overwriting an existing directory for SMB and NFS transfers.
+
+    #### Features Added
+    - Added support for NFS -> SMB and SMB -> NFS Share-to-Share copy transfers.
+- Name: Azure.Storage.DataMovement.Blobs
+  Version: 12.3.0-beta.1
+  DisplayName: Data Movement - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.DataMovement.Blobs_12.3.0-beta.1/sdk/storage/Azure.Storage.DataMovement.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - This release contains features and bug fixes to improve quality.
+- Name: Azure.ResourceManager.WorkloadOrchestration
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WorkloadOrchestration_1.0.0/sdk/workloadorchestration/Azure.ResourceManager.WorkloadOrchestration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.3.0-beta.4
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.3.0-beta.4/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotFirmwareDefense
+  Version: 1.1.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotFirmwareDefense_1.1.0/sdk/iot/Azure.ResourceManager.IotFirmwareDefense/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0-beta.1/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Initial Addition of VoiceLiveClient and associated classes.
+- Name: Azure.Communication.Sms
+  Version: 1.0.2
+  DisplayName: Communication SMS
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Sms_1.0.2/sdk/communication/Azure.Communication.Sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Dependency versions updated.
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.4
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.4/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - removed `AIConversation` and `ConversationalAIItem`, and reuse `TextConversation` and `TextConversationItem` for AI Conversation Analyze feature.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.5
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.5/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix issue with image block serialization [issue](https://github.com/Azure/azure-sdk-for-net/issues/52571)
+

@@ -1,0 +1,161 @@
+entries:
+- Name: azure-core-http-httpurlconnection
+  Version: 1.0.0-beta.11
+  DisplayName: Core HTTP HttpUrlConnection
+  ServiceName: Core HTTP HttpUrlConnection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-httpurlconnection_1.0.0-beta.11/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.11`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.11`.
+  GroupId: com.azure.android
+- Name: azure-core-test
+  Version: 1.0.0-beta.11
+  DisplayName: Core Test
+  ServiceName: Core Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-test_1.0.0-beta.11/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.11`
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.11`
+    - Updated `azure-core-rest` dependency version to `1.0.0-beta.11`
+    - Updated `jackson-databind` dependency to `2.12.7`
+    - Updated `jackson-dataformat-xml` dependency to `2.12.7`
+  GroupId: com.azure.android
+- Name: azure-core-rest
+  Version: 1.0.0-beta.11
+  DisplayName: Core REST
+  ServiceName: Core REST
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-rest_1.0.0-beta.11/sdk/core/azure-core-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.11`
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.11`
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.11`
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.11`
+  GroupId: com.azure.android
+- Name: azure-core-http-okhttp
+  Version: 1.0.0-beta.11
+  DisplayName: Core HTTP OkHttp
+  ServiceName: Core HTTP OkHttp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http-okhttp_1.0.0-beta.11/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-http` dependency version to `1.0.0-beta.11`.
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.11`.
+  GroupId: com.azure.android
+- Name: azure-core-http
+  Version: 1.0.0-beta.11
+  DisplayName: Core HTTP
+  ServiceName: Core HTTP
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-http_1.0.0-beta.11/sdk/core/azure-core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where `RetryPolicy` would throw a `NullPointerException` when failing to receive an HTTP response from a service call. ([#1180](https://github.com/Azure/azure-sdk-for-android/pull/1180))
+  GroupId: com.azure.android
+- Name: azure-core-jackson
+  Version: 1.0.0-beta.11
+  DisplayName: Core Jackson
+  ServiceName: Core Jackson
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-jackson_1.0.0-beta.11/sdk/core/azure-core-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.11`.
+    - Updated `jackson-dataformat-xml` dependency to `2.12.7`.
+    - Updated `jackson-datatype-jsr310` dependency to `2.12.7`.
+  GroupId: com.azure.android
+- Name: azure-core
+  Version: 1.0.0-beta.11
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core_1.0.0-beta.11/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.11`.
+  GroupId: com.azure.android
+- Name: azure-core-credential
+  Version: 1.0.0-beta.11
+  DisplayName: Core Credential
+  ServiceName: Core Credential
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-credential_1.0.0-beta.11/sdk/core/azure-core-credential/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core-logging` dependency version to `1.0.0-beta.11`.
+  GroupId: com.azure.android
+- Name: azure-core-logging
+  Version: 1.0.0-beta.11
+  DisplayName: Core Logging
+  ServiceName: Core Logging
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-logging_1.0.0-beta.11/sdk/core/azure-core-logging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    #### Breaking Changes
+
+    #### Bugs Fixed
+  GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 2.0.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_2.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Introduced the use of WorkManager, which now requires additional configuration in apps that were already using the push notification feature. Check the [push notifications documentation](https://docs.microsoft.com/azure/communication-services/tutorials/chat-android-push-notification) for more information.
+    - Increase minSDKVersion from 21 to 23.
+
+    #### Bugs Fixed
+    - Push notification registration renewal is now guaranteed to happen when an app is idle or closed.
+
+    #### Features Added
+    - Create new `startPushNotifications` API without errorHandler as a parameter.
+  GroupId: com.azure.android
+- Name: azure-communication-common
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.1.0-beta.1/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    #### Bugs Fixed
+
+    #### Features Added
+  GroupId: com.azure.android
+

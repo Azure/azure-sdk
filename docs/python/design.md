@@ -10,7 +10,7 @@ sidebar: general_sidebar
 
 ### Design principles
 
-The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:
+The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:azu
 
 #### Idiomatic
 
@@ -64,11 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 2.7 and 3.5.3+.
-
-{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.
-
-For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.8+.
 
 ## Azure SDK API Design
 
@@ -86,13 +82,13 @@ The service client is the primary entry point for users of the library. A servic
 
 ```python
 # Yes
-class CosmosClient(object) ...
+class CosmosClient: ...
 
 # No
-class CosmosProxy(object) ...
+class CosmosProxy: ...
 
 # No
-class CosmosUrl(object) ...
+class CosmosUrl: ...
 ```
 
 {% include requirement/MUST id="python-client-immutable" %} make the service client immutable. See the [Client Immutability](#client-immutability) section for more information.
@@ -103,7 +99,7 @@ Only the minimal information needed to connect and interact with the service sho
 
 ##### Client configuration
 
-{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
+{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
 
 {% include requirement/MUSTNOT id="python-client-options-naming" %} use an "options bag" object to group optional parameters. Instead, pass as individual keyword-only arguments.
 
@@ -117,14 +113,14 @@ client = ExampleClient('https://contoso.com/xmpl',
                        timeout=2)
 ```
 
-{% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
+{% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
 
 {% include requirement/MUST id="python-client-connection-string" %} use a separate factory classmethod `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor (`__init__` method) **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
 
 The method **should** parse the connection string and pass the values along with any additional keyword-only arguments except `credential` to the constructor.  Only provide a `from_connection_string` factory method if the Azure portal exposes a connection string for your service.
 
 ```python
-class ExampleClientWithConnectionString(object):
+class ExampleClientWithConnectionString:
 
     @classmethod
     def _parse_connection_string(cls, connection_string): ...
@@ -297,7 +293,7 @@ The service client will have several methods that send requests to the service. 
 
 ```python
 # No:
-def get_thing(name: "str") -> "str":
+def get_thing(name: str) -> str:
     url = f'https://<host>/things/{name}'
     return requests.get(url).json()
 
@@ -307,7 +303,7 @@ except ValueError:
     print('We called with some invalid parameters. We should fix that.')
 
 # Yes:
-def get_thing(name: "str") -> "str":
+def get_thing(name: str) -> str:
     if not name:
         raise ValueError('name must be a non-empty string')
     url = f'https://<host>/things/{name}'
@@ -338,7 +334,7 @@ except ValueError:
 
 ```python
 # Yes:
-class Thing(object):
+class Thing:
 
     def __init__(self, name, size):
         self.name = name
@@ -354,7 +350,7 @@ do_something({'name': 'a', 'size', '17'}) # Does the same thing...
 {% include requirement/MUST id="python-client-flatten-args" %} use "flattened" named arguments for `update_` methods. **May** additionally take the whole model instance as a named parameter. If the caller passes both a model instance and individual key=value parameters, the explicit key=value parameters override whatever was specified in the model instance.
 
 ```python
-class Thing(object):
+class Thing:
 
     def __init__(self, name, size, description):
         self.name = name
@@ -366,7 +362,7 @@ class Thing(object):
             "name": self.name, "size": self.size, "description": self.description
         })[:1024]
 
-class Client(object):
+class Client:
 
     def update_thing(self, name=None, size=None, thing=None): ...
 
@@ -436,7 +432,7 @@ In cases where a service API is not explicitly implemented as a long-running ope
 {% include requirement/MUST id="python-method-conditional-request-etag" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
 ```python
-class Thing(object):
+class Thing:
 
     def __init__(self, name, etag):
         self.name = name
@@ -489,7 +485,7 @@ Data within the model type can generally be split into two parts - data used to 
 
 {% include requirement/MAY id="python-models-generated" %} expose models from the generated layer by adding to the root `__init__.py` (and `__all__`) if they otherwise meet the guidelines.
 
-{% include requirement/MUSTNOT id="python-models-async" %} duplicate models between the root and `aio` namespace. This means models should not use any syntax incompatible with Python 2.7 (e.g. type hint syntax).
+{% include requirement/MUSTNOT id="python-models-async" %} duplicate models between the root and `aio` namespace.
 
 In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows), output model types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
@@ -510,7 +506,7 @@ The following table enumerates the various models you might create:
 
 ```python
 # An example of a model type.
-class ConfigurationSetting(object):
+class ConfigurationSetting:
     """Model type representing a configuration setting
 
     :ivar name: The name of the setting
@@ -519,13 +515,11 @@ class ConfigurationSetting(object):
     :vartype value: object
     """
 
-    def __init__(self, name, value):
-        # type: (str, object) -> None
+    def __init__(self, name: str, value: object):
         self.name = name
         self.value = value
 
-    def __repr__(self):
-        # type: () -> str
+    def __repr__(self) -> str:
         return json.dumps(self.__dict__)[:1024]
 ```
 
@@ -550,11 +544,11 @@ class MyBadEnum(str, Enum):
 
 ### Exceptions
 
-{% include requirement/SHOULD id="python-errors-azure-exceptions" %} prefer raising [existing exception types from the `azure-core`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package over creating new exception types.
+{% include requirement/SHOULD id="python-errors-azure-exceptions" %} prefer raising [existing exception types from the `azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/index.html#azure-core-library-exceptions) package over creating new exception types.
 
 {% include requirement/MUSTNOT id="python-errors-use-standard-exceptions" %} create new exception types when a [built-in exception type](https://docs.python.org/3/library/exceptions.html) will suffice.
 
-{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can handle the error programmatically.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package.
+{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can handle the error programmatically.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.z19.web.core.windows.net/python/azure-core/latest/index.html#azure-core-library-exceptions) package.
 
 For higher-level methods that use multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -630,7 +624,7 @@ The `asyncio` library has been available since Python 3.4, and the `async`/`awai
 ```python
 # Yes
 # In module azure.example
-class ExampleClient(object):
+class ExampleClient:
     def some_service_operation(self, name, size) ...
 
 # In module azure.example.aio
@@ -640,7 +634,7 @@ class ExampleClient:
 
 # No
 # In module azure.example
-class ExampleClient(object):
+class ExampleClient:
     def some_service_operation(self, name, size) ...
 
 class AsyncExampleClient: # No async/async pre/postfix.
@@ -648,7 +642,7 @@ class AsyncExampleClient: # No async/async pre/postfix.
 
 # No
 # In module azure.example
-class ExampleClient(object): # Don't mix'n match with different method names
+class ExampleClient: # Don't mix'n match with different method names
     def some_service_operation(self, name, size) ...
     async def some_service_operation_async(self, name, size) ...
 
@@ -772,11 +766,9 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 {% include requirement/MUST id="python-native-arch-support" %} support both x86 and x64 architectures.
 
-{% include requirement/MUST id="python-native-charset-support" %} support both Unicode and ASCII versions of CPython 2.7.
-
 ### Docstrings
 
-{% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
+{% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](https://aka.ms/pydocs) unless explicitly overridden in this document.
 
 {% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, constants and functions.
 
@@ -840,7 +832,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} use Python 3 conventions when creating samples. Do not include Python 2 compatibility code (e.g. using [`six`](https://six.readthedocs.io)) since that will distract from what you are trying to present. Avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.6.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.8.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 

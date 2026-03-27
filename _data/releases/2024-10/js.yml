@@ -1,0 +1,308 @@
+entries:
+- Name: '@azure/storage-blob'
+  Version: 12.25.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.25.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.25.0-beta.1.
+    - Added support for customer provided key in BlockBlobClient.uploadStream().
+- Name: '@azure/arm-containerservice'
+  Version: 21.1.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 5.7.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.7.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - A new property `tierToColdSummary` is added to the `StorageLifecyclePolicyCompletedEventData` interface.
+- Name: '@azure/eventgrid-system-events'
+  Version: 1.0.0-beta.4
+  DisplayName: Event Grid System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.4/sdk/eventgrid/eventgrid-system-events/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - A new property `tierToColdSummary` is added to the `StorageLifecyclePolicyCompletedEventData` interface.
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0-beta.3/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.24.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.24.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.24.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.24.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.24.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.24.0-beta.1.
+- Name: '@azure/search-documents'
+  Version: 12.2.0-beta.1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.1/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added trivial API changes to align with the latest stable release [#31133](https://github.com/Azure/azure-sdk-for-js/pull/31133)
+
+    #### Features Added
+
+    - `SplitSkill` can now be configured to use Azure OpenAI through `SplitSkill.AzureOpenAITokenizerParameters`
+    - Vector queries allow for filters to be overridden through `VectorQuery.filterOverride`
+    - Vector fields with compression now have a `VectorSearchCompression.truncationDimension` configuration option
+- Name: '@azure/communication-email'
+  Version: 1.0.1-beta.1
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.1-beta.1/sdk/communication/communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Consumers can now provide a value for the `contentId` property when sending emails with attachments.
+    This allows consumers to reference attachments in the email body using the `cid` scheme. The `contentId` property can be set on the `EmailAttachment` object.
+- Name: '@azure/arm-privatedns'
+  Version: 3.3.0
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 11.0.0-beta.2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elasticsan'
+  Version: 1.1.0
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.1.0/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 10.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-standbypool'
+  Version: 1.0.0
+  DisplayName: Resource Management - Standby Pool
+  ServiceName: Standby Pool
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-standbypool_1.0.0/sdk/standbypool/arm-standbypool/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.25.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.25.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.25.0-beta.1.
+- Name: '@azure/arm-containerservice'
+  Version: 21.2.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-fabric'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fabric_1.0.0-beta.1/sdk/fabric/arm-fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computeschedule'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.0.0-beta.1/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-desktopvirtualization'
+  Version: 1.2.0
+  DisplayName: Resource Management - Desktop Virtualization
+  ServiceName: Desktop Virtualization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-desktopvirtualization_1.2.0/sdk/desktopvirtualization/arm-desktopvirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 33.4.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-avs'
+  Version: 6.0.0
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicenetworking'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Networking
+  ServiceName: Service Networking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicenetworking_1.1.0-beta.1/sdk/servicenetworking/arm-servicenetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-webpubsub'
+  Version: 1.2.0
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_1.2.0/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-trustedsigning'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Trustedsigning
+  ServiceName: Trustedsigning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-trustedsigning_1.0.0-beta.1/sdk/trustedsigning/arm-trustedsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-tracing'
+  Version: 1.2.0
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.2.0/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for attaching events to a span. [#31162](https://github.com/Azure/azure-sdk-for-js/pull/31162)
+- Name: '@azure-rest/core-client'
+  Version: 2.3.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for `allowReserved` (in query and path parameters) and `explode` (in query parameters only). PR [#31058](https://github.com/Azure/azure-sdk-for-js/pull/31058/files)
+- Name: '@azure/core-xml'
+  Version: 1.4.4
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.4/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue on Firefox where "xmlns" namespace is missing from the result of `stringifyXML()` [Issue #11655](https://github.com/Azure/azure-sdk-for-js/issues/11655)
+- Name: '@azure/opentelemetry-instrumentation-azure-sdk'
+  Version: 1.0.0-beta.7
+  DisplayName: OpenTelemetry Instrumentation
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.7/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for attaching events to a span. [#31162](https://github.com/Azure/azure-sdk-for-js/pull/31162)
+- Name: '@azure/event-hubs'
+  Version: 5.12.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The producer now verifies that the input message follows the expected structure.
+- Name: '@azure-rest/core-client'
+  Version: 2.3.1
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.1/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow `number` path parameters. PR [#31352](https://github.com/Azure/azure-sdk-for-js/pull/31352/files)
+

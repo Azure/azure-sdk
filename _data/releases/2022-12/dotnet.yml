@@ -1,0 +1,349 @@
+entries:
+- Name: Azure.ResourceManager.Sql
+  Version: 1.1.0
+  DisplayName: Resource Management - Sql
+  ServiceName: Sql Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Sql_1.1.0/sdk/sqlmanagement/Azure.ResourceManager.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.3.2
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.3.2/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Batch
+  Version: 1.1.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.1.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Maps.Search
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Search_1.0.0-beta.3/sdk/maps/Azure.Maps.Search/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add setter for `FuzzySearchOptions.IndexFilter` Property
+- Name: Azure.ResourceManager.Resources
+  Version: 1.3.1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Resources_1.3.1/sdk/resources/Azure.ResourceManager.Resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.3.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.3.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support `Headers` field in `ConnectEventRequest` to carry over client headers.
+
+    #### Bugs Fixed
+    - Fix the issue about `expiresAfter` with corner values.
+- Name: Azure.Maps.Common
+  Version: 1.0.0-beta.3
+  DisplayName: Maps Common
+  ServiceName: Maps Common
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Maps.Common_1.0.0-beta.3/sdk/maps/Azure.Maps.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump version
+- Name: Azure.AI.Language.Conversations
+  Version: 1.1.0-beta.2
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConversationsClientOptions.Audience` to set the audience to use for authentication with Azure Active Directory (AAD).
+    - Added methods to the `ConversationAuthoringClient` to manage deployment resources:
+    - `AssignDeploymentResources` and `AssignDeploymentResourcesAsync`
+    - `DeleteDeploymentFromResources` and `DeleteDeploymentFromResourcesAsync`
+    - `GetAssignDeploymentResourcesStatus` and `GetAssignDeploymentResourcesStatusAsync`
+    - `GetAssignedResourceDeployments` and `GetAssignedResourceDeploymentsAsync`
+    - `GetDeploymentDeleteFromResourcesStatus` and `GetDeploymentDeleteFromResourcesStatusAsync`
+    - `GetDeploymentResources` and `GetDeploymentResourcesAsync`
+    - `GetLoadSnapshotStatus` and `GetLoadSnapshotStatusAsync`
+    - `GetUnassignDeploymentResourcesStatus` and `GetUnassignDeploymentResourcesStatusAsync`
+    - `LoadSnapshot` and `LoadSnapshotAsync`
+    - `UnassignDeploymentResources` and `UnassignDeploymentResourcesAsync`
+    - Added an overload to `ConversationAuthoringClient.ExportProject` and `ExportProjectAsync` to add the `trainedModelLabel` parameter.
+- Name: Azure.Data.Tables
+  Version: 12.7.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.7.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Removed client side validation which prevented `GetEntity` and `GetEntityAsync` from getting an entity with an empty string as its RowKey or PartitionKey value. ([#32447](https://github.com/Azure/azure-sdk-for-net/issues/32447))
+- Name: Azure.ResourceManager.Nginx
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Nginx_1.0.0-beta.1/sdk/nginx/Azure.ResourceManager.Nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.TrafficManager
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: TrafficManager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.TrafficManager_1.1.0-beta.1/sdk/trafficmanager/Azure.ResourceManager.TrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Kusto
+  Version: 1.1.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Kusto_1.1.0/sdk/kusto/Azure.ResourceManager.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.3.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.3.0/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added method `serviceClient.RemoveConnectionFromAllGroups` to remove the connection from all the groups it is in.
+    - Added a `groups` option in `serviceClient.GetClientAccessUri`, to enable connections join initial groups once it is connected.
+    - Added a `filter` parameter when sending messages to connections in a hub/group/user to filter out the connections recieving message, details about `filter` syntax please see [OData filter syntax for Azure Web PubSub](https://aka.ms/awps/filter-syntax).
+    - Provided a utility class `ClientConnectionFilter` to generate the `filter` parameter, e.g. `ClientConnectionFilter.Create($"{group1} in groups and not({group2} in groups)"))`
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.5/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected an indexing issue with the log event source, causing an exception to surface when the buffered producer completed its idle state.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.5
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.5/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected an indexing issue with the log event source, causing an exception to surface in some publishing scenarios.
+- Name: Azure.ResourceManager.LoadTesting
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Loadtesting
+  ServiceName: Loadtesting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.LoadTesting_1.0.0-beta.1/sdk/loadtestservice/Azure.ResourceManager.LoadTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maps
+  Version: 1.0.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maps_1.0.0/sdk/maps/Azure.ResourceManager.Maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.0.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.0.1/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OperationalInsights
+  Version: 1.0.0
+  DisplayName: Operational Insights
+  ServiceName: Operational Insights
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OperationalInsights_1.0.0/sdk/operationalinsights/Azure.ResourceManager.OperationalInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.2.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.2.0/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.TextAnalytics
+  Version: 5.3.0-beta.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.3.0-beta.1/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for dynamic classification.
+    - Added the following methods: `TextAnalyticsClient.DynamicClassify` and `TextAnalyticsClient.DynamicClassifyAsync`.
+    - Added the following methods: `TextAnalyticsClient.DynamicClassifyBatch` and `TextAnalyticsClient.DynamicClassifyBatchAsync`.
+    - Added the following classes: `DynamicClassifyDocumentResultCollection` and `DynamicClassifyOptions`.
+    - Added the `ClassificationType` enum.
+    - Added support for extractive summarization.
+    - Added the `TextAnalyticsActions.ExtractSummaryActions` property to support extractive summarization in a batch of actions.
+    - Added the `TextAnalyticsClient.StartExtractSummary` and `TextAnalyticsClient.StartExtractSummaryAsync` methods to perform extractive summarization on a collection of documents.
+    - Added support for abstractive summarization.
+    - Added the `TextAnalyticsActions.AbstractSummaryActions` property to support abstractive summarization in a batch of actions.
+    - Added the `TextAnalyticsClient.StartAbstractSummary` and `TextAnalyticsClient.StartAbstractSummaryAsync` methods to perform abstractive summarization on a collection of documents.
+    - Added support for Fast Healthcare Interoperability Resources (FHIR) bundles as part of healthcare text analysis.
+    - Added the `AnalyzeHealthcareEntitiesOptions.FhirVersion` and `AnalyzeHealthcareEntitiesOptions.DocumentType` properties.
+    - Added the `AnalyzeHealthcareEntitiesAction.FhirVersion` and `AnalyzeHealthcareEntitiesAction.DocumentType` properties.
+    - Added the `AnalyzeHealthcareEntitiesResult.FhirBundle` property.
+    - Added the `WellKnownFhirVersion` and `HealthcareDocumentType` enums.
+    - Added support for confidence scores in healthcare entity relations.
+    - Added the `HealthcareEntityRelation.ConfidenceScore` property.
+    - Added support for named entity recognition (NER) resolutions.
+    - Added the `CategorizedEntity.Resolutions` property.
+    - Added the following classes: `AgeResolution`, `AreaResolution`, `BaseResolution`, `BooleanResolution`, `CurrencyResolution`, `DateTimeResolution`, `InformationResolution`, `LengthResolution`, `NumberResolution`, `NumericRangeResolution`, `OrdinalResolution`, `SpeedResolution`, `TemperatureResolution`, `TemporalSpanResolution` `VolumeResolution`, and `WeightResolution`.
+    - Added the following enums: `AgeUnit`, `AreaUnit`, `DateTimeSubKind`, `InformationUnit`,`LengthUnit`, `NumberKind`, `RangeKind`, `RelativeTo`, `SpeedUnit`, `TemperatureUnit`,`TemporalModifier`, `VolumeUnit`, and `WeightUnit`.
+    - Added support for automatic language detection.
+    - Added the `AbstractSummaryOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `AbstractSummaryResult.DetectedLanguage` property.
+    - Added the `AnalyzeActionsOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `AnalyzeHealthcareEntitiesOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `AnalyzeHealthcareEntitiesResult.DetectedLanguage` property.
+    - Added the `AnalyzeSentimentResult.DetectedLanguage` property.
+    - Added the `ClassifyDocumentResult.DetectedLanguage` property.
+    - Added the `ExtractKeyPhrasesResult.DetectedLanguage` property.
+    - Added the `ExtractSummaryOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `ExtractSummaryResult.DetectedLanguage` property.
+    - Added the `MultiLabelClassifyOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `RecognizeCustomEntitiesOptions.AutoDetectionDefaultLanguage` property.
+    - Added the `RecognizeEntitiesResult.DetectedLanguage` property.
+    - Added the `RecognizeLinkedEntitiesResult.DetectedLanguage` property.
+    - Added the `RecognizePiiEntitiesResult.DetectedLanguage` property.
+    - Added the `SingleLabelClassifyOptions.AutoDetectionDefaultLanguage` property.
+    - Added support for script detection.
+    - Added the `DetectedLanguage.Script` property.
+    - Added the `ScriptKind` enum.
+- Name: Azure.ResourceManager.PrivateDns
+  Version: 1.0.0
+  DisplayName: Resource Management - PrivateDns
+  ServiceName: PrivateDns
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PrivateDns_1.0.0/sdk/privatedns/Azure.ResourceManager.PrivateDns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Dns
+  Version: 1.0.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dns_1.0.0/sdk/dns/Azure.ResourceManager.Dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Analysis
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Analysis
+  ServiceName: Analysis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Analysis_1.0.0-beta.1/sdk/analysisservices/Azure.ResourceManager.Analysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.1.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeAnalytics
+  Version: 1.0.0
+  DisplayName: DataLake Analytics
+  ServiceName: DataLake Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeAnalytics_1.0.0/sdk/datalake-analytics/Azure.ResourceManager.DataLakeAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeStore
+  Version: 1.0.0
+  DisplayName: DataLake Store
+  ServiceName: DataLake Store
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeStore_1.0.0/sdk/datalake-store/Azure.ResourceManager.DataLakeStore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AnomalyDetector
+  Version: 3.0.0-preview.6
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AnomalyDetector_3.0.0-preview.6/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+    - Added `OneTable` and `MultiTable` two data schemas.
+    - Added Azure Managed Identity data reader access for Azure Blob Storage.
+    - Added `topContributorCount` in the request body for `DetectMultivariateBatchAnomaly` and `DetectMultivariateLastAnomaly`.
+
+    **Breaking Changes**
+    - Renamed `Model` to `AnomalyDetectionModel`.
+    - Renamed `DetectionRequest` to `MultivariateBatchDetectionOptions`.
+    - Renamed `DetectionResult` to `MultivariateDetectionResult`.
+    - Renamed `DetectionStatus` to `MultivariateBatchDetectionStatus`.
+    - Renamed `DetectionResultSummary` to `MultivariateBatchDetectionResultSummary`.
+    - Renamed `FillNaMethod` to `FillNAMethod`.
+    - Renamed `LastDetectionRequest` to `MultivariateLastDetectionOptions`.
+    - Renamed `LastDetectionResult` to `MultivariateLastDetectionResult`.
+    - Replaced `ModelSnapshot` with `AnomalyDetectionModel` in `listMultivariateModel`.
+    - Renamed `listMultivariateModel` to `GetMultivariateModelValues`.
+    - Renamed `DetectAnomaly` to `DetectMultivariateBatchAnomaly`
+    - Renamed `GetDetectionResult` to `GetMultivariateBatchDetectionResultValue`.
+    - Renamed `GetMultivariateModel`to `GetMultivariateModelValue`
+    - Renamed `LastDetectAnomaly` to `DetectMultivariateLastAnomaly`.
+    - Renamed `DetectRequest` to `UnivariateDetectionOptions`.
+    - Renamed `EntireDetectResponse` to `UnivariateEntireDetectionResult`.
+    - Renamed `LastDetectResponse` to `UnivariateLastDetectionResult`.
+    - Renamed `ChangePointDetectRequest` to `UnivariateChangePointDetectionOptions`.
+    - Renamed `ChangePointDetectResponse` to `UnivariateChangePointDetectionResult`.
+    - Renamed `DetectEntireSeries` to `DetectUnivariateEntireSeries`.
+    - Renamed `DetectLastPoint` to `DetectUnivariateLastPoint`.
+    - Renamed `DetectChangePoint` to `DetectUnivariateChangePoint`.
+    - Renamed `ApiVersion` to `ServiceVersion` in `AnomalyDetectorClientOptions`
+    - Removed `ExportModel`.
+    - Removed `AnomalyDetectorModelFactory`
+    - Added `DataSchema` to `ModelInfo`
+- Name: Azure.ResourceManager.DigitalTwins
+  Version: 1.1.0
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: DigitalTwins
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DigitalTwins_1.1.0/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins/CHANGELOG.md
+  ChangelogContent: ""
+

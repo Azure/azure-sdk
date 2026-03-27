@@ -1,0 +1,348 @@
+entries:
+- Name: sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute
+  Version: 0.1.0
+  DisplayName: Resource Management - Lambdatesthyperexecute
+  ServiceName: Lambdatesthyperexecute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/v0.1.0/sdk/resourcemanager/lambdatesthyperexecute/armlambdatesthyperexecute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.10.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `DefaultAzureCredential` reads environment variable `AZURE_TOKEN_CREDENTIALS` to enable a subset of its credentials:
+    - `dev` selects `AzureCLICredential` and `AzureDeveloperCLICredential`
+    - `prod` selects `EnvironmentCredential`, `WorkloadIdentityCredential` and `ManagedIdentityCredential`
+- Name: sdk/messaging/eventgrid/azsystemevents
+  Version: 0.7.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/eventgrid/azsystemevents/v0.7.0/sdk/messaging/eventgrid/azsystemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - ACSCallParticipantProperties.Role has changed from a `*string` to a `*ACSCallParticipantRoleKind`.
+
+    #### Features Added
+
+    - New system events have been added:
+    - ACSCallEndedEventData
+    - ACSCallParticipantAddedEventData
+    - ACSCallParticipantRemovedEventData
+    - ACSCallStartedEventData
+    - ACSChatAzureBotCommandReceivedInThreadEventData
+    - ACSChatTypingIndicatorReceivedInThreadEventData
+    - APIManagementCircuitBreakerClosedEventData
+    - APIManagementCircuitBreakerOpenedEventData
+    - APIManagementGatewayTokenExpiredEventData
+    - APIManagementGatewayTokenNearExpiryEventData
+    - EdgeSolutionVersionPublishedEventData
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 1.8.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v1.8.0-beta.1/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/postgresql/armpostgresqlflexibleservers
+  Version: 5.0.0-beta.1
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/v5.0.0-beta.1/sdk/resourcemanager/postgresql/armpostgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity
+  Version: 0.1.0
+  DisplayName: Resource Management - Programmableconnectivity
+  ServiceName: Programmableconnectivity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity/v0.1.0/sdk/resourcemanager/programmableconnectivity/armprogrammableconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/workloadssapvirtualinstance/armworkloadssapvirtualinstance
+  Version: 1.0.0
+  DisplayName: Resource Management - Workloads SAP Virtual Instance
+  ServiceName: Workloads
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/workloadssapvirtualinstance/armworkloadssapvirtualinstance/v1.0.0/sdk/resourcemanager/workloadssapvirtualinstance/armworkloadssapvirtualinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resources/armresources
+  Version: 2.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armresources/v2.1.0/sdk/resourcemanager/resources/armresources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 8.0.0-beta.1
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v8.0.0-beta.1/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/confidentialledger/armconfidentialledger
+  Version: 1.3.0-beta.3
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/confidentialledger/armconfidentialledger/v1.3.0-beta.3/sdk/resourcemanager/confidentialledger/armconfidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/kubernetesconfiguration/armextensiontypes
+  Version: 0.1.0
+  DisplayName: Resource Management - Extensiontypes
+  ServiceName: Kubernetesconfiguration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kubernetesconfiguration/armextensiontypes/v0.1.0/sdk/resourcemanager/kubernetesconfiguration/armextensiontypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/kubernetesconfiguration/armextensions
+  Version: 0.1.0
+  DisplayName: Resource Management - Extensions
+  ServiceName: Kubernetesconfiguration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kubernetesconfiguration/armextensions/v0.1.0/sdk/resourcemanager/kubernetesconfiguration/armextensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cosmos/armcosmos
+  Version: 3.3.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v3.3.0/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/kubernetesconfiguration/armfluxconfigurations
+  Version: 0.1.0
+  DisplayName: Resource Management - Fluxconfigurations
+  ServiceName: Kubernetesconfiguration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kubernetesconfiguration/armfluxconfigurations/v0.1.0/sdk/resourcemanager/kubernetesconfiguration/armfluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 7.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v7.0.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/sitemanager/armsitemanager
+  Version: 0.1.0
+  DisplayName: Resource Management - Sitemanager
+  ServiceName: Sitemanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sitemanager/armsitemanager/v0.1.0/sdk/resourcemanager/sitemanager/armsitemanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dell/armdellstorage
+  Version: 0.1.0
+  DisplayName: Resource Management - Dellstorage
+  ServiceName: Dell
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dell/armdellstorage/v0.1.0/sdk/resourcemanager/dell/armdellstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/ai/azopenai
+  Version: 0.8.0
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenai/v0.8.0/sdk/ai/azopenai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    This library has been updated to function as a companion to the [official OpenAI Go client library](https://github.com/openai/openai-go). It provides types and functions that allow interaction with Azure-specific extensions available in the Azure OpenAI service.
+
+    See the [migration guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for details on how to update your code to use this library alongside the official OpenAI Go client.
+- Name: sdk/ai/azopenaiassistants
+  Version: 0.4.0
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiassistants/v0.4.0/sdk/ai/azopenaiassistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for more details.
+- Name: sdk/ai/azopenaiextensions
+  Version: 0.2.0
+  DisplayName: OpenAI Extensions
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiextensions/v0.2.0/sdk/ai/azopenaiextensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for more details.
+- Name: sdk/resourcemanager/appplatform/armappplatform
+  Version: 2.0.1
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appplatform/armappplatform/v2.0.1/sdk/resourcemanager/appplatform/armappplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/logz/armlogz
+  Version: 1.2.1
+  DisplayName: Resource Management - Logz
+  ServiceName: Logz
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/logz/armlogz/v1.2.1/sdk/resourcemanager/logz/armlogz/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 7.0.0-beta.3
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v7.0.0-beta.3/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mongodbatlas/armmongodbatlas
+  Version: 0.1.0
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mongodbatlas/armmongodbatlas/v0.1.0/sdk/resourcemanager/mongodbatlas/armmongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mediaservices/armmediaservices
+  Version: 3.4.1
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mediaservices/armmediaservices/v3.4.1/sdk/resourcemanager/mediaservices/armmediaservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/purestorageblock/armpurestorageblock
+  Version: 0.1.0
+  DisplayName: Resource Management - Purestorageblock
+  ServiceName: Purestorageblock
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/purestorageblock/armpurestorageblock/v0.1.0/sdk/resourcemanager/purestorageblock/armpurestorageblock/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 1.5.0-beta.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.5.0-beta.0/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added an initial API for integrating an external client-side Query Engine with the Cosmos DB Go SDK. This API is unstable and not recommended for production use. See [PR 24273](https://github.com/Azure/azure-sdk-for-go/pull/24273) for more details.
+- Name: sdk/azidentity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.10.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `AzureCLICredential` and `AzureDeveloperCLICredential` could wait indefinitely for subprocess output
+- Name: sdk/messaging/azeventhubs
+  Version: 2.0.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v2.0.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Event Hubs Geo-Replication (PR#24477)
+
+    #### Breaking Changes
+
+    This new major release is compatible with azeventhubs v1, with one difference - Checkpoint.Offset and ReceivedEventData.Offset's type have been changed to a string (from an integer).
+    This change does NOT affect any stored checkpoints. Most customers will be unaffected by this change and can safely upgrade.
+- Name: sdk/messaging/azeventhubs
+  Version: 1.4.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azeventhubs/v1.4.0/sdk/messaging/azeventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    This package has been deprecated, use `github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/v2` instead. The major release
+    changes a single field (Offset) from an integer, and should be a non-breaking change for most users.
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.4.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.4.0/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.4.0
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.4.0/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.4.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.4.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+- Name: sdk/security/keyvault/azcertificates
+  Version: 1.4.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.4.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+- Name: sdk/resourcemanager/chaos/armchaos
+  Version: 2.0.0
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/chaos/armchaos/v2.0.0/sdk/resourcemanager/chaos/armchaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/planetarycomputer/armplanetarycomputer
+  Version: 0.1.0
+  DisplayName: Resource Management - Planetarycomputer
+  ServiceName: Planetarycomputer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/planetarycomputer/armplanetarycomputer/v0.1.0/sdk/resourcemanager/planetarycomputer/armplanetarycomputer/CHANGELOG.md
+  ChangelogContent: ""
+

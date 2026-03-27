@@ -831,11 +831,11 @@ of the amqp connection.
 
 ### Management Libraries
 
-We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
+We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://aka.ms/azsdk/java/mgmt)
 
 These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
 
-More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://devblogs.microsoft.com/azure-sdk/october-2020-management-ga/)
 
 ## Need help
 

@@ -12,6 +12,7 @@ $languageNameMapping = @{
   go = "Go" # -- No csv or tagging info
   ios = "iOS" # -- These don't follow normal tagging rules
   android = "Android" # -- These don't follow normal tagging/githubio rules
+  rust = "Rust"
 }
 
 function CreatePackage(
@@ -40,28 +41,41 @@ function CreatePackage(
     $versionPreview = $version
   }
 
-  return [PSCustomObject][ordered]@{
+  $pkg = [PSCustomObject][ordered]@{
     Package = $package
-    GroupId = $groupId
+  }
+
+  if ($groupId) {
+    $pkg | Add-Member -NotePropertyName "GroupId" -NotePropertyValue $groupId
+  }
+
+  $otherProps = [ordered]@{
     VersionGA = $versionGA
     VersionPreview = $versionPreview
-    DisplayName = $package
-    ServiceName = ""
+    DisplayName = "Unknown Display Name"
+    ServiceName = "Unknown Service"
     RepoPath = "NA"
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
     New = "false"
     PlannedVersions = ""
+    LatestGADate = ""
     FirstGADate = ""
+    FirstPreviewDate = ""
     Support = ""
-    DeprecatedDate = ""
+    EOLDate = ""
     Hide = ""
     Replace = ""
     ReplaceGuide = ""
     MSDocService = ""
-    Notes = ""
-  };
+    ServiceId = ""
+    Notes = "Needs Review"
+  }
+
+  $pkg | Add-Member -NotePropertyMembers $otherProps
+
+  return $pkg
 }
 
 function ClonePackage($pkg)
@@ -79,13 +93,16 @@ function ClonePackage($pkg)
     Type = $pkg.Type
     New = $pkg.New
     PlannedVersions = $pkg.PlannedVersions
+    LatestGADate = $pkg.LatestGADate
     FirstGADate = $pkg.FirstGADate
+    FirstPreviewDate = $pkg.FirstPreviewDate
     Support = $pkg.Support
-    DeprecatedDate = $pkg.DeprecatedDate
+    EOLDate = $pkg.EOLDate
     Hide = $pkg.Hide
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
     MSDocService = $pkg.MSDocService
+    ServiceId = $pkg.ServiceId
     Notes = $pkg.Notes
   };
 }
@@ -223,6 +240,38 @@ function Add-NewFieldToLanguage($lang, $field, $afterField = $null, $fieldDefaul
   Set-PackageListForLanguage $lang $updatedPackageList
 }
 
+function Add-NewFieldToSpecs($field, $afterField = $null, $fieldDefaultValue="")
+{
+  $speclistFile = Join-Path $releaseFolder "specs.csv"
+  $packageList = Get-Content $speclistFile | ConvertFrom-Csv
+
+  $updatedPackageList = @()
+  foreach ($pkg in $packageList)
+  {
+    $orderedPkg = [ordered]@{ }
+
+    foreach ($prop in $pkg.PSObject.Properties.Name)
+    {
+      $orderedPkg[$prop] = $pkg.$prop
+      if ($afterField -eq $prop)
+      {
+        $orderedPkg[$field] = $fieldDefaultValue
+      }
+    }
+    if (!$afterField) {
+      $orderedPkg[$field] = $fieldDefaultValue
+    }
+
+    $updatedPackageList += [pscustomobject]$orderedPkg
+  }
+
+  $new = @($updatedPackageList | Where-Object { $_.IsTypeSpec -eq "True" } | Sort-Object ServiceFamily, ResourcePath, SpecPath)
+  $other = @($updatedPackageList | Where-Object { $_.IsTypeSpec -ne "True" } |  Sort-Object ServiceFamily, ResourcePath, SpecPath)
+
+  $sortedSpecs = $new + $other
+  $sortedSpecs | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $speclistFile -encoding ascii
+}
+
 function PackageEqual($pkg1, $pkg2)
 {
   if ($pkg1.Package -ne $pkg2.Package) {
@@ -247,7 +296,7 @@ function GetPackageKey($pkg)
   }
 
   if ($groupId) {
-    $pkgKey = "${groupId}:${pkgKey}"
+    $pkgKey = "${groupId}+${pkgKey}"
   }
 
   return $pkgKey

@@ -20,7 +20,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * Management Libraries Updates
   - GA releases for [Java](java.md) and [Python](python.md). These libraries are ready for production use.
   - New Packages in Public Preview for [Java](java.md) / [.NET](dotnet.md)
-  - More details of those release annoucements as well as future roadmap of management libraries can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
+  - More details of those release annoucements as well as future roadmap of management libraries can be found at [this blog post](https://devblogs.microsoft.com/azure-sdk/october-2020-management-ga/)
 
 ## Release Notes
 

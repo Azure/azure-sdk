@@ -1,0 +1,171 @@
+entries:
+- Name: Azure.AI.DocumentIntelligence
+  Version: 1.0.0
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.DocumentIntelligence_1.0.0/sdk/documentintelligence/Azure.AI.DocumentIntelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Replaced the following `Content` classes with new corresponding `Options` classes:
+    - `AnalyzeBatchDocumentsContent` to `AnalyzeBatchDocumentsOptions`.
+    - `AnalyzeDocumentContent` to `AnalyzeDocumentOptions`.
+    - `AuthorizeClassifierCopyContent` to `AuthorizeClassifierCopyOptions`.
+    - `AuthorizeCopyContent` to `AuthorizeModelCopyOptions`.
+    - `BuildDocumentClassifierContent` to `BuildClassifierOptions`.
+    - `BuildDocumentModelContent` to `BuildDocumentModelOptions`.
+    - `ClassifyDocumentContent` to `ClassifyDocumentOptions`.
+    - `ComposeDocumentModelContent` to `ComposeModelOptions`.
+    - Parameters of the `AnalyzeBatchDocuments`, `AnalyzeDocument`, and `ClassifyDocument` methods have been moved into their corresponding `Options` class.
+    - Updated parameter `resultId` of methods `GetAnalyzeResultPdf` and `GetAnalyzeResultFigure` to take a `string` instead of a `Guid`.
+    - Renamed all occurrences of property `UrlSource` to `UriSource`.
+    - Renamed all occurrences of properties `DocType` and `DocTypes` to `DocumentType` and `DocumentTypes`, respectively.
+    - In `DocumentField`, renamed properties `Type` and `ValueLong` to `FieldType` and `ValueInt64`, respectively.
+    - Renamed property `Type` to `FieldType` in `DocumentFieldSchema`.
+    - Renamed class `AzureBlobContentSource` to `BlobContentSource`.
+    - Renamed class `AzureBlobFileListContentSource` to `BlobFileListContentSource`.
+    - Renamed all occurrences of properties `AzureBlobSource` and `AzureBlobFileListSource` to `BlobSource` and `BlobFileListSource`, respectively.
+    - Renamed all occurrences of property `ContainerUrl` to `ContainerUri`.
+    - Renamed property `ResultContainerUrl` to `ResultContainerUri` in `AnalyzeBatchDocumentsContent`.
+    - Renamed class `AnalyzeBatchOperationDetail` to `AnalyzeBatchResultDetails`.
+    - In `AnalyzeBatchResultDetails` (former `AnalyzeBatchOperationDetail`), renamed properties `SourceUrl` and `ResultUrl` to `SourceUri` and `ResultUri`, respectively.
+    - Removed member `Generative` from `DocumentBuildMode`.
+    - Renamed member `StyleFonts` to `FontStyling` in `DocumentAnalysisFeature`.
+    - In `ContentSourceKind`, renamed members `Url`, `Base64`, `AzureBlob`, and `AzureBlobFileList` to `Uri`, `Bytes`, `Blob`, and `BlobFileList`, respectively.
+    - Renamed all occurrences of property `ExpirationDateTime` to `ExpiresOn`.
+    - Renamed method `GetResourceInfo` to `GetResourceDetails` in `DocumentIntelligenceAdministrationClient`.
+    - Renamed class `ResourceDetails` to `DocumentIntelligenceResourceDetails`.
+    - Renamed type `ContentFormat` to `DocumentContentFormat`.
+    - Renamed class `OperationDetails` to `DocumentIntelligenceOperationDetails`.
+    - Renamed class `InnerError` to `DocumentIntelligenceInnerError`.
+    - Renamed class `CopyAuthorization` to `ModelCopyAuthorization`.
+    - Renamed type `OperationStatus` to `DocumentIntelligenceOperationStatus`.
+    - Renamed property `Innererror` to `InnerError` in `DocumentIntelligenceError`.
+    - Renamed property `InnerErrorObject` to `InnerError` in `DocumentIntelligenceInnerError` (former class `InnerError`).
+    - Removed member `Completed` from `DocumentIntelligenceOperationStatus` (former `OperationStatus`).
+    - Removed type `StringIndexType`.
+    - Removed property `StringIndexType` in `AnalyzeResult`.
+    - Updated property `Fields` in `AnalyzedDocument` to be a `DocumentFieldDictionary` instead of an `IReadOnly<string, DocumentField>`.
+    - Updated property `ValueDictionary` in `DocumentField` to be a `DocumentFieldDictionary` instead of an `IReadOnly<string, DocumentField>`.
+    - Made type `BoundingRegion` a `struct`.
+    - Made type `DocumentSpan` a `struct`.
+
+    #### Features Added
+    - Added methods `GetAnalyzeBatchResult`, `GetAnalyzeBatchResults`, `DeleteAnalyzeBatchResult`, and `DeleteAnalyzeResult` to `DocumentIntelligenceClient`.
+    - Added class `AnalyzeBatchOperationDetails` to be used as the output of the `GetAnalyzeBatchResult` and `GetAnalyzeBatchResults` APIs.
+    - Added overloads for the `AnalyzeDocument` API that take only required parameters.
+    - Added property `ModifiedOn` to `DocumentModelDetails` and to `DocumentClassifierDetails`.
+    - Added member `Skipped` to `DocumentIntelligenceOperationStatus` (former `OperationStatus`).
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+
+    #### Bugs Fixed
+    - Fixed a bug where calling `Operation.Id` would sometimes return an `InvalidOperationException` with message "The operation ID was not present in the service response.".
+    - Calling `Operation.Id` in an operation returned from the `AnalyzeBatchDocuments` and `ClassifyDocument` APIs won't throw a `NotSupportedException` anymore.
+- Name: Azure.ResourceManager.PlaywrightTesting
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PlaywrightTesting_1.0.0/sdk/playwrighttesting/Azure.ResourceManager.PlaywrightTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Redis
+  Version: 1.5.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Redis_1.5.0/sdk/redis/Azure.ResourceManager.Redis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.7.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.7.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Elastic
+  Version: 1.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Elastic_1.0.0/sdk/elastic/Azure.ResourceManager.Elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.4.0-beta.12
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.4.0-beta.12/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DevTestLabs
+  Version: 1.1.1
+  DisplayName: Resource Management - DevTest Labs
+  ServiceName: DevTest Labs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevTestLabs_1.1.1/sdk/devtestlabs/Azure.ResourceManager.DevTestLabs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Language.Text
+  Version: 1.0.0-beta.2
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+    - Added support for analyze-text API Versions
+    - 2024-11-01
+    - 2024-11-15-preview
+
+    #### Breaking Changes
+
+    - Removed support for analyze-text API Versions
+    - 2023-11-15-preview
+- Name: Azure.ResourceManager.Network
+  Version: 1.10.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.10.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.10.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.10.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Calling `TableClient.Query`, `TableClient.QueryAsync`, or `TableClient.CreateQueryFilter` with a filter expression that uses `string.Equals` or `string.Compare` with a `StringComparison` parameter will now throw an exception. This is because the Azure Table service does not support these methods in query filters. Previously the `StringComparison` argument was silently ignored, which can lead to subtle bugs in client code. The new behavior can be overridden by either setting an AppContext switch named "Azure.Data.Tables.DisableThrowOnStringComparisonFilter" to `true` or by setting the environment variable "AZURE_DATA_TABLES_DISABLE_THROWONSTRINGCOMPARISONFILTER" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableThrowOnStringComparisonFilter" Value="true" />
+    </ItemGroup>
+    ```
+- Name: Azure.Identity
+  Version: 1.13.2
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.13.2/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where setting `DefaultAzureCredentialOptions.TenantId` twice throws an `InvalidOperationException` ([#47035](https://github.com/Azure/azure-sdk-for-net/issues/47035))
+    - Fixed an issue where `ManagedIdentityCredential` does not honor the `CancellationToken` passed to `GetToken` and `GetTokenAsync`. ([#47156](https://github.com/Azure/azure-sdk-for-net/issues/47156))
+    - Fixed an issue where some credentials in `DefaultAzureCredential` would not fall through to the next credential in the chain under certain exception conditions.
+    - Fixed a regression in `ManagedIdentityCredential` when used in a `ChainedTokenCredential` where the invalid json responses do not fall through to the next credential in the chain. ([#47470](https://github.com/Azure/azure-sdk-for-net/issues/47470))
+

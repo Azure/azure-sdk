@@ -1,0 +1,255 @@
+entries:
+- Name: sdk/data/azcosmos
+  Version: 1.0.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.0.3/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed data race on clientRetryPolicy. See [PR 23061](https://github.com/Azure/azure-sdk-for-go/pull/23061)
+- Name: sdk/azidentity
+  Version: 1.7.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.7.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `AzurePipelinesCredential` authenticates an Azure Pipelines service connection with
+    workload identity federation
+
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.7.0-beta.1
+    * Removed the persistent token caching API. It will return in v1.8.0-beta.1
+- Name: sdk/resourcemanager/mobilenetwork/armmobilenetwork
+  Version: 4.1.0
+  DisplayName: Resource Management - Mobile Network
+  ServiceName: Mobile Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mobilenetwork/armmobilenetwork/v4.1.0/sdk/resourcemanager/mobilenetwork/armmobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/resources/armdeploymentstacks
+  Version: 1.0.0
+  DisplayName: Resource Management - Deployment Stacks
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armdeploymentstacks/v1.0.0/sdk/resourcemanager/resources/armdeploymentstacks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storagemover/armstoragemover
+  Version: 2.2.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagemover/armstoragemover/v2.2.0/sdk/resourcemanager/storagemover/armstoragemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appservice/armappservice
+  Version: 3.0.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appservice/armappservice/v3.0.0/sdk/resourcemanager/appservice/armappservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder
+  Version: 2.3.0
+  DisplayName: Resource Management - Virtual Machine Image Builder
+  ServiceName: Image Builder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder/v2.3.0/sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 5.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v5.2.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/search/armsearch
+  Version: 1.4.0-beta.2
+  DisplayName: Resource Management - Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/search/armsearch/v1.4.0-beta.2/sdk/resourcemanager/search/armsearch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/scvmm/armscvmm
+  Version: 1.0.0
+  DisplayName: Resource Management - Scvmm
+  ServiceName: Scvmm
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/scvmm/armscvmm/v1.0.0/sdk/resourcemanager/scvmm/armscvmm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cosmos/armcosmos
+  Version: 3.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v3.0.0/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/ai/azopenaiassistants
+  Version: 0.2.0
+  DisplayName: OpenAI Assistants
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/ai/azopenaiassistants/v0.2.0/sdk/ai/azopenaiassistants/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Now supports the Assistants V2 API, with support for vector stores as well as streaming.
+
+    #### Breaking Changes
+
+    - Assistants V1 is no longer supported in this library. For information about how to migrate between V1 and V2, see OpenAI's migration documentation: [(link)](https://platform.openai.com/docs/assistants/migration).
+    - Types that were suffixed with `Options` have been changed, if their name would conflict with the options for a method. For example: `AssistantsThreadCreationOptions`, the main argument for `CreateThread()`, has been changed to `CreateThreadBody`.
+- Name: sdk/resourcemanager/avs/armavs
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Azure VMware Solution
+  ServiceName: Azure VMware Solution
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/avs/armavs/v2.0.0-beta.1/sdk/resourcemanager/avs/armavs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/oracledatabase/armoracledatabase
+  Version: 0.2.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/oracledatabase/armoracledatabase/v0.2.0/sdk/resourcemanager/oracledatabase/armoracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation
+  Version: 1.0.0
+  DisplayName: Resource Management - App Compliance Automation
+  ServiceName: App Compliance Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation/v1.0.0/sdk/resourcemanager/appcomplianceautomation/armappcomplianceautomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/storage/armstorage
+  Version: 1.6.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storage/armstorage/v1.6.0/sdk/resourcemanager/storage/armstorage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity/cache
+  Version: 0.2.3
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.2.3/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Upgraded dependencies
+- Name: sdk/resourcemanager/oracledatabase/armoracledatabase
+  Version: 1.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/oracledatabase/armoracledatabase/v1.0.0/sdk/resourcemanager/oracledatabase/armoracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/mongocluster/armmongocluster
+  Version: 0.1.0
+  DisplayName: Resource Management - Mongocluster
+  ServiceName: Mongocluster
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mongocluster/armmongocluster/v0.1.0/sdk/resourcemanager/mongocluster/armmongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/edgezones/armedgezones
+  Version: 0.1.0
+  DisplayName: Resource Management - Edgezones
+  ServiceName: Edgezones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/edgezones/armedgezones/v0.1.0/sdk/resourcemanager/edgezones/armedgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
+  Version: 1.0.0
+  DisplayName: Resource Management - Informatica Data Management
+  ServiceName: Informatica Data Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt/v1.0.0/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.13.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.13.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added runtime.NewRequestFromRequest(), allowing for a policy.Request to be created from an existing *http.Request.
+- Name: sdk/azidentity
+  Version: 1.8.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.8.0-beta.1/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes affect only code written against a beta version such as v1.7.0-beta.1
+    * Redesigned the persistent caching API. Encryption is now required in all cases
+    and persistent cache construction is separate from credential construction.
+    The `PersistentUserAuthentication` example in the package docs has been updated
+    to demonstrate the new API.
+
+    #### Features Added
+    * Restored persistent token caching feature
+- Name: sdk/azidentity/cache
+  Version: 0.3.0
+  DisplayName: Identity - Cache
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/cache/v0.3.0/sdk/azidentity/cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Removed optional fallback to plaintext storage. `azidentity/cache` now
+    always returns an error when it can't encrypt a persistent cache.
+
+    #### Features Added
+    * Added `New`, a constructor for persistent caches. See `azidentity` docs,
+    in particular the `PersistentUserAuthentication` example, for usage details.
+- Name: sdk/storage/azblob
+  Version: 1.4.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.4.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * GetProperties() was called twice in DownloadFile method. Enhanced to call it only once, reducing latency.
+    * Updated `azcore` version to `1.13.0`
+- Name: sdk/storage/azfile
+  Version: 1.3.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.3.0/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * GetProperties() was called twice in DownloadFile method. Enhanced to call it only once, reducing latency.
+    * Updated `azcore` version to `1.13.0`
+

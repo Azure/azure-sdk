@@ -25,38 +25,57 @@ parameters:
       Language: js
     azure-sdk-for-python:
       Language: python
+    azure-sdk-for-rust:
+      Language: rust
 
 steps:
   - pwsh: |
-      $today = Get-Date
-      $firstDayOfMonth = $today.AddDays(-1 * $today.Day + 1)
-      $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
+      function GetFridayOfReleaseWeek([DateTime]$d)
+      {
+        $firstDayOfMonth = $d.AddDays(-1 * $d.Day + 1)
+        $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
 
-      # Move to next month's release period but still collect notes from the second friday fo this month.
-      if ($today -gt $secondFridayOfMonth) {
-        $releasePeriod = $firstDayOfMonth.AddMonths(1)
-        $releaseStartDate = $secondFridayOfMonth
+        # Add any overrides for months where the release week isn't the second friday of the month
+        # These entries can be cleaned up after we are more than one month past the exception month.
+        if ($d.Year -eq 2026 -and $d.Month -eq 1)
+        {
+          $secondFridayOfMonth = [DateTime]"2026-01-16"
+        }
+        elseif ($d.Year -eq 2026 -and $d.Month -eq 7)
+        {
+          $secondFridayOfMonth = [DateTime]"2026-07-17"
+        }
+        elseif ($d.Year -eq 2026 -and $d.Month -eq 9)
+        {
+          $secondFridayOfMonth = [DateTime]"2026-09-18"
+        }
+
+        return $secondFridayOfMonth
+      }
+
+      $today = Get-Date
+      $releaseFriday = GetFridayOfReleaseWeek $today
+
+      # Move to next month's release period but still collect notes from the second friday for this month.
+      if ($today -gt $releaseFriday) {
+        $releasePeriod = $today.AddMonths(1)
+        $releaseStartDate = $releaseFriday
       }
       else {
-        # Take the second friday of last month as start date
-        $firstDayOfLastMonth = $firstDayOfMonth.AddMonths(-1)
-        $secondFridayOfLastMonth = $firstDayOfLastMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfLastMonth.DayOfWeek + 7) % 7 + 7)
-
-        $releasePeriod = $firstDayOfMonth
-        $releaseStartDate = $secondFridayOfLastMonth
+        $releasePeriod = $today
+        $releaseStartDate = GetFridayOfReleaseWeek $today.AddMonths(-1)
       }
 
-      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
-      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+      $releasePeriod = $releasePeriod.ToString('yyyy-MM')
+      # Move one day past the friday as the friday releases should caught by last monthes notes
+      $releaseStartDate = $releaseStartDate.AddDays(1).ToString('yyyy-MM-dd')
 
-      Write-Host "[ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
-      Write-Host "[ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
+      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$releaseStartDate"
+
+      Write-Host "[ReleasePeriod]$releasePeriod"
+      Write-Host "[ReleaseStartDate]$releaseStartDate"
     displayName: Set Release Period Value
-
-  - pwsh: |
-      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
-      -ForkRepoOwner "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
-    displayName: Clean Up Stale Branches
 
   - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
@@ -64,6 +83,10 @@ steps:
       git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
+
+  - pwsh: |
+      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+    displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
@@ -101,12 +124,11 @@ steps:
         arguments: >
           -releasePeriod $(ReleasePeriod)
           -releaseStartDate $(ReleaseStartDate)
-          -commonScriptPath $(AzureSDKToolsScriptsPath)
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
           -github_pat '$(azuresdk-github-pat)'
 
-    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
         BaseBranchName: $(DefaultBranch)
@@ -115,4 +137,11 @@ steps:
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
-        ScriptDirectory: $(AzureSDKToolsScriptsPath)
+
+    - pwsh: |
+        gh pr merge $(Submitted.PullRequest.Number) --auto --squash
+      condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+      displayName: Apply AutoMerge to Pull Request
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
+      env:
+        GH_TOKEN: $(azuresdk-github-pat)

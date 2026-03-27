@@ -1,0 +1,446 @@
+entries:
+- Name: Azure.ResourceManager.Quota
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Quota
+  ServiceName: Quota
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quota_1.1.0-beta.2/sdk/quota/Azure.ResourceManager.Quota/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.9.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.9.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Overload the `DeleteEntity` method to allow an `ITableEntity` object as parameter.
+
+    #### Bugs Fixed
+    - Fixed an issue where custom models decorated with the `DataMemberAttribute` that didn't explicitly set a name caused the query filter to be malformed.
+- Name: Azure.Identity
+  Version: 1.13.0-beta.1
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.13.0-beta.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Previously, if a clientID or ResourceID was specified for Cloud Shell managed identity, which is not supported, the clientID or resourceID would be silently ignored. Now, an exception will be thrown if a clientID or resourceID is specified for Cloud Shell managed identity.
+- Name: Azure.Storage.Common
+  Version: 12.20.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.20.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.47
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.47/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.19.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.19.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Files.Shares
+  Version: 12.19.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.19.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.18.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.18.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Blobs
+  Version: 12.21.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Azure.Storage.Queues
+  Version: 12.19.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.19.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] Azure Blob Storage Client SDK No Longer Supports Globalization Invariant Mode for Account Key Authentication #45052
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.4
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When the trigger's connection property is set to a valid connection string instead of an informational name, the mistake will be detected and sensitive information will be redacted from the error message to avoid accidental capture in logs and similar mechanisms.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.2
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.2/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - When the trigger's connection property is set to a valid connection string instead of an informational name, the mistake will be detected and sensitive information will be redacted from the error message to avoid accidental capture in logs and similar mechanisms.
+- Name: Azure.ResourceManager.DataFactory
+  Version: 1.2.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataFactory_1.2.0/sdk/datafactory/Azure.ResourceManager.DataFactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.0.0-beta.1/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppService
+  Version: 1.2.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.2.0/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Health.Deidentification
+  Version: 1.0.0-beta.1
+  DisplayName: Health Deidentification
+  ServiceName: Health Deidentification
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Health.Deidentification_1.0.0-beta.1/sdk/healthdataaiservices/Azure.Health.Deidentification/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Azure Health Deidentification client library
+- Name: Azure.Core.Amqp
+  Version: 1.3.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.3.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of binary application properties.
+    - Fixed the logic used to set the `TimeToLive` value of the `AmqpMessageHeader` for received messages to be based on the difference of the `AbsoluteExpiryTime` and `CreationTime` properties of the `AmqpMessageProperties`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.4.2
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.4.2/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - To mitigate a [disclosure vulnerability](https://github.com/advisories/GHSA-m5vv-6r4h-3vj9), updating the transitive dependency for `Azure.Identity` to v1.11.4 via version bump to `Microsoft.Extensions.Azure`.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.18.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.18.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Core.Amqp` dependency to 1.3.1, which includes a fix to serialization of binary application properties.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.11.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.11.5/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `Azure.Core.Amqp` dependency to 1.3.1, which includes a fix to serialization of binary application properties.
+- Name: Azure.Core
+  Version: 1.42.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.42.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved memory performance for Event Source formatting [#43947](https://github.com/Azure/azure-sdk-for-net/pull/43947)
+    - Upgraded dependency on System.Text.Encodings.Web to 6.0.0
+    - Upgraded dependency on Microsoft.Bcl.AsyncInterfaces to 6.0.0
+- Name: System.ClientModel
+  Version: 1.1.0-beta.6
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.1.0-beta.6/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `OperationResult` and `ReturnWhen` types to support long-running operations.
+
+    #### Bugs Fixed
+
+    - Added support for delaying retrying a request until after the interval specified on a response `Retry-After` header.
+- Name: Azure.AI.Language.Conversations
+  Version: 2.0.0-beta.1
+  DisplayName: Conversational Language Understanding
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_2.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added classes to represent all the models in the service definition.
+
+    #### Breaking Changes
+    - Deprecated `ConversationAuthoringClient`.
+- Name: Azure.ResourceManager.HDInsight.Containers
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - HDInsight Containers
+  ServiceName: HDInsight Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HDInsight.Containers_1.0.0-beta.4/sdk/hdinsightcontainers/Azure.ResourceManager.HDInsight.Containers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.3.5
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.3.5/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.EventHubs` to 5.11.5.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.3
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.3/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.ServiceBus` to 7.18.1.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.3.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.3.0-beta.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Support for the real time transcription
+    - Monetization for real-time transcription and audio streaming
+    - Hold and Unhold the participant
+    - Support to manage the rooms/servercall/group call using connect API
+    - Support for the audio streaming
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
+- Name: Azure.Storage.Common
+  Version: 12.21.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.21.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.20.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: Azure.Storage.Blobs
+  Version: 12.22.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.22.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+
+    #### Bugs Fixed
+    - Fixed \[BUG\] BlobContainerClient(connectionString, blobContainerName, options) ctor to set clientSideEncryptionOptions #44623
+- Name: Azure.Storage.Files.Shares
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.20.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+    - Added support for token-based authentication for all APIs.
+    - Added support for paid bursting on premium file share accounts.
+    - Added support for binary format for file permissions.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.48
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.48/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.5.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.5.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for listing labels.
+    - Added support for filtering by tags.
+- Name: Azure.Storage.Queues
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.20.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+    - Added ability to retrieve SAS string to sign for debugging purposes.
+    - Add Queue Permissions enum to represent QueueAccessPolicy.Permissions #37653
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.19.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.19.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2024-11-04.
+- Name: Azure.AI.Inference
+  Version: 1.0.0-beta.1
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Inference_1.0.0-beta.1/sdk/ai/Azure.AI.Inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Initial release, containing basic chat completions functionality
+- Name: Azure.AI.Language.Text
+  Version: 1.0.0-beta.1
+  DisplayName: Language Text
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Text_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for analyze-text API Versions
+    - 2022-05-01
+    - 2023-04-01
+    - 2023-11-15-preview
+- Name: Azure.Storage.Blobs
+  Version: 12.21.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.21.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed \[BUG\] WrapKeyInternal to correctly call WrapKey in sync flow #42160
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.16.4
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.16.4/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump dependency on `Azure.Messaging.ServiceBus` to 7.18.1. Previous release still depended on 7.17.5.
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.4.0
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.4.0/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added method overloads `serviceClient.GetClientAccessUri`, `serviceClient.GetClientAccessUri` for MQTT clients.
+    - Added method `serviceClient.AddConnectionsToGroups` to add filtered connections to specified multiple groups.
+    - Added method `serviceClient.RemoveConnectionsFromGroups` to remove filtered connections from specified multiple groups.
+

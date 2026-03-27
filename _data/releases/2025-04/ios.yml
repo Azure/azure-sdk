@@ -1,0 +1,32 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.15.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.15.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Bug fix for PSTN mute/unmute
+- Name: AzureCore
+  Version: 1.0.0-beta.16
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCore_1.0.0-beta.16/sdk/core/AzureCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed compilation error on XCode 16.3 with `Equatable` and `Comparable` protocols.
+- Name: AzureCommunicationCalling
+  Version: 2.16.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.16.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added explicit consent APIs
+

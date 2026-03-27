@@ -140,7 +140,7 @@ We're releasing a new preview of our Azure Tables library. System properties `od
 
 ### Metrics Advisor
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
 
 This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architecture Board Review.
 
@@ -151,7 +151,7 @@ This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architectur
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
+- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
 
 ### Communication
 

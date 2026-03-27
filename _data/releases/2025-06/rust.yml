@@ -1,0 +1,216 @@
+entries:
+- Name: azure_core_amqp
+  Version: 0.4.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.4.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AmqpClaimsBasedSecurity` now takes ownership of the associated session rather than simply referencing the associated session. This means that all CBS authentication operations should be performed on dedicated AmqpSession objects.
+
+    - `AmqpOrderedMap::iter` now iterates over references to key and value, not clones of the key and value, thus eliminating unnecessary clones.
+- Name: typespec
+  Version: 0.5.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.5.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    ### Other Changes
+
+    - Updated dependencies.
+- Name: typespec_client_core
+  Version: 0.4.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.4.0/sdk/typespec/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+    - Added module `fmt::as_string` which is used to (de)serialize types in string format.
+    - Added `Response<T, F>` type to represent a response with a specific format and model type.
+    - Added `RawResponse` type to represent a raw response without a specific model.
+
+    #### Breaking Changes
+
+    - Removed the `Model` trait and replaced it with `Response<T, F>`, which moves the "format" information (JSON/XML/etc.) from the model to the service client method's return type. This allows for more flexibility in handling different response formats and user data types in Responses.
+    - Split `Response` into `Response<T, F>` and `RawResponse` (which carries the raw response data without a specific format).
+- Name: azure_core
+  Version: 0.25.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.25.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+    - Added `Page` trait to facilitate the `ItemIterator`.
+    - Added `PageIterator` to asynchronously iterator all pages.
+
+    #### Bugs Fixed
+
+    - `BearerTokenCredentialPolicy` returns an error when a proactive token refresh attempt fails
+
+    #### Breaking Changes
+
+    - A `Pager` now asynchronously iterates over items across all pages. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages.
+    - Removed `AccessToken::is_expired()`.
+    - Renamed `PagerResult::Continue` to `More` and its `continuation` field to `next`.
+    - Renamed `PagerResult::Complete` to `Done`.
+    - Renamed `PageStream` to `ItemIterator`.
+- Name: typespec_macros
+  Version: 0.4.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.4.0/sdk/typespec/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `#[safe]` attribute helper for `SafeDebug` derive macro to show or hide types and members as appropriate.
+
+    #### Breaking Changes
+
+    - Removed `Model` derive macro.
+- Name: azure_messaging_eventhubs
+  Version: 0.4.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.4.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Event Message Properties is now an `AmqpSimpleValue` rather than an `AmqpValue` to more closely reflect the AMQP specification (AMQP ApplicationProperties cannot contain Map, List, or Array).
+- Name: azure_security_keyvault_keys
+  Version: 0.4.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.4.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `KeyClient::list_deleted_key_properties`
+    - `KeyClient::list_key_properties`
+    - `KeyClient::list_key_properties_versions`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+    - Added `EncryptionAlgorithm::CkmAesKeyWrap` and `CkmAesKeyWrapPad`.
+    - Added `JsonWebKeySignatureAlgorithm::Hs256`, `Hs384`, and `Hs512`.
+    - Added `KeyAttestation` returned by `KeyAttributes::attestation` field.
+    - Added `KeyClient::get_key_attestation` client method.
+- Name: azure_security_keyvault_secrets
+  Version: 0.4.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.4.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `SecretClient::list_deleted_secret_properties`
+    - `SecretClient::list_secret_properties`
+    - `SecretClient::list_secret_properties_versions`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+- Name: azure_security_keyvault_certificates
+  Version: 0.3.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.3.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - `Pager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `Pager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. This affects:
+    - `CertificateClient::list_deleted_certificate_properties`
+    - `CertificateClient::list_certificate_properties`
+    - `CertificateClient::list_certificate_properties_versions`
+    - `CertificateClient::list_issuer_properties`
+
+    #### Features Added
+
+    - Built on Azure Key Vault service version 7.6.
+    - Added `preserve_cert_order` to several models to preserve the order of signing certificates when importing or merging certificates.
+- Name: azure_identity
+  Version: 0.25.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.25.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `AzureCliCredential` didn't invoke `az` within a shell on all platforms
+- Name: azure_storage_blob
+  Version: 0.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.2.0/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Moved `commit_block_list`, `get_block_list`, and `stage_block` from `BlobClient` to `BlockBlobClient`.
+
+    #### Bugs Fixed
+
+    * Fixed an issue where the blob type string would appear as a query parameter in the request URL for certain APIs extraneously.
+
+    #### Features Added
+
+    * Added a new blob client type, `BlockBlobClient`.
+    * Added navigation methods to access sub-clients from existing clients:
+    * `BlobServiceClient::blob_container_client()`
+    * `BlobContainerClient::blob_client()`
+    * `BlobClient::block_blob_client()`
+
+    * Added support for `list_blobs`, `set_metadata` to `ContainerClient`.
+    * Added support for `set_metadata`, `set_properties`, and `set_tier` to `BlobClient`.
+- Name: azure_data_cosmos
+  Version: 0.24.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.24.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added a function `CosmosClient::with_connection_string` to enable `CosmosClient` creation via connection string. ([#2641](https://github.com/Azure/azure-sdk-for-rust/pull/2641))
+    * Added support for executing limited cross-partition queries through the Gateway. See <https://learn.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api#queries-that-cannot-be-served-by-gateway> for more details on these limitations. ([#2577](https://github.com/Azure/azure-sdk-for-rust/pull/2577))
+    * Added a preview feature (behind `preview_query_engine` feature flag) to allow the Rust SDK to integrate with an external query engine for performing cross-partition queries. ([#2577](https://github.com/Azure/azure-sdk-for-rust/pull/2577))
+
+    #### Breaking Changes
+
+    * `FeedPager<T>` now asynchronously iterates items of type `T` instead of pages containing items of type `T`. Call `FeedPager::into_pages()` to get a `PageIterator` to asynchronously iterate over all pages. ([#2665](https://github.com/Azure/azure-sdk-for-rust/pull/2665))
+

@@ -1,0 +1,362 @@
+entries:
+- Name: sdk/resourcemanager/datafactory/armdatafactory
+  Version: 1.3.0
+  DisplayName: Resource Management - Datafactory
+  ServiceName: Datafactory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datafactory/armdatafactory/v1.3.0/sdk/resourcemanager/datafactory/armdatafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/keyvault/azcertificates
+  Version: 0.7.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.7.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Verify the challenge resource matches the vault domain.
+- Name: sdk/keyvault/azkeys
+  Version: 0.8.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.8.0/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Verify the challenge resource matches the vault domain.
+- Name: sdk/keyvault/azsecrets
+  Version: 0.10.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.10.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Verify the challenge resource matches the vault domain.
+- Name: sdk/resourcemanager/cosmos/armcosmos
+  Version: 2.1.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v2.1.0/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dnsresolver/armdnsresolver
+  Version: 1.0.0
+  DisplayName: Resource Management - Dnsresolver
+  ServiceName: Dnsresolver
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dnsresolver/armdnsresolver/v1.0.0/sdk/resourcemanager/dnsresolver/armdnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerinstance/armcontainerinstance
+  Version: 2.0.0
+  DisplayName: Resource Management - Containerinstance
+  ServiceName: Containerinstance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerinstance/armcontainerinstance/v2.0.0/sdk/resourcemanager/containerinstance/armcontainerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/reservations/armreservations
+  Version: 1.1.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/reservations/armreservations/v1.1.0/sdk/resourcemanager/reservations/armreservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine
+  Version: 0.7.0
+  DisplayName: Resource Management - SQL Virtual Machine
+  ServiceName: SQL Server on Virtual Machine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/v0.7.0/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/dynatrace/armdynatrace
+  Version: 1.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/dynatrace/armdynatrace/v1.0.0/sdk/resourcemanager/dynatrace/armdynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 3.0.0
+  DisplayName: Resource Management - Netapp
+  ServiceName: Netapp
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v3.0.0/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.2.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/keyvault/azcertificates
+  Version: 0.7.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.7.1/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `ClientOptions.DisableChallengeResourceVerification`.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: sdk/keyvault/azkeys
+  Version: 0.8.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.8.1/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `ClientOptions.DisableChallengeResourceVerification`.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: sdk/keyvault/azsecrets
+  Version: 0.10.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.10.1/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `ClientOptions.DisableChallengeResourceVerification`.
+    See https://aka.ms/azsdk/blog/vault-uri for more information.
+- Name: sdk/resourcemanager/kusto/armkusto
+  Version: 1.1.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kusto/armkusto/v1.1.0/sdk/resourcemanager/kusto/armkusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/security/armsecurity
+  Version: 0.8.0
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/security/armsecurity/v0.8.0/sdk/resourcemanager/security/armsecurity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/authorization/armauthorization
+  Version: 2.0.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/authorization/armauthorization/v2.0.0/sdk/resourcemanager/authorization/armauthorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 0.5.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.5.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed issue [#18767](https://github.com/Azure/azure-sdk-for-go/issues/18767)
+    * Fix deadlock when error writes are slow [#16937](https://github.com/Azure/azure-sdk-for-go/pull/16937)
+
+    #### Features Added
+
+    * Added [UserDelegationCredential](https://learn.microsoft.com/rest/api/storageservices/create-user-delegation-sas) which resolves [#18976](https://github.com/Azure/azure-sdk-for-go/issues/18976), [#16916](https://github.com/Azure/azure-sdk-for-go/issues/16916), [#18977](https://github.com/Azure/azure-sdk-for-go/issues/18977)
+    * Added [Restore Container API](https://learn.microsoft.com/rest/api/storageservices/restore-container).
+
+    #### Breaking Changes
+
+    * Complete architectural change for better user experience. Please view the [README](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob#readme)
+- Name: sdk/resourcemanager/securityinsights/armsecurityinsights
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Securityinsights
+  ServiceName: Securityinsights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/securityinsights/armsecurityinsights/v2.0.0-beta.2/sdk/resourcemanager/securityinsights/armsecurityinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.1.4
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.1.4/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Don't retry a request if the `Retry-After` delay is greater than the configured `RetryOptions.MaxRetryDelay`.
+    * `runtime.JoinPaths`: do not unconditionally add a forward slash before the query string
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 2.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v2.0.0/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/devhub/armdevhub
+  Version: 0.1.0
+  DisplayName: Resource Management - Devhub
+  ServiceName: Devhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devhub/armdevhub/v0.1.0/sdk/resourcemanager/devhub/armdevhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 4.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v4.0.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 2.2.0-beta.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v2.2.0-beta.2/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/devcenter/armdevcenter
+  Version: 0.2.0
+  DisplayName: Resource Management - Devcenter
+  ServiceName: Devcenter
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devcenter/armdevcenter/v0.2.0/sdk/resourcemanager/devcenter/armdevcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cosmos/armcosmos
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cosmos/armcosmos/v2.2.0-beta.1/sdk/resourcemanager/cosmos/armcosmos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice
+  Version: 0.1.0
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/v0.1.0/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appcontainers/armappcontainers
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Appcontainers
+  ServiceName: Appcontainers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appcontainers/armappcontainers/v2.0.0-beta.1/sdk/resourcemanager/appcontainers/armappcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsans/armelasticsans
+  Version: 0.1.0
+  DisplayName: Resource Management - Elasticsans
+  ServiceName: Elasticsans
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsans/armelasticsans/v0.1.0/sdk/resourcemanager/elasticsans/armelasticsans/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.2.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.2.0-beta.3/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * `ManagedIdentityCredential` caches tokens in memory
+
+    #### Bugs Fixed
+    * `ClientCertificateCredential` sends only the leaf cert for SNI authentication
+- Name: sdk/storage/azblob
+  Version: 0.5.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.5.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * `GetSASURL()`: for container and blob clients, don't add a forward slash before the query string
+    * Fixed issue [#19249](https://github.com/Azure/azure-sdk-for-go/issues/19249) by increasing service version to '2020-02-10'.
+- Name: sdk/monitor/azquery
+  Version: 0.2.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/monitor/azquery/v0.2.0/sdk/monitor/azquery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed format of logs `ErrorInfo` struct to custom error type
+- Name: sdk/messaging/azservicebus
+  Version: 1.1.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.1.1/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - AcceptNextSessionForQueue and AcceptNextSessionForSubscription now return an azservicebus.Error with
+    Code set to CodeTimeout when they fail due to no sessions being available. Examples for this have
+    been added for `AcceptNextSessionForQueue`. PR#19113.
+    - Retries now respect cancellation when they're in the "delay before next try" phase.
+- Name: sdk/resourcemanager/devhub/armdevhub
+  Version: 0.1.1
+  DisplayName: Resource Management - Devhub
+  ServiceName: Devhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devhub/armdevhub/v0.1.1/sdk/resourcemanager/devhub/armdevhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsans/armelasticsans
+  Version: 0.1.1
+  DisplayName: Resource Management - Elasticsans
+  ServiceName: Elasticsans
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsans/armelasticsans/v0.1.1/sdk/resourcemanager/elasticsans/armelasticsans/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice
+  Version: 0.1.1
+  DisplayName: Resource Management - Hybridcontainerservice
+  ServiceName: Hybridcontainerservice
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/v0.1.1/sdk/resourcemanager/hybridcontainerservice/armhybridcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/nginx/armnginx
+  Version: 1.0.1
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/nginx/armnginx/v1.0.1/sdk/resourcemanager/nginx/armnginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/devhub/armdevhub
+  Version: 0.2.0
+  DisplayName: Resource Management - Devhub
+  ServiceName: Devhub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/devhub/armdevhub/v0.2.0/sdk/resourcemanager/devhub/armdevhub/CHANGELOG.md
+  ChangelogContent: ""
+

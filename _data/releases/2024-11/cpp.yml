@@ -1,0 +1,111 @@
+entries:
+- Name: azure-storage-files-shares
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.12.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2025-01-05`.
+    - Added support for the provisioned V2 billing model.
+    - Added support for specifying the binary file permission format for `ShareFileClient::StartCopy()`.
+- Name: azure-storage-common
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.9.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Bumped up Account SAS version to `2025-01-05`.
+- Name: azure-core
+  Version: 1.14.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.14.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed warning for an unused function in curl.cpp when building the SDK using a version of libcurl older than 7.77.0.
+    - Invalidate the token cache within `BearerTokenAuthenticationPolicy` whenever a token request comes back with a 401 response.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.10
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.10/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#6064]](https://github.com/Azure/azure-sdk-for-cpp/issues/6064) Utilize new telemetry features from Azure Core.
+- Name: azure-identity
+  Version: 1.10.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.10.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix overflow issue in token cache.
+- Name: azure-core
+  Version: 1.15.0-beta.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.15.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added mTLS support to WinHTTP transport.
+    - To enable mTLS, first create an appropriate Windows `PCCERT_CONTEXT` object and set the `TlsClientCertificate` field in `WinHttpTransportOptions` to that certificate before creating the `WinHttpTransport` object.
+- Name: azure-storage-files-shares
+  Version: 12.12.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.12.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.12.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.9.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.9.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.9.0-beta.1` are now generally available.
+- Name: azure-data-tables
+  Version: 1.0.0-beta.5
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.5/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `tables_clients.hpp` to `table_client.hpp` and split `TableServiceClient` into its own file, `table_service_client.hpp`.
+    - Removed the `TablesAudience` field from `TableClientOptions` since it is not required.
+    - Removed ServiceVersion type and changed the ApiVersion field within `TableClientOptions` to be std::string.
+    - Removed the `TableServiceClient` constructor that only accepts one defaulted options parameter.
+
+    #### Bugs Fixed
+
+    - Use the package version for telemetry, rather than API version.
+

@@ -1,0 +1,13 @@
+entries:
+- Name: azure-communication-chat
+  Version: 2.1.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_2.1.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - The Chat SDK now fetches Trouter notification configurations dynamically by calling the chat gateway service, instead of relying on hard-coded values in configuration files.
+  GroupId: com.azure.android
+

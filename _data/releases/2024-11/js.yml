@@ -1,0 +1,521 @@
+entries:
+- Name: '@azure/event-hubs'
+  Version: 5.12.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - The desired capabilities array should be omitted if it is empty.
+- Name: '@azure/arm-hybridcompute'
+  Version: 4.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.0.0/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 2.0.0
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.0/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added `pushChannelExpired` and `pushVariables` to the `Installation` type.
+    - [#30439](https://github.com/Azure/azure-sdk-for-js/issues/30439)
+
+    #### Breaking Changes
+
+    - Moving from `@azure/core-lro` v2 to v3 for long running operations.  For APIs such as `beginSubmitNotificationHubJob`, this is a breaking change as it uses the new `PollerLike` interface instead of the old `SimplePollerLike` interface.  See the [Polling API](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-lro/docs/MIGRATION.md#poller-api) migration guide for more information.
+    - Sending broadcast notifications are now separated into `sendBroadcastNotification` for immediate sends and `scheduleBroadcastNotification` for scheduled sends.  The `sendNotification` method now only supports direct sends and tag based sends, and the `scheduleNotification` method now only supports scheduled tag based sends.
+
+    #### Features Added
+
+    - Added `scheduledBroadcastNotification` to send a scheduled broadcast notification.
+    - Added `sendBroadcastNotification` to send a broadcast notification.
+    - Moved to `@azure/core-lro` v3 for long running operations.
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 3.1.0-beta.2
+  DisplayName: Resource Management - Redis Enterprise Cache
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.1.0-beta.2/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-datalake'
+  Version: 12.25.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.25.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added generateUserDelegationSasUrl() for DataLakeFileSystemClient, DataLakeFileClient, and DataLakeDirectoryClient.
+- Name: '@azure/storage-file-share'
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.26.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added support for the provisioned V2 billing model.
+    - Added support for specifying the binary file permission format for ShareFileClient.startCopy().
+    - Added ShareAccessTier.Premium enum value.
+- Name: '@azure/storage-blob'
+  Version: 12.26.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.26.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+    - Added generateUserDelegationSasUrl() to BlobClient and ContainerClient.
+    - Added BlobErrorCode.BlobAccessTierNotSupportedForAccountType enum value.
+- Name: '@azure/keyvault-common'
+  Version: 2.0.0
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.0.0/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE).
+    - To take advantage of this support, the newly added `keyVaultAuthenticationPolicy` should be used in place of `bearerTokenAuthenticationPolicy`.
+
+    #### Breaking Changes
+
+    - Removed `createKeyVaultChallengeCallbacks`, which was used to add Key Vault specific handling to Core's `bearerTokenAuthenticationPolicy`. The new `keyVaultAuthenticationPolicy` should be used instead.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.9.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.9.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/keyvault-admin'
+  Version: 4.6.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.6.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/core-util'
+  Version: 1.11.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.11.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `HttpMethods` type
+- Name: '@azure/keyvault-keys'
+  Version: 4.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.9.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/keyvault-secrets'
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.9.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for Continuous Access Evaluation (CAE). [#31140](https://github.com/Azure/azure-sdk-for-js/pull/31140)
+- Name: '@azure/core-auth'
+  Version: 1.9.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.9.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for `TokenCredential`. #30961
+- Name: '@azure/arm-mongocluster'
+  Version: 1.0.1
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.1/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.5.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.5.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the request sent in AzurePipelinesCredential so it doesn't result in a redirect response when an invalid system access token is provided #31209.
+
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for native broker scenarios in `InteractiveBrowserCredential` to be used with plugin `@azure/identity-broker` #30961.
+- Name: '@azure/identity-broker'
+  Version: 1.1.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.1.0/sdk/identity/identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Proof-of-Possession via Signed HTTP Request (SHR) support to `AccessToken` and `GetTokenOptions` for `InteractiveBrowserCredential` native broker scenarios. #30961
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.3
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.3/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for instrumentation using OpenTelemetry for chat completion without streaming.
+- Name: '@azure/communication-chat'
+  Version: 1.5.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.3/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Supported getting real-time notification configuration from Chat Gateway.
+    - Updated to @azure/communication-signaling@1.0.0-beta.29 with TrouterConfigClient support.
+- Name: '@azure-rest/communication-messages'
+  Version: 2.0.0
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_2.0.0/sdk/communication/communication-messages-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ImageNotificationContent to send image messgae.
+    - Added DocumentNotificationContent to send document message.
+    - Added VideoNotificationContent to send video message.
+    - Added AudioNotificationContent to  send audio message.
+    - Deprecated MediaNotificationContent.
+
+    #### Breaking Changes
+
+    - MediaNotificationContent interface kind field is update with value "image_v0" from "image".
+- Name: '@azure/arm-computefleet'
+  Version: 1.0.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-chat'
+  Version: 1.5.4
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.4/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated the @azure/communication-chat version in UserAgentPrefix.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.8.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.8.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Changed live metrics CPU/Memory perf counter metrics to emit normalized process CPU and process physical memory bytes.
+    - Support for Live Metrics Filtering.
+    - Support parsing AAD Audience from the connection string for live metrics.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.27
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.27/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Statsbeat shutdown logic to include more status codes for shutdown.
+    - Add non-essential statsbeat metrics.
+    - Update logic for when to emit exceptions.
+- Name: '@azure/arm-netapp'
+  Version: 21.3.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dns'
+  Version: 5.2.0-beta.1
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dns/arm-dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservicefleet'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_1.2.0-beta.1/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iotoperations'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_1.0.0-beta.1/sdk/iotoperations/arm-iotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elasticsan'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Elasticsan
+  ServiceName: Elasticsan
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.2.0-beta.1/sdk/elasticsans/arm-elasticsan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elastic'
+  Version: 1.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_1.0.0/sdk/elastic/arm-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dnsresolver'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - DNS Resolver
+  ServiceName: DNS Resolver
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.2.0-beta.1/sdk/dnsresolver/arm-dnsresolver/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.1.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerinstance'
+  Version: 9.2.0-beta.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-fabric'
+  Version: 1.0.0
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fabric_1.0.0/sdk/fabric/arm-fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.2/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicelinker'
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicelinker_2.2.0-beta.1/sdk/servicelinker/arm-servicelinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoundaries'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Databoundaries
+  ServiceName: Databoundaries
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoundaries_1.0.0-beta.1/sdk/databoundaries/arm-databoundaries/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appcontainers'
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_2.2.0-beta.1/sdk/appcontainers/arm-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 17.0.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerorchestratorruntime'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerorchestratorruntime
+  ServiceName: Containerorchestratorruntime
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerorchestratorruntime_1.0.0-beta.1/sdk/kubernetesruntime/arm-containerorchestratorruntime/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/ai-vision-face'
+  Version: 1.0.0-beta.2
+  DisplayName: Face
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.2/sdk/face/ai-vision-face-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for latest Detect Liveness Session API
+    - New face detection operation: [Detect From Session Image Id](https://learn.microsoft.com/rest/api/face/face-detection-operations/detect-from-session-image-id?view=rest-face-v1.2-preview.1) using `DetectFromSessionImageIdParameters`.
+    - New liveness session operation: [Get Session Image](https://learn.microsoft.com/rest/api/face/liveness-session-operations/get-session-image?view=rest-face-v1.2-preview.1).
+    - New properties `enableSessionImage?: boolean`, `livenessSingleModalModel?: LivenessModel` to `CreateLivenessSessionContent`.
+    - New model `CreateLivenessWithVerifySessionJsonContent` for liveness session operations [Create Liveness With Verify Session](https://learn.microsoft.com/rest/api/face/liveness-session-operations/create-liveness-with-verify-session?view=rest-face-v1.2-preview.1) and [Create Liveness With Verify Session With Verify Image](https://learn.microsoft.com/rest/api/face/liveness-session-operations/create-liveness-with-verify-session-with-verify-image?view=rest-face-v1.2-preview.1).
+- Name: '@azure/openai'
+  Version: 2.0.0-beta.3
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0-beta.3/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove the Azure ML connection in Azure On Your Data.
+    - Remove the enhancements feature from chat completions.
+    - Remove the now deprecated `finish_details` field in chat completion responses. Use `finish_reason` instead.
+    - Remove the `role_information` field from the On Your Data request models.
+
+    #### Features Added
+
+    - Add support for connecting to MongoDB in Azure On Your Data.
+    - Add support for citation information in Azure On Your Data responses.
+    - Add support for content filtering in image generation.
+- Name: '@azure/arm-standbypool'
+  Version: 1.0.1
+  DisplayName: Resource Management - Standby Pool
+  ServiceName: Standby Pool
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-standbypool_1.0.1/sdk/standbypool/arm-standbypool/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computeschedule'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Computeschedule
+  ServiceName: Computeschedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.0.0-beta.2/sdk/computeschedule/arm-computeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-trustedsigning'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Trustedsigning
+  ServiceName: Trustedsigning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-trustedsigning_1.0.0-beta.2/sdk/trustedsigning/arm-trustedsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.8.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add `apiVersion` in `AppConfigurationClientOptions` so that customers can specify the API version instead of using the default.
+- Name: '@azure-rest/ai-inference'
+  Version: 1.0.0-beta.4
+  DisplayName: AI Model Inference
+  ServiceName: AI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.4/sdk/ai/ai-inference-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated README.
+- Name: '@azure/core-amqp'
+  Version: 4.3.3
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.3/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Move the constant for the geographic replication feature to Event Hubs.
+    - Remove request from `RequestResponseLink` logging.
+

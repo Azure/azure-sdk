@@ -100,7 +100,7 @@ Azure services will be exposed to Embedded C developers as one or more _service 
 
 * [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
 * [Clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
-* [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
+* [GNU C compiler extensions](https://gcc.gnu.org/extensions.html)
 
 Use the appropriate options for each compiler to prevent the use of such extensions.
 
@@ -538,7 +538,7 @@ AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
 int64_t compute_hash(int32_t a, int32_t b);
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that initialize structures with `..._<objname>_init`.  These functions can fail and must return an az_result.
+{% include requirement/MUST id="clang-design-naming-funcstatic-initializers" %} declare all functions that initialize structures with `..._<objname>_init`.  These functions can fail and must return an az_result.
 
 {% highlight c %}
 
@@ -547,7 +547,7 @@ AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
 
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that return an initialized options structure (which can be examined/modified) with `..._<objname>_options_default`.  These functions must always succeed.
+{% include requirement/MUST id="clang-design-naming-funcstatic-options" %} declare all functions that return an initialized options structure (which can be examined/modified) with `..._<objname>_options_default`.  These functions must always succeed.
 
 {% highlight c %}
 
@@ -556,7 +556,7 @@ AZ_NODISCARD az_widgets_options az_widgets_options_default();
 
 {% endhighlight %}
 
-{% include requirement/SHOULD id="clang-design-naming-funcstatic" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
+{% include requirement/SHOULD id="clang-design-naming-funcstatic-same-source" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
 
 {% highlight c %}
 static int64_t compute_hash(int32_t a, int32_t b) {
@@ -1046,7 +1046,7 @@ Filenames should be concise, but convey what role the file plays within the libr
 
 ### Documentation Style
 
-{% include requirement/MUST id="clang-docs-doxygen" %} include docstrings compatible with the [doxygen](http://www.doxygen.nl/index.html) tool for generating reference documentation.
+{% include requirement/MUST id="clang-docs-doxygen" %} include docstrings compatible with the [doxygen](https://www.doxygen.nl/index.html) tool for generating reference documentation.
 
 For example, a (very) simple docstring might look like:
 {% highlight c %}

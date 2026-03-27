@@ -1,0 +1,468 @@
+entries:
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue in `isStreamComplete` where the method never resolves if the stream is not readable.
+
+    #### Features Added
+
+    - `BearerTokenAuthenticationPolicy` will handle CAE claims challenge by default. [PR #31501](https://github.com/Azure/azure-sdk-for-js/pull/31501/)
+- Name: '@azure-rest/ai-translation-document'
+  Version: 1.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
+- Name: '@azure/cosmos'
+  Version: 4.2.0-beta.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.2.0-beta.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for Full text search and Hybrid Ranking.
+
+    - Addition of full text policy.
+
+    - We have implemented support for Request Unit (RU) caps in Query operations. Clients can now seamlessly integrate RU caps into their fetch functions by specifying the desired cap within the operation options. If the specified RU cap is surpassed during the operation, clients will promptly receive an error notification, providing enhanced control and transparency over resource consumption.
+- Name: '@azure-rest/maps-search'
+  Version: 2.0.0-beta.2
+  DisplayName: Maps Search
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-search_2.0.0-beta.2/sdk/maps/maps-search-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+- Name: '@azure/arm-hybridcompute'
+  Version: 4.1.0-beta.1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.1.0-beta.1/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/maps-geolocation'
+  Version: 1.0.0-beta.4
+  DisplayName: Maps Geolocation
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.4/sdk/maps/maps-geolocation-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+- Name: '@azure-rest/maps-render'
+  Version: 2.0.0-beta.1
+  DisplayName: Maps Render
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-render_2.0.0-beta.1/sdk/maps/maps-render-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The API endpoint for `GetMapStaticImage` has been updated. The `format` parameter has been removed from the path, changing the usage from `(path: "/map/static/{format}", format: "png")` to `(path: "/map/static")`.
+    - Replaced `layer` and `style` parameters with `tilesetId` in `RenderGetMapStaticImageQueryParamProperties`, which now supports more detailed map and traffic visualization.
+    - Marked fields in various interfaces as readonly, which may impact code that previously modified these properties.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+
+
+    #### Features Added
+
+    - Added support for `trafficLayer` in the `RenderGetMapStaticImage` endpoint, allowing for new traffic visualization options.
+- Name: '@azure/openai'
+  Version: 2.0.0
+  DisplayName: OpenAI
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0/sdk/openai/openai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Models related to features still in preview have been removed.
+- Name: '@azure/data-tables'
+  Version: 13.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.0/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Entra ID credentials when targeting a Cosmos endpoint.
+- Name: '@azure-rest/maps-route'
+  Version: 1.0.0-beta.4
+  DisplayName: Maps Route
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-route_1.0.0-beta.4/sdk/maps/maps-route-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Poller creation is now asynchronous, requiring an await statement. The resumeFrom parameter has been replaced with restoreFrom, and state serialization is now also asynchronous.
+
+    #### Bugs Fixed
+
+    - Fix the Microsoft Entra ID authentication when providing `baseUrl`.
+- Name: '@azure/cosmos'
+  Version: 4.2.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.2.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Full Text Support: This feature adds support for full text search policy and indexing policy. It also enables performing full text search queries. [docs](https://learn.microsoft.com/azure/cosmos-db/gen-ai/full-text-search)
+    - Hybrid Search Support: This feature adds support for performing hybrid search queries. [docs](https://learn.microsoft.com/azure/cosmos-db/gen-ai/hybrid-search)
+    - Added support for three optional properties to support `quantizedFlat` and `diskANN` vector indexing policies. The properties are: `quantizationByteSize`, `vectorIndexShardKey` and `indexingSearchListSize`.
+- Name: '@azure/storage-blob'
+  Version: 12.26.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.26.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.26.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.25.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.25.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.25.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.25.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.25.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2025-01-05.
+- Name: '@azure/storage-file-share'
+  Version: 12.26.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.26.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.26.0-beta.1.
+- Name: '@azure/arm-appconfiguration'
+  Version: 4.1.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 21.4.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/create-microsoft-playwright-testing'
+  Version: 1.0.0-beta.2
+  DisplayName: Create - Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-microsoft-playwright-testing_1.0.0-beta.2/sdk/playwrighttesting/create-microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    This release improves compatibility with modern JavaScript environments by migrating the package to ECMAScript modules and Vitest
+
+    #### Other Changes
+
+    -Migrated package to ECMAScript modules and vitest.
+- Name: '@azure/microsoft-playwright-testing'
+  Version: 1.0.0-beta.5
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.5/sdk/playwrighttesting/microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    -Fixed failures when uploading artifacts due to race conditions.
+- Name: '@azure/arm-hardwaresecuritymodules'
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Hardware Security Modules
+  ServiceName: Hardware Security Modules
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hardwaresecuritymodules_2.0.0-beta.2/sdk/hardwaresecuritymodules/arm-hardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-call-automation'
+  Version: 1.4.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.4.0-beta.1/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for ConnectAPI to enable streaming and real-time transcription
+    - Enhanced media streaming with bidirectional capabilities, enabling support for audio formats in both directions. Currently, it supports sample rates of 24kHz and 16kHz
+- Name: '@azure/communication-call-automation'
+  Version: 1.3.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.3.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support multiple play sources for Play and Recognize
+    - Support for PlayStarted event in Play/Recognize
+    - Hold and Unhold the participant
+    - CallDisconnected now includes more information on why the call has ended
+    - Support to manage the rooms/servercall/group call using connect API
+    - Expose original PSTN number target from incoming call event in call connection properties
+    - Support for VoIP to PSTN transfer scenario
+- Name: '@azure/arm-edgezones'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Edge Zones
+  ServiceName: Edge Zones
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0-beta.3/sdk/edgezones/arm-edgezones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/template-dpg'
+  Version: 1.0.0-beta.2
+  DisplayName: '@azure/template-dpg'
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/template-dpg_1.0.0-beta.2/sdk/template/template-dpg/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    #### Bugs Fixed
+
+    #### Features Added
+    - Test Release Pipeline
+- Name: '@azure/search-documents'
+  Version: 12.2.0-beta.2
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.2/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the type of `SearchResult.documentDebugInfo` to not erroneously describe it as an array [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+
+    #### Features Added
+
+    - Added generative query rewriting for semantic and vectorized text queries [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Use the new `queryRewrites` field in `SemanticSearchOptions` and `VectorizedTextQuery`.
+    - Added hierarchical aggregation and facet filtering [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - `FacetResult` now includes a recursive `facets` field.
+    - Added configuration for storing vectors in their uncompressed state for rescoring [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Configure through `VectorSearchCompression.rescoringOptions`.
+    - Added Markdown parsing mode for indexers [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Configure through the `markdownParsingSubmode` and `markdownHeaderDepth` properties of `IndexingParametersConfiguration`.
+    - Added `DocumentIntelligenceLayoutSkill` [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+    - Added subdomain billing for skillsets [#31792](https://github.com/Azure/azure-sdk-for-js/pull/31792)
+- Name: '@azure/core-http'
+  Version: 3.0.5
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.5/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add deprecation note to README.
+- Name: '@azure/arm-networkcloud'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.1/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-apimanagement'
+  Version: 9.2.0
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix `this` not being bound correctly for `ChallengeCallbacks` implementations in `bearerTokenAuthenticationPolicy`. [PR #31961](https://github.com/Azure/azure-sdk-for-js/pull/31961)
+- Name: '@azure/arm-connectedcache'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Connectedcache
+  ServiceName: Connectedcache
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedcache_1.0.0-beta.1/sdk/connectedcache/arm-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-devopsinfrastructure'
+  Version: 1.0.0
+  DisplayName: Resource Management - DevOps Infrastructure
+  ServiceName: DevOps Infrastructure
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devopsinfrastructure_1.0.0/sdk/devopsinfrastructure/arm-devopsinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/microsoft-playwright-testing'
+  Version: 1.0.0-beta.6
+  DisplayName: Microsoft Playwright Testing
+  ServiceName: Microsoft Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.6/sdk/playwrighttesting/microsoft-playwright-testing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Missing type generation for some functions and interfaces.
+
+    #### Features Added
+
+    - Added support for multiple global setup and teardown files introduced in playwright v1.49.
+- Name: '@azure/eventgrid'
+  Version: 5.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.9.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new System Events:
+
+    - `Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted`
+- Name: '@azure/arm-neonpostgres'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Neonpostgres
+  ServiceName: Neonpostgres
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-neonpostgres_1.0.0-beta.1/sdk/neonpostgres/arm-neonpostgres/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-terraform'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Terraform
+  ServiceName: Terraform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-terraform_1.0.0-beta.1/sdk/terraform/arm-terraform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-healthdataaiservices'
+  Version: 1.0.0
+  DisplayName: Resource Management - Health Data AI  Services
+  ServiceName: Health Data AI Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-healthdataaiservices_1.0.0/sdk/healthdataaiservices/arm-healthdataaiservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-rooms'
+  Version: 1.1.1
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.1.1/sdk/communication/communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Bug fix for 'addOrUpdateParticipants' and 'removeParticipants' methods to wait for the operation to complete before returning
+- Name: '@azure/communication-sms'
+  Version: 1.2.0-beta.2
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.2/sdk/communication/communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Opt Out Management Api to:
+    - Opt-out the recipient.
+    - Opt-in the recipient.
+    - Check if the recipient is opted-out or not.
+- Name: '@azure-rest/batch'
+  Version: 1.0.0-beta.2
+  DisplayName: Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.2/sdk/batch/batch-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update API version to `2024-07-01.20.0` for Azure Batch service.
+

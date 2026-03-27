@@ -1,0 +1,1701 @@
+entries:
+- Name: azure-resourcemanager-sql
+  Version: 2.54.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.54.0-beta.1/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-monitor-query
+  Version: 1.5.9
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.5.9/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This package is deprecated in favor of the new libraries [azure-monitor-query-metrics](https://central.sonatype.com/artifact/com.azure/azure-monitor-query-metrics)
+    and [azure-monitor-query-logs](https://central.sonatype.com/artifact/com.azure/azure-monitor-query-logs), available as of August 2025. The metrics query operations of MetricsQueryClient and MetricsQueryAsyncClient are retained within the management library [azure-resourcemanager-monitor](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-monitor).
+    While this package will continue to receive critical bug fixes, we strongly encourage you to upgrade. For transition support, read the migration
+    guides for [migrating to azure-monitor-query-logs](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query-logs/migration-guide.md)
+    and [migrating to azure-monitor-query-metrics](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query-metrics/migration-guide.md).
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.0
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.21.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.20.5` to version `5.21.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.21.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.21.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for geo-replication capability. ([44272](https://github.com/Azure/azure-sdk-for-java/pull/44272))
+  GroupId: com.azure
+- Name: azure-resourcemanager-dataprotection
+  Version: 1.4.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dataprotection_1.4.0/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-netapp
+  Version: 1.9.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-netapp_1.9.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-ai-translation-document
+  Version: 1.0.4
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-document_1.0.4/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-confidentialledger
+  Version: 1.0.31
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-confidentialledger_1.0.31/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.5.7
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.5.7/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.8.2
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.8.2/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-communication-rooms
+  Version: 1.2.3
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.2.3/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.4.2
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.4.2/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-ai-contentsafety
+  Version: 1.0.14
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-contentsafety_1.0.14/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid-namespaces
+  Version: 1.1.6
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-namespaces_1.1.6/sdk/eventgrid/azure-messaging-eventgrid-namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.10.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.10.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub-client
+  Version: 1.1.4
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub-client_1.1.4/sdk/webpubsub/azure-messaging-webpubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `netty-codec-http` from `4.1.118.Final` to version `4.1.124.Final`.
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+  GroupId: com.azure
+- Name: azure-communication-jobrouter
+  Version: 1.1.15
+  DisplayName: Communication JobRouter
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-jobrouter_1.1.15/sdk/communication/azure-communication-jobrouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.3.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.3.2/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.7.9
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.7.9/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.5.10` to version `1.6.0`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.1.28
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.1.28/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-data-schemaregistry` from `1.5.6` to version `1.5.7`.
+  GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.35
+  DisplayName: Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.35/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.16.2
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.16.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-storage-common` from `12.30.1` to version `12.31.0-beta.2`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.5.9
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.5.9/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.35
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.35/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+  GroupId: com.azure
+- Name: azure-ai-documentintelligence
+  Version: 1.0.4
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.4/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.40
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.40/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-mixedreality-authentication` from `1.2.33` to version `1.2.34`.
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.26.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.26.2/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-common` from `12.30.1` to version `12.31.0-beta.2`.
+  GroupId: com.azure
+- Name: azure-ai-translation-text
+  Version: 1.1.5
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-translation-text_1.1.5/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.4.3
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.4.3/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.5.6
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.5.6/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.10.2
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.10.2/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-communication-messages
+  Version: 1.1.6
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-messages_1.1.6/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.6.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.6.2/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.30.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.30.2/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.2.19
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.2.19/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.30.2
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.30.2/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-blob` from `12.31.1` to version `12.31.2`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.31.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.31.2/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-internal-avro` from `12.16.1` to version `12.16.2`.
+    - Upgraded `azure-storage-common` from `12.30.1` to version `12.31.0-beta.2`.
+  GroupId: com.azure
+- Name: azure-communication-email
+  Version: 1.0.24
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.24/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-monitor-query-metrics
+  Version: 1.0.1
+  DisplayName: Monitor Query Metrics
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query-metrics_1.0.1/sdk/monitor/azure-monitor-query-metrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.27.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.27.2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-common` from `12.30.1` to version `12.30.2`.
+  GroupId: com.azure
+- Name: azure-ai-vision-imageanalysis
+  Version: 1.0.4
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.5.2
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.5.2/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.5.10` to version `1.6.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-monitor-ingestion
+  Version: 1.2.12
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.2.12/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-jsonschema
+  Version: 1.0.4
+  DisplayName: Schema Registry - JSON
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-jsonschema_1.0.4/sdk/schemaregistry/azure-data-schemaregistry-jsonschema/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-data-schemaregistry` from `1.5.6` to version `1.5.7`.
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+  GroupId: com.azure
+- Name: azure-developer-loadtesting
+  Version: 1.0.25
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.25/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.29
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.29/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.7.2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.7.2/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.5.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.5.1/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.27.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.27.2/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-blob` from `12.31.1` to version `12.31.2`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.35
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.35/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+  GroupId: com.azure
+- Name: azure-developer-devcenter
+  Version: 1.0.11
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-devcenter_1.0.11/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.6.7
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.6.7/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-communication-common` from `1.4.0` to version `1.4.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.31.2
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.31.2/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-monitor-query-logs
+  Version: 1.0.1
+  DisplayName: Monitor Query Logs
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query-logs_1.0.1/sdk/monitor/azure-monitor-query-logs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.24.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.24.2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+    - Upgraded `azure-storage-blob` from `12.31.1` to version `12.31.2`.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.2.9
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.2.9/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.17.14
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.17.14/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-amqp` from `2.10.2` to version `2.11.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.8.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.8.3/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-health-insights-radiologyinsights
+  Version: 1.1.3
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-health-insights-radiologyinsights_1.1.3/sdk/healthinsights/azure-health-insights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.55.5` to version `1.56.0`.
+    - Upgraded `azure-core-http-netty` from `1.15.13` to version `1.16.0`.
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.38.1
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.38.1/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added log4j-core to the list of shaded packages to avoid conflicts when customers use log4j in a different version. - See [PR 45924](https://github.com/Azure/azure-sdk-for-java/pull/46451)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.38.1
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.38.1/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added log4j-core to the list of shaded packages to avoid conflicts when customers use log4j in a different version. - See [PR 45924](https://github.com/Azure/azure-sdk-for-java/pull/46451)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-kafka-connect
+  Version: 2.5.1
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-kafka-connect_2.5.1/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where `CosmosSourceConnector` got stuck when restart - See [PR 46378](https://github.com/Azure/azure-sdk-for-java/pull/46378)
+    * Fixed `BadRequestException` in `CosmosSourceConnector` when using `azure.cosmos.source.containers.includeAll=true` - See [PR 46389](https://github.com/Azure/azure-sdk-for-java/pull/46389)
+    * Fixed `NullPointerException` in `CosmosSourceConnector` when using `azure.cosmos.source.changeFeed.mode=AllVersionsAndDeletes` - See [PR 46396](https://github.com/Azure/azure-sdk-for-java/pull/46396)
+    * Fixed warning logs for `java.lang.NoClassDefFoundError: io/micrometer/observation/ObservationHandler` - See [PR 46396](https://github.com/Azure/azure-sdk-for-java/pull/46396)
+  GroupId: com.azure.cosmos.kafka
+- Name: azure-cosmos-spark_3-5_2-12
+  Version: 4.38.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-5_2-12_4.38.1/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added log4j-core to the list of shaded packages to avoid conflicts when customers use log4j in a different version. - See [PR 45924](https://github.com/Azure/azure-sdk-for-java/pull/46451)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-communication-callautomation
+  Version: 1.5.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.5.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Teams multipersona users in create call, add participant, transfer, and redirect scenarios in OPS calls
+    - Added TeamsAppSource for use when creating outbound OPS calls
+    - Recording with the call connection ID is now supported. OPS calls can be recorded using the call connection ID.
+    - Added StartRecordingFailed event to indicate when the start recording API is unable to initiate the recording.
+    - Adds support for SIP headers prefixed with 'X-' and 'X-MS-Custom-' within the CustomCallingContext.
+  GroupId: com.azure
+- Name: azure-communication-callautomation
+  Version: 1.6.0-beta.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.6.0-beta.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+    - Added support for Personally Identifiable Information (PII) redaction and summarization in transcription, improving privacy and providing concise summaries of transcribed content.
+    - Added support for sentiment analysis in both speech and choice recognition, allowing detection of participant sentiment during call interactions.
+  GroupId: com.azure
+- Name: azure-resourcemanager-servicebus
+  Version: 2.53.2
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicebus_2.53.2/sdk/resourcemanager/azure-resourcemanager-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-compute
+  Version: 2.53.2
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-compute_2.53.2/sdk/resourcemanager/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservice
+  Version: 2.53.2
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.53.2/sdk/resourcemanager/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appplatform
+  Version: 2.50.5
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appplatform_2.50.5/sdk/resourcemanager/azure-resourcemanager-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-eventhubs
+  Version: 2.53.2
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.53.2/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerregistry
+  Version: 2.53.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.53.2/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-redis
+  Version: 2.53.2
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redis_2.53.2/sdk/resourcemanager/azure-resourcemanager-redis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-privatedns
+  Version: 2.53.2
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-privatedns_2.53.2/sdk/resourcemanager/azure-resourcemanager-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-network
+  Version: 2.53.2
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-network_2.53.2/sdk/resourcemanager/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager
+  Version: 2.54.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.54.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resources
+  Version: 2.53.2
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources_2.53.2/sdk/resourcemanager/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-msi
+  Version: 2.53.2
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-msi_2.53.2/sdk/resourcemanager/azure-resourcemanager-msi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-monitor
+  Version: 2.53.2
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-monitor_2.53.2/sdk/resourcemanager/azure-resourcemanager-monitor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appservice
+  Version: 2.53.2
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.53.2/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerinstance
+  Version: 2.53.2
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerinstance_2.53.2/sdk/resourcemanager/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-authorization
+  Version: 2.53.2
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.53.2/sdk/resourcemanager/azure-resourcemanager-authorization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cosmos
+  Version: 2.53.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmos_2.53.2/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-sql
+  Version: 2.53.2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.53.2/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-trafficmanager
+  Version: 2.53.2
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-trafficmanager_2.53.2/sdk/resourcemanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservicefleet
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservicefleet_1.3.0-beta.1/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-communication-phonenumbers
+  Version: 1.4.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.4.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of mobile number type
+  GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.38
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.38/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
+- Name: azure-resourcemanager-iotfirmwaredefense
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Firmware Defense
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/azure-resourcemanager-iotfirmwaredefense/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-search-documents
+  Version: 11.8.0-beta.8
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.8.0-beta.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Dropped support for `2025-05-01-Preview` service version.
+    - Knowledge Agent target indexes were removed as `2025-08-01-Preview` replaced that concept with knowledge sources,
+    a richer concept that allows for knowledge agent to consume information from more than just Search indexes.
+
+    #### Features Added
+
+    - Support for `2025-08-01-Preview` service version.
+    - Added support for Knowledge Agent knowledge sources.
+    - Added support for Knowledge Agent answer synthesis.
+    - Added `VectorFilterMode.STRICT_POST_FILTER`.
+  GroupId: com.azure
+- Name: azure-cosmos-test
+  Version: 1.0.0-beta.14
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-test_1.0.0-beta.14/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for Gateway V2 - See [PR 46223](https://github.com/Azure/azure-sdk-for-java/pull/46223)
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.74.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.74.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed 404/1002 for query when container recreated with same name. - [PR 45930](https://github.com/Azure/azure-sdk-for-java/pull/45930)
+    * Fixed Null Pointer Exception for query when container recreated with same name. - [PR 45930](https://github.com/Azure/azure-sdk-for-java/pull/45930)
+    * Fixed Null Pointer Exception for readMany when container recreated with same name. - [PR 45930](https://github.com/Azure/azure-sdk-for-java/pull/45930)
+    * Fixed parameterized query failures for Hybrid Search queries. - [PR 46446](https://github.com/Azure/azure-sdk-for-java/pull/46446)
+    * Fixed a rare race in parallel Hybrid Search queries by making internal SchedulingStopwatch start/stop atomic and idempotent. - [PR 46594](https://github.com/Azure/azure-sdk-for-java/pull/46594)
+    * Fixed the Hybrid Search SchedulingStopWatch to use Cumulative Timing Across all parallel queries. - [PR 46591](https://github.com/Azure/azure-sdk-for-java/pull/46591)
+    * Fixed Strong Consistency violation when a single replica in a partition returns a 410 `Lease Not Found`. - [PR 46433](https://github.com/Azure/azure-sdk-for-java/pull/46433)
+
+    #### Features Added
+    * Added `ThroughputBucket` support for throughput control. - [PR 46042](https://github.com/Azure/azure-sdk-for-java/pull/46042)
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 2.23.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.23.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.74.0`.
+  GroupId: com.azure
+- Name: azure-cosmos-spark_3-4_2-12
+  Version: 4.39.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.39.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Reverted known issue due to shading log4j (which was introduced in 4.38.1). - See [PR 46546](https://github.com/Azure/azure-sdk-for-java/pull/46546) and [PR 46608](https://github.com/Azure/azure-sdk-for-java/pull/46608)
+    * Added change feed performance monitoring which is used to improve end lsn calculation in `CosmosPartitionPlanner`. - See [PR 46320](https://github.com/Azure/azure-sdk-for-java/pull/46320)
+    * Added `spark.cosmos.auth.aad.audience` as a valid configuration option to allow using AAD tokens with custom audiences. - See [PR 46554](https://github.com/Azure/azure-sdk-for-java/pull/46554)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-3_2-12
+  Version: 4.39.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.39.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Reverted known issue due to shading log4j (which was introduced in 4.38.1). - See [PR 46546](https://github.com/Azure/azure-sdk-for-java/pull/46546) and [PR 46608](https://github.com/Azure/azure-sdk-for-java/pull/46608)
+    * Added change feed performance monitoring which is used to improve end lsn calculation in `CosmosPartitionPlanner`. - See [PR 46320](https://github.com/Azure/azure-sdk-for-java/pull/46320)
+    * Added `spark.cosmos.auth.aad.audience` as a valid configuration option to allow using AAD tokens with custom audiences. - See [PR 46554](https://github.com/Azure/azure-sdk-for-java/pull/46554)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-cosmos-spark_3-5_2-12
+  Version: 4.39.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-5_2-12_4.39.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Reverted known issue due to shading log4j (which was introduced in 4.38.1). - See [PR 46546](https://github.com/Azure/azure-sdk-for-java/pull/46546) and [PR 46608](https://github.com/Azure/azure-sdk-for-java/pull/46608)
+    * Added change feed performance monitoring which is used to improve end lsn calculation in `CosmosPartitionPlanner`. - See [PR 46320](https://github.com/Azure/azure-sdk-for-java/pull/46320)
+    * Added `spark.cosmos.auth.aad.audience` as a valid configuration option to allow using AAD tokens with custom audiences. - See [PR 46554](https://github.com/Azure/azure-sdk-for-java/pull/46554)
+  GroupId: com.azure.cosmos.spark
+- Name: azure-core-serializer-json-jackson
+  Version: 1.6.1
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.6.1/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.60
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.60/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.16.1
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.16.1/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+    - Upgraded Reactor Netty from `1.2.8` to `1.2.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+    - Upgraded Netty dependencies from `4.1.123.Final` to `4.1.126.Final`. ([#46586](https://github.com/Azure/azure-sdk-for-java/pull/46586))
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.11.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.11.1/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
+- Name: azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.33
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-metrics-opentelemetry_1.0.0-beta.33/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-jdk-httpclient
+  Version: 1.1.1
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-jdk-httpclient_1.1.1/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.4.1
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.4.1/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.64
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.64/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.13.1
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.13.1/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Okio from `3.9.1` to `3.16.0` ([#46586](https://github.com/Azure/azure-sdk-for-java/pull/46586))
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.61
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.61/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.27.0-beta.12
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.27.0-beta.12/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+  GroupId: com.azure
+- Name: azure-core-http-vertx
+  Version: 1.1.1
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-vertx_1.1.1/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.56.0` to `1.56.1`.
+    - Upgraded Vert.x from `4.5.15` to `4.5.17`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.19.1
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.19.1/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-resourcemanager-playwrighttesting
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-playwrighttesting_1.1.0-beta.1/sdk/playwrighttesting/azure-resourcemanager-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-core
+  Version: 1.56.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.56.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded Reactor from `3.7.8` to `3.7.9`. ([#46430](https://github.com/Azure/azure-sdk-for-java/pull/46430))
+  GroupId: com.azure
+- Name: azure-resourcemanager-playwrighttesting
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-playwrighttesting_1.1.0-beta.2/sdk/playwrighttesting/azure-resourcemanager-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-computefleet
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computefleet_1.1.0-beta.1/sdk/computefleet/azure-resourcemanager-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-compute-batch
+  Version: 1.0.0-beta.5
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-compute-batch_1.0.0-beta.5/sdk/batch/azure-compute-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed every model with a suffix of `-Content` to have a suffix of `-Parameters` instead.
+    - Examples:
+    - `BatchJobCreateContent` is now `BatchJobCreateParameters`.
+    - `BatchNodeDisableSchedulingContent` is now `BatchNodeDisableSchedulingParameters`.
+    - `BatchPoolResizeContent` is now `BatchPoolResizeParameters`.
+    This change affects all models previously suffixed with `-Content`.
+
+    - Made miscellaneous model name changes:
+    - `BatchJobAction` is now `BatchJobActionKind`.
+    - `BatchNodeRebootOption` is now `BatchNodeRebootKind`.
+    - `ContainerConfiguration` is now `BatchContainerConfiguration`.
+    - `ErrorCategory` is now `BatchErrorSourceCategory`.
+    - `ImageReference` is now `BatchVmImageReference`.
+    - `MetadataItem` is now `BatchMetadataItem`.
+    - `OnAllBatchTasksComplete` is now `BatchAllTasksCompleteMode`.
+    - `OnBatchTaskFailure` is now `BatchTaskFailureMode`.
+    - `UserAssignedIdentity` is now `BatchUserAssignedIdentity`.
+    - `DiffDiskSettings` is now `BatchDiffDiskSettings`.
+    - `InboundNatPool` is now `BatchInboundNatPool`.
+    - `OSDisk` is now `BatchOsDisk`.
+    - `PublicIpAddressConfiguration` is now `BatchPublicIpAddressConfiguration`.
+    - `UefiSettings` is now `BatchUefiSettings`.
+    - `AccessScope` is now `BatchAccessScope`.
+    - `AffinityInfo` is now `BatchAffinityInfo`.
+    - `HttpHeader` is now `OutputFileUploadHeader`.
+    - `BatchClientParallelOptions` is now `BatchTaskBulkCreateOptions`
+
+    - Made many small name/casing changes to names of models, properties, and methods for clarity and consistency.
+
+    - On `BatchJobNetworkConfiguration`, `isSkipWithdrawFromVNet()` is now `isSkipWithdrawFromVnet()`.
+    - On `BatchPoolResourceStatistics`, `getDiskReadIOps()` is now `getDiskReadIops()` and `getDiskWriteIOps()` is now `getDiskWriteIops()`.
+    - On `NetworkConfiguration`, `getDynamicVNetAssignmentScope()` is now `getDynamicVnetAssignmentScope()` and `setDynamicVNetAssignmentScope` is now `setDynamicVnetAssignmentScope`.
+    - On `BatchTaskStatistics`, `getReadIOps()` is now `getReadIops()`, `getWriteIOps()` is now `getWriteIops()`, `getReadIOGiB()` is now `getReadIoGiB()`, and `getWriteIOGiB()` is now `getWriteIoGiB()`.
+    - `VMDiskSecurityProfile` has now been changed to `BatchVmDiskSecurityProfile`.
+    - `DeleteBatchCertificateError` has now been changed to `BatchCertificateDeleteError`.
+    - On `BatchJobStatistics` and `BatchJobScheduleStatistics`, `getNumSucceededTasks()` is now `getSucceededTasksCount()`, `getNumFailedTasks()` is now `getFailedTasksCount()`, `getNumTaskRetries()` is now `getTaskRetriesCount()`, `getReadIOps()` is now `getReadIops()`, `getWriteIOps()` is now `getWriteIops()`, `getReadIOGiB()` is now `getReadIoGiB()`, and `getWriteIOGiB()` is now `getWriteIoGiB()`
+    - On `BatchTaskBulkCreateOptions`, `getMaxDegreeOfParallelism()` is now `getMaxConcurrency()`.
+    - On the `BatchClient` (synchronous client), `getNodeFileProperties` and `getTaskFileProperties` now return `BatchFileProperties` instead of `FileResponseHeaderProperties`. On `BatchAsyncClient` (asynchronous methods), `getNodeFileProperties` and `getTaskFileProperties` now return `Mono<BatchFileProperties>` instead of `Mono<FileResponseHeaderProperties>`.
+    - On `BatchCreateTaskCollectionResult` and `BatchTaskGroup`, `getValue()` is now `getValues()`.
+    - On `BatchJob`, `getOnAllTasksComplete()` is now named `getAllTasksCompleteMode()`. `setOnAllTasksComplete` is now `setAllTasksCompleteMode`. `getStats()` is now named `getJobStatistics()`. `getOnTaskFailure()` is now `getTaskFailureMode()`.
+    - On `BatchJobSchedule`, `getStats()` is now named `getJobScheduleStatistics()`.
+    - On `BatchJobSpecification` and `BatchJobCreateParameters`, `getOnAllTasksComplete()` is now named `getAllTasksCompleteMode()`. `setOnAllTasksComplete` is now `setAllTasksCompleteMode`. `getOnTaskFailure()` is now `getTaskFailureMode()`. `setOnTaskFailure` is now `setTaskFailureMode`.
+    - On `BatchJobUpdateParameters`, `getOnAllTasksComplete()` is now named `getAllTasksCompleteMode()`. `setOnAllTasksComplete` is now `setAllTasksCompleteMode`.
+    - On `BatchNodeRebootParameters`, `getNodeRebootOption()` is now `getNodeRebootKind()`. `setNodeRebootOption` is now `setNodeRebootKind`.
+    - On `BatchNodeRemoveParameters`, `getNodeList()` is now `getNodeIds()`.
+    - On `BatchPool`, `getStats()` is now `getPoolStatistics()`.
+    - On `BatchPoolStatistics`, `getUsageStats()` is now `getUsageStatistics()` and `getResourceStats()` is now `getResourceStatistics()`.
+    - On `BatchTask`, `getStats()` is now `getTaskStatistics()`.
+    - On the `BatchCertificate` model, the return type of `getData()` is now `byte[]` instead of `String`.
+
+    - Renamed all optional parameter model classes to follow the consistent `{Resource}{Operation}Options` naming pattern.
+    - Examples:
+    - `GetBatchApplicationOptions` is now `BatchApplicationGetOptions`.
+    - `TerminateBatchJobOptions` is now `BatchJobTerminateOptions`.
+    - `GetBatchNodeFilePropertiesOptions` is now `BatchNodeFilePropertiesGetOptions`.
+
+    This change affects all operation-specific options classes across jobs, pools, certificates, tasks, and nodes.
+
+    - The type of `timeOutInSeconds` in many of the optional parameter models has changed from `Integer` to `Duration`. This affects the getter and setter methods on these models. `getTimeOutInSeconds()` now returns `Duration` instead of `Integer`. `setTimeOutInSeconds(Integer timeOutInSeconds)` is now `setTimeOutInSeconds(Duration timeOutInSeconds)`. This change applies to the same set of `{Resource}{Operation}Options` models referenced above.
+
+    - Several methods in the SDK have been updated to use the Long-Running Operation (LRO) pattern. LROs are used when an operation may take an extended period to complete. Instead of blocking or returning immediately, LRO methods return a Poller that tracks the operation’s progress and provides access to intermediate and final results.
+    - Examples:
+    - `deleteJob` has been renamed to `beginDeleteJob`.
+    - In the synchronous `BatchClient`, the return type changed from `void` to `SyncPoller<BatchJob, Void>`.
+    - In the asynchronous `BatchAsyncClient`, the return type changed from `Mono<Void>` to `PollerFlux<BatchJob, Void>`.
+    - `deallocateNode` has been renamed to `beginDeallocateNode`.
+    - In the synchronous `BatchClient`, the return type changed from `void` to `SyncPoller<BatchNode, BatchNode>`.
+    - In the asynchronous `BatchAsyncClient`, the return type changed from `Mono<Void>` to `PollerFlux<BatchNode, BatchNode>`.
+    - `stopPoolResize` has been renamed to `beginStopPoolResize`.
+    - In the synchronous `BatchClient`, the return type changed from `void` to `SyncPoller<BatchPool, BatchPool>`.
+    - In the asynchronous `BatchAsyncClient`, the return type changed from `Mono<Void>` to `PollerFlux<BatchPool, BatchPool>`.
+    The same rename pattern (method to beginMethod) and return type change applies to the following old method names: `deleteCertificate`, `disableJob`, `enableJob`, `terminateJob`, `deleteJobSchedule`, `terminateJobSchedule`, `rebootNode`, `reimageNode`, `startNode`, `removeNodes`, `deletePool`, and `resizePool`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.2.0-beta.1/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cognitiveservices
+  Version: 1.3.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cognitiveservices_1.3.0/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-test
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Test
+  ServiceName: Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-test_2.0.0-beta.2/sdk/resourcemanager/azure-resourcemanager-test/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-test
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Test
+  ServiceName: Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-test_2.0.0-beta.1/sdk/resourcemanager/azure-resourcemanager-test/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-computerecommender
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Computerecommender
+  ServiceName: Computerecommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computerecommender_1.0.0-beta.1/sdk/computerecommender/azure-resourcemanager-computerecommender/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurestackhci-vm
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Azurestackhci-Vm
+  ServiceName: Azurestackhci-Vm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurestackhci-vm_1.0.0-beta.1/sdk/azurestackhci/azure-resourcemanager-azurestackhci-vm/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-playwright
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-playwright_1.0.0/sdk/playwright/azure-resourcemanager-playwright/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservicesafeguards
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerservicesafeguards
+  ServiceName: Containerservicesafeguards
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservicesafeguards_1.0.0-beta.1/sdk/containerservicesafeguards/azure-resourcemanager-containerservicesafeguards/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-workloadorchestration
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Workloadorchestration
+  ServiceName: Workloadorchestration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-workloadorchestration_1.0.0-beta.1/sdk/workloadorchestration/azure-resourcemanager-workloadorchestration/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resources-bicep
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resources-Bicep
+  ServiceName: Resources-Bicep
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources-bicep_1.0.0-beta.1/sdk/resources/azure-resourcemanager-resources-bicep/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-identity
+  Version: 1.18.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.18.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `AzurePowerShellCredential` handling of XML header responses and `/Date(epochTime)/` time format parsing that previously caused `JsonParsingException`. [#46572](https://github.com/Azure/azure-sdk-for-java/pull/46572)
+    - Fixed `AzureDeveloperCliCredential` hanging when `AZD_DEBUG` environment variable is set by adding `--no-prompt` flag to the `azd auth token` command.
+
+    #### Features Added
+
+    - Added claims challenge support to `AzureDeveloperCliCredential`. Claims provided in `TokenRequestContext` are now passed to Azure Developer CLI via the `--claims` parameter, requiring azd CLI 1.18.1 or higher. Also enhanced error handling to extract user-friendly messages from JSON output and provide clear version compatibility warnings when the `--claims` flag is unsupported.
+    - Added claims challenge handling support to `AzureCliCredential`. When a token request includes claims, the credential will now throw a `CredentialUnavailableException` with instructions to use Azure PowerShell directly with the appropriate `-ClaimsChallenge` parameter.
+    - Added claims challenge handling support to `AzurePowerShellCredential`. When a token request includes claims, the credential will now throw a `CredentialUnavailableException` with instructions to use Azure PowerShell directly with the appropriate `-ClaimsChallenge` parameter.
+    - Added `AzureIdentityEnvVars` expandable string enum for type-safe environment variable names used in Azure Identity credentials.
+    - Added `requireEnvVars(AzureIdentityEnvVars... envVars)` method to `DefaultAzureCredentialBuilder` to enforce the presence of specific environment variables at build time. When configured, the credential will throw an `IllegalStateException` during `build()` if any of the specified environment variables are missing or empty.
+  GroupId: com.azure
+- Name: azure-identity-broker
+  Version: 1.1.17
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.17/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.16.3` to version `1.18.0`.
+    - Updated `msal4j` from `1.22.0` to version `1.23.1`.
+  GroupId: com.azure
+

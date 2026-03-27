@@ -1,0 +1,123 @@
+entries:
+- Name: typespec_macros
+  Version: 0.1.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.1.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: typespec_client_core
+  Version: 0.1.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.1.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: typespec
+  Version: 0.2.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.2.0/sdk/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+- Name: azure_messaging_eventhubs
+  Version: 0.1.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.1.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+- Name: azure_security_keyvault_keys
+  Version: 0.1.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.1.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial public release.
+    - Built on Azure Key Vault service version 7.6-preview.2.
+- Name: azure_security_keyvault_secrets
+  Version: 0.1.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.1.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial public release.
+    - Built on Azure Key Vault service version 7.6-preview.2.
+- Name: azure_identity
+  Version: 0.22.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.22.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+
+    #### Breaking Changes
+
+    - Removed service credentials from `DefaultAzureCredential` ([#2093](https://github.com/Azure/azure-sdk-for-rust/issues/2093))
+- Name: azure_core_amqp
+  Version: 0.1.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.1.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+- Name: azure_data_cosmos
+  Version: 0.22.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.22.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+- Name: azure_core
+  Version: 0.22.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.22.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+- Name: azure_data_cosmos
+  Version: 0.22.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.22.1/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed a publishing issue that caused the `key_auth` feature to be omitted. ([#2241](https://github.com/Azure/azure-sdk-for-rust/issues/2241))
+

@@ -1,0 +1,265 @@
+entries:
+- Name: '@azure-rest/ai-document-intelligence'
+  Version: 1.0.0
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0/sdk/documentintelligence/ai-document-intelligence-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removes the `poller.getOperationId()` for a given polling operation. Use `parseResultIdFromResponse` to extract the `operationId` directly.
+    - `getLongRunningPoller` function is not async anymore, do not `await` on it.
+
+    #### Features Added
+
+    - Adds `streamToUint8Array`, a convenience function that buffers a `NodeJS.ReadableStream` in a `Uint8Array`. It can be used to read the pdf and png responses from the results of an analysis.
+
+    ```ts
+    import DocumentIntelligence from "@azure-rest/ai-document-intelligence";
+    import { streamToUint8Array } from "@azure-rest/ai-document-intelligence";
+
+    const client = DocumentIntelligence("<DOCUMENT_INTELLIGENCE_ENDPOINT>", {
+    key: "<DOCUMENT_INTELLIGENCE_API_KEY>",
+    });
+
+    // Do analysis on you document and get the resultId, figureId
+
+    // Example for the figures api that provides an image output
+    const output = await client
+    .path(
+    "/documentModels/{modelId}/analyzeResults/{resultId}/figures/{figureId}",
+    "prebuilt-layout",
+    resultId,
+    figureId
+    )
+    .get()
+    .asNodeStream(); // output.body would be NodeJS.ReadableStream
+
+    if (output.status !== "200" || !output.body) {
+    throw new Error("The response was unexpected, expected NodeJS.ReadableStream in the body.");
+    }
+
+    const imageData = await streamToUint8Array(output.body);
+    fs.promises.writeFile(`./figures/${figureId}.png`, imageData); // Or you can consume the NodeJS.ReadableStream directly
+    ```
+
+    - Adds `parseResultIdFromResponse`, a convenience function that extracts the `operationId` from the batch analysis response.
+
+    ```js
+    // Example
+    const initialResponse = await client
+    .path("/documentModels/{modelId}:analyzeBatch", "prebuilt-layout")
+    .post({
+    contentType: "application/json",
+    body: {
+    azureBlobSource: {
+    containerUrl: batchTrainingFilesContainerUrl(),
+    },
+    resultContainerUrl: batchTrainingFilesResultContainerUrl(),
+    resultPrefix: "result",
+    },
+    });
+
+    if (isUnexpected(initialResponse)) {
+    throw initialResponse.body.error;
+    }
+    const batchResultId = parseResultIdFromResponse(initialResponse);
+
+    const response = await client
+    .path(
+    "/documentModels/{modelId}/analyzeBatchResults/{resultId}",
+    "prebuilt-layout",
+    batchResultId
+    )
+    .get();
+    ```
+
+    - Changes the following interfaces as follows:
+
+    - `AnalyzeBatchDocumentsBodyParam`:
+    - Updates `body` to be required.
+    - `AnalyzeBatchOperationOutput`:
+    - Adds `resultId`.
+    - `AnalyzeDocumentBodyParam`:
+    - Changes `body` from optional to required.
+    - `DocumentClassifierDetailsOutput`:
+    - Adds `modifiedDateTime`.
+    - `DocumentModelDetailsOutput`:
+    - Adds `modifiedDateTime`.
+
+    - Introduces new interfaces to define query parameters for document analysis requests, allowing customizable `style` and `explode` options:
+    - **AnalyzeBatchDocumentsFeaturesQueryParam**: Accepts DocumentAnalysisFeature[] values.
+    - **AnalyzeBatchDocumentsOutputQueryParam**: Accepts AnalyzeOutputOption[] values.
+    - **AnalyzeBatchDocumentsQueryFieldsQueryParam**: Accepts string[] values.
+    - **AnalyzeDocumentFeaturesQueryParam**: Accepts DocumentAnalysisFeature[] values.
+    - **AnalyzeDocumentFromStreamFeaturesQueryParam**: Accepts DocumentAnalysisFeature[] values.
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.2.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 22.2.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 21.4.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-sms'
+  Version: 1.2.0-beta.3
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.3/sdk/communication/communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Opt Out Remove action
+- Name: '@azure/arm-network'
+  Version: 33.5.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 7.6.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.3.0-beta.1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 18.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.3/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-playwrighttesting'
+  Version: 1.0.0
+  DisplayName: Resource Management - Playwright Testing
+  ServiceName: Playwright Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.0/sdk/playwrighttesting/arm-playwrighttesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iotoperations'
+  Version: 1.0.0
+  DisplayName: Resource Management - Iotoperations
+  ServiceName: Iotoperations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_1.0.0/sdk/iotoperations/arm-iotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-deviceregistry'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0-beta.2/sdk/deviceregistry/arm-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-postgresql-flexible'
+  Version: 8.0.0
+  DisplayName: Resource Management - Postgresql
+  ServiceName: Postgresql
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.0.0/sdk/postgresql/arm-postgresql-flexible/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.18.2
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where tracing spans were incorrectly marked as successful. [PR #32018](https://github.com/Azure/azure-sdk-for-js/pull/32018)
+- Name: '@azure-rest/core-client'
+  Version: 2.3.2
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.2/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow dashes (`-`) in path parameter identifiers. PR [#31731](https://github.com/Azure/azure-sdk-for-js/pull/31731)
+- Name: '@azure/core-amqp'
+  Version: 4.3.4
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.3.4/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix parsing of connection string to extract port number properly.
+- Name: '@azure/identity'
+  Version: 4.6.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.6.0/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `@azure/msal-browser` to 4.0.1 [#32565](https://github.com/Azure/azure-sdk-for-js/pull/32565)
+- Name: '@azure/arm-policyinsights'
+  Version: 6.0.0
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 5.2.0-beta.1
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+

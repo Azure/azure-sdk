@@ -1,0 +1,660 @@
+entries:
+- Name: azure-mgmt-commerce
+  Version: 6.1.0b1
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commerce_6.1.0b1/sdk/commerce/azure-mgmt-commerce/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dns
+  Version: 8.1.0b1
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dns_8.1.0b1/sdk/network/azure-mgmt-dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.4.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.4.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.7 or later.
+    - Bumped minimum dependency on `azure-core` to `>=1.24.0`.
+    - Changed the default async transport from `AsyncioRequestsTransport` to the one used in current `azure-core` (`AioHttpTransport`). ([#26427](https://github.com/Azure/azure-sdk-for-python/issues/26427))
+    - Dropped `msrest` requirement.
+    - Added dependency `isodate` with version range `>=0.6.0`.
+- Name: azure-mgmt-databox
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databox_2.0.0b1/sdk/databox/azure-mgmt-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-query
+  Version: 1.1.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.1.1/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where the incorrect key `time_stamp` (should be `timeStamp`) was used in the creation of `MetricValue` objects (thanks @jamespic).  ([#28777](https://github.com/Azure/azure-sdk-for-python/pull/28777))
+- Name: azure-mgmt-extendedlocation
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Extended Location
+  ServiceName: Extended Location
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-extendedlocation_1.2.0b1/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration_3.0.0b1/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventhub
+  Version: 11.0.0b1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_11.0.0b1/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgeorder
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Edge Order
+  ServiceName: Edge Order
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgeorder_2.0.0b1/sdk/edgeorder/azure-mgmt-edgeorder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appplatform
+  Version: 8.0.0b1
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_8.0.0b1/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-applicationinsights
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Application Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_4.0.0b1/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-databoxedge
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Stack Edge
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databoxedge_2.0.0b1/sdk/databoxedge/azure-mgmt-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appconfiguration
+  Version: 3.0.0b1
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_3.0.0b1/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 2.4.0b1
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.4.0b1/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-authorization
+  Version: 3.1.0b1
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-authorization_3.1.0b1/sdk/authorization/azure-mgmt-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 10.2.0b1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.2.0b1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-search
+  Version: 9.0.0
+  DisplayName: Resource Management - Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_9.0.0/sdk/search/azure-mgmt-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 9.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_9.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-synapse
+  Version: 2.1.0b7
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-synapse_2.1.0b7/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-reservations
+  Version: 2.2.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-reservations_2.2.0/sdk/reservations/azure-mgmt-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-workloads
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Workloads
+  ServiceName: Workloads
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-workloads_1.0.0b3/sdk/workloads/azure-mgmt-workloads/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 1.4.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_1.4.0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resourcehealth
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcehealth_1.0.0b3/sdk/resourcehealth/azure-mgmt-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservices
+  Version: 2.3.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_2.3.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 13.4.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_13.4.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-security
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_4.0.0b1/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kusto
+  Version: 3.1.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_3.1.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-msi
+  Version: 7.1.0b1
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-msi_7.1.0b1/sdk/resources/azure-mgmt-msi/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-digitaltwins
+  Version: 6.4.0b1
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-digitaltwins_6.4.0b1/sdk/digitaltwins/azure-mgmt-digitaltwins/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 9.0.2b1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_9.0.2b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicebus
+  Version: 8.2.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_8.2.0/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 22.1.0b1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_22.1.0b1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-redhatopenshift
+  Version: 1.3.0b1
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift (ARO)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.3.0b1/sdk/redhatopenshift/azure-mgmt-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration-provider
+  Version: 1.0.0b2
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.0.0b2/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added Async Support
+    * Added missing methods for Mapping API
+    * Made load method properties unordered.
+
+    #### Bugs Fixed
+    * Fixed Issue where Key Vault Clients couldn't be set in some situations
+
+    #### Breaking Changes
+    * Changes how load works. Moves if from AzureAppConfigurationProvider.load to load_provider.
+    * Removed custom Key Vault Error
+    * Removed unneeded __repr__ and copy methods.
+    * All Feature Flags are added to there own key and have there prefix removed
+- Name: azure-monitor-ingestion
+  Version: 1.0.0
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-ingestion_1.0.0/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed support for max_concurrency
+
+    #### Features Added
+    - Added new `on_error` parameter to the `upload` method to allow users to handle errors in their own way.
+    - An `LogsUploadError` class was added to encapsulate information about the error. An instance of this class is passed to the `on_error` callback.
+    - Added IO support for upload. Now IO streams can be passed in using the `logs` parameter. ([#28373](https://github.com/Azure/azure-sdk-for-python/pull/28373))
+- Name: azure-mgmt-storage
+  Version: 21.1.0b1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_21.1.0b1/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b8
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b8/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridcompute
+  Version: 8.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_8.0.0/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 21.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_21.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 23.0.0b2
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_23.0.0b2/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 29.2.0b1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_29.2.0b1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_1.0.0/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagemover
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_1.0.0b1/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datafactory
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_3.0.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 23.0.0b1
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_23.0.0b1/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.6.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.6.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.6.0b1
+- Name: azure-agrifood-farming
+  Version: 1.0.0b2
+  DisplayName: FarmBeats
+  ServiceName: FarmBeats
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-agrifood-farming_1.0.0b2/sdk/agrifood/azure-agrifood-farming/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removing primaryBoundaryId & boundaryIds from Field and Seasonal Field
+    - Removing isPrimary flag from Boundary
+    - Removing avgYields from Seasonal Field
+    - Renaming Farmer to Party
+    - Renaming CropVariety to CropProduct
+    - Updated dependency from azure-core<2.0.0,>=1.2.2 to azure-core<2.0.0,>=1.24.0
+
+    #### Features Added
+    - Adding clients for Sensor Integration which includes crud operations on DeviceDataModels, Devices, SensorDataModels, Sensors, SensorMappings, SensorPartnerIntegration and get Sensor events.
+    - Adding new APIs for STAC search and get feature
+    - Adding breedingMethods and Measurements as part of Crop Entity
+    - Adding geographicIdentifier as part of Season Entity
+    - Adding trait, relativeMeasurements and treatments as part of CropVariety Entity
+    - Adding type, crs, centroid and bbox(bounding box of the geometry) as part of Boundary Entity
+    - Adding Source field in Farmer, Farm, Field, Seasonal Field, Boundary, Crop, Crop variety, Season and Attachment
+    - CreatedBy and ModifiedBy in all entities
+    - Measure renamed to measurements in Prescription & Crop
+    - Acreage renamed to area in Boundary
+    - Get Feature and Search Feature APIs for Sentinel 2 L2A and Sentinel 2 L1C STAC collections
+    - Adding Weather Data APIs to fetch IBM weather data
+- Name: azure-storage-file-datalake
+  Version: 12.10.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.10.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.10.0b1
+- Name: azure-storage-blob
+  Version: 12.15.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.15.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.15.0b1
+    - The `download_blob` API now returns `creation_time` on the download response.
+- Name: azure-storage-file-share
+  Version: 12.11.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.11.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.11.0b1
+- Name: azure-mgmt-voiceservices
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Voiceservices
+  ServiceName: Voiceservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-voiceservices_1.0.0b1/sdk/voiceservices/azure-mgmt-voiceservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `correlated_activity_id` for query operations
+    - Added cross regional retries for Service Unavailable/Request Timeouts for read/Query Plan operations
+    - GA release of CosmosHttpLoggingPolicy and autoscale feature
+
+    #### Bugs Fixed
+    - Bug fix to address queries with VALUE MAX (or any other aggregate) that run into an issue if the query is executed on a container with at least one "empty" partition.
+- Name: azure-purview-workflow
+  Version: 1.0.0b1
+  DisplayName: Purview Workflow
+  ServiceName: Purview Workflow
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-workflow_1.0.0b1/sdk/purview/azure-purview-workflow/CHANGELOG.md
+  ChangelogContent: '- Initial release of the Purview Workflow client library for Python'
+- Name: azure-defender-easm
+  Version: 1.0.0b1
+  DisplayName: Defender EASM
+  ServiceName: Defender Easm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-defender-easm_1.0.0b1/sdk/easm/azure-defender-easm/CHANGELOG.md
+  ChangelogContent: '- Initial Release'
+- Name: azure-communication-email
+  Version: 1.0.0b2
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-email_1.0.0b2/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adding support for AAD token authentication
+    - Added the ability to specify the API version by an optional `api_version` keyword parameter.
+
+    #### Breaking Changes
+    - Made the SDK Model-less. Objects are now constructed using a dictionary instead of a model.
+    - Reworked the SDK to follow the LRO (long running operation) approach. The 'begin_send' method returns a poller that can be used to check for the status of sending the email and retrieve the result. The return object has been adjusted to fit this approach.
+    - The `get_send_status` method has been removed.
+    - The `sender` property has been changed to `senderAddress`.
+    - The `email` property under the recipient object has been changed to `address`.
+    - The `attachmentType` property under `attachments` has been changed to 'contentType'. This now accepts the attachment mime type.
+    - The `contentBytesBase64` property under `attachments` has been changed to `contentInBase64`
+    - Custom headers in the email message are now key/value pairs.
+    - The importance property was removed. Email importance can now be specified through either the `x-priority` or `x-msmail-priority` custom headers.
+- Name: azure-mgmt-security
+  Version: 4.0.0b2
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-security_4.0.0b2/sdk/security/azure-mgmt-security/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.13.0b3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.13.0b3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed parameter from `instance_discovery` to `disable_instance_discovery` to make it more explicit.
+    - Service principal credentials now enable support for [Continuous Access Evaluation (CAE)](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation-workload). This indicates to Azure Active Directory that your application can handle CAE claims challenges.
+- Name: azure-mgmt-storagemover
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagemover
+  ServiceName: Storagemover
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_1.0.0/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.3.0b2
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.3.0b2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed models `BaseResolution` and `BooleanResolution`.
+    - Removed enum value `BooleanResolution` from `ResolutionKind`.
+    - Renamed model `AbstractSummaryAction` to `AbstractiveSummaryAction`.
+    - Renamed model `AbstractSummaryResult` to `AbstractiveSummaryResult`.
+    - Removed keyword argument `autodetect_default_language` from long-running operation APIs.
+
+    #### Features Added
+
+    - Added `begin_extract_summary` client method to perform extractive summarization on documents.
+    - Added `begin_abstractive_summary` client method to perform abstractive summarization on documents.
+- Name: azure-developer-loadtesting
+  Version: 1.0.0
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-developer-loadtesting_1.0.0/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.test_run` to `azure.developer.loadtesting.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.LoadTestingClient.administration` to `azure.developer.loadtesting.LoadTestAdministrationClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.test_run` to `azure.developer.loadtesting.aio.LoadTestRunClient`
+    - moved all operations under `azure.developer.loadtesting.aio.LoadTestingClient.administration` to `azure.developer.loadtesting.aio.LoadTestAdministrationClient`
+    - removed `azure.developer.loadtesting.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.administration.upload_test_file` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestAdministrationClient.begin_upload_test_file`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.create_or_update_test_run` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.begin_test_run`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.aio.LoadTestingClient.test_run.list_metric_definitions` as it moved all functionality to `azure.developer.loadtesting.aio.LoadTestRunClient.get_metric_definitions`
+    - removed `azure.developer.loadtesting.LoadTestingClient.test_run.list_metric_namespaces` as it moved all functionality to `azure.developer.loadtesting.LoadTestRunClient.get_metric_namespaces`
+- Name: azure-ai-formrecognizer
+  Version: 3.2.1
+  DisplayName: Form Recognizer
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Corrected typing for `invoice` argument in `begin_recognize_invoices()` on async `FormRecognizerClient`.
+    - Fixed issue when calling `to_dict()` on `DocumentField` where `value` is not returned for address and currency fields.
+    - Corrected typing for `form_type_confidence` property on `RecognizedForm`.
+    - Corrected typing for `appearance` property on `FormLine`.
+- Name: azure-storage-file-datalake
+  Version: 12.10.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.10.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed "duplicate type signatures" MyPy error.
+- Name: azure-storage-file-share
+  Version: 12.11.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.11.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed "duplicate type signatures" MyPy error.
+- Name: azure-appconfiguration-provider
+  Version: 1.0.0
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_1.0.0/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Renamed `load_provider` to `load`
+    * Added `AzureAppConfigurationKeyVaultOptions` to take in a `client_configs` a Mapping of endpoints to client kwargs instead of taking in the whole client.
+    * Removed `AzureAppConfigurationKeyVaultOptions` `secret_clients`, `client_configs` should be used instead.
+    * Made key_filter and label_filter kwargs for Setting Selector
+    * Renamed `trimmed_key_prefixes` to `trim_prefixes`
+- Name: azure-servicebus
+  Version: 7.8.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.8.3/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where asynchronous method to add distributed tracing attributes was not being awaited (Issue #28738).
+- Name: azure-servicebus
+  Version: 7.9.0b1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.9.0b1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Iterator receiving from Service Bus entities has been added back in.
+

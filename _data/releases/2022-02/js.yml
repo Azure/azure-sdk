@@ -176,7 +176,7 @@ entries:
   ServiceName: Machine Learning
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningservices/arm-machinelearningservices/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/%40azure/arm-machinelearningservices_5.0.0/sdk/machinelearningservices/arm-machinelearningservices/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-managementpartner'
   Version: 2.0.0
@@ -284,7 +284,7 @@ entries:
   ServiceName: Mixed Reality
   VersionType: Patch
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/1133631dbc5a5d6e7dd21aa735f91c48173f81b7/sdk/mixedreality/arm-mixedreality/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-mixedreality'
   Version: 4.0.0
@@ -292,7 +292,7 @@ entries:
   ServiceName: Mixed Reality
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/1133631dbc5a5d6e7dd21aa735f91c48173f81b7/sdk/mixedreality/arm-mixedreality/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-redisenterprisecache'
   Version: 2.0.0
@@ -582,7 +582,7 @@ entries:
 
     #### Bugs Fixed
 
-    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
+    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
     - New HTTP spans will use the `HTTP <VERB>` convention instead of using the URL path.
     - Addressed an issue where policy order might change in cases where there are no policies inside a phase specified by an "afterPhase" constraint. [#20129](https://github.com/Azure/azure-sdk-for-js/pull/20129)
 - Name: '@azure/core-http'
@@ -595,7 +595,7 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
 
-    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
+    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/http/http-spans.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
     - New HTTP spans will use the `HTTP <VERB>` convention instead of using the URL path.
 - Name: '@azure/core-amqp'
   Version: 3.1.0

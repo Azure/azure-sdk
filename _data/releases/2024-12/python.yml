@@ -1,0 +1,252 @@
+entries:
+- Name: azure-eventhub
+  Version: 5.13.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.13.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ssl_context` parameter to the clients to allow users to pass in the SSL context, in which case, `connection_verify` will be ignored if specified.
+- Name: azure-servicebus
+  Version: 7.13.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.13.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a broken f-string present in a `ValueError` when using the async client. ([37695](https://github.com/Azure/azure-sdk-for-python/issues/37695))
+    - Fixed a bug with the incorrect error being raised for larger than allowed batch size. ([38260](https://github.com/Azure/azure-sdk-for-python/issues/38260))
+    - Fixed a bug with an error being raised when the fully-qualified namespace included a port, rather than ignoring the port. ([37547](https://github.com/Azure/azure-sdk-for-python/issues/37547))
+
+    #### Features Added
+
+    - Added `ssl_context` parameter to the clients to allow users to pass in the SSL context, in which case, `connection_verify` will be ignored if specified.([#37246](https://github.com/Azure/azure-sdk-for-python/issues/37246))
+- Name: azure-ai-translation-document
+  Version: 1.1.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.1.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Renamed SingleDocumentTranslationClient's API from `document_translate` to `translate`
+- Name: azure-ai-inference
+  Version: 1.0.0b6
+  DisplayName: AI Model Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-inference_1.0.0b6/sdk/ai/azure-ai-inference/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fix tracing for asynchronous streaming.
+
+    #### Features Added
+
+    * OpenTelemetry tracing:
+    * Method `AIInferenceInstrumentor().instrument()` updated with an input argument `enable_content_recording`.
+    * Calling `AIInferenceInstrumentor().instrument()` twice no longer results in an exception.
+    * Added method `AIInferenceInstrumentor().is_content_recording_enabled()`
+    * Support [Prompty](https://github.com/microsoft/prompty) and prompt template from string. PromptTemplate class outputs an array of dictionary with OpenAI compatible message format.
+- Name: azure-cosmos
+  Version: 4.8.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.8.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added response headers directly to SDK item point operation responses. See [PR 35791](https://github.com/Azure/azure-sdk-for-python/pull/35791).
+    * SDK will now retry all ServiceRequestErrors (failing outgoing requests) before failing. Default number of retries is 3. See [PR 36514](https://github.com/Azure/azure-sdk-for-python/pull/36514).
+    * Added Retry Policy for Container Recreate in the Python SDK. See [PR 36043](https://github.com/Azure/azure-sdk-for-python/pull/36043)
+    * Added option to disable write payload on writes. See [PR 37365](https://github.com/Azure/azure-sdk-for-python/pull/37365)
+    * Added get feed ranges API. See [PR 37687](https://github.com/Azure/azure-sdk-for-python/pull/37687)
+    * Added feed range support in `query_items_change_feed`. See [PR 37687](https://github.com/Azure/azure-sdk-for-python/pull/37687)
+    * Added **provisional** helper APIs for managing session tokens. See [PR 36971](https://github.com/Azure/azure-sdk-for-python/pull/36971)
+    * Added ability to get feed range for a partition key. See [PR 36971](https://github.com/Azure/azure-sdk-for-python/pull/36971)
+
+    #### Bugs Fixed
+    * Consolidated Container Properties Cache to be in the Client to cache partition key definition and container rid to avoid unnecessary container reads. See [PR 35731](https://github.com/Azure/azure-sdk-for-python/pull/35731).
+    * Fixed bug with client hangs when running into WriteForbidden exceptions. See [PR 36514](https://github.com/Azure/azure-sdk-for-python/pull/36514).
+    * Added retry handling logic for DatabaseAccountNotFound exceptions. See [PR 36514](https://github.com/Azure/azure-sdk-for-python/pull/36514).
+    * Fixed SDK regex validation that would not allow for item ids to be longer than 255 characters. See [PR 36569](https://github.com/Azure/azure-sdk-for-python/pull/36569).
+    * Fixed issue where 'NoneType' object has no attribute error was raised when a session retry happened during a query. See [PR 37578](https://github.com/Azure/azure-sdk-for-python/pull/37578).
+    * Fixed issue where passing subpartition partition key values as a tuple in a query would raise an error. See [PR 38136](https://github.com/Azure/azure-sdk-for-python/pull/38136)
+    * Batch requests will now be properly considered as Write operation. See [PR 38365](https://github.com/Azure/azure-sdk-for-python/pull/38365).
+
+    #### Breaking Changes
+    * Item-level point operations will now return `CosmosDict` and `CosmosList` response types.
+    Responses will still be able to be used directly as previously, but will now have access to their response headers without need for a response hook. See [PR 35791](https://github.com/Azure/azure-sdk-for-python/pull/35791).
+    For more information on this, see our README section [here](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/README.md#using-item-operation-response-headers).
+- Name: azure-storage-blob
+  Version: 12.24.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.24.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.24.0b1
+- Name: azure-storage-file-share
+  Version: 12.20.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.20.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.20.0b1
+- Name: azure-storage-file-datalake
+  Version: 12.18.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.18.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.18.0b1
+- Name: azure-ai-evaluation
+  Version: 1.0.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The `parallel` parameter has been removed from composite evaluators: `QAEvaluator`, `ContentSafetyChatEvaluator`, and `ContentSafetyMultimodalEvaluator`. To control evaluator parallelism, you can now use the `_parallel` keyword argument, though please note that this private parameter may change in the future.
+    - Parameters `query_response_generating_prompty_kwargs` and `user_simulator_prompty_kwargs` have been renamed to `query_response_generating_prompty_options` and `user_simulator_prompty_options` in the Simulator's __call__ method.
+
+    #### Bugs Fixed
+    - Fixed an issue where the `output_path` parameter in the `evaluate` API did not support relative path.
+    - Output of adversarial simulators are of type `JsonLineList` and the helper function `to_eval_qr_json_lines` now outputs context from both user and assistant turns along with `category` if it exists in the conversation
+    - Fixed an issue where during long-running simulations, API token expires causing "Forbidden" error. Instead, users can now set an environment variable `AZURE_TOKEN_REFRESH_INTERVAL` to refresh the token more frequently to prevent expiration and ensure continuous operation of the simulation.
+    - Fix `evaluate` function not producing aggregated metrics if ANY values to be aggregated were None, NaN, or
+    otherwise difficult to process. Such values are ignored fully, so the aggregated metric of `[1, 2, 3, NaN]`
+    would be 2, not 1.5.
+- Name: azure-ai-ml
+  Version: 1.22.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - **#38493** - Fix error NoneType object is not subscriptable
+- Name: azure-appconfiguration-provider
+  Version: 2.0.0b3
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.0.0b3/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Allocation Id value changed so other providers can match the value.
+- Name: azure-mgmt-hybridcompute
+  Version: 9.1.0b1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b1/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.0.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `[remote]` extra to be needed only when tracking results in Azure AI Studio.
+    - Removing `azure-ai-inference` as dependency.
+- Name: azure-ai-ml
+  Version: 1.22.2
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.22.2/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - **#3620407** - Fix Datastore credentials show up as NoneCredentials
+- Name: azure-mgmt-netapp
+  Version: 13.4.0b1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_13.4.0b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mysqlflexibleservers
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Mysqlflexibleservers
+  ServiceName: Mysqlflexibleservers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mysqlflexibleservers_1.0.0b3/sdk/mysqlflexibleservers/azure-mgmt-mysqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.6.0b7
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.6.0b7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SearchResourceEncryptionKey`.`identity` support.
+    - Added `query_rewrites` & `query_rewrites_count` in `SearchClient.Search`.
+    - Added `query_rewrites` in `VectorizableTextQuery`.
+    - Added new models:
+    - `azure.search.documents.QueryRewritesType`
+    - `azure.search.documents.indexes.AIServicesAccountIdentity`
+    - `azure.search.documents.indexes.AIServicesAccountKey`
+    - `azure.search.documents.indexes.AzureOpenAITokenizerParameters`
+    - `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillMarkdownHeaderDepth`
+    - `azure.search.documents.indexes.DocumentIntelligenceLayoutSkillOutputMode`
+    - `azure.search.documents.indexes.DataSourceCredentials`
+    - `azure.search.documents.indexes.DocumentIntelligenceLayoutSkill`
+    - `azure.search.documents.indexes.IndexerCurrentState`
+    - `azure.search.documents.indexes.MarkdownHeaderDepth`
+    - `azure.search.documents.indexes.MarkdownParsingSubmode`
+    - `azure.search.documents.indexes.RescoringOptions`
+    - `azure.search.documents.indexes.ResourceCounter`
+    - `azure.search.documents.indexes.SkillNames`
+    - `azure.search.documents.indexes.SplitSkillEncoderModelName`
+    - `azure.search.documents.indexes.SplitSkillUnit`
+    - `azure.search.documents.indexes.VectorSearchCompressionKind`
+    - `azure.search.documents.indexes.VectorSearchCompressionRescoreStorageMethod`
+
+    #### Bugs Fixed
+
+    - Fixed the issue that encryptionKey was lost during serialization. #37521
+- Name: azure-ai-projects
+  Version: 1.0.0b1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_1.0.0b1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    First beta version
+

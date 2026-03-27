@@ -1,3 +1,11 @@
+## Release highlights
+
+{% include releases/notes/release_highlights.md %}
+
+## Latest Releases
+
+View all the latest versions of Python packages [here][python-latest-releases].
+
 ## Installation Instructions
 
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
@@ -19,13 +27,5 @@ To install the latest beta version of the packages, copy and paste the following
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
-
-## Release highlights
-
-{% include releases/notes/release_highlights.md %}
-
-## Latest Releases
-
-View all the latest versions of Python packages [here][python-latest-releases].
 
 {% include refs.md %}
