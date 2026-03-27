@@ -378,4 +378,119 @@ entries:
     - Added `getTags`/`setTags` to path APIs (sync + async).
     - Added support for service version 2026-06-06.
   GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.46.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.46.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where creating containers with hierarchical partition keys (multi-hash) through the Spark catalog on the AAD path would fail. - See [PR 48548](https://github.com/Azure/azure-sdk-for-java/pull/48548)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.46.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.46.0/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where creating containers with hierarchical partition keys (multi-hash) through the Spark catalog on the AAD path would fail. - See [PR 48548](https://github.com/Azure/azure-sdk-for-java/pull/48548)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos
+  Version: 4.79.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos_4.79.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed Remote Code Execution (RCE) vulnerability (CWE-502) by replacing Java deserialization with JSON-based serialization in `CosmosClientMetadataCachesSnapshot`, `AsyncCache`, and `DocumentCollection`. The metadata cache snapshot now uses Jackson for serialization/deserialization, eliminating the entire class of Java deserialization attacks. - [PR 47971](https://github.com/Azure/azure-sdk-for-java/pull/47971)
+    * Fixed `NullPointerException` in `DocumentQueryExecutionContextFactory.tryCacheQueryPlan` when executing hybrid search queries with a partition key filter. See [PR 48431](https://github.com/Azure/azure-sdk-for-java/pull/48431)
+    * Fixed `ConcurrentModificationException` in hybrid search component query execution caused by concurrent access to shared mutable state. See [PR 48431](https://github.com/Azure/azure-sdk-for-java/pull/48431)
+    * Fixed availability strategy for Gateway V2 (thin client) by ensuring `RegionalRoutingContext` identity is based only on the immutable gateway endpoint. - See [PR 48432](https://github.com/Azure/azure-sdk-for-java/pull/48432)
+    * Fixed an issue where `replaceItem` bypassed the `customItemSerializer`, serialising POJOs with the SDK's internal `ObjectMapper` instead of the user-configured one. - See [PR 48529](https://github.com/Azure/azure-sdk-for-java/pull/48529)
+    * Fixed `ClassCastException` (`ArrayNode cannot be cast to ObjectNode`) when executing `SELECT VALUE ... GROUP BY` queries. See - [PR 48507](https://github.com/Azure/azure-sdk-for-java/pull/48507)
+
+    #### Features Added
+    * Added support for N-Region synchronous commit feature - See [PR 47757](https://github.com/Azure/azure-sdk-for-java/pull/47757)
+    * Added support for Query Advisor feature - See [48160](https://github.com/Azure/azure-sdk-for-java/pull/48160)
+    * Added `CosmosFullTextScoreScope` enum and `setFullTextScoreScope()` on `CosmosQueryRequestOptions` for controlling BM25 statistics scope in hybrid search queries. Supports `LOCAL` (scoped to target partitions) and `GLOBAL` (default, all partitions) scopes. See [PR 48431](https://github.com/Azure/azure-sdk-for-java/pull/48431)
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.46.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.46.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where creating containers with hierarchical partition keys (multi-hash) through the Spark catalog on the AAD path would fail. - See [PR 48548](https://github.com/Azure/azure-sdk-for-java/pull/48548)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos-test
+  Version: 1.0.0-beta.18
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-test_1.0.0-beta.18/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.79.0`.
+
+    #### 1.0.0-beta.17(2026-01-26)
+
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.77.0`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.46.0
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.46.0/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where creating containers with hierarchical partition keys (multi-hash) through the Spark catalog on the AAD path would fail. - See [PR 48548](https://github.com/Azure/azure-sdk-for-java/pull/48548)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.46.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.46.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed an issue where creating containers with hierarchical partition keys (multi-hash) through the Spark catalog on the AAD path would fail. - See [PR 48548](https://github.com/Azure/azure-sdk-for-java/pull/48548)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.kafka+azure-cosmos-kafka-connect
+  Version: 2.9.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.kafka+azure-cosmos-kafka-connect_2.9.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for throughput bucket. - See [PR 48009](https://github.com/Azure/azure-sdk-for-java/pull/48009)
+  GroupId: com.azure.cosmos.kafka
+- Name: com.azure+azure-cosmos-encryption
+  Version: 2.28.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-encryption_2.28.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added user agent tracking for the encryption SDK. The user agent string now includes `azure-cosmos-encryption/{version}` to enable telemetry tracking of encryption SDK adoption and version distribution. - See [PR 48505](https://github.com/Azure/azure-sdk-for-java/pull/48505)
+    * GA'd `deleteAllItemsByPartitionKey` and `queryChangeFeed` APIs in `CosmosEncryptionAsyncContainer` and `CosmosEncryptionContainer`. - See [PR 48505](https://github.com/Azure/azure-sdk-for-java/pull/48505)
+  GroupId: com.azure
 
