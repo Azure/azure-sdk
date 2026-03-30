@@ -493,4 +493,13 @@ entries:
     * Added user agent tracking for the encryption SDK. The user agent string now includes `azure-cosmos-encryption/{version}` to enable telemetry tracking of encryption SDK adoption and version distribution. - See [PR 48505](https://github.com/Azure/azure-sdk-for-java/pull/48505)
     * GA'd `deleteAllItemsByPartitionKey` and `queryChangeFeed` APIs in `CosmosEncryptionAsyncContainer` and `CosmosEncryptionContainer`. - See [PR 48505](https://github.com/Azure/azure-sdk-for-java/pull/48505)
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-appservice
+  Version: 2.55.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appservice_2.55.0/sdk/appservice/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
