@@ -502,4 +502,92 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appservice_2.55.0/sdk/appservice/azure-resourcemanager-appservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-agents
+  Version: 2.0.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.0.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `beginUpdateMemories(String name, String scope)` required-params-only overload to `MemoryStoresClient` and `MemoryStoresAsyncClient`, for updating a memory store without specifying optional conversation items, previous update ID, or delay.
+
+    #### Breaking Changes
+
+    - The following types changed from standard Java `enum` to `ExpandableStringEnum`-based classes, allowing unknown values to be handled without throwing exceptions. The `values()` method now returns a `Collection` instead of an array, and instances should be compared using `.equals()` rather than `==`:
+    - `ComputerEnvironment`
+    - `ContainerMemoryLimit`
+    - `GrammarSyntax`
+    - `ImageGenActionEnum`
+    - `ImageGenToolBackground`
+    - `ImageGenToolModeration`
+    - `ImageGenToolOutputFormat`
+    - `ImageGenToolQuality`
+    - `ImageGenToolSize`
+    - `InputFidelity`
+    - `McpToolConnectorId`
+    - `MemoryStoreUpdateStatus`
+    - `RankerVersionType`
+    - `SearchContextSize`
+    - `WebSearchToolSearchContextSize`
+    - Renamed `getObject()` to `getObjectType()` in `AgentDetails`, `AgentVersionDetails`, and `MemoryStoreDetails`. The underlying field was renamed from `object` to `objectType`.
+    - Renamed `MCPToolConnectorId` enum to `McpToolConnectorId` for consistent casing. The `McpTool` methods `getConnectorType()` and `setConnectorType()` now use `McpToolConnectorId` instead of `MCPToolConnectorId`.
+    - `getContainerAsAutoCodeInterpreterToolParam()` on `CodeInterpreterTool` renamed to `getContainerAsAutoCodeInterpreterToolParameter()`, and `setContainer(AutoCodeInterpreterToolParam)` now accepts `AutoCodeInterpreterToolParameter` instead.
+    - Renamed remaining `*Param` model classes to `*Parameter` for naming consistency:
+    - `AutoCodeInterpreterToolParam` → `AutoCodeInterpreterToolParameter`
+    - `ContainerAutoParam` → `ContainerAutoParameter`
+    - `ContainerNetworkPolicyParam` → `ContainerNetworkPolicyParameter`
+    - `ContainerNetworkPolicyAllowlistParam` → `ContainerNetworkPolicyAllowlistParameter`
+    - `ContainerNetworkPolicyDisabledParam` → `ContainerNetworkPolicyDisabledParameter`
+    - `ContainerNetworkPolicyDomainSecretParam` → `ContainerNetworkPolicyDomainSecretParameter`
+    - `CustomTextFormatParam` → `CustomTextFormatParameter`
+    - `FunctionShellToolParamEnvironmentContainerReferenceParam` → `FunctionShellToolParameterEnvironmentContainerReferenceParameter`
+    - `FunctionShellToolParamEnvironmentLocalEnvironmentParam` → `FunctionShellToolParameterEnvironmentLocalEnvironmentParameter`
+    - `InlineSkillParam` → `InlineSkillParameter`
+    - `InlineSkillSourceParam` → `InlineSkillSourceParameter`
+    - `LocalSkillParam` → `LocalSkillParameter`
+    - `SkillReferenceParam` → `SkillReferenceParameter`
+    - `deleteAgentWithResponse` on `AgentsClient` now returns `Response<Void>` instead of `Response<BinaryData>`. The corresponding async method on `AgentsAsyncClient` now returns `Mono<Response<Void>>` instead of `Mono<Response<BinaryData>>`.
+    - `deleteAgentVersionWithResponse` on `AgentsClient` now returns `Response<Void>` instead of `Response<BinaryData>`. The corresponding async method on `AgentsAsyncClient` now returns `Mono<Response<Void>>` instead of `Mono<Response<BinaryData>>`.
+    - `deleteMemoryStoreWithResponse` on `MemoryStoresClient` now returns `Response<Void>` instead of `Response<BinaryData>`. The corresponding async method on `MemoryStoresAsyncClient` now returns `Mono<Response<Void>>` instead of `Mono<Response<BinaryData>>`.
+    - `deleteScopeWithResponse` on `MemoryStoresClient` now returns `Response<Void>` instead of `Response<BinaryData>`. The corresponding async method on `MemoryStoresAsyncClient` now returns `Mono<Response<Void>>` instead of `Mono<Response<BinaryData>>`.
+    - `deleteMemoryStore(String)` on `MemoryStoresClient` now returns `void` instead of `DeleteMemoryStoreResult`. The corresponding async method on `MemoryStoresAsyncClient` now returns `Mono<Void>` instead of `Mono<DeleteMemoryStoreResult>`.
+    - `deleteScope(String, String)` on `MemoryStoresClient` now returns `void` instead of `MemoryStoreDeleteScopeResponse`. The corresponding async method on `MemoryStoresAsyncClient` now returns `Mono<Void>` instead of `Mono<MemoryStoreDeleteScopeResponse>`.
+    - `DeleteMemoryStoreResult` and `MemoryStoreDeleteScopeResponse` removed from `com.azure.ai.agents.models` and are no longer part of the public API.
+    - `ResponsesUtils` class has been removed. Use `ResponsesClient.getAzureFields(Response)` instead of `ResponsesUtils.getAzureFields(Response)` to extract Azure-specific fields from a response.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.0.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.0.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `createDatasetWithFolder` producing an invalid `dataUri` that caused a 400 error when registering the dataset.
+    - Fixed `createDatasetWithFile` using the dataset name as the blob name instead of the actual file name.
+
+    #### Features Added
+
+    - Added `getDefaultConnection(ConnectionType, boolean)` to `ConnectionsClient` and `ConnectionsAsyncClient` for retrieving the default connection of a given type.
+    - Added `connectionName` parameter overloads to `createDatasetWithFile` and `createDatasetWithFolder` in `DatasetsClient` and `DatasetsAsyncClient`, allowing users to specify which Azure Storage Account connection to use for uploads.
+
+    #### Breaking Changes
+
+    - Methods across sub-clients were renamed to include the resource name for disambiguation (continuing the pattern from `2.0.0-beta.1`):
+    - `DatasetsClient`: `listLatestVersion()` → `listLatestDatasetVersions()`, `listVersions()` → `listDatasetVersions()`, `deleteVersion()` → `deleteDatasetVersion()`, `createOrUpdateVersion()` → `createOrUpdateDatasetVersion()`
+    - `IndexesClient`: `listLatest()` → `listLatestIndexVersions()`, `listVersions()` → `listIndexVersions()`, `getVersion()` → `getIndexVersion()`, `createOrUpdateVersion()` → `createOrUpdateIndexVersion()`, `deleteVersion()` → `deleteIndexVersion()`
+    - `EvaluatorsClient`: `createVersion()` → `createEvaluatorVersion()`, `getVersion()` → `getEvaluatorVersion()`, `updateVersion()` → `updateEvaluatorVersion()`, `deleteVersion()` → `deleteEvaluatorVersion()`, `listVersions()` → `listEvaluatorVersions()`, `listLatestVersions()` → `listLatestEvaluatorVersions()`
+    - Same renames apply to the corresponding async clients.
+    - `Connection.getCredentials()` renamed to `Connection.getCredential()` (singular).
+    - `ConnectionType.REMOTE_TOOL` renamed to `ConnectionType.REMOTE_TOOL_PREVIEW`.
+    - `EvaluatorMetric.setIsPrimary()` renamed to `EvaluatorMetric.setPrimary()`.
+    - `BlobReferenceSasCredential.getType()` now returns `CredentialType` instead of `String`.
+    - `DatasetVersion.getDataUri()` / `setDataUri()` renamed to `getDataUrl()` / `setDataUrl()` (also on `FileDatasetVersion` and `FolderDatasetVersion`).
+    - `DatasetsClient.createDatasetWithFolder()` no longer throws checked `IOException`; it now throws `UncheckedIOException` instead.
+  GroupId: com.azure
 
