@@ -432,4 +432,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageCache_1.5.0-beta.1/sdk/storagecache/Azure.ResourceManager.StorageCache/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.7.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.7.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed AOT warning regression by using the source generator for `ConfigurationBinder` calls.
+    ([#56368](https://github.com/Azure/azure-sdk-for-net/pull/56368))
+
+    #### Features Added
+
+    - Added `ApplicationInsightsRestClientSettings` to support creating a `ApplicationInsightsRestClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    ([#56891](https://github.com/Azure/azure-sdk-for-net/pull/56891))
 
