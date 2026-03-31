@@ -449,4 +449,19 @@ entries:
 
     - Added `ApplicationInsightsRestClientSettings` to support creating a `ApplicationInsightsRestClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
     ([#56891](https://github.com/Azure/azure-sdk-for-net/pull/56891))
+- Name: Azure.Identity
+  Version: 1.20.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.20.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AddAzureClient`, `AddKeyedAzureClient`, and `WithAzureCredential` return type changed from `IHostApplicationBuilder` to `IClientBuilder` to align with the `IClientBuilder` composition change in System.ClientModel.
+
+    #### Features Added
+
+    - Added a JSON schema segment to the NuGet package that provides IntelliSense and validation for Azure.Identity credential configuration in `appsettings.json`.
 
