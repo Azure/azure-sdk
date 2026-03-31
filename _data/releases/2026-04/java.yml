@@ -590,4 +590,254 @@ entries:
     - `DatasetVersion.getDataUri()` / `setDataUri()` renamed to `getDataUrl()` / `setDataUrl()` (also on `FileDatasetVersion` and `FolderDatasetVersion`).
     - `DatasetsClient.createDatasetWithFolder()` no longer throws checked `IOException`; it now throws `UncheckedIOException` instead.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-search
+  Version: 2.54.6
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-search_2.54.6/sdk/search/azure-resourcemanager-search/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-cdn
+  Version: 2.53.7
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cdn_2.53.7/sdk/cdn/azure-resourcemanager-cdn/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-network
+  Version: 2.58.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-network_2.58.1/sdk/network/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-authorization
+  Version: 2.53.8
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-authorization_2.53.8/sdk/authorization/azure-resourcemanager-authorization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-appservice
+  Version: 2.55.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appservice_2.55.1/sdk/appservice/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerinstance
+  Version: 2.53.9
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerinstance_2.53.9/sdk/containerinstance/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-msi
+  Version: 2.53.7
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-msi_2.53.7/sdk/msi/azure-resourcemanager-msi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-redis
+  Version: 2.53.7
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-redis_2.53.7/sdk/redis/azure-resourcemanager-redis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-blob
+  Version: 12.33.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob_12.33.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-internal-avro` from `12.18.1` to version `12.18.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-batch
+  Version: 12.29.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-batch_12.29.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.2` to version `12.33.3`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-sql
+  Version: 2.53.7
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-sql_2.53.7/sdk/sql/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.5
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventhubs-checkpointstore-blob_1.21.5/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.2` to version `12.33.3`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-keyvault
+  Version: 2.55.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-keyvault_2.55.1/sdk/keyvault/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-privatedns
+  Version: 2.53.7
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-privatedns_2.53.7/sdk/privatedns/azure-resourcemanager-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerregistry
+  Version: 2.55.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerregistry_2.55.1/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.56.3
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.56.3/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicebus
+  Version: 2.53.7
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicebus_2.53.7/sdk/servicebus/azure-resourcemanager-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-storage
+  Version: 2.55.4
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storage_2.55.4/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-eventhubs
+  Version: 2.53.7
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-eventhubs_2.53.7/sdk/eventhubs/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-cosmos
+  Version: 2.54.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cosmos_2.54.2/sdk/cosmos/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-monitor
+  Version: 2.53.7
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-monitor_2.53.7/sdk/monitor/azure-resourcemanager-monitor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-dns
+  Version: 2.53.7
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-dns_2.53.7/sdk/dns/azure-resourcemanager-dns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-file-datalake
+  Version: 12.26.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-file-datalake_12.26.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.2` to version `12.33.3`.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-cryptography
+  Version: 12.32.3
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-cryptography_12.32.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.33.2` to version `12.33.3`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-trafficmanager
+  Version: 2.53.7
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-trafficmanager_2.53.7/sdk/trafficmanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
