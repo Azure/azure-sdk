@@ -197,6 +197,7 @@ Provisioning,0,Provisioning - Private DNS,mgmt,.NET,,,11,false,Azure.Provisionin
 Provisioning,0,Provisioning - Redis,mgmt,.NET,,,11,false,Azure.Provisioning.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
 Provisioning,0,Provisioning - Search,mgmt,.NET,,,11,false,Azure.Provisioning.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
+Securitycenter,0,Provisioning - Securitycenter,mgmt,.NET,,,11,false,Azure.Provisioning.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,3,false,1,
 Provisioning,0,Provisioning - Service Bus,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - SignalR,mgmt,.NET,,,11,false,Azure.Provisioning.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - SQL,mgmt,.NET,,,11,false,Azure.Provisioning.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
@@ -718,7 +719,7 @@ Authorization,0,Resource Management - Authorization,mgmt,Go,,,11,false,sdk/resou
 Automanage,0,Resource Management - Automanage,mgmt,Go,,,11,false,sdk/resourcemanager/automanage/armautomanage,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/automanage/armautomanage,10,false,1,11/23/2023
 Automation,0,Resource Management - Automation,mgmt,Go,,,11,false,sdk/resourcemanager/automation/armautomation,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/automation/armautomation,3,false,1,
 Azure Data,0,Resource Management - Azure Data,mgmt,Go,,,11,false,sdk/resourcemanager/azuredata/armazuredata,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azuredata/armazuredata,3,false,1,
-Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Go,,,11,false,sdk/resourcemanager/azurestackhci/armazurestackhci,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azurestackhci/armazurestackhci,10,false,1,08/21/2024
+Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Go,,,11,false,sdk/resourcemanager/azurestackhci/armazurestackhci,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azurestackhci/armazurestackhci,10,false,1,04/01/2026
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Go,,,11,false,sdk/resourcemanager/avs/armavs,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/avs/armavs,10,false,1,12/18/2025
 Azurestackhci,0,Resource Management - Azurestackhcivm,mgmt,Go,,,11,false,sdk/resourcemanager/azurestackhci/armazurestackhcivm,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/azurestackhci/armazurestackhcivm,3,false,1,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,Go,,,11,false,sdk/resourcemanager/baremetalinfrastructure/armbaremetalinfrastructure,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/baremetalinfrastructure/armbaremetalinfrastructure,10,false,1,11/23/2023
@@ -1148,7 +1149,7 @@ Automanage,0,Resource Management - Automanage,mgmt,Java,,,11,false,azure-resourc
 Automation,0,Resource Management - Automation,mgmt,Java,,,11,false,azure-resourcemanager-automation,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/automation/item.Package/,10,false,1,12/23/2024
 Search,0,Resource Management - Azure AI Search,mgmt,Java,,,11,false,azure-resourcemanager-search,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/search,10,false,1,03/30/2026
 Azure Stack,0,Resource Management - Azure Stack,mgmt,Java,,,11,false,azure-resourcemanager-azurestack,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/azurestack/item.Package/,10,false,1,12/23/2024
-Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Java,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/azurestackhci/item.Package/,3,false,1,
+Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Java,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-azurestackhci,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/azurestackhci,10,false,1,04/01/2026
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Java,azure-mgmt-avs,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/avs/mgmt-v2020_03_20,10,true,azure-resourcemanager-avs,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/avs,10,false,1,12/18/2025
 Azurestackhci-Vm,0,Resource Management - Azurestackhci-Vm,mgmt,Java,,,11,false,azure-resourcemanager-azurestackhci-vm,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/azurestackhci/item.Package/,3,false,1,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,Java,,,11,false,azure-resourcemanager-baremetalinfrastructure,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/baremetalinfrastructure/item.Package/,10,false,1,01/02/2025
@@ -2086,7 +2087,7 @@ Automation,0,Resource Management - Automation,mgmt,Python,,,11,false,azure-mgmt-
 Azure AD B2C,0,Resource Management - Azure AD B2C,mgmt,Python,,,11,false,azure-mgmt-azureadb2c,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azureadb2c,3,true,1,
 Search,0,Resource Management - Azure AI Search,mgmt,Python,,,11,false,azure-mgmt-search,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,07/21/2025
 Azure Stack,0,Resource Management - Azure Stack,mgmt,Python,,,11,false,azure-mgmt-azurestack,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestack,10,false,1,04/08/2021
-Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Python,,,11,false,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestackhci,10,false,1,05/26/2022
+Azure Stack HCI,0,Resource Management - Azure Stack HCI,mgmt,Python,,,11,false,azure-mgmt-azurestackhci,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestackhci,10,false,1,04/01/2026
 Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,Python,,,11,false,azure-mgmt-avs,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/compute,10,false,1,12/17/2025
 Azurestackhcivm,0,Resource Management - Azurestackhcivm,mgmt,Python,,,11,false,azure-mgmt-azurestackhcivm,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurestackhci,3,false,1,
 BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,Python,,,11,false,azure-mgmt-baremetalinfrastructure,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/baremetalinfrastructure,10,false,1,10/14/2021
@@ -3216,11 +3217,21 @@ AutoManage,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs
 AutoManage,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: automanage/cspell.yaml,,2,false,0,
 AutoManage,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: automanage/cspell.yaml,,2,false,0,
 AutoManage,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: automanage/cspell.yaml,,2,false,0,
+Automation,0,Resource Management - Automation.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: automation/Automation.Management,,2,false,0,
+Automation,0,Resource Management - Automation.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: automation/Automation.Management,,2,false,0,
+Automation,0,Resource Management - Automation.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: automation/Automation.Management,,2,false,0,
+Automation,0,Resource Management - Automation.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: automation/Automation.Management,,2,false,0,
+Automation,0,Resource Management - Automation.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: automation/Automation.Management,,2,false,0,
 Automation,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: automation/cspell.yaml,,2,false,0,
 Automation,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: automation/cspell.yaml,,2,false,0,
 Automation,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: automation/cspell.yaml,,2,false,0,
 Automation,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: automation/cspell.yaml,,2,false,0,
 Automation,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: automation/cspell.yaml,,2,false,0,
+Automation,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: automation/suppressions.yaml,,2,false,0,
+Automation,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: automation/suppressions.yaml,,2,false,0,
+Automation,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: automation/suppressions.yaml,,2,false,0,
+Automation,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: automation/suppressions.yaml,,2,false,0,
+Automation,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: automation/suppressions.yaml,,2,false,0,
 awsconnector,0,Resource Management - AccessAnalyzerAnalyzer.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: awsconnector/AccessAnalyzerAnalyzer.Management,,2,false,0,
 awsconnector,0,Resource Management - AccessAnalyzerAnalyzer.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: awsconnector/AccessAnalyzerAnalyzer.Management,,2,false,0,
 awsconnector,0,Resource Management - AccessAnalyzerAnalyzer.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: awsconnector/AccessAnalyzerAnalyzer.Management,,2,false,0,
