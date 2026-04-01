@@ -358,4 +358,65 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.0.0/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.26.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.26.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for the keyword `file_property_semantics` in `ShareClient`'s `create_directory` and `DirectoryClient`'s
+    `create_directory` APIs, which specifies permissions to be configured upon directory creation.
+    - Added support for the keyword `data` to `FileClient`'s `create_file` API, which specifies the
+    optional initial data to be uploaded (up to 4MB).
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `ShareClient`, `ShareDirectoryClient`, and `ShareFileClient`.
+- Name: azure-storage-file-datalake
+  Version: 12.25.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.25.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `DataLakeServiceClient`, `FileSystemClient`, `DataLakeDirectoryClient`, and `DataLakeFileClient`.
+    - Added support for `DataLakeDirectoryClient` and `DataLakeFileClient`'s `set_tags` and `get_tags` APIs
+    to conditionally set and get tags associated with a directory or file client, respectively.
+- Name: azure-storage-blob
+  Version: 12.30.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.30.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `BlobServiceClient`, `ContainerClient`, and `BlobClient`.
+    - Added support for `create` permission in `BlobSasPermissions` for `stage_block`,
+    `stage_block_from_url`, and `commit_block_list`.
+    - Added support for a new `Smart` access tier to `StandardBlobTier` used in `BlobClient.set_standard_blob_tier`,
+    which is optimized to automatically determine the most cost-effective access with no performance impact.
+    When set, `BlobProperties.smart_access_tier` will reveal the service's current access
+    tier choice between `Hot`, `Cool`, and `Archive`.
+    - Added support for `is_directory` keyword in `generate_blob_sas` that generates directory-level SAS for blobs.
+- Name: azure-storage-queue
+  Version: 12.17.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.17.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `QueueServiceClient` and `QueueClient`.
 
