@@ -556,4 +556,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.6.2/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Identity.Broker
+  Version: 1.5.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.5.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a JSON schema segment to the NuGet package that provides IntelliSense and validation for Azure.Identity.Broker credential configuration in `appsettings.json`.
 
