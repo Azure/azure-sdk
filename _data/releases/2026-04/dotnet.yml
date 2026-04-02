@@ -548,4 +548,12 @@ entries:
     - `AIProjectClient.Agents` property was renamed to `AIProjectClient.AgentAdministrationClient`.
     - `RecurrenceTrigger.StartTime`, `RecurrenceTrigger.EndTime`, `OneTimeTrigger.TriggerAt`, `CronTrigger.StartTime`, `CronTrigger.EndTime` and `ScheduleRun.TriggerTime` properties type was changed from `string` to `DateTimeOffset`.
     - Remove the `EvaluationScheduleTaskEvalRun` class.
+- Name: Azure.ResourceManager.Storage
+  Version: 1.6.2
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.6.2/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
 
