@@ -459,4 +459,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confluent_3.0.0b1/sdk/confluent/azure-mgmt-confluent/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b50
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b50/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix duplicate authentication policy in live metrics exporter causing Unauthorized errors
+    for authenticated Application Insights resources
+    ([#46024](https://github.com/Azure/azure-sdk-for-python/pull/46024))
+    - Suppress internal sdkstats HTTP pipeline logs from appearing in user's logs
+    ([#45966](https://github.com/Azure/azure-sdk-for-python/pull/45966))
+    - Kubernetes pod name takes precedence when populating `cloud_RoleInstance`
+    ([#45884](https://github.com/Azure/azure-sdk-for-python/pull/45884))
 
