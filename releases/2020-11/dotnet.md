@@ -349,7 +349,7 @@ service with correct analysis of the document's content.
 
 - This release contains bug fixes to improve quality.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta2-2020-11-10)
+### Metrics Advisor
 
 #### New Features
 

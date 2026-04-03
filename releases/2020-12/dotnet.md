@@ -81,7 +81,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 - Fixed bug where `QueueServiceClient.GetQueueClient()` and `QueueClient.WithClientSideEncryptionOptions()` created clients that could not generate a SAS from clients that could generate a SAS
 
-### Azure Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md)
+### Azure Synapse Access Control
 
 - This release contains bug fixes to improve quality.
 
@@ -92,7 +92,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Support Rename operations
 - Support CICD operations
 
-### Azure Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md)
+### Azure Synapse Managed Private Endpoints
 
 - Initial release
 
@@ -100,7 +100,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release
 
-### Azure Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+### Azure Synapse Spark
 
 - This release contains bug fixes to improve quality.
 
