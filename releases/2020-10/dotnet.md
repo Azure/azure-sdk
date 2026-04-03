@@ -176,7 +176,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 - Replaced `DeviceCodeCredential` constructor overload taking `deviceCodeCallback` and `DeviceCodeCredentialOptions` with constructor taking only `DeviceCodeCredentialOptions`.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta1-2020-10-08)
+### Metrics Advisor
 
 - This is the first beta of the `Azure.AI.MetricsAdvisor` client library.
 
