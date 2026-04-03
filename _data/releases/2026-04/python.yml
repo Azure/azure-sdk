@@ -499,4 +499,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-purview_1.1.0b2/sdk/purview/azure-mgmt-purview/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.4
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.4/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for evaluator `properties` passthrough in AOAI evaluation results. When an evaluator returns a `properties` dict, it is included alongside `score`, `label`, `reason`, `threshold`, and `passed` in the result object.
+
+    #### Bugs Fixed
+
+    - Fixed stray space in `_eval_metric.value` attribute access in `_base_rai_svc_eval.py`.
 
