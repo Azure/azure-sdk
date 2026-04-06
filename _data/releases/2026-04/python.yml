@@ -524,4 +524,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed bug where container-focused requests using name-based addressing did not consistently populate the `x-ms-cosmos-intended-collection-rid` header. See [PR 44080](https://github.com/Azure/azure-sdk-for-python/pull/44080)
+- Name: azure-mgmt-playwright
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-playwright_1.1.0b1/sdk/playwright/azure-mgmt-playwright/CHANGELOG.md
+  ChangelogContent: ""
 
