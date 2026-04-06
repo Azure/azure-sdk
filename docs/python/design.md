@@ -431,7 +431,7 @@ In cases where a service API is not explicitly implemented as a long-running ope
 
 {% include requirement/MUST id="python-method-conditional-request-etag" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
-{% include requirement/MUST id="python-method-conditional-request-raise-resource-modified" %} raise `azure.core.exceptions.ResourceModifiedError` when an unsafe conditional request (e.g. `PUT`, `POST`, `DELETE`) fails because the condition was not met. This typically corresponds to an HTTP `412 Precondition Failed` or `409 Conflict` response.
+{% include requirement/MUST id="python-method-conditional-request-raise-resource-modified" %} raise `azure.core.exceptions.ResourceModifiedError` when an unsafe conditional request (e.g. `PUT`, `POST`, `DELETE`) fails because the condition was not met. This typically corresponds to an HTTP `412 Precondition Failed` response.
 
 {% include requirement/MUST id="python-method-conditional-request-raise-resource-not-modified" %} raise `azure.core.exceptions.ResourceNotModifiedError` when a safe conditional request (e.g. `GET`, `HEAD`) determines the resource has not changed. This corresponds to an HTTP `304 Not Modified` response.
 
