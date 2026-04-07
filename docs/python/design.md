@@ -435,7 +435,7 @@ In cases where a service API is not explicitly implemented as a long-running ope
 
 {% include requirement/MUST id="python-method-conditional-request-raise-resource-not-modified" %} raise `azure.core.exceptions.ResourceNotModifiedError` when a safe conditional request (e.g. `GET`, `HEAD`) determines the resource has not changed. This corresponds to an HTTP `304 Not Modified` response.
 
-> Note: Use the `map_error` function from `azure.core.exceptions` to map HTTP status codes to the appropriate exception types in your service method implementation:
+> Note: Use the `map_error` function from `azure.core.exceptions` to map HTTP status codes to the appropriate exception types in your service method implementation. DPG-generated code already includes `304 → ResourceNotModifiedError` by default. For unsafe conditional requests, you must also add `412 → ResourceModifiedError` to the error map (either by declaring it as an error response in TypeSpec, or by updating the generated code manually):
 
 ```python
 from azure.core.exceptions import HttpResponseError, ResourceModifiedError, ResourceNotModifiedError, map_error
