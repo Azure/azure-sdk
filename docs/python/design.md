@@ -64,7 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 3.10+. Please refer to the [Azure SDK for Python version support policy](https://github.com/Azure/azure-sdk-for-python/blob/main/doc/python_version_support_policy.md) for the current supported versions.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.10+.
 
 ## Azure SDK API Design
 
