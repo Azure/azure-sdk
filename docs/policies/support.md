@@ -49,7 +49,7 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 - Any [supported .NET versions](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) that implement .NET Standard 2.0.
 - Java: Java 8 , Java 11
 - Node.js: [LTS versions of Node.js](https://nodejs.org/en/download) including not just the ones in Active status, but also the ones in Maintainence status.
-- Python 3.10+. See [Python Supported Versions](https://devguide.python.org/versions/) for the current list of non-end-of-life Python versions (per CPython). Please check the [Azure SDK for Python policy planning](https://github.com/Azure/azure-sdk-for-python/blob/main/doc/python_version_support_policy.md) for more details on future Python versions.
+- Python 3.10+. Please check the [Azure SDK for Python policy planning](https://github.com/Azure/azure-sdk-for-python/blob/main/doc/python_version_support_policy.md) for more details on minimum supported (non-EOL) Python versions.
 - Go: Latest 2 major Go releases, refer to [Go releases](https://golang.org/doc/devel/release.html) for more details.
 - C++: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms).
 - Embedded C: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html#supported-platforms).
