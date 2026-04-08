@@ -929,4 +929,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-deviceregistry_1.2.0-beta.1/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-secrets
+  Version: 4.11.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-secrets_4.11.0-beta.1/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `previousVersion` property to `SecretProperties` which returns the version of the previous secret, if
+    applicable. Applies only to secrets created after June 1, 2025.
+    - Added `outContentType` parameter overloads to `SecretClient` and `SecretAsyncClient` `getSecret` and
+    `getSecretWithResponse` methods, allowing PFX-to-PEM conversion when retrieving certificate-backed secrets.
+    - Added support for service API version `2025-07-01`. This is now the default service version used by the client.
+  GroupId: com.azure
 
