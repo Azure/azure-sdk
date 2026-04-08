@@ -905,4 +905,19 @@ entries:
     #### Bugs Fixed
     * Fixing an NPE caused due to boxed Boolean conversion. - See [PR 48656](https://github.com/Azure/azure-sdk-for-java/pull/48656/)
   GroupId: com.azure
+- Name: com.azure+azure-sdk-bom
+  Version: 1.3.6
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-sdk-bom_1.3.6/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+    - Added new library entries to the BOM:
+    - [`azure-ai-agents`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/ai/azure-ai-agents/README.md)
+    - [`azure-ai-projects`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/ai/azure-ai-projects/README.md)
+  GroupId: com.azure
 
