@@ -317,4 +317,29 @@ entries:
     #### Features Added
 
     - Export `toCompatResponse` helper for converting responses to a `CompatResponse`. [PR #37686](https://github.com/Azure/azure-sdk-for-js/pull/37686)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.10.2
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.10.2/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `uri` and `ipAddresses` properties to `Subject Alternative Names` to support Uniform Resource Identifier and IP address (IPv4 and IPv6) Subject Alternative Names in certificates.
+    - Added support for service API version `2025-07-01` [#37561](https://github.com/Azure/azure-sdk-for-js/pull/37561)
+- Name: '@azure/keyvault-secrets'
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.11.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01` which is now the default. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+    - Added `outContentType` option to `getSecret()` allowing callers to request PEM-format output for certificate-backed secrets (e.g., `outContentType: KnownContentType.PEM`). [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+    - Added `previousVersion` readonly property to `SecretProperties` which returns the identifier of the previous certificate version. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
 
