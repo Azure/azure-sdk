@@ -409,4 +409,15 @@ entries:
     #### Other Changes
 
     - Added `ExtendedCommonClientOptions`, `CommonClientOptions`, `KeepAliveOptions`, and `RedirectOptions` type exports for use by Key Vault client packages.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.11.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.11.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix dependency issue.
 
