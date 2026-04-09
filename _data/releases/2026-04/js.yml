@@ -387,4 +387,26 @@ entries:
     #### Other Changes
 
     - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.10.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.10.3/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix dependency issue.
+- Name: '@azure/keyvault-common'
+  Version: 2.1.0
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.1.0/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `ExtendedCommonClientOptions`, `CommonClientOptions`, `KeepAliveOptions`, and `RedirectOptions` type exports for use by Key Vault client packages.
 
