@@ -342,4 +342,49 @@ entries:
     - Added support for service API version `2025-07-01` which is now the default. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
     - Added `outContentType` option to `getSecret()` allowing callers to request PEM-format output for certificate-backed secrets (e.g., `outContentType: KnownContentType.PEM`). [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
     - Added `previousVersion` readonly property to `SecretProperties` which returns the identifier of the previous certificate version. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+- Name: '@azure/identity'
+  Version: 4.14.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.14.0-beta.3/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Reduced bundle size by optimizing imports from `@azure/msal-node`, e.g. achieving a ~61kb reduction (from 851kb to 790kb) when importing `ClientCertificateCredential`. [#36942](https://github.com/Azure/azure-sdk-for-js/pull/36942)
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-browser` to `^5.5.0`. [#37836](https://github.com/Azure/azure-sdk-for-js/pull/37836)
+- Name: '@azure/identity-broker'
+  Version: 1.4.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.4.0/sdk/identity/identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/identity-vscode'
+  Version: 2.2.0
+  DisplayName: VS Code Authentication Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.2.0/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.3.0
+  DisplayName: Token Cache Persistence Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.3.0/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
 
