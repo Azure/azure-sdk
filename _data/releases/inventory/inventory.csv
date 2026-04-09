@@ -191,6 +191,7 @@ Kubernetes,0,Provisioning - Kubernetes,mgmt,.NET,,,11,false,Azure.Provisioning.K
 Kubernetes Configuration,0,Provisioning - Kubernetes Configuration,mgmt,.NET,,,11,false,Azure.Provisioning.KubernetesConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Kusto,0,Provisioning - Kusto,mgmt,.NET,,,11,false,Azure.Provisioning.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Monitor,0,Provisioning - Monitor,mgmt,.NET,,,11,false,Azure.Provisioning.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,false,1,
+Mysql,0,Provisioning - Mysql,mgmt,.NET,,,11,false,Azure.Provisioning.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,3,false,1,
 Network,0,Provisioning - Network,mgmt,.NET,,,11,false,Azure.Provisioning.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,03/20/2026
 Provisioning,0,Provisioning - Operational Insights,mgmt,.NET,,,11,false,Azure.Provisioning.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/19/2025
 Provisioning,0,Provisioning - PostgreSQL,mgmt,.NET,,,11,false,Azure.Provisioning.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/25/2025
@@ -418,7 +419,7 @@ Servicegroups,0,Resource Management - Servicegroups,mgmt,.NET,,,11,false,Azure.R
 SignalR,0,Resource Management - SignalR,mgmt,.NET,Microsoft.Azure.Management.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,true,Azure.ResourceManager.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr,10,false,1,09/17/2025
 Sitemanager,0,Resource Management - Sitemanager,mgmt,.NET,,,11,false,Azure.ResourceManager.SiteManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sitemanager,10,false,1,09/28/2025
 Sphere,0,Resource Management - Sphere,mgmt,.NET,,,11,false,Azure.ResourceManager.Sphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sphere,10,false,1,03/14/2025
-SQL,0,Resource Management - SQL,mgmt,.NET,Microsoft.Azure.Management.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlmanagement,10,false,1,05/06/2025
+SQL,0,Resource Management - SQL,mgmt,.NET,Microsoft.Azure.Management.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlmanagement,10,false,1,04/09/2026
 SQL Virtual Machine,0,Resource Management - SQL Virtual Machine,mgmt,.NET,,,11,false,Azure.ResourceManager.SqlVirtualMachine,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/sqlvirtualmachine,10,false,1,03/18/2025
 Pool Management Service (PMaaS),0,Resource Management - Standby Pool,mgmt,.NET,,,11,false,Azure.ResourceManager.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,10,false,1,03/30/2026
 Storage,0,Resource Management - Storage,mgmt,.NET,Microsoft.Azure.Management.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,true,Azure.ResourceManager.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,04/02/2026
@@ -1003,7 +1004,7 @@ Management packages (old),0,Management packages (old),mgmt,Go,management ,https:
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
 Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,03/11/2026
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,05/02/2025
-Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,11/05/2025
+Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,04/09/2026
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,Token-as-password Authentication Core Library,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1212,7 +1213,7 @@ Dev Center,0,Resource Management - Dev Center,mgmt,Java,,,11,false,azure-resourc
 Dev Spaces,0,Resource Management - Dev Spaces,mgmt,Java,azure-mgmt-devspaces,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/devspaces/mgmt-v2018_06_01_preview,3,true,azure-resourcemanager-devspaces,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/devspaces/item.Package/,3,false,1,
 DevHub,0,Resource Management - DevHub,mgmt,Java,,,11,false,azure-resourcemanager-devhub,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/devhub/item.Package/,3,false,1,
 IoT,0,Resource Management - Device Provisioning Services,mgmt,Java,,,11,false,azure-resourcemanager-deviceprovisioningservices,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/deviceprovisioningservices/item.Package/,10,false,1,01/03/2025
-IoT,0,Resource Management - Device Registry,mgmt,Java,,,11,false,azure-resourcemanager-deviceregistry,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/deviceregistry/item.Package/,10,false,1,10/24/2025
+IoT,0,Resource Management - Device Registry,mgmt,Java,,,11,false,azure-resourcemanager-deviceregistry,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/deviceregistry,10,false,1,10/24/2025
 IoT,0,Resource Management - Device Update,mgmt,Java,,,11,false,azure-resourcemanager-deviceupdate,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/deviceupdate/item.Package/,10,false,1,12/13/2024
 DevOps Infrastructure,0,Resource Management - DevOps Infrastructure,mgmt,Java,,,11,false,azure-resourcemanager-devopsinfrastructure,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/devopsinfrastructure/item.Package/,10,false,1,11/21/2024
 DevTest Labs,0,Resource Management - DevTest Labs,mgmt,Java,azure-mgmt-devtestlabs,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/devtestlabs/mgmt-v2018_09_15,3,true,azure-resourcemanager-devtestlabs,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/devtestlabs/item.Package/,10,false,1,12/13/2024
@@ -1539,13 +1540,13 @@ Cognitive Services,0,Health Insights Cancer Profiling,data,JavaScript,,,11,false
 Cognitive Services,0,Health Insights Clinical Matching,data,JavaScript,,,11,false,@azure-rest/health-insights-clinicalmatching,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-clinicalmatching-rest/,3,false,1,
 Cognitive Services,0,Health Insights Radiology Insights,data,JavaScript,,,11,false,@azure-rest/health-insights-radiologyinsights,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/healthinsights/health-insights-radiologyinsights-rest/,10,false,1,06/06/2025
 Identity,0,Identity,data,JavaScript,,,11,false,@azure/identity,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,03/20/2026
-Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,11/06/2025
+Identity,0,Identity Broker,data,JavaScript,,,11,false,@azure/identity-broker,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,04/09/2026
 Cognitive Services,0,Image Analysis,data,JavaScript,,,11,false,@azure-rest/ai-vision-image-analysis,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/vision/ai-vision-image-analysis-rest/,3,false,1,
 IoT,0,IoT Device Update,data,JavaScript,,,11,false,@azure/iot-device-update,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceupdate,3,false,1,
 Key Vault,0,Key Vault - Administration,data,JavaScript,,,11,false,@azure/keyvault-admin,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,06/10/2025
-Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,06/10/2025
+Key Vault,0,Key Vault - Certificates,data,JavaScript,,,11,false,@azure/keyvault-certificates,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,04/08/2026
 Key Vault,0,Key Vault - Keys,data,JavaScript,,,11,false,@azure/keyvault-keys,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,06/10/2025
-Key Vault,0,Key Vault - Secrets,data,JavaScript,,,11,false,@azure/keyvault-secrets,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,06/10/2025
+Key Vault,0,Key Vault - Secrets,data,JavaScript,,,11,false,@azure/keyvault-secrets,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,04/08/2026
 Cognitive Services,0,Language Text,data,JavaScript,,,11,false,@azure/ai-language-text,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage,10,false,1,06/15/2023
 Load Testing,0,Load Testing,data,JavaScript,,,11,false,@azure-rest/load-testing,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/loadtesting/load-testing-rest/,10,false,1,01/20/2025
 Synapse,0,Managed Private Endpoints,data,JavaScript,,,11,false,@azure/synapse-managed-private-endpoints,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
@@ -1593,11 +1594,11 @@ Tables,0,Tables,data,JavaScript,,,11,false,@azure/data-tables,https://github.com
 Cognitive Services,0,Text Analytics,data,JavaScript,@azure/cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-text-analytics,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics,10,false,1,07/07/2021
 Cognitive Services,0,Text Translation,data,JavaScript,,,11,false,@azure-rest/ai-translation-text,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/translation/ai-translation-text-rest/,10,false,1,02/12/2025
 Maps,0,TimeZones,data,JavaScript,,,11,false,@azure-rest/maps-timezone,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/maps/maps-timezone-rest/,3,false,1,
-Identity,0,Token Cache Persistence Plugin,data,JavaScript,,,11,false,@azure/identity-cache-persistence,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,02/18/2025
+Identity,0,Token Cache Persistence Plugin,data,JavaScript,,,11,false,@azure/identity-cache-persistence,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,04/09/2026
 TypeSpec,0,TypeSpec HTTP Runtime,data,JavaScript,,,11,false,@typespec/ts-http-runtime,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/core/ts-http-runtime,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,JavaScript,,,11,false,@azure/video-analyzer-edge,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Voice Live,data,JavaScript,,,11,false,@azure/ai-voicelive,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,3,false,1,
-Identity,0,VS Code Authentication Plugin,data,JavaScript,,,11,false,@azure/identity-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,11/06/2025
+Identity,0,VS Code Authentication Plugin,data,JavaScript,,,11,false,@azure/identity-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,04/09/2026
 Web PubSub,0,Web PubSub,data,JavaScript,azure-web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,05/14/2025
 Web PubSub,0,Web PubSub Client,data,JavaScript,,,11,false,@azure/web-pubsub-client,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,03/18/2026
 Web PubSub,0,WebPubSub Client SDK Protobuf,data,JavaScript,,,11,false,@azure/web-pubsub-client-protobuf,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,3,false,1,
@@ -1956,7 +1957,7 @@ Mobile,0,Resource Management - Mobile Engagement,mgmt,JavaScript,azure-arm-mobil
 Log Analytics,0,Resource Management - Operations,mgmt,JavaScript,azure-arm-operations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,3,true,Replaced by: @azure/arm-operations,,4,false,1,
 Cognitive Services,0,AI Agent Server - Core,data,Python,,,11,false,azure-ai-agentserver-core,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agentserver,3,false,1,
 Cognitive Services,0,AI Agents,data,Python,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,08/05/2025
-Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,04/03/2026
+Cognitive Services,0,AI Evaluation,data,Python,,,11,false,azure-ai-evaluation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation,10,false,1,04/08/2026
 Cognitive Services,0,AI Generative,data,Python,,,11,false,azure-ai-generative,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,true,1,
 Cognitive Services,0,AI Model Inference,data,Python,,,11,false,azure-ai-inference,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects,data,Python,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai,10,false,1,03/12/2026
