@@ -1,0 +1,442 @@
+entries:
+- Name: '@azure/ai-speech-transcription'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-speech-transcription_1.0.0-beta.1/sdk/transcription/ai-speech-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    This is the first preview version of @azure/ai-speech-transcription
+- Name: '@azure/web-pubsub-client'
+  Version: 1.0.4
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.4/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that `sequenceId` with value `0` would not be sent to the service, which caused keepalive to not work when no messages had been received.
+
+    #### Features Added
+
+    - Added `invokeEvent` method to `WebPubSubClient` that allows invoking server-side event handlers and receiving responses back.
+    - Added application-layer ping/pong mechanism for more accurate keepalive detection. This enables the client to detect its own disconnection quickly even when WebSocket-level ping/pong frames are inaccessible (e.g., in browser environments). Added `keepAliveTimeoutInMs` option to `WebPubSubClientOptions`.
+- Name: '@azure-rest/load-testing'
+  Version: 1.2.0-beta.1
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.2.0-beta.1/sdk/loadtesting/load-testing-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Notification Rules
+    - Support for Triggers
+    - Support for Actionable Insights
+    - Support for Test Plan Recommendations
+    - Support for Cloning Load Tests
+- Name: '@azure/arm-containerregistrytasks'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerregistrytasks
+  ServiceName: Containerregistrytasks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerregistrytasks_1.0.0-beta.1/sdk/containerregistry/arm-containerregistrytasks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.1.3
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.3/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `useCloudHostedBrowsers` option to allow users to opt out of connecting to cloud-hosted browsers while still using the reporting feature.
+- Name: '@azure/arm-storagecache'
+  Version: 8.2.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventgrid'
+  Version: 15.0.0-beta.2
+  DisplayName: Resource Management - Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-privatelinkscopes'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Kubernetesconfiguration-Privatelinkscopes
+  ServiceName: Kubernetesconfiguration-Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-privatelinkscopes_1.0.0-beta.2/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-privatelinkscopes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-extensions'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensions_1.0.0-beta.2/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.9.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.9.2/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [#36765](https://github.com/Azure/azure-sdk-for-js/pull/36765) Fixed inflated continuation token size in streaming queries (`SELECT * FROM c`) by properly removing exhausted partition ranges from the continuation token.
+- Name: '@azure/arm-containerregistry'
+  Version: 12.0.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 4.13.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.13.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Upgraded `@azure/msal-node` from `^3.5.0` to `^5.1.0` and `@azure/msal-browser` from `^4.2.0` to `^5.5.0` following the [MSAL Node v5 migration guide](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/msal-v5/lib/msal-node/docs/v5-migration.md) and the [MSAL Browser v5 migration guide](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/v4-migration.md). [#37685](https://github.com/Azure/azure-sdk-for-js/pull/37685)
+    - Removed usage of deprecated `storeAuthStateInCookie` option in browser cache configuration
+    - Replaced deprecated `createPublicClientApplication()` with `createStandardPublicClientApplication()`
+    - Updated `handleRedirectPromise` to use options object instead of string parameter
+    - Replaced deprecated `tokenQueryParameters` with `extraQueryParameters` in MSAL node flows
+- Name: '@azure/arm-marketplace'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Marketplace
+  ServiceName: Marketplace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-marketplace_1.0.0-beta.1/sdk/marketplace/arm-marketplace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 7.0.0
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 25.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 5.0.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 12.1.0-beta.1
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 23.1.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-nginx'
+  Version: 4.0.0
+  DisplayName: Resource Management - Nginx
+  ServiceName: Nginx
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_4.0.0/sdk/nginx/arm-nginx/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 11.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-fluxconfigurations'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-fluxconfigurations_1.0.0-beta.2/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-extensiontypes'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensiontypes
+  ServiceName: Kubernetesconfiguration-Extensiontypes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensiontypes_1.0.0-beta.2/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensiontypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.1.0-beta.3
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.3/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-maps'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-azurestackhci'
+  Version: 4.0.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_4.0.0/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confluent'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confluent/arm-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-playwright'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwright_1.1.0-beta.1/sdk/playwright/arm-playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-search'
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.0.2
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.2/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Replace `console.debug` calls with Azure SDK logger to prevent secret leakage (e.g. SAS URIs) in unconditional console output.
+- Name: '@azure/arm-containerservice'
+  Version: 25.1.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/core-client'
+  Version: 2.6.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.6.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - support passing `pipeline` via `ClientOptions`. [PR #37253](https://github.com/Azure/azure-sdk-for-js/pull/37253)
+- Name: '@azure/core-xml'
+  Version: 1.5.1
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.5.1/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Bump `fast-xml-parser` dependency to `^5.5.9` [#37665](https://github.com/Azure/azure-sdk-for-js/issues/37665)
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.5
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.5/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Request headers are no longer forwarded to the proxy server as additional headers when establishing HTTPS CONNECT tunnels; headers on proxied HTTP(S) requests sent through an established tunnel are unchanged. [PR #37808](https://github.com/Azure/azure-sdk-for-js/pull/37808)
+- Name: '@azure/core-http-compat'
+  Version: 2.4.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.4.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Export `toCompatResponse` helper for converting responses to a `CompatResponse`. [PR #37686](https://github.com/Azure/azure-sdk-for-js/pull/37686)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.10.2
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.10.2/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `uri` and `ipAddresses` properties to `Subject Alternative Names` to support Uniform Resource Identifier and IP address (IPv4 and IPv6) Subject Alternative Names in certificates.
+    - Added support for service API version `2025-07-01` [#37561](https://github.com/Azure/azure-sdk-for-js/pull/37561)
+- Name: '@azure/keyvault-secrets'
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.11.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01` which is now the default. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+    - Added `outContentType` option to `getSecret()` allowing callers to request PEM-format output for certificate-backed secrets (e.g., `outContentType: KnownContentType.PEM`). [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+    - Added `previousVersion` readonly property to `SecretProperties` which returns the identifier of the previous certificate version. [#37785](https://github.com/Azure/azure-sdk-for-js/pull/37785)
+- Name: '@azure/identity'
+  Version: 4.14.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.14.0-beta.3/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Reduced bundle size by optimizing imports from `@azure/msal-node`, e.g. achieving a ~61kb reduction (from 851kb to 790kb) when importing `ClientCertificateCredential`. [#36942](https://github.com/Azure/azure-sdk-for-js/pull/36942)
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-browser` to `^5.5.0`. [#37836](https://github.com/Azure/azure-sdk-for-js/pull/37836)
+- Name: '@azure/identity-broker'
+  Version: 1.4.0
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.4.0/sdk/identity/identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/identity-vscode'
+  Version: 2.2.0
+  DisplayName: VS Code Authentication Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.2.0/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.3.0
+  DisplayName: Token Cache Persistence Plugin
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.3.0/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `@azure/msal-node` to `^5.1.0` and `@azure/msal-node-extensions` to `^5.1.0`. [#37780](https://github.com/Azure/azure-sdk-for-js/pull/37780)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.10.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.10.3/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix dependency issue.
+- Name: '@azure/keyvault-common'
+  Version: 2.1.0
+  DisplayName: Common
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.1.0/sdk/keyvault/keyvault-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added `ExtendedCommonClientOptions`, `CommonClientOptions`, `KeepAliveOptions`, and `RedirectOptions` type exports for use by Key Vault client packages.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.11.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.11.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix dependency issue.
+- Name: '@azure/playwright'
+  Version: 1.1.4
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.4/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Provided a direct Azure Portal URL to the specific Playwright test run.
+- Name: '@azure/arm-deviceregistry'
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.2.0-beta.1/sdk/deviceregistry/arm-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+
