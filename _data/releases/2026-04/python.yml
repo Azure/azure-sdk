@@ -247,4 +247,377 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_24.0.1/sdk/storage/azure-mgmt-storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed adversarial chat target incorrectly using user's callback instead of RAI service, causing callback response to appear as user message in red team scan results when using converter strategies (e.g., `DIFFICULT`, `Tense`).
+    - Fixed `hate_unfairness` attack success rate always reporting 0% due to metric name mapping using legacy `hate_fairness` name instead of canonical `hate_unfairness`.
+    - Fixed `TypeError` in multi-turn and crescendo attacks caused by PyRIT 0.11+ renaming `send_prompt_async` parameter from `prompt_request` to `message`.
+    - Expanded endpoint normalization (`/openai/v1` suffix) to all Azure OpenAI host suffixes (including sovereign clouds), fixing 404 errors for classic AOAI endpoints with PyRIT 0.11+.
+    - Added `aml-aca-token` credential fallback for agent-type seed requests when running locally without ACA managed identity.
+    - Extract RAI scorer token metrics (prompt_tokens, completion_tokens, total_tokens) into Score metadata and propagate through result processing for downstream aggregation.
+- Name: azure-mgmt-redisenterprise
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_4.0.0b1/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-frontdoor
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-frontdoor_2.0.0b1/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservicefleet
+  Version: 4.0.0b3
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicefleet_4.0.0b3/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 14.0.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_14.0.1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-attestation
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-attestation_2.0.0b2/sdk/attestation/azure-mgmt-attestation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-apimanagement
+  Version: 6.0.0b1
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-apimanagement_6.0.0b1/sdk/apimanagement/azure-mgmt-apimanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-peering
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-peering_2.0.0b2/sdk/peering/azure-mgmt-peering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-deviceregistry
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Device Registry
+  ServiceName: Device Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deviceregistry_1.2.0b1/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-search
+  Version: 10.0.0b1
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_10.0.0b1/sdk/search/azure-mgmt-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-billingbenefits
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Billing Benefits
+  ServiceName: Billing Benefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-billingbenefits_1.0.0b2/sdk/billingbenefits/azure-mgmt-billingbenefits/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.1.0b1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.1.0b1/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-azurestackhci
+  Version: 8.0.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.0.0/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.26.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.26.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for the keyword `file_property_semantics` in `ShareClient`'s `create_directory` and `DirectoryClient`'s
+    `create_directory` APIs, which specifies permissions to be configured upon directory creation.
+    - Added support for the keyword `data` to `FileClient`'s `create_file` API, which specifies the
+    optional initial data to be uploaded (up to 4MB).
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `ShareClient`, `ShareDirectoryClient`, and `ShareFileClient`.
+- Name: azure-storage-file-datalake
+  Version: 12.25.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.25.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `DataLakeServiceClient`, `FileSystemClient`, `DataLakeDirectoryClient`, and `DataLakeFileClient`.
+    - Added support for `DataLakeDirectoryClient` and `DataLakeFileClient`'s `set_tags` and `get_tags` APIs
+    to conditionally set and get tags associated with a directory or file client, respectively.
+- Name: azure-storage-blob
+  Version: 12.30.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.30.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `BlobServiceClient`, `ContainerClient`, and `BlobClient`.
+    - Added support for `create` permission in `BlobSasPermissions` for `stage_block`,
+    `stage_block_from_url`, and `commit_block_list`.
+    - Added support for a new `Smart` access tier to `StandardBlobTier` used in `BlobClient.set_standard_blob_tier`,
+    which is optimized to automatically determine the most cost-effective access with no performance impact.
+    When set, `BlobProperties.smart_access_tier` will reveal the service's current access
+    tier choice between `Hot`, `Cool`, and `Archive`.
+    - Added support for `is_directory` keyword in `generate_blob_sas` that generates directory-level SAS for blobs.
+- Name: azure-storage-queue
+  Version: 12.17.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.17.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-06-06.
+    - Added support for connection strings and `account_url`s to accept URLs with `-ipv6` and `-dualstack` suffixes
+    for `QueueServiceClient` and `QueueClient`.
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.0.0b1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.0.0b1/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.3
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.3/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed attack success rate (ASR) always reporting 0% because the sync eval API's `passed` field indicates task completion, not content safety. Replaced `passed`-based logic with score-based threshold comparison matching `_evaluation_processor.py`.
+    - Fixed partial red team results being discarded when some objectives fail. Previously, if PyRIT raised due to incomplete objectives (e.g., evaluator model refuses to score), all completed results were lost. Now recovers partial results from PyRIT's memory database.
+    - Fixed evaluator token metrics (`promptTokens`, `completionTokens`) not persisted in red teaming output items. The sync eval API returns camelCase keys but the extraction code only checked for snake_case, silently dropping all evaluator token usage data.
+
+    #### Features Added
+
+    - Added `extra_headers` support to `OpenAIModelConfiguration` to allow passing custom HTTP headers.
+- Name: azure-mgmt-managementgroups
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managementgroups_2.0.0b1/sdk/managementgroups/azure-mgmt-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-confluent
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confluent_3.0.0b1/sdk/confluent/azure-mgmt-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b50
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b50/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix duplicate authentication policy in live metrics exporter causing Unauthorized errors
+    for authenticated Application Insights resources
+    ([#46024](https://github.com/Azure/azure-sdk-for-python/pull/46024))
+    - Suppress internal sdkstats HTTP pipeline logs from appearing in user's logs
+    ([#45966](https://github.com/Azure/azure-sdk-for-python/pull/45966))
+    - Kubernetes pod name takes precedence when populating `cloud_RoleInstance`
+    ([#45884](https://github.com/Azure/azure-sdk-for-python/pull/45884))
+- Name: azure-mgmt-networkcloud
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_3.0.0b1/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-maps
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maps_3.0.0b1/sdk/maps/azure-mgmt-maps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-purview
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-purview_1.1.0b2/sdk/purview/azure-mgmt-purview/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.4
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.4/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for evaluator `properties` passthrough in AOAI evaluation results. When an evaluator returns a `properties` dict, it is included alongside `score`, `label`, `reason`, `threshold`, and `passed` in the result object.
+
+    #### Bugs Fixed
+
+    - Fixed stray space in `_eval_metric.value` attribute access in `_base_rai_svc_eval.py`.
+- Name: azure-cosmos
+  Version: 4.16.0b2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.16.0b2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed bug where container-focused requests using name-based addressing did not consistently populate the `x-ms-cosmos-intended-collection-rid` header. See [PR 44080](https://github.com/Azure/azure-sdk-for-python/pull/44080)
+- Name: azure-mgmt-playwright
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Playwright
+  ServiceName: Playwright
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-playwright_1.1.0b1/sdk/playwright/azure-mgmt-playwright/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b51
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b51/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added credential authentication support for customer sdkstats
+    ([#46143](https://github.com/Azure/azure-sdk-for-python/pull/46143))
+- Name: azure-ai-voicelive
+  Version: 1.2.0b5
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.2.0b5/sdk/voicelive/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **OpenTelemetry Tracing Support**: Added `VoiceLiveInstrumentor` for opt-in OpenTelemetry-based
+    tracing of VoiceLive WebSocket connections, following Azure SDK and GenAI semantic conventions
+    (v1.34.0). Instrumentation covers connection lifecycle (`connect`, `close`), message send/receive,
+    and captures voice-specific attributes (`gen_ai.voice.session_id`, `gen_ai.voice.event_type`).
+    - Enable via `AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING=true` environment variable.
+    - Content recording controlled by `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`.
+    - Aligned with `azure-ai-agents` / `azure-ai-projects` tracing model.
+    - **Enhanced Telemetry Tracking**: Added comprehensive session-level and per-message telemetry:
+    - **Session ID**: Automatically captured from `session.created`/`session.updated` events and set on
+    the parent connect span (`gen_ai.voice.session_id`).
+    - **Audio format/codec**: Input and output audio formats extracted from `session.update` sends
+    (`gen_ai.voice.input_audio_format`, `gen_ai.voice.output_audio_format`).
+    - **First-token latency**: Time from `response.create` to first `response.audio.delta` or
+    `response.text.delta`, recorded as `gen_ai.voice.first_token_latency_ms`.
+    `response.text.delta` is used for latency detection only and is not tracked as a normal recv event.
+    - **Turn count**: Number of completed responses (`response.done`) per session
+    (`gen_ai.voice.turn_count`).
+    - **Interruption count**: Number of `response.cancel` sends per session
+    (`gen_ai.voice.interruption_count`).
+    - **Audio bytes sent/received**: Total audio payload bytes transferred
+    (`gen_ai.voice.audio_bytes_sent`, `gen_ai.voice.audio_bytes_received`).
+    - **Message size**: WebSocket message size on each send/recv span
+    (`gen_ai.voice.message_size`).
+    - **Rate limit / error events**: Server `error` and `rate_limits.updated` events recorded as
+    span events with error codes and rate limit details.
+    - **Response & Function Call ID Tracking**: All recv and send spans now carry correlation IDs for
+    end-to-end tracing across events:
+    - `gen_ai.response.id`, `gen_ai.conversation.id`, `gen_ai.voice.call_id`, `gen_ai.voice.item_id`,
+    `gen_ai.voice.previous_item_id`, `gen_ai.voice.output_index` extracted from top-level and nested
+    fields on every event span.
+    - `gen_ai.response.finish_reasons` from `response.done` events (also propagated to the connect span).
+    - **Agent v2 Telemetry**: Added agent identity and configuration tracking on the connect span:
+    - `gen_ai.agent.id` and `gen_ai.agent.thread_id` extracted from `session.created`/`session.updated`
+    server events.
+    - `gen_ai.agent.version` and `gen_ai.agent.project_name` from `AgentSessionConfig` at connect time.
+    - **MCP (Model Context Protocol) Telemetry**: Added tracking for MCP tool calls and approval flows:
+    - Per-event: `gen_ai.voice.mcp.server_label`, `gen_ai.voice.mcp.tool_name`,
+    `gen_ai.voice.mcp.approval_request_id`, `gen_ai.voice.mcp.approve` on recv/send spans.
+    - Session-level: `gen_ai.voice.mcp.call_count` and `gen_ai.voice.mcp.list_tools_count` counters
+    flushed on session close.
+    - Nested item extraction is guarded by event type to prevent forward-compatibility issues.
+- Name: azure-ai-voicelive
+  Version: 1.1.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.1.0/sdk/voicelive/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Agent configuration through the new `AgentConfig` model
+    - Added `agent` field to `ResponseSession` model to support agent-based conversations
+    - The `AgentConfig` model includes properties for agent type, name, description, agent_id, and thread_id
+- Name: azure-ai-evaluation
+  Version: 1.16.5
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.5/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Jinja2 Server-Side Template Injection (SSTI) vulnerability by replacing unsandboxed `jinja2.Template` with `jinja2.sandbox.SandboxedEnvironment` across all template rendering paths (CWE-1336).
+    - Fixed `sensitive_data_leakage` risk category producing 0% attack success rate (false negatives) in the Foundry execution path. Agent-specific tool context (e.g., `document_client_smode`, `email_client_smode`) was stored in `SeedObjective.metadata` but never propagated to the target callback, so the agent could not access the sensitive data it was supposed to leak. Context is now delivered via `prepended_conversation` SeedPrompts and extracted from conversation history metadata, enabling the ACA runtime to build FunctionTool injections.
+    - Fixed multi-turn and crescendo red team strategies producing output items identical to their baseline counterparts. The Foundry execution path was writing all strategies' conversations to a single shared JSONL file, causing each strategy to read all conversations and mislabel them. Now writes per-strategy JSONL files using PyRIT's scenario result grouping.
 
