@@ -7,4 +7,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.2.0-beta.3/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.10.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.10.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AddSecretClient` and `AddKeyedSecretClient` extension methods on `IHostApplicationBuilder` for registering `SecretClient` via dependency injection using configuration-based setup.
+    - Added a JSON schema segment to the NuGet package that provides IntelliSense and validation for `SecretClientSettings` configuration in `appsettings.json`.
 
