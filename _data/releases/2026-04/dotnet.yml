@@ -655,4 +655,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DesktopVirtualization_1.4.0-beta.1/sdk/desktopvirtualization/Azure.ResourceManager.DesktopVirtualization/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.53.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.53.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - `Azure.Identity` credential types are now included in `Azure.Core`, enabling SDK libraries to provide configuration-driven DI extensions (e.g., `AddAzureSecretClient`) without requiring a direct dependency on `Azure.Identity`.
 
