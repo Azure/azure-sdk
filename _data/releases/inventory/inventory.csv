@@ -93,7 +93,7 @@ Cognitive Services,0,Image Analysis,data,.NET,,,11,false,Azure.AI.Vision.ImageAn
 Key Vault,0,Key Vault - Administration,data,.NET,,,11,false,Azure.Security.KeyVault.Administration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,03/04/2026
 Key Vault,0,Key Vault - Certificates,data,.NET,,,11,false,Azure.Security.KeyVault.Certificates,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,06/17/2025
 Key Vault,0,Key Vault - Keys,data,.NET,,,11,false,Azure.Security.KeyVault.Keys,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,03/04/2026
-Key Vault,0,Key Vault - Secrets,data,.NET,,,11,false,Azure.Security.KeyVault.Secrets,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,02/25/2026
+Key Vault,0,Key Vault - Secrets,data,.NET,,,11,false,Azure.Security.KeyVault.Secrets,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault,10,false,1,04/14/2026
 Cognitive Services,0,Language Text,data,.NET,,,11,false,Azure.AI.Language.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,3,false,1,
 Load Testing,0,Load Testing,data,.NET,,,11,false,Azure.Developer.LoadTesting,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/loadtestservice,10,false,1,01/20/2025
 Maps,0,Maps Common,data,.NET,,,11,false,Azure.Maps.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
@@ -456,7 +456,7 @@ Cognitive Services,0,Content Safety Extension Embedded Image,UNABLE TO BE DETERM
 Cognitive Services,0,Content Safety Extension Embedded Text,UNABLE TO BE DETERMINED,.NET,Azure.AI.ContentSafety.Extension.Embedded.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Cosmos DB,0,Cosmos DB AOT,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Cosmos.Aot,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Cosmos DB,0,Cosmos DB Fault Injection,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Cosmos.FaultInjection,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
-MCP,0,Fabric MCP,UNABLE TO BE DETERMINED,.NET,Microsoft.Fabric.Mcp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
+MCP,0,Fabric MCP,UNABLE TO BE DETERMINED,.NET,Microsoft.Fabric.Mcp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Functions,0,Functions Extension MCP,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Extensions.Mcp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Functions,0,Functions Worker Extension MCP,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Worker.Extensions.Mcp,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Functions,0,Functions Worker Extension MCP SDK,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.Functions.Worker.Extensions.Mcp.Sdk,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
@@ -1142,6 +1142,7 @@ App Configuration,0,Resource Management - App Configuration,mgmt,Java,azure-mgmt
 App Platform,0,Resource Management - App Platform,mgmt,Java,azure-mgmt-appplatform,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-appplatform,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/appplatform/item.Package/,10,true,1,09/23/2025
 App Service,0,Resource Management - App Service,mgmt,Java,azure-mgmt-appservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-appservice,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appservice,10,false,1,03/30/2026
 Application Insights,0,Resource Management - Application Insights,mgmt,Java,,,11,false,azure-resourcemanager-applicationinsights,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/applicationinsights/item.Package/,10,false,1,12/13/2024
+Appnetwork,0,Resource Management - Appnetwork,mgmt,Java,,,11,false,azure-resourcemanager-appnetwork,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appnetwork,3,false,1,
 Arc Data,0,Resource Management - Arc Data,mgmt,Java,,,11,false,azure-resourcemanager-azurearcdata,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/azurearcdata/item.Package/,10,false,1,01/02/2025
 Arize AI,0,Resource Management - Arize AI Observability Eval,mgmt,Java,,,11,false,azure-resourcemanager-arizeaiobservabilityeval,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/arizeaiobservabilityeval/item.Package/,10,false,1,07/03/2025
 Artifact Signing,0,Resource Management - Artifact Signing,mgmt,Java,,,11,false,azure-resourcemanager-artifactsigning,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/artifactsigning,10,false,1,02/14/2026
@@ -1615,6 +1616,7 @@ App Configuration,0,Resource Management - App Configuration,mgmt,JavaScript,,,11
 App Platform,0,Resource Management - App Platform,mgmt,JavaScript,,,11,false,@azure/arm-appplatform,https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appplatform_3.0.0/sdk/appplatform/arm-appplatform,10,true,1,01/26/2024
 App Service,0,Resource Management - App Service,mgmt,JavaScript,azure-asm-website,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-appservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice,10,false,1,11/19/2025
 Application Insights,0,Resource Management - Application Insights,mgmt,JavaScript,azure-arm-appinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-appinsights,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights,10,false,1,
+Appnetwork,0,Resource Management - Appnetwork,mgmt,JavaScript,,,11,false,@azure/arm-appnetwork,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appnetwork,3,false,1,
 Arize AI,0,Resource Management - Arize AI Observability Eval,mgmt,JavaScript,,,11,false,@azure/arm-arizeaiobservabilityeval,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/liftrarize,10,false,1,06/06/2025
 Artifactsigning,0,Resource Management - Artifactsigning,mgmt,JavaScript,,,11,false,@azure/arm-artifactsigning,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/artifactsigning,10,false,1,02/16/2026
 Astro,0,Resource Management - Astro,mgmt,JavaScript,,,11,false,@azure/arm-astro,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/astro,3,false,1,
@@ -4000,6 +4002,11 @@ Cognitive Services,0,OpenAI.Inference,data,Java,,,11,false,Missing: Created from
 Cognitive Services,0,OpenAI.Inference,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Inference,,2,false,0,
 Cognitive Services,0,OpenAI.Inference,data,Python,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Inference,,2,false,0,
 Cognitive Services,0,OpenAI.Inference,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/OpenAI.Inference,,2,false,0,
+Cognitive Services,0,Speech.Transcription,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.Transcription,,2,false,0,
+Cognitive Services,0,Speech.Transcription,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.Transcription,,2,false,0,
+Cognitive Services,0,Speech.Transcription,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.Transcription,,2,false,0,
+Cognitive Services,0,Speech.Transcription,data,Python,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.Transcription,,2,false,0,
+Cognitive Services,0,Speech.Transcription,data,Go,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.Transcription,,2,false,0,
 Cognitive Services,0,Speech.VideoTranslation,data,.NET,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.VideoTranslation,,2,false,0,
 Cognitive Services,0,Speech.VideoTranslation,data,Java,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.VideoTranslation,,2,false,0,
 Cognitive Services,0,Speech.VideoTranslation,data,JavaScript,,,11,false,Missing: Created from API in specs repo: cognitiveservices/Speech.VideoTranslation,,2,false,0,
@@ -4688,6 +4695,11 @@ horizondb,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs 
 horizondb,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: horizondb/cspell.yaml,,2,false,0,
 horizondb,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: horizondb/cspell.yaml,,2,false,0,
 horizondb,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: horizondb/cspell.yaml,,2,false,0,
+Hybrid AKS,0,Resource Management - HybridContainerService.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: hybridaks/HybridContainerService.Management,,2,false,0,
+Hybrid AKS,0,Resource Management - HybridContainerService.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: hybridaks/HybridContainerService.Management,,2,false,0,
+Hybrid AKS,0,Resource Management - HybridContainerService.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridaks/HybridContainerService.Management,,2,false,0,
+Hybrid AKS,0,Resource Management - HybridContainerService.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: hybridaks/HybridContainerService.Management,,2,false,0,
+Hybrid AKS,0,Resource Management - HybridContainerService.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: hybridaks/HybridContainerService.Management,,2,false,0,
 Hybrid AKS,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: hybridaks/cspell.yaml,,2,false,0,
 Hybrid AKS,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: hybridaks/cspell.yaml,,2,false,0,
 Hybrid AKS,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridaks/cspell.yaml,,2,false,0,
@@ -4698,6 +4710,11 @@ Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Java,,,11,false,Missing: Crea
 Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
 Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Python,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
 Hybrid AKS,0,Resource Management - Hybrid AKS,mgmt,Go,,,11,false,Missing: Created from API in specs repo: hybridaks/resource-manager,,2,false,0,
+Hybrid AKS,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: hybridaks/suppressions.yaml,,2,false,0,
+Hybrid AKS,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: hybridaks/suppressions.yaml,,2,false,0,
+Hybrid AKS,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridaks/suppressions.yaml,,2,false,0,
+Hybrid AKS,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: hybridaks/suppressions.yaml,,2,false,0,
+Hybrid AKS,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: hybridaks/suppressions.yaml,,2,false,0,
 Hybrid Compute,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: hybridcompute/cspell.yaml,,2,false,0,
 Hybrid Compute,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: hybridcompute/cspell.yaml,,2,false,0,
 Hybrid Compute,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: hybridcompute/cspell.yaml,,2,false,0,
