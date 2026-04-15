@@ -418,11 +418,11 @@ The `tracing` crate is useful for [logging][general-logging] and allows you to l
 
 {% include requirement/MUST id="rust-tracing-log-levels" %} use the following definitions of log levels when calling [`tracing` macros](https://docs.rs/tracing/latest/tracing/#using-the-macros) or referencing [`tracing::Level`](https://docs.rs/tracing/latest/tracing/struct.Level.html) directly:
 
-* Error: fatal errors that terminate execution e.g., returning a `Result::Err`.
-* Warning: non-fatal errors that allow execution to continue without being overly verbose e.g., an unexpected HTTP 4xx response but _not_ a 429 where a retry is expected.
-* Information: high-level information that would be useful in diagnostics without being overly verbose e.g., a request was redirected (atypical on Azure).
-* Debug: low-level information that would be useful in diagnostics primarily targeted at external developers e.g., sending HTTP requests and responses (without PII).
-* Trace: low-level information that would be useful in diagnostics primarily targeted at client library developers e.g., resetting connection state.
+* **Error** - Fatal errors that terminate execution e.g., returning a `Result::Err`.
+* **Warning** - Non-fatal errors that allow execution to continue without being overly verbose e.g., an unexpected HTTP 4xx response but _not_ a 429 where a retry is expected.
+* **Information** - High-level information that would be useful in diagnostics without being overly verbose e.g., a request was redirected (atypical on Azure).
+* **Debug** - Low-level information that would be useful in diagnostics primarily targeted at external developers e.g., sending HTTP requests and responses (without PII).
+* **Trace** - Low-level information that would be useful in diagnostics primarily targeted at client library developers e.g., resetting connection state.
 
 {% include requirement/SHOULD id="rust-tracing-default" %} default to the [`LevelFilter::WARN`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.LevelFilter.html) logging level for at least `typespec*` and `azure*` sources.
 

@@ -1027,10 +1027,10 @@ See [Rust by Example: Documentation][rust-lang-doc-meta] for more information.
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (doc comments), you need a great README and other supporting documentation.
 
 * `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information.
-* `API reference` - Generated from the doc comments in your code; published on <https://learn.microsoft.com> and <https://docs.rs>.
-* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, doc comments, and Quickstart.
-* `Quickstart` - Article on <https://learn.microsoft.com> that is similar to but expands on the README content; typically written by your service's content developer.
-* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
+* **API reference** - Generated from the doc comments in your code; published on <https://learn.microsoft.com> and <https://docs.rs>.
+* **Code snippets** - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, doc comments, and Quickstart.
+* **Quickstart** - Article on <https://learn.microsoft.com> that is similar to but expands on the README content; typically written by your service's content developer.
+* **Conceptual** - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
 
 {% include requirement/MUST id="rust-repo-docs-contentdev" %} include your service's content developer in the [Architecture Board] review for your library. To find the content developer you should work with, check with your team's Program Manager.
 
