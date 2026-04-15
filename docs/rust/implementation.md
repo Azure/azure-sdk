@@ -32,6 +32,8 @@ impl fmt::Debug for MyModel {
 
 `SafeDebug` will only output the name of the type or, if information is available in TypeSpec, show only fields that have been declared safe from leaking PII.
 
+{% include requirement/MUSTNOT id="rust-safety-tracing-pii" %} trace or telemeter Personally-Identifiable Information (PII). The `SafeDebug` trace helps when using a format specification like `{:?}` in either, but cannot otherwise prevent developers from tracing or telemetering PII directly.
+
 ## Service Clients {#rust-client}
 
 Implementation details of [service clients](introduction.md#rust-client).
@@ -406,6 +408,26 @@ impl TryFrom<azure_core::Error> for StorageError {
 }
 ```
 
+## Tracing {#rust-tracing}
+
+{% include requirement/MAY id="rust-tracing-crate" %} use the `tracing` crate for logging diagnostic information useful for developers.
+
+{% include requirement/MUSTNOT id="rust-tracing-distributed" %} use the `tracing` crate for distributed logging.
+
+The `tracing` crate is useful for [logging][general-logging] and allows you to log spans hierarchically, but does not support [distributed tracing][general-distributed-tracing] as required.
+
+{% include requirement/MUST id="rust-tracing-log-levels" %} use the following definitions of log levels when calling [`tracing` macros](https://docs.rs/tracing/latest/tracing/#using-the-macros) or referencing [`tracing::Level`](https://docs.rs/tracing/latest/tracing/struct.Level.html) directly:
+
+* Error: fatal errors that terminate execution e.g., returning a `Result::Err`.
+* Warning: non-fatal errors that allow execution to continue without being overly verbose e.g., an unexpected HTTP 4xx response but _not_ a 429 where a retry is expected.
+* Information: high-level information that would be useful in diagnostics without being overly verbose e.g., a request was redirected (atypical on Azure).
+* Debug: low-level information that would be useful in diagnostics primarily targeted at external developers e.g., sending HTTP requests and responses (without PII).
+* Trace: low-level information that would be useful in diagnostics primarily targeted at client library developers e.g., resetting connection state.
+
+{% include requirement/SHOULD id="rust-tracing-default" %} default to the [`LevelFilter::WARN`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.LevelFilter.html) logging level for at least `typespec*` and `azure*` sources.
+
+{% include requirement/MUST id="rust-tracing-env-var" %} support the `RUST_LOG` environment variable for filtering if registering a subscriber. See [`EnvFilter::from_default_env`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#method.from_default_env) for details.
+
 ## Traits {#rust-traits}
 
 {% include requirement/MUST id="rust-traits-async" %} attribute traits and trait implementations with async functions with the `async_trait::async_trait` procedural macro to desugar the async functions. This allows requiring futures to also be `Send`. See [Azure/azure-sdk-for-rust#1796](https://github.com/Azure/azure-sdk-for-rust/issues/1796) for details.
@@ -451,7 +473,7 @@ Azure/azure-sdk-for-rust/
 ├─ eng/ # engineering system pipeline, scripts, etc.
 └─ sdk/
    └─ {service directory}/ # example: keyvault
-      ├─ .dict.txt
+      ├─ .cspell.json
       └─ {service client crate}/ # example: azure_security_keyvault_secrets
          ├─ assets.json # best location for most crates, or in {service directory} for all crates
          ├─ examples/
@@ -534,27 +556,17 @@ pub struct ExtraModel {
 
 {% include requirement/SHOULD id="rust-miscellaneous-spelling-general" %} put general words used across different services and client libraries in the `.vscode/cspell.json` file.
 
-{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.dict.txt` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
-If you're creating this file, add an entry to `.vscode/cspell.json` as shown below:
+{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.cspell.json` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
+If you're creating this file it should inherit from `.vscode/cspell.json` as shown below:
 
 ```json
 {
-  "dictionaryDefinitions": [
-    {
-      "name": "service-name",
-      "path": "../sdk/service-directory/.dict.txt",
-      "noSuggest": true
-    }
+  "import": [
+    "../../.vscode/cspell.json"
   ],
-  "overrides": [
-    {
-      "filename": "sdk/service-directory/**",
-      "dictionaries": [
-        "crates",
-        "rust-custom",
-        "service-name"
-      ]
-    }
+  "ignoreWords": [
+    "foo",
+    "bar"
   ]
 }
 ```

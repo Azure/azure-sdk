@@ -71,6 +71,14 @@ If you have any questions, please reach out to your team's _Language Release Own
 
 You may optionally provide social media outreach for out-of-band releases.  Contact the _Community Engagement Manager_ for details on this at least 7 working days prior to the release.
 
+## Source-Breaking Changes
+
+When a release includes source-breaking changes (changes that are not binary-breaking but require changes to consumer source code and recompilation), these MUST be prominently documented in the release notes under a **"Breaking Changes"** heading, even though they are not binary breaks. Each entry should:
+
+- Clearly state that the change is source-breaking (not binary-breaking)
+- Describe the old API and the new API
+- Provide migration guidance (before/after code examples)
+
 ## Where do I go if I need help?
 
 The _Azure SDK release manager_ is best place to start when you need help with a release. They manage the Release channel in the Azure SDK Teams team.  If you need help you can post a message in that Teams channel here: <https://aka.ms/azsdk/teams/release>
