@@ -19,4 +19,16 @@ entries:
 
     - Added `AddSecretClient` and `AddKeyedSecretClient` extension methods on `IHostApplicationBuilder` for registering `SecretClient` via dependency injection using configuration-based setup.
     - Added a JSON schema segment to the NuGet package that provides IntelliSense and validation for `SecretClientSettings` configuration in `appsettings.json`.
+- Name: Azure.Identity.Broker
+  Version: 1.6.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.6.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency from `Azure.Identity` to `Azure.Core` directly, as the `Azure.Identity` types moved to `Azure.Core`.
+    - **This version is required when using `Azure.Identity` 1.21.0 or later (or `Azure.Core` 1.53.0 or later).** Older `Azure.Identity.Broker` versions are not compatible with the type consolidation. See the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/MigrationGuide.md#azureidentitybroker-compatibility) for details.
 
