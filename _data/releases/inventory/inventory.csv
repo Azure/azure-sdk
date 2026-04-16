@@ -158,7 +158,7 @@ Cognitive Services,0,Text Authoring,data,.NET,,,11,false,Azure.AI.Language.Text.
 Cognitive Services,0,Text Translation,data,.NET,,,11,false,Azure.AI.Translation.Text,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation,10,false,1,05/20/2024
 IoT,0,Time Series Insights,data,.NET,,,11,false,Exception: Library not needed. API Spec retired.,,10,false,1,
 Maps,0,TimeZone,data,.NET,,,11,false,Azure.Maps.TimeZones,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps,3,false,1,
-unknown,0,unknown,data,.NET,,,11,false,Azure.AI.Extensions.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,04/01/2026
+unknown,0,unknown,data,.NET,,,11,false,Azure.AI.Projects.Agents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,10,false,1,04/01/2026
 Video Analyzer,0,Video Analyzer Edge,data,.NET,,,11,false,Azure.Media.VideoAnalyzer.Edge,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Vision Common,data,.NET,,,11,false,Azure.AI.Vision.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,false,1,
 Cognitive Services,0,Voice Live,data,.NET,,,11,false,Azure.AI.VoiceLive,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/voicelive,10,false,1,03/02/2026
@@ -2062,6 +2062,7 @@ Cognitive Services,0,Text Analytics,data,Python,azure-cognitiveservices-language
 Cognitive Services,0,Text Analytics Authoring,data,Python,,,11,false,azure-ai-textanalytics-authoring,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage,3,false,1,
 Cognitive Services,0,Text Translation,data,Python,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation,10,false,1,06/24/2024
 Maps,0,TimeZones,data,Python,,,11,false,azure-maps-timezone,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
+unknown,0,unknown,data,Python,,,11,false,azure-ai-agentserver-responses,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agentserver,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,Python,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/videoanalyzer,3,true,1,
 Cognitive Services,0,Voice Live,data,Python,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/voicelive,10,false,1,04/06/2026
 Web PubSub,0,Web PubSub,data,Python,,,11,false,azure-messaging-webpubsubservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub,10,false,1,07/07/2025
@@ -2337,7 +2338,7 @@ unknown,0,unknown,mgmt,Python,,,11,false,azure-mgmt-containerregistrytasks,https
 Cognitive Services,0,AI Agent Server - Agent Framework,UNABLE TO BE DETERMINED,Python,azure-ai-agentserver-agentframework,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Cognitive Services,0,AI Agent Server - LangGraph,UNABLE TO BE DETERMINED,Python,azure-ai-agentserver-langgraph,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Communication,0,azure-communication-administration,UNABLE TO BE DETERMINED,Python,azure-communication-administration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-mgmt-appnetwork,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,Python,azure-ai-agentserver-invocations,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,3,false,,,1,false,0,
 Machine Learning,0,azureml-fsspec,data,Python,azureml-fsspec,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/NA,10,false,,,1,false,0,
 Batch,0,Batch,data,Python,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,,,1,false,0,
 Cognitive Services,0,Ink Recognizer,data,Python,azure-cognitiveservices-inkrecognizer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitiveservices,3,false,Exception: Track 2 library not needed,,10,false,1,
@@ -2473,10 +2474,9 @@ Storage,0,Storage - Blobs Batch,data,Go,,,11,false,Exception: Library not needed
 Event Grid,0,System Events,data,Python,,,11,false,Missing: Created from existing package: Azure.Messaging.EventGrid.SystemEvents,,2,false,0,
 Cognitive Services,0,Text Analytics,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.TextAnalytics,,2,false,0,
 Cognitive Services,0,Text Translation,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Translation.Text,,2,false,0,
-unknown,0,unknown,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.Extensions.OpenAI,,2,false,0,
-unknown,0,unknown,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Extensions.OpenAI,,2,false,0,
-unknown,0,unknown,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.Extensions.OpenAI,,2,false,0,
-unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Extensions.OpenAI,,2,false,0,
+unknown,0,unknown,data,Java,,,11,false,Missing: Created from existing package: Azure.AI.Projects.Agents,,2,false,0,
+unknown,0,unknown,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Projects.Agents,,2,false,0,
+unknown,0,unknown,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Projects.Agents,,2,false,0,
 Cognitive Services,0,Voice Live,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.VoiceLive,,2,false,0,
 Web PubSub,0,Web PubSub Client,data,Go,,,11,false,Missing: Created from existing package: Azure.Messaging.WebPubSub.Client,,2,false,0,
 Extensions,0,Functions extension for Blob Storage,UNABLE TO BE DETERMINED,Java,,,11,false,Missing: Created from existing package: Microsoft.Azure.WebJobs.Extensions.Storage.Blobs,,2,false,0,
@@ -5311,6 +5311,16 @@ Orbital,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs re
 Orbital,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: orbital/cspell.yaml,,2,false,0,
 Orbital,0,cspell.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: orbital/cspell.yaml,,2,false,0,
 Orbital,0,cspell.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: orbital/cspell.yaml,,2,false,0,
+Orbital,0,Orbital,data,.NET,,,11,false,Missing: Created from API in specs repo: orbital/data-plane,,2,false,0,
+Orbital,0,Orbital,data,Java,,,11,false,Missing: Created from API in specs repo: orbital/data-plane,,2,false,0,
+Orbital,0,Orbital,data,JavaScript,,,11,false,Missing: Created from API in specs repo: orbital/data-plane,,2,false,0,
+Orbital,0,Orbital,data,Python,,,11,false,Missing: Created from API in specs repo: orbital/data-plane,,2,false,0,
+Orbital,0,Orbital,data,Go,,,11,false,Missing: Created from API in specs repo: orbital/data-plane,,2,false,0,
+Orbital,0,suppressions.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: orbital/suppressions.yaml,,2,false,0,
+Orbital,0,suppressions.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: orbital/suppressions.yaml,,2,false,0,
+Orbital,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: orbital/suppressions.yaml,,2,false,0,
+Orbital,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: orbital/suppressions.yaml,,2,false,0,
+Orbital,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: orbital/suppressions.yaml,,2,false,0,
 orbitalplanetarycomputer,0,Resource Management - Orbital.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/Orbital.Management,,2,false,0,
 orbitalplanetarycomputer,0,Resource Management - Orbital.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/Orbital.Management,,2,false,0,
 orbitalplanetarycomputer,0,Resource Management - Orbital.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: orbitalplanetarycomputer/Orbital.Management,,2,false,0,
