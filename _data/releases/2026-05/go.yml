@@ -20,4 +20,23 @@ entries:
     * Fixed an issue in `ResponseError.Error()` where the request URL path was being logged unescaped.
     * Redact query parameters when logging errors.
     * For `runtime.JoinPaths`, don't add a slash between root and paths when `paths` starts with `?` (query string).
+- Name: sdk/resourcemanager/kubernetesconfiguration/armextensions
+  Version: 1.0.0
+  DisplayName: Resource Management - Extensions
+  ServiceName: Kubernetesconfiguration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kubernetesconfiguration/armextensions/v1.0.0/sdk/resourcemanager/kubernetesconfiguration/armextensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azappconfig
+  Version: 2.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v2.2.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added new method `NewCheckSettingsPager` which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body.
+    * Added internal pipeline policy to normalize (case-insensitive alphabetical) ordering of query parameters for deterministic request URLs.
 
