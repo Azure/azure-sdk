@@ -78,4 +78,17 @@ entries:
     - `InMemoryResponseProvider` as the default in-process state store.
     - `ResponseProviderProtocol` and `ResponseStreamProviderProtocol` for custom storage implementations.
     - Built-in distributed tracing with OpenTelemetry integration.
+- Name: azure-keyvault-secrets
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.11.0/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01`
+    - Added support for retrieving secrets with `out_content_type`
+    - Added the `previous_version` property to `SecretProperties`
 
