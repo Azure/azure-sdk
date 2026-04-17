@@ -99,4 +99,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.0.0b1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.11.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.11.0/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01`
+    - Added `uris` and `ip_addresses` properties to `SubjectAlternativeNames`
+
+    #### Bugs Fixed
+
+    - When creating a certificate with an unknown issuer, `CertificateClient.(begin_)create_certificate` now returns a
+    `CertificateOperation` instead of `None`
+    - When a certificate operation's error doesn't have an inner error, `CertificateOperationError` will be correctly
+    serialized instead of raising an exception
+    ([Azure/azure-cli #31764](https://github.com/Azure/azure-cli/issues/31764))
 
