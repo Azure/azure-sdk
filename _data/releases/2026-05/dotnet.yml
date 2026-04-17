@@ -132,4 +132,28 @@ entries:
     - `x-agent-response-id` header validation matching the Responses API specification.
     - Conversation ID round-trip support in both synchronous and SSE streaming modes.
     - OpenTelemetry distributed tracing via `Azure.AI.AgentServer.Responses` activity source.
+- Name: Azure.ResourceManager.Dns
+  Version: 1.2.0-beta.3
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Dns_1.2.0-beta.3/sdk/dns/Azure.ResourceManager.Dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Network
+  Version: 1.1.0
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.1.0/sdk/network/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ResourceGraph
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Resourcegraph
+  ServiceName: Resourcegraph
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ResourceGraph_1.0.0-beta.1/sdk/resourcegraph/Azure.Provisioning.ResourceGraph/CHANGELOG.md
+  ChangelogContent: ""
 
