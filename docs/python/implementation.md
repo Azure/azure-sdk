@@ -185,11 +185,11 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 - `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<package_name>`: client library (distribution) package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "azure-keyvault-secrets" would specify "azsdk-python-keyvault-secrets".
 - `<package_version>`: the version of the package. Note: this is not the version of the service
-- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "Python/3.8.4 (Windows-10-10.0.19041-SP0)"
+- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "Python/3.10.4 (Windows-10-10.0.19041-SP0)"
 
 For example, if we re-wrote `AzCopy` in Python using the Azure Blob Storage client library, we may end up with the following user-agent strings:
 
-- (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
+- (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.10.4 (Ubuntu; Linux x86_64; rv:34.0)`
 
 The `azure.core.pipeline.policies.UserAgentPolicy` will provide this functionality if added to the HttpPipeline.
 
