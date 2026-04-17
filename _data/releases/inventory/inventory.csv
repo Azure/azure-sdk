@@ -192,12 +192,13 @@ Kubernetes Configuration,0,Provisioning - Kubernetes Configuration,mgmt,.NET,,,1
 Kusto,0,Provisioning - Kusto,mgmt,.NET,,,11,false,Azure.Provisioning.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Monitor,0,Provisioning - Monitor,mgmt,.NET,,,11,false,Azure.Provisioning.Monitor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor,3,false,1,
 Mysql,0,Provisioning - Mysql,mgmt,.NET,,,11,false,Azure.Provisioning.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql,3,false,1,
-Network,0,Provisioning - Network,mgmt,.NET,,,11,false,Azure.Provisioning.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,03/20/2026
+Network,0,Provisioning - Network,mgmt,.NET,,,11,false,Azure.Provisioning.Network,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/network,10,false,1,04/17/2026
 Provisioning,0,Provisioning - Operational Insights,mgmt,.NET,,,11,false,Azure.Provisioning.OperationalInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/19/2025
 Provisioning,0,Provisioning - PostgreSQL,mgmt,.NET,,,11,false,Azure.Provisioning.PostgreSql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/25/2025
 Provisioning,0,Provisioning - Private DNS,mgmt,.NET,,,11,false,Azure.Provisioning.PrivateDns,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,03/19/2026
 Provisioning,0,Provisioning - Redis,mgmt,.NET,,,11,false,Azure.Provisioning.Redis,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Redisenterprise,0,Provisioning - Redisenterprise,mgmt,.NET,,,11,false,Azure.Provisioning.RedisEnterprise,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
+Resourcegraph,0,Provisioning - Resourcegraph,mgmt,.NET,,,11,false,Azure.Provisioning.ResourceGraph,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/resourcegraph,3,false,1,
 Provisioning,0,Provisioning - Search,mgmt,.NET,,,11,false,Azure.Provisioning.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
 Securitycenter,0,Provisioning - Securitycenter,mgmt,.NET,,,11,false,Azure.Provisioning.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,3,false,1,
 Provisioning,0,Provisioning - Service Bus,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
@@ -667,7 +668,7 @@ StorSimple,0,WindowsAzure Management - StorSimple,mgmt,.NET,Microsoft.WindowsAzu
 Traffic Manager,0,WindowsAzure Management - Traffic Manager,mgmt,.NET,Microsoft.WindowsAzure.Management.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.TrafficManager,,4,false,1,
 Network,0,WindowsAzure Management - Virtual Networks,mgmt,.NET,Microsoft.WindowsAzure.Management.VirtualNetworks,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.Network,,4,false,1,
 App Service,0,WindowsAzure Management - WebSites,mgmt,.NET,Microsoft.WindowsAzure.Management.WebSites,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Replaced by: Azure.ResourceManager.AppService,,4,false,1,
-App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,02/06/2026
+App Configuration,0,App Configuration,data,Go,,,11,false,sdk/data/azappconfig,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azappconfig,10,false,1,04/16/2026
 Batch,0,Batch,data,Go,,,11,false,sdk/batch/azbatch,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/batch/azbatch,3,false,1,
 Container Registry,0,Container Registry,data,Go,,,11,false,sdk/containers/azcontainerregistry,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry,3,false,1,
 Cosmos DB,0,Cosmos DB,data,Go,,,11,false,sdk/data/azcosmos,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos,10,false,1,12/09/2025
@@ -818,7 +819,7 @@ Engagement Fabric,0,Resource Management - Engagement Fabric,mgmt,Go,,,11,false,s
 Event Grid,0,Resource Management - Event Grid,mgmt,Go,,,11,false,sdk/resourcemanager/eventgrid/armeventgrid,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/eventgrid/armeventgrid,10,false,1,03/26/2025
 Event Hubs,0,Resource Management - Event Hubs,mgmt,Go,,,11,false,sdk/resourcemanager/eventhub/armeventhub,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/eventhub/armeventhub,10,false,1,09/25/2024
 Extended Location,0,Resource Management - Extended Location,mgmt,Go,,,11,false,sdk/resourcemanager/extendedlocation/armextendedlocation,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/extendedlocation/armextendedlocation,10,false,1,11/27/2023
-Kubernetesconfiguration,0,Resource Management - Extensions,mgmt,Go,,,11,false,sdk/resourcemanager/kubernetesconfiguration/armextensions,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/kubernetesconfiguration/armextensions,3,false,1,
+Kubernetesconfiguration,0,Resource Management - Extensions,mgmt,Go,,,11,false,sdk/resourcemanager/kubernetesconfiguration/armextensions,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/kubernetesconfiguration/armextensions,10,false,1,04/17/2026
 Kubernetesconfiguration,0,Resource Management - Extensiontypes,mgmt,Go,,,11,false,sdk/resourcemanager/kubernetesconfiguration/armextensiontypes,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/kubernetesconfiguration/armextensiontypes,3,false,1,
 Fabric,0,Resource Management - Fabric,mgmt,Go,,,11,false,sdk/resourcemanager/fabric/armfabric,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/fabric/armfabric,10,false,1,10/22/2024
 Features,0,Resource Management - Features,mgmt,Go,,,11,false,sdk/resourcemanager/resources/armfeatures,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armfeatures,10,false,1,11/23/2023
@@ -1009,9 +1010,9 @@ Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,1
 Identity,0,JDBC Authentication Plugin for PostgreSQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-postgresql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,Token-as-password Authentication Core Library,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-core,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
 Identity,0,Token-as-password Authentication Extensions,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity,10,false,1,01/29/2026
-Cognitive Services,0,AI Agents,data,Java,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,10,false,1,03/30/2026
+Cognitive Services,0,AI Agents,data,Java,,,11,false,azure-ai-agents,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,10,false,1,04/17/2026
 Cognitive Services,0,AI Agents Persistent,data,Java,,,11,false,azure-ai-agents-persistent,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/ai/item.Package/,3,false,1,
-Cognitive Services,0,AI Projects,data,Java,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,10,false,1,03/30/2026
+Cognitive Services,0,AI Projects,data,Java,,,11,false,azure-ai-projects,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,10,false,1,04/17/2026
 Cognitive Services,0,Anomaly Detector,data,Java,,,11,false,azure-ai-anomalydetector,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/anomalydetector/item.Package/,3,true,1,
 App Configuration,0,App Configuration,data,Java,,,11,false,azure-data-appconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration,10,false,1,01/29/2026
 Attestation,0,Attestation,data,Java,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/attestation,10,false,1,01/29/2026
