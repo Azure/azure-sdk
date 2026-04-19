@@ -172,4 +172,124 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.6.0-beta.1/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.2/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Made `ResponsesActivitySource` internal. The activity source is managed by
+    the framework; handlers do not need to create tracing activities directly.
+    - Made `ResponsesTracingConstants` internal. The tracing tag, baggage, and log scope
+    constants are implementation details not needed by handler authors.
+
+    #### Features Added
+
+    - Added chat isolation key enforcement across all endpoints. When a response is created with
+    `x-agent-chat-isolation-key`, all subsequent GET, Cancel, DELETE, and InputItems calls must
+    include the same key. Mismatched or missing keys return 404 (indistinguishable from not-found)
+    to ensure tenant isolation.
+    - Added `x-agent-session-id` response header on all protocol endpoints (POST, GET, Cancel,
+    Delete, InputItems). The resolved session ID is echoed as a response header per spec §8,
+    with fallback to the `FOUNDRY_AGENT_SESSION_ID` environment variable for error responses.
+    - Added validation for malformed response IDs in both the `response_id` path parameter and the
+    `previous_response_id` request body field. IDs that do not match the expected format (prefix
+    and length) are rejected with 400 and a descriptive error message.
+    - Added metadata constraint validation: metadata maps are limited to 16 keys with key length ≤ 64
+    and value length ≤ 512 characters, enforced via the validator pipeline.
+    - Added deterministic `agent_session_id` derivation: SHA-256 hash of
+    `"{agent_name}:{agent_version}:{partition_hint}"` truncated to 63 lowercase hex chars.
+    Falls back to random hex when no conversational context is available.
+    - Added eager eviction of completed `ResponseExecution` entries from the in-flight tracker,
+    reducing memory pressure for long-running servers.
+    - Added `FoundryStorageLoggingPolicy` — an Azure.Core per-retry pipeline policy that logs every
+    outbound Foundry storage API call with HTTP method, URI, status code, duration, and correlation
+    headers (`x-ms-client-request-id`, `x-ms-request-id`, `x-request-id`, `apim-request-id`).
+    - Added structured `Information`-level logging to all Responses API endpoints (GET, Cancel, Delete,
+    InputItems) with response ID context. The POST `/responses` creation log now includes response ID,
+    conversation ID, previous response ID, and store flag for full request traceability.
+    - Added isolation key presence logging (`HasUserIsolationKey`, `HasChatIsolationKey`) to all
+    endpoint handler logs and outbound Foundry storage request logs. Key values are never logged.
+    - Added startup configuration logging: storage provider type, default model, fetch history count,
+    and event stream TTL are logged at `Information` level when the host starts.
+    - Added server version `User-Agent` header on all outbound Foundry storage API requests. The
+    composed identity from `ServerVersionRegistry` (including developer-registered segments) is
+    prepended to the standard Azure.Core user-agent, read lazily per-request.
+    - Added Foundry storage URL masking in diagnostic logs: everything before `/storage` is redacted
+    and query parameters are stripped (except `api-version`) to prevent leaking account and project
+    information.
+    - Added inbound request logging for Tier 1 and Tier 2 setups (via `ResponsesServer.Run()` or
+    `AgentHost.CreateBuilder()`). All incoming HTTP requests are logged with method, path, status
+    code, duration, and correlation headers (`x-request-id`, `x-ms-client-request-id`).
+
+    #### Bugs Fixed
+
+    - Fixed error response shapes to match the container specification: `invalid_request_error` type
+    for 400 errors and `not_found` message format.
+    - Fixed cancel-after-terminal to return `invalid_request_error` type with the correct error shape
+    per the specification.
+    - Fixed DELETE endpoint to return 404 (not 400) when the response ID does not exist, aligning
+    with the specification.
+    - Fixed cancel-after-delete to return 404 (not-found) per the specification.
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.2/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Made `InvocationsActivitySource` internal. The activity source is managed by
+    the framework; handlers do not need to create tracing activities directly.
+
+    #### Features Added
+
+    - Added `x-agent-session-id` response header on GET, Cancel, and OpenAPI endpoints. The POST
+    endpoint already set the header; all Invocations protocol endpoints now include it per spec §8.
+    - Added isolation key presence logging (`HasUserIsolationKey`, `HasChatIsolationKey`) to all
+    endpoint handler logs (POST, GET, Cancel). Key values are never logged.
+    - Added startup configuration logging: protocol registration is logged at `Information` level
+    when the host starts.
+
+    - Added inbound request logging for Tier 1 and Tier 2 setups (via `InvocationsServer.Run()` or
+    `AgentHost.CreateBuilder()`). All incoming HTTP requests are logged with method, path, status
+    code, duration, and correlation headers (`x-request-id`, `x-ms-client-request-id`).
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.22
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.22/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `ServerUserAgentRegistry` to `ServerVersionRegistry`.
+    - Renamed `AgentHostBuilder.UserAgentRegistry` property to `VersionRegistry`.
+    - Renamed `AddAgentServerUserAgent()` to `AddAgentServerVersion()` and
+    `UseAgentServerUserAgent()` to `UseAgentServerVersion()`. The version middleware
+    no longer bundles the inbound request logging registration — use the new
+    `AddAgentServerLogging()` / `UseAgentServerLogging()` pair separately.
+    - Made `AgentHostTelemetry` internal. The telemetry source and meter name constants
+    are implementation details; use the string values directly if needed for OTel filtering.
+
+    #### Features Added
+
+    - Added `HttpClient` instrumentation (`AddHttpClientInstrumentation`) for both tracing and metrics
+    in the OTLP-only telemetry path. This exports outbound HTTP client spans, enabling end-to-end
+    distributed trace correlation through Foundry storage and other downstream services.
+    - Added inbound request logging middleware that logs all incoming HTTP requests with method, path,
+    status code, duration, correlation headers (`x-request-id`, `x-ms-client-request-id`), and
+    OpenTelemetry trace ID. Successful requests log at `Information` level; 4xx/5xx responses log at
+    `Warning` level. Request start is logged at `Information` level.
+    - Added `AddAgentServerLogging()` and `UseAgentServerLogging()` extensions for Tier 3 setups to
+    independently enable the inbound request logging middleware.
+    - Added startup configuration logging: platform environment, connectivity, host options, and
+    registered protocols are logged at `Information` level when the host starts.
 
