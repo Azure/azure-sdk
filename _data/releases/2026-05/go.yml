@@ -39,4 +39,12 @@ entries:
     #### Features Added
     * Added new method `NewCheckSettingsPager` which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body.
     * Added internal pipeline policy to normalize (case-insensitive alphabetical) ordering of query parameters for deterministic request URLs.
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.1.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
 
