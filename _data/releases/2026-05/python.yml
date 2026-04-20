@@ -257,4 +257,14 @@ entries:
     #### Bugs Fixed
 
     * Fix missing type hinting on the returned OpenAI client from method 'get_openai_client()`.
+- Name: azure-ai-contentunderstanding
+  Version: 1.1.0
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.1.0/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `usage` property on `AnalyzeLROPoller` and `AnalyzeAsyncLROPoller` to surface billing and token consumption details (`UsageDetails`) returned by the REST API.
 
