@@ -107,4 +107,22 @@ entries:
     * Fixed an issue where `readContainerThroughput` was always called even when `targetThroughput` is explicitly configured, requiring unnecessary `throughputSettings/read` permission for AAD principals. - See [PR 48800](https://github.com/Azure/azure-sdk-for-java/pull/48800)
     * Fixed JVM `<clinit>` deadlock when multiple threads concurrently trigger Cosmos SDK class loading for the first time. - See [PR 48689](https://github.com/Azure/azure-sdk-for-java/pull/48689)
   GroupId: com.azure.cosmos.spark
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.59.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.59.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-kubernetesconfiguration-extensions
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-kubernetesconfiguration-extensions_1.0.0/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
