@@ -22,4 +22,23 @@ entries:
     - Add `project.beta.agents` route for accessing beta agent operations such as managed agent identity blueprints, session files, and sessions
     - Add `project.beta.skills` route for accessing skills
     - Add `project.beta.toolboxes` route for accessing toolbox features
+- Name: '@azure/arm-kubernetesconfiguration-extensions'
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensions_1.0.0/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.9.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.9.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [#38124](https://github.com/Azure/azure-sdk-for-js/pull/38124) Fixed incorrect SQL filter generation in ORDER BY queries with continuation tokens. Backslashes and single quotes in `orderByItem` values are now properly escaped in `formatValueForSQL` before being embedded in WHERE clauses.
 
