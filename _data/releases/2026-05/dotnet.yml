@@ -292,4 +292,105 @@ entries:
     independently enable the inbound request logging middleware.
     - Added startup configuration logging: platform environment, connectivity, host options, and
     registered protocols are logged at `Information` level when the host starts.
+- Name: Azure.ResourceManager.AppComplianceAutomation
+  Version: 1.0.2
+  DisplayName: Resource Management - App Compliance Automation
+  ServiceName: App Compliance Automation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppComplianceAutomation_1.0.2/sdk/appcomplianceautomation/Azure.ResourceManager.AppComplianceAutomation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApiManagement
+  Version: 1.3.1
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiManagement_1.3.1/sdk/apimanagement/Azure.ResourceManager.ApiManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ApiCenter
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - API Center
+  ServiceName: API Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ApiCenter_1.1.0-beta.1/sdk/apicenter/Azure.ResourceManager.ApiCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ArizeAIObservabilityEval
+  Version: 1.0.1
+  DisplayName: Resource Management - Arizeaiobservabilityeval
+  ServiceName: Arizeaiobservabilityeval
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ArizeAIObservabilityEval_1.0.1/sdk/arizeaiobservabilityeval/Azure.ResourceManager.ArizeAIObservabilityEval/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AgriculturePlatform
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Agricultureplatform
+  ServiceName: Agricultureplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AgriculturePlatform_1.0.0-beta.2/sdk/agricultureplatform/Azure.ResourceManager.AgriculturePlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Astro
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Astro
+  ServiceName: Astro
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Astro_1.0.0-beta.3/sdk/astronomer/Azure.ResourceManager.Astro/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.3/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `previous_response_id` and `conversation.id` are now validated against the provider before
+    the handler is invoked. Invalid references return HTTP 404/400 immediately instead of being
+    silently ignored. The resolved history item IDs are cached — handlers calling
+    `GetHistoryAsync()` reuse the prefetched result without a second storage lookup.
+
+    #### Bugs Fixed
+
+    - Foundry storage error responses now preserve the full error body (`code`, `message`, `param`, `type`)
+    when returned to the client. Previously only the `message` field was forwarded; `param` was lost.
+    - Non-400/404/409 error status codes from Foundry storage are no longer proxied as-is; they are
+    normalized to HTTP 500 to avoid leaking upstream infrastructure details.
+- Name: Azure.ResourceManager.Attestation
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Attestation_1.0.0-beta.6/sdk/attestation/Azure.ResourceManager.Attestation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Analysis
+  Version: 1.1.2
+  DisplayName: Resource Management - Analysis
+  ServiceName: Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Analysis_1.1.2/sdk/analysisservices/Azure.ResourceManager.Analysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AlertsManagement
+  Version: 1.1.2
+  DisplayName: Resource Management - Alerts Management
+  ServiceName: Alerts Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AlertsManagement_1.1.2/sdk/alertsmanagement/Azure.ResourceManager.AlertsManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AgFoodPlatform
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Agrifood
+  ServiceName: Agrifood
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AgFoodPlatform_1.0.0-beta.6/sdk/agrifood/Azure.ResourceManager.AgFoodPlatform/CHANGELOG.md
+  ChangelogContent: ""
 
