@@ -201,4 +201,60 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.1.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.1.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Tracing: trace context propagation is enabled by default when tracing is enabled.
+
+    #### Features Added
+
+    * `get_openai_client()` on `AIProjectClient` now takes an optional input argument `agent_name`. If provided, the returned OpenAI
+    client will use a base URL of Agent endpoint instead of Foundry Project endpoint. As Agent endpoints are a preview feature, you
+    need to set `allow_preview=True` on the `AIProjectClient` constructor.
+    * New `.beta.agents` sub-client added, with Session operations (those only work with Hosted Agents)
+    * `create_session()`
+    * `delete_session()`
+    * `delete_session_file()`
+    * `download_session_file()`
+    * `get_session()`
+    * `get_session_files()`
+    * `list_sessions()`
+    * `upload_session_file()`
+    * Also on `.beta.agents` sub-client, a new method `patch_agent_details()`.
+    * New `beta.skills` sub-client added, with Skills operations:
+    * `create()`
+    * `create_from_package()`
+    * `delete()`
+    * `download()`
+    * `get()`
+    * `list()`
+    * `update()`
+    * New `beta.toolboxes` sub-client added, with Toolboxes operations:
+    * `create_version()`
+    * `delete()`
+    * `delete_version()`
+    * `get()`
+    * `get_version()`
+    * `list()`
+    * `list_versions()`
+    * `update()`
+    * Type hinting support for OpenAI client operations `.evals.create()` and `.evals.runs.create()`, when you
+    get the OpenAI client using `get_openai_client()` method of `AIProjectClient`. This includes new TypedDicts
+    classes to help you author the input to these methods. See new TypedDict classes `ModelSamplingConfigParam`,
+    `ToolDescriptionParam`, `AzureAIAgentTargetParam`, `AzureAIModelTargetParam`,
+    `ResponseRetrievalItemGenerationParams`, `AzureAIResponsesEvalRunDataSource`, `AzureAIDataSourceConfig`,
+    `TargetCompletionEvalRunDataSource`, `TestingCriterionAzureAIEvaluator`, `AzureAIBenchmarkPreviewEvalRunDataSource`,
+    `EvalCsvFileIdSource`, `EvalCsvRunDataSource`, `RedTeamEvalRunDataSource`, `TracesPreviewEvalRunDataSource`.
+
+
+    #### Bugs Fixed
+
+    * Fix missing type hinting on the returned OpenAI client from method 'get_openai_client()`.
 
