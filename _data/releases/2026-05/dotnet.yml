@@ -404,4 +404,118 @@ entries:
     #### Other Changes
 
     - Fixed broken links and corrected sample code in the README.
+- Name: Azure.ResourceManager.Blueprint
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Blueprint
+  ServiceName: Blueprint
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Blueprint_1.0.0-beta.6/sdk/blueprint/Azure.ResourceManager.Blueprint/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Automanage
+  Version: 1.1.2
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Automanage_1.1.2/sdk/automanage/Azure.ResourceManager.Automanage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CarbonOptimization
+  Version: 1.0.1
+  DisplayName: Resource Management - Carbonoptimization
+  ServiceName: Carbonoptimization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CarbonOptimization_1.0.1/sdk/carbon/Azure.ResourceManager.CarbonOptimization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects.Agents
+  Version: 2.1.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_2.1.0-beta.1/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `AgentToolboxes` client, which can be retrieved using `GetAgentToolboxes` method of `AgentAdministrationClient`.
+    - In `AgentAdministrationClient` added CRUD operations for sessions on the hosted Agent.
+    - Added `AgentSessionFiles` client to work with the files in the session samdbox.
+    - Added `ProjectAgentSkills` to manage agent skills.
+    - Added `GetSessionLogStreamAsync` and `GetSessionLogStream` to get the logs from the hosted Agent docker container.
+- Name: Azure.ResourceManager.ChangeAnalysis
+  Version: 1.1.2
+  DisplayName: Resource Management - Change Analysis
+  ServiceName: Change Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ChangeAnalysis_1.1.2/sdk/changeanalysis/Azure.ResourceManager.ChangeAnalysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 2.1.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_2.1.0-beta.1/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - The sample for Hosted agent was updated.
+- Name: Azure.ResourceManager.Automation
+  Version: 1.1.2
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Automation_1.1.2/sdk/automation/Azure.ResourceManager.Automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Billing
+  Version: 1.2.2
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Billing_1.2.2/sdk/billing/Azure.ResourceManager.Billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.BotService
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BotService_1.2.0-beta.1/sdk/botservice/Azure.ResourceManager.BotService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 2.1.0-beta.1
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.1.0-beta.1/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added Toolboxes sample.
+- Name: Azure.ResourceManager.Chaos
+  Version: 1.1.1
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Chaos_1.1.1/sdk/chaos/Azure.ResourceManager.Chaos/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Cloudhealth
+  ServiceName: Cloudhealth
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.2/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.BillingBenefits
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Billing Benefits
+  ServiceName: Billing Benefits
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BillingBenefits_1.0.0-beta.5/sdk/billingbenefits/Azure.ResourceManager.BillingBenefits/CHANGELOG.md
+  ChangelogContent: ""
 
