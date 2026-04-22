@@ -518,4 +518,104 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.BillingBenefits_1.0.0-beta.5/sdk/billingbenefits/Azure.ResourceManager.BillingBenefits/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.CostManagement
+  Version: 1.0.3
+  DisplayName: Resource Management - Costmanagement
+  ServiceName: Cost Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CostManagement_1.0.3/sdk/costmanagement/Azure.ResourceManager.CostManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CosmosDBForPostgreSql
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Cosmos DB for PostgreSQL
+  ServiceName: Cosmos DB for PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDBForPostgreSql_1.1.0-beta.3/sdk/cosmosdbforpostgresql/Azure.ResourceManager.CosmosDBForPostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerOrchestratorRuntime
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Container Orchestrator Runtime
+  ServiceName: Container Orchestrator Runtime
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerOrchestratorRuntime_1.0.0-beta.2/sdk/containerorchestratorruntime/Azure.ResourceManager.ContainerOrchestratorRuntime/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CustomerInsights
+  Version: 1.0.0
+  DisplayName: Resource Management - Customer Insights
+  ServiceName: Customer Insights
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CustomerInsights_1.0.0/sdk/customer-insights/Azure.ResourceManager.CustomerInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.1.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.1.0/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ContentUnderstandingClientSettings` to support creating a `ContentUnderstandingClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added `AnalyzeUsageDetails` class and `AnalyzeOperationExtensions.GetUsage()` extension method to surface billing and token consumption details (`AnalyzeUsageDetails`) returned by the REST API.
+- Name: Azure.ResourceManager.DatabaseWatcher
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Database Watcher
+  ServiceName: Database Watcher
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DatabaseWatcher_1.0.0-beta.2/sdk/databasewatcher/Azure.ResourceManager.DatabaseWatcher/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeFleet
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeFleet_1.1.0-beta.1/sdk/computefleet/Azure.ResourceManager.ComputeFleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataBox
+  Version: 1.1.1
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataBox_1.1.1/sdk/databox/Azure.ResourceManager.DataBox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConnectedVMwarevSphere
+  Version: 1.1.2
+  DisplayName: Resource Management - Connected VMware vSphere
+  ServiceName: Connected VMware vSphere
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedVMwarevSphere_1.1.2/sdk/connectedvmwarevsphere/Azure.ResourceManager.ConnectedVMwarevSphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Relationships
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Relationships_1.0.0-beta.1/sdk/relationships/Azure.ResourceManager.Relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageMover
+  Version: 1.4.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageMover_1.4.0/sdk/storagemover/Azure.ResourceManager.StorageMover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KubernetesConfiguration.Extensions
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration.Extensions
+  ServiceName: Kubernetesconfiguration.Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.Extensions_1.0.0/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.Extensions/CHANGELOG.md
+  ChangelogContent: ""
 
