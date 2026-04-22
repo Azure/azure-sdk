@@ -44,4 +44,60 @@ entries:
     #### Other Changes
 
     - Updated dependencies.
+- Name: azure_core_opentelemetry
+  Version: 0.9.0
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.9.0/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_core_amqp
+  Version: 0.14.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.14.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: typespec_client_core
+  Version: 0.14.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.14.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added connection timeout of 20s and read timeout of 60s.
+    - Removed the `reqwest_native_tls` feature in favor of `reqwest_rustls`.
+    - `new_http_client()` now takes an `Option<HttpClientOptions>` to disable automatic decompression - still enabled by default if `reqwest_gzip` or `reqwest_deflate` features are enabled.
+
+    #### Features Added
+
+    - Added the `reqwest_rustls` feature to use `aws-lc-rs` as the default TLS provider.
+- Name: azure_core
+  Version: 0.35.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.35.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added connection timeout of 20s and read timeout of 60s.
+    - Removed the `reqwest_native_tls` feature in favor of `reqwest_rustls`.
+    - `new_http_client()` now takes an `Option<HttpClientOptions>` to disable automatic decompression - still enabled by default if `reqwest_gzip` or `reqwest_deflate` features are enabled.
+
+    #### Features Added
+
+    - Added the `reqwest_rustls` feature to use `aws-lc-rs` as the default TLS provider.
 
