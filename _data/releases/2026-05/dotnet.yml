@@ -821,4 +821,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevOpsInfrastructure_1.0.0/sdk/devopsinfrastructure/Azure.ResourceManager.DevOpsInfrastructure/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 2.0.1
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.0.1/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adopted `Azure.Core` 1.53.0, which type-forwards the `Azure.Identity` namespace. The explicit `Azure.Identity` package dependency has been removed; the `Azure.Identity` types remain available transitively through `Azure.Core`.
+- Name: Microsoft.Extensions.Azure
+  Version: 1.14.0
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.14.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adopted the new `Azure.Core` version that includes the identity types moved from `Azure.Identity`.
 
