@@ -8,7 +8,7 @@
 [Azure Core]: https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core/azure-core
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 [Mockito]: https://site.mockito.org/
-[Unit testing wiki]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-test/README.md
+[Unit testing wiki]: https://github.com/Azure/azure-sdk-for-java/blob/main/docs/contributor/unit-testing.md
 [Approved dependencies]: https://azure.github.io/azure-sdk-for-android/
 
 <!-- Example Links -->
