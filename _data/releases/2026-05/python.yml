@@ -294,4 +294,50 @@ entries:
     #### Other Changes
 
     - Moved the package to a new service category folder `transcription`.
+- Name: azure-mgmt-azurestackhci
+  Version: 8.1.0b1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.1.0b1/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b5/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed crash in `FoundryStorageLoggingPolicy` when a transport-level failure (DNS resolution, connection refused, timeout) occurs before any HTTP response is received. The policy previously attempted to access `response.headers` unconditionally, raising an unrelated exception that masked the real transport error. Transport failures are now logged at ERROR level and the original exception propagates cleanly.
+    - Fixed `ResponseContext.get_input_text()` and `ResponseContext.get_input_items()` silently dropping text when `ItemMessage.content` is a plain string. String content is now correctly expanded into `MessageContentInputTextContent`.
+
+    #### Features Added
+
+    - All HTTP responses now include an `x-request-id` header for request correlation. Value is resolved in priority order: OTEL trace ID → incoming `x-request-id` header → new UUID.
+    - Error responses (4xx/5xx) with a JSON `error` body are automatically enriched with `error.additionalInfo.request_id` matching the `x-request-id` response header, enabling client-side error correlation.
+    - Persistence failure resilience — when storage operations fail, responses now complete gracefully with `status: "failed"` and `error.code: "storage_error"` instead of crashing or leaving responses permanently stuck at `in_progress`. Covers all execution modes (streaming, background+streaming, background+non-streaming, synchronous). For streaming responses, terminal SSE events are buffered, persistence is attempted, and on failure the terminal event is replaced with `response.failed` carrying `error_code="storage_error"`. Synchronous persistence failures return HTTP 500 with the storage error details.
+    - Foundry storage logging now includes the `traceparent` header (W3C distributed trace ID) in all log messages, enabling correlation between SDK log entries and backend distributed traces.
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b3
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b3/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `RequestIdMiddleware` — pure-ASGI middleware that sets an `x-request-id` response header on every response. The request ID is resolved from the OpenTelemetry trace ID, an incoming `x-request-id` header, or a generated UUID (in that priority). The resolved value is stored in ASGI scope state under the well-known key `agentserver.request_id` for use by sibling protocol packages. Automatically wired into `AgentServerHost`.
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.2.0
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_1.2.0/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
 
