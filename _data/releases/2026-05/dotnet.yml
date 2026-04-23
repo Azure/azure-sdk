@@ -618,4 +618,207 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.Extensions_1.0.0/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.Extensions/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.4/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `InvalidOperationException: Response was not set` crash in `FoundryStorageLoggingPolicy` when
+    a transport-level failure (DNS resolution, connection refused, timeout) occurs before any HTTP
+    response is received. These failures are now logged at `Error` level without triggering the
+    logging crash, and the original transport exception continues to propagate.
+    - Fixed `GetInputExpanded` not normalizing string content shorthand on `ItemMessage`. When
+    `content` is a plain JSON string (e.g., `"Hello"`), it is now auto-expanded to the canonical
+    array form (`[{"type":"input_text","text":"Hello"}]`) so that `ItemMessage.Content` BinaryData
+    is always consistent regardless of input format.
+
+    #### Features Added
+
+    - Foundry storage logging now includes the `traceparent` header (W3C distributed trace ID) in all
+    log messages, enabling correlation between SDK log entries and backend distributed traces.
+    - All endpoints now return the `x-request-id` response header for request correlation (via Core
+    `RequestIdMiddleware`). Value is resolved from OTEL trace ID → incoming `x-request-id` header → GUID.
+    - Error responses (`ApiErrorResponse`) are automatically enriched with `error.additionalInfo.request_id`
+    matching the `x-request-id` response header value, enabling client-side error correlation.
+    - Persistence failure resilience — when storage operations fail, responses now complete gracefully
+    with `status: "failed"` and `error.code: "storage_error"` instead of crashing or leaving responses
+    permanently stuck at `in_progress`. Covers all execution modes (streaming, background+streaming,
+    background+non-streaming, synchronous). For streaming responses, terminal SSE events are buffered,
+    persistence is attempted, and on failure the terminal event is replaced with `response.failed`
+    carrying `error_code="storage_error"`. Synchronous persistence failures return HTTP 500 with the
+    storage error details.
+- Name: Azure.ResourceManager.Consumption
+  Version: 1.1.0
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Consumption_1.1.0/sdk/consumption/Azure.ResourceManager.Consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeAnalytics
+  Version: 1.1.2
+  DisplayName: Resource Management - Data Lake Analytics
+  ServiceName: Data Lake Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeAnalytics_1.1.2/sdk/datalake-analytics/Azure.ResourceManager.DataLakeAnalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataLakeStore
+  Version: 1.1.2
+  DisplayName: Resource Management - Data Lake Store
+  ServiceName: Data Lake Store
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataLakeStore_1.1.2/sdk/datalake-store/Azure.ResourceManager.DataLakeStore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Hci.Vm
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Hci.Vm
+  ServiceName: Hci.Vm
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci.Vm_1.0.0-beta.2/sdk/azurestackhci/Azure.ResourceManager.Hci.Vm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DefenderEasm
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Defender EASM
+  ServiceName: Defender EASM
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DefenderEasm_1.0.0-beta.4/sdk/defendereasm/Azure.ResourceManager.DefenderEasm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DevCenter
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevCenter_1.1.0-beta.1/sdk/devcenter/Azure.ResourceManager.DevCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DataShare
+  Version: 1.1.2
+  DisplayName: Resource Management - Data Share
+  ServiceName: Data Share
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataShare_1.1.2/sdk/datashare/Azure.ResourceManager.DataShare/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceUpdate
+  Version: 1.0.2
+  DisplayName: Resource Management - Device Update
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceUpdate_1.0.2/sdk/deviceupdate/Azure.ResourceManager.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ServiceNetworking
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Servicenetworking
+  ServiceName: Servicenetworking
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ServiceNetworking_1.0.0-beta.1/sdk/servicenetworking/Azure.Provisioning.ServiceNetworking/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DigitalTwins
+  Version: 1.3.2
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DigitalTwins_1.3.2/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.3/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - All endpoints now return the `x-request-id` response header for request correlation (via Core
+    `RequestIdMiddleware`). Value is resolved from OTEL trace ID → incoming `x-request-id` header → GUID.
+- Name: Azure.ResourceManager.DependencyMap
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Dependencymap
+  ServiceName: Dependencymap
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DependencyMap_1.0.0-beta.2/sdk/dependencymap/Azure.ResourceManager.DependencyMap/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Hci
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.3.0-beta.1/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.23
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.23/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `IsolationContext.UserIsolationKeyHeaderName` and `IsolationContext.ChatIsolationKeyHeaderName`
+    — use `PlatformHeaders.UserIsolationKey` and `PlatformHeaders.ChatIsolationKey` instead.
+    - Replaced `AddAgentServerRequestId()`, `AddAgentServerVersion()`, `AddAgentServerLogging()`,
+    `UseAgentServerRequestId()`, `UseAgentServerVersion()`, and `UseAgentServerLogging()` with a
+    single `AddAgentServerCore()` / `UseAgentServerCore()` pair. Tier 3 standalone setups now use
+    two calls instead of six.
+
+    #### Features Added
+
+    - Added `PlatformHeaders` static class centralizing all platform HTTP header name constants
+    (`x-request-id`, `x-platform-server`, `x-agent-session-id`, isolation keys, `traceparent`,
+    `x-ms-client-request-id`). All AgentServer packages now reference these shared constants
+    instead of declaring private duplicates.
+    - Added `RequestIdMiddleware` that sets the `x-request-id` response header on every HTTP response.
+    Value is resolved in priority order: OTEL trace ID → incoming `x-request-id` header → new GUID.
+    Registered automatically by `AgentHostBuilder` and by `AddAgentServerCore()` for
+    standalone (Tier 3) setups.
+    - Added `RequestIdBaggagePropagator` middleware that propagates incoming `x-request-id` header
+    values into `Activity.Baggage` for end-to-end distributed tracing correlation.
+- Name: Azure.ResourceManager.DevSpaces
+  Version: 1.0.0
+  DisplayName: Resource Management - Dev Spaces
+  ServiceName: Dev Spaces
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevSpaces_1.0.0/sdk/devspaces/Azure.ResourceManager.DevSpaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConfidentialLedger
+  Version: 1.1.0
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConfidentialLedger_1.1.0/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConfidentialLedger
+  Version: 1.0.2
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConfidentialLedger_1.0.2/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DevOpsInfrastructure
+  Version: 1.0.0
+  DisplayName: Resource Management - DevOps Infrastructure
+  ServiceName: DevOps Infrastructure
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevOpsInfrastructure_1.0.0/sdk/devopsinfrastructure/Azure.ResourceManager.DevOpsInfrastructure/CHANGELOG.md
+  ChangelogContent: ""
 
