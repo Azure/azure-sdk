@@ -41,4 +41,27 @@ entries:
     #### Bugs Fixed
 
     - [#38124](https://github.com/Azure/azure-sdk-for-js/pull/38124) Fixed incorrect SQL filter generation in ORDER BY queries with continuation tokens. Backslashes and single quotes in `orderByItem` values are now properly escaped in `formatValueForSQL` before being embedded in WHERE clauses.
+- Name: '@azure/event-hubs'
+  Version: 6.0.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.4/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `TimeoutNegativeWarning` on Node.js v24+ when timeout budget is exceeded during CBS authentication by clamping remaining-time computations to a minimum of 0. [#38166](https://github.com/Azure/azure-sdk-for-js/pull/38166)
+- Name: '@azure/core-amqp'
+  Version: 4.4.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.4.2/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle `AggregateError` in `translate()` for Node.js 20+ Happy Eyeballs (RFC 8305). When DNS resolution fails over dual-stack connections, Node.js now throws an `AggregateError` bundling IPv4 and IPv6 errors. The `translate()` function now translates all inner errors and returns a properly annotated `AggregateError` with correct `retryable` semantics. [#38233](https://github.com/Azure/azure-sdk-for-js/pull/38233)
+    - Clamp negative timeout values passed to `setTimeout` to a minimum of 0 when timeout budgets are exceeded in shared request/locking paths, preventing `TimeoutNegativeWarning` on Node.js v24+ (for example, during CBS authentication). [#38166](https://github.com/Azure/azure-sdk-for-js/pull/38166)
 
