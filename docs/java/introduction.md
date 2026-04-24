@@ -1052,7 +1052,7 @@ Here are some namespaces that do not meet the guidelines:
 
 All client libraries must support mocking to enable non-live testing of service clients by customers. One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-Below is an example of writing a mock unit test using the [Mockito framework](https://site.mockito.org/). For more details on using Mockito in the context of the Azure SDK for Java, refer to the [unit testing](https://github.com/Azure/azure-sdk-for-java/wiki/Unit-Testing) wiki documentation.
+Below is an example of writing a mock unit test using the [Mockito framework](https://site.mockito.org/). For more details on using Mockito in the context of the Azure SDK for Java, refer to the [unit testing](https://github.com/Azure/azure-sdk-for-java/blob/main/docs/contributor/unit-testing.md) documentation.
 
 ```java
 public class UserPreferencesTest {
