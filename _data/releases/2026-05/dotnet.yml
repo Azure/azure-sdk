@@ -931,4 +931,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeZones_1.0.0-beta.3/sdk/edgezones/Azure.ResourceManager.EdgeZones/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.54.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.54.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed duplicate top-level `required: ["CredentialSource"]` from the `credential` definition in `ConfigurationSchema.json` to prevent duplicate entries when the schema is merged with `System.ClientModel`'s schema.
 
