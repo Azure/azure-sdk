@@ -115,4 +115,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicegroups_1.0.0-beta.1/sdk/servicegroups/arm-servicegroups/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-content-understanding'
+  Version: 1.1.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-understanding_1.1.0/sdk/contentunderstanding/ai-content-understanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Billing and token consumption details are now available after analysis operations complete. Access via `poller.operationState?.usage`.
+    - The operation ID is now available on the operation state via `poller.operationState?.operationId`.
 
