@@ -135,4 +135,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitorslis_1.0.0-beta.1/sdk/monitor/arm-monitorslis/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/postgresql-auth'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/postgresql-auth_1.0.0-beta.1/sdk/postgresql/postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `entraTokenProvider` function for acquiring Entra ID tokens as PostgreSQL passwords.
+    - Added `configureEntraAuthentication` function for automatic Sequelize Entra ID authentication via `beforeConnect` hook.
+    - Support for `pg` (node-postgres) and Sequelize clients as optional peer dependencies.
 
