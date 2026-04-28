@@ -617,7 +617,7 @@ Despite the availability of the `asyncio` library and the `async`/`await` keywor
 
 {% include requirement/MUST id="python-client-sync-async" %} provide both sync and async versions of your APIs
 
-{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords. Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords. Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.10/library/asyncio-task.html) syntax.
 
 {% include requirement/MUST id="python-client-separate-sync-async" %} provide two separate client classes for synchronous and asynchronous operations.  Do not combine async and sync operations in the same class.
 

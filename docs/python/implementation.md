@@ -547,7 +547,7 @@ azure.exampleservice.some_internal_module
 {% include requirement/MUST id="python-codestyle-use-builtin-generics" %} use built-in generic types (`list`, `dict`, `tuple`, `set`) in type annotations instead of their `typing` module counterparts (`typing.List`, `typing.Dict`, `typing.Tuple`, `typing.Set`). This is supported as of Python 3.9 ([PEP 585](https://www.python.org/dev/peps/pep-0585/)).
 
 ```python
-# Yes (Python 3.9+):
+# Yes (Python 3.10+):
 def get_things() -> list[str]: ...
 def get_mapping() -> dict[str, int]: ...
 
@@ -557,19 +557,15 @@ def get_things() -> List[str]: ...
 def get_mapping() -> Dict[str, int]: ...
 ```
 
-{% include requirement/MUST id="python-codestyle-union-optional" %} use `typing.Union` and `typing.Optional` for union types.
-
-<!-- NOTE: If the minimum supported Python version is raised to 3.10+, use the `X | Y` union syntax
-(PEP 604) instead of `typing.Union[X, Y]` and `X | None` instead of `typing.Optional[X]`.
-For example: `def foo(x: int | str) -> str | None: ...` -->
+{% include requirement/MUST id="python-codestyle-union-optional" %} use the `X | Y` union syntax ([PEP 604](https://www.python.org/dev/peps/pep-0604/)) instead of `typing.Union[X, Y]`, and `X | None` instead of `typing.Optional[X]`. This is supported as of Python 3.10.
 
 ```python
-# Yes (Python 3.9):
+# Yes (Python 3.10+):
+def foo(x: int | str) -> str | None: ...
+
+# No:
 from typing import Optional, Union
 def foo(x: Union[int, str]) -> Optional[str]: ...
-
-# No (requires Python 3.10+):
-def foo(x: int | str) -> str | None: ...
 ```
 
 ### Threading
