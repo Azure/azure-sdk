@@ -10,6 +10,7 @@ param (
 )
 
 . (Join-Path $commonScriptPath ChangeLog-Operations.ps1)
+. (Join-Path $commonScriptPath Helpers PSModule-Helpers.ps1)
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 function GetChangelogBlobLink($packageName, $packageVersion, $packageMetadata)
@@ -159,11 +160,7 @@ else
   $yamlContent = "entries:"
 }
 
-# Install Powershell Yaml
-$ProgressPreference = "SilentlyContinue"
-$ToolsFeed = "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-tools/nuget/v2"
-Register-PSRepository -Name azure-sdk-tools-feed -SourceLocation $ToolsFeed -PublishLocation $ToolsFeed -InstallationPolicy Trusted -ErrorAction SilentlyContinue
-Install-Module -Repository azure-sdk-tools-feed powershell-yaml
+Install-ModuleIfNotInstalled "powershell-yaml" "0.4.7" | Import-Module
 
 $existingYamlContent = ConvertFrom-Yaml $yamlContent -Ordered
 if (!$existingYamlContent.entries)
