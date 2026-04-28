@@ -339,20 +339,14 @@ function Get-go-Packages
 function Get-rust-Packages
 {
   $packages = @()
-  # https://crates.io/api/v1/users/azure-sdk to find user id
-  $next_page = '?user_id=313465&per_page=100'
-  $crates = while ($next_page) {
-      $page = Invoke-RestMethod "https://crates.io/api/v1/crates$next_page"
-      $next_page = $page.meta.next_page
-      $page.crates
-  }
+  $repoTags = GetPackageVersions "rust"
 
-  Write-Host "Found $($crates.Count) crates belonging to azure-sdk"
+  Write-Host "Found $($repoTags.Count) recent tags in rust repo"
 
-  $packages = @()
-  foreach ($crate in $crates)
+  foreach ($tag in $repoTags.Keys)
   {
-    $packages += CreatePackage $crate.name $crate.max_version
+    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $packages += CreatePackage $tag $versions[0]
   }
 
   return $packages
