@@ -219,4 +219,19 @@ entries:
     - `ContainerClient::create_item()` and `ContainerClient::upsert_item()` now require an `item_id: &str` parameter (same pattern as `replace_item` and `read_item`). The item id is passed to the driver via `ItemReference` so the body never needs to be parsed to extract the document id.
     - Renamed `replace_throughput` to `begin_replace_throughput` on `ContainerClient` and `DatabaseClient`. The return type changed from `ResourceResponse<ThroughputProperties>` to `ThroughputPoller`. ([#4096](https://github.com/Azure/azure-sdk-for-rust/pull/4096))
     - Removed `CreateDatabaseOptions::with_throughput()`. Database-level shared throughput provisioning is no longer supported through the SDK. Use container-level throughput instead. ([#4147](https://github.com/Azure/azure-sdk-for-rust/pull/4147))
+- Name: azure_data_cosmos_driver
+  Version: 0.2.0
+  DisplayName: Cosmos DB Client Driver
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_driver@0.2.0/sdk/cosmos/azure_data_cosmos_driver/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `item_lsn` field to `CosmosResponseHeaders` for the `x-ms-item-lsn` response header.
+    - Added `partition_key_range_id` and `internal_partition_id` fields to `CosmosResponseHeaders` for the `x-ms-documentdb-partitionkeyrangeid` and `x-ms-cosmos-internal-partition-id` response headers. ([#4278](https://github.com/Azure/azure-sdk-for-rust/pull/4278))
+    - Added `rustls` feature flag (enabled by default) that configures reqwest with rustls as the TLS stack. ([#4252](https://github.com/Azure/azure-sdk-for-rust/pull/4252))
+    - Added `native_tls` feature flag that configures reqwest with native-tls as the TLS stack. Disable default features and enable `native_tls` to use the platform TLS stack. ([#4252](https://github.com/Azure/azure-sdk-for-rust/pull/4252))
+    - Added `SessionToken::merge()` for merging two session tokens by partition key range ID. ([#4214](https://github.com/Azure/azure-sdk-for-rust/pull/4214))
 
