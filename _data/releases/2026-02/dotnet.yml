@@ -95,4 +95,299 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - This release contains bug fixes to improve quality.
+- Name: Azure.ResourceManager.Compute
+  Version: 1.14.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.14.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.6/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added AgentRunContext with request, user info, and tool metadata.
+    - Batched Foundry tool detail resolution with cached details.
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.6/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added ChatClientBuilder.UseFoundryTools for Foundry tool discovery in chat pipelines.
+    - Added FoundryToolsChatClient to merge resolved tools into chat options.
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.6/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.Provisioning
+  Version: 1.5.0-beta.1
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.5.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `BicepMetadata` class that provides a clean, type-safe way to set Bicep metadata on resources:
+    - Description - Adds `@description('...')` decorator
+    - BatchSize - Adds `@batchSize(n)` decorator for loop deployments
+    - OnlyIfNotExists - Adds `@onlyIfNotExists()` decorator
+    - Added `BicepMetadata` property on `ProvisionableResource`
+
+    #### Bugs Fixed
+
+    - Fixed `PropertyName` in `Self` reference for `IBicepValue` instances of collection items to include its index (for list) or its key (for dictionary) to avoid colliding with its enclosing collection's property name. (#54802)
+- Name: Azure.ResourceManager.NetworkCloud
+  Version: 1.3.0
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetworkCloud_1.3.0/sdk/networkcloud/Azure.ResourceManager.NetworkCloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.9.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.9.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with `ClientRetryPolicy` where delays were being calculated using the retry count instead of the attempt count, causing the initial retry to occur without delay and subsequent retries to be performed more quickly than intended.
+
+    #### Features Added
+
+    - Added core support for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection.
+    - Added `JsonModel<T>` abstract base class that provides a simplified way to implement `IJsonModel<T>` for JSON serialization and deserialization.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.6.0
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.6.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    * The customer-facing SDK stats feature
+    metric names have been updated to match the stable specification.
+    - **Metric names changed**: `preview.item.success.count` → `Item_Success_Count`,
+    `preview.item.dropped.count` → `Item_Dropped_Count`,
+    `preview.item.retry.count` → `Item_Retry_Count`.
+    - **New environment variable**: To enable, set environment variable
+    `APPLICATIONINSIGHTS_SDKSTATS_DISABLED=false`.
+    - The old environment variable `APPLICATIONINSIGHTS_SDKSTATS_ENABLED_PREVIEW`
+    is no longer recognized.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.8.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.8.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new methods, `CheckConfigurationSettings` and `CheckConfigurationSettingsAsync`, which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body. [#54669](https://github.com/Azure/azure-sdk-for-net/pull/54669)
+- Name: Azure.Communication.CallAutomation
+  Version: 1.5.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.5.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for MicrosoftTeamsAppIdentifier CommunicationIdentifier
+- Name: Azure.Core
+  Version: 1.51.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.51.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added core support for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection.
+    - Implements support for client certificate rotation in the Azure.Core transport layer to enable dynamic token binding scenarios. The changes allow transport instances to be updated with new client certificate configurations at runtime without requiring full pipeline reconstruction.
+
+    #### Bugs Fixed
+
+    - Fixed `NullReferenceException` when calling `GetHashCode()` on `default(AzureLocation)`.
+- Name: Azure.ResourceManager.PostgreSql
+  Version: 1.4.0
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PostgreSql_1.4.0/sdk/postgresql/Azure.ResourceManager.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.15.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.15.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Communication.CallAutomation
+  Version: 1.6.0-beta.2
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.6.0-beta.2/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for MicrosoftTeamsAppIdentifier CommunicationIdentifier
+- Name: Azure.Provisioning.AppContainers
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - App Containers
+  ServiceName: App Containers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppContainers_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.51.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.51.1/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Update the APIs for Microsoft.Extensions.Configuration and Microsoft.Extensions.DependencyInjection to enable Azure.Identity use cases.
+    - Updated BCL dependencies to 10.x.
+- Name: Azure.ResourceManager.FileShares
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Fileshares
+  ServiceName: Fileshares
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.FileShares_1.0.0-beta.2/sdk/fileshares/Azure.ResourceManager.FileShares/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeActions
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Edgeactions
+  ServiceName: Edgeactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeActions_1.0.0-beta.2/sdk/edgeactions/Azure.ResourceManager.EdgeActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.7
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FoundryProjectEndpointResolver` for centralized `AZURE_AI_PROJECT_ENDPOINT` resolution across hosting integrations.
+    - Added `ConversationItemsClient` in `Responses.Conversations` for retrieving Foundry conversation items used by hydration adapters.
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.7
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.7
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Foundry conversation history hydration via `FoundryConversationThreadRepository` and Core conversation items API integration.
+    - Added `RunAIAgentAsync` and `RunWorkflowAgentAsync` overloads accepting `TokenCredential` and optional project endpoint for Foundry-backed thread hydration.
+    - Enabled automatic Foundry-backed thread repository creation in existing run extension methods when `AZURE_AI_PROJECT_ENDPOINT` is configured.
+- Name: Azure.ResourceManager.PostgreSql
+  Version: 1.4.1
+  DisplayName: Resource Management - PostgreSQL
+  ServiceName: PostgreSQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PostgreSql_1.4.1/sdk/postgresql/Azure.ResourceManager.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.8
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.8
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Foundry conversation thread hydration to create agent-owned threads for `AIAgent` invocations, preventing "thread is not compatible with the agent" failures on `/responses`.
+    - Make conversationId Optional
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.8
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Make conversationId Optional
+- Name: Azure.Compute.Batch
+  Version: 1.0.0-beta.5
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Compute.Batch_1.0.0-beta.5/sdk/batch/Azure.Compute.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `DataDisk.StorageAccountType`.  Use `DataDisk.ManagedDisk.StorageAccountType` instead
 

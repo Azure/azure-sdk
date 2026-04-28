@@ -14,7 +14,13 @@ param (
 
 function GetChangelogBlobLink($packageName, $packageVersion, $packageMetadata)
 {
-  $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $packageName $packageVersion $packageMetadata.RepoPath
+  # GroupId only exists for java so we need to test before we try and access
+  $groupId = $null
+  if ([bool]($packageMetadata.PSobject.Properties.name -match "GroupId")) {
+    $groupId = $packageMetadata.GroupId
+  }
+
+  $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $packageMetadata.Package $packageVersion $packageMetadata.RepoPath $groupId
   if (!$sourceUrl.EndsWith("/")) { $sourceUrl += "/" }
   $changelogBlobLink = "${sourceUrl}CHANGELOG.md"
   return $changelogBlobLink
@@ -185,9 +191,14 @@ foreach ($packageName in $updatedPackageSet.Keys)
     continue
   }
 
+  if ($pkgMetadata.Type -eq "spring") {
+    Write-Host "Skipped package '$pkgKey' because it is a spring library that doesn't use the shared spring changelog."
+    continue
+  }
+
   foreach ($packageVersion in $updatedPackageSet[$packageName].Versions)
   {
-    if ($releaseEndDate -and $packageVersion.Date -gt $releaseEndDate)
+    if ($releaseEndDate -and [datetime]$packageVersion.Date -gt [datetime]$releaseEndDate)
     {
       Write-Host "Skipped package '$packageName' because it '$($packageVersion.Date)' > '$releaseEndDate'"
       continue
@@ -197,7 +208,7 @@ foreach ($packageName in $updatedPackageSet.Keys)
     {
       $entry = GetReleaseNotesData $packageName $packageVersion.RawVersion $pkgMetadata
       if ($entry) {
-        Write-Host "Added '$pkgKey' to the release note entries"
+        Write-Host "Added '$pkgKey' to the release note entries[$($packageVersion.Date)]"
         $existingYamlContent.entries += $entry
       }
     }

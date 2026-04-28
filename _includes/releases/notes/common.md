@@ -2,8 +2,8 @@
 {% if allPackages %}
 The Azure SDK team is pleased to announce our {{ include.displayDate }} client library releases.
 
-{{ allPackages.size }} packages released this month.
 {% assign allPackages = allPackages | where: "Hidden", false | sort: 'ServiceName' %}
+{{ allPackages.size }} packages released this month.
 
 {% include releases/notes/package_display_names.md %}
 {% include releases/notes/{{ include.language }}.md %}

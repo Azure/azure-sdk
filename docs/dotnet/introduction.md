@@ -1041,13 +1041,64 @@ For example, if the component is in the `Azure.Storage.Blobs` namespace, the com
 
 #### Client Versions
 
-{% include requirement/MUST id="dotnet-versioning-backwards-compatibility" %} be 100% backwards compatible with older versions of the same package.
+In .NET, breaking changes are classified along two axes: **what changed** (API vs. behavioral) and **how it manifests** (binary vs. source). Since API-breaking changes are absolutely prohibited, the binary/source distinction is primarily relevant for behavioral changes where the public API surface was not reduced. We distinguish three types:
 
-For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
+- **API-breaking changes**: Changes that modify or remove elements of the public API surface, preventing existing code from compiling or binding to the modified API. API-breaking changes are **never** permitted in any release of an existing package.
+  - *Examples:* removing a public method or type, renaming a public class or member, changing a method's return type.
+- **Binary-breaking changes**: Non-API changes where the public API surface is unchanged, but existing compiled assemblies fail or behave differently at runtime without recompilation. These are typically behavioral changes whose previous values or bindings were inlined into caller IL at compile time.
+  - *Examples:* changing a `const` field value (the old value is inlined into caller IL), removing or altering a `TypeForwardedTo` attribute when moving types between assemblies, changing default parameter values (defaults are compiled into the caller's IL, so pre-compiled callers retain the old value).
+- **Source-breaking changes**: Non-API changes where the public API only grew (nothing removed or renamed), but recompilation causes existing source code to fail or resolve differently. Already-compiled binaries are unaffected because IL explicitly binds to specific method overloads. These may be permitted only in major releases under specific conditions (see below).
+  - *Examples:* adding a new overload that causes existing call sites to resolve to a different method upon recompilation (pre-compiled IL is unaffected because it explicitly names the target overload), adding implicit conversions that introduce compile-time ambiguity for existing expressions.
 
-{% include requirement/MUST id="dotnet-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do an API breaking change.
+{% include requirement/MUSTNOT id="dotnet-versioning-no-api-breaking" %} introduce API-breaking changes in any release of an existing package. API-breaking changes — removing or modifying public API surface — are never permitted, regardless of release type (major, minor, or patch). If you need to make an API-breaking change, you must introduce a new package (see below).
 
-Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
+{% include requirement/MUSTNOT id="dotnet-versioning-no-binary-breaking" %} introduce binary-breaking changes in a minor or patch release. Binary compatibility means that existing compiled assemblies continue to function correctly when upgraded to a newer version of the package without recompilation.
+
+{% include requirement/MAY id="dotnet-versioning-source-breaking" %} introduce non-API breaking changes (binary-breaking or source-breaking) only in a **major** release, and only when the value to users clearly exceeds the cost of porting. Source-breaking and binary-breaking changes outside of major releases are not permitted. The justification for any such change must be documented and approved by the Architecture Board.
+
+For detailed rules on what constitutes a binary vs. source break, see [.NET Breaking Change Rules](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
+
+{% include requirement/MUST id="dotnet-versioning-new-package" %} introduce a new package (with new assembly names, new namespace names, and new type names) if you must do a binary-breaking API change.
+
+Binary-breaking changes should never be introduced in an existing package.  If you believe a binary-breaking change is necessary, register your intent with [adparch]. You'll need to have a discussion with the language architect before approval.
+
+##### Acceptable Non-API Breaking Changes {#dotnet-source-breaking-changes}
+
+Non-API breaking changes (binary-breaking or source-breaking) are permitted **only in major releases** when **all** of the following conditions are met:
+
+1. **No API-breaking changes** — the change must not remove or modify the public API surface (no methods/types removed, no signature changes). API-breaking changes are never permitted.
+2. **Value exceeds porting cost** — the benefit to users must clearly outweigh the effort required for them to update their code or binaries.
+3. **The migration path is straightforward** — the required source change is mechanical and can be resolved by following compiler error messages.
+4. **The change is documented in release notes** — the changelog and release notes for the package MUST clearly describe the breaking change and how to migrate.
+5. **The change has been approved** — breaking changes must be reviewed and approved by the Architecture Board.
+
+**Example: Options Bag Migration**
+
+A method where all parameters have default values may be replaced with:
+- Updating the existing overload so that all parameters (except `CancellationToken`) are required, AND
+- Adding an additional overload that accepts an options bag containing the same parameters
+
+```csharp
+// Before (all parameters optional via defaults)
+public virtual Response DoSomething(
+    string param1 = default,
+    string param2 = default,
+    int param3 = default,
+    CancellationToken cancellationToken = default);
+
+// After (source-breaking: callers relying on omitted arguments / default values must update)
+public virtual Response DoSomething(
+    string param1,
+    string param2,
+    int param3,
+    CancellationToken cancellationToken = default);
+
+public virtual Response DoSomething(
+    DoSomethingOptions options,
+    CancellationToken cancellationToken = default);
+```
+
+This is a source break (callers relying on default values must update call sites) but NOT a binary break (the original method signature is still present in the compiled assembly, just with different metadata for defaults).
 
 #### Package Version Numbers {#dotnet-versionnumbers}
 
@@ -1130,13 +1181,13 @@ package that is now a part of the .NET platform instead. If you are using `Azure
 
 #### Package Dependency Versions
 
-For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/Packages.Data.props) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
+For libraries using the Azure SDK for .NET repository, dependency versions are [managed centrally](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/centralpackagemanagement/README.md) and will automatically be applied to your library as part of the Azure SDK engineering system builds.
 
 {% include requirement/MUST id="dotnet-runtime-package-versions" %} align versions of Microsoft [.NET runtime libraries] with the current [long term support (LTS)] version of .NET. For example, if the current LTS version is `10.0`, then references to runtime libraries such as `System.Text.Json` should target the latest with a major version of `10`.  These dependency versions are guarnteed to include targets for the current LTS and previous .NET runtimes still under support. 
 
 {% include requirement/MUST id="dotnet-dependency-supported-versions" %} ensure all dependencies reference a version supported by the publisher that is not marked as deprecated or flagged by NuGet for vulnerabilities. 
 
-{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications.  _(see: [Packages.Data.props](https://github.com/Azure/azure-sdk-for-net/blob/main/eng/Packages.Data.props#L57-L83) for more information.)_
+{% include requirement/MUST id="dotnet-dependency-compatibile-versions" %} consider all platforms that your library will run on and ensure dependencies/versions are compatible. For example, the Azure Functions host and Azure PowerShell have explicit version requirements for dependencies shared between the host and applications. 
 
 #### Common Libraries
 

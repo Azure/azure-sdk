@@ -1,0 +1,782 @@
+entries:
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.7
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.7/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CodeTransparencyRedirectPolicy` to automatically follow HTTP 307/308 redirects while preserving the Authorization header. Previously, redirects between Confidential Ledger nodes could return HTTP 307/308 responses that were not automatically followed by the default pipeline, causing these requests to fail unless clients implemented redirect handling themselves.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.4.1-beta.3
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.4.1-beta.3/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConfidentialLedgerRedirectPolicy` to automatically follow HTTP 307/308 redirects while preserving the Authorization header. Previously, the SDK did not follow redirects by default, and even when redirects were enabled, the Authorization header was stripped on cross-domain redirects between ACL nodes, causing write operations to fail when routed to non-primary nodes.
+- Name: Azure.AI.VoiceLive
+  Version: 1.1.0-beta.2
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.1.0-beta.2/sdk/ai/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **MCP (Model Context Protocol) Support**: Added comprehensive support for MCP server integration
+
+    - Added `VoiceLiveMcpServerDefinition` for configuring external MCP servers as tools
+    - Added `MCPApprovalType` enum for controlling tool execution approval workflows ("always", "never")
+    - Added `VoiceLiveMcpTool` class for representing MCP tool definitions with JSON schemas
+    - Added MCP-specific session update events:
+    - `SessionUpdateMcpListToolsInProgress` - Tool discovery started
+    - `SessionUpdateMcpListToolsCompleted` - Tool discovery completed
+    - `SessionUpdateMcpListToolsFailed` - Tool discovery failed
+    - `SessionUpdateResponseMcpCallArgumentsDelta` - Tool call arguments streaming
+    - `SessionUpdateResponseMcpCallArgumentsDone` - Tool call arguments complete
+    - `SessionUpdateResponseMcpCallInProgress` - Tool execution started
+    - `SessionUpdateResponseMcpCallCompleted` - Tool execution completed
+    - `SessionUpdateResponseMcpCallFailed` - Tool execution failed
+    - Added MCP-specific response items:
+    - `SessionResponseMcpListToolItem` - Contains list of available tools from MCP server
+    - `SessionResponseMcpCallItem` - Represents an MCP tool call with optional approval request
+    - `SessionResponseMcpApprovalRequestItem` - Human-in-the-loop approval request
+    - `SessionResponseMcpApprovalResponseItem` - Approval decision response
+    - MCP configuration properties on `VoiceLiveMcpServerDefinition`:
+    - `ServerLabel` - Unique identifier for the MCP server
+    - `ServerUrl` - HTTP endpoint for the MCP server
+    - `Authorization` - Optional authorization header value
+    - `Headers` - Custom HTTP headers for MCP server requests
+    - `AllowedTools` - Optional list of tool names to enable (whitelist)
+    - `RequireApproval` - Approval policy for tool execution
+
+    - **Enhanced Avatar Configuration**: Extended avatar capabilities with new configuration options
+
+    - Added `AvatarConfigTypes` enum for avatar type selection ("photo_avatar", "video_avatar")
+    - Added `PhotoAvatarBaseModes` enum for photo avatar model selection ("vasa1")
+    - Added `AvatarOutputProtocol` enum for output protocol selection ("webrtc", "websocket")
+    - New properties on `AvatarConfiguration`:
+    - `Type` - Avatar type (photo or video)
+    - `Model` - Base model for photo avatars
+    - `OutputProtocol` - Protocol for avatar data streaming
+
+    - **Personal Voice Enhancements**: Added prosody and localization controls for Azure Personal Voice
+
+    - New properties on `AzurePersonalVoice`:
+    - `Locale` - Primary locale for speech synthesis
+    - `PreferLocales` - List of preferred fallback locales
+    - `Rate` - Speech rate adjustment (e.g., "+10%", "-15%")
+    - `Pitch` - Pitch adjustment (e.g., "+2st", "-1st")
+    - `Volume` - Volume adjustment (e.g., "+6dB", "-3dB")
+    - `Style` - Speaking style selection
+    - `CustomLexiconUrl` - URL to custom pronunciation lexicon
+
+    - **Image Input Support**: Added multimodal image input capabilities
+
+    - Added `RequestImageContentPart` for including images in user messages
+    - Added `RequestImageContentPartDetail` enum for image quality control ("auto", "low", "high")
+    - Properties on `RequestImageContentPart`:
+    - `Url` - Image URL (supports http://, https://, and data: URIs)
+    - `Detail` - Image processing detail level
+
+    - **Enhanced Token Tracking**: Added image token usage metrics
+
+    - Added `ImageTokens` property to `InputTokenDetails` for tracking image processing costs
+    - Added `ImageTokens` property to `CachedTokenDetails` for cached image token tracking
+
+    - **New Voice Options**: Added new OpenAI voice presets
+    - `OAIVoice.Cedar` - Additional voice option
+    - `OAIVoice.Marin` - Additional voice option
+
+    - **Foundry Agent Support**: Added support for agent-centric sessions using Azure AI Foundry agents
+
+    - Added `AgentSessionConfig` class for configuring Foundry agent sessions:
+    - `AgentName` - The name of the Foundry agent to use
+    - `ProjectName` - The name of the Azure AI project which the agent belongs to
+    - `AgentVersion` - Optional version of the agent to use
+    - `ConversationId` - Optional conversation ID to continue
+    - `AuthenticationIdentityClientId` - Optional client ID for user-assigned managed identity
+    - `FoundryResourceOverride` - Optional Foundry resource name for cross-resource agent mode
+    - Added `SessionTarget` class for specifying session targets (model or agent):
+    - `SessionTarget.FromModel(string model)` - Creates a model-centric session target
+    - `SessionTarget.FromAgent(AgentSessionConfig agentConfig)` - Creates an agent-centric session target
+    - Implicit conversions from `string` and `AgentSessionConfig`
+
+    - **Interim Response Configuration**: Added support for interim responses during latency or tool execution delays
+
+    - Added `InterimResponseConfigBase` abstract base class with `Triggers` and `LatencyThresholdMs` properties
+    - Added `InterimResponseTrigger` extensible enum (`Latency`, `Tool`)
+    - Added `LlmInterimResponseConfig` for AI-generated interim responses with `Model`, `Instructions`, and `MaxCompletionTokens` properties
+    - Added `StaticInterimResponseConfig` for predefined static text interim responses with `Texts` collection
+
+    - **New `VoiceLiveClient` Session Methods**: Added new overloads for creating and starting sessions
+
+    - `CreateSession(string model)` - Creates an unconnected session for a model
+    - `CreateSession(SessionTarget target)` - Creates an unconnected session from a model or agent target
+    - `CreateSession(VoiceLiveSessionOptions sessionConfig)` - Creates an unconnected session from session configuration
+    - `StartSessionAsync(AgentSessionConfig agentConfig, ...)` - Starts a connected session with a Foundry agent
+    - `StartSessionAsync(SessionTarget target, ...)` - Starts a connected session from a model or agent target
+    - `StartSessionAsync(SessionTarget target, VoiceLiveSessionOptions sessionConfig, ...)` - Starts a connected session from a target with additional configuration
+
+    - **New Service Version**: Added `ServiceVersion.V2026_01_01_PREVIEW` to `VoiceLiveClientOptions`
+- Name: Azure.Identity
+  Version: 1.18.0-beta.3
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `WorkloadIdentityCredentialOptions.IsAzureKubernetesTokenProxyEnabled` to `IsAzureProxyEnabled` to follow .NET naming conventions for boolean properties.
+
+    #### Bugs Fixed
+
+    - Fixed a NullReferenceException that occurred during X509Chain validation on Linux when using the Identity Bindings feature.
+
+    - Disabled MSAL's internal retry logic for `ConfidentialClientApplication` and `PublicClientApplication` to prevent double retries when combined with Azure SDK's retry policy. Only the configured Azure SDK retry policy is applied, avoiding unexpected additional retry attempts.
+- Name: Azure.AI.Agents.Persistent
+  Version: 1.2.0-beta.9
+  DisplayName: AI Agents Persistent
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Agents.Persistent_1.2.0-beta.9/sdk/ai/Azure.AI.Agents.Persistent/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a performance issue in `PersistentAgentsChatClient.GetStreamingResponseAsync` [issue](https://github.com/Azure/azure-sdk-for-net/issues/54326).
+
+    #### Features Added
+    - Added support for `CodeInterpreterToolCallContent` from `Microsoft.Extensions.AI` abstractions when executing `HostedCodeInterpreterTool` tool.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.9.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.9.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SecretClientSettings` to support creating a `SecretClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added the `outContentType` query parameter to the `SecretClient.GetSecret` and `SecretClient.GetSecretAsync` to specify the format in which the certificate will be returned.
+    - Added the `previousVersion` property to `SecretProperties`.
+- Name: Azure.AI.Projects.OpenAI
+  Version: 2.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.OpenAI_2.0.0-beta.1/sdk/ai/Azure.AI.Projects.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    * To align with OpenAI naming conventions, use "Tool" suffix for class names describing Azure tools that are generally available (stable release):
+    * Rename class `AzureAISearchAgentTool` to `AzureAISearchTool`
+    * Rename class `OpenApiAgentTool` to `OpenAPITool`
+    * Rename class `AzureFunctionAgentTool` to `AzureFunctionTool`
+    * Rename class `BingGroundingAgentTool` to `BingGroundingTool`
+    * To align with OpenAI naming conventions, use "PreviewTool" suffix for class names descirbing Azure tools in preview:
+    * Rename class `MicrosoftFabricAgentTool` to `MicrosoftFabricPreviewTool`
+    * Rename class `MemorySearchTool` to `MemorySearchPreviewTool`
+    * Rename class `SharepointAgentTool` to `SharepointPreviewTool`
+    * Rename class `BingCustomSearchAgentTool` to `BingCustomSearchPreviewTool`
+    * Rename class `BrowserAutomationAgentTool` to `BrowserAutomationPreviewTool`
+    * Rename class `A2ATool` to `A2APreviewTool`
+    * Removed class `LocalShellAgentTool`
+    * `ImageBasedHostedAgentDefinition` has been merged into `HostedAgentDefinition`
+    * `Image` is now an optional property on `HostedAgentDefinition`; no other net change
+
+    #### Features Added
+
+    - Updated for full `net10` framework compatibility, including removal of `<EnablePreviewFeatures>` flagging.
+- Name: Azure.ResourceManager.ElasticSan
+  Version: 1.2.0
+  DisplayName: Resource Management - ElasticSan
+  ServiceName: Elasticsan
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ElasticSan_1.2.0/sdk/elasticsan/Azure.ResourceManager.ElasticSan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects
+  Version: 2.0.0-beta.1
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.0.0-beta.1/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **Transitive from Azure.AI.Projects.OpenAI**:
+    * `ImageBasedHostedAgentDefinition` has been merged into `HostedAgentDefinition`
+    * `Image` is now an optional property on `HostedAgentDefinition`; no other net change
+    - Tracing: gen_ai.system.instructions event changed to gen_ai.system_instructions attribute.
+    - Tracing: provider name change from "azure.ai.agents" to "microsoft.foundry".
+
+    #### Features Added
+
+    - Updated for full `net10` framework compatibility, including removal of `<EnablePreviewFeatures>` flagging.
+- Name: Azure.ResourceManager.CertificateRegistration
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Certificateregistration
+  ServiceName: Certificateregistration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CertificateRegistration_1.0.0-beta.1/sdk/certificateregistration/Azure.ResourceManager.CertificateRegistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity
+  Version: 1.18.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.18.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added experimental `Microsoft.Extensions.Configuration` and `Microsoft.Extensions.DependencyInjection` integration for Azure SDK clients.
+
+    - The `WorkloadIdentityCredentialOptions.IsAzureProxyEnabled` property, which enables Azure Kubernetes token proxy mode, is only available in beta releases of this package.
+
+    - `AzureDeveloperCliCredential` now parses JSON error output from `azd auth token` to extract clean error messages instead of including raw JSON in exceptions. Error messages like `{"type":"consoleMessage","data":{"message":"ERROR: fetching token: ..."}}` are now displayed as `ERROR: fetching token: ...`.
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.0/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of Azure AI Content Understanding client library for .NET
+    - Each `ContentField` subclass now exposes a strongly-typed `Value` property (e.g., `ContentStringField.Value` returns `string?`, `ContentNumberField.Value` returns `double?`)
+    - Added `ContentSource` hierarchy (`DocumentSource`, `AudioVisualSource`) for strongly-typed parsing of grounding source strings on `ContentField`
+    - Added `ContentRange` value type with static factory methods (`Page`, `Pages`, `TimeRange`, etc.) for specifying content ranges on `AnalysisInput`
+    - Added convenience methods and indexers on `ContentArrayField` and `ContentObjectField`
+    - Added support for `clientRequestId` parameter in `Analyze` and `AnalyzeBinary` operations
+    - Updated to service API version `2025-11-01`
+- Name: Azure.Identity.Broker
+  Version: 1.4.0
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.4.0/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added experimental `Microsoft.Extensions.Configuration` and `Microsoft.Extensions.DependencyInjection` integration for Azure SDK clients. For details, see the [Configuration and Dependency Injection](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/docs/ConfigurationAndDependencyInjection.md) documentation.
+- Name: Azure.ResourceManager.Batch
+  Version: 1.6.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Batch_1.6.0/sdk/batch/Azure.ResourceManager.Batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppConfiguration
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - App Configuration
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppConfiguration_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.AppConfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ApplicationInsights
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Application Insights
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ApplicationInsights_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.ApplicationInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppService
+  Version: 1.4.0-beta.1
+  DisplayName: Provisioning - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppService_1.4.0-beta.1/sdk/provisioning/Azure.Provisioning.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.PostgreSql
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - PostgreSQL
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.PostgreSql_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager
+  Version: 1.14.0
+  DisplayName: Resource Management - Resource Manager
+  ServiceName: Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.14.0/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.9.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.9.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ConfigurationClientSettings` to support creating a `ConfigurationClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+- Name: Azure.Provisioning.KeyVault
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Key Vault
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.KeyVault_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.3.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.3.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Communication
+  Version: 1.3.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Communication_1.3.1/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ManagedOps
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Managedops
+  ServiceName: Managedops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ManagedOps_1.0.0-beta.1/sdk/managedops/Azure.ResourceManager.ManagedOps/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.OperationalInsights
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Operational Insights
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.OperationalInsights_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.OperationalInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Kusto
+  Version: 1.0.0-beta.2
+  DisplayName: Provisioning - Kusto
+  ServiceName: Kusto
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Kusto_1.0.0-beta.2/sdk/provisioning/Azure.Provisioning.Kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Sql
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - SQL
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Sql_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.Sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.PostgreSql
+  Version: 1.2.0-beta.2
+  DisplayName: Provisioning - PostgreSQL
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.PostgreSql_1.2.0-beta.2/sdk/provisioning/Azure.Provisioning.PostgreSql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppService
+  Version: 1.4.0-beta.2
+  DisplayName: Provisioning - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppService_1.4.0-beta.2/sdk/provisioning/Azure.Provisioning.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.8
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.8/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes thread unsafe code in `VerifyTransparentStatement`. The code reused sha256 instances across multiple threads, which caused exceptions to be thrown when multiple threads were verifying statements at the same time. The fix was to create new sha256 instances for each verification operation instead of reusing them.
+- Name: Azure.Provisioning.Communication
+  Version: 1.0.0-beta.4
+  DisplayName: Provisioning - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Communication_1.0.0-beta.4/sdk/provisioning/Azure.Provisioning.Communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Storage
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Storage
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Storage_1.2.0-beta.1/sdk/provisioning/Azure.Provisioning.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ContainerService
+  Version: 1.0.0-beta.5
+  DisplayName: Provisioning - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ContainerService_1.0.0-beta.5/sdk/provisioning/Azure.Provisioning.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.1.0-beta.3
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.1.0-beta.3/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added public `InterimResponseConfigBase InterimResponse`
+- Name: Azure.AI.VoiceLive
+  Version: 1.0.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.0.0/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - **SessionResponse changes:**
+
+    - Removed public `Object` property (now internal)
+    - Renamed `ModalitiesInternal` property to `Modalities`
+    - Changed `Voice` property type from `BinaryData` to strongly typed `VoiceProvider`
+    - Changed `MaxOutputTokens` property type from `BinaryData` to strongly typed `MaxResponseOutputTokensOption`
+
+    - **SessionResponseItem changes:**
+
+    - Removed public `Object` property (now internal)
+
+    - **VoiceLiveSessionResponse changes:**
+
+    - No longer inherits from `VoiceLiveSessionOptions`
+    - Constructor changed from internal to public
+    - Properties now have public setters: `Id`, `Model`, `Animation`, `Instructions`, `InputAudioSamplingRate`, `InputAudioFormat`, `OutputAudioFormat`, `InputAudioNoiseReduction`, `InputAudioEchoCancellation`, `Avatar`, `InputAudioTranscription`, `Temperature`
+    - Added new read-only properties: `Voice`, `MaxResponseOutputTokens`, `ToolChoice`, `TurnDetection`
+
+    - **VoiceProvider changes:**
+    - Removed internal `ToBinaryData()` method
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.9
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.9/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Microsoft.Agents.AI, Microsoft.Agents.AI.Workflows, Microsoft.Agents.AI.OpenAI packages to 1.0.0-rc1
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.9
+  DisplayName: AI Agent Server - Contracts
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.9/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.9
+  DisplayName: AI Agent Server - Agent Framework
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.9/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Microsoft.Agents.AI, Microsoft.Agents.AI.Workflows, Microsoft.Agents.AI.OpenAI packages to 1.0.0-rc1
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.7.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.7.0/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed challenge-based authentication to correctly parse tenant ID from DSTSv2 authority URIs.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.9.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.9.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed challenge-based authentication to correctly parse tenant ID from DSTSv2 authority URIs.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.5.0
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.5.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle `OperationCanceledException` in `PollForSecretChangesAsync` so the background polling loop exits cleanly when the provider is disposed.
+
+    #### Features Added
+
+    - Added `AddKeyVaultSecrets` extension methods on `IConfigurationBuilder` that create a `SecretClient` from configuration using the `Azure.Core` configuration extensions (built on `System.ClientModel`).
+- Name: Azure.Provisioning.Network
+  Version: 1.0.0
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.0.0/sdk/network/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.5.0
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.5.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated from the latest `Azure.ResourceManager` (1.14.0).
+    - Added `IsolationScope` property to `UserAssignedIdentity` resource to support regional restrictions on identity assignment.
+    - Added `ResourceVersions` to `SubscriptionPolicyDefinition` and `SubscriptionPolicySetDefinition` resources.
+    - Updated default API versions for `ArmDeployment` (2023-07-01 → 2025-04-01), `Subscription` (2019-10-01 → 2022-12-01), `SubscriptionPolicyDefinition`, and `SubscriptionPolicySetDefinition` resources.
+    - Added `ResourceBicepMetadata` class (renamed from `BicepMetadata` introduced in 1.5.0-beta.1) that provides a clean, type-safe way to set Bicep metadata on resources.
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.15.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.15.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.1
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.1/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Set the default initial polling interval to 3 seconds for `Analyze`, `AnalyzeAsync`, `AnalyzeBinary`, and `AnalyzeBinaryAsync` to optimize polling efficiency.
+- Name: Azure.ResourceManager.DisconnectedOperations
+  Version: 1.0.0
+  DisplayName: Resource Management - Disconnectedoperations
+  ServiceName: Disconnectedoperations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DisconnectedOperations_1.0.0/sdk/disconnectedoperations/Azure.ResourceManager.DisconnectedOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning
+  Version: 1.6.0-beta.1
+  DisplayName: Provisioning
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.6.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `Condition` property to `ResourceBicepMetadata` to support conditional resource deployment. The condition generates Bicep `if (condition)` syntax and accepts literal boolean values, parameter references, or complex expressions.
+- Name: Azure.Provisioning.Network
+  Version: 1.1.0-beta.1
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.1.0-beta.1/sdk/provisioning/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.10
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.10/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Microsoft.Agents.AI, Microsoft.Agents.AI.Workflows, Microsoft.Agents.AI.OpenAI packages to 1.0.0-rc3
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.10
+  DisplayName: AI Agent Server - Contracts
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.10/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.Identity
+  Version: 1.19.0
+  DisplayName: Identity
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.19.0/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support in `ClientCertificateCredential` to specify a path in the form of `cert:/StoreLocation/StoreName/Thumbprint` to refer to a certificate in the platform certificate store - such as the Windows Certificate Store on Windows, and the KeyChain on MacOS - instead of a file on disk. For example to load a certificate from the "My" store in the "CurrentUser" location use the path `cert:/CurrentUser/My/E661583E8FABEF4C0BEF694CBC41C28FB81CD870` (A community contribution, courtesy of _[fowl2](https://github.com/fowl2)_).
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.0.2
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.0.2/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `GetRehydrationToken()` returning `null` on operations started with `WaitUntil.Started`, preventing cross-process operation handoff ([#56840](https://github.com/Azure/azure-sdk-for-net/issues/56840))
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.10
+  DisplayName: AI Agent Server - Agent Framework
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.10/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update Microsoft.Agents.AI, Microsoft.Agents.AI.Workflows, Microsoft.Agents.AI.OpenAI packages to 1.0.0-rc3
+- Name: Azure.ResourceManager.ServiceFabricManagedClusters
+  Version: 1.3.0
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceFabricManagedClusters_1.3.0/sdk/servicefabricmanagedclusters/Azure.ResourceManager.ServiceFabricManagedClusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DurableTask
+  Version: 1.1.0
+  DisplayName: Resource Management - Durabletask
+  ServiceName: Durabletask
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DurableTask_1.1.0/sdk/durabletask/Azure.ResourceManager.DurableTask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerRegistry.Tasks
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerregistry.Tasks
+  ServiceName: Containerregistry.Tasks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry.Tasks_1.0.0-beta.1/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry.Tasks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Cdn
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Cdn
+  ServiceName: Cdn
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Cdn_1.0.0-beta.1/sdk/provisioning/Azure.Provisioning.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppContainers
+  Version: 1.2.0
+  DisplayName: Provisioning - App Containers
+  ServiceName: App Containers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppContainers_1.2.0/sdk/provisioning/Azure.Provisioning.AppContainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.4.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.4.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.AgentFramework
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Agent Framework
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.AgentFramework_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.AgentFramework/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support UseFoundryTools to accept optional TokenCredential parameter
+- Name: Azure.AI.OpenAI
+  Version: 2.9.0-beta.1
+  DisplayName: OpenAI Inference
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.OpenAI_2.9.0-beta.1/sdk/openai/Azure.AI.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    **`[Experimental]` Realtime Migration**
+
+    Previous support in `Azure.AI.OpenAI` for `RealtimeClient` was based on the Realtime API Beta that has been [deprecated by OpenAI](https://developers.openai.com/api/docs/deprecations) in favor of the newer Realtime surface. With this change, the additional logic in `Azure.AI.OpenAI` is no longer applicable and incompatible with the general availability API. In deference to this, direct, experimental support from `Azure.AI.OpenAI` for Realtime Beta is removed in favor of contemporary `OpenAI` library use. Please migrate to the latest `OpenAI` library for these new features and continuing API compatibility.
+
+    **`[Experimental]` Responses**
+
+    A number of breaking changes, including the removal of model-/deployment-based client constructor variants in favor of `CreateResponseOptions` having a `Model` property, are propagated from the `OpenAI` release. Please see the `OpenAI` release notes for full details.
+
+    #### Features Added
+
+    - A substantial number of new features are carried forward from the `OpenAI` library. Please see the full release notes, linked above, for details.
+- Name: Azure.AI.AgentServer.Contracts
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Contracts
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Contracts_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.Contracts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Package version alignment only. No functional changes.
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.11
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.11/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Support UseFoundryTools to accept optional TokenCredential parameter
+

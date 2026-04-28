@@ -64,7 +64,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 ### Supported python versions
 
-{% include requirement/MUST id="python-general-version-support" %} support Python 3.9+.
+{% include requirement/MUST id="python-general-version-support" %} support Python 3.10+.
 
 ## Azure SDK API Design
 
@@ -683,7 +683,7 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 {% include requirement/MUSTNOT id="python-packaging-name-disallowed-chars" %} use underscore (_) or period (.) in your package name. If your namespace includes underscores, replace them with dash (-) in the distribution package name.
 
-{% include requirement/MUST id="python-packaging-follow-repo-rules" %} follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
+{% include requirement/MUST id="python-packaging-follow-repo-rules" %} follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/blob/main/doc/dev/packaging.md)
 
 {% include requirement/MUST id="python-packaging-follow-python-rules" %} follow the [namespace package recommendations for Python 3.x](https://docs.python.org/3/reference/import.html#namespace-packages).
 
@@ -831,7 +831,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current minimum supported Python version is 3.9.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.10.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 

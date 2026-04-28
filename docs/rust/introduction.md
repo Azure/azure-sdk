@@ -174,7 +174,7 @@ impl SecretClient {
 
 {% include requirement/MAY id="rust-client-constructors-credential" %} accept a different credential type if the service does not support AAD authentication.
 
-{% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes a `TokenCredential` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
+{% include requirement/MUST id="rust-client-constructors-multiple-credentials" %} define a `new` function that takes an `Arc<dyn TokenCredential>` and a `with_{credential_type}` function e.g., `with_key_credential` if a client supports both AAD authentication and other token credentials that do not implement `TokenCredential`.
 
 In cases when different credential types are supported, we want the primary use case to support AAD authentication over other authentication schemes.
 
@@ -581,6 +581,8 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-builders-return-params" %} define required parameters in the final `build(&self)` method if not using a typestate pattern e.g., `build(&self, endpoint: &str)`.
 
+{% include requirement/MUST id="rust-builders-private-fields" %} ensure all fields of the options type being constructed by the builder are private. All fields must have `with_` setter functions.
+
 #### Enumerations {#rust-enums}
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
@@ -689,15 +691,19 @@ impl Into<azure_core::Error> for Error {
 }
 ```
 
-### Crate-specific errors {#rust-errors-crate}
+#### Crate-specific errors {#rust-errors-crate}
 
 {% include requirement/MAY id="rust-errors-crate-specific" %} return a crate-specific `Error` and `Result<T, Error>` if they must expose more specific information appropriate for their domain to the callers.
+Alternatively, you can provide `TryFrom<azure_core::Error>` for your error model to make it easy for callers to get service-specific information while retaining a consistent client method signature.
+This should be sufficient most often. See [Error models][rust-errors-models] for an example.
 
 If you define a crate-specific `Error`,
 
-{% include requirement/MUST id="rust-errors-crate-definitions" %} define your `Error`, `Result`, `ErrorKind`, and other types like `azure_core` so that all types are exported from `crate::error`, and `Error` and `Result` are exported from the root module.
+{% include requirement/MUST id="rust-errors-crate-definitions" %} define your `Error`, `Result`, `ErrorKind`, and other error types exported from `crate::error` with `Error` and `Result` exported from the root module. See the `azure_core` crate for an example.
 
-{% include requirement/MUST id="rust-errors-crate-into-core" %} implement `From<crate::Error> for azure_core::Error` to convert your error into an `azure_core::Error`. If there is no other appropriate `azure_core::error::ErrorKind`, use `ErrorKind::Other`. This ensures callers can use the `?` operator in their own functions that might return an `azure_core::Result`.
+{% include requirement/MUST id="rust-errors-crate-into-core" %} implement `From<crate::Error> for azure_core::Error` to convert your error into an `azure_core::Error`.
+You can serialize an error model into an `ErrorKind::HttpResponse` along with any headers as appropriate and must also keep track of the original status code so you can copy that to the `RawResponse`.
+If there is no other appropriate `azure_core::error::ErrorKind`, use `ErrorKind::Other`. This ensures callers can use the `?` operator in their own functions that might return an `azure_core::Result`.
 
 {% include requirement/MUST id="rust-errors-crate-from-core" %} implement `From<azure_core::Error> for crate::Error` to convert an `azure_core::Error` into your error. This ensures you can use the `?` operator with `azure_core` functions that return an `azure_core::Result`.
 
@@ -1021,10 +1027,10 @@ See [Rust by Example: Documentation][rust-lang-doc-meta] for more information.
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (doc comments), you need a great README and other supporting documentation.
 
 * `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information.
-* `API reference` - Generated from the doc comments in your code; published on <https://learn.microsoft.com> and <https://docs.rs>.
-* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, doc comments, and Quickstart.
-* `Quickstart` - Article on <https://learn.microsoft.com> that is similar to but expands on the README content; typically written by your service's content developer.
-* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
+* **API reference** - Generated from the doc comments in your code; published on <https://learn.microsoft.com> and <https://docs.rs>.
+* **Code snippets** - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, doc comments, and Quickstart.
+* **Quickstart** - Article on <https://learn.microsoft.com> that is similar to but expands on the README content; typically written by your service's content developer.
+* **Conceptual** - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
 
 {% include requirement/MUST id="rust-repo-docs-contentdev" %} include your service's content developer in the [Architecture Board] review for your library. To find the content developer you should work with, check with your team's Program Manager.
 

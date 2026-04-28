@@ -296,7 +296,7 @@ function GetPackageKey($pkg)
   }
 
   if ($groupId) {
-    $pkgKey = "${groupId}:${pkgKey}"
+    $pkgKey = "${groupId}+${pkgKey}"
   }
 
   return $pkgKey

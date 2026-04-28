@@ -32,6 +32,8 @@ impl fmt::Debug for MyModel {
 
 `SafeDebug` will only output the name of the type or, if information is available in TypeSpec, show only fields that have been declared safe from leaking PII.
 
+{% include requirement/MUSTNOT id="rust-safety-tracing-pii" %} trace or telemeter Personally-Identifiable Information (PII). The `SafeDebug` trace helps when using a format specification like `{:?}` in either, but cannot otherwise prevent developers from tracing or telemetering PII directly.
+
 ## Service Clients {#rust-client}
 
 Implementation details of [service clients](introduction.md#rust-client).
@@ -231,6 +233,201 @@ Now you can record and later play back your tests. See our [contribution guide f
 
 For a complete example, see pull request [Azure/azure-sdk-for-rust#3337](https://github.com/Azure/azure-sdk-for-rust/pull/3337/files).
 
+## Errors {#rust-errors}
+
+All client methods return an `azure_core::Result<T>` by default, which is defined as:
+
+```rust
+pub type Result<T> = std::result::Result<T, azure_core::Error>;
+```
+
+`azure_core::Error` provides consistent error handling for all clients built upon `azure_core`. You can get detailed HTTP information including the service response like so:
+
+```rust
+use azure_core::error::{ErrorKind, ErrorResponse};
+
+let result = client.get_model("example", None).await;
+let model = match result {
+    Ok(response) => response.into_model()?,
+    Err(err) => match err.kind() {
+        ErrorKind::HttpResponse { raw_response: Some(raw_response), .. } => {
+            let error: ErrorResponse = raw_response.body().json()?;
+            eprintln!("Error: {:?}", &error.error);
+            return Err(err);
+        },
+        _ => return Err(err),
+    },
+};
+```
+
+### Custom error models {#rust-errors-models}
+
+If you want to make service-specific error information more accessible, you can expose error models that can deserialize the body and/or read headers from the raw response.
+
+{% include requirement/MAY id="rust-errors-models-custom" %} define service-specific error models which customers may deserialize e.g.,
+
+```rust
+use serde::Deserialize;
+
+#[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ServiceErrorResponse {
+    pub error: Option<ServiceError>,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ServiceError {
+    pub code: Option<u32>,
+    pub message: Option<String>,
+    #[serde(default)]
+    pub inner_errors: Vec<ServiceError>,
+}
+```
+
+{% include requirement/SHOULD id="rust-errors-models-custom-example" %} include an example under your crate's `examples/` folder of how customers can deserialize your custom error e.g.,
+
+```rust
+use azure_core::{
+    error::ErrorKind,
+    http::{RawResponse, StatusCode, headers::Headers},
+};
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Simulate an error response
+    let response = br#"{
+        "error": {
+            "code": 43004,
+            "message": "failed to make fetch happen",
+            "innerErrors": [
+                {
+                    "message": "no response"
+                }
+            ]
+        }
+    }"#;
+    let raw_response = RawResponse::from_bytes(
+        StatusCode::InternalServerError,
+        Headers::new(),
+        response.as_ref(),
+    );
+    let result: Result<(), azure_core::Error> = Err(ErrorKind::HttpResponse {
+        status: raw_response.status(),
+        error_code: Some("Internal service error".into()),
+        raw_response: Some(Box::new(raw_response)),
+    }
+    .into());
+
+    // Handle the error case
+    if let Err(err) = result {
+        match err.kind() {
+            ErrorKind::HttpResponse {
+                raw_response: Some(raw_response),
+                ..
+            } => {
+                let error = raw_response
+                    .body()
+                    .json::<ServiceErrorResponse>()?
+                    .error
+                    .ok_or("failed to deserialize service error")?;
+                eprintln!(
+                    "Service returned error {}: {}",
+                    error.code.unwrap_or_default(),
+                    error.message.unwrap_or_else(|| "unknown".into())
+                );
+                return Err(Box::new(err));
+            }
+            _ => return Err(Box::new(err)),
+        }
+    };
+
+    Ok(())
+}
+```
+
+{% include requirement/MAY id="rust-errors-models-try-from" %} implement `TryFrom<azure_core::Error>` for your error model(s).
+
+If you do implement `TryFrom<azure_core::Error>` for your error model(s):
+
+{% include requirement/MUST id="rust-errors-models-fallback" %} return the original `azure_core::Error` if the `ErrorKind` is not `ErrorKind::HttpResponse` or the response does not indicate a service-specific error.
+
+```rust
+// src/error.rs
+use azure_core::{error::ErrorKind, http::StatusCode};
+use serde::Deserialize;
+use std::fmt;
+
+pub type Result<T> = std::result::Result<T, StorageError>;
+
+#[derive(Debug, Clone)]
+pub struct StorageError {
+    pub status_code: StatusCode,
+    pub message: Option<String>,
+    pub reason: Option<String>,
+    // ...
+}
+
+impl fmt::Display for StorageError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        todo!()
+    }
+}
+
+impl std::error::Error for StorageError {}
+
+impl TryFrom<azure_core::Error> for StorageError {
+    type Error = azure_core::Error;
+
+    fn try_from(err: azure_core::Error) -> azure_core::Result<Self> {
+        match err.kind() {
+            ErrorKind::HttpResponse {
+                status,
+                raw_response: Some(raw_response),
+                ..
+            } => {
+                #[derive(Deserialize)]
+                struct StorageErrorXml {
+                    message: Option<String>,
+                    reason: Option<String>,
+                }
+
+                let error: StorageErrorXml = raw_response.body().xml()?;
+                let error = StorageError {
+                    status_code: *status,
+                    message: error.message,
+                    reason: error.reason,
+                };
+                Ok(error)
+            }
+            _ => Err(azure_core::Error::new(
+                ErrorKind::DataConversion,
+                "not a service error",
+            )),
+        }
+    }
+}
+```
+
+## Tracing {#rust-tracing}
+
+{% include requirement/MAY id="rust-tracing-crate" %} use the `tracing` crate for logging diagnostic information useful for developers.
+
+{% include requirement/MUSTNOT id="rust-tracing-distributed" %} use the `tracing` crate for distributed logging.
+
+The `tracing` crate is useful for [logging][general-logging] and allows you to log spans hierarchically, but does not support [distributed tracing][general-distributed-tracing] as required.
+
+{% include requirement/MUST id="rust-tracing-log-levels" %} use the following definitions of log levels when calling [`tracing` macros](https://docs.rs/tracing/latest/tracing/#using-the-macros) or referencing [`tracing::Level`](https://docs.rs/tracing/latest/tracing/struct.Level.html) directly:
+
+* **Error** - Fatal errors that terminate execution e.g., returning a `Result::Err`.
+* **Warning** - Non-fatal errors that allow execution to continue without being overly verbose e.g., an unexpected HTTP 4xx response but _not_ a 429 where a retry is expected.
+* **Information** - High-level information that would be useful in diagnostics without being overly verbose e.g., a request was redirected (atypical on Azure).
+* **Debug** - Low-level information that would be useful in diagnostics primarily targeted at external developers e.g., sending HTTP requests and responses (without PII).
+* **Trace** - Low-level information that would be useful in diagnostics primarily targeted at client library developers e.g., resetting connection state.
+
+{% include requirement/SHOULD id="rust-tracing-default" %} default to the [`LevelFilter::WARN`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.LevelFilter.html) logging level for at least `typespec*` and `azure*` sources.
+
+{% include requirement/MUST id="rust-tracing-env-var" %} support the `RUST_LOG` environment variable for filtering if registering a subscriber. See [`EnvFilter::from_default_env`](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#method.from_default_env) for details.
+
 ## Traits {#rust-traits}
 
 {% include requirement/MUST id="rust-traits-async" %} attribute traits and trait implementations with async functions with the `async_trait::async_trait` procedural macro to desugar the async functions. This allows requiring futures to also be `Send`. See [Azure/azure-sdk-for-rust#1796](https://github.com/Azure/azure-sdk-for-rust/issues/1796) for details.
@@ -276,7 +473,7 @@ Azure/azure-sdk-for-rust/
 ├─ eng/ # engineering system pipeline, scripts, etc.
 └─ sdk/
    └─ {service directory}/ # example: keyvault
-      ├─ .dict.txt
+      ├─ .cspell.json
       └─ {service client crate}/ # example: azure_security_keyvault_secrets
          ├─ assets.json # best location for most crates, or in {service directory} for all crates
          ├─ examples/
@@ -359,27 +556,17 @@ pub struct ExtraModel {
 
 {% include requirement/SHOULD id="rust-miscellaneous-spelling-general" %} put general words used across different services and client libraries in the `.vscode/cspell.json` file.
 
-{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.dict.txt` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
-If you're creating this file, add an entry to `.vscode/cspell.json` as shown below:
+{% include requirement/SHOULD id="rust-miscellaneous-spelling-specific" %} put words specific to a service or otherwise limited use in a `.cspell.json` file in the `{service directory}` as shown in the [directory layout](#rust-directories).
+If you're creating this file it should inherit from `.vscode/cspell.json` as shown below:
 
 ```json
 {
-  "dictionaryDefinitions": [
-    {
-      "name": "service-name",
-      "path": "../sdk/service-directory/.dict.txt",
-      "noSuggest": true
-    }
+  "import": [
+    "../../.vscode/cspell.json"
   ],
-  "overrides": [
-    {
-      "filename": "sdk/service-directory/**",
-      "dictionaries": [
-        "crates",
-        "rust-custom",
-        "service-name"
-      ]
-    }
+  "ignoreWords": [
+    "foo",
+    "bar"
   ]
 }
 ```

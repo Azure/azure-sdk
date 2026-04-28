@@ -50,7 +50,7 @@ function Get-java-Packages
     "io.clientcore"
   )
   $groupIds = $groupIds | % { "g:" + $_ }
-  $groupIdQuery = $groupIds -join "+"
+  $groupIdQuery = $groupIds -join "+OR+"
   $baseMavenQueryUrl = "https://central.sonatype.com/solrsearch/select?q=${groupIdQuery}&rows=100&wt=json"
   Write-Host "Calling $baseMavenQueryUrl"
   $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl -MaximumRetryCount 3 -UserAgent $userAgent -Headers $headers
@@ -88,7 +88,7 @@ function Get-java-Packages
     # then treat it as a new mgmt library
     if ($package.GroupId -eq "com.azure.resourcemanager" `
         -and $package.Package -match "^azure-resourcemanager-(?<serviceName>.*?)$" `
-        -and $repoTags.ContainsKey($package.Package))
+        -and ($repoTags.ContainsKey($package.Package) -or $repoTags.ContainsKey("$($package.GroupId)+$($package.Package)")))
     {
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
@@ -108,10 +108,20 @@ function Get-dotnet-Packages
   # Rest API docs
   # https://docs.microsoft.com/nuget/api/search-query-service-resource
   # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
-  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000" -MaximumRetryCount 3
+  $nugetSkip = 0
+  $nugetTake = 1000
+  $nugetPackages = @()
 
-  Write-Host "Found $($nugetQuery.totalHits) nuget packages"
-  $packages = $nugetQuery.data | Foreach-Object { CreatePackage $_.id $_.version }
+  do {
+    $nugetUrl = "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=$nugetTake&skip=$nugetSkip"
+    Write-Host "Calling $nugetUrl"
+    $nugetQuery = Invoke-RestMethod $nugetUrl -MaximumRetryCount 3
+    $nugetPackages += $nugetQuery.data
+    $nugetSkip += $nugetQuery.data.Count
+  } while ($nugetQuery.data.Count -gt 0 -and $nugetSkip -lt $nugetQuery.totalHits)
+
+  Write-Host "Found $($nugetPackages.Count) nuget packages"
+  $packages = $nugetPackages | Foreach-Object { CreatePackage $_.id $_.version }
 
   $repoTags = GetPackageVersions "dotnet"
 
@@ -137,7 +147,7 @@ function Get-dotnet-Packages
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt" # provisioning is a special case of mgmt so this is the correct type.
       $package.New = "true"
-      $package.RepoPath = "provisioning"
+      # $package.RepoPath = "provisioning" -- moved away from common folder to service but the path should be set by the pipelines
       $package.ServiceName = $serviceName
       $package.DisplayName = "Provisioning - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"

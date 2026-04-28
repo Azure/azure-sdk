@@ -1,0 +1,211 @@
+entries:
+- Name: azure_data_cosmos
+  Version: 0.31.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.31.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `with_excluded_regions` to `ItemOptions` for additional regional routing options. ([#3602](https://github.com/Azure/azure-sdk-for-rust/pull/3602))
+    - Added `effective_preferred_regions` to the client, ensuring multi-region accounts use all regions for cross-regional availability without supplying regional preferences to their client. ([#3602](https://github.com/Azure/azure-sdk-for-rust/pull/3602))
+    - Added basic multi-region writes support. ([#3482](https://github.com/Azure/azure-sdk-for-rust/pull/3482) and [#3495](https://github.com/Azure/azure-sdk-for-rust/pull/3495))
+    - Added new `CosmosResponse` that wraps `azure_core::Response` for all operations except queries. ([#3622](https://github.com/Azure/azure-sdk-for-rust/pull/3622))
+    - Added transactional batch support for executing multiple operations atomically within the same partition key. ([#3664](https://github.com/Azure/azure-sdk-for-rust/pull/3664))
+    - Added fault injection support for testing cosmosdb clients in disaster scenarios. Fault injection is behind the feature flag `fault_injection`. ([#3599](https://github.com/Azure/azure-sdk-for-rust/pull/3599))
+
+    #### Breaking Changes
+
+    - Changed our minimum supported Rust version (MSRV) from 1.85 to 1.88.
+    - Removed `ContainerClient::patch_item`, `PatchDocument`, and `PatchOperation` temporarily to redesign the PATCH API for safe idempotency. Use a Read/Modify/Replace model with ETag-based optimistic concurrency instead.
+    - Changed return type of query methods from `FeedPager<T>` (an alias for `ItemIterator<FeedPage<T>, String>`) to `FeedItemIterator<T>`, which implements `Stream<Item = Result<T>>` and provides `into_pages()` for page-level access. ([#3515](https://github.com/Azure/azure-sdk-for-rust/pull/3515))
+    - Introduced `CosmosClientBuilder` for constructing `CosmosClient` instances, replacing constructor-based API. Removed `consistency_level`, `priority`, `throughput_bucket`, `excluded_regions`, `SessionRetryOptions`, triggers, and `IndexingDirective` from options. Simplified `CosmosAccountReference` to take `CosmosAccountEndpoint` directly. Made option struct fields private with getters and `with_*` setters. ([#3744](https://github.com/Azure/azure-sdk-for-rust/pull/3744))
+    - Removed `with_application_preferred_regions` API. Use `with_application_region` to set the Azure region the app is executing in (or the closest region to the actual location you're running in); the SDK generates preferred regions by geographic proximity. ([#3796](https://github.com/Azure/azure-sdk-for-rust/pull/3796))
+    - Made `CosmosClientBuilder::build()` and `DatabaseClient::container_client()` async to prepare for future cache population (account, collection, partition key range caches).
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_core_macros
+  Version: 0.7.0
+  DisplayName: Core - Macros
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.7.0/sdk/core/azure_core_macros/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure_core_opentelemetry
+  Version: 0.7.0
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.7.0/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: typespec
+  Version: 0.13.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.13.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ErrorKind::Connection` for connection errors.
+- Name: typespec_client_core
+  Version: 0.12.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.12.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+    - Removed `tracing::FutureExt` and `tracing::WithContext`.
+
+    #### Features Added
+
+    - Added `ErrorKind::Connection` for connection errors.
+    - The `reqwest` HTTP client now classifies connection errors as `ErrorKind::Connection`.
+- Name: azure_core
+  Version: 0.33.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.33.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+
+    #### Features Added
+
+    - Added `ErrorKind::Connection` for connection errors.
+    - Added `QueryBuilder`, `DEFAULT_ALLOWED_HEADER_NAMES`, `DEFAULT_ALLOWED_QUERY_PARAMETERS`, and `REDACTED_PATTERN` to `azure_core::http`.
+    - Added `request_header!`, `request_option!`, and `request_query!` macros.
+    - Added `SecretBytes` to `azure_core::credentials` for securely passing byte secrets without printing them in `Debug` or `Display` output.
+    - The `reqwest` HTTP client now classifies connection errors as `ErrorKind::Connection`.
+- Name: azure_core_amqp
+  Version: 0.12.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.12.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: typespec_macros
+  Version: 0.12.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.12.0/sdk/core/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependencies.
+- Name: azure_security_keyvault_certificates
+  Version: 0.11.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.11.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_security_keyvault_keys
+  Version: 0.12.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.12.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Moved `key_version` from options to a required parameter on `KeyClient::decrypt()`, `encrypt()`, `sign()`, `unwrap_key()`, `verify()`, and `wrap_key()`.
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_security_keyvault_secrets
+  Version: 0.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.12.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_identity
+  Version: 0.33.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.33.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+    - `ClientCertificateCredential::new()` now takes `SecretBytes` instead of `Secret` for the `certificate` parameter. Pass the raw PKCS12 bytes wrapped in `SecretBytes` instead of a base64-encoded string wrapped in `Secret`.
+- Name: azure_messaging_eventhubs
+  Version: 0.12.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.12.0/sdk/eventhubs/azure_messaging_eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_storage_blob
+  Version: 0.10.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.10.0/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where user-provided `per_try_policies` in `ClientOptions` were ignored when constructing any Blob Storage client.
+
+    #### Breaking Changes
+
+    - Revised `upload()` on `BlockBlobClient` and `BlobClient` with the following breaking changes:
+    - Now uses our managed upload logic for optimal performance in single-shot and multi-part transfers.
+    - Removed the `content_length` parameter.
+    - `BlobClient::upload()` removed the `overwrite` parameter; it now **overwrites by default**. Use `BlobClientUploadOptions::with_if_not_exists()` to prevent overwriting an existing blob.
+    - `BlockBlobClient::upload()` accepts `BlockBlobClientUploadOptions`; `BlobClient::upload()` accepts `BlobClientUploadOptions` (a re-export of the same type).
+    - Returns `Result<BlockBlobClientUploadResult>` (or `Result<BlobClientUploadResult>` via `BlobClient`) instead of `Result<Response<BlockBlobClientUploadInternalResult, NoFormat>>`.
+    - Changed `BlockBlobClientUploadOptions.if_match` and `if_none_match` from `Option<String>` to `Option<Etag>`.
+    - Changed `if_match`, `if_none_match`, `source_if_match`, and `source_if_none_match` fields in all method option structs from `Option<String>` to `Option<Etag>`.
+    - Changed `BlobProperties::etag` and `ContainerProperties::etag` from `Option<String>` to `Option<Etag>`.
+    - Renamed `ContainerItem.delete` to `ContainerItem.deleted`.
+    - Renamed `ListBlobsFlatSegmentResponse` to `ListBlobsResponse`.
+    - Changed `BlobItem.name` from `Option<BlobName>` to `Option<String>`. Encoded blob names are now automatically percent-decoded during deserialization.
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+- Name: azure_messaging_eventhubs_checkpointstore_blob
+  Version: 0.6.0
+  DisplayName: EventHubs Checkpoint Store for Azure Blob Storage
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.6.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Support for `wasm32-unknown-unknown` has been removed ([#3377](https://github.com/Azure/azure-sdk-for-rust/issues/3377))
+
