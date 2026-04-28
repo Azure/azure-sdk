@@ -22,7 +22,7 @@ $releaseSidebar = Resolve-Path "$PSScriptRoot\..\..\_data\sidebars\releases_side
 
 if ($publishRelease) {
   ### Update release sidebar
-  Install-ModuleIfNotInstalled "powershell-yaml" "0.4.7" | Import-Module
+  Install-ModuleIfNotInstalled "powershell-yaml" "0.4.2" | Import-Module
 
   $yml = Get-Content $releaseSidebar | ConvertFrom-Yaml -Ordered
 
