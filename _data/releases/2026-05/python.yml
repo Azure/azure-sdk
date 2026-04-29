@@ -401,4 +401,48 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-domainregistration
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-domainregistration_1.0.0b1/sdk/domainregistration/azure-mgmt-domainregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 11.0.0b1
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_11.0.0b1/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-postgresql-auth
+  Version: 1.0.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-postgresql-auth_1.0.2/sdk/postgresql/azure-postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed dependency on `DefaultAzureCredential` in source library
+    - Fixed `get_entra_conninfo_async` and `get_entra_token_async` closing the credential by using it as a context manager
+- Name: azure-mgmt-certificateregistration
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-certificateregistration_1.0.0b1/sdk/certificateregistration/azure-mgmt-certificateregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appnetwork
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appnetwork_1.0.0b1/sdk/appnetwork/azure-mgmt-appnetwork/CHANGELOG.md
+  ChangelogContent: ""
 
