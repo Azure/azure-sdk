@@ -1302,4 +1302,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Quantum_1.0.0-beta.7/sdk/quantum/Azure.ResourceManager.Quantum/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.PostgreSQL.Auth
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.PostgreSQL.Auth_1.0.0-beta.1/sdk/postgresql/Microsoft.Azure.PostgreSQL.Auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Entra ID authentication extension for Npgsql PostgreSQL driver
+    - Synchronous and asynchronous `UseEntraAuthentication` extension methods for `NpgsqlDataSourceBuilder`
+    - Automatic username extraction from JWT token claims (`upn`, `xms_mirid`, `preferred_username`, `unique_name`)
+    - Password provider integration with Npgsql data source builder for token-based authentication
 
