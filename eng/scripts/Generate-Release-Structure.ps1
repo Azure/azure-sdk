@@ -18,9 +18,11 @@ $releaseString = $releaseDate.ToString("yyyy-MM")
 $releaseFolder = Join-Path (Resolve-Path $releaseRootFolder) $releaseString
 $releaseSidebar = Resolve-Path "$PSScriptRoot\..\..\_data\sidebars\releases_sidebar.yml"
 
+. (Join-Path $PSScriptRoot .. common scripts Helpers PSModule-Helpers.ps1)
+
 if ($publishRelease) {
   ### Update release sidebar
-  Install-Module -Name powershell-yaml -RequiredVersion 0.4.2 -Force -Scope CurrentUser
+  Install-ModuleIfNotInstalled "powershell-yaml" "0.4.2" | Import-Module
 
   $yml = Get-Content $releaseSidebar | ConvertFrom-Yaml -Ordered
 
