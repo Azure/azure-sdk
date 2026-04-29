@@ -617,8 +617,6 @@ Despite the availability of the `asyncio` library and the `async`/`await` keywor
 
 {% include requirement/MUST id="python-client-sync-async" %} provide both sync and async versions of your APIs
 
-{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords. Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
-
 {% include requirement/MUST id="python-client-separate-sync-async" %} provide two separate client classes for synchronous and asynchronous operations.  Do not combine async and sync operations in the same class.
 
 ```python
@@ -831,7 +829,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
 
-{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.10.
+{% include requirement/MUST id="python-samples-coding-style" %} avoid using features newer than the Python baseline support. The current supported Python version is 3.10.
 
 {% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 
