@@ -1316,4 +1316,15 @@ entries:
     - Synchronous and asynchronous `UseEntraAuthentication` extension methods for `NpgsqlDataSourceBuilder`
     - Automatic username extraction from JWT token claims (`upn`, `xms_mirid`, `preferred_username`, `unique_name`)
     - Password provider integration with Npgsql data source builder for token-based authentication
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.5.1
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.5.1/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Adopted the new `Azure.Core` version that includes the identity types moved from `Azure.Identity`.
 
