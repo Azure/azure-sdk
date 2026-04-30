@@ -1610,4 +1610,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceLinker_1.1.2/sdk/servicelinker/Azure.ResourceManager.ServiceLinker/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.2.0-beta.1
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.2.0-beta.1/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ToLlmInput` extension method that converts `AnalysisResult` into LLM-friendly text with YAML front matter and markdown content. Supports documents, audio/video, and classification hierarchies.
 
