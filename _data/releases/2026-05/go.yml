@@ -1,0 +1,179 @@
+entries:
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v4.0.0-beta.1/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.21.1
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.21.1/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue in `ResponseError.Error()` where the request URL path was being logged unescaped.
+    * Redact query parameters when logging errors.
+    * For `runtime.JoinPaths`, don't add a slash between root and paths when `paths` starts with `?` (query string).
+- Name: sdk/resourcemanager/kubernetesconfiguration/armextensions
+  Version: 1.0.0
+  DisplayName: Resource Management - Extensions
+  ServiceName: Kubernetesconfiguration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/kubernetesconfiguration/armextensions/v1.0.0/sdk/resourcemanager/kubernetesconfiguration/armextensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azappconfig
+  Version: 2.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v2.2.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added new method `NewCheckSettingsPager` which can be used to check settings from the Azure App Configuration store using HEAD requests, returning only headers without the response body.
+    * Added internal pipeline policy to normalize (case-insensitive alphabetical) ordering of query parameters for deterministic request URLs.
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.1.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computelimit/armcomputelimit
+  Version: 1.0.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computelimit/armcomputelimit/v1.0.0/sdk/resourcemanager/computelimit/armcomputelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.6.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.6.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-04-06.
+    * Added cross-tenant support for Principal-Bound User Delegation SAS.
+    * Added support for Files Provisioned V2 Guardrails.
+- Name: sdk/storage/azqueue
+  Version: 2.1.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azqueue/v2.1.0-beta.1/sdk/storage/azqueue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-04-06.
+    * Added cross-tenant support for Principal-Bound User Delegation SAS.
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.2.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.2.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/azurestackhci/armazurestackhci
+  Version: 3.1.0-beta.1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/azurestackhci/armazurestackhci/v3.1.0-beta.1/sdk/resourcemanager/azurestackhci/armazurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.7.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.7.0-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-04-06.
+    * Added support for Delete Blob Conditional Tier.
+    * Added support for Server-side Encryption Rekeying.
+    * Added cross-tenant support for Principal-Bound User Delegation SAS.
+    * Added support for Dynamic User Delegation SAS.
+
+    #### Bugs Fixed
+    * Added support for error code `IncrementalCopyOfEarlierSnapshotNotAllowed`. This replaces `IncrementalCopyOfEralierVersionSnapshotNotAllowed` which has been deprecated.
+    * Added support for missing SKU name values.
+- Name: sdk/storage/azdatalake
+  Version: 1.5.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.5.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-04-06.
+    * Added cross-tenant support for Principal-Bound User Delegation SAS.
+    * Added support for Dynamic User Delegation SAS.
+    * Added error code `PathIsTooDeep` which is returned when a path contains more than 63 path segments.
+
+    #### Bugs Fixed
+    * Added support for error code `IncrementalCopyOfEarlierSnapshotNotAllowed`. This replaces `IncrementalCopyOfEarlierVersionSnapshotNotAllowed` which has been deprecated.
+- Name: sdk/resourcemanager/relationships/armrelationships
+  Version: 0.1.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/relationships/armrelationships/v0.1.0/sdk/resourcemanager/relationships/armrelationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/servicegroups/armservicegroups
+  Version: 0.1.0
+  DisplayName: Resource Management - Servicegroups
+  ServiceName: Servicegroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicegroups/armservicegroups/v0.1.0/sdk/resourcemanager/servicegroups/armservicegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 8.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v8.0.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/monitor/armslis
+  Version: 0.1.0
+  DisplayName: Resource Management - Slis
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/monitor/armslis/v0.1.0/sdk/resourcemanager/monitor/armslis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/redisenterprise/armredisenterprise
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis Enterprise
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redisenterprise/armredisenterprise/v4.0.0-beta.1/sdk/resourcemanager/redisenterprise/armredisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/appconfiguration/armappconfiguration
+  Version: 3.1.0-beta.2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/appconfiguration/armappconfiguration/v3.1.0-beta.2/sdk/resourcemanager/appconfiguration/armappconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+
