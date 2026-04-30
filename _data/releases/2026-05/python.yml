@@ -1,0 +1,466 @@
+entries:
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b1
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AgentServerHost` base class with built-in health probe (`/readiness`), graceful shutdown
+    (configurable timeout), and Hypercorn-based ASGI serving.
+    - Cooperative mixin inheritance for multi-protocol composition — a single server can host both
+    Responses and Invocations endpoints.
+    - Automatic OpenTelemetry tracing with Azure Monitor and OTLP exporters.
+    - `configure_observability` constructor parameter for overridable logging + tracing setup.
+    Console `StreamHandler` is attached to the root logger by default so user `logging.info()`
+    calls are visible without any extra configuration.
+    - `request_span()` context manager for creating request-scoped OTel spans with GenAI semantic
+    convention attributes.
+    - `end_span()`, `record_error()`, `flush_spans()`, `trace_stream()` public functions for
+    protocol SDK tracing lifecycle.
+    - `set_current_span()` / `detach_context()` for explicit OTel context management during
+    streaming, ensuring child spans are correctly parented.
+    - `AgentConfig` dataclass for resolved configuration from environment variables (Foundry agent
+    name, version, project ID, session ID, etc.).
+    - `create_error_response()` utility for standard error envelope JSON responses.
+    - `build_server_version()` for constructing `x-platform-server` header segments.
+    - HTTP access logging with configurable format via `access_log` and `access_log_format`
+    constructor parameters.
+
+    #### Breaking Changes
+
+    - **Package split**: All Responses API protocol types (models, handler decorators, SSE streaming)
+    have moved to `azure-ai-agentserver-responses`. All Invocations protocol types have moved to
+    `azure-ai-agentserver-invocations`. This package now contains only the shared hosting foundation.
+    - **`FoundryCBAgent` removed**: Replaced by `AgentServerHost`, a Starlette subclass that IS the
+    ASGI app (no separate `.app` property or `register_routes()`).
+    - **`AgentRunContext` removed**: Protocol packages provide their own context types
+    (`ResponseContext` in Responses, `request.state` in Invocations).
+    - **`TracingHelper` class removed**: Replaced by module-level functions (`request_span`,
+    `end_span`, `record_error`, `trace_stream`) for a simpler functional API.
+    - **`AgentLogger` / `get_logger()` removed**: Use `logging.getLogger("azure.ai.agentserver")`
+    directly, or rely on the SDK's automatic console logging setup.
+    - **`ErrorResponse.create()` removed**: Replaced by `create_error_response()` module-level function.
+    - **Health endpoint renamed**: `/healthy` → `/readiness`.
+    - **OpenTelemetry is now a required dependency** (was optional `[tracing]` extras in 1.x).
+    - **Environment variables changed**: `AGENT_LOG_LEVEL` and `AGENT_GRACEFUL_SHUTDOWN_TIMEOUT` are
+    no longer read from `Constants`. Use the `log_level` and `graceful_shutdown_timeout` constructor
+    parameters instead.
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `azure-ai-agentserver-responses`.
+    - `ResponsesAgentServerHost` — Starlette-based host with Responses protocol endpoints (`POST /responses`, `GET /responses/{id}`, `POST /responses/{id}/cancel`, `DELETE /responses/{id}`, `GET /responses/{id}/input_items`).
+    - `TextResponse` — high-level convenience for text-only responses with automatic SSE lifecycle. Accepts a plain string, sync/async callable, or async iterable via the `text` parameter.
+    - `ResponseEventStream` — low-level builder API for emitting SSE events with full control over output items (message, function call, reasoning, file search, web search, code interpreter, image gen, MCP, custom tool).
+    - Convenience generators (`output_item_message()`, `output_item_function_call()`, `output_item_reasoning_item()`) and async streaming variants (`aoutput_item_message()`, etc.) for common patterns.
+    - New convenience generators for all output item types: `output_item_image_gen_call()`, `output_item_structured_outputs()`, `output_item_computer_call()`, `output_item_computer_call_output()`, `output_item_local_shell_call()`, `output_item_local_shell_call_output()`, `output_item_function_shell_call()`, `output_item_function_shell_call_output()`, `output_item_apply_patch_call()`, `output_item_apply_patch_call_output()`, `output_item_custom_tool_call_output()`, `output_item_mcp_approval_request()`, `output_item_mcp_approval_response()`, `output_item_compaction()`, plus async variants for all.
+    - `output_item_message()` and `aoutput_item_message()` now accept an `annotations` keyword argument for attaching typed `Annotation` instances (file_path, file_citation, url_citation).
+    - New factory methods on `ResponseEventStream`: `add_output_item_structured_outputs()`, `add_output_item_computer_call()`, `add_output_item_computer_call_output()`, `add_output_item_local_shell_call()`, `add_output_item_local_shell_call_output()`, `add_output_item_function_shell_call()`, `add_output_item_function_shell_call_output()`, `add_output_item_apply_patch_call()`, `add_output_item_apply_patch_call_output()`, `add_output_item_custom_tool_call_output()`, `add_output_item_mcp_approval_request()`, `add_output_item_mcp_approval_response()`, `add_output_item_compaction()`.
+    - `data_url` utility module (`is_data_url()`, `decode_bytes()`, `try_decode_bytes()`, `get_media_type()`) for parsing RFC 2397 data URLs in image/file inputs.
+    - `IdGenerator.new_structured_output_item_id()` with `"fco"` partition prefix.
+    - Samples 12–16: image generation, image input, file inputs, annotations, structured outputs.
+    - `ResponseContext` providing `response_id`, conversation history loading, input item access via `get_input_items()` (returns `Item` subtypes), `get_input_text()` convenience for extracting text content, isolation context, and client headers.
+    - `ResponsesServerOptions` for configuring default model, SSE keep-alive, shutdown grace period, and other runtime options.
+    - Support for all execution modes: default (synchronous), streaming (SSE), background, and streaming + background.
+    - Automatic SSE event replay for previously streamed responses via `?stream=true`.
+    - Cooperative cancellation via `asyncio.Event` and graceful shutdown integration.
+    - `InMemoryResponseProvider` as the default in-process state store.
+    - `ResponseProviderProtocol` and `ResponseStreamProviderProtocol` for custom storage implementations.
+    - Built-in distributed tracing with OpenTelemetry integration.
+- Name: azure-keyvault-secrets
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.11.0/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01`
+    - Added support for retrieving secrets with `out_content_type`
+    - Added the `previous_version` property to `SecretProperties`
+- Name: azure-mgmt-compute
+  Version: 38.0.0b1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.0.0b1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.11.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.11.0/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2025-07-01`
+    - Added `uris` and `ip_addresses` properties to `SubjectAlternativeNames`
+
+    #### Bugs Fixed
+
+    - When creating a certificate with an unknown issuer, `CertificateClient.(begin_)create_certificate` now returns a
+    `CertificateOperation` instead of `None`
+    - When a certificate operation's error doesn't have an inner error, `CertificateOperationError` will be correctly
+    serialized instead of raising an exception
+    ([Azure/azure-cli #31764](https://github.com/Azure/azure-cli/issues/31764))
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b3
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b3/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Background non-stream finalization now passes isolation keys to `update_response` — previously the `isolation=` kwarg was missing, causing Foundry storage to return 404 when isolation headers were present (the response was created in a scoped partition but the update targeted the unscoped partition). This left responses permanently stuck at `in_progress`.
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Startup configuration logging — `ResponsesAgentServerHost` logs storage provider type, default model, default fetch history count, and shutdown grace period at INFO level during construction.
+    - `InboundRequestLoggingMiddleware` moved to `azure-ai-agentserver-core` — pure-ASGI middleware that logs every inbound HTTP request at INFO level (start) and at INFO or WARNING level (completion). Now wired automatically by `AgentServerHost` so all protocol hosts get consistent inbound logging. Includes method, path (no query string), status code, duration in milliseconds, and correlation headers (`x-request-id`, `x-ms-client-request-id`). Status codes >= 400 are logged at WARNING; unhandled exceptions are logged as status 500 at WARNING. OpenTelemetry trace ID is included when an active trace exists.
+    - Handler-level diagnostic logging — all five endpoint handlers (`POST /responses`, `GET /responses/{id}`, `DELETE /responses/{id}`, `POST /responses/{id}/cancel`, `GET /responses/{id}/input_items`) now emit INFO-level logs at entry and on success, including response ID, status, and output count where applicable.
+    - Orchestrator handler invocation logging — logs the handler function name and response ID at INFO level before each handler invocation.
+    - Chat isolation key enforcement — when a response is created with an `x-agent-chat-isolation-key` header, subsequent GET, DELETE, Cancel, and InputItems requests must include the same key. Mismatched or missing keys return an indistinguishable 404 to prevent cross-chat information leakage. Backward-compatible: no enforcement when the response was created without a key.
+    - Malformed response ID validation — all endpoints that accept a `response_id` path parameter now reject malformed IDs (wrong prefix, too short) with HTTP 400 (`error.type: "invalid_request_error"`, `error.code: "invalid_parameters"`, `param: "responseId{<value>}"`) before touching storage. The `previous_response_id` field in POST body is also validated.
+    - `FoundryStorageLoggingPolicy` — Azure Core per-retry pipeline policy that logs Foundry storage HTTP calls (method, URI, status code, duration, correlation headers) at the `azure.ai.agentserver` logger. Replaces the built-in `HttpLoggingPolicy` in the Foundry pipeline to provide single-line summaries with duration timing and log-level escalation (WARNING for 4xx/5xx).
+    - `FoundryStorageLoggingPolicy` now logs `x-request-id` and `apim-request-id` response headers from Foundry in addition to `x-ms-client-request-id` and `x-ms-request-id`, matching the .NET SDK's diagnostic detail. This enables verifying that the inbound trace-id round-trips through Foundry storage calls.
+    - Foundry storage User-Agent — outbound HTTP requests to Foundry storage now carry a `User-Agent` header reflecting the exact `x-platform-server` value (lazy callback via `_ServerVersionUserAgentPolicy`) so upstream logs can correlate inbound and outbound traffic.
+
+    #### Bugs Fixed
+
+    - SSE stream replay now works when the response provider does not implement `ResponseStreamProviderProtocol` (e.g. `FoundryStorageProvider`). Previously, `GET /responses/{id}?stream=true` returned HTTP 400 after eager eviction because no stream provider was configured. The host now auto-provisions an in-memory stream provider as a fallback.
+    - `item_reference` inputs are now resolved at persistence time — when a `POST /responses` request includes `item_reference` entries in its input, they are batch-resolved via the provider before being stored. Previously, `item_reference` entries were silently dropped during input expansion, so `GET /responses/{id}/input_items` would only return inline items. This matches the .NET SDK behavior (`GetInputItemsForPersistenceAsync`).
+    - Post-eviction chat isolation — after eager eviction, GET, DELETE, Cancel, and InputItems requests with missing or mismatched `x-agent-chat-isolation-key` headers now correctly fall through to Foundry storage (which returns HTTP 400) instead of being blocked locally with HTTP 404. In-flight isolation enforcement is unchanged.
+    - Error `code` field now uses spec-compliant values: `"invalid_request_error"` for 400/404 errors (was `"invalid_request"`, `"not_found"`, or `"invalid_mode"`), `"server_error"` for 500 errors (was `"internal_error"`).
+    - `RequestValidationError` default code updated from `"invalid_request"` to `"invalid_request_error"`.
+    - Error responses for deleted resources now correctly return HTTP 404 (was 400). Affects `GET /responses/{id}`, `GET /responses/{id}/input_items`, and `DELETE /responses/{id}` (second delete) on previously deleted responses.
+    - Cancel on a response in terminal state now returns the spec-compliant message `"Cannot cancel a response in terminal state."` (was `"Cannot cancel an incomplete response."`).
+    - SSE replay rejection messages now use spec-compliant wording:
+    - Non-background responses: `"This response cannot be streamed because it was not created with background=true."`
+    - Background non-stream responses: `"This response cannot be streamed because it was not created with stream=true."`
+    - Foundry storage errors (`FoundryResourceNotFoundError`, `FoundryBadRequestError`, `FoundryApiError`) are now explicitly caught in endpoint handlers and mapped to appropriate HTTP status codes instead of being swallowed by broad exception handlers.
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Startup configuration logging — `AgentServerHost` lifespan now emits three INFO-level log lines at startup: platform environment (agent name, version, port, session ID, SSE keep-alive), connectivity (project endpoint and OTLP endpoint masked to scheme://host, Application Insights configured flag), and host options (shutdown timeout, registered protocols). Sensitive values (Application Insights connection string) are never logged.
+    - `InboundRequestLoggingMiddleware` — pure-ASGI middleware wired automatically by `AgentServerHost` that logs every inbound HTTP request. Logs method, path (no query string), status code, duration in milliseconds, and correlation headers (`x-request-id`, `x-ms-client-request-id`). Status codes >= 400 are logged at WARNING; unhandled exceptions are logged as status 500 at WARNING. OpenTelemetry trace ID is included when an active trace exists.
+    - Inbound request logs now include `trace-id` extracted from the W3C `traceparent` header, even when no OTel span is active at middleware level. Previously the trace-id was only available after the endpoint handler created a request span.
+
+    #### Bugs Fixed
+
+    - Fixed duplicate console log output when a `StreamHandler` was already present on the root logger (e.g. from `logging.basicConfig()` or framework setup). The SDK now detects any existing `StreamHandler` before adding its own, not just its sentinel-marked handler.
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b4/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `DELETE /responses/{id}` no longer returns intermittent 404 when the background task's eager eviction races with the delete handler. Previously, `try_evict` could remove the record from in-memory state between the handler's `get()` and `delete()` calls, causing `delete()` to return `False` and producing a spurious 404. The handler now falls through to the durable provider when the in-memory delete fails due to a concurrent eviction.
+    - `POST /responses` with `background=true, stream=false` now correctly returns `status: "in_progress"` instead of `"completed"`. Handlers that yield events synchronously (no `await` between yields — the normal pattern with `ResponseEventStream`) would cause the background task to run to completion before `run_background` captured the initial snapshot. A cooperative yield after `response_created_signal.set()` now ensures the POST handler resumes promptly.
+    - Conversation history IDs (`previous_response_id`, `conversation_id`) are now validated eagerly before the handler is invoked. A nonexistent reference now returns a 404 error to the client immediately, instead of being silently ignored or surfacing as an opaque error deep inside the handler. The prefetched IDs are reused by `ResponseContext.get_history()`, eliminating a redundant provider call.
+- Name: azure-mgmt-containerservice
+  Version: 41.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.1.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.1.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Tracing: trace context propagation is enabled by default when tracing is enabled.
+
+    #### Features Added
+
+    * `get_openai_client()` on `AIProjectClient` now takes an optional input argument `agent_name`. If provided, the returned OpenAI
+    client will use a base URL of Agent endpoint instead of Foundry Project endpoint. As Agent endpoints are a preview feature, you
+    need to set `allow_preview=True` on the `AIProjectClient` constructor.
+    * New `.beta.agents` sub-client added, with Session operations (those only work with Hosted Agents)
+    * `create_session()`
+    * `delete_session()`
+    * `delete_session_file()`
+    * `download_session_file()`
+    * `get_session()`
+    * `get_session_files()`
+    * `list_sessions()`
+    * `upload_session_file()`
+    * Also on `.beta.agents` sub-client, a new method `patch_agent_details()`.
+    * New `beta.skills` sub-client added, with Skills operations:
+    * `create()`
+    * `create_from_package()`
+    * `delete()`
+    * `download()`
+    * `get()`
+    * `list()`
+    * `update()`
+    * New `beta.toolboxes` sub-client added, with Toolboxes operations:
+    * `create_version()`
+    * `delete()`
+    * `delete_version()`
+    * `get()`
+    * `get_version()`
+    * `list()`
+    * `list_versions()`
+    * `update()`
+    * Type hinting support for OpenAI client operations `.evals.create()` and `.evals.runs.create()`, when you
+    get the OpenAI client using `get_openai_client()` method of `AIProjectClient`. This includes new TypedDicts
+    classes to help you author the input to these methods. See new TypedDict classes `ModelSamplingConfigParam`,
+    `ToolDescriptionParam`, `AzureAIAgentTargetParam`, `AzureAIModelTargetParam`,
+    `ResponseRetrievalItemGenerationParams`, `AzureAIResponsesEvalRunDataSource`, `AzureAIDataSourceConfig`,
+    `TargetCompletionEvalRunDataSource`, `TestingCriterionAzureAIEvaluator`, `AzureAIBenchmarkPreviewEvalRunDataSource`,
+    `EvalCsvFileIdSource`, `EvalCsvRunDataSource`, `RedTeamEvalRunDataSource`, `TracesPreviewEvalRunDataSource`.
+
+
+    #### Bugs Fixed
+
+    * Fix missing type hinting on the returned OpenAI client from method 'get_openai_client()`.
+- Name: azure-ai-contentunderstanding
+  Version: 1.1.0
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.1.0/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `usage` property on `AnalyzeLROPoller` and `AnalyzeAsyncLROPoller` to surface billing and token consumption details (`UsageDetails`) returned by the REST API.
+- Name: azure-mgmt-kubernetesconfiguration-extensions
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-extensions_1.0.0/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-computelimit
+  Version: 1.0.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computelimit_1.0.0/sdk/computelimit/azure-mgmt-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-transcription
+  Version: 1.0.0b4
+  DisplayName: Azure AI Transcription
+  ServiceName: Transcription
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-transcription_1.0.0b4/sdk/transcription/azure-ai-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Moved the package to a new service category folder `transcription`.
+- Name: azure-mgmt-azurestackhci
+  Version: 8.1.0b1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.1.0b1/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b5/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed crash in `FoundryStorageLoggingPolicy` when a transport-level failure (DNS resolution, connection refused, timeout) occurs before any HTTP response is received. The policy previously attempted to access `response.headers` unconditionally, raising an unrelated exception that masked the real transport error. Transport failures are now logged at ERROR level and the original exception propagates cleanly.
+    - Fixed `ResponseContext.get_input_text()` and `ResponseContext.get_input_items()` silently dropping text when `ItemMessage.content` is a plain string. String content is now correctly expanded into `MessageContentInputTextContent`.
+
+    #### Features Added
+
+    - All HTTP responses now include an `x-request-id` header for request correlation. Value is resolved in priority order: OTEL trace ID → incoming `x-request-id` header → new UUID.
+    - Error responses (4xx/5xx) with a JSON `error` body are automatically enriched with `error.additionalInfo.request_id` matching the `x-request-id` response header, enabling client-side error correlation.
+    - Persistence failure resilience — when storage operations fail, responses now complete gracefully with `status: "failed"` and `error.code: "storage_error"` instead of crashing or leaving responses permanently stuck at `in_progress`. Covers all execution modes (streaming, background+streaming, background+non-streaming, synchronous). For streaming responses, terminal SSE events are buffered, persistence is attempted, and on failure the terminal event is replaced with `response.failed` carrying `error_code="storage_error"`. Synchronous persistence failures return HTTP 500 with the storage error details.
+    - Foundry storage logging now includes the `traceparent` header (W3C distributed trace ID) in all log messages, enabling correlation between SDK log entries and backend distributed traces.
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b3
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b3/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `RequestIdMiddleware` — pure-ASGI middleware that sets an `x-request-id` response header on every response. The request ID is resolved from the OpenTelemetry trace ID, an incoming `x-request-id` header, or a generated UUID (in that priority). The resolved value is stored in ASGI scope state under the well-known key `agentserver.request_id` for use by sibling protocol packages. Automatically wired into `AgentServerHost`.
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.2.0
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_1.2.0/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.2.0b1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.2.0b1/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-horizondb
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-horizondb_1.0.0b1/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-relationships
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relationships_1.0.0b1/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicegroups
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicegroups_1.0.0b1/sdk/servicegroups/azure-mgmt-servicegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicessiterecovery
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicessiterecovery_2.0.0b1/sdk/recoveryservices/azure-mgmt-recoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.16.6
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.6/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed evaluation token usage not being emitted in the genai evaluation event, causing token consumption metrics to be missing from telemetry.
+    - Fixed multi-turn red team attacks(`RedTeamingAttack`-based strategies like `MultiTurn`) failing silently with PyRIT 0.11. Two bugs were patched at the SDK level: (1) `RedTeamingAttack._setup_async` raised `RuntimeError: Conversation already exists` because it seeded prepended conversation messages before calling `set_system_prompt`; now patched per-instance on the adversarial chat target to tolerate existing conversation history. (2) `RedTeamingAttack._generate_next_prompt_async` returned `context.next_message` without calling `.duplicate_message()`, causing `sqlite3.IntegrityError: UNIQUE constraint failed: PromptMemoryEntries.id` on the second turn; now patched at module load with an idempotent wrapper that duplicates the message before returning.
+    - Fixed `sensitive_data_leakage` red team attacks producing 100% false-pass rates. `_extract_context_items` in the Foundry execution path only handled `list` or `dict` shapes for `messages[0].context`; pre-curated SDL attack objectives store the document text as a `str` with sibling `context_type`/`tool_name` fields, so the document was silently dropped and a fallback synthesized a context item from the user prompt. The agent never received the sensitive document content and could not leak it, causing the evaluator to score every attempt as a pass. Added `str` handling (both message-level and top-level), normalized raw string entries inside list-shaped context, and gated the `context_type` fallback so it only runs when no usable context was extracted (including the `context: null` case).
+- Name: azure-mgmt-compute
+  Version: 38.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-domainregistration
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-domainregistration_1.0.0b1/sdk/domainregistration/azure-mgmt-domainregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 11.0.0b1
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_11.0.0b1/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-postgresql-auth
+  Version: 1.0.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-postgresql-auth_1.0.2/sdk/postgresql/azure-postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed dependency on `DefaultAzureCredential` in source library
+    - Fixed `get_entra_conninfo_async` and `get_entra_token_async` closing the credential by using it as a context manager
+- Name: azure-mgmt-certificateregistration
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-certificateregistration_1.0.0b1/sdk/certificateregistration/azure-mgmt-certificateregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appnetwork
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appnetwork_1.0.0b1/sdk/appnetwork/azure-mgmt-appnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appconfiguration
+  Version: 6.0.0b2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_6.0.0b2/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-contentunderstanding
+  Version: 1.2.0b1
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.2.0b1/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `to_llm_input` helper function that converts `AnalysisResult` objects into LLM-friendly text with YAML front matter and markdown content. Supports documents, audio/video, and classification hierarchies.
+
