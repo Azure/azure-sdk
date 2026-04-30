@@ -1,0 +1,247 @@
+entries:
+- Name: '@azure/ai-projects'
+  Version: 2.1.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.1.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Change `container_protocol_versions` property from required to optional in `HostedAgentDefinition` output types.
+    - Change `code_type` property from required to optional in `getVersion` output type.
+    - Rename `id` property in `Schedule` interface to `schedule_id`
+
+    #### Bugs Fixed
+
+    - Remove redundant `foundryFeatures` property from `EvaluationRulesCreateOrUpdateOptionalParam`
+
+    #### Features Added
+
+    - Add `project.beta.agents` route for accessing beta agent operations such as managed agent identity blueprints, session files, and sessions
+    - Add `project.beta.skills` route for accessing skills
+    - Add `project.beta.toolboxes` route for accessing toolbox features
+- Name: '@azure/arm-kubernetesconfiguration-extensions'
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Extensions
+  ServiceName: Kubernetesconfiguration-Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-extensions_1.0.0/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-extensions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 4.9.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.9.3/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [#38124](https://github.com/Azure/azure-sdk-for-js/pull/38124) Fixed incorrect SQL filter generation in ORDER BY queries with continuation tokens. Backslashes and single quotes in `orderByItem` values are now properly escaped in `formatValueForSQL` before being embedded in WHERE clauses.
+- Name: '@azure/event-hubs'
+  Version: 6.0.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.4/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `TimeoutNegativeWarning` on Node.js v24+ when timeout budget is exceeded during CBS authentication by clamping remaining-time computations to a minimum of 0. [#38166](https://github.com/Azure/azure-sdk-for-js/pull/38166)
+- Name: '@azure/core-amqp'
+  Version: 4.4.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.4.2/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle `AggregateError` in `translate()` for Node.js 20+ Happy Eyeballs (RFC 8305). When DNS resolution fails over dual-stack connections, Node.js now throws an `AggregateError` bundling IPv4 and IPv6 errors. The `translate()` function now translates all inner errors and returns a properly annotated `AggregateError` with correct `retryable` semantics. [#38233](https://github.com/Azure/azure-sdk-for-js/pull/38233)
+    - Clamp negative timeout values passed to `setTimeout` to a minimum of 0 when timeout budgets are exceeded in shared request/locking paths, preventing `TimeoutNegativeWarning` on Node.js v24+ (for example, during CBS authentication). [#38166](https://github.com/Azure/azure-sdk-for-js/pull/38166)
+- Name: '@azure/arm-azurestackhci'
+  Version: 4.1.0-beta.1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_4.1.0-beta.1/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computelimit'
+  Version: 1.0.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.0.0/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/playwright'
+  Version: 1.1.5
+  DisplayName: Playwright
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/playwright_1.1.5/sdk/loadtesting/playwright/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed failure during report upload for test runs longer than 5 minutes when using GitHub OIDC authentication.
+- Name: '@azure/arm-containerservice'
+  Version: 25.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relationships'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-relationships_1.0.0-beta.1/sdk/relationships/arm-relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicegroups'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Servicegroups
+  ServiceName: Servicegroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicegroups_1.0.0-beta.1/sdk/servicegroups/arm-servicegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-content-understanding'
+  Version: 1.1.0
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-understanding_1.1.0/sdk/contentunderstanding/ai-content-understanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Billing and token consumption details are now available after analysis operations complete. Access via `poller.operationState?.usage`.
+    - The operation ID is now available on the operation state via `poller.operationState?.operationId`.
+- Name: '@azure/arm-monitorslis'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Monitorslis
+  ServiceName: Monitorslis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitorslis_1.0.0-beta.1/sdk/monitor/arm-monitorslis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/postgresql-auth'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/postgresql-auth_1.0.0-beta.1/sdk/postgresql/postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `entraTokenProvider` function for acquiring Entra ID tokens as PostgreSQL passwords.
+    - Added `configureEntraAuthentication` function for automatic Sequelize Entra ID authentication via `beforeConnect` hook.
+    - Support for `pg` (node-postgres) and Sequelize clients as optional peer dependencies.
+- Name: '@azure/arm-prometheusrulegroups'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Prometheusrulegroups
+  ServiceName: Prometheusrulegroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-prometheusrulegroups_1.0.0-beta.1/sdk/prometheusrulegroups/arm-prometheusrulegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-previewalertrule'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Previewalertrule
+  ServiceName: Previewalertrule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-previewalertrule_1.0.0-beta.1/sdk/previewalertrule/arm-previewalertrule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commerce'
+  Version: 4.0.0-beta.4
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-alertrulerecommendations'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Alertrulerecommendations
+  ServiceName: Alertrulerecommendations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-alertrulerecommendations_1.0.0-beta.1/sdk/alertrulerecommendations/arm-alertrulerecommendations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices-siterecovery'
+  Version: 6.0.0-beta.1
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicessiterecovery/arm-recoveryservices-siterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-tenantactivitylogalerts'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Tenantactivitylogalerts
+  ServiceName: Tenantactivitylogalerts
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-tenantactivitylogalerts_1.0.0-beta.1/sdk/tenantactivitylogalerts/arm-tenantactivitylogalerts/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 20.0.0-beta.1
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 17.0.0-beta.3
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-alertprocessingrules'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Alertprocessingrules
+  ServiceName: Alertprocessingrules
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-alertprocessingrules_1.0.0-beta.1/sdk/alertprocessingrules/arm-alertprocessingrules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-alertsmanagement'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Alertsmanagement
+  ServiceName: Alertsmanagement
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-alertsmanagement_1.0.0-beta.1/sdk/alertsmanagement/arm-alertsmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 24.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-communication'
+  Version: 5.0.0-beta.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_5.0.0-beta.1/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+
