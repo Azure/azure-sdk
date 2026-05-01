@@ -252,4 +252,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-planetarycomputer_1.0.0/sdk/planetarycomputer/arm-planetarycomputer/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-content-understanding'
+  Version: 1.2.0-beta.1
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-understanding_1.2.0-beta.1/sdk/contentunderstanding/ai-content-understanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `toLlmInput` helper that converts `AnalysisResult` into LLM-friendly text with YAML front matter and markdown content. Supports documents, audio/video, and classification hierarchies.
 
