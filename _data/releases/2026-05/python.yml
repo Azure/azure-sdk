@@ -471,4 +471,33 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-planetarycomputer_1.0.0/sdk/planetarycomputer/azure-mgmt-planetarycomputer/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.40.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.40.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for per-operation `http_logging_level` overrides in `HttpLoggingPolicy`. #44115
+    - Introduced the keyword argument `additional_allowed_query_params` to `DistributedTracingPolicy` and `HttpLoggingPolicy` to allow users to specify additional URL query parameters that should not be redacted in span attributes or logs. #46482
+    - Users can specify this at the SDK client level by passing `additional_allowed_query_params` to the client constructor. For example: `client = ServiceClient(..., additional_allowed_query_params={"custom_param"})`. This will apply to all operations performed by the client.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b13
+  DisplayName: Core - Client - Tracing Opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b13/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remapped certain attributes to converge with OpenTelemetry semantic conventions version `1.23.1` ([#34089](https://github.com/Azure/azure-sdk-for-python/pull/34089)):
+    - `http.method` -> `http.request.method`
+    - `http.status_code` -> `http.response.status_code`
+    - `net.peer.name` -> `server.address`
+    - `net.peer.port` -> `server.port`
+    - `http.url` -> `url.full`
 
