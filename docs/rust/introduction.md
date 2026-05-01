@@ -163,8 +163,8 @@ See [Rust modules][rust-modules] for more information.
 
 ```rust
 impl SecretClient {
-    pub fn new(endpoint: impl AsRef<str>, credential: std::sync::Arc<dyn azure_core::TokenCredential>, options: Option<SecretClientOptions>) -> azure_core::Result<Self> {
-        let endpoint = azure_core::Url::parse(endpoint.as_ref())?;
+    pub fn new(endpoint: &str, credential: std::sync::Arc<dyn azure_core::TokenCredential>, options: Option<SecretClientOptions>) -> azure_core::Result<Self> {
+        let endpoint = azure_core::Url::parse(endpoint)?;
         let options = options.unwrap_or_default();
 
         todo!()
@@ -242,7 +242,7 @@ impl Default for SecretClientOptions {
 
 #### Service Methods {#rust-client-methods}
 
-{% include requirement/MUST id="rust-client-methods" %} take a `body: RequestContent<T>` if and only if the service method accepts a request body e.g., `POST` or `PUT`.
+{% include requirement/MUST id="rust-client-methods" %} take a `body: RequestContent<T>` if and only if the service method accepts a request body e.g., `POST` or `PUT`, where `body` is the body parameter name in TypeSpec.
 
 {% include requirement/MUST id="rust-client-methods-params" %} use the service specified name of all parameters.
 
@@ -255,7 +255,11 @@ See [Rust modules][rust-modules] for more information.
 
 {% include requirement/MUST id="rust-client-methods-configuration-fields" %} define all client method-specific fields of method option structs as public and of type `Option<T>`.
 
-{% include requirement/MUST id="rust-client-methods-configuration-fields-options" %} define a `method_options: azure_core::ClientMethodOptions` public field.
+{% include requirement/MUST id="rust-client-methods-configuration-fields-options" %} define a `method_options` public field of type:
+
+* For functions that return a `Pager<T>`, define `method_options: azure_core::http::pager::PagerOptions<'_>`.
+* For functions that return a `Poller<T>`, define `method_options: azure_core::http::poller::PollerOptions<'_>`.
+* For every other function, define `method_options: azure_core::http::ClientMethodOptions<'_>`.
 
 {% include requirement/MUST id="rust-client-methods-configuration-clone" %} derive `Clone` to support cloning method configuration for additional client method invocations.
 
@@ -303,6 +307,7 @@ to wait synchronously on a `Future`.
 | Pattern       | HTTP Method  | Comments
 | ------------- | ------------ | --------
 | add_{noun}    | POST or PUT  | Add a resource to a collection. Fails if the resource exists.
+| begin_{verb}  | POST or PUT  | Starts a [long-running operation](#rust-lro).
 | delete_{noun} | DELETE       | Delete a resource. Does not fail if the resource does not exist.
 | get_{noun}    | GET          | Get a resource. Fails if the resource does not exist.
 | list_{noun}   | GET          | {#rust-client-methods-naming-list} Get a collection of resources. May be in zero or may pages of results. Returns an empty list if no resources exist.
@@ -423,7 +428,7 @@ impl SecretClient {
 
 The `endpoint` parameter is never saved so a reference is fine. Except for possible body parameters, any parameter should typically be borrowed since required parameters comprise URL path segments or query parameters.
 
-{% include requirement/MUST id="rust-parameters-request-content" %} declare a parameter named `content` of type `RequestContent<T>`, where `T` is the service-defined request model.
+{% include requirement/MUST id="rust-parameters-request-content" %} declare a parameter named after the body parameter in TypeSpec of type `RequestContent<T>`, where `T` is the service-defined request model.
 
 {% include requirement/MUST id="rust-parameters-request-content-convert" %} support converting to a `RequestContent<T>` from a `T`, `Stream`, or `AsRef<str>`.
 
@@ -519,7 +524,7 @@ This section describes guidelines for the design _model types_ and all their tra
 
 {% include requirement/MUST id="rust-model-types-optional" %} define all non-vector fields using `Option<T>`.
 
-{% include requirement/MUST id="rust-model-types-vectors" %} define all vector fields as `Vec<T>`.
+{% include requirement/MUST id="rust-model-types-vectors" %} define all vector fields as `Option<Vec<T>>` and hash maps as `Option<HashMap<K, V>>`. This helps tell the difference between empty and absent.
 These must deserialize as empty (non-allocating) if the vector they are deserializing is missing or empty, and should serialize as empty except in JSON merge+patch payloads.
 
 Though uncommon, service definitions do not always match the service implementation when it comes to required fields. Upon the recommendation of the Breaking Change Reviewers, the specification is often changed to reflect the service if the service has already been deployed.
@@ -551,17 +556,18 @@ See [RFC 2008][rust-lang-rfc-2008] for more information.
 
 If name collisions are likely and the TypeSpec cannot be changed, you can either use the `@clientName` TypeSpec decorator or update a client `.tsp` file.
 
-{% include requirement/MUST id="rust-model-names-fields" %} define model fields using "camelCase".
-
-To facilitate this, attribute the model type:
+{% include requirement/MUST id="rust-model-names-fields" %} define model fields using whatever case TypeSpec expects e.g.,
 
 ```rust
 #[derive(serde::Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Example {
+    // #[serde(rename = "compoundName")]
     pub compound_name: String, // -> "compoundName"
 }
 ```
+
+Note that the TypeSpec emitter will use e.g., `#[serde(rename = "compoundName")]`, for ease when emitting but any hand-written models can use a struct- or enum-level e.g., `#[serde(rename_all = "camelCase")]` with whatever case they need for all or most fields, and can override per-field as needed.
 
 {% include requirement/MUSTNOT id="rust-model-names-rename" %} rename fields using the `#[serde]` attribute or by other means. All model changes must only be done in TypeSpec.
 
@@ -595,7 +601,7 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the enum is used in input (serializable), output (deserializable), or both.
 
-{% include requirement/MUST id="rust-enums-non-exhaustive" %} attribute all enums with `#[non_exhaustive]`.
+{% include requirement/MUSTNOT id="rust-enums-non-exhaustive" %} attribute enums with `#[non_exhaustive]`. While this may lead to breaking changes, it hides a change in the API in a way that can be deterimental. See [Azure/typespec-rust#809](https://github.com/Azure/typespec-rust/issues/809) for details.
 
 This forces all downstream crates, for example, to use the `_` match arm to match any remaining enums that may be added in the future for pattern binding:
 
