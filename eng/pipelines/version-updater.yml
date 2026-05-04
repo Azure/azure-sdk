@@ -20,13 +20,15 @@ jobs:
   - checkout: self
     path: azure-sdk
 
+  - template: /eng/common/pipelines/templates/steps/login-to-github.yml
+
   - task: PowerShell@2
     displayName: Update packages from package manager
     inputs:
       pwsh: true
       filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
       arguments: >
-        -github_pat '$(azuresdk-github-pat)'
+        -github_pat '$(GH_TOKEN)'
         -nuget_pat '$(azure-sdk-nuget-pat)'
         -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))
 
@@ -36,7 +38,7 @@ jobs:
       pwsh: true
       filePath: $(AzureSDKClonePath)/eng/scripts/Update-Release-Versions.ps1
       arguments: >
-        -github_pat '$(azuresdk-github-pat)'
+        -github_pat '$(GH_TOKEN)'
 
   - task: AzureCLI@2
     displayName: Update release DevOps work-items
@@ -46,11 +48,11 @@ jobs:
       scriptLocation: inlineScript
       inlineScript: |
         $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1 `
-          -github_pat '$(azuresdk-github-pat)'
+          -github_pat '$(GH_TOKEN)'
 
   - pwsh: |
       # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
-      git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/azure-sdk/azure-sdk.git"
     displayName: Setup azure-sdk-fork remote
     workingDirectory: $(AzureSDKClonePath)
 
@@ -61,7 +63,7 @@ jobs:
     workingDirectory: $(AzureSDKClonePath)
 
   - pwsh: |
-      git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs $(Pipeline.Workspace)/azure-rest-api-specs
+      git clone https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-rest-api-specs $(Pipeline.Workspace)/azure-rest-api-specs
     displayName: Clone azure-rest-api-specs repo
 
   - task: PowerShell@2
@@ -91,6 +93,7 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(AzureSDKClonePath)
+      AuthToken: ''
 
   - pwsh: |
       gh pr merge $(Submitted.PullRequest.Number) --auto --squash
@@ -98,12 +101,12 @@ jobs:
     displayName: Apply AutoMerge to Pull Request
     workingDirectory: $(AzureSDKClonePath)
     env:
-      GH_TOKEN: $(azuresdk-github-pat)
+      GH_TOKEN: $(GH_TOKEN)
 
   - template: template/steps/generate-releasenotes.yml
 
   - pwsh: |
-      git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(Pipeline.Workspace)/azure-dev-docs-pr
+      git clone https://x-access-token:$(GH_TOKEN)@github.com/MicrosoftDocs/azure-dev-docs-pr $(Pipeline.Workspace)/azure-dev-docs-pr
     displayName: Clone azure-dev-docs-pr repo
 
   - task: PowerShell@2
@@ -130,9 +133,10 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(Pipeline.Workspace)/azure-dev-docs-pr
+      AuthToken: ''
 
   - pwsh: |
-      git clone https://$(azuresdk-github-pat)@github.com/Azure/azure-rest-api-specs-pr $(Pipeline.Workspace)/azure-rest-api-specs-pr --branch RPSaaSMaster
+      git clone https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-rest-api-specs-pr $(Pipeline.Workspace)/azure-rest-api-specs-pr --branch RPSaaSMaster
     displayName: Clone azure-rest-api-specs-pr repo
 
   - task: PowerShell@2
@@ -185,3 +189,4 @@ jobs:
       PRTitle: "Update package index with latest published versions"
       PushArgs: -f
       WorkingDirectory: $(Pipeline.Workspace)/dotnet-docs
+      AuthToken: ''
