@@ -1621,4 +1621,149 @@ entries:
     #### Features Added
 
     - Added `ToLlmInput` extension method that converts `AnalysisResult` into LLM-friendly text with YAML front matter and markdown content. Supports documents, audio/video, and classification hierarchies.
+- Name: Azure.Provisioning.Logic
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Logic
+  ServiceName: Logic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Logic_1.0.0-beta.1/sdk/logic/Azure.Provisioning.Logic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Compute.Batch
+  Version: 1.0.0
+  DisplayName: Compute Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Compute.Batch_1.0.0/sdk/batch/Azure.Compute.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    Removed Types:
+    - Removed `AuthenticationTokenSettings`
+    - Removed `BatchAccessScope`
+
+    Removed Properties:
+    - Removed `AuthenticationTokenSettings` from `BatchJobManagerTask`
+    - Removed `AuthenticationTokenSettings` from `BatchTask`
+    - Removed `AuthenticationTokenSettings` from `BatchTaskCreateOptions`
+
+    Renamed Properties:
+    - `BatchJobDisableOptions.DisableTasks` renamed to `BatchJobDisableOptions.JobOption`
+    - `BatchJobScheduleConfiguration.DoNotRunUntil` renamed to `BatchJobScheduleConfiguration.DoNotRunBefore`
+    - `BatchJobScheduleStatistics.WallClockTime` renamed to `BatchJobScheduleStatistics.Duration`
+    - `BatchOsDisk.WriteAcceleratorEnabled` renamed to `BatchOsDisk.IsWriteAcceleratorEnabled`
+    - `BatchPoolLifetimeOption.JobSchedule` renamed to `BatchPoolLifetimeOption.JobScheduleOption`
+    - `BatchPoolLifetimeOption.Job` renamed to `BatchPoolLifetimeOption.JobOption`
+    - `RollingUpgradePolicy.EnableCrossZoneUpgrade` renamed to `RollingUpgradePolicy.IsCrossZoneUpgradeEnabled`
+    - `SecurityProfile.EncryptionAtHost` renamed to `SecurityProfile.IsEncryptedAtHost`
+    - `VMExtension.AutoUpgradeMinorVersion` renamed to `VMExtension.ShouldAutoUpgradeMinorVersion`
+    - `VMExtension.EnableAutomaticUpgrade` renamed to `VMExtension.IsAutomaticUpgradeEnabled`
+    - `BatchFileProperties.FileUrl` (type `string`) renamed to `BatchFileProperties.FileUri` (type `Uri`).
+    - `DiskCustomerManagedKey.KeyUrl` renamed to `DiskCustomerManagedKey.KeyUri`.
+
+    Renamed Types:
+    - `NameValuePair` renamed to `BatchNameValuePair`
+    - `HostEndpointSettingsModeTypes` renamed to `HostEndpointSettingsModeType`
+
+    Renamed Methods (all `BatchClient` methods):
+    - `GetJobsFromSchedules` renamed to `GetJobsFromSchedule`
+    - `GetJobsFromSchedulesAsync` renamed to `GetJobsFromScheduleAsync`
+
+    Renamed Parameters (all `BatchClient` methods):
+    - `timeOutInSeconds` renamed to `timeout`
+    - `ocpDate` renamed to `requestDate`
+    - `maxresults` renamed to `maxResults`
+    - `parameters` renamed to `options` (on `TerminateJob`, `DeallocateNode`)
+
+    Changed Parameters (all `BatchClient` methods):
+    - `StartNode`/`StartNodeAsync`: `RequestContext context` changed to `CancellationToken cancellationToken`
+    - `StopPoolResize`/`StopPoolResizeAsync`: `RequestContext context` changed to `CancellationToken cancellationToken`
+
+    Changed Property Types:
+    - `DiskCustomerManagedKey.KeyUri` changed type from `string` to `Uri`
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.5.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.5.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue where Azure Container Apps instances were showing VM instance GUIDs
+    instead of replica names in the Role Instance field.
+    ([#54586](https://github.com/Azure/azure-sdk-for-net/pull/54586))
+
+    #### Features Added
+
+    * Add ability to specify EnableStandardMetrics and EnablePerformanceCounters
+    ([#56438](https://github.com/Azure/azure-sdk-for-net/pull/56438))
+
+    #### Breaking Changes
+
+    *  **Default Sampler Changed**: The default sampling behavior has been changed from
+    `ApplicationInsightsSampler` with 100% sampling (all traces sampled) to
+    `RateLimitedSampler` with 5.0 traces per second. This change significantly
+    reduces telemetry volume for high-traffic applications and provides better
+    cost optimization out of the box.
+    **Impact**: Applications with more than 5 requests per second will see fewer
+    traces exported by default.
+    **Migration**: To maintain the previous behavior (100% sampling), explicitly
+    configure the sampler:
+
+    ```csharp
+    // Option 1: Set SamplingRatio and clear TracesPerSecond
+    builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor(options =>
+    {
+    options.SamplingRatio = 1.0f;
+    options.TracesPerSecond = null;
+    });
+    // Option 2: Use environment variables
+    // OTEL_TRACES_SAMPLER=microsoft.fixed_percentage
+    // OTEL_TRACES_SAMPLER_ARG=1.0
+    ```
+- Name: Azure.Search.Documents
+  Version: 12.0.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_12.0.0/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `2026-04-01` service version.
+    - Added `KnowledgeBaseRetrievalClient` for agentic retrieval operations against knowledge bases.
+    - Added knowledge base management types: `KnowledgeBase`, `KnowledgeBaseModel`, `KnowledgeBaseAzureOpenAIModel`, and `KnowledgeSourceReference`.
+    - Added knowledge source types: `AzureBlobKnowledgeSource`, `SearchIndexKnowledgeSource`, `IndexedOneLakeKnowledgeSource`, and `WebKnowledgeSource` with associated parameters.
+    - Added knowledge base retrieval models: `KnowledgeBaseRetrievalRequest`, `KnowledgeBaseRetrievalResponse`, `KnowledgeBaseMessage`, `KnowledgeBaseMessageContent`, and `KnowledgeBaseReference` with typed variants (`KnowledgeBaseAzureBlobReference`, `KnowledgeBaseSearchIndexReference`, `KnowledgeBaseIndexedOneLakeReference`, `KnowledgeBaseWebReference`).
+    - Added knowledge base activity tracking: `KnowledgeBaseActivityRecord`, `KnowledgeBaseAgenticReasoningActivityRecord`, and `KnowledgeBaseModelWebSummarizationActivityRecord`.
+    - Added `KnowledgeBaseActivityRecordType.ModelWebSummarization` value for LLM web summarization activity records.
+    - Added knowledge source ingestion and status models: `KnowledgeSourceIngestionParameters`, `KnowledgeSourceStatus`, `KnowledgeSourceStatistics`, and `SynchronizationState`.
+    - Added AI skill types: `ChatCompletionSkill`, `ContentUnderstandingSkill`, and `DocumentIntelligenceLayoutSkill` with associated configuration models.
+    - Added `AzureMachineLearningVectorizer` and `AzureMachineLearningParameters` for AML-based vectorization.
+    - Added `SearchAlias` for index alias management.
+    - Added `SearchIndexResponse` model returned by index operations.
+    - Added `NativeBlobSoftDeleteDeletionDetectionPolicy` for native blob soft delete detection.
+    - Added `VectorizableImageBinaryQuery` and `VectorizableImageUrlQuery` for image-based vector search.
+    - Added `DebugInfo` property to `SearchResults<T>` and `SearchResultsPage<T>` for enhanced search debugging.
+    - Added `VectorFilterMode.StrictPostFilter` option for strict post-filtering in vector search.
+    - Added `SearchServiceCounters.AliasCounter` for alias resource tracking.
+    - Added `SearchServiceLimits.MaxCumulativeIndexerRuntimeSeconds` for runtime constraints.
+    - Added `IndexerChangeTrackingState` for indexer change tracking status.
+    - Added `LookupDocument` model for document lookup responses.
+    - Added nullable implicit conversion operators for `SemanticErrorMode`, `SemanticErrorReason`, `SemanticSearchResultsType`, and `VectorFilterMode`.
+    - Added `AIServicesAccountIdentity` and `AIServicesAccountKey` for AI services authentication.
+    - Added `SearchClientSettings` to support creating a `SearchClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added `SearchIndexClientSettings` to support creating a `SearchIndexClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added `SearchIndexerClientSettings` to support creating a `SearchIndexerClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added `KnowledgeBaseRetrievalClientSettings` to support creating a `KnowledgeBaseRetrievalClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+
+    #### Breaking Changes
+    - Deprecated `EntityRecognitionSkill.SkillVersion.V1` is now obsolete. Use V3 instead.
+    - Deprecated `EntityRecognitionSkill.IncludeTypelessEntities` is now obsolete. Use V3 instead.
+    - Deprecated `SentimentSkill.SkillVersion.V1` is now obsolete. Use V3 instead.
 
