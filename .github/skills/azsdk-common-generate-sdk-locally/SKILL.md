@@ -4,7 +4,7 @@ license: MIT
 metadata:
   version: "1.1.0"
   distribution: shared
-description: "Generate, build, and test Azure SDKs locally from TypeSpec with automatic customization. WHEN: \"generate SDK locally\", \"build SDK\", \"run SDK tests\", \"update changelog\", \"fix SDK build errors\", \"fix breaking changes\", \"resolve SDK generation errors\", \"customize TypeSpec\", \"rename SDK client\", \"rename SDK model\", \"hide operation from SDK\", \"fix analyzer errors\", \"resolve customization drift\", \"create subclient\", \"update metadata\", \"update version\". DO NOT USE FOR: publishing to package registries, CI pipeline configuration, API design review. INVOKES: azsdk_verify_setup, azsdk_package_generate_code, azsdk_package_build_code, azsdk_package_run_check, azsdk_package_run_tests, azsdk_customized_code_update, azsdk_package_update_changelog_content, azsdk_package_update_metadata, azsdk_package_update_version."
+description: "Generate, build, and test Azure SDKs locally from TypeSpec with automatic customization. WHEN: \"generate SDK locally\", \"build SDK\", \"run SDK tests\", \"run CI checks\", \"validate CI checks\", \"passes all checks\", \"run all checks\", \"validate package\", \"update changelog\", \"fix SDK build errors\", \"fix breaking changes\", \"resolve SDK generation errors\", \"customize TypeSpec\", \"rename SDK client\", \"rename SDK model\", \"hide operation from SDK\", \"fix analyzer errors\", \"resolve customization drift\", \"create subclient\", \"update metadata\", \"update version\". DO NOT USE FOR: publishing to package registries, CI pipeline YAML configuration, API design review. INVOKES: azsdk_verify_setup, azsdk_package_generate_code, azsdk_package_build_code, azsdk_package_run_check, azsdk_package_run_tests, azsdk_customized_code_update, azsdk_package_update_changelog_content, azsdk_package_update_metadata, azsdk_package_update_version."
 compatibility:
   requires: "azure-sdk-mcp server, local azure-sdk-for-{language} clone, language build tools"
 ---
@@ -28,6 +28,8 @@ compatibility:
 Prerequisites: azure-sdk-mcp server must be running. Without MCP, use `npx tsp-client` CLI.
 
 ## Steps
+
+> **CI checks only** (build + validate + test without regeneration): If the user asks to "run CI checks", "validate" or "check if a package passes all checks", skip to step 6. CI checks = build (`azsdk_package_build_code`) + validate (`azsdk_package_run_check`) + test (`azsdk_package_run_tests`).
 
 1. **Select language** — Confirm target language: .NET, Java, JavaScript, Python, Go, or Rust.
 2. **Verify repo** — Ensure the user has a local clone of the correct [SDK repo](references/sdk-repos.md). If not cloned, instruct user to clone it.
@@ -60,6 +62,9 @@ Prerequisites: azure-sdk-mcp server must be running. Without MCP, use `npx tsp-c
 - "Update the changelog for this SDK package"
 - "Update the package version"
 - "Update the package metadata and ci.yml"
+- "Can you run the CI checks for Azure.Health.Deidentification"
+- "Can you validate Azure.Search.Documents passes all checks?"
+- "Run all checks for the Azure.Storage.Blobs package"
 
 ## Troubleshooting
 
