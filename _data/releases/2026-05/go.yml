@@ -184,4 +184,46 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/planetarycomputer/armplanetarycomputer/v1.0.0/sdk/resourcemanager/planetarycomputer/armplanetarycomputer/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 10.0.0
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v10.0.0/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azdatalake
+  Version: 1.6.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.6.0-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-06-06.
+    * Added `GetSystemProperties` API to file and directory clients for retrieving system-defined properties using the `getStatus` action.
+    * Added `GetTags` and `SetTags` API to file and directory clients.
+- Name: sdk/storage/azblob
+  Version: 1.8.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.8.0-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-06-06.
+    * Added support for Blob Smart Tier.
+- Name: sdk/storage/azfile
+  Version: 1.7.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.7.0-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support for service version 2026-06-06.
+    * Added support for uploading up to 4 MiB of data with Create File API.
 
