@@ -309,4 +309,20 @@ entries:
 
     - Fix agent list operations that only returned the first page of results due to missing cursor-based pagination support
     - Fix deserializer incorrectly calling `.map()` on the response.
+- Name: '@azure/arm-netapp'
+  Version: 24.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iotoperations'
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Operations
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_2.0.0/sdk/iotoperations/arm-iotoperations/CHANGELOG.md
+  ChangelogContent: ""
 
