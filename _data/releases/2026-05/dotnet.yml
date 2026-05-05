@@ -1766,4 +1766,15 @@ entries:
     - Deprecated `EntityRecognitionSkill.SkillVersion.V1` is now obsolete. Use V3 instead.
     - Deprecated `EntityRecognitionSkill.IncludeTypelessEntities` is now obsolete. Use V3 instead.
     - Deprecated `SentimentSkill.SkillVersion.V1` is now obsolete. Use V3 instead.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.11.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency on `Azure.Core` to `1.54.0`, which includes fixes for duplicate schema registration.
 
