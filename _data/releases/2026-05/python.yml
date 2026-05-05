@@ -764,4 +764,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_16.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.11.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.11.1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `CertificateClient.begin_create_certificate` (and its async counterpart) incorrectly raising
+    `ValueError` when a `CertificatePolicy` was created with only `san_ip_addresses` or `san_uris` and no
+    `subject`, `san_dns_names`, `san_emails`, or `san_user_principal_names`. IP addresses and URIs are
+    valid subject alternative name types and are now recognized by the client's policy validator.
 
