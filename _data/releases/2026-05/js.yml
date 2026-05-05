@@ -325,4 +325,37 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_2.0.0/sdk/iotoperations/arm-iotoperations/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/notification-hubs'
+  Version: 2.1.0
+  DisplayName: Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.1.0/sdk/notificationhubs/notification-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Re-export `RestError` and `isRestError` from `@azure/core-rest-pipeline` for convenience.
+- Name: '@azure/opentelemetry-instrumentation-azure-sdk'
+  Version: 1.0.0
+  DisplayName: OpenTelemetry Instrumentation
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the Azure SDK OpenTelemetry Instrumentation library.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.11.2
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.11.2/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where `contentType` passed to `setSecret()` and `updateSecretProperties()` was not forwarded to the service request body. [#38301](https://github.com/Azure/azure-sdk-for-js/pull/38301)
 
