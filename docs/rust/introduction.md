@@ -310,7 +310,7 @@ to wait synchronously on a `Future`.
 | begin_{verb}  | POST or PUT  | Starts a [long-running operation](#rust-lro).
 | delete_{noun} | DELETE       | Delete a resource. Does not fail if the resource does not exist.
 | get_{noun}    | GET          | Get a resource. Fails if the resource does not exist.
-| list_{noun}   | GET          | {#rust-client-methods-naming-list} Get a collection of resources. May be in zero or may pages of results. Returns an empty list if no resources exist.
+| list_{noun}   | GET          | <a name="rust-client-methods-naming-list"></a>Get a collection of resources. May be in zero or may pages of results. Returns an empty list if no resources exist.
 | {noun}_exists | GET or HEAD  | Check if a resource exists.
 | set_{noun}    | POST or PUT  | Adds a new or updates an existing resource.
 | update_{noun} | PATCH or PUT | Updates existing resources. Fails if resource does not exist.
