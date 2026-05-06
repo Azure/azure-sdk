@@ -1828,4 +1828,20 @@ entries:
 
     - Added `KeyVaultAccessControlClientSettings` to support creating a `KeyVaultAccessControlClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
     - Added `KeyVaultRestClientSettings` to support creating a `KeyVaultRestClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+- Name: Azure.Core
+  Version: 1.55.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.55.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `AzureDeveloperCliCredential` to correctly parse error messages from Azure Developer CLI v1.23.7 and later, which previously caused raw JSON to surface in `AuthenticationFailedException` instead of the underlying error text.
+
+    #### Features Added
+
+    - Added `AzureLocation.DenmarkEast` for the Denmark East Azure region.
+    - Added experimental `AdditionalQueryParameters` property to `TokenCredentialOptions` to enable forwarding extra query string parameters to MSAL during authentication.
 
