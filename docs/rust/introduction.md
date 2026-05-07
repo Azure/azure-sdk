@@ -593,9 +593,7 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Eq`, and `PartialEq` for all enums.
-
-{% include requirement/SHOULDNOT id="rust-enums-debug" %} derive `Debug` since this may inadvertently leak PII. Derive [`azure_core::fmt::SafeDebug`][rust-safety-debug] instead.
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Debug`, `Eq`, and `PartialEq` for all enums.
 
 {% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
 
@@ -625,10 +623,7 @@ See [RFC 2008][rust-lang-rfc-2008] for more information.
 {% include requirement/MUST id="rust-enum-fixed" %} implement all fixed enumerations using only defined variants:
 
 ```rust
-use azure_core::SafeDebug;
-
-#[derive(Clone, Copy, SafeDebug, Eq, PartialEq, Deserialize, Serialize)]
-#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Deserialize, Serialize)]
 pub enum FixedEnum {
     #[serde(rename = "foo")]
     Foo,
@@ -640,10 +635,7 @@ pub enum FixedEnum {
 {% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
 
 ```rust
-use azure_core::SafeDebug;
-
-#[derive(Clone, SafeDebug, Eq, PartialEq, Deserialize, Serialize)]
-#[non_exhaustive]
+#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
 pub enum ExtensibleEnum {
     #[serde(rename = "foo")]
     Foo,
