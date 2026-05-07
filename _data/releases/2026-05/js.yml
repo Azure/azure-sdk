@@ -381,4 +381,37 @@ entries:
     #### Features Added
 
     - Added distributed tracing support via `@azure/core-tracing`. Spans are emitted for the session lifecycle (`connect`, `send`, `recv`, `close`) following [GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). Tracing is no-op by default and activates only when an OpenTelemetry tracer provider is registered — CommonJS apps can use the standard `@azure/opentelemetry-instrumentation-azure-sdk` bridge, while ESM and browser apps register an Instrumenter directly via `useInstrumenter`. See the [Telemetry / Distributed Tracing](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/README.md#telemetry--distributed-tracing) section in the README, plus the new [`samples/telemetry/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry/README.md) (Node.js ESM, console + Azure Monitor) and [`samples/telemetry-browser/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry-browser/README.md) (browser, Vite) samples.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.40
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.40/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - When multiple `Retry-After` headers are received, the exporter now compares absolute deadlines to ensure envelopes are sent at the latest required time.
+
+    #### Features Added
+
+    - Persisted telemetry files from previous sessions are now sent immediately on startup instead of waiting for the first successful export plus a 60-second retry interval.
+    - All persisted files are now processed at startup, not just one file per retry cycle.
+    - Outdated persisted telemetry is cleaned from disk before sending on startup.
+    - The exporter now respects the `Retry-After` header from the backend when scheduling retries for retriable responses.
+    - Throttled telemetry (429 responses) is now persisted to disk for retry instead of being silently dropped.
+    - Specific GenAI properties are now truncated to 256KB instead of being exempt from truncation limits.
+    - The exporter now reads the `MICROSOFT_OPENTELEMETRY_VERSION` environment variable and includes it in the `ai.internal.sdkVersion` tag with the `mot` prefix.
+
+    #### Breaking Changes
+
+    - The `AZURE_MONITOR_DISABLE_CUSTOM_DIMENSIONS_LIMIT` environment variable is no longer supported. All custom dimension values are truncated to 8KB by default.
+- Name: '@azure/arm-durabletask'
+  Version: 1.1.0
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.1.0/sdk/durabletask/arm-durabletask/CHANGELOG.md
+  ChangelogContent: ""
 
