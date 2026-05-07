@@ -174,7 +174,7 @@ App Containers,0,Provisioning - App Containers,mgmt,.NET,,,11,false,Azure.Provis
 App Service,0,Provisioning - App Service,mgmt,.NET,,,11,false,Azure.Provisioning.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,01/06/2026
 Provisioning,0,Provisioning - Application Insights,mgmt,.NET,,,11,false,Azure.Provisioning.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Batch,0,Provisioning - Batch,mgmt,.NET,,,11,false,Azure.Provisioning.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,3,false,1,
-Cdn,0,Provisioning - Cdn,mgmt,.NET,,,11,false,Azure.Provisioning.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
+Cdn,0,Provisioning - Cdn,mgmt,.NET,,,11,false,Azure.Provisioning.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,3,false,1,
 Provisioning,0,Provisioning - Cognitive Services,mgmt,.NET,,,11,false,Azure.Provisioning.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
 Communication,0,Provisioning - Communication,mgmt,.NET,,,11,false,Azure.Provisioning.Communication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Compute,0,Provisioning - Compute,mgmt,.NET,,,11,false,Azure.Provisioning.Compute,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,3,false,1,
@@ -485,7 +485,7 @@ Cognitive Services,0,Speech Extension Embedded TTS,UNABLE TO BE DETERMINED,.NET,
 Cognitive Services,0,Speech Extension MAS,UNABLE TO BE DETERMINED,.NET,Microsoft.CognitiveServices.Speech.Extension.MAS,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Speech Extension ONNX Runtime,UNABLE TO BE DETERMINED,.NET,Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Cognitive Services,0,Speech Extension Telemetry,UNABLE TO BE DETERMINED,.NET,Microsoft.CognitiveServices.Speech.Extension.Telemetry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
-Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.Iot.Operations.ProtocolCompiler,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
+Unknown Service,0,Unknown Display Name,UNABLE TO BE DETERMINED,.NET,Azure.Functions.Sdk,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,,,1,false,0,
 Extensions,0,WebJobs Extension Cosmos DB Mongo,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 Extensions,0,WebJobs Extension MySQL,UNABLE TO BE DETERMINED,.NET,Microsoft.Azure.WebJobs.Extensions.MySql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,false,,,1,false,0,
 App Service,0,App Service,data,.NET,Microsoft.Azure.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,false,Exception: Track 2 library not needed,,10,false,1,
@@ -1138,9 +1138,9 @@ Event Grid,0,System Events,data,Java,,,11,false,azure-messaging-eventgrid-system
 Tables,0,Tables,data,Java,,,11,false,azure-data-tables,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables,10,false,1,05/05/2026
 Cognitive Services,0,Text Analytics,data,Java,azure-cognitiveservices-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/c948408cf37320162cf6fcaeb38e687f215a7dde/sdk/cognitiveservices/ms-azure-cs-textanalytics,3,true,azure-ai-textanalytics,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics,10,false,1,05/05/2026
 Cognitive Services,0,Text Translation,data,Java,,,11,false,azure-ai-translation-text,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation,10,false,1,05/05/2026
-unknown,0,unknown,data,Java,,,11,false,azure-cosmos-spark_4-1_2-13,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,
+unknown,0,unknown,data,Java,,,11,false,azure-cosmos-spark_4-1_2-13,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos,10,false,1,05/03/2026
 Video Analyzer,0,Video Analyzer Edge,data,Java,,,11,false,azure-media-videoanalyzer-edge,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/videoanalyzer/item.Package/,3,true,1,
-Cognitive Services,0,Voice Live,data,Java,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai,3,false,1,
+Cognitive Services,0,Voice Live,data,Java,,,11,false,azure-ai-voicelive,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/voicelive,3,false,1,
 Web PubSub,0,Web PubSub,data,Java,,,11,false,azure-messaging-webpubsub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,05/05/2026
 Web PubSub,0,Web PubSub Client,data,Java,,,11,false,azure-messaging-webpubsub-client,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub,10,false,1,05/05/2026
 Advisor,0,Resource Management - Advisor,mgmt,Java,azure-mgmt-advisor,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-advisor,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/advisor/item.Package/,10,false,1,12/23/2024
@@ -1266,7 +1266,7 @@ Informatica Data Management,0,Resource Management - Informatica Data Management,
 IoT,0,Resource Management - IoT Central,mgmt,Java,azure-mgmt-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/iotcentral/mgmt-v2018_09_01,10,true,azure-resourcemanager-iotcentral,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/iotcentral/item.Package/,10,false,1,11/15/2021
 IoT,0,Resource Management - IoT Firmware Defense,mgmt,Java,,,11,false,azure-resourcemanager-iotfirmwaredefense,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/iotfirmwaredefense/item.Package/,10,false,1,09/04/2025
 IoT,0,Resource Management - IoT Hub,mgmt,Java,azure-mgmt-iothub,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-iothub,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/iothub/item.Package/,10,false,1,12/11/2024
-IoT,0,Resource Management - IoT Operations,mgmt,Java,,,11,false,azure-resourcemanager-iotoperations,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/iotoperations/item.Package/,10,false,1,12/16/2024
+IoT,0,Resource Management - IoT Operations,mgmt,Java,,,11,false,azure-resourcemanager-iotoperations,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iotoperations,10,false,1,05/06/2026
 Key Vault,0,Resource Management - Key Vault,mgmt,Java,azure-mgmt-keyvault,https://github.com/Azure/azure-sdk-for-java/tree/208df4bf9a11d5d40d498fff0129d9cdeb06f8fc/sdk/keyvault/microsoft-azure-keyvault,10,true,azure-resourcemanager-keyvault,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault,10,false,1,05/05/2026
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,Java,azure-mgmt-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/kubernetesconfiguration/mgmt-v2019_11_01_preview,3,true,azure-resourcemanager-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/kubernetesconfiguration/item.Package/,10,false,1,12/11/2024
 Kubernetesconfiguration-Extensions,0,Resource Management - Kubernetesconfiguration-Extensions,mgmt,Java,,,11,false,azure-resourcemanager-kubernetesconfiguration-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/kubernetesconfiguration,10,false,1,04/17/2026
@@ -1612,7 +1612,7 @@ Identity,0,Token Cache Persistence Plugin,data,JavaScript,,,11,false,@azure/iden
 TypeSpec,0,TypeSpec HTTP Runtime,data,JavaScript,,,11,false,@typespec/ts-http-runtime,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/core/ts-http-runtime,3,false,1,
 unknown,0,unknown,data,JavaScript,,,11,false,@azure/postgresql-auth,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql,3,false,1,
 Video Analyzer,0,Video Analyzer Edge,data,JavaScript,,,11,false,@azure/video-analyzer-edge,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/videoanalyzer,3,true,1,
-Cognitive Services,0,Voice Live,data,JavaScript,,,11,false,@azure/ai-voicelive,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,3,false,1,
+Cognitive Services,0,Voice Live,data,JavaScript,,,11,false,@azure/ai-voicelive,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/voicelive,3,false,1,
 Identity,0,VS Code Authentication Plugin,data,JavaScript,,,11,false,@azure/identity-vscode,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity,10,false,1,04/09/2026
 Web PubSub,0,Web PubSub,data,JavaScript,azure-web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,1,false,@azure/web-pubsub,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,05/14/2025
 Web PubSub,0,Web PubSub Client,data,JavaScript,,,11,false,@azure/web-pubsub-client,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub,10,false,1,03/18/2026
@@ -2000,7 +2000,7 @@ Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azur
 Content Understanding,0,Azure Content Understanding in Foundry Tools,data,Python,,,11,false,azure-ai-contentunderstanding,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentunderstanding,10,false,1,04/20/2026
 Monitor,0,Azure Monitor OpenTelemetry,data,Python,,,11,false,azure-monitor-opentelemetry,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,03/19/2026
 Azure Remote Rendering,0,Azure Remote Rendering,data,Python,,,11,false,azure-mixedreality-remoterendering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/remoterendering,3,true,1,
-Batch,0,Batch,data,Python,,,11,false,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,1,
+Batch,0,Batch,data,Python,,,11,false,azure-batch,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/batch,10,false,1,05/01/2026
 Communication,0,Communication Call Automation,data,Python,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,09/10/2025
 Communication,0,Communication Chat,data,Python,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,04/10/2024
 Communication,0,Communication Email,data,Python,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication,10,false,1,10/17/2025
