@@ -7,4 +7,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_31.0.0b1/sdk/network/azure-mgmt-network/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.33.0
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.33.0/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removing deployment templates experimental warning while initializing.
+    - Resolving next-pylint 4.0.5 issues for azure-ai-ml sdk and updating.
+    - Update Major Version Checker due to setup removal.
+    - Path traversal protection in unzip to temp file.
+- Name: azure-mgmt-relay
+  Version: 1.1.1
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relay_1.1.1/sdk/relay/azure-mgmt-relay/CHANGELOG.md
+  ChangelogContent: ""
 
