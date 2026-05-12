@@ -86,4 +86,19 @@ entries:
     #### Features Added
 
     - Initial stable release.
+- Name: azure_identity
+  Version: 1.0.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@1.0.0/sdk/identity/azure_identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+
+    #### Breaking Changes
+
+    - Added `#[non_exhaustive]` to `UserAssignedId`.
 
