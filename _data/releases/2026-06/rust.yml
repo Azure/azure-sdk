@@ -1,0 +1,89 @@
+entries:
+- Name: azure_core_macros
+  Version: 1.0.0
+  DisplayName: Core - Macros
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@1.0.0/sdk/core/azure_core_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+- Name: azure_core_opentelemetry
+  Version: 1.0.0
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@1.0.0/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+- Name: azure_core_amqp
+  Version: 1.0.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.0.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+- Name: typespec
+  Version: 1.0.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.0.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+- Name: typespec_client_core
+  Version: 1.0.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.0.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `#[non_exhaustive]` to `AttributeArray`, `AttributeValue`, `SpanStatus`, and `SpanKind`.
+    - `new_http_client()` now panics if the `reqwest` feature is not enabled.
+
+    #### Features Added
+
+    - Initial stable release.
+- Name: typespec_macros
+  Version: 1.0.0
+  DisplayName: TypeSpec Core Macros
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@1.0.0/sdk/core/typespec_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+- Name: azure_core
+  Version: 1.0.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.0.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Added `#[non_exhaustive]` to `AttributeArray`, `AttributeValue`, `SpanStatus`, and `SpanKind`.
+    - Bearer token authorization now requires TLS (https).
+
+    #### Features Added
+
+    - Initial stable release.
+
