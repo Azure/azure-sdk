@@ -101,4 +101,51 @@ entries:
     #### Breaking Changes
 
     - Added `#[non_exhaustive]` to `UserAssignedId`.
+- Name: azure_security_keyvault_secrets
+  Version: 1.0.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@1.0.0/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+
+    #### Breaking Changes
+
+    - Vault URLs must use TLS (https).
+- Name: azure_security_keyvault_certificates
+  Version: 1.0.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@1.0.0/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+
+    #### Breaking Changes
+
+    - Bearer token authentication now requires TLS (https).
+    - Renamed `CertificateClient::create_certificate()` to `begin_create_certificate()` per [guidelines](https://azure.github.io/azure-sdk/rust_introduction.html#rust-lro-prefix).
+    - Vault URLs must use TLS (https).
+- Name: azure_security_keyvault_keys
+  Version: 1.0.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@1.0.0/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release.
+
+    #### Breaking Changes
+
+    - Vault URLs must use TLS (https).
 
