@@ -67,4 +67,16 @@ entries:
     #### Bugs Fixed
 
     - Fixed a `TypeError: Cannot use 'in' operator to search for 'measurements'` crash that occurred when a log record's `body` was a non-object value (such as a string) on the custom event / legacy Application Insights export path.
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.18.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.18.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated OpenTelemetry dependencies to the `0.217.0` / `2.7.1` release line, including `@opentelemetry/sdk-node`, `@opentelemetry/instrumentation`, `@opentelemetry/instrumentation-http`, `@opentelemetry/api-logs`, `@opentelemetry/sdk-logs`, the stable `@opentelemetry/core` / `@opentelemetry/resources` / `@opentelemetry/sdk-metrics` / `@opentelemetry/sdk-trace-base` / `@opentelemetry/sdk-trace-node` packages, `@opentelemetry/semantic-conventions`, and the contrib instrumentations (`bunyan`, `mongodb`, `mysql`, `pg`, `redis`, `winston`, `resource-detector-azure`, `winston-transport`).
+    - Updated to using exporter version 1.0.0-beta.41.
 
