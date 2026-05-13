@@ -53,4 +53,13 @@ entries:
     - Added new feature-flag values to `AgentDefinitionOptInKeys`: `CONTAINER_AGENTS_V1_PREVIEW` (`ContainerAgents=V1Preview`) and `AGENT_ENDPOINT_V1_PREVIEW` (`AgentEndpoints=V1Preview`).
     - Added new toolbox samples under `com.azure.ai.agents.toolboxes`: `CreateToolboxVersion`, `GetToolbox`, `GetToolboxVersion`, `ListToolboxes`, `ListToolboxVersions`, `UpdateToolbox`, `DeleteToolbox`, and `DeleteToolboxVersion`.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-fileshares
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fileshares
+  ServiceName: Fileshares
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-fileshares_1.0.0-beta.1/sdk/fileshares/azure-resourcemanager-fileshares/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
