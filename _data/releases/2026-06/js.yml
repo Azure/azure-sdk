@@ -95,4 +95,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-providerhub_1.0.0-beta.1/sdk/providerhub/arm-providerhub/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/ai-speech-transcription'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure AI Transcription
+  ServiceName: Transcription
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-speech-transcription_1.0.0-beta.2/sdk/transcription/ai-speech-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `offsetMilliseconds` and `durationMilliseconds` to `offsetInMs` and `durationInMs` on `TranscribedPhrase` and `TranscribedWord` to align with the Azure SDK design guidelines for duration-valued properties.
+    - Renamed `TranscriptionClientOptionalParams` to `TranscriptionClientOptions` and `TranscribeOptionalParams` to `TranscribeOptions` to follow the `<Name>Options` naming convention.
+    - Removed `string` from the `FileContents` union type to avoid ambiguity with file paths and URLs. Pass a `NodeJS.ReadableStream`, `ReadableStream<Uint8Array>`, `Uint8Array`, or `Blob` instead.
 
