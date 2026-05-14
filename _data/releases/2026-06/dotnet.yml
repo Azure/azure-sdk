@@ -153,4 +153,15 @@ entries:
 
     #### Breaking Changes
     - `VoiceLiveMcpServerDefinition.RequireApproval` property type changed from `BinaryData` to `RequireApprovalOption`.
+- Name: System.ClientModel
+  Version: 1.12.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.12.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CredentialSettings.this[string key]` indexer for reading custom properties from the credential configuration section.
 
