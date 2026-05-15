@@ -155,4 +155,114 @@ entries:
     #### Breaking Changes
     - Dropped support for Python 3.9. This package now supports Python 3.10+. [Follows upstream otel dropping support](https://github.com/open-telemetry/opentelemetry-python/pull/5076)
     ([#46695](https://github.com/Azure/azure-sdk-for-python/pull/46695))
+- Name: azure-storage-file-datalake
+  Version: 12.24.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.24.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed various issues with configuring logging via `logging_enable` and `logging_body` keywords on a per-request
+    basis and with retries. Prior to this fix logging may have not behaved as expected, especially on retries.
+    - Fix a potential memory leak caused by improper exception handling that could occur under rare circumstances.
+
+    #### Features Added
+    - Stable release of features from 12.24.0b1
+- Name: azure-mgmt-baremetalinfrastructure
+  Version: 1.0.1
+  DisplayName: Resource Management - BareMetal Infrastructure
+  ServiceName: BareMetal Infrastructure
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.0.1/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.16.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.16.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed various issues with configuring logging via `logging_enable` and `logging_body` keywords on a per-request
+    basis and with retries. Prior to this fix logging may have not behaved as expected, especially on retries.
+    - Fix a potential memory leak caused by improper exception handling that could occur under rare circumstances.
+
+    #### Features Added
+    - Stable release of features from 12.16.0b1
+- Name: azure-mgmt-customproviders
+  Version: 1.0.1
+  DisplayName: Resource Management - Custom Providers
+  ServiceName: Custom Providers
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-customproviders_1.0.1/sdk/customproviders/azure-mgmt-customproviders/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-changeanalysis
+  Version: 1.0.1
+  DisplayName: Resource Management - Change Analysis
+  ServiceName: Change Analysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-changeanalysis_1.0.1/sdk/changeanalysis/azure-mgmt-changeanalysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.29.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.29.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `BlobClient`'s `download_blob` did not retry upon
+    `ServiceReponseError` and `ServiceResponseTimeoutError` exceptions
+    - Fixed various issues with configuring logging via `logging_enable` and `logging_body` keywords on a per-request
+    basis and with retries. Prior to this fix logging may have not behaved as expected, especially on retries.
+    - Fix a potential memory leak caused by improper exception handling that could occur under rare circumstances.
+
+    #### Features Added
+    - Stable release of features from 12.29.0b1
+- Name: azure-mgmt-commerce
+  Version: 6.0.1
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commerce_6.0.1/sdk/commerce/azure-mgmt-commerce/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.25.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.25.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed various issues with configuring logging via `logging_enable` and `logging_body` keywords on a per-request
+    basis and with retries. Prior to this fix logging may have not behaved as expected, especially on retries.
+    - Fix a potential memory leak caused by improper exception handling that could occur under rare circumstances.
+
+    #### Features Added
+    - Stable release of features from 12.25.0b1
+- Name: azure-mgmt-azurestack
+  Version: 1.0.1
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Azure Stack
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestack_1.0.1/sdk/azurestack/azure-mgmt-azurestack/CHANGELOG.md
+  ChangelogContent: ""
 
