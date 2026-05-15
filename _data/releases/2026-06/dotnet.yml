@@ -183,4 +183,70 @@ entries:
     #### Features Added
 
     - Added experimental `TokenRequestCallback` property and `TokenRequestCallbackContext` type to MSAL-backed credential options to allow customizing token request body parameters before they are sent to the identity provider.
+- Name: Azure.AI.Projects.Agents
+  Version: 2.1.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_2.1.0-beta.2/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `FabricIQPreviewTool`.
+    - Added `ToolboxSearchPreviewTool` for discovering deferred tools via `search_tools` queries at runtime.
+    - Added `WorkIQPreviewTool`.
+    - Added `Name` and `Description` properties to tool classes (`A2APreviewTool`, `AzureAISearchTool`, `BingCustomSearchPreviewTool`, `BingGroundingTool`, `BrowserAutomationPreviewTool`, `MemorySearchPreviewTool`, `MicrosoftFabricPreviewTool`, `SharepointPreviewTool`).
+
+    #### Breaking Changes
+    - `AgentEndpoint` was renamed to `AgentEndpointConfiguration`.
+    - `TelemetryEndpointAuth` was renamed to `TelemetryEndpointAuthentication`.
+    - `TelemetryEndpoint` property `Auth` was renamed to `Authentication`.
+    - `TelemetryEndpoint` property `Data` was renamed to `ExportedDataTypes`.
+    - `isolationKey` was removed from `CreateSession` and `DeleteSession` operations.
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 2.1.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_2.1.0-beta.2/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `ResponsesToolboxSearchPreviewTool` for discovering deferred tools via `search_tools` queries at runtime.
+    - Added `Name` and `Description` properties to Responses tool classes.
+    - Added new method `GetProjectResponsesClientForAgentEndpoint` on the `ProjectOpenAIClient`.
+
+    #### Breaking Changes
+    - `ComputerScreenshotImage` property `ImageUrl` was renamed to `ImageUri`.
+    - `ResponsesAutoCodeInterpreterToolParam` property `Type` was renamed to `Kind`.
+    - `ResponsesAzureAISearchTool` property `AzureAiSearch` was renamed to `AzureAISearch`.
+    - `ResponsesAzureFunctionBinding` property `Type` was renamed to `Kind`.
+    - `ResponsesBingGroundingSearchConfiguration` property `SetLang` was renamed to `Language`.
+    - `ResponsesCustomToolParam` property `DeferLoading` was renamed to `ShouldDeferLoading`.
+    - `ResponsesFunctionToolParam` property `DeferLoading` was renamed to `ShouldDeferLoading`.
+    - `ResponsesFunctionToolParam` property `Strict` was renamed to `IsStrict`.
+    - `ResponsesFunctionCallOutputStatusEnum` was renamed to `ResponsesFunctionCallOutputStatus`.
+    - `ResponsesMCPToolFilter` property `ReadOnly` was renamed to `IsReadOnly`.
+    - `ResponsesMemorySearchPreviewTool` property `UpdateDelay` was renamed to `UpdateDelayInSeconds`.
+    - `ResponsesOpenApiFunctionDefinition` property `Spec` was renamed to `Specification`.
+    - `ResponsesOpenApiTool` property `Openapi` was renamed to `OpenApi`.
+    - `ResponsesStructuredOutputDefinition` property `Strict` was renamed to `IsStrict`.
+    - `ResponsesWebSearchApproximateLocation` property `Type` was renamed to `Kind`.
+- Name: Azure.AI.Projects
+  Version: 2.1.0-beta.2
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_2.1.0-beta.2/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `DataGenerationJobs` client for synthetic data generation, accessible via `AIProjectClient`.
+    - Added data generation job types: `DataGenerationJob`, `DataGenerationJobInputs`, `DataGenerationJobResult`, `DataGenerationModelOptions`, `DataGenerationTokenUsage`.
+    - Added data generation job options: `SimpleQnADataGenerationJobOptions`, `TaskDataGenerationJobOptions`, `ToolUseFineTuningDataGenerationJobOptions`, `TracesDataGenerationJobOptions`.
+    - Added data generation source types: `AgentDataGenerationJobSource`, `DatasetDataGenerationJobSource`, `FileDataGenerationJobSource`, `PromptDataGenerationJobSource`, `TracesDataGenerationJobSource`.
+    - Added data generation output types: `DatasetDataGenerationJobOutput`, `FileDataGenerationJobOutput`.
+
+    #### Bugs Fixed
+    - Fixed missing header required by `ProjectInsights`.
 
