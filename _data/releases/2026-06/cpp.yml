@@ -70,4 +70,19 @@ entries:
 
     - Changed the `EventData::CorrelationId` and `EventData::MessageId` fields from `Azure::Nullable<AmqpValue>` to `AmqpValue` since `AmqpValue` embeds the concept of nullability already.
     - Removed the connection string authentication mechanism from the EventHubs clients.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.12
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.12/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Rust based AMQP library is now available for use in the Azure SDK for C++. This replaces the uAMQP library with a library based on the azure_core_amqp Rust crate.
+
+    #### Breaking Changes
+
+    Updated `MessageProperties` to remove `Azure::Nullable` from the types which are an `AmqpValue` because the `AmqpValue` already embeds the concept of nullability.
 
