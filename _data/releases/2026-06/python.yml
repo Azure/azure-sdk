@@ -353,4 +353,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iotcentral_9.0.1/sdk/iothub/azure-mgmt-iotcentral/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-planetarycomputer
+  Version: 1.0.0
+  DisplayName: Microsoft Planetary Computer Pro
+  ServiceName: Planetary Computer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-planetarycomputer_1.0.0/sdk/planetarycomputer/azure-planetarycomputer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added models `AssetStatisticsResponse`, `BandStatisticsMap`, `ClassMapLegendResponse`, `QueryableDefinitionsResponse`, `TilerAssetGeoJson`, `TilerInfoMapResponse`.
+    - `get_collection_queryables`, `list_queryables` now return `QueryableDefinitionsResponse`.
+    - `get_class_map_legend` now returns `ClassMapLegendResponse`.
+
+    #### Breaking Changes
+
+    - Renamed `StacOperations.list_collections` to `StacOperations.get_collections`.
+- Name: azure-ai-transcription
+  Version: 1.0.0
+  DisplayName: Azure AI Transcription
+  ServiceName: Transcription
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-transcription_1.0.0/sdk/transcription/azure-ai-transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the Azure AI Transcription client library for Python.
 
