@@ -257,4 +257,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DataProtectionBackup_1.8.0/sdk/dataprotection/Azure.ResourceManager.DataProtectionBackup/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Speech.Transcription
+  Version: 1.0.0
+  DisplayName: Azure AI Transcription
+  ServiceName: Transcription
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Speech.Transcription_1.0.0/sdk/transcription/Azure.AI.Speech.Transcription/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `TranscriptionResult.PhrasesByChannel` and the associated `TranscribedPhrases` type. Use `TranscriptionResult.Phrases` for the flat phrase list and `TranscriptionResult.CombinedPhrases` for the per-channel combined transcript.
 
