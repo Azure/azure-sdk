@@ -1,0 +1,99 @@
+entries:
+- Name: azure-storage-queues
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.7.0/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - New features in `12.7.0-beta.1` are now generally available.
+- Name: azure-storage-blobs
+  Version: 12.17.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.17.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.17.0-beta.1` are now generally available.
+- Name: azure-storage-common
+  Version: 12.13.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.13.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.13.0-beta.1` are now generally available.
+- Name: azure-storage-files-datalake
+  Version: 12.15.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.15.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.15.0-beta.1` are now generally available.
+- Name: azure-storage-files-shares
+  Version: 12.17.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.17.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Features in `12.17.0-beta.1` are now generally available.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.11
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.11/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#6957]](https://github.com/Azure/azure-sdk-for-cpp/issues/6957) Do not throw exceptions past destructors.
+
+    #### Breaking Changes
+
+    - Changed the `EventData::CorrelationId` and `EventData::MessageId` fields from `Azure::Nullable<AmqpValue>` to `AmqpValue` since `AmqpValue` embeds the concept of nullability already.
+    - Removed the connection string authentication mechanism from the EventHubs clients.
+- Name: azure-core-amqp
+  Version: 1.0.0-beta.12
+  DisplayName: AMQP
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core-amqp_1.0.0-beta.12/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Rust based AMQP library is now available for use in the Azure SDK for C++. This replaces the uAMQP library with a library based on the azure_core_amqp Rust crate.
+
+    #### Breaking Changes
+
+    Updated `MessageProperties` to remove `Azure::Nullable` from the types which are an `AmqpValue` because the `AmqpValue` already embeds the concept of nullability.
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs-checkpointstore-blob_1.0.0-beta.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed type of EventHubs Offset from `std::int64_t` to `std::string`.
+
