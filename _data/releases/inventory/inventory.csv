@@ -45,7 +45,7 @@ App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfigu
 App Configuration,0,App Configuration Provider,data,.NET,,,11,false,Microsoft.Extensions.Configuration.AzureAppConfiguration,https://github.com/Azure/AppConfiguration-DotnetProvider,10,false,1,
 Attestation,0,Attestation,data,.NET,Microsoft.Azure.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Attestation_0.10.0-preview/sdk/attestation/Microsoft.Azure.Attestation,3,true,Azure.Security.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,10,false,1,05/07/2021
 Search,0,Azure AI Search,data,.NET,,,11,false,Azure.Search.Documents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,05/01/2026
-Transcription,0,Azure AI Transcription,data,.NET,,,11,false,Azure.AI.Speech.Transcription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/transcription,3,false,1,
+Transcription,0,Azure AI Transcription,data,.NET,,,11,false,Azure.AI.Speech.Transcription,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/transcription,10,false,1,05/18/2026
 Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.MixedReality.ObjectAnchors.Conversion,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/objectanchors,3,true,1,
 Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,true,1,09/17/2021
 Communication,0,Calling Server,data,.NET,,,11,false,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,true,1,
@@ -1999,7 +1999,7 @@ App Configuration,0,App Configuration,data,Python,,,11,false,azure-appconfigurat
 App Configuration,0,App Configuration Provider,data,Python,,,11,false,azure-appconfiguration-provider,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,02/17/2026
 Attestation,0,Attestation,data,Python,,,11,false,azure-security-attestation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/attestation,10,false,1,07/06/2021
 Search,0,Azure AI Search,data,Python,,,11,false,azure-search-documents,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search,10,false,1,05/01/2026
-Transcription,0,Azure AI Transcription,data,Python,,,11,false,azure-ai-transcription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/transcription,3,false,1,
+Transcription,0,Azure AI Transcription,data,Python,,,11,false,azure-ai-transcription,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/transcription,10,false,1,05/18/2026
 Cognitive Services,0,Azure AI Vision SDK,data,Python,,,11,false,azure-ai-vision,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/https://msasg.visualstudio.com/Skyman/_git/Carbon,3,true,1,
 Event Hubs,0,Azure Blob Storage Checkpoint Store,data,Python,,,11,false,azure-eventhub-checkpointstoreblob,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
 Event Hubs,0,Azure Blob Storage Checkpoint Store AIO,data,Python,,,11,false,azure-eventhub-checkpointstoreblob-aio,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub,10,false,1,02/13/2025
@@ -2058,7 +2058,7 @@ Maps,0,Maps Route,data,Python,,,11,false,azure-maps-route,https://github.com/Azu
 Maps,0,Maps Search,data,Python,,,11,false,azure-maps-search,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,3,false,1,
 Media,0,Media Analytics Edge,data,Python,,,11,false,azure-media-analytics-edge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,3,false,1,
 Metrics Advisor,0,Metrics Advisor,data,Python,,,11,false,azure-ai-metricsadvisor,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/metricsadvisor,10,true,1,08/26/2024
-Planetary Computer,0,Microsoft Planetary Computer Pro,data,Python,,,11,false,azure-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,3,false,1,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,Python,,,11,false,azure-planetarycomputer,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/planetarycomputer,10,false,1,05/18/2026
 Mixed Reality,0,Mixed Reality Authentication,data,Python,,,11,false,azure-mixedreality-authentication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/mixedreality,3,true,1,
 IoT,0,Models Repository,data,Python,,,11,false,azure-iot-modelsrepository,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/modelsrepository,3,true,1,
 Monitor,0,Monitor Ingestion,data,Python,,,11,false,azure-monitor-ingestion,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor,10,false,1,07/18/2025
@@ -2411,6 +2411,7 @@ App Configuration,0,App Configuration Provider,data,JavaScript,,,11,false,Except
 App Configuration,0,App Configuration Provider,data,Go,,,11,false,Missing: Created from existing package: Microsoft.Extensions.Configuration.AzureAppConfiguration,,2,false,0,
 Attestation,0,Attestation,data,Go,,,11,false,Missing: Created from existing package: Azure.Security.Attestation,,2,false,0,
 Search,0,Azure AI Search,data,Go,,,11,false,Missing: Created from existing package: Azure.Search.Documents,,2,false,0,
+Transcription,0,Azure AI Transcription,data,Go,,,11,false,Missing: Created from existing package: Azure.AI.Speech.Transcription,,2,false,0,
 Mixed Reality,0,Azure Remote Rendering,data,Python,,,11,false,Missing: Created from existing package: Azure.MixedReality.RemoteRendering,,2,false,0,
 Mixed Reality,0,Azure Remote Rendering,data,Go,,,11,false,Missing: Created from existing package: Azure.MixedReality.RemoteRendering,,2,false,0,
 Communication,0,Communication Call Automation,data,Go,,,11,false,Missing: Created from existing package: Azure.Communication.CallAutomation,,2,false,0,
@@ -2858,7 +2859,6 @@ Communication,0,@azure/communication-react,data,.NET,,,11,false,Missing: Created
 Communication,0,@azure/communication-react,data,Java,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
 Communication,0,@azure/communication-react,data,Python,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
 Communication,0,@azure/communication-react,data,Go,,,11,false,Missing: Created from existing package: @azure/communication-react,,2,false,0,
-Transcription,0,Azure AI Transcription,data,Go,,,11,false,Missing: Created from existing package: @azure/ai-speech-transcription,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,.NET,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Java,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
 Monitor,0,Azure Monitor OpenTelemetry,data,Go,,,11,false,Missing: Created from existing package: @azure/monitor-opentelemetry,,2,false,0,
@@ -3021,6 +3021,10 @@ Machine Learning,0,Machine Learning - Feature Store,data,.NET,,,11,false,Missing
 Machine Learning,0,Machine Learning - Feature Store,data,Java,,,11,false,Missing: Created from existing package: azureml-featurestore,,2,false,0,
 Machine Learning,0,Machine Learning - Feature Store,data,JavaScript,,,11,false,Missing: Created from existing package: azureml-featurestore,,2,false,0,
 Machine Learning,0,Machine Learning - Feature Store,data,Go,,,11,false,Missing: Created from existing package: azureml-featurestore,,2,false,0,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,.NET,,,11,false,Missing: Created from existing package: azure-planetarycomputer,,2,false,0,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,Java,,,11,false,Missing: Created from existing package: azure-planetarycomputer,,2,false,0,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,JavaScript,,,11,false,Missing: Created from existing package: azure-planetarycomputer,,2,false,0,
+Planetary Computer,0,Microsoft Planetary Computer Pro,data,Go,,,11,false,Missing: Created from existing package: azure-planetarycomputer,,2,false,0,
 Dev Center,0,Resource Management -  Dev Center,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
 Dev Center,0,Resource Management -  Dev Center,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
 Dev Center,0,Resource Management -  Dev Center,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-devcenter,,2,false,0,
