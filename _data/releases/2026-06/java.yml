@@ -1,0 +1,217 @@
+entries:
+- Name: com.azure.resourcemanager+azure-resourcemanager-loganalytics
+  Version: 2.2.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-loganalytics_2.2.0/sdk/loganalytics/azure-resourcemanager-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.1.0-beta.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.1.0-beta.1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new `SkillsClient` and `SkillsAsyncClient` sub-clients (preview, opt-in via `FoundryFeaturesOptInKeys.SKILLS_V1_PREVIEW`) with operations to `createSkill`, `createSkillFromPackage`, `getSkill`, `downloadSkill`, `listSkills`, `updateSkill`, and `deleteSkill`. New `buildSkillsClient()` and `buildSkillsAsyncClient()` methods on `AIProjectClientBuilder`. New `SkillDetails` model.
+    - Added `buildAgentScopedOpenAIClient(String agentName)` and `buildAgentScopedOpenAIAsyncClient(String agentName)` to `AIProjectClientBuilder` for constructing OpenAI clients targeting a specific agent's endpoint (base URL `{endpoint}/agents/{agentName}/endpoint/protocols/openai`). The default `buildOpenAIClient()` / `buildOpenAIAsyncClient()` continue to target `{endpoint}/openai/v1`.
+    - Added `threshold` property (`Double`) to `EvaluatorMetric` with `getThreshold()` and `setThreshold(Double)`.
+    - Added `entryPoint`, `imageTag`, and `blobUrl` properties to `CodeBasedEvaluatorDefinition` with corresponding getters and setters; added a no-argument constructor and `setCodeText(String)` setter.
+    - Added new feature-flag values to `FoundryFeaturesOptInKeys`: `SKILLS_V1_PREVIEW` (`Skills=V1Preview`) and `TOOLBOXES_V1_PREVIEW` (`Toolboxes=V1Preview`).
+    - Added new samples `SkillsSample` and `SkillsAsyncSample` demonstrating end-to-end use of the Skills sub-client.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.1.0-beta.1
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.1.0-beta.1/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `HostedAgentDefinition`'s canonical (`@Generated`) constructor changed from `HostedAgentDefinition(List<ProtocolVersionRecord> containerProtocolVersions, String cpu, String memory)` to `HostedAgentDefinition(String cpu, String memory)`; `containerProtocolVersions` is now a mutable property set via `setContainerProtocolVersions(...)`. The previous 3-argument constructor is retained for source compatibility but is no longer the recommended entry point.
+
+    #### Features Added
+
+    - Added new `ToolboxesClient` and `ToolboxesAsyncClient` sub-clients (preview, opt-in via `FoundryFeaturesOptInKeys.TOOLBOXES_V1_PREVIEW`) for managing toolboxes and toolbox versions, with operations including `createToolboxVersion`, `getToolbox`, `getToolboxVersion`, `listToolboxes`, `listToolboxVersions`, `updateToolbox`, `deleteToolbox`, and `deleteToolboxVersion`. New `buildToolboxesClient()` and `buildToolboxesAsyncClient()` methods on `AgentsClientBuilder`.
+    - Added new `AgentSessionFilesClient` and `AgentSessionFilesAsyncClient` sub-clients for working with files in an agent session, with `uploadSessionFile`, `downloadSessionFile`, `getSessionFiles`, and `deleteSessionFile`. New `buildAgentSessionFilesClient()` and `buildAgentSessionFilesAsyncClient()` methods on `AgentsClientBuilder`.
+    - Added `buildAgentScopedOpenAIClient(String agentName)` and `buildAgentScopedOpenAIAsyncClient(String agentName)` to `AgentsClientBuilder` for constructing OpenAI clients targeting a specific agent's endpoint (base URL `{endpoint}/agents/{agentName}/endpoint/protocols/openai`). The default `buildOpenAIClient()` / `buildOpenAIAsyncClient()` continue to target `{endpoint}/openai/v1`.
+    - Added agent-session operations to `AgentsClient` and `AgentsAsyncClient`: `createSession`, `getSession`, `deleteSession`, `listSessions`, and `getSessionLogStreamWithResponse`. New related models: `AgentSessionResource`, `AgentSessionStatus`, `SessionDirectoryEntry`, `SessionDirectoryListResponse`, `SessionFileWriteResponse`, `SessionLogEvent`, `SessionLogEventType`, `IsolationKeySource` (with `Kind`), `EntraIsolationKeySource`, and `HeaderIsolationKeySource`.
+    - Added `updateAgentDetails(String, UpdateAgentDetailsPatchRequest, ...)` and `updateAgentDetailsWithResponse` on `AgentsClient`/`AgentsAsyncClient` for patching agent details, plus new `UpdateAgentDetailsPatchRequest` model.
+    - Added new agent-endpoint and identity model types for hosted agents: `AgentEndpoint`, `AgentEndpointProtocol`, `AgentEndpointAuthorizationScheme` (with `Type`), `EntraAuthorizationScheme`, `BotServiceAuthorizationScheme`, `BotServiceRbacAuthorizationScheme`, `AgentIdentity`, `AgentBlueprintReference` (with `Type`), `ManagedAgentIdentityBlueprintReference`, `AgentCard`, and `AgentCardSkill`. `AgentDetails` now exposes `getAgentEndpoint`, `getInstanceIdentity`, `getBlueprint`, `getBlueprintReference`, and `getAgentCard`. `AgentVersionDetails` now exposes `getInstanceIdentity`, `getBlueprint`, `getBlueprintReference`, and `getAgentGuid`.
+    - Added agent-versioning model types: `VersionIndicator` (with `Type`), `VersionRefIndicator`, `VersionSelector` (with `Type`), `VersionSelectionRule`, `FixedRatioVersionSelectionRule`, and `CreateAgentVersionInput`.
+    - `HostedAgentDefinition` now supports both container-based and code-based deployments: added `ContainerConfiguration` and `CodeConfiguration` model types, with new `getContainerConfiguration`/`setContainerConfiguration`, `getCodeConfiguration`/`setCodeConfiguration`, `getProtocolVersions`/`setProtocolVersions`, and `setContainerProtocolVersions` accessors. Container vs. code configuration is mutually exclusive (validated server-side).
+    - Added new preview tool `WorkIqPreviewTool` (and parameters `WorkIQPreviewToolParameters`) with discriminator value `work_iq_preview`. Added `ToolType.WORK_IQ_PREVIEW`.
+    - Added optional `name` and `description` properties (with getters and setters) to `CodeInterpreterTool`, `CaptureStructuredOutputsTool`, `FileSearchTool`, `ImageGenTool`, `WebSearchTool`, and `WorkIqPreviewTool` for user-defined tool labels.
+    - Added new feature-flag values to `FoundryFeaturesOptInKeys`: `TOOLBOXES_V1_PREVIEW` (`Toolboxes=V1Preview`) and `SKILLS_V1_PREVIEW` (`Skills=V1Preview`).
+    - Added new feature-flag values to `AgentDefinitionOptInKeys`: `CONTAINER_AGENTS_V1_PREVIEW` (`ContainerAgents=V1Preview`) and `AGENT_ENDPOINT_V1_PREVIEW` (`AgentEndpoints=V1Preview`).
+    - Added new toolbox samples under `com.azure.ai.agents.toolboxes`: `CreateToolboxVersion`, `GetToolbox`, `GetToolboxVersion`, `ListToolboxes`, `ListToolboxVersions`, `UpdateToolbox`, `DeleteToolbox`, and `DeleteToolboxVersion`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-fileshares
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Fileshares
+  ServiceName: Fileshares
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-fileshares_1.0.0-beta.1/sdk/fileshares/azure-resourcemanager-fileshares/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.60.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.60.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-internal-avro
+  Version: 12.19.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-internal-avro_12.19.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-changefeed
+  Version: 12.0.0-beta.37
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-changefeed_12.0.0-beta.37/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-batch
+  Version: 12.30.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-batch_12.30.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-nio
+  Version: 12.0.0-beta.38
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-nio_12.0.0-beta.38/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-common
+  Version: 12.33.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-common_12.33.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob
+  Version: 12.34.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob_12.34.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for specifying a source customer-provided encryption key when using `AppendBlobClient.appendBlockFromUrl()`,
+    `BlockBlobClient.stageBlockFromUrl()`, `BlockBlobClient.uploadFromUrl()`, and `PageBlobClient.uploadPagesFromUrl()` APIs.
+    - Added support for `AccessTierIfModifiedSince` and `AccessTierIfUnmodifiedSince` to conditionally perform `BlobClient.delete` operations.
+    - Added support for missing SKU names `STANDARD_GZRS`, `STANDARD_RAGZRS` and `PREMIUM_ZRS` when using `getAccountInfo()` API.
+    - Added support for error code `INCREMENTAL_COPY_OF_EARLIER_SNAPSHOT_NOT_ALLOWED`. This replaces `INCREMENTAL_COPY_OF_EARLIER_VERSION_SNAPSHOT_NOT_ALLOWED` which has been deprecated.
+    - Added support for Dynamic User Delegation SAS.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-queue
+  Version: 12.29.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-queue_12.29.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-blob-cryptography
+  Version: 12.33.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob-cryptography_12.33.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-file-datalake
+  Version: 12.27.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-file-datalake_12.27.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Dynamic User Delegation SAS.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-file-share
+  Version: 12.30.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-file-share_12.30.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for improved error handling for file share provisioning.
+    - Added cross-tenant support for principal bound delegation SAS.
+    - Added support for service version 2026-04-06.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-security
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-security_1.1.0-beta.1/sdk/security/azure-resourcemanager-security/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-sdk-bom
+  Version: 1.3.7
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-sdk-bom_1.3.7/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+  GroupId: com.azure
+
