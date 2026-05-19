@@ -268,4 +268,19 @@ entries:
     #### Breaking Changes
 
     - Removed `TranscriptionResult.PhrasesByChannel` and the associated `TranscribedPhrases` type. Use `TranscriptionResult.Phrases` for the flat phrase list and `TranscriptionResult.CombinedPhrases` for the per-channel combined transcript.
+- Name: System.ClientModel
+  Version: 1.13.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.13.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `IConfiguration.GetCredential(...)` renamed to `IConfiguration.GetCredentialSettings(...)` and its return type changed from `AuthenticationTokenProvider?` to `CredentialSettings?` (experimental `SCME0002`).
+
+    #### Features Added
+
+    - Added `CredentialSettings.TokenProvider` to hold the resolved `AuthenticationTokenProvider` for the credential.
 
