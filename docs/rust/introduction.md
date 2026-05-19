@@ -902,6 +902,9 @@ futures = { workspace = true }
 tokio = { workspace = true }
 ```
 
+{% include requirement/MUST id="rust-dependencies-unreleased" %} specify the `path` and `version` matching the dependency's version on any dependency that must be updated with changes you require.
+That dependency must be released before you can release, at which time you **MUST** remove the `path` to the dependency and update the `version` to match the released version.
+
 {% include requirement/MAY id="rust-dependencies-features" %} override the features required for a crate.
 
 ### Code Lints {#rust-linting}
