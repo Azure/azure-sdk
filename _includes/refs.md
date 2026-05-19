@@ -5,7 +5,6 @@
 [Azure SDK Contributors Guide]: https://review.learn.microsoft.com/en-us/help/platform/reference-document-sdk-client-libraries
 [Microsoft Writing Style Guide]: https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700
 [Microsoft Cloud Style Guide]: https://styleguides.azurewebsites.net/Styleguide/Read?id=2696
-[Acrolinx VS Code extension]: https://aka.ms/azsdk/acrolinx-vscode
 [general-logging]: {{ site.baseurl }}{% link docs/general/implementation.md %}#logging
 [general-distributed-tracing]: {{ site.baseurl }}{% link docs/general/implementation.md %}#distributed-tracing
 [rest-lro]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md#long-running-operations--jobs
