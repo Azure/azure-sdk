@@ -393,4 +393,44 @@ entries:
     * Fixed `SELECT VALUE` aggregation classification across partitions: booleans are no longer treated as numeric aggregates, non-aggregate numeric projections are no longer merged, and `MIN`/`MAX` detection is now correct. See [PR 46692](https://github.com/Azure/azure-sdk-for-python/pull/46692)
     * Fixed a bug in `query_items(feed_range=...)` where pagination could return incorrect results after a partition split caused the supplied feed range to overlap multiple physical partitions. See [PR 46692](https://github.com/Azure/azure-sdk-for-python/pull/46692)
     * Fixed bug where unavailable regional endpoints were dropped from the routing list instead of being kept as fallback options. See [PR 45200](https://github.com/Azure/azure-sdk-for-python/pull/45200)
+- Name: azure-mgmt-policyinsights
+  Version: 1.0.1
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-policyinsights_1.0.1/sdk/policyinsights/azure-mgmt-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservices
+  Version: 4.0.1
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_4.0.1/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-peering
+  Version: 1.0.1
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-peering_1.0.1/sdk/peering/azure-mgmt-peering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-powerbidedicated
+  Version: 1.0.1
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-powerbidedicated_1.0.1/sdk/powerbidedicated/azure-mgmt-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-operationsmanagement
+  Version: 1.0.1
+  DisplayName: Resource Management - Operations Management
+  ServiceName: Operations Management
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-operationsmanagement_1.0.1/sdk/operationsmanagement/azure-mgmt-operationsmanagement/CHANGELOG.md
+  ChangelogContent: ""
 
