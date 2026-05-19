@@ -85,4 +85,15 @@ entries:
     #### Breaking Changes
 
     Updated `MessageProperties` to remove `Azure::Nullable` from the types which are an `AmqpValue` because the `AmqpValue` already embeds the concept of nullability.
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs-checkpointstore-blob_1.0.0-beta.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed type of EventHubs Offset from `std::int64_t` to `std::string`.
 
