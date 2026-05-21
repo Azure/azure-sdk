@@ -501,4 +501,46 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_2.0.0b1/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b4
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b4/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `_platform_headers` module with cross-cutting protocol header name constants (`x-request-id`, `x-platform-server`, `x-agent-session-id`, `x-platform-error-source`, `x-platform-error-detail`, and others). Protocol packages now import shared header name strings from core instead of maintaining their own copies.
+    - Added `TraceContextMiddleware` — a lightweight pure-ASGI middleware that propagates W3C trace context (`traceparent`, `tracestate`) and baggage from incoming HTTP requests. Any spans created by downstream frameworks (e.g. MAF / agent-framework) are automatically children of the caller's trace without additional framework spans.
+    - Added `enable_sensitive_data` parameter to `configure_observability()` to control whether prompts, tool arguments, and results are recorded in telemetry. Respects `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` environment variable.
+    - Added A365 tracing export support — when `FOUNDRY_HOSTING_ENVIRONMENT` and `FOUNDRY_AGENT365_TRACING_ENABLED` are set, telemetry is exported via the A365 observability pipeline.
+    - Added `resolve_agent_id()`, `resolve_agent_blueprint_id()`, and `resolve_agent_tenant_id()` config helpers for new Foundry environment variables (`FOUNDRY_AGENT_INSTANCE_CLIENT_ID`, `FOUNDRY_AGENT_BLUEPRINT_CLIENT_ID`, `FOUNDRY_AGENT_TENANT_ID`).
+    - Added `gen_ai.agent.blueprint.id` and `microsoft.tenant.id` span attributes to the `FoundryEnrichmentSpanProcessor`.
+    - `AgentConfig.ws_ping_interval` — new field resolved from the `WS_KEEPALIVE_INTERVAL` environment variable (auto-injected by AgentService into hosted-agent containers). `0` disables; negative/non-finite values raise `ValueError` at startup. `AgentServerHost._build_hypercorn_config` wires this into Hypercorn's `websocket_ping_interval` so any protocol package serving WebSocket routes inherits keep-alive without per-package wiring.
+
+    #### Breaking Changes
+
+    - Removed `request_span()` method from `AgentServerHost`. Trace context propagation is now handled automatically by `TraceContextMiddleware`.
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b6
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b6/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed `ContentDecodePolicy` from the `FoundryStorageProvider` HTTP pipeline.  The policy eagerly decoded every response body as JSON and crashed with `UnicodeDecodeError` when the storage backend (or an intermediary gateway/load-balancer) returned a non-UTF-8 body — for example a gzip-compressed payload, an HTML error page, or a transport-corrupted response.  The crash propagated up before our error-classification code could see the response, masking the underlying status with a generic decode error.  Our serializers and error-extraction helpers already call `http_resp.text()` lazily with defensive error handling, so the eager decode policy was never needed.
+
+    #### Features Added
+
+    - Error source classification headers: All HTTP error responses now include `x-platform-error-source` with a value of `user`, `platform`, or `upstream` to indicate which component caused the error. Client validation errors (400/404) are classified as `user`, Foundry storage infrastructure errors (transport failures, 5xx) as `platform`, and developer handler exceptions as `upstream`. Platform errors additionally include `x-platform-error-detail` with truncated exception details (max 2048 characters) for diagnostics. Matches the container image specification §8 error source classification.
+
+    #### Breaking Changes
+
+    - Removed the automatic `invoke_agent` server span that was created on each response creation request. Trace context propagation is now handled by the core `TraceContextMiddleware`, and user-created spans inside handlers are correctly parented without framework-generated spans.
+    - Removed `_safe_set_attrs`, `_wrap_streaming_response`, and `_classify_error_code` internal helpers (no longer needed without framework-level span management).
+    - Removed OTel error tagging attributes (`azure.ai.agentserver.responses.error.code`, `azure.ai.agentserver.responses.error.message`) that were set on the framework span.
 
