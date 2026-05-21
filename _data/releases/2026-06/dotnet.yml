@@ -283,4 +283,16 @@ entries:
     #### Features Added
 
     - Added `CredentialSettings.TokenProvider` to hold the resolved `AuthenticationTokenProvider` for the credential.
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.8.1
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.8.1/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added GenAI main agent attribution support. Automatically propagates `microsoft.gen_ai.main_agent.*` attributes from parent spans to child spans and log records, enabling end-to-end tracing of AI agent orchestration.
+    ([#59368](https://github.com/Azure/azure-sdk-for-net/pull/59368))
 
