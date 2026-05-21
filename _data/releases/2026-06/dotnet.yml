@@ -316,4 +316,101 @@ entries:
     #### Breaking Changes
 
     - Removed experimental (`SCME0002`) `WithAzureCredential` extension methods on `ClientSettings` and `IClientBuilder`. For DI, use `AddAzureClient<TClient, TSettings>` / `AddKeyedAzureClient<TClient, TSettings>` (which register `AzureCredentialResolver` automatically), or call `AddAzureCredentialResolver()` followed by `AddClient<TClient, TSettings>` / `AddKeyedClient<TClient, TSettings>`. For standalone scenarios, use `IConfiguration.GetAzureClientSettings<T>(...)` or `IConfiguration.GetAzureCredentialSettings(...)`.
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.5
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.5/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Replaced `invoke_agent` SERVER span with baggage-only propagation. W3C trace context propagation is now handled automatically by ASP.NET Core, so handler spans are parented directly under the caller's span.
+    - Response ID, conversation ID, and streaming mode are propagated as Activity baggage for downstream correlation.
+    - Simplified `ResponsesActivitySource` to focus on baggage propagation rather than span creation.
+    - All error responses (4xx/5xx) now include the `x-platform-error-source` header classifying
+    error origin as `user` (invalid request), `platform` (SDK/infrastructure failure), or
+    `upstream` (developer handler failure) per container-image-spec §8.
+    - Platform errors include the `x-platform-error-detail` header with full exception context
+    (type, message, stack trace) for diagnostic telemetry. `AggregateException` wrappers are
+    unwrapped and the detail is truncated to 2048 characters.
+    - Foundry storage pipeline exceptions are now tagged as platform errors at the source, enabling
+    accurate classification of storage transport, authentication, and service failures regardless
+    of exception type.
+
+    #### Bugs Fixed
+
+    - Enabled automatic gzip/deflate/brotli decompression on the Foundry storage HTTP pipeline.
+    Intermediary gateways or load-balancers that return compressed responses are now handled
+    transparently, preventing JSON parse failures on raw gzip bytes. The pipeline also
+    advertises `Accept-Encoding` support so servers can compress responses proactively.
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.24
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.24/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Agent365 tracing export support with managed identity token acquisition when `FOUNDRY_AGENT365_TRACING_ENABLED` is set.
+    - Added `AgentInstanceClientId`, `AgentBlueprintClientId`, `AgentTenantId`, and `IsAgent365TracingEnabled` properties to `FoundryEnvironment`.
+    - Added `FoundryEnrichmentProcessor` attributes: `gen_ai.agent.blueprint.id`, `microsoft.tenant.id`, and `microsoft.foundry.agent.type` on telemetry spans.
+    - Added `W3CBaggagePropagator` middleware that parses the W3C `baggage` header into `Activity.Baggage` on all target frameworks (net8.0, net9.0, net10.0).
+    - Configured W3C Trace Context and Baggage propagators via `Sdk.SetDefaultTextMapPropagator` for outgoing request propagation.
+    - Added conditional exporter registration: Azure Monitor, OTLP, and Agent365 exporters activate only when their respective environment variables are set.
+    - Added `PlatformHeaders.ErrorSource` (`x-platform-error-source`), `PlatformHeaders.ErrorDetail`
+    (`x-platform-error-detail`), and error source value constants (`ErrorSourceUser`,
+    `ErrorSourcePlatform`, `ErrorSourceUpstream`) for error classification per container-image-spec §8.
+    - Replaced `Azure.Monitor.OpenTelemetry.AspNetCore` with the unified `Microsoft.OpenTelemetry` distro for telemetry. The new distro auto-detects Azure Monitor and OTLP exporters from environment variables and eliminates the need for duplicate-instrumentation guards.
+    - Added `FoundryEnvironment.WebSocketKeepAliveInterval` (sourced from the
+    `WS_KEEPALIVE_INTERVAL` environment variable) for the new
+    `invocations_ws` (WebSocket) protocol. Wired through
+    `AgentHostMiddlewareExtensions.UseAgentServerCore` into Kestrel's
+    `WebSocketOptions.KeepAliveInterval`, so a positive value emits RFC 6455
+    protocol-level Ping frames (opcode `0x9`) that keep idle WebSocket
+    connections alive across upstream proxy / load-balancer idle timeouts.
+    Disabled by default (`Timeout.InfiniteTimeSpan`).
+    - `UseAgentServerCore` now also calls `IApplicationBuilder.UseWebSockets`,
+    so any protocol library that hosts WebSocket endpoints (e.g., the
+    Invocations `/invocations_ws` endpoint) works out of the box without
+    the consumer having to wire `UseWebSockets` themselves.
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.4
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.4/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Replaced `invoke_agent` SERVER span with baggage-only propagation. W3C trace context propagation is now handled automatically by ASP.NET Core, so handler spans are parented directly under the caller's span.
+    - Invocation and session IDs are propagated as Activity baggage for downstream correlation.
+    - Unhandled exceptions now include the `x-platform-error-source` header classifying error
+    origin as `user` (invalid request), `platform` (SDK/infrastructure failure), or `upstream`
+    (developer handler failure) per container-image-spec §8. Platform errors include
+    `x-platform-error-detail` with diagnostic context.
+    - WebSocket protocol support — new public abstract `InvocationWebSocketHandler`
+    base class (derived from `InvocationHandler`) declares abstract
+    `HandleWebSocketAsync(WebSocket, InvocationContext, CancellationToken)`
+    and defaults the inherited `HandleAsync` to HTTP `404 Not Found`. A
+    WebSocket-only agent therefore implements only `HandleWebSocketAsync`;
+    multi-protocol agents override both methods. Handlers that derive from
+    plain `InvocationHandler` continue to short-circuit `/invocations_ws`
+    to HTTP `404 Not Found`. The SDK accepts the upgrade
+    (`AcceptWebSocketAsync`), maps clean handler returns to RFC 6455 close
+    code `1000` (`NormalClosure`) and uncaught handler exceptions to `1011`
+    (`InternalServerError`), and preserves handler-initiated close codes
+    unchanged.
+    - WebSocket Ping/Pong keep-alive — disabled by default; enable via the
+    `WS_KEEPALIVE_INTERVAL` environment variable (see
+    `Azure.AI.AgentServer.Core` 1.0.0-beta.24), which is wired through to
+    Kestrel's `WebSocketOptions.KeepAliveInterval`.
+    - WebSocket telemetry — structured close-event log line carrying
+    `azure.ai.agentserver.invocations_ws.session_id`,
+    `azure.ai.agentserver.invocations_ws.close_code`, and
+    `azure.ai.agentserver.invocations_ws.duration_ms`.
 
