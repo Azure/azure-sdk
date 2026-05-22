@@ -14,7 +14,7 @@
 #####
 #####   Engineering Systems:
 #####       Mike Harder                 @mikeharder         Eng. Sys. Engineer
-#####       Wes Haggard                 @weshaggard         Eng. Sys. Engineer
+#####       Ben Broderick Phillips      @benbp              Eng. Sys. Engineer
 #####
 #####   Team Management:
 #####       Peter Marcu                 @petermarcu         Dev Management
@@ -57,46 +57,46 @@
 /docs/golang/                    @jhendrixMSFT @RickWinter
 /docs/ios/                       @salameer
 /docs/java/                      @JonathanGiles @salameer @srnagar
-/docs/policies/                  @Kurtzeborn @weshaggard @salameer
+/docs/policies/                  @mikeharder @benbp
 /docs/python/                    @johanste @salameer @annatisch
 /docs/redirects/                 @lfraleigh
 /docs/rust/                      @HeathS @LarryOsterman @RickWinter @ronniegeraghty
 /docs/tables/                    @bterlson @KrzysztofCwalina @JeffreyRichter @johanste @JonathanGiles
 /docs/typescript/                @bterlson @salameer @xirzec
-/eng/                            @weshaggard
+/eng/                            @mikeharder @benbp
 /eng/common/                     @Azure/azure-sdk-eng
 /eng/scripts/inventory-dashboard @ronniegeraghty
 /_posts/                         @lfraleigh
-/_data/                          @ronniegeraghty @weshaggard
+/_data/                          @ronniegeraghty @mikeharder @benbp
 /**/android.md                   @ronniegeraghty @vcolin7 @anuchandy
 /**/android.yml                  @ronniegeraghty @vcolin7 @anuchandy
-/**/android-packages.csv         @ronniegeraghty @weshaggard @vcolin7 @anuchandy
+/**/android-packages.csv         @ronniegeraghty @benbp @vcolin7 @anuchandy
 /**/c.md                         @ronniegeraghty @RickWinter
-/**/c-packages.csv               @ronniegeraghty @weshaggard @RickWinter
+/**/c-packages.csv               @ronniegeraghty @benbp @RickWinter
 /**/cpp.md                       @ronniegeraghty @antkmsft
 /**/cpp.yml                      @ronniegeraghty @antkmsft
-/**/cpp-packages.csv             @ronniegeraghty @weshaggard @antkmsft
+/**/cpp-packages.csv             @ronniegeraghty @benbp @antkmsft
 /**/dotnet.md                    @ronniegeraghty @JonathanCrd
 /**/dotnet.yml                   @ronniegeraghty @JonathanCrd
-/**/dotnet-packages.csv          @ronniegeraghty @weshaggard @JonathanCrd
+/**/dotnet-packages.csv          @ronniegeraghty @benbp @JonathanCrd
 /**/ios.md                       @ronniegeraghty @vcolin7 @tjprescott
 /**/ios.yml                      @ronniegeraghty @vcolin7 @tjprescott
-/**/ios-packages.csv             @ronniegeraghty @weshaggard @vcolin7 @tjprescott
+/**/ios-packages.csv             @ronniegeraghty @benbp @vcolin7 @tjprescott
 /**/java.md                      @ronniegeraghty @jairmyree
 /**/java.yml                     @ronniegeraghty @jairmyree
-/**/java-packages.csv            @ronniegeraghty @weshaggard @jairmyree
+/**/java-packages.csv            @ronniegeraghty @benbp @jairmyree
 /**/js.md                        @ronniegeraghty @timovv
 /**/js.yml                       @ronniegeraghty @timovv
-/**/js-packages.csv              @ronniegeraghty @weshaggard @timovv
+/**/js-packages.csv              @ronniegeraghty @benbp @timovv
 /**/python.md                    @ronniegeraghty @kashifkhan
 /**/python.yml                   @ronniegeraghty @kashifkhan
-/**/python-packages.csv          @ronniegeraghty @weshaggard @kashifkhan
+/**/python-packages.csv          @ronniegeraghty @benbp @kashifkhan
 /**/go.md                        @ronniegeraghty @gracewilcox
 /**/go.yml                       @ronniegeraghty @gracewilcox
-/**/go-packages.csv              @ronniegeraghty @weshaggard @gracewilcox
+/**/go-packages.csv              @ronniegeraghty @benbp @gracewilcox
 /**/rust.md                      @ronniegeraghty @heaths
 /**/rust.yml                     @ronniegeraghty @heaths
-/**/rust-packages.csv            @ronniegeraghty @weshaggard @heaths
+/**/rust-packages.csv            @ronniegeraghty @benbp @heaths
 
 ################################################################################
 # Event yml files and CODEOWNERS should be near the bottom of CODEOWNERS files #
@@ -105,4 +105,4 @@
 /.github/CODEOWNERS           @Azure/azure-sdk-eng
 
 # Add owners for notifications for specific pipelines
-/eng/common/pipelines/codeowners-linter.yml       @weshaggard
+/eng/common/pipelines/codeowners-linter.yml      @mikeharder @benbp
