@@ -713,4 +713,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databoxedge_3.0.0b2/sdk/databoxedge/azure-mgmt-databoxedge/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-keyvault-keys
+  Version: 4.12.0b1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.12.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-01-01-preview` [#47116](https://github.com/Azure/azure-sdk-for-python/pull/47116).
+    - Added `KeyProperties.key_size` read-only property.
+- Name: azure-ai-evaluation
+  Version: 1.16.9
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.16.9/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `format_llm_response` raising `UnboundLocalError` when `inputs` was not provided by ensuring `sample_input` is always initialized.
 
