@@ -736,4 +736,12 @@ entries:
     #### Bugs Fixed
 
     - Fixed `format_llm_response` raising `UnboundLocalError` when `inputs` was not provided by ensuring `sample_input` is always initialized.
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.0.0b2
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.0.0b2/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
 
