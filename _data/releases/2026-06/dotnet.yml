@@ -443,4 +443,15 @@ entries:
     #### Features Added
 
     - Added `BrokerCredentialResolver` and `AddBrokerCredentialResolver()` extensions for config- and DI-based resolution of `BrokerCredential` and `VisualStudioCodeCredential` sources. (Experimental, `SCME0002`.)
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.9.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.9.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all changes from 4.9.0-beta.1.
 
