@@ -256,4 +256,35 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.61.0-beta.1/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-certificates
+  Version: 4.9.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-certificates_4.9.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `V2025_07_01`.
+    - Added the following methods to `SubjectAlternativeNames`:
+    - `setUniformResourceIdentifiers(java.util.List)`
+    - `setIpAddresses(java.util.List)`
+    - `getUniformResourceIdentifiers()`
+    - `getIpAddresses()`
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-secrets
+  Version: 4.11.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-secrets_4.11.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `V2025_07_01`.
+    - Added `previousVersion` property to `SecretProperties` which returns the version of the previous secret, if applicable. Applies only to secrets created after June 1, 2025.
+    - Added `outContentType` parameter overloads to `SecretClient` and `SecretAsyncClient` `getSecret()` and `getSecretWithResponse()` methods, allowing PFX-to-PEM conversion when retrieving certificate-backed secrets.
+  GroupId: com.azure
 
