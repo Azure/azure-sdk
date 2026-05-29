@@ -82,7 +82,7 @@ steps:
   - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
-      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/azure-sdk/azure-sdk.git"
+      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
@@ -104,8 +104,8 @@ steps:
           Write-Host "git fetch $RemoteName $PRBranchName"
           git fetch $RemoteName $PRBranchName
 
-          Write-Host "git checkout $PRBranchName."
-          git checkout $PRBranchName
+          Write-Host "git checkout -B $PRBranchName $RemoteName/$PRBranchName."
+          git checkout -B $PRBranchName "$RemoteName/$PRBranchName"
         }
         else {
           # Reset back to the head of default so we can build on top of that if the branch doesn't already exist.
@@ -133,6 +133,7 @@ steps:
     - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
+        PROwner: Azure
         BaseBranchName: $(DefaultBranch)
         PRBranchName: $(PRBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
