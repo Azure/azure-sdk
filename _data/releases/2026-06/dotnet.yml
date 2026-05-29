@@ -483,4 +483,32 @@ entries:
     - Added `KnowledgeSourceSynchronizationError` for knowledge source sync error reporting.
     - Added `failOnError`, `maxOutputDocuments`, and `enableImageServing` properties to `KnowledgeSourceParams`.
     - Added `KnowledgeBaseImageContent` with public constructor and settable `Url` property.
+- Name: Azure.AI.Translation.Text
+  Version: 2.0.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Text_2.0.0/sdk/translation/Azure.AI.Translation.Text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `TranslationTarget.Grade` property.
+    - Changed `TranslationTarget.Tone` type from `string` to `TranslationTone?`.
+    - Changed `TranslationTarget.Gender` type from `string` to `TranslationGender?`.
+
+    #### Features Added
+
+    - GA release of the Azure AI Translator Text Translation SDK targeting the 2026-06-06 API version.
+    - Added `TextTranslationClientSettings` to support creating a `TextTranslationClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - `TranslationTarget.Tone` property is now strongly typed as `TranslationTone?` instead of `string`.
+    - `TranslationTarget.Gender` property is now strongly typed as `TranslationGender?` instead of `string`.
+- Name: Azure.ResourceManager.ManagedNetworkFabric
+  Version: 1.2.0
+  DisplayName: Resource Management - Managed Network Fabric
+  ServiceName: Managed Network Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ManagedNetworkFabric_1.2.0/sdk/managednetworkfabric/Azure.ResourceManager.ManagedNetworkFabric/CHANGELOG.md
+  ChangelogContent: ""
 
