@@ -1241,4 +1241,31 @@ entries:
     #### Features Added
     * Added **preview** support for the optional `embeddingSource` field on entries in `vector_embedding_policy.vectorEmbeddings`, which allows the service to generate vector embeddings from the specified item paths. Requires the embedding-generation service to be enabled on the account. See [46870](https://github.com/Azure/azure-sdk-for-python/pull/46870)
     * Added `aio` extras to the package, allowing users to install async dependencies with `pip install azure-cosmos[aio]`. See [PR 47143](https://github.com/Azure/azure-sdk-for-python/pull/47143)
+- Name: azure-keyvault-keys
+  Version: 4.12.0b2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.12.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `ExternalKey` model and the new `KeyClient.create_external_key` method
+    for registering a Key Vault key whose material is held in an external HSM [#47200](https://github.com/Azure/azure-sdk-for-python/pull/47200).
+    - Added the `KeyProperties.external_key` read-only property.
+- Name: azure-keyvault-administration
+  Version: 4.8.0b1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.8.0b1/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-01-01-preview` [#46895](https://github.com/Azure/azure-sdk-for-python/pull/46895)
+    - Added `KeyVaultEkmClient` for managing Managed HSM External Key Manager (EKM) connections. This new client exposes `get_ekm_connection`,
+    `create_ekm_connection`, `update_ekm_connection`, `delete_ekm_connection`, `get_ekm_certificate`, and `check_ekm_connection`.
+    - Added `KeyVaultEkmConnection`, `KeyVaultEkmProxyClientCertificateInfo`, and `KeyVaultEkmProxyInfo` models supporting the EKM client.
 
