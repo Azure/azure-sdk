@@ -1193,4 +1193,21 @@ entries:
 
     - Below properties are added or changed for synonym maps
     - `azure.search.documents.indexes.models.SynonymMap.format` (now a writable property; was a fixed `solr` constant)
+- Name: azure-ai-translation-text
+  Version: 2.0.0
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-text_2.0.0/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - GA release of Azure AI Translator Text Translation SDK version 2.0.0.
+    - Updated to stable API version 2026-06-06.
+    - Added `TranslationTone` and `TranslationGender` enums for type-safe tone and gender options.
+
+    #### Breaking Changes
+
+    - Removed `grade` parameter from translation options.
 
