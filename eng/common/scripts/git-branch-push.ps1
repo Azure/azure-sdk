@@ -46,11 +46,25 @@ $PSNativeCommandArgumentPassing = "Legacy"
 # would fail the first time git wrote command output.
 $ErrorActionPreference = "Continue"
 
+function Get-ComparableGitUrl([string] $url)
+{
+    $parsedUri = $null
+    if ([Uri]::TryCreate($url, [UriKind]::Absolute, [ref]$parsedUri) -and ($parsedUri.Scheme -in @("http", "https")))
+    {
+        # Ignore credentials in remote URLs while still validating the destination.
+        return ("{0}://{1}{2}" -f $parsedUri.Scheme.ToLowerInvariant(), $parsedUri.Host.ToLowerInvariant(), $parsedUri.AbsolutePath.TrimEnd('/').ToLowerInvariant())
+    }
+
+    return $url
+}
+
 if ((git remote) -contains $RemoteName)
 {
   Write-Host "git remote get-url $RemoteName"
   $remoteUrl = git remote get-url $RemoteName
-  if ($remoteUrl -ne $GitUrl)
+    $comparableRemoteUrl = Get-ComparableGitUrl $remoteUrl
+    $comparableGitUrl = Get-ComparableGitUrl $GitUrl
+    if ($comparableRemoteUrl -ne $comparableGitUrl)
   {
     Write-Error "Remote with name $RemoteName already exists with an incompatible url [$remoteUrl] which should be [$GitUrl]."
     exit 1
