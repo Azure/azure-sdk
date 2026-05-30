@@ -1268,4 +1268,60 @@ entries:
     - Added `KeyVaultEkmClient` for managing Managed HSM External Key Manager (EKM) connections. This new client exposes `get_ekm_connection`,
     `create_ekm_connection`, `update_ekm_connection`, `delete_ekm_connection`, `get_ekm_certificate`, and `check_ekm_connection`.
     - Added `KeyVaultEkmConnection`, `KeyVaultEkmProxyClientCertificateInfo`, and `KeyVaultEkmProxyInfo` models supporting the EKM client.
+- Name: azure-ai-projects
+  Version: 2.2.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.2.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Support integration of external Agents (in preview). See new `ExternalAgentDefinition` class.
+    * New Agent tool in preview `FabricIQPreviewTool`.
+    * New Agent tool in preview `ToolboxSearchPreviewTool`.
+    * New methods on `.beta.agents` for
+    * Code-based hosted agents: `create_version_from_code`, `download_code`.
+    * Optimization jobs: `create_optimization_job`, `get_optimization_job`, `list_optimization_jobs`, `cancel_optimization_job`, `list_optimization_candidates`.
+    * Optimization candidate management: `list_optimization_candidates`, `get_optimization_candidate`, `get_optimization_candidate_config`, `get_optimization_candidate_results`, `get_candidate_file`, `promote_candidate`.
+    * `stop_session` to stop a running agent session.
+    * New `.beta.datasets` sub-client with data generation job operations: `create_generation_job`, `get_generation_job`, `list_generation_jobs`, `cancel_generation_job`, `delete_generation_job`.
+    * New `.beta.models` sub-client to handle AI model weights: `create`, `list_versions`, `list`, `get`, `delete`, `update`, `pending_create_version`, `pending_upload`, `get_credentials`.
+    * New `.beta.routines` sub-client with routine operations: `create_or_update`, `get`, `enable`, `disable`, `list`, `delete`, `list_runs`, `dispatch`.
+    * New methods on `.beta.evaluators` for evaluator generation jobs: `create_generation_job`, `get_generation_job`, `list_generation_jobs`, `cancel_generation_job`, `delete_generation_job`.
+    * New methods on `.beta.memory_stores` to handle individual memory items: `create_memory`, `update_memory`, `list_memories`, `get_memory`, `delete_memory`.
+    * New methods on `.beta.skills` for versioned skill management: `create`, `list_versions`, `get_version`, `download_version`, `delete_version`.
+    * New optional string properties `description` and `name` added to Agent tools classes which did not have them before.
+    * New optional `tool_configs` added to Agent tool classes.
+    * New read-only property `content_hash` on `CodeConfiguration`, returning the SHA-256 hex digest of the uploaded code zip.
+    * New optional `force` parameter on `agents.delete` and `agents.delete_version` methods.
+    * New optional `blueprint_reference` parameters on `agents.create_version` method.
+
+
+    #### Bugs Fixed
+
+    * Fixed telemetry instrumentor to correctly call is_recording() as a method on spans, ensuring non-recording spans are properly skipped (e.g., when sampling is configured) ([GitHub issue 46544](https://github.com/Azure/azure-sdk-for-python/issues/46544)).
+
+    #### Breaking Changes
+
+    Breaking changes in beta methods:
+    * Required keyword `isolation_key` removed from `.beta.agents.create_session()` and `.beta.agents.delete_session()` methods.
+    * Argument `body` in methods `.beta.evaluation_taxonomies.create()` and `.beta.evaluation_taxonomies.update()` renamed to `taxonomy`.
+    * Argument `body` in method `.beta.skills.create_from_files()` renamed to `content`.
+    * Method `.beta.agents.get_session_files` renamed to `.beta.agents.list_session_files`.
+    * Method `.beta.skills.create` signature changed — now takes `name` and keyword `inline_content: SkillInlineContent`; returns `SkillVersion`.
+    * Method `.beta.skills.create_from_package` renamed to `.beta.skills.create_from_files`.
+    * Method `.beta.skills.create_from_files` signature changed — now takes `name` and `content: CreateSkillVersionFromFilesBody`; returns `SkillVersion`.
+    * Method `.beta.skills.update` signature changed — now only accepts keyword `default_version`; returns `SkillDetails`.
+
+    Breaking changes in beta classes:
+    * Required property `isolation_key_source` removed from class `EntraAuthorizationScheme`.
+    * Renamed class `AgentEndpoint` to `AgentEndpointConfig`.
+    * Renamed class `DeleteSkillResponse` to `DeleteSkillResult`.
+    * Renamed class `SessionDirectoryListResponse` to `SessionDirectoryListResult`.
+    * Renamed class `SessionFileWriteResponse` to `SessionFileWriteResult`.
+    * Renamed class `SkillObject` to `SkillDetails`. Property `skill_id` renamed to `id`. Properties `has_blob` and `metadata` were removed.
+    * Renamed class `Target` to `EvaluationTarget`.
+    * Renamed class `TargetConfig` to `RedTeamTargetConfig`.
 
