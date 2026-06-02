@@ -509,4 +509,13 @@ entries:
     - `SessionUpdateConversationItemInputAudioTranscriptionCompleted.getLogprobs()` renamed to `getLogProbs()`.
     - Removed preview service versions from `VoiceLiveServiceVersion`; only GA versions remain (`V2025_10_01`, `V2026_04_10`). The latest version is now `V2026_04_10`.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-computelimit
+  Version: 1.1.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-computelimit_1.1.0/sdk/computelimit/azure-resourcemanager-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
