@@ -588,4 +588,12 @@ entries:
     #### Bugs Fixed
 
     - Improved redirect performance for write operations by caching the latest primary node URL from redirect responses and reusing it for subsequent non-GET requests. The cache is lazily populated and refreshed whenever the service redirects to a different primary node.
+- Name: Azure.ResourceManager.Monitor.Slis
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Monitor.Slis
+  ServiceName: Monitor.Slis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor.Slis_1.0.0-beta.2/sdk/monitor/Azure.ResourceManager.Monitor.Slis/CHANGELOG.md
+  ChangelogContent: ""
 
