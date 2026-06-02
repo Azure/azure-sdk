@@ -390,4 +390,61 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-msi_2.54.0-beta.1/sdk/msi/azure-resourcemanager-msi/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.1.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.1.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new preview `DataGenerationJobsClient` and `DataGenerationJobsAsyncClient` sub-clients for creating, retrieving, listing, canceling, and deleting data generation jobs, with related data generation source, output, token usage, and options models.
+    - Added new preview `ModelsClient` and `ModelsAsyncClient` sub-clients for registering and managing model weights as Foundry `ModelVersion` resources, including pending upload, asynchronous model-version creation, listing, retrieving, updating, deleting, and credential retrieval operations.
+    - Added new preview `RoutinesClient` and `RoutinesAsyncClient` sub-clients for creating or updating routines, retrieving, enabling, disabling, listing, deleting, listing runs, and dispatching routines, with related routine trigger, action, dispatch payload, and run models.
+    - Added evaluator generation job operations to `EvaluatorsClient` and `EvaluatorsAsyncClient`, including create, get, list, cancel, and delete operations, plus evaluator pending-upload and credential helper operations.
+    - Added versioned skill management on `SkillsClient` and `SkillsAsyncClient`, including `createSkillVersion`, `createSkillVersionFromFiles`, `listSkillVersions`, `getSkillVersion`, `getSkillContent`, `getSkillVersionContent`, and `deleteSkillVersion`.
+    - Added `EvaluationsHelper` and Azure evaluator model types, such as `TestingCriterionAzureAIEvaluator` and `GraderAzureAIEvaluator`, to adapt Azure evaluator definitions to OpenAI evaluation request types.
+    - Added protocol-style `WithResponse` overloads with `RequestOptions` for connection retrieval and dataset file/folder upload helpers.
+    - Added new feature-flag values to `FoundryFeaturesOptInKeys`: `ROUTINES_V1_PREVIEW` (`Routines=V1Preview`), `DATA_GENERATION_JOBS_V1_PREVIEW` (`DataGenerationJobs=V1Preview`), `MODELS_V1_PREVIEW` (`Models=V1Preview`), and `AGENTS_OPTIMIZATION_V1_PREVIEW` (`AgentsOptimization=V1Preview`).
+
+    #### Breaking Changes
+
+    - The Skills API is now versioned. `SkillDetails` was removed and replaced by `Skill` and `SkillVersion`. Use `createSkillVersion` instead of `createSkill`, `createSkillVersionFromFiles` instead of `createSkillFromPackage`, `getSkillContent`/`getSkillVersionContent` instead of `downloadSkill`, and `deleteSkillVersion` for deleting a specific skill version. `updateSkill` now updates the default version only.
+    - The `body` parameter on `EvaluationTaxonomiesClient.createEvaluationTaxonomy`, `EvaluationTaxonomiesClient.updateEvaluationTaxonomy`, and their async counterparts was renamed to `taxonomy`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.1.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.1.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added protocol-style methods on `ResponsesClient` and `ResponsesAsyncClient` that accept a raw JSON request body (`BinaryData`) and a `com.openai.core.RequestOptions`, and return the openai-java raw HTTP response. These mirror the existing `createAzureResponse` and `createStreamingAzureResponse` typed surface: `createResponseWithResponse` (returns `HttpResponseFor<Response>`) and `createResponseStreamWithResponse` (returns `HttpResponseFor<StreamResponse<ResponseStreamEvent>>`). They delegate to the underlying openai-java `ResponseService.withRawResponse()` surface and continue to flow through the Azure HTTP pipeline.
+    - Added preview support for external agents via `ExternalAgentDefinition`, `AgentKind.EXTERNAL`, and `AgentDefinitionOptInKeys.EXTERNAL_AGENTS_V1_PREVIEW`.
+    - Added preview code-based hosted agent operations on `AgentsClient` and `AgentsAsyncClient`, including `createAgentVersionFromCode`, `updateAgentFromCode`, and `downloadAgentCode`, plus related code package models such as `CreateAgentVersionFromCodeContent`, `CodeFileDetails`, and `CodeDependencyResolution`. `CodeConfiguration` now exposes the service-computed code package hash via `getContentSha256()`.
+    - Added preview agent optimization job and candidate management operations on `AgentsClient` and `AgentsAsyncClient`, including creating, listing, retrieving, canceling, and deleting optimization jobs, listing and inspecting candidates, downloading candidate files, and promoting candidates.
+    - Added `stopSession` and `stopSessionWithResponse` to stop hosted-agent sessions.
+    - Added `force` query parameter support for hosted-agent `deleteAgentWithResponse` and `deleteAgentVersionWithResponse` requests through `RequestOptions`, allowing active sessions to be cascade-deleted.
+    - Added individual memory item operations to `MemoryStoresClient` and `MemoryStoresAsyncClient`: `createMemory`, `updateMemory`, `listMemories`, `getMemory`, and `deleteMemory`, with new `ListMemoriesOptions`, `DeleteMemoryResponse`, and `MemoryItemKind.PROCEDURAL` support.
+    - Added new preview tools `FabricIqPreviewTool` and `ToolboxSearchPreviewTool`, plus related tool call/output models for Azure tools.
+    - Added optional per-tool configuration via `ToolConfig` and `toolConfigs` accessors on supported tool classes.
+    - Added `getComparisonFilter()` and `getCompoundFilter()` convenience getters on `FileSearchTool` for retrieving OpenAI filter types.
+    - Added new feature-flag values, including `AgentDefinitionOptInKeys.CODE_AGENTS_V1_PREVIEW`, `AgentDefinitionOptInKeys.EXTERNAL_AGENTS_V1_PREVIEW`, and `FoundryFeaturesOptInKeys.AGENTS_OPTIMIZATION_V1_PREVIEW`.
+    - Added hosted-agent, Fabric IQ, Toolbox Search, and async toolbox samples.
+
+    #### Breaking Changes
+
+    - `AgentEndpoint` renamed to `AgentEndpointConfig`.
+    - Session file listing methods on `AgentSessionFilesClient` and `AgentSessionFilesAsyncClient` were renamed from `getSessionFiles` to `listSessionFiles` and now return paged `SessionDirectoryEntry` results. `SessionDirectoryListResponse` was removed.
+    - Hosted-agent session methods no longer take a required `isolationKey` argument. Use overloads that accept the optional `userIsolationKey` value, or set the `x-ms-user-isolation-key` header through `RequestOptions`.
+    - `AgentDefinitionOptInKeys.CONTAINER_AGENTS_V1_PREVIEW` was removed. Use the applicable hosted-agent, code-agent, agent-endpoint, workflow-agent, or external-agent opt-in key instead.
+    - `HostedAgentDefinition` no longer exposes top-level `image` or `containerProtocolVersions` accessors. Use `ContainerConfiguration` for container images and `protocolVersions` for ingress protocol configuration.
+    - `CodeConfiguration` constructor now requires `CodeDependencyResolution` in addition to runtime and entry point.
+    - `WorkIqPreviewTool` now takes the Work IQ project connection ID directly. `WorkIQPreviewToolParameters` was removed.
+  GroupId: com.azure
 
