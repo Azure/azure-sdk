@@ -88,6 +88,7 @@ jobs:
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoName: azure-sdk
+      PROwner: Azure
       PRBranchName: PackageVersionUpdates
       CommitMsg: "Update package index with latest published versions"
       PRTitle: "Update package index with latest published versions"
@@ -127,6 +128,7 @@ jobs:
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: MicrosoftDocs
+      PROwner: Azure
       RepoName: azure-dev-docs-pr
       PRBranchName: PackageIndexUpdates
       CommitMsg: "Update package index with latest published versions"
@@ -183,6 +185,7 @@ jobs:
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: dotnet
+      PROwner: Azure
       RepoName: docs
       PRBranchName: PackageIndexUpdates
       CommitMsg: "Update package index with latest published versions"
