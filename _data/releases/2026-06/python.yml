@@ -1368,4 +1368,14 @@ entries:
     - Skill loading from `SKILL.md` files with YAML frontmatter.
     - Resolver API persists fetched configs and skill files to local directory for offline use.
     - Path traversal (zip-slip) protection on skill file downloads from the API.
+- Name: azure-cosmos
+  Version: 4.16.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.16.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed a bug in the sync and async `/pkranges` change-feed refresh where some containers could fail to build a complete routing map. See [PR 47245](https://github.com/Azure/azure-sdk-for-python/pull/47245).
 
