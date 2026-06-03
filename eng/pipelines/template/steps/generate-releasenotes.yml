@@ -133,6 +133,7 @@ steps:
     - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
+        PROwner: Azure
         BaseBranchName: $(DefaultBranch)
         PRBranchName: $(PRBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
