@@ -82,7 +82,7 @@ steps:
   - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
-      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/azure-sdk/azure-sdk.git"
+      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
