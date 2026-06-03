@@ -1498,4 +1498,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicefleet_4.0.0b4/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-discovery
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-discovery_1.0.0b1/sdk/discovery/azure-ai-discovery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `WorkspaceClient` for managing Discovery workspace resources, with operation groups for:
+    - `investigations` — create, list, get, and delete investigations, and start/stop/get/update the per-investigation Discovery Engine.
+    - `conversations` — create, list, get, update, and delete conversations that interact with the Discovery Engine.
+    - `tasks` — create, list (with `$filter` support), get, update, comment on, start, and delete tasks; record execution history.
+    - `tools` — run tools on supercomputer node pools, monitor run status with log retrieval, cancel runs, and query compute usage.
+    - Added `BookshelfClient` for managing knowledge bases, with operation groups for:
+    - `knowledge_bases` — list available knowledge bases.
+    - `knowledge_base_versions` — create or update, get, list, delete, and retrieve the latest version of a knowledge base; start, cancel, and monitor indexing.
+    - Added shared model types under `azure.ai.discovery.models` covering investigations, conversations, tasks, tools, knowledge bases, and the Discovery Engine.
 
