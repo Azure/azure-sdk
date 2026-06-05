@@ -21,7 +21,13 @@ jobs:
     path: azure-sdk
 
   - template: /eng/common/pipelines/templates/steps/login-to-github.yml
-    
+
+  - template: /eng/common/pipelines/templates/steps/login-to-github.yml
+    parameters:
+      TokenOwners:
+        - Azure
+        - MicrosoftDocs
+
   - task: PowerShell@2
     displayName: Update packages from package manager
     inputs:
@@ -107,7 +113,7 @@ jobs:
   - template: template/steps/generate-releasenotes.yml
 
   - pwsh: |
-      git clone https://x-access-token:$(GH_TOKEN)@github.com/MicrosoftDocs/azure-dev-docs-pr $(Pipeline.Workspace)/azure-dev-docs-pr
+      git clone https://x-access-token:$(GH_TOKEN_MicrosoftDocs)@github.com/MicrosoftDocs/azure-dev-docs-pr $(Pipeline.Workspace)/azure-dev-docs-pr
     displayName: Clone azure-dev-docs-pr repo
 
   - task: PowerShell@2
@@ -128,7 +134,7 @@ jobs:
     parameters:
       BaseBranchName: $(DefaultBranch)
       RepoOwner: MicrosoftDocs
-      PROwner: Azure
+      PROwner: MicrosoftDocs
       RepoName: azure-dev-docs-pr
       PRBranchName: PackageIndexUpdates
       CommitMsg: "Update package index with latest published versions"
