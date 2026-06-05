@@ -1524,4 +1524,95 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-alertsmanagement_2.0.0b3/sdk/alertsmanagement/azure-mgmt-alertsmanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-healthcareapis
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: Healthcare APIs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthcareapis_3.0.0b1/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-deploymentmanager
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Deployment Manager
+  ServiceName: Deployment Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-deploymentmanager_2.0.0b2/sdk/deploymentmanager/azure-mgmt-deploymentmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-trafficmanager
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-trafficmanager_2.0.0b1/sdk/trafficmanager/azure-mgmt-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-loganalytics
+  Version: 14.0.0b1
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_14.0.0b1/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-certificates
+  Version: 4.12.0b1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.12.0b1/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an experimental `PlatformManaged` property on `CertificatePolicy` for Azure Key Vault internal usage. Any calls using this property will fail and it is not recommended to be used at this point.
+    - The default service version is now `2026-03-01-preview`
+- Name: azure-mgmt-trustedsigning
+  Version: 1.0.1
+  DisplayName: Resource Management - Trusted Signing
+  ServiceName: Trusted Signing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-trustedsigning_1.0.1/sdk/trustedsigning/azure-mgmt-trustedsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridcompute
+  Version: 9.1.0b3
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b3/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.3.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.17.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.17.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `format_llm_response` raising `UnboundLocalError` when `inputs` was not provided by ensuring `sample_input` is always initialized.
+
+    #### Breaking Changes
+
+    - Updated `EVALUATOR_NAME_METRICS_MAPPINGS` so `document_retrieval` and `rouge_score` report single primary metrics (`document_retrieval`, `rouge`), with previous sub-metrics now represented in each evaluator's `*_properties` payload.
+- Name: azure-mgmt-hdinsight
+  Version: 9.1.0b3
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_9.1.0b3/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
 
