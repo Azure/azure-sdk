@@ -128,11 +128,24 @@ function Get-GitHubInstallationId {
     $uri = "$ApiBase/app/installations"
     $resp = Invoke-RestMethod -Method Get -Headers $headers -Uri $uri -TimeoutSec 30 -MaximumRetryCount 3
 
-    $resp | Foreach-Object { Write-Host "  $($_.id): $($_.account.login) [$($_.target_type)]" }
+    $resp = @($resp)
+    foreach ($installation in $resp) {
+      Write-Host "  $($installation.id): $($installation.account.login) [$($installation.target_type)]"
+    }
 
-    $resp = $resp | Where-Object { $_.account.login -ieq $InstallationTokenOwner }
-    if (!$resp.id) { throw "No installations found for this App." }
-    return $resp.id
+    $matches = @($resp | Where-Object {
+      $null -ne $_.account -and $_.account.login -ieq $InstallationTokenOwner
+    })
+
+    if ($matches.Count -eq 0) {
+      throw "No installations found for '$InstallationTokenOwner' on this App."
+    }
+
+    if ($matches.Count -gt 1) {
+      Write-Warning "Multiple installations matched '$InstallationTokenOwner'; using the first one."
+    }
+
+    return $matches[0].id
 }
 
 function New-GitHubInstallationToken {

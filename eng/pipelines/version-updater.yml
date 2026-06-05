@@ -21,8 +21,6 @@ jobs:
     path: azure-sdk
 
   - template: /eng/common/pipelines/templates/steps/login-to-github.yml
-
-  - template: /eng/common/pipelines/templates/steps/login-to-github.yml
     parameters:
       TokenOwners:
         - Azure
