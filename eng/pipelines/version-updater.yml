@@ -32,7 +32,7 @@ jobs:
       pwsh: true
       filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
       arguments: >
-        -github_pat '$(GH_TOKEN)'
+        -github_pat '$(GH_TOKEN_Azure)'
         -nuget_pat '$(azure-sdk-nuget-pat)'
         -updateDeprecated ($${{ parameters.UpdateDeprecated }} -or ((Get-Date).DayOfWeek -eq "Sunday"))
 
@@ -42,7 +42,7 @@ jobs:
       pwsh: true
       filePath: $(AzureSDKClonePath)/eng/scripts/Update-Release-Versions.ps1
       arguments: >
-        -github_pat '$(GH_TOKEN)'
+        -github_pat '$(GH_TOKEN_Azure)'
 
   - task: AzureCLI@2
     displayName: Update release DevOps work-items
@@ -52,11 +52,11 @@ jobs:
       scriptLocation: inlineScript
       inlineScript: |
         $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1 `
-          -github_pat '$(GH_TOKEN)'
+          -github_pat '$(GH_TOKEN_Azure)'
 
   - pwsh: |
       # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
-      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-sdk.git"
+      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN_Azure)@github.com/Azure/azure-sdk.git"
     displayName: Setup azure-sdk-fork remote
     workingDirectory: $(AzureSDKClonePath)
 
@@ -67,7 +67,7 @@ jobs:
     workingDirectory: $(AzureSDKClonePath)
 
   - pwsh: |
-      git clone https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-rest-api-specs $(Pipeline.Workspace)/azure-rest-api-specs
+      git clone https://x-access-token:$(GH_TOKEN_Azure)@github.com/Azure/azure-rest-api-specs $(Pipeline.Workspace)/azure-rest-api-specs
     displayName: Clone azure-rest-api-specs repo
 
   - task: PowerShell@2
@@ -106,8 +106,7 @@ jobs:
     displayName: Apply AutoMerge to Pull Request
     workingDirectory: $(AzureSDKClonePath)
     env:
-      GH_TOKEN: $(GH_TOKEN)
-
+      GH_TOKEN: $(GH_TOKEN_Azure)
   - template: template/steps/generate-releasenotes.yml
 
   - pwsh: |
@@ -142,7 +141,7 @@ jobs:
       AuthToken: ''
 
   - pwsh: |
-      git clone https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-rest-api-specs-pr $(Pipeline.Workspace)/azure-rest-api-specs-pr --branch RPSaaSMaster
+      git clone https://x-access-token:$(GH_TOKEN_Azure)@github.com/Azure/azure-rest-api-specs-pr $(Pipeline.Workspace)/azure-rest-api-specs-pr --branch RPSaaSMaster
     displayName: Clone azure-rest-api-specs-pr repo
 
   - task: PowerShell@2
