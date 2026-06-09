@@ -138,7 +138,8 @@ body:
     id: dotnet-artifacts
     attributes:
       label: ".NET"
-      description: "Complete this section if .NET is selected above."
+      description: "Provide all required artifacts for .NET. Leave blank if .NET is not selected above."
+      render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-net/tree/.../samples (or "Uploaded in APIView")
@@ -152,7 +153,8 @@ body:
     id: java-artifacts
     attributes:
       label: "Java"
-      description: "Complete this section if Java is selected above."
+      description: "Provide all required artifacts for Java. Leave blank if Java is not selected above."
+      render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-java/tree/.../samples (or "Uploaded in APIView")
@@ -166,7 +168,8 @@ body:
     id: python-artifacts
     attributes:
       label: "Python"
-      description: "Complete this section if Python is selected above."
+      description: "Provide all required artifacts for Python. Leave blank if Python is not selected above."
+      render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-python/tree/.../samples (or "Uploaded in APIView")
@@ -180,7 +183,8 @@ body:
     id: typescript-artifacts
     attributes:
       label: "TypeScript"
-      description: "Complete this section if TypeScript is selected above."
+      description: "Provide all required artifacts for TypeScript. Leave blank if TypeScript is not selected above."
+      render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-js/tree/.../samples (or "Uploaded in APIView")
@@ -194,7 +198,8 @@ body:
     id: go-artifacts
     attributes:
       label: "Go"
-      description: "Complete this section if Go is selected above."
+      description: "Provide all required artifacts for Go. Leave blank if Go is not selected above."
+      render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-go/tree/.../samples (or "Uploaded in APIView")
