@@ -1,0 +1,166 @@
+name: "Namespace Review Request"
+description: "Request a namespace review for an Azure SDK library (data plane or management plane)"
+title: "Namespace Review: "
+labels: ["architecture", "board-review", "namespace-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Namespace Review Request
+
+        Thank you for submitting this namespace review. Consistent naming ensures consumers of your library have a great experience across all Azure SDKs.
+
+        To ensure consistency, all language library names will generally be reviewed together.
+
+        **Before submitting, ensure you update the title of the issue with your service/library name.**
+
+  - type: dropdown
+    id: plane-type
+    attributes:
+      label: Plane Type
+      description: "Select whether this is a data plane or management plane library."
+      options:
+        - Data Plane
+        - Management Plane
+    validations:
+      required: true
+
+  # ── Contacts and Timeline ──────────────────────────────────────
+  - type: input
+    id: service-team
+    attributes:
+      label: Responsible Service Team
+      placeholder: "e.g., Azure Cognitive Services"
+    validations:
+      required: true
+
+  - type: input
+    id: main-contacts
+    attributes:
+      label: Main Contacts
+      description: "GitHub handles or email addresses of the primary contacts."
+      placeholder: "@user1, @user2"
+    validations:
+      required: true
+
+  - type: input
+    id: code-complete-date
+    attributes:
+      label: Expected Code Complete Date
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  - type: input
+    id: release-date
+    attributes:
+      label: Expected Release Date
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  # ── About the Service ──────────────────────────────────────────
+  - type: input
+    id: service-docs-link
+    attributes:
+      label: Service Documentation Link
+      description: "Link to documentation introducing or describing the service."
+      placeholder: "https://learn.microsoft.com/azure/..."
+    validations:
+      required: true
+
+  - type: input
+    id: rest-api-specs-link
+    attributes:
+      label: REST API Specs Link
+      description: "Link to the service REST API specs."
+      placeholder: "https://github.com/Azure/azure-rest-api-specs/..."
+    validations:
+      required: true
+
+  - type: input
+    id: previous-review-link
+    attributes:
+      label: Previous Review Issue (if applicable)
+      description: "Link to a GitHub issue for previous review sessions."
+      placeholder: "https://github.com/Azure/azure-sdk/issues/..."
+
+  # ── Resource Provider Info ─────────────────────────────────────
+  - type: input
+    id: resource-provider
+    attributes:
+      label: Resource Provider Name
+      description: "The Azure Resource Provider name (used in namespace proposals below)."
+      placeholder: "e.g., Compute, Storage, KeyVault"
+    validations:
+      required: true
+
+  # ── Namespace Proposals ────────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Namespace Proposals per Language
+
+        Provide your proposed namespace/package name for each language. Follow the conventions shown in the placeholders.
+
+        **Management Plane conventions:**
+        - **.NET:** `Azure.ResourceManager.[ResourceProviderName]`
+        - **Java:** `azure-resourcemanager-[resourceprovidername]`
+        - **Go:** `sdk/resourcemanager/[resourceprovidername]/arm[resourceprovidername]`
+        - **JavaScript:** `@azure/arm-[resourceprovidername]`
+        - **Python:** `azure-mgmt-[resourceprovidername]`
+
+        **Data Plane conventions:**
+        - **.NET:** `Azure.[ServiceName]`
+        - **Java:** `azure-[servicename]`
+        - **Go:** `sdk/[servicename]/az[servicename]`
+        - **JavaScript:** `@azure/[servicename]`
+        - **Python:** `azure-[servicename]`
+
+  - type: input
+    id: namespace-dotnet
+    attributes:
+      label: ".NET Namespace"
+      placeholder: "Azure.ResourceManager.[ResourceProviderName] or Azure.[ServiceName]"
+    validations:
+      required: true
+
+  - type: input
+    id: namespace-java
+    attributes:
+      label: "Java Package Name"
+      placeholder: "azure-resourcemanager-[name] or azure-[servicename]"
+    validations:
+      required: true
+
+  - type: input
+    id: namespace-go
+    attributes:
+      label: "Go Module Path"
+      placeholder: "sdk/resourcemanager/[name]/arm[name] or sdk/[servicename]/az[servicename]"
+    validations:
+      required: true
+
+  - type: input
+    id: namespace-javascript
+    attributes:
+      label: "JavaScript Package Name"
+      placeholder: "@azure/arm-[name] or @azure/[servicename]"
+    validations:
+      required: true
+
+  - type: input
+    id: namespace-python
+    attributes:
+      label: "Python Package Name"
+      placeholder: "azure-mgmt-[name] or azure-[servicename]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Any additional context or notes about the namespace proposal."
+      placeholder: "e.g., This service was previously named X and is being rebranded to Y."
