@@ -20,7 +20,31 @@ jobs:
             const issueNumber = context.payload.issue.number;
 
             // ── Helper: validate a URL is reachable ─────────────────
+            // Domains that require auth — validate URL format with review ID.
+            // Level 2 (future): use APIView API token to call
+            //   GET /api/reviews/resolve?link={url} to verify review exists
+            //   GET /api/reviews/metadata?revisionId={id} to check revision/approval
+            const trustedDomains = ['apiview.dev'];
+
             async function isUrlReachable(url) {
+              try {
+                const parsed = new URL(url);
+                if (trustedDomains.some(d => parsed.hostname === d || parsed.hostname.endsWith('.' + d))) {
+                  // Validate the URL has a review ID pattern
+                  if (parsed.hostname.includes('apiview.dev')) {
+                    const hasReviewId = /\/Review\/[a-f0-9]+/i.test(parsed.pathname)
+                      || /\/review\/[a-f0-9-]+/i.test(parsed.pathname)
+                      || parsed.searchParams.has('activeApiRevisionId')
+                      || parsed.searchParams.has('revisionId');
+                    if (!hasReviewId) {
+                      return false;
+                    }
+                  }
+                  return true;
+                }
+              } catch {
+                return false;
+              }
               try {
                 const response = await fetch(url, {
                   method: 'HEAD',
@@ -29,7 +53,6 @@ jobs:
                 });
                 return response.ok || response.status === 405;
               } catch {
-                // HEAD may be blocked, try GET
                 try {
                   const response = await fetch(url, {
                     method: 'GET',
