@@ -38,7 +38,7 @@ jobs:
             for (const [formLabel, meta] of Object.entries(languageMap)) {
               // Match checked checkboxes: "- [X] .NET" or "- [x] Java"
               const escapedLabel = formLabel.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
-              const regex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escapedLabel}`);
+              const regex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escapedLabel}\\s*$`, 'm');
               if (regex.test(issueBody)) {
                 selectedLanguages.push(meta);
               }
