@@ -1,5 +1,5 @@
-name: "Architecture Board Review Request — API Review / API Sign-off"
-description: "Request an API review or API sign-off for an Azure client library"
+name: "Architecture Board Review Request — API Review / Release Sign-off"
+description: "Request an API review or release sign-off for an Azure client library"
 title: "Board Review: <client library name>"
 labels: ["architecture", "board-review"]
 body:
@@ -23,7 +23,7 @@ body:
       description: "Select the type of review you are requesting."
       options:
         - API Review
-        - API Sign-off
+        - Release Sign-off
     validations:
       required: true
 
@@ -138,7 +138,7 @@ body:
     id: dotnet-artifacts
     attributes:
       label: ".NET"
-      description: "Provide all required artifacts for .NET. Leave blank if .NET is not selected above."
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
       render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
@@ -153,7 +153,7 @@ body:
     id: java-artifacts
     attributes:
       label: "Java"
-      description: "Provide all required artifacts for Java. Leave blank if Java is not selected above."
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
       render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
@@ -168,7 +168,7 @@ body:
     id: python-artifacts
     attributes:
       label: "Python"
-      description: "Provide all required artifacts for Python. Leave blank if Python is not selected above."
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
       render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
@@ -183,7 +183,7 @@ body:
     id: typescript-artifacts
     attributes:
       label: "TypeScript"
-      description: "Provide all required artifacts for TypeScript. Leave blank if TypeScript is not selected above."
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
       render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
@@ -198,7 +198,7 @@ body:
     id: go-artifacts
     attributes:
       label: "Go"
-      description: "Provide all required artifacts for Go. Leave blank if Go is not selected above."
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
       render: markdown
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
@@ -213,7 +213,7 @@ body:
     id: additional-languages
     attributes:
       label: "Additional Languages (C, C++, Android, iOS/Swift)"
-      description: "For Tier-2 languages, copy the template below for each language. For other languages, contact the [Architecture Board](mailto:azsdkarch@microsoft.com)."
+      description: "Required per language: APIView link (with diff revision selected), Samples link, Pull Request link, README link. Confirm CI checks pass. Copy the block below for each language."
       placeholder: |
         **C++**
         - APIView: https://apiview.dev/Assemblies/Review/...
