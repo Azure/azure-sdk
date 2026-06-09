@@ -135,8 +135,7 @@ jobs:
 
               // --- Verification checklist (self-reported) ---
               const checklistChecks = [
-                { text: 'A diff revision is selected in APIView', name: 'Diff revision selected' },
-                { text: 'Champion Scenarios / Quickstart samples are attached in APIView', name: 'Samples attached' },
+                { text: 'A diff revision is selected in the APIView review', name: 'Diff revision selected' },
                 { text: 'CI checks are passing on the PR', name: 'CI passing' },
               ];
 
@@ -146,6 +145,26 @@ jobs:
                 if (!checkRegex.test(issueBody)) {
                   langMissing.push(`${check.name} (not confirmed)`);
                 }
+              }
+
+              // --- Samples link: extract and validate URL or "Uploaded in APIView" ---
+              const samplesHeader = `### ${lang.label} — Champion Scenarios / Quickstart Samples`;
+              const samplesSection = issueBody.split(samplesHeader)[1];
+              const samplesContent = samplesSection ? samplesSection.split('###')[0].trim() : '';
+              if (!samplesContent || samplesContent === '_No response_') {
+                langMissing.push('Champion Scenarios / Samples not provided');
+              } else if (!/uploaded\s+in\s+apiview/i.test(samplesContent)) {
+                const samplesUrl = samplesContent.match(/https?:\/\/[^\s)]+/);
+                if (samplesUrl) {
+                  const reachable = await isUrlReachable(samplesUrl[0]);
+                  if (!reachable) {
+                    langMissing.push(`Samples link is not reachable: ${samplesUrl[0]}`);
+                  } else {
+                    langValid.push(`Samples link verified: ${samplesUrl[0]}`);
+                  }
+                }
+              } else {
+                langValid.push('Samples uploaded in APIView (self-reported)');
               }
 
               // --- PR link: extract and validate URL ---
