@@ -19,9 +19,40 @@ jobs:
             const issueBody = context.payload.issue.body || '';
             const issueNumber = context.payload.issue.number;
 
+            // ── Helper: validate a URL is reachable ─────────────────
+            async function isUrlReachable(url) {
+              try {
+                const response = await fetch(url, {
+                  method: 'HEAD',
+                  redirect: 'follow',
+                  signal: AbortSignal.timeout(10000),
+                });
+                return response.ok || response.status === 405;
+              } catch {
+                // HEAD may be blocked, try GET
+                try {
+                  const response = await fetch(url, {
+                    method: 'GET',
+                    redirect: 'follow',
+                    signal: AbortSignal.timeout(10000),
+                  });
+                  return response.ok;
+                } catch {
+                  return false;
+                }
+              }
+            }
+
+            // ── Helper: extract URL from a form section ─────────────
+            function extractUrl(body, headerText) {
+              const section = body.split(headerText)[1];
+              if (!section) return null;
+              const content = section.split('###')[0];
+              const match = content.match(/https?:\/\/[^\s)]+/);
+              return match ? match[0] : null;
+            }
+
             // ── Language detection ──────────────────────────────────
-            // GitHub Forms checkboxes render as "- [X] Label" (checked)
-            // or "- [ ] Label" (unchecked) in the issue body.
             const languageMap = {
               '.NET':           { label: '.NET',       id: 'dotnet' },
               'Java':           { label: 'Java',       id: 'java' },
@@ -36,7 +67,6 @@ jobs:
 
             const selectedLanguages = [];
             for (const [formLabel, meta] of Object.entries(languageMap)) {
-              // Match checked checkboxes: "- [X] .NET" or "- [x] Java"
               const escapedLabel = formLabel.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
               const regex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escapedLabel}\\s*$`, 'm');
               if (regex.test(issueBody)) {
@@ -59,20 +89,28 @@ jobs:
 
             // ── Validate artifacts per selected language ────────────
             const missing = [];
+            const validated = [];
             const tier1Languages = ['dotnet', 'java', 'python', 'typescript', 'go'];
 
             for (const lang of selectedLanguages) {
               if (!tier1Languages.includes(lang.id)) continue;
               const langMissing = [];
+              const langValid = [];
 
-              // Check APIView link (look for section header then url)
-              const apiviewHeader = `### ${lang.label} — APIView Link`;
-              const apiviewSection = issueBody.split(apiviewHeader)[1];
-              if (!apiviewSection || !apiviewSection.split('###')[0].match(/https?:\/\/\S+/)) {
-                langMissing.push('APIView link');
+              // --- APIView link: extract and validate URL ---
+              const apiviewUrl = extractUrl(issueBody, `### ${lang.label} — APIView Link`);
+              if (!apiviewUrl) {
+                langMissing.push('APIView link not provided');
+              } else {
+                const reachable = await isUrlReachable(apiviewUrl);
+                if (!reachable) {
+                  langMissing.push(`APIView link is not reachable: ${apiviewUrl}`);
+                } else {
+                  langValid.push(`APIView link verified: ${apiviewUrl}`);
+                }
               }
 
-              // Check verification checklist items
+              // --- Verification checklist (self-reported) ---
               const checklistChecks = [
                 { text: 'A diff revision is selected in APIView', name: 'Diff revision selected' },
                 { text: 'Champion Scenarios / Quickstart samples are attached in APIView', name: 'Samples attached' },
@@ -83,26 +121,41 @@ jobs:
                 const escaped = check.text.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
                 const checkRegex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escaped}`);
                 if (!checkRegex.test(issueBody)) {
-                  langMissing.push(check.name);
+                  langMissing.push(`${check.name} (not confirmed)`);
                 }
               }
 
-              // Check PR link
-              const prHeader = `### ${lang.label} — PR Link`;
-              const prSection = issueBody.split(prHeader)[1];
-              if (!prSection || !prSection.split('###')[0].match(/https?:\/\/\S+/)) {
-                langMissing.push('PR link');
+              // --- PR link: extract and validate URL ---
+              const prUrl = extractUrl(issueBody, `### ${lang.label} — PR Link`);
+              if (!prUrl) {
+                langMissing.push('PR link not provided');
+              } else {
+                const reachable = await isUrlReachable(prUrl);
+                if (!reachable) {
+                  langMissing.push(`PR link is not reachable: ${prUrl}`);
+                } else {
+                  langValid.push(`PR link verified: ${prUrl}`);
+                }
               }
 
-              // Check README link
-              const readmeHeader = `### ${lang.label} — README Link`;
-              const readmeSection = issueBody.split(readmeHeader)[1];
-              if (!readmeSection || !readmeSection.split('###')[0].match(/https?:\/\/\S+/)) {
-                langMissing.push('README link');
+              // --- README link: extract and validate URL ---
+              const readmeUrl = extractUrl(issueBody, `### ${lang.label} — README Link`);
+              if (!readmeUrl) {
+                langMissing.push('README link not provided');
+              } else {
+                const reachable = await isUrlReachable(readmeUrl);
+                if (!reachable) {
+                  langMissing.push(`README link is not reachable: ${readmeUrl}`);
+                } else {
+                  langValid.push(`README link verified: ${readmeUrl}`);
+                }
               }
 
               if (langMissing.length > 0) {
                 missing.push({ language: lang.label, items: langMissing });
+              }
+              if (langValid.length > 0) {
+                validated.push({ language: lang.label, items: langValid });
               }
             }
 
@@ -120,7 +173,6 @@ jobs:
                 });
               }
 
-              // Remove needs-info if present
               if (currentLabels.includes('needs-info')) {
                 try {
                   await github.rest.issues.removeLabel({
@@ -132,11 +184,22 @@ jobs:
                 } catch (e) { /* label may not exist */ }
               }
 
+              let body = `✅ **All materials verified for ${selectedLanguages.map(l => l.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
+              body += `<details><summary>Validation details</summary>\n\n`;
+              for (const v of validated) {
+                body += `**${v.language}:**\n`;
+                for (const item of v.items) {
+                  body += `- ✅ ${item}\n`;
+                }
+                body += '\n';
+              }
+              body += `</details>`;
+
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issueNumber,
-                body: `✅ **All materials verified for ${selectedLanguages.map(l => l.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.`,
+                body: body.trim(),
               });
 
             } else if (missing.length > 0) {
@@ -150,7 +213,6 @@ jobs:
                 });
               }
 
-              // Remove ready-for-review if present
               if (currentLabels.includes('ready-for-review')) {
                 try {
                   await github.rest.issues.removeLabel({
@@ -162,13 +224,25 @@ jobs:
                 } catch (e) { /* label may not exist */ }
               }
 
-              let body = `⚠️ **Some required materials are missing.** Please update the issue and the automation will re-check.\n\n`;
+              let body = `⚠️ **Some required materials are missing or invalid.** Please update the issue and the automation will re-check.\n\n`;
               for (const m of missing) {
                 body += `**${m.language}:**\n`;
                 for (const item of m.items) {
                   body += `- ❌ ${item}\n`;
                 }
                 body += '\n';
+              }
+
+              if (validated.length > 0) {
+                body += `<details><summary>Items that passed validation</summary>\n\n`;
+                for (const v of validated) {
+                  body += `**${v.language}:**\n`;
+                  for (const item of v.items) {
+                    body += `- ✅ ${item}\n`;
+                  }
+                  body += '\n';
+                }
+                body += `</details>`;
               }
 
               await github.rest.issues.createComment({
