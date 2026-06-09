@@ -75,6 +75,28 @@ jobs:
               return match ? match[0] : null;
             }
 
+            // ── Helper: extract URL after a label in a textarea ─────
+            function extractLabeledUrl(sectionText, label) {
+              const regex = new RegExp(`-\\s*${label}:\\s*(https?:\\/\\/[^\\s)]+)`, 'i');
+              const match = sectionText.match(regex);
+              return match ? match[1] : null;
+            }
+
+            // ── Helper: get labeled value (may not be a URL) ────────
+            function extractLabeledValue(sectionText, label) {
+              const regex = new RegExp(`-\\s*${label}:\\s*(.+)`, 'i');
+              const match = sectionText.match(regex);
+              return match ? match[1].trim() : null;
+            }
+
+            // ── Helper: get section text for a language ─────────────
+            function getLanguageSection(body, langLabel) {
+              const header = `### ${langLabel}`;
+              const parts = body.split(header);
+              if (parts.length < 2) return null;
+              return parts[1].split('###')[0];
+            }
+
             // ── Language detection ──────────────────────────────────
             const languageMap = {
               '.NET':           { label: '.NET',       id: 'dotnet' },
@@ -117,11 +139,18 @@ jobs:
 
             for (const lang of selectedLanguages) {
               if (!tier1Languages.includes(lang.id)) continue;
+              const section = getLanguageSection(issueBody, lang.label);
               const langMissing = [];
               const langValid = [];
 
-              // --- APIView link: extract and validate URL ---
-              const apiviewUrl = extractUrl(issueBody, `### ${lang.label} — APIView Link`);
+              if (!section || section.trim() === '' || section.trim() === '_No response_') {
+                langMissing.push('No artifacts provided');
+                missing.push({ language: lang.label, items: langMissing });
+                continue;
+              }
+
+              // --- APIView link ---
+              const apiviewUrl = extractLabeledUrl(section, 'APIView');
               if (!apiviewUrl) {
                 langMissing.push('APIView link not provided');
               } else {
@@ -129,46 +158,32 @@ jobs:
                 if (!reachable) {
                   langMissing.push(`APIView link is not reachable: ${apiviewUrl}`);
                 } else {
-                  langValid.push(`APIView link verified: ${apiviewUrl}`);
+                  langValid.push(`APIView: ${apiviewUrl}`);
                 }
               }
 
-              // --- Verification checklist (self-reported) ---
-              const checklistChecks = [
-                { text: 'A diff revision is selected in the APIView review', name: 'Diff revision selected' },
-                { text: 'CI checks are passing on the PR', name: 'CI passing' },
-              ];
-
-              for (const check of checklistChecks) {
-                const escaped = check.text.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
-                const checkRegex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escaped}`);
-                if (!checkRegex.test(issueBody)) {
-                  langMissing.push(`${check.name} (not confirmed)`);
-                }
-              }
-
-              // --- Samples link: extract and validate URL or "Uploaded in APIView" ---
-              const samplesHeader = `### ${lang.label} — Champion Scenarios / Quickstart Samples`;
-              const samplesSection = issueBody.split(samplesHeader)[1];
-              const samplesContent = samplesSection ? samplesSection.split('###')[0].trim() : '';
-              if (!samplesContent || samplesContent === '_No response_') {
-                langMissing.push('Champion Scenarios / Samples not provided');
-              } else if (!/uploaded\s+in\s+apiview/i.test(samplesContent)) {
-                const samplesUrl = samplesContent.match(/https?:\/\/[^\s)]+/);
+              // --- Samples link or "Uploaded in APIView" ---
+              const samplesValue = extractLabeledValue(section, 'Samples');
+              if (!samplesValue) {
+                langMissing.push('Samples not provided');
+              } else if (/uploaded\s+in\s+apiview/i.test(samplesValue)) {
+                langValid.push('Samples: uploaded in APIView');
+              } else {
+                const samplesUrl = samplesValue.match(/https?:\/\/[^\s)]+/);
                 if (samplesUrl) {
                   const reachable = await isUrlReachable(samplesUrl[0]);
                   if (!reachable) {
                     langMissing.push(`Samples link is not reachable: ${samplesUrl[0]}`);
                   } else {
-                    langValid.push(`Samples link verified: ${samplesUrl[0]}`);
+                    langValid.push(`Samples: ${samplesUrl[0]}`);
                   }
+                } else {
+                  langMissing.push('Samples link not provided');
                 }
-              } else {
-                langValid.push('Samples uploaded in APIView (self-reported)');
               }
 
-              // --- PR link: extract and validate URL ---
-              const prUrl = extractUrl(issueBody, `### ${lang.label} — PR Link`);
+              // --- PR link ---
+              const prUrl = extractLabeledUrl(section, 'PR');
               if (!prUrl) {
                 langMissing.push('PR link not provided');
               } else {
@@ -176,12 +191,12 @@ jobs:
                 if (!reachable) {
                   langMissing.push(`PR link is not reachable: ${prUrl}`);
                 } else {
-                  langValid.push(`PR link verified: ${prUrl}`);
+                  langValid.push(`PR: ${prUrl}`);
                 }
               }
 
-              // --- README link: extract and validate URL ---
-              const readmeUrl = extractUrl(issueBody, `### ${lang.label} — README Link`);
+              // --- README link ---
+              const readmeUrl = extractLabeledUrl(section, 'README');
               if (!readmeUrl) {
                 langMissing.push('README link not provided');
               } else {
@@ -189,8 +204,18 @@ jobs:
                 if (!reachable) {
                   langMissing.push(`README link is not reachable: ${readmeUrl}`);
                 } else {
-                  langValid.push(`README link verified: ${readmeUrl}`);
+                  langValid.push(`README: ${readmeUrl}`);
                 }
+              }
+
+              // --- Checklist: diff revision ---
+              if (!/\[\s*[Xx]\s*\]\s*Diff revision is selected/i.test(section)) {
+                langMissing.push('Diff revision not confirmed');
+              }
+
+              // --- Checklist: CI passing ---
+              if (!/\[\s*[Xx]\s*\]\s*CI checks are passing/i.test(section)) {
+                langMissing.push('CI passing not confirmed');
               }
 
               if (langMissing.length > 0) {
