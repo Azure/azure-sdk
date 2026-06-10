@@ -1007,4 +1007,15 @@ entries:
     - Added output audio buffer events: `ServerEventOutputAudioBufferStarted`, `ServerEventOutputAudioBufferStopped`.
     - Added streaming text input events: `ClientEventInputTextDelta`, `ClientEventInputTextDone`.
     - Added `ServerEventResponseInvocationDelta` for streaming invocation deltas.
+- Name: Azure.Identity.Broker
+  Version: 1.8.0-beta.1
+  DisplayName: Identity Broker
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.Broker_1.8.0-beta.1/sdk/identity/Azure.Identity.Broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ManagedIdentityCredentialAttestationOptions` to enable Credential Guard key attestation support for managed identity mTLS Proof-of-Possession flows.
 
