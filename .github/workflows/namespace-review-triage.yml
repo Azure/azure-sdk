@@ -47,11 +47,6 @@ jobs:
             }
 
             // ── Detect plane type ───────────────────────────────────
-            // GitHub Forms dropdown renders as:
-            //   ### Plane Type
-            //   
-            //   Management Plane
-            // Scope regex to content between this header and the next
             function getDropdownValue(body, headerLabel) {
               const header = `### ${headerLabel}`;
               const idx = body.indexOf(header);
@@ -68,7 +63,24 @@ jobs:
 
             console.log(`Plane type: ${planeValue || 'Unknown'}`);
 
-            // ── Apply plane-specific labels and assign reviewers ────
+            // ── Sync plane-specific labels (remove stale, add current) ──
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+            const planeLabels = ['mgmt-namespace-review', 'data-namespace-review'];
+
+            // Remove all plane labels first, then add the correct one
+            for (const label of planeLabels) {
+              if (currentLabels.includes(label)) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: label,
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+            }
+
             if (isManagementPlane) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
@@ -76,7 +88,6 @@ jobs:
                 issue_number: issueNumber,
                 labels: ['mgmt-namespace-review'],
               });
-              // Assign management plane reviewers
               try {
                 await github.rest.issues.addAssignees({
                   owner: context.repo.owner,
@@ -97,10 +108,6 @@ jobs:
             }
 
             // ── Validate required namespace fields ──────────────────
-            // GitHub Forms input fields render with their label as header:
-            //   ### .NET
-            //   
-            //   Azure.ResourceManager.Compute
             const namespaceFields = [
               { header: '.NET',       display: '.NET' },
               { header: 'Java',       display: 'Java' },
@@ -128,11 +135,15 @@ jobs:
               }
             }
 
-            const currentLabels = context.payload.issue.labels.map(l => l.name);
+            // Refresh labels after plane label sync
+            const updatedLabels = (await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            })).data.labels.map(l => l.name);
 
             if (missing.length === 0) {
-              // All namespace proposals provided
-              if (!currentLabels.includes('ready-for-review')) {
+              if (!updatedLabels.includes('ready-for-review')) {
                 await github.rest.issues.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -141,7 +152,7 @@ jobs:
                 });
               }
 
-              if (currentLabels.includes('needs-info')) {
+              if (updatedLabels.includes('needs-info')) {
                 try {
                   await github.rest.issues.removeLabel({
                     owner: context.repo.owner,
@@ -152,12 +163,11 @@ jobs:
                 } catch (e) { /* label may not exist */ }
               }
 
-              const planeLabel = isManagementPlane ? 'Management Plane' : 'Data Plane';
+              const planeLabel = isManagementPlane ? 'Management Plane' : isDataPlane ? 'Data Plane' : 'Unknown Plane';
               await upsertComment(`✅ **${planeLabel} namespace review is ready for architects.**\n\nAll required namespace proposals have been provided. The \`ready-for-review\` label has been applied.`);
 
             } else {
-              // Missing namespace proposals
-              if (!currentLabels.includes('needs-info')) {
+              if (!updatedLabels.includes('needs-info')) {
                 await github.rest.issues.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -166,7 +176,7 @@ jobs:
                 });
               }
 
-              if (currentLabels.includes('ready-for-review')) {
+              if (updatedLabels.includes('ready-for-review')) {
                 try {
                   await github.rest.issues.removeLabel({
                     owner: context.repo.owner,

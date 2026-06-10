@@ -46,10 +46,30 @@ jobs:
               }
             }
 
+            // ── Allowed hostnames for URL validation (SSRF protection) ──
+            const allowedHosts = [
+              'apiview.dev',
+              'github.com',
+              'learn.microsoft.com',
+              'azure.github.io',
+            ];
+
+            function isAllowedHost(url) {
+              try {
+                const parsed = new URL(url);
+                return allowedHosts.some(h => parsed.hostname === h || parsed.hostname.endsWith('.' + h));
+              } catch {
+                return false;
+              }
+            }
+
             // ── Helper: validate a URL is reachable ─────────────────
             const trustedDomains = ['apiview.dev'];
 
             async function isUrlReachable(url) {
+              if (!isAllowedHost(url)) {
+                return false;
+              }
               try {
                 const parsed = new URL(url);
                 if (trustedDomains.some(d => parsed.hostname === d || parsed.hostname.endsWith('.' + d))) {
@@ -125,6 +145,8 @@ jobs:
               'iOS / Swift':    { label: 'iOS',        id: 'ios' },
             };
 
+            const allLanguageLabels = Object.values(languageMap).map(m => m.label);
+
             const selectedLanguages = [];
             for (const [formLabel, meta] of Object.entries(languageMap)) {
               const escapedLabel = formLabel.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
@@ -136,8 +158,13 @@ jobs:
 
             console.log(`Selected languages: ${selectedLanguages.map(l => l.label).join(', ') || 'none'}`);
 
-            // ── Apply language labels ───────────────────────────────
-            const labelsToAdd = selectedLanguages.map(l => l.label);
+            // ── Sync language labels (add selected, remove deselected) ──
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+            const selectedLabelSet = new Set(selectedLanguages.map(l => l.label));
+
+            const labelsToAdd = [...selectedLabelSet].filter(l => !currentLabels.includes(l));
+            const labelsToRemove = allLanguageLabels.filter(l => currentLabels.includes(l) && !selectedLabelSet.has(l));
+
             if (labelsToAdd.length > 0) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
@@ -145,6 +172,16 @@ jobs:
                 issue_number: issueNumber,
                 labels: labelsToAdd,
               });
+            }
+            for (const label of labelsToRemove) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  name: label,
+                });
+              } catch (e) { /* label may not exist */ }
             }
 
             // ── Validate artifacts per selected language ────────────
@@ -261,8 +298,6 @@ jobs:
             }
 
             // ── Apply status labels and comment ─────────────────────
-            const currentLabels = context.payload.issue.labels.map(l => l.name);
-
             if (missing.length === 0 && selectedLanguages.length > 0) {
               // All checks pass
               if (!currentLabels.includes('ready-for-review')) {
