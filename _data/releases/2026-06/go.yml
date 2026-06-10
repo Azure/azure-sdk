@@ -967,4 +967,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.4.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/security/keyvault/azkeys
+  Version: 1.6.0-beta.1
+  DisplayName: Key Vault  - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.6.0-beta.1/sdk/security/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the `SecureWrapKey` and `SecureUnwrapKey` operations
+    * Added the `JSONWebKeyWrapAlgorithm` type and the `ExternalKey`, `SecureKeyOperationResult`,
+    `SecureKeyUnWrapOperationParameters`, and `SecureKeyWrapOperationParameters` models
+    * Added the `ExternalKey` and `KeySize` fields to `KeyAttributes`
 
