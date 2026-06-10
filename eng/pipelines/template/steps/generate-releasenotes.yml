@@ -77,15 +77,17 @@ steps:
       Write-Host "[ReleaseStartDate]$releaseStartDate"
     displayName: Set Release Period Value
 
+  - template: /eng/common/pipelines/templates/steps/login-to-github.yml
+
   - pwsh: |
       git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
       cd $(AzureSDKReleaseNotesClonePath)
-      git remote add azure-sdk-fork "https://x-access-token:$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+      git remote add azure-sdk-fork "https://x-access-token:$(GH_TOKEN)@github.com/Azure/azure-sdk.git"
     displayName: Clone azure-sdk for release notes
     condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
   - pwsh: |
-      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(azuresdk-github-pat)
+      ./eng/common/scripts/Delete-RemoteBranches.ps1 -RepoId "azure-sdk/azure-sdk" -BranchRegex '^${{ parameters.PrBranchName }}.*' -AuthToken $(GH_TOKEN)
     displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
@@ -102,8 +104,8 @@ steps:
           Write-Host "git fetch $RemoteName $PRBranchName"
           git fetch $RemoteName $PRBranchName
 
-          Write-Host "git checkout $PRBranchName."
-          git checkout $PRBranchName
+          Write-Host "git checkout -B $PRBranchName $RemoteName/$PRBranchName."
+          git checkout -B $PRBranchName "$RemoteName/$PRBranchName"
         }
         else {
           # Reset back to the head of default so we can build on top of that if the branch doesn't already exist.
@@ -126,17 +128,19 @@ steps:
           -releaseStartDate $(ReleaseStartDate)
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
-          -github_pat '$(azuresdk-github-pat)'
+          -github_pat '$(GH_TOKEN)'
 
     - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
       parameters:
         RepoName: azure-sdk
+        PROwner: Azure
         BaseBranchName: $(DefaultBranch)
         PRBranchName: $(PRBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/main/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
+        AuthToken: ''
 
     - pwsh: |
         gh pr merge $(Submitted.PullRequest.Number) --auto --squash
@@ -144,4 +148,4 @@ steps:
       displayName: Apply AutoMerge to Pull Request
       workingDirectory: $(AzureSDKReleaseNotesClonePath)
       env:
-        GH_TOKEN: $(azuresdk-github-pat)
+        GH_TOKEN: $(GH_TOKEN)
