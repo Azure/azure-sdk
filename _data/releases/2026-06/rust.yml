@@ -342,4 +342,15 @@ entries:
     #### Features Added
 
     - Initial release.
+- Name: azure_security_keyvault_certificates
+  Version: 1.1.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@1.1.0-beta.1/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an experimental `PlatformManaged` property on `CertificatePolicy` for Azure Key Vault internal usage. Any calls using this property will fail and it is not recommended to be used at this point. [#4539](https://github.com/Azure/azure-sdk-for-rust/pull/4539).
 
