@@ -958,4 +958,53 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeBulkActions_1.0.0-beta.1/sdk/computebulkactions/Azure.ResourceManager.ComputeBulkActions/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.59.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.59.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `BearerTokenAuthenticationPolicy` so that the `Authorization` header is no longer re-attached to a request that has been redirected to a different host. Previously, `RedirectPolicy` would strip the `Authorization` header before following a redirect, but the per-retry `BearerTokenAuthenticationPolicy` would re-add the cached bearer token to the redirected request — including when the redirect target was a different host. The policy now detects when the request URI authority has changed since it last authorized the message, defensively strips any `Authorization` header, and skips both re-authorization and the `WWW-Authenticate` (CAE) `401` handler so that no bearer token is sent to — or fetched in response to a challenge from — the redirect target. Same-host redirects, normal (non-redirected) requests, and CAE handling against the original host are unchanged. Callers who explicitly enabled auto-redirect (via `HttpPipelineTransportOptions.IsClientRedirectEnabled = true` or `RedirectPolicy.SetAllowAutoRedirect(message, true)`) and depended on the bearer token being re-attached on cross-host redirects should construct a separate client targeting the redirect-target host with a credential bound to that host's resource.
+
+    #### Features Added
+
+    - Added experimental (`AZID0004`) mTLS Proof-of-Possession token binding support for managed identity scenarios, including dynamic host capability detection via MSAL and transport certificate rotation APIs on `BearerTokenAuthenticationPolicy`.
+- Name: Azure.ResourceManager.Monitor.Workspaces
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Monitor.Workspaces
+  ServiceName: Monitor.Workspaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor.Workspaces_1.0.0-beta.1/sdk/monitor/Azure.ResourceManager.Monitor.Workspaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Cloudhealth
+  ServiceName: Cloudhealth
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.3/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.2.0-beta.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.2.0-beta.1/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzureRealtimeNativeVoice` and `AzureRealtimeNativeVoiceName` with 12 new voice options (Aarti, Andrew, Ava, Denise, Diya, Elsa, Florian, Francisca, Meera, Xiaoxiao, Ximena, Yunxi).
+    - Added `SmartEndOfTurnDetection` (end-of-utterance detection with `ThresholdLevel` and `TimeoutMs`).
+    - Added `ParallelToolCalls` property on `VoiceLiveSessionOptions`.
+    - Added `Channels` and `ReferenceSource` (`EchoCancellationReferenceSource`) properties on `AudioEchoCancellation`.
+    - Added RTC call support: `ClientEventRtcCallSdpCreate`, `ServerEventRtcCallSdpCreated`, `ServerEventRtcCallError`, `RtcCallErrorDetails`.
+    - Added output audio buffer events: `ServerEventOutputAudioBufferStarted`, `ServerEventOutputAudioBufferStopped`.
+    - Added streaming text input events: `ClientEventInputTextDelta`, `ClientEventInputTextDone`.
+    - Added `ServerEventResponseInvocationDelta` for streaming invocation deltas.
 
