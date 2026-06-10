@@ -18,16 +18,55 @@ jobs:
           script: |
             const issueBody = context.payload.issue.body || '';
             const issueNumber = context.payload.issue.number;
+            const COMMENT_MARKER = '<!-- namespace-triage-bot -->';
+
+            // ── Helper: find or create bot comment ──────────────────
+            async function upsertComment(body) {
+              const markedBody = `${COMMENT_MARKER}\n${body}`;
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(COMMENT_MARKER));
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body: markedBody,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: markedBody,
+                });
+              }
+            }
 
             // ── Detect plane type ───────────────────────────────────
             // GitHub Forms dropdown renders as:
-            // ### Plane Type
-            // 
-            // Management Plane
-            const isManagementPlane = /###\s*Plane Type[\s\S]*?Management Plane/i.test(issueBody);
-            const isDataPlane = /###\s*Plane Type[\s\S]*?Data Plane/i.test(issueBody);
+            //   ### Plane Type
+            //   
+            //   Management Plane
+            // Scope regex to content between this header and the next
+            function getDropdownValue(body, headerLabel) {
+              const header = `### ${headerLabel}`;
+              const idx = body.indexOf(header);
+              if (idx === -1) return null;
+              const after = body.substring(idx + header.length);
+              const nextHeader = after.indexOf('###');
+              const section = nextHeader === -1 ? after : after.substring(0, nextHeader);
+              return section.trim();
+            }
 
-            console.log(`Plane type: ${isManagementPlane ? 'Management' : isDataPlane ? 'Data' : 'Unknown'}`);
+            const planeValue = getDropdownValue(issueBody, 'Plane Type');
+            const isManagementPlane = planeValue === 'Management Plane';
+            const isDataPlane = planeValue === 'Data Plane';
+
+            console.log(`Plane type: ${planeValue || 'Unknown'}`);
 
             // ── Apply plane-specific labels and assign reviewers ────
             if (isManagementPlane) {
@@ -38,12 +77,16 @@ jobs:
                 labels: ['mgmt-namespace-review'],
               });
               // Assign management plane reviewers
-              await github.rest.issues.addAssignees({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                assignees: ['ArthurMa1978'],
-              });
+              try {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  assignees: ['ArthurMa1978'],
+                });
+              } catch (e) {
+                console.log(`Could not assign ArthurMa1978: ${e.message}`);
+              }
             } else if (isDataPlane) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
@@ -51,30 +94,37 @@ jobs:
                 issue_number: issueNumber,
                 labels: ['data-namespace-review'],
               });
-              // Data plane namespace reviews go to the archboard team
             }
 
             // ── Validate required namespace fields ──────────────────
+            // GitHub Forms input fields render with their label as header:
+            //   ### .NET
+            //   
+            //   Azure.ResourceManager.Compute
             const namespaceFields = [
-              { header: '.NET Namespace',             id: 'dotnet' },
-              { header: 'Java Package Name',          id: 'java' },
-              { header: 'Go Module Path',             id: 'go' },
-              { header: 'JavaScript Package Name',    id: 'javascript' },
-              { header: 'Python Package Name',        id: 'python' },
+              { header: '.NET',       display: '.NET' },
+              { header: 'Java',       display: 'Java' },
+              { header: 'Go',         display: 'Go' },
+              { header: 'JavaScript', display: 'JavaScript' },
+              { header: 'Python',     display: 'Python' },
             ];
+
+            function getFieldValue(body, headerLabel) {
+              const header = `### ${headerLabel}`;
+              const idx = body.indexOf(header);
+              if (idx === -1) return null;
+              const after = body.substring(idx + header.length);
+              const nextHeader = after.indexOf('###');
+              const section = nextHeader === -1 ? after : after.substring(0, nextHeader);
+              const value = section.trim();
+              return (value && value !== '_No response_') ? value : null;
+            }
 
             const missing = [];
             for (const field of namespaceFields) {
-              const headerPattern = `### ${field.header}`;
-              const section = issueBody.split(headerPattern)[1];
-              // Check if section exists and has content (not just whitespace before next header)
-              if (!section) {
-                missing.push(field.header);
-              } else {
-                const content = section.split('###')[0].trim();
-                if (!content || content === '_No response_') {
-                  missing.push(field.header);
-                }
+              const value = getFieldValue(issueBody, field.header);
+              if (!value) {
+                missing.push(field.display);
               }
             }
 
@@ -103,12 +153,7 @@ jobs:
               }
 
               const planeLabel = isManagementPlane ? 'Management Plane' : 'Data Plane';
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                body: `✅ **${planeLabel} namespace review is ready for architects.**\n\nAll required namespace proposals have been provided. The \`ready-for-review\` label has been applied.`,
-              });
+              await upsertComment(`✅ **${planeLabel} namespace review is ready for architects.**\n\nAll required namespace proposals have been provided. The \`ready-for-review\` label has been applied.`);
 
             } else {
               // Missing namespace proposals
@@ -137,10 +182,5 @@ jobs:
                 body += `- ❌ ${m}\n`;
               }
 
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                body: body.trim(),
-              });
+              await upsertComment(body.trim());
             }

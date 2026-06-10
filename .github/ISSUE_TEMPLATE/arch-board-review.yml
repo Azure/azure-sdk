@@ -138,87 +138,82 @@ body:
     id: dotnet-artifacts
     attributes:
       label: ".NET"
-      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
-      render: markdown
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Leave blank if .NET is not selected above."
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-net/tree/.../samples (or "Uploaded in APIView")
         - PR: https://github.com/Azure/azure-sdk-for-net/pull/...
         - README: https://github.com/Azure/azure-sdk-for-net/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
 
   # ── Java ────────────────────────────────────────────────────────
   - type: textarea
     id: java-artifacts
     attributes:
       label: "Java"
-      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
-      render: markdown
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Leave blank if Java is not selected above."
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-java/tree/.../samples (or "Uploaded in APIView")
         - PR: https://github.com/Azure/azure-sdk-for-java/pull/...
         - README: https://github.com/Azure/azure-sdk-for-java/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
 
   # ── Python ──────────────────────────────────────────────────────
   - type: textarea
     id: python-artifacts
     attributes:
       label: "Python"
-      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
-      render: markdown
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Leave blank if Python is not selected above."
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-python/tree/.../samples (or "Uploaded in APIView")
         - PR: https://github.com/Azure/azure-sdk-for-python/pull/...
         - README: https://github.com/Azure/azure-sdk-for-python/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
 
   # ── TypeScript ──────────────────────────────────────────────────
   - type: textarea
     id: typescript-artifacts
     attributes:
       label: "TypeScript"
-      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
-      render: markdown
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Leave blank if TypeScript is not selected above."
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-js/tree/.../samples (or "Uploaded in APIView")
         - PR: https://github.com/Azure/azure-sdk-for-js/pull/...
         - README: https://github.com/Azure/azure-sdk-for-js/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
 
   # ── Go ──────────────────────────────────────────────────────────
   - type: textarea
     id: go-artifacts
     attributes:
       label: "Go"
-      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Confirm CI checks pass."
-      render: markdown
+      description: "Required: APIView link (with diff revision selected), Samples link or 'Uploaded in APIView', Pull Request link, README link. Leave blank if Go is not selected above."
       placeholder: |
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-go/tree/.../samples (or "Uploaded in APIView")
         - PR: https://github.com/Azure/azure-sdk-for-go/pull/...
         - README: https://github.com/Azure/azure-sdk-for-go/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
 
   # ── Additional Languages ────────────────────────────────────────
   - type: textarea
     id: additional-languages
     attributes:
       label: "Additional Languages (C, C++, Android, iOS/Swift)"
-      description: "Required per language: APIView link (with diff revision selected), Samples link, Pull Request link, README link. Confirm CI checks pass. Copy the block below for each language."
+      description: "For Tier-2 languages, provide the same artifacts (APIView, Samples, PR, README) for each language. Leave blank if none selected above."
       placeholder: |
         **C++**
         - APIView: https://apiview.dev/Assemblies/Review/...
         - Samples: https://github.com/Azure/azure-sdk-for-cpp/tree/.../samples
         - PR: https://github.com/Azure/azure-sdk-for-cpp/pull/...
         - README: https://github.com/Azure/azure-sdk-for-cpp/blob/.../README.md
-        - [x] Diff revision is selected in APIView
-        - [x] CI checks are passing on the PR
+
+  # ── Confirmations ──────────────────────────────────────────────
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      description: "Confirm the following for **all** selected languages above."
+      options:
+        - label: "A diff revision is selected in APIView for each language"
+          required: true
+        - label: "CI checks are passing on all linked PRs"
+          required: true
