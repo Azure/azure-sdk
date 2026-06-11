@@ -293,8 +293,11 @@ jobs:
             if (!diffConfirmed) {
               missing.push({ language: 'Confirmations', items: ['Diff revision confirmation not checked'] });
             }
+
+            // CI checks is informational only — not a blocker for review
+            const warnings = [];
             if (!ciConfirmed) {
-              missing.push({ language: 'Confirmations', items: ['CI checks confirmation not checked'] });
+              warnings.push('⚠️ CI checks have not been confirmed as passing');
             }
 
             // ── Apply status labels and comment ─────────────────────
@@ -321,6 +324,9 @@ jobs:
               }
 
               let body = `✅ **All materials verified for ${selectedLanguages.map(l => l.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
+              if (warnings.length > 0) {
+                body += `**Note:** ${warnings.join(', ')}\n\n`;
+              }
               body += `<details><summary>Validation details</summary>\n\n`;
               for (const v of validated) {
                 body += `**${v.language}:**\n`;
