@@ -980,4 +980,134 @@ entries:
     * Added the `JSONWebKeyWrapAlgorithm` type and the `ExternalKey`, `SecureKeyOperationResult`,
     `SecureKeyUnWrapOperationParameters`, and `SecureKeyWrapOperationParameters` models
     * Added the `ExternalKey` and `KeySize` fields to `KeyAttributes`
+- Name: sdk/security/keyvault/azadmin
+  Version: 1.6.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.6.0-beta.1/sdk/security/keyvault/azadmin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the `ekm` package for external key management operations
+- Name: sdk/resourcemanager/computefleet/armcomputefleet
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computefleet/armcomputefleet/v2.0.0-beta.2/sdk/resourcemanager/computefleet/armcomputefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/standbypool/armstandbypool
+  Version: 2.1.0
+  DisplayName: Resource Management - Standby Pool
+  ServiceName: Standby Pool
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/standbypool/armstandbypool/v2.1.0/sdk/resourcemanager/standbypool/armstandbypool/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computerecommender/armcomputerecommender
+  Version: 0.1.1
+  DisplayName: Resource Management - Computerecommender
+  ServiceName: Computerecommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computerecommender/armcomputerecommender/v0.1.1/sdk/resourcemanager/computerecommender/armcomputerecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/managedops/armmanagedops
+  Version: 0.2.0
+  DisplayName: Resource Management - Managedops
+  ServiceName: Managedops
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/managedops/armmanagedops/v0.2.0/sdk/resourcemanager/managedops/armmanagedops/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/machinelearning/armmachinelearning
+  Version: 5.0.0-beta.1
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/machinelearning/armmachinelearning/v5.0.0-beta.1/sdk/resourcemanager/machinelearning/armmachinelearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/managednetworkfabric/armmanagednetworkfabric
+  Version: 2.0.0
+  DisplayName: Resource Management - Managed Network Fabric
+  ServiceName: Managed Network Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/managednetworkfabric/armmanagednetworkfabric/v2.0.0/sdk/resourcemanager/managednetworkfabric/armmanagednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/network/armnetwork
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/network/armnetwork/v10.0.0-beta.1/sdk/resourcemanager/network/armnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computeschedule/armcomputeschedule
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computeschedule/armcomputeschedule/v2.0.0-beta.1/sdk/resourcemanager/computeschedule/armcomputeschedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/v1.1.0-beta.1/sdk/resourcemanager/servicefabricmanagedclusters/armservicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/securityinsights/armsecurityinsights
+  Version: 2.0.0-beta.5
+  DisplayName: Resource Management - Security Insights
+  ServiceName: Security Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/securityinsights/armsecurityinsights/v2.0.0-beta.5/sdk/resourcemanager/securityinsights/armsecurityinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/weightsandbiases/armweightsandbiases
+  Version: 1.0.0
+  DisplayName: Resource Management - Weights & Biases
+  ServiceName: Weights & Biases
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/weightsandbiases/armweightsandbiases/v1.0.0/sdk/resourcemanager/weightsandbiases/armweightsandbiases/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cloudhealth/armcloudhealth
+  Version: 0.2.0
+  DisplayName: Resource Management - Cloudhealth
+  ServiceName: Cloudhealth
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cloudhealth/armcloudhealth/v0.2.0/sdk/resourcemanager/cloudhealth/armcloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/networkcloud/armnetworkcloud
+  Version: 1.5.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/networkcloud/armnetworkcloud/v1.5.0-beta.1/sdk/resourcemanager/networkcloud/armnetworkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/trustedsigning/armtrustedsigning
+  Version: 1.0.0
+  DisplayName: Resource Management - Trusted Signing
+  ServiceName: Trusted Signing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/trustedsigning/armtrustedsigning/v1.0.0/sdk/resourcemanager/trustedsigning/armtrustedsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/purestorageblock/armpurestorageblock
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Purestorageblock
+  ServiceName: Purestorageblock
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/purestorageblock/armpurestorageblock/v1.1.0-beta.1/sdk/resourcemanager/purestorageblock/armpurestorageblock/CHANGELOG.md
+  ChangelogContent: ""
 
