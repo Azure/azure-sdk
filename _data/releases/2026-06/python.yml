@@ -1797,4 +1797,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-standbypool_2.1.0/sdk/standbypool/azure-mgmt-standbypool/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-redisenterprise
+  Version: 4.0.0b2
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redisenterprise_4.0.0b2/sdk/redisenterprise/azure-mgmt-redisenterprise/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabric
+  Version: 2.2.0b2
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_2.2.0b2/sdk/servicefabric/azure-mgmt-servicefabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b6
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b6/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Populated agent metadata when operation IDs are zeroed so agent metadata remains available for telemetry and downstream processing.
+    - Suppressed noisy observability/exporter INFO logs by default in tracing setup while preserving DEBUG visibility when explicitly enabled.
 
