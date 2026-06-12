@@ -1,0 +1,196 @@
+name: "Namespace Review Triage"
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  triage:
+    # Only run on namespace review issues
+    if: contains(github.event.issue.labels.*.name, 'namespace-review')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Route namespace review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueBody = context.payload.issue.body || '';
+            const issueNumber = context.payload.issue.number;
+            const COMMENT_MARKER = '<!-- namespace-triage-bot -->';
+
+            // ── Helper: find or create bot comment ──────────────────
+            async function upsertComment(body) {
+              const markedBody = `${COMMENT_MARKER}\n${body}`;
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(COMMENT_MARKER));
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body: markedBody,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: markedBody,
+                });
+              }
+            }
+
+            // ── Detect plane type ───────────────────────────────────
+            function getDropdownValue(body, headerLabel) {
+              const header = `### ${headerLabel}`;
+              const idx = body.indexOf(header);
+              if (idx === -1) return null;
+              const after = body.substring(idx + header.length);
+              const nextHeader = after.indexOf('###');
+              const section = nextHeader === -1 ? after : after.substring(0, nextHeader);
+              return section.trim();
+            }
+
+            const planeValue = getDropdownValue(issueBody, 'Plane Type');
+            const isManagementPlane = planeValue === 'Management Plane';
+            const isDataPlane = planeValue === 'Data Plane';
+
+            console.log(`Plane type: ${planeValue || 'Unknown'}`);
+
+            // ── Sync plane-specific labels (remove stale, add current) ──
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+            const planeLabels = ['mgmt-namespace-review', 'data-namespace-review'];
+
+            // Remove all plane labels first, then add the correct one
+            for (const label of planeLabels) {
+              if (currentLabels.includes(label)) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: label,
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+            }
+
+            if (isManagementPlane) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['mgmt-namespace-review'],
+              });
+              try {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  assignees: ['ArthurMa1978'],
+                });
+              } catch (e) {
+                console.log(`Could not assign ArthurMa1978: ${e.message}`);
+              }
+            } else if (isDataPlane) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['data-namespace-review'],
+              });
+            }
+
+            // ── Validate required namespace fields ──────────────────
+            const namespaceFields = [
+              { header: '.NET',       display: '.NET' },
+              { header: 'Java',       display: 'Java' },
+              { header: 'Go',         display: 'Go' },
+              { header: 'JavaScript', display: 'JavaScript' },
+              { header: 'Python',     display: 'Python' },
+            ];
+
+            function getFieldValue(body, headerLabel) {
+              const header = `### ${headerLabel}`;
+              const idx = body.indexOf(header);
+              if (idx === -1) return null;
+              const after = body.substring(idx + header.length);
+              const nextHeader = after.indexOf('###');
+              const section = nextHeader === -1 ? after : after.substring(0, nextHeader);
+              const value = section.trim();
+              return (value && value !== '_No response_') ? value : null;
+            }
+
+            const missing = [];
+            for (const field of namespaceFields) {
+              const value = getFieldValue(issueBody, field.header);
+              if (!value) {
+                missing.push(field.display);
+              }
+            }
+
+            // Refresh labels after plane label sync
+            const updatedLabels = (await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            })).data.labels.map(l => l.name);
+
+            if (missing.length === 0) {
+              if (!updatedLabels.includes('ready-for-review')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['ready-for-review'],
+                });
+              }
+
+              if (updatedLabels.includes('needs-info')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'needs-info',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              const planeLabel = isManagementPlane ? 'Management Plane' : isDataPlane ? 'Data Plane' : 'Unknown Plane';
+              await upsertComment(`✅ **${planeLabel} namespace review is ready for architects.**\n\nAll required namespace proposals have been provided. The \`ready-for-review\` label has been applied.`);
+
+            } else {
+              if (!updatedLabels.includes('needs-info')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['needs-info'],
+                });
+              }
+
+              if (updatedLabels.includes('ready-for-review')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'ready-for-review',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              let body = `⚠️ **Some required namespace proposals are missing.** Please update the issue.\n\n`;
+              for (const m of missing) {
+                body += `- ❌ ${m}\n`;
+              }
+
+              await upsertComment(body.trim());
+            }

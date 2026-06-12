@@ -1,0 +1,397 @@
+name: "Arch Board Review Triage"
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  triage:
+    # Only run on issues created from the arch-board-review template
+    if: contains(github.event.issue.labels.*.name, 'board-review') && !contains(github.event.issue.labels.*.name, 'namespace-review')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Parse and validate review request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueBody = context.payload.issue.body || '';
+            const issueNumber = context.payload.issue.number;
+            const COMMENT_MARKER = '<!-- arch-board-triage-bot -->';
+
+            // ── Helper: find or create bot comment ──────────────────
+            async function upsertComment(body) {
+              const markedBody = `${COMMENT_MARKER}\n${body}`;
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(COMMENT_MARKER));
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body: markedBody,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: markedBody,
+                });
+              }
+            }
+
+            // ── Allowed hostnames for URL validation (SSRF protection) ──
+            const allowedHosts = [
+              'apiview.dev',
+              'github.com',
+              'learn.microsoft.com',
+              'azure.github.io',
+            ];
+
+            function isAllowedHost(url) {
+              try {
+                const parsed = new URL(url);
+                return allowedHosts.some(h => parsed.hostname === h || parsed.hostname.endsWith('.' + h));
+              } catch {
+                return false;
+              }
+            }
+
+            // ── Helper: validate a URL is reachable ─────────────────
+            const trustedDomains = ['apiview.dev'];
+
+            async function isUrlReachable(url) {
+              if (!isAllowedHost(url)) {
+                return false;
+              }
+              try {
+                const parsed = new URL(url);
+                if (trustedDomains.some(d => parsed.hostname === d || parsed.hostname.endsWith('.' + d))) {
+                  if (parsed.hostname.includes('apiview.dev')) {
+                    const hasReviewId = /\/Review\/[a-f0-9]+/i.test(parsed.pathname)
+                      || /\/review\/[a-f0-9-]+/i.test(parsed.pathname)
+                      || parsed.searchParams.has('activeApiRevisionId')
+                      || parsed.searchParams.has('revisionId');
+                    if (!hasReviewId) {
+                      return false;
+                    }
+                  }
+                  return true;
+                }
+              } catch {
+                return false;
+              }
+              try {
+                const response = await fetch(url, {
+                  method: 'HEAD',
+                  redirect: 'follow',
+                  signal: AbortSignal.timeout(10000),
+                });
+                return response.ok || response.status === 405;
+              } catch {
+                try {
+                  const response = await fetch(url, {
+                    method: 'GET',
+                    redirect: 'follow',
+                    signal: AbortSignal.timeout(10000),
+                  });
+                  return response.ok;
+                } catch {
+                  return false;
+                }
+              }
+            }
+
+            // ── Helper: extract URL after a label in a textarea ─────
+            function extractLabeledUrl(sectionText, label) {
+              const regex = new RegExp(`-\\s*${label}:\\s*(https?:\\/\\/[^\\s)]+)`, 'i');
+              const match = sectionText.match(regex);
+              return match ? match[1] : null;
+            }
+
+            // ── Helper: get labeled value (may not be a URL) ────────
+            function extractLabeledValue(sectionText, label) {
+              const regex = new RegExp(`-\\s*${label}:\\s*(.+)`, 'i');
+              const match = sectionText.match(regex);
+              return match ? match[1].trim() : null;
+            }
+
+            // ── Helper: get section text for a language ─────────────
+            function getLanguageSection(body, langLabel) {
+              const header = `### ${langLabel}`;
+              const idx = body.indexOf(header);
+              if (idx === -1) return null;
+              const after = body.substring(idx + header.length);
+              const nextHeader = after.indexOf('###');
+              return nextHeader === -1 ? after : after.substring(0, nextHeader);
+            }
+
+            // ── Language detection ──────────────────────────────────
+            const languageMap = {
+              '.NET':           { label: '.NET',       id: 'dotnet' },
+              'Java':           { label: 'Java',       id: 'java' },
+              'Python':         { label: 'Python',     id: 'python' },
+              'TypeScript':     { label: 'TypeScript', id: 'typescript' },
+              'Go':             { label: 'Go',         id: 'go' },
+              'C':              { label: 'C',          id: 'c' },
+              'C++':            { label: 'C++',        id: 'cpp' },
+              'Android':        { label: 'Android',    id: 'android' },
+              'iOS / Swift':    { label: 'iOS',        id: 'ios' },
+            };
+
+            const allLanguageLabels = Object.values(languageMap).map(m => m.label);
+
+            const selectedLanguages = [];
+            for (const [formLabel, meta] of Object.entries(languageMap)) {
+              const escapedLabel = formLabel.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+              const regex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escapedLabel}\\s*$`, 'm');
+              if (regex.test(issueBody)) {
+                selectedLanguages.push(meta);
+              }
+            }
+
+            console.log(`Selected languages: ${selectedLanguages.map(l => l.label).join(', ') || 'none'}`);
+
+            // ── Sync language labels (add selected, remove deselected) ──
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+            const selectedLabelSet = new Set(selectedLanguages.map(l => l.label));
+
+            const labelsToAdd = [...selectedLabelSet].filter(l => !currentLabels.includes(l));
+            const labelsToRemove = allLanguageLabels.filter(l => currentLabels.includes(l) && !selectedLabelSet.has(l));
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: labelsToAdd,
+              });
+            }
+            for (const label of labelsToRemove) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  name: label,
+                });
+              } catch (e) { /* label may not exist */ }
+            }
+
+            // ── Validate artifacts per selected language ────────────
+            const missing = [];
+            const validated = [];
+            const tier1Languages = ['dotnet', 'java', 'python', 'typescript', 'go'];
+            const tier2Languages = ['c', 'cpp', 'android', 'ios'];
+
+            for (const lang of selectedLanguages) {
+              if (!tier1Languages.includes(lang.id)) continue;
+              const section = getLanguageSection(issueBody, lang.label);
+              const langMissing = [];
+              const langValid = [];
+
+              if (!section || section.trim() === '' || section.trim() === '_No response_') {
+                langMissing.push('No artifacts provided');
+                missing.push({ language: lang.label, items: langMissing });
+                continue;
+              }
+
+              // --- APIView link ---
+              const apiviewUrl = extractLabeledUrl(section, 'APIView');
+              if (!apiviewUrl) {
+                langMissing.push('APIView link not provided');
+              } else {
+                const reachable = await isUrlReachable(apiviewUrl);
+                if (!reachable) {
+                  langMissing.push(`APIView link is not reachable or missing review ID: ${apiviewUrl}`);
+                } else {
+                  langValid.push(`APIView: ${apiviewUrl}`);
+                }
+              }
+
+              // --- Samples link or "Uploaded in APIView" ---
+              const samplesValue = extractLabeledValue(section, 'Samples');
+              if (!samplesValue) {
+                langMissing.push('Samples not provided');
+              } else if (/uploaded\s+in\s+apiview/i.test(samplesValue)) {
+                langValid.push('Samples: uploaded in APIView');
+              } else {
+                const samplesUrl = samplesValue.match(/https?:\/\/[^\s)]+/);
+                if (samplesUrl) {
+                  const reachable = await isUrlReachable(samplesUrl[0]);
+                  if (!reachable) {
+                    langMissing.push(`Samples link is not reachable: ${samplesUrl[0]}`);
+                  } else {
+                    langValid.push(`Samples: ${samplesUrl[0]}`);
+                  }
+                } else {
+                  langMissing.push('Samples link not provided');
+                }
+              }
+
+              // --- PR link ---
+              const prUrl = extractLabeledUrl(section, 'PR');
+              if (!prUrl) {
+                langMissing.push('PR link not provided');
+              } else {
+                const reachable = await isUrlReachable(prUrl);
+                if (!reachable) {
+                  langMissing.push(`PR link is not reachable: ${prUrl}`);
+                } else {
+                  langValid.push(`PR: ${prUrl}`);
+                }
+              }
+
+              // --- README link ---
+              const readmeUrl = extractLabeledUrl(section, 'README');
+              if (!readmeUrl) {
+                langMissing.push('README link not provided');
+              } else {
+                const reachable = await isUrlReachable(readmeUrl);
+                if (!reachable) {
+                  langMissing.push(`README link is not reachable: ${readmeUrl}`);
+                } else {
+                  langValid.push(`README: ${readmeUrl}`);
+                }
+              }
+
+              if (langMissing.length > 0) {
+                missing.push({ language: lang.label, items: langMissing });
+              }
+              if (langValid.length > 0) {
+                validated.push({ language: lang.label, items: langValid });
+              }
+            }
+
+            // ── Validate Tier-2 languages ───────────────────────────
+            const selectedTier2 = selectedLanguages.filter(l => tier2Languages.includes(l.id));
+            if (selectedTier2.length > 0) {
+              const additionalSection = getLanguageSection(issueBody, 'Additional Languages (C, C++, Android, iOS/Swift)');
+              if (!additionalSection || additionalSection.trim() === '' || additionalSection.trim() === '_No response_') {
+                missing.push({
+                  language: selectedTier2.map(l => l.label).join(', '),
+                  items: ['No artifacts provided in the Additional Languages section'],
+                });
+              } else {
+                validated.push({
+                  language: 'Additional Languages',
+                  items: ['Content provided (manual review required for Tier-2 languages)'],
+                });
+              }
+            }
+
+            // ── Verify confirmations checkboxes ─────────────────────
+            const diffConfirmed = /\[\s*[Xx]\s*\]\s*A diff revision is selected in APIView/i.test(issueBody);
+            const ciConfirmed = /\[\s*[Xx]\s*\]\s*CI checks are passing on all linked PRs/i.test(issueBody);
+
+            if (!diffConfirmed) {
+              missing.push({ language: 'Confirmations', items: ['Diff revision confirmation not checked'] });
+            }
+
+            // CI checks is informational only — not a blocker for review
+            const warnings = [];
+            if (!ciConfirmed) {
+              warnings.push('⚠️ CI checks have not been confirmed as passing');
+            }
+
+            // ── Apply status labels and comment ─────────────────────
+            if (missing.length === 0 && selectedLanguages.length > 0) {
+              // All checks pass
+              if (!currentLabels.includes('ready-for-review')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['ready-for-review'],
+                });
+              }
+
+              if (currentLabels.includes('needs-info')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'needs-info',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              let body = `✅ **All materials verified for ${selectedLanguages.map(l => l.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
+              if (warnings.length > 0) {
+                body += `**Note:** ${warnings.join(', ')}\n\n`;
+              }
+              body += `<details><summary>Validation details</summary>\n\n`;
+              for (const v of validated) {
+                body += `**${v.language}:**\n`;
+                for (const item of v.items) {
+                  body += `- ✅ ${item}\n`;
+                }
+                body += '\n';
+              }
+              body += `</details>`;
+
+              await upsertComment(body.trim());
+
+            } else if (missing.length > 0) {
+              // Some checks failed
+              if (!currentLabels.includes('needs-info')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['needs-info'],
+                });
+              }
+
+              if (currentLabels.includes('ready-for-review')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'ready-for-review',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              let body = `⚠️ **Some required materials are missing or invalid.** Please update the issue and the automation will re-check.\n\n`;
+              for (const m of missing) {
+                body += `**${m.language}:**\n`;
+                for (const item of m.items) {
+                  body += `- ❌ ${item}\n`;
+                }
+                body += '\n';
+              }
+
+              if (validated.length > 0) {
+                body += `<details><summary>Items that passed validation</summary>\n\n`;
+                for (const v of validated) {
+                  body += `**${v.language}:**\n`;
+                  for (const item of v.items) {
+                    body += `- ✅ ${item}\n`;
+                  }
+                  body += '\n';
+                }
+                body += `</details>`;
+              }
+
+              await upsertComment(body.trim());
+
+            } else {
+              // No languages selected
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['needs-info'],
+              });
+
+              await upsertComment(`⚠️ **No languages were selected.** Please edit the issue and check at least one language under "Languages for this Review".`);
+            }
