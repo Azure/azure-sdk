@@ -1240,4 +1240,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/planetarycomputer'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/planetarycomputer_1.0.0-beta.1/sdk/planetarycomputer/planetarycomputer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of the `@azure/planetarycomputer` package.
+    - STAC API support: list, get, create, update, delete collections and items; search with spatial, temporal, and CQL2-JSON filters.
+    - Data/Tiler API support: tile rendering, preview generation, mosaic search, bounding box and GeoJSON crop, WMTS capabilities, legends, and statistics.
+    - Ingestion API support: create and manage ingestion sources, definitions, and runs; track operations.
+    - Shared Access Signature API support: generate, sign, and revoke SAS tokens for secure data sharing.
+    - Long-running operation (LRO) support for collection and item create/delete operations.
 
