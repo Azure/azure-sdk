@@ -10,7 +10,6 @@
 #####       Joel Hendrix                @jhendrixMSFT       Go
 #####       Larry Osterman              @LarryOsterman      C / C++
 #####       Heath Stewart               @HeathS             Rust
-#####       Ronnie Geraghty             @ronniegeraghty     Program Management
 #####
 #####   Engineering Systems:
 #####       Mike Harder                 @mikeharder         Eng. Sys. Engineer
@@ -50,8 +49,8 @@
 
 # Engineering systems documents
 /docs/android/                   @JonathanGiles @salameer
-/docs/clang/                     @JeffreyRichter @LarryOsterman @RickWinter @ronniegeraghty
-/docs/cpp/                       @LarryOsterman @RickWinter @ronniegeraghty
+/docs/clang/                     @JeffreyRichter @LarryOsterman @RickWinter
+/docs/cpp/                       @LarryOsterman @RickWinter
 /docs/dotnet/                    @KrzysztofCwalina @jsquire @christothes @salameer
 /docs/general/                   @salameer
 /docs/golang/                    @jhendrixMSFT @RickWinter
@@ -60,43 +59,43 @@
 /docs/policies/                  @mikeharder @benbp
 /docs/python/                    @johanste @salameer @annatisch
 /docs/redirects/                 @lfraleigh
-/docs/rust/                      @HeathS @LarryOsterman @RickWinter @ronniegeraghty
+/docs/rust/                      @HeathS @LarryOsterman @RickWinter
 /docs/tables/                    @bterlson @KrzysztofCwalina @JeffreyRichter @johanste @JonathanGiles
 /docs/typescript/                @bterlson @salameer @xirzec
 /eng/                            @mikeharder @benbp
 /eng/common/                     @Azure/azure-sdk-eng
-/eng/scripts/inventory-dashboard @ronniegeraghty
+/eng/scripts/inventory-dashboard @mikeharder @benbp
 /_posts/                         @lfraleigh
-/_data/                          @ronniegeraghty @mikeharder @benbp
-/**/android.md                   @ronniegeraghty @vcolin7 @anuchandy
-/**/android.yml                  @ronniegeraghty @vcolin7 @anuchandy
-/**/android-packages.csv         @ronniegeraghty @benbp @vcolin7 @anuchandy
-/**/c.md                         @ronniegeraghty @RickWinter
-/**/c-packages.csv               @ronniegeraghty @benbp @RickWinter
-/**/cpp.md                       @ronniegeraghty @antkmsft
-/**/cpp.yml                      @ronniegeraghty @antkmsft
-/**/cpp-packages.csv             @ronniegeraghty @benbp @antkmsft
-/**/dotnet.md                    @ronniegeraghty @JonathanCrd
-/**/dotnet.yml                   @ronniegeraghty @JonathanCrd
-/**/dotnet-packages.csv          @ronniegeraghty @benbp @JonathanCrd
-/**/ios.md                       @ronniegeraghty @vcolin7 @tjprescott
-/**/ios.yml                      @ronniegeraghty @vcolin7 @tjprescott
-/**/ios-packages.csv             @ronniegeraghty @benbp @vcolin7 @tjprescott
-/**/java.md                      @ronniegeraghty @jairmyree
-/**/java.yml                     @ronniegeraghty @jairmyree
-/**/java-packages.csv            @ronniegeraghty @benbp @jairmyree
-/**/js.md                        @ronniegeraghty @timovv
-/**/js.yml                       @ronniegeraghty @timovv
-/**/js-packages.csv              @ronniegeraghty @benbp @timovv
-/**/python.md                    @ronniegeraghty @kashifkhan
-/**/python.yml                   @ronniegeraghty @kashifkhan
-/**/python-packages.csv          @ronniegeraghty @benbp @kashifkhan
-/**/go.md                        @ronniegeraghty @benbp
-/**/go.yml                       @ronniegeraghty @benbp
-/**/go-packages.csv              @ronniegeraghty @benbp
-/**/rust.md                      @ronniegeraghty @heaths
-/**/rust.yml                     @ronniegeraghty @heaths
-/**/rust-packages.csv            @ronniegeraghty @benbp @heaths
+/_data/                          @mikeharder @benbp
+/**/android.md                   @vcolin7 @anuchandy
+/**/android.yml                  @vcolin7 @anuchandy
+/**/android-packages.csv         @benbp @vcolin7 @anuchandy
+/**/c.md                         @RickWinter
+/**/c-packages.csv               @benbp @RickWinter
+/**/cpp.md                       @antkmsft
+/**/cpp.yml                      @antkmsft
+/**/cpp-packages.csv             @benbp @antkmsft
+/**/dotnet.md                    @JonathanCrd
+/**/dotnet.yml                   @JonathanCrd
+/**/dotnet-packages.csv          @benbp @JonathanCrd
+/**/ios.md                       @vcolin7 @tjprescott
+/**/ios.yml                      @vcolin7 @tjprescott
+/**/ios-packages.csv             @benbp @vcolin7 @tjprescott
+/**/java.md                      @jairmyree
+/**/java.yml                     @jairmyree
+/**/java-packages.csv            @benbp @jairmyree
+/**/js.md                        @timovv
+/**/js.yml                       @timovv
+/**/js-packages.csv              @benbp @timovv
+/**/python.md                    @kashifkhan
+/**/python.yml                   @kashifkhan
+/**/python-packages.csv          @benbp @kashifkhan
+/**/go.md                        @benbp
+/**/go.yml                       @benbp
+/**/go-packages.csv              @benbp
+/**/rust.md                      @heaths
+/**/rust.yml                     @heaths
+/**/rust-packages.csv            @benbp @heaths
 
 ################################################################################
 # Event yml files and CODEOWNERS should be near the bottom of CODEOWNERS files #
