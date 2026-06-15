@@ -26,4 +26,39 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.62.0-beta.1/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-data-appconfiguration
+  Version: 1.10.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-appconfiguration_1.10.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `checkConfigurationSettings` method to `ConfigurationClient` and `ConfigurationAsyncClient` that performs HEAD requests to efficiently check if configuration settings have changed by comparing page-level ETags without retrieving the full response body.
+    - Added `description` property to `ConfigurationSetting` and `ConfigurationSnapshot`, along with corresponding `DESCRIPTION` values on `SettingFields` and `SnapshotFields`.
+  GroupId: com.azure
+- Name: com.azure+azure-monitor-opentelemetry-autoconfigure
+  Version: 1.5.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-opentelemetry-autoconfigure_1.5.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support stable database semconv ([#46957](https://github.com/Azure/azure-sdk-for-java/pull/46957))
+    - Export database query parameters ([#47526](https://github.com/Azure/azure-sdk-for-java/pull/47526))
+    - Add customer-facing SDKStats metrics (Item_Success_Count, Item_Dropped_Count, Item_Retry_Count) ([#48077](https://github.com/Azure/azure-sdk-for-java/pull/48077))
+    - Honor APPLICATIONINSIGHTS_SDKStats_DISABLED_ALL kill-switch in autoconfigure ([#49451](https://github.com/Azure/azure-sdk-for-java/pull/49451))
+
+    #### Bugs Fixed
+
+    - Avoid ERROR log when Azure Metadata Service connection times out ([#47814](https://github.com/Azure/azure-sdk-for-java/pull/47814))
+    - Fix stats beat failure count metrics reporting incorrect values ([#47884](https://github.com/Azure/azure-sdk-for-java/pull/47884))
+    - Don't truncate gen ai custom dimensions ([#48385](https://github.com/Azure/azure-sdk-for-java/pull/48385))
+    - Truncate gen_ai attributes to 256KB instead of exempting from truncation ([#48454](https://github.com/Azure/azure-sdk-for-java/pull/48454))
+  GroupId: com.azure
 
