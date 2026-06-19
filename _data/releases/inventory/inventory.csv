@@ -41,7 +41,7 @@ Cognitive Services,0,AI Foundry,data,.NET,,,11,false,Azure.AI.Projects,https://g
 Cognitive Services,0,AI Model Inference,data,.NET,,,11,false,Azure.AI.Inference,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,AI Projects - OpenAI,data,.NET,,,11,false,Azure.AI.Projects.OpenAI,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai,3,false,1,
 Cognitive Services,0,Anomaly Detector,data,.NET,Microsoft.Azure.CognitiveServices.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.AnomalyDetector_1.0.0-preview.1/sdk/cognitiveservices/AnomalyDetector,10,true,Azure.AI.AnomalyDetector,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector,3,false,1,
-App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,02/27/2026
+App Configuration,0,App Configuration,data,.NET,,,11,false,Azure.Data.AppConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration,10,false,1,06/18/2026
 App Configuration,0,App Configuration Provider,data,.NET,,,11,false,Microsoft.Extensions.Configuration.AzureAppConfiguration,https://github.com/Azure/AppConfiguration-DotnetProvider,10,false,1,
 Attestation,0,Attestation,data,.NET,Microsoft.Azure.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Attestation_0.10.0-preview/sdk/attestation/Microsoft.Azure.Attestation,3,true,Azure.Security.Attestation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/attestation,10,false,1,05/07/2021
 Search,0,Azure AI Search,data,.NET,,,11,false,Azure.Search.Documents,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search,10,false,1,05/01/2026
@@ -50,7 +50,7 @@ Mixed Reality,0,Azure Object Anchors Conversion,data,.NET,,,11,false,Azure.Mixed
 Mixed Reality,0,Azure Remote Rendering,data,.NET,,,11,false,Azure.MixedReality.RemoteRendering,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/remoterendering,10,true,1,09/17/2021
 Communication,0,Calling Server,data,.NET,,,11,false,Azure.Communication.CallingServer,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,3,true,1,
 Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.CodeTransparency,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,3,false,1,
-Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,01/29/2026
+Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/18/2026
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/07/2025
@@ -188,7 +188,7 @@ Event Grid,0,Provisioning - Event Grid,mgmt,.NET,,,11,false,Azure.Provisioning.E
 Provisioning,0,Provisioning - Event Hubs,mgmt,.NET,,,11,false,Azure.Provisioning.EventHubs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Frontdoor,0,Provisioning - Frontdoor,mgmt,.NET,,,11,false,Azure.Provisioning.FrontDoor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Provisioning,0,Provisioning - Key Vault,mgmt,.NET,,,11,false,Azure.Provisioning.KeyVault,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
-Kubernetes,0,Provisioning - Kubernetes,mgmt,.NET,,,11,false,Azure.Provisioning.Kubernetes,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
+Kubernetes,0,Provisioning - Kubernetes,mgmt,.NET,,,11,false,Azure.Provisioning.Kubernetes,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hybridkubernetes,3,false,1,
 Kubernetes Configuration,0,Provisioning - Kubernetes Configuration,mgmt,.NET,,,11,false,Azure.Provisioning.KubernetesConfiguration,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Kusto,0,Provisioning - Kusto,mgmt,.NET,,,11,false,Azure.Provisioning.Kusto,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
 Logic,0,Provisioning - Logic,mgmt,.NET,,,11,false,Azure.Provisioning.Logic,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/logic,3,false,1,
@@ -905,6 +905,7 @@ Monitor,0,Resource Management - Monitor,mgmt,Go,,,11,false,sdk/resourcemanager/m
 Monitor,0,Resource Management - Monitorworkspaces,mgmt,Go,,,11,false,sdk/resourcemanager/monitor/armmonitorworkspaces,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/monitor/armmonitorworkspaces,3,false,1,
 MySQL,0,Resource Management - MySQL,mgmt,Go,,,11,false,sdk/resourcemanager/mysql/armmysql,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mysql/armmysql,10,false,1,11/27/2023
 MySQL,0,Resource Management - MySQL Flexible Server,mgmt,Go,,,11,false,sdk/resourcemanager/mysql/armmysqlflexibleservers,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mysql/armmysqlflexibleservers,10,false,1,11/27/2023
+Napsteromniagentapi,0,Resource Management - Napsteromniagentapi,mgmt,Go,,,11,false,sdk/resourcemanager/napsteromniagentapi/armnapsteromniagentapi,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/napsteromniagentapi/armnapsteromniagentapi,3,false,1,
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,Go,,,11,false,sdk/resourcemanager/neonpostgres/armneonpostgres,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/neonpostgres/armneonpostgres,10,true,1,03/17/2026
 Net App,0,Resource Management - Net App,mgmt,Go,,,11,false,sdk/resourcemanager/netapp/armnetapp,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/netapp/armnetapp,10,false,1,05/05/2026
 Network,0,Resource Management - Network,mgmt,Go,,,11,false,sdk/resourcemanager/network/armnetwork,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/network/armnetwork,10,false,1,02/09/2026
@@ -1057,7 +1058,7 @@ Client Core,0,Client Core Annotation Processor,data,Java,,,11,false,annotation-p
 Client Core,0,Client Core HTTP OkHttp3,data,Java,,,11,false,http-okhttp3,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/clientcore/item.Package/,3,false,1,
 Client Core,0,Client Core Linting Extensions,data,Java,,,11,false,linting-extensions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tools,3,false,1,
 Event Grid,0,CloudNative CloudEvents with Event Grid ,data,Java,,,11,false,azure-messaging-eventgrid-cloudnative-cloudevents,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/eventgrid/item.Package/,3,true,1,
-Communication,0,Communication Call Automation,data,Java,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/05/2026
+Communication,0,Communication Call Automation,data,Java,,,11,false,azure-communication-callautomation,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,06/18/2026
 Communication,0,Communication Chat,data,Java,,,11,false,azure-communication-chat,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/05/2026
 Communication,0,Communication Common,data,Java,,,11,false,azure-communication-common,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/05/2026
 Communication,0,Communication Email,data,Java,,,11,false,azure-communication-email,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication,10,false,1,05/05/2026
@@ -1299,7 +1300,7 @@ Machine Learning,0,Resource Management - Machine Learning Services,mgmt,Java,azu
 Maintenance,0,Resource Management - Maintenance,mgmt,Java,azure-mgmt-maintenance,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/maintenance/mgmt-v2018_06_01_preview,3,true,azure-resourcemanager-maintenance,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maintenance,10,false,1,08/22/2023
 Managed Applications,0,Resource Management - Managed Applications,mgmt,Java,azure-mgmt-managedapplications,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/managedapplications/mgmt-v2019_07_01,3,true,azure-resourcemanager-managedapplications,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/managedapplications/item.Package/,10,false,1,01/03/2025
 Grafana,0,Resource Management - Managed Grafana,mgmt,Java,,,11,false,azure-resourcemanager-dashboard,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/dashboard/item.Package/,10,false,1,10/15/2025
-Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,Java,,,11,false,azure-resourcemanager-managednetworkfabric,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/managednetworkfabric/item.Package/,10,false,1,12/11/2024
+Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,Java,,,11,false,azure-resourcemanager-managednetworkfabric,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/managednetworkfabric,10,false,1,06/17/2026
 Managed Ops,0,Resource Management - Managed Ops,mgmt,Java,,,11,false,azure-resourcemanager-managedops,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/managedops,3,false,1,
 Managed Service Identity,0,Resource Management - Managed Service Identity,mgmt,Java,azure-mgmt-msi,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-msi,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/msi,10,false,1,05/05/2026
 Management Groups,0,Resource Management - Management Groups,mgmt,Java,,,11,false,azure-resourcemanager-managementgroups,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/managementgroups/item.Package/,3,false,1,
@@ -1318,6 +1319,7 @@ Monitor-Slis,0,Resource Management - Monitor-Slis,mgmt,Java,,,11,false,azure-res
 Monitor-Workspaces,0,Resource Management - Monitor-Workspaces,mgmt,Java,,,11,false,azure-resourcemanager-monitor-workspaces,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor,3,false,1,
 MySQL,0,Resource Management - MySQL,mgmt,Java,azure-mgmt-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,3,true,azure-resourcemanager-mysql,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mysql/item.Package/,10,false,1,01/24/2022
 MySQL,0,Resource Management - MySQL Flexible Server,mgmt,Java,,,11,false,azure-resourcemanager-mysqlflexibleserver,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/mysqlflexibleserver/item.Package/,10,false,1,12/20/2024
+Napsteromniagentapi,0,Resource Management - Napsteromniagentapi,mgmt,Java,,,11,false,azure-resourcemanager-napsteromniagentapi,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/napsteromniagentapi,3,false,1,
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,Java,,,11,false,azure-resourcemanager-neonpostgres,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/neonpostgres,10,true,1,03/19/2026
 NetApp Files,0,Resource Management - NetApp Files,mgmt,Java,azure-mgmt-netapp,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/netapp/mgmt-v2019_06_01,10,true,azure-resourcemanager-netapp,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/netapp,10,false,1,05/05/2026
 Network,0,Resource Management - Network,mgmt,Java,azure-mgmt-network,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-network,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/network,10,false,1,05/05/2026
@@ -1522,7 +1524,7 @@ Cognitive Services,0,AI Agents,data,JavaScript,,,11,false,@azure/ai-agents,https
 Cognitive Services,0,AI Model Inference,data,JavaScript,,,11,false,@azure-rest/ai-inference,https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/ai/ai-inference-rest/,3,false,1,
 Cognitive Services,0,AI Projects,data,JavaScript,,,11,false,@azure/ai-projects,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai,10,false,1,05/30/2026
 Cognitive Services,0,Anomaly Detector,data,JavaScript,@azure/cognitiveservices-anomalydetector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/ai-anomaly-detector,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector,3,true,1,
-App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,02/05/2026
+App Configuration,0,App Configuration,data,JavaScript,,,11,false,@azure/app-configuration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration,10,false,1,06/19/2026
 Synapse,0,Artifacts,data,JavaScript,,,11,false,@azure/synapse-artifacts,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse,3,false,1,
 Attestation,0,Attestation,data,JavaScript,,,11,false,@azure/attestation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/attestation,10,false,1,08/13/2021
 Search,0,Azure AI Search,data,JavaScript,,,11,false,@azure/search-documents,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search,10,false,1,05/04/2026
@@ -1532,7 +1534,7 @@ Monitor,0,Azure Monitor OpenTelemetry,data,JavaScript,,,11,false,@azure/monitor-
 Mixed Reality,0,Azure Remote Rendering,data,JavaScript,,,11,false,@azure/mixed-reality-remote-rendering,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/remoterendering,3,true,1,
 Batch,0,Batch,data,JavaScript,azure-batch,UNABLE TO DETERMINE REPO LINK,1,false,@azure/batch,https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch,10,false,1,05/07/2026
 Key Vault,0,Common,data,JavaScript,,,11,false,@azure/keyvault-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault,10,false,1,04/09/2026
-Communication,0,Communication Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,01/23/2026
+Communication,0,Communication Call Automation,data,JavaScript,,,11,false,@azure/communication-call-automation,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/17/2026
 Communication,0,Communication Chat,data,JavaScript,,,11,false,@azure/communication-chat,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/24/2025
 Communication,0,Communication Common,data,JavaScript,,,11,false,@azure/communication-common,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,06/02/2026
 Communication,0,Communication Email,data,JavaScript,,,11,false,@azure/communication-email,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication,10,false,1,10/07/2025
@@ -1789,7 +1791,7 @@ Machine Learning,0,Resource Management - Machine Learning Experimentation,mgmt,J
 Maintenance,0,Resource Management - Maintenance,mgmt,JavaScript,,,11,false,@azure/arm-maintenance,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maintenance,3,false,1,
 Managed Applications,0,Resource Management - Managed Applications,mgmt,JavaScript,,,11,false,@azure/arm-managedapplications,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications,10,false,1,09/22/2023
 Grafana,0,Resource Management - Managed Grafana,mgmt,JavaScript,,,11,false,@azure/arm-dashboard,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dashboard,10,false,1,10/28/2025
-Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,JavaScript,,,11,false,@azure/arm-managednetworkfabric,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managednetworkfabric,10,false,1,07/27/2023
+Managed Network Fabric,0,Resource Management - Managed Network Fabric,mgmt,JavaScript,,,11,false,@azure/arm-managednetworkfabric,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managednetworkfabric,10,false,1,06/17/2026
 Managed Service Identity,0,Resource Management - Managed Service Identity,mgmt,JavaScript,,,11,false,@azure/arm-msi,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/msi/arm-msi,10,false,1,07/24/2025
 Managedops,0,Resource Management - Managedops,mgmt,JavaScript,,,11,false,@azure/arm-managedops,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedops,3,false,1,
 Management Groups,0,Resource Management - Management Groups,mgmt,JavaScript,,,11,false,@azure/arm-managementgroups,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managementgroups/arm-managementgroups,10,false,1,12/05/2022
@@ -1812,6 +1814,7 @@ Monitorslis,0,Resource Management - Monitorslis,mgmt,JavaScript,,,11,false,@azur
 Monitorworkspaces,0,Resource Management - Monitorworkspaces,mgmt,JavaScript,,,11,false,@azure/arm-monitorworkspaces,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor,3,false,1,
 MySQL,0,Resource Management - MySQL,mgmt,JavaScript,azure-arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-mysql,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql,10,false,1,12/06/2022
 Mysql-Flexible,0,Resource Management - MySQL Flexible,mgmt,JavaScript,,,11,false,@azure/arm-mysql-flexible,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql,10,false,1,12/22/2022
+Napsteromniagentapi,0,Resource Management - Napsteromniagentapi,mgmt,JavaScript,,,11,false,@azure/arm-napsteromniagentapi,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/napsteromniagentapi,3,false,1,
 Neon Postgres,0,Resource Management - Neon Postgres,mgmt,JavaScript,,,11,false,@azure/arm-neonpostgres,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/neonpostgres,10,true,1,04/25/2025
 NetApp Files,0,Resource Management - NetApp Files,mgmt,JavaScript,,,11,false,@azure/arm-netapp,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp,10,false,1,05/05/2026
 Network,0,Resource Management - Network,mgmt,JavaScript,azure-arm-network,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-network,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network,10,false,1,02/13/2026
