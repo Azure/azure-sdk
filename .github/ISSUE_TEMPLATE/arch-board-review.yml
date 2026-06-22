@@ -1,0 +1,322 @@
+name: "Architecture Board Review Request"
+description: "Request an API review or API sign-off for an Azure client library"
+title: "Board Review: "
+labels: ["architecture", "board-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Architecture Board Review Request
+
+        Thank you for submitting this review request. Thorough review of your client library ensures that your APIs are consistent with the [Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html) and that consumers have a consistently good experience.
+
+        **The Architecture Board reviews [Track 2 libraries](https://azure.github.io/azure-sdk/general_introduction.html) only.** If your library does not meet this requirement, please reach out to the [Architecture Board](mailto:azsdkarch@microsoft.com) before creating the issue.
+
+        Please reference our [review process guidelines](https://azure.github.io/azure-sdk/policies_reviewprocess.html) to understand what is being asked for below.
+
+  - type: dropdown
+    id: review-type
+    attributes:
+      label: Review Type
+      description: "Select the type of review you are requesting."
+      options:
+        - API Review
+        - API Sign-off
+    validations:
+      required: true
+
+  # ── Contacts and Timeline ──────────────────────────────────────
+  - type: input
+    id: service-team
+    attributes:
+      label: Responsible Service Team
+      placeholder: "e.g., Azure Cognitive Services"
+    validations:
+      required: true
+
+  - type: input
+    id: main-contacts
+    attributes:
+      label: Main Contacts
+      description: "GitHub handles or email addresses of the primary contacts."
+      placeholder: "@user1, @user2"
+    validations:
+      required: true
+
+  - type: input
+    id: code-complete-date
+    attributes:
+      label: Expected Code Complete Date
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  - type: input
+    id: release-date
+    attributes:
+      label: Expected Release Date
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  # ── About the Service ──────────────────────────────────────────
+  - type: input
+    id: service-docs-link
+    attributes:
+      label: Service Documentation Link
+      description: "Link to documentation introducing or describing the service."
+      placeholder: "https://learn.microsoft.com/azure/..."
+    validations:
+      required: true
+
+  - type: input
+    id: rest-api-link
+    attributes:
+      label: REST API Link
+      description: "Link to the service REST API specs."
+      placeholder: "https://github.com/Azure/azure-rest-api-specs/..."
+    validations:
+      required: true
+
+  - type: input
+    id: previous-review-link
+    attributes:
+      label: Previous Review Issue (if applicable)
+      description: "Link to a GitHub issue for previous review sessions."
+      placeholder: "https://github.com/Azure/azure-sdk/issues/..."
+
+  # ── About the Client Library ───────────────────────────────────
+  - type: input
+    id: library-name
+    attributes:
+      label: Client Library Name
+      placeholder: "e.g., Azure.Storage.Blobs"
+    validations:
+      required: true
+
+  # ── Language Selection ─────────────────────────────────────────
+  - type: checkboxes
+    id: languages
+    attributes:
+      label: Languages for this Review
+      description: "Select all languages that need to be reviewed. You must provide artifacts for each selected language below."
+      options:
+        - label: ".NET"
+        - label: "Java"
+        - label: "Python"
+        - label: "TypeScript"
+        - label: "Go"
+        - label: "C"
+        - label: "C++"
+        - label: "Android"
+        - label: "iOS / Swift"
+
+  # ── .NET Artifacts ─────────────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### .NET Artifacts
+        *Fill in this section only if .NET is selected above. Leave blank otherwise.*
+
+  - type: input
+    id: dotnet-apiview
+    attributes:
+      label: ".NET — APIView Link"
+      placeholder: "https://apiview.dev/..."
+
+  - type: checkboxes
+    id: dotnet-checks
+    attributes:
+      label: ".NET — Verification Checklist"
+      description: "Confirm the following for your .NET submission."
+      options:
+        - label: "A diff revision is selected in APIView"
+        - label: "Champion Scenarios / Quickstart samples are attached in APIView"
+        - label: "CI checks are passing on the PR"
+
+  - type: input
+    id: dotnet-pr
+    attributes:
+      label: ".NET — PR Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-net/pull/..."
+
+  - type: input
+    id: dotnet-readme
+    attributes:
+      label: ".NET — README Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-net/blob/.../README.md"
+
+  # ── Java Artifacts ─────────────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Java Artifacts
+        *Fill in this section only if Java is selected above. Leave blank otherwise.*
+
+  - type: input
+    id: java-apiview
+    attributes:
+      label: "Java — APIView Link"
+      placeholder: "https://apiview.dev/..."
+
+  - type: checkboxes
+    id: java-checks
+    attributes:
+      label: "Java — Verification Checklist"
+      description: "Confirm the following for your Java submission."
+      options:
+        - label: "A diff revision is selected in APIView"
+        - label: "Champion Scenarios / Quickstart samples are attached in APIView"
+        - label: "CI checks are passing on the PR"
+
+  - type: input
+    id: java-pr
+    attributes:
+      label: "Java — PR Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-java/pull/..."
+
+  - type: input
+    id: java-readme
+    attributes:
+      label: "Java — README Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-java/blob/.../README.md"
+
+  # ── Python Artifacts ───────────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Python Artifacts
+        *Fill in this section only if Python is selected above. Leave blank otherwise.*
+
+  - type: input
+    id: python-apiview
+    attributes:
+      label: "Python — APIView Link"
+      placeholder: "https://apiview.dev/..."
+
+  - type: checkboxes
+    id: python-checks
+    attributes:
+      label: "Python — Verification Checklist"
+      description: "Confirm the following for your Python submission."
+      options:
+        - label: "A diff revision is selected in APIView"
+        - label: "Champion Scenarios / Quickstart samples are attached in APIView"
+        - label: "CI checks are passing on the PR"
+
+  - type: input
+    id: python-pr
+    attributes:
+      label: "Python — PR Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-python/pull/..."
+
+  - type: input
+    id: python-readme
+    attributes:
+      label: "Python — README Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-python/blob/.../README.md"
+
+  # ── TypeScript Artifacts ───────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### TypeScript Artifacts
+        *Fill in this section only if TypeScript is selected above. Leave blank otherwise.*
+
+  - type: input
+    id: typescript-apiview
+    attributes:
+      label: "TypeScript — APIView Link"
+      placeholder: "https://apiview.dev/..."
+
+  - type: checkboxes
+    id: typescript-checks
+    attributes:
+      label: "TypeScript — Verification Checklist"
+      description: "Confirm the following for your TypeScript submission."
+      options:
+        - label: "A diff revision is selected in APIView"
+        - label: "Champion Scenarios / Quickstart samples are attached in APIView"
+        - label: "CI checks are passing on the PR"
+
+  - type: input
+    id: typescript-pr
+    attributes:
+      label: "TypeScript — PR Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-js/pull/..."
+
+  - type: input
+    id: typescript-readme
+    attributes:
+      label: "TypeScript — README Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-js/blob/.../README.md"
+
+  # ── Go Artifacts ───────────────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Go Artifacts
+        *Fill in this section only if Go is selected above. Leave blank otherwise.*
+
+  - type: input
+    id: go-apiview
+    attributes:
+      label: "Go — APIView Link"
+      placeholder: "https://apiview.dev/..."
+
+  - type: checkboxes
+    id: go-checks
+    attributes:
+      label: "Go — Verification Checklist"
+      description: "Confirm the following for your Go submission."
+      options:
+        - label: "A diff revision is selected in APIView"
+        - label: "Champion Scenarios / Quickstart samples are attached in APIView"
+        - label: "CI checks are passing on the PR"
+
+  - type: input
+    id: go-pr
+    attributes:
+      label: "Go — PR Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-go/pull/..."
+
+  - type: input
+    id: go-readme
+    attributes:
+      label: "Go — README Link"
+      placeholder: "https://github.com/Azure/azure-sdk-for-go/blob/.../README.md"
+
+  # ── Additional Languages ───────────────────────────────────────
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Additional Language Artifacts (C, C++, Android, iOS/Swift)
+        *If you selected any Tier-2 language above, provide the details here.*
+
+  - type: textarea
+    id: additional-languages
+    attributes:
+      label: "Additional Language Details"
+      description: |
+        For each additional language selected, provide:
+        - Language name
+        - APIView Link
+        - Diff revision selected? (yes/no)
+        - Samples attached? (yes/no)
+        - PR Link
+        - CI passing? (yes/no)
+        - README Link
+      placeholder: |
+        **C++**
+        - APIView: https://apiview.dev/...
+        - Diff revision selected: yes
+        - Samples attached: yes
+        - PR: https://github.com/Azure/azure-sdk-for-cpp/pull/...
+        - CI passing: yes
+        - README: https://github.com/Azure/azure-sdk-for-cpp/blob/.../README.md

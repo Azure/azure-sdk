@@ -1,0 +1,196 @@
+name: "Arch Board Review Triage"
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  triage:
+    # Only run on issues created from the arch-board-review template
+    if: contains(github.event.issue.labels.*.name, 'board-review') && !contains(github.event.issue.labels.*.name, 'namespace-review')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Parse and validate review request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueBody = context.payload.issue.body || '';
+            const issueNumber = context.payload.issue.number;
+
+            // ── Language detection ──────────────────────────────────
+            // GitHub Forms checkboxes render as "- [X] Label" (checked)
+            // or "- [ ] Label" (unchecked) in the issue body.
+            const languageMap = {
+              '.NET':           { label: '.NET',       id: 'dotnet' },
+              'Java':           { label: 'Java',       id: 'java' },
+              'Python':         { label: 'Python',     id: 'python' },
+              'TypeScript':     { label: 'TypeScript', id: 'typescript' },
+              'Go':             { label: 'Go',         id: 'go' },
+              'C':              { label: 'C',          id: 'c' },
+              'C++':            { label: 'C++',        id: 'cpp' },
+              'Android':        { label: 'Android',    id: 'android' },
+              'iOS / Swift':    { label: 'iOS',        id: 'ios' },
+            };
+
+            const selectedLanguages = [];
+            for (const [formLabel, meta] of Object.entries(languageMap)) {
+              // Match checked checkboxes: "- [X] .NET" or "- [x] Java"
+              const escapedLabel = formLabel.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+              const regex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escapedLabel}`);
+              if (regex.test(issueBody)) {
+                selectedLanguages.push(meta);
+              }
+            }
+
+            console.log(`Selected languages: ${selectedLanguages.map(l => l.label).join(', ') || 'none'}`);
+
+            // ── Apply language labels ───────────────────────────────
+            const labelsToAdd = selectedLanguages.map(l => l.label);
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: labelsToAdd,
+              });
+            }
+
+            // ── Validate artifacts per selected language ────────────
+            const missing = [];
+            const tier1Languages = ['dotnet', 'java', 'python', 'typescript', 'go'];
+
+            for (const lang of selectedLanguages) {
+              if (!tier1Languages.includes(lang.id)) continue;
+              const langMissing = [];
+
+              // Check APIView link (look for section header then url)
+              const apiviewHeader = `### ${lang.label} — APIView Link`;
+              const apiviewSection = issueBody.split(apiviewHeader)[1];
+              if (!apiviewSection || !apiviewSection.split('###')[0].match(/https?:\/\/\S+/)) {
+                langMissing.push('APIView link');
+              }
+
+              // Check verification checklist items
+              const checklistChecks = [
+                { text: 'A diff revision is selected in APIView', name: 'Diff revision selected' },
+                { text: 'Champion Scenarios / Quickstart samples are attached in APIView', name: 'Samples attached' },
+                { text: 'CI checks are passing on the PR', name: 'CI passing' },
+              ];
+
+              for (const check of checklistChecks) {
+                const escaped = check.text.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+                const checkRegex = new RegExp(`-\\s*\\[\\s*[Xx]\\s*\\]\\s*${escaped}`);
+                if (!checkRegex.test(issueBody)) {
+                  langMissing.push(check.name);
+                }
+              }
+
+              // Check PR link
+              const prHeader = `### ${lang.label} — PR Link`;
+              const prSection = issueBody.split(prHeader)[1];
+              if (!prSection || !prSection.split('###')[0].match(/https?:\/\/\S+/)) {
+                langMissing.push('PR link');
+              }
+
+              // Check README link
+              const readmeHeader = `### ${lang.label} — README Link`;
+              const readmeSection = issueBody.split(readmeHeader)[1];
+              if (!readmeSection || !readmeSection.split('###')[0].match(/https?:\/\/\S+/)) {
+                langMissing.push('README link');
+              }
+
+              if (langMissing.length > 0) {
+                missing.push({ language: lang.label, items: langMissing });
+              }
+            }
+
+            // ── Apply status labels and comment ─────────────────────
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+
+            if (missing.length === 0 && selectedLanguages.length > 0) {
+              // All checks pass
+              if (!currentLabels.includes('ready-for-review')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['ready-for-review'],
+                });
+              }
+
+              // Remove needs-info if present
+              if (currentLabels.includes('needs-info')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'needs-info',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `✅ **All materials verified for ${selectedLanguages.map(l => l.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.`,
+              });
+
+            } else if (missing.length > 0) {
+              // Some checks failed
+              if (!currentLabels.includes('needs-info')) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['needs-info'],
+                });
+              }
+
+              // Remove ready-for-review if present
+              if (currentLabels.includes('ready-for-review')) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issueNumber,
+                    name: 'ready-for-review',
+                  });
+                } catch (e) { /* label may not exist */ }
+              }
+
+              let body = `⚠️ **Some required materials are missing.** Please update the issue and the automation will re-check.\n\n`;
+              for (const m of missing) {
+                body += `**${m.language}:**\n`;
+                for (const item of m.items) {
+                  body += `- ❌ ${item}\n`;
+                }
+                body += '\n';
+              }
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: body.trim(),
+              });
+
+            } else {
+              // No languages selected
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['needs-info'],
+              });
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `⚠️ **No languages were selected.** Please edit the issue and check at least one language under "Languages for this Review".`,
+              });
+            }
