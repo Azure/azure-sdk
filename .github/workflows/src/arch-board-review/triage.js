@@ -1,3 +1,14 @@
+/**
+ * Triage — parses and validates architecture board review requests.
+ *
+ * Triggered by the `arch-board-triage.yml` workflow when a board-review issue
+ * is opened or edited. Detects selected languages from checkboxes, validates
+ * required artifacts (APIView link, samples, PR, README) per language, syncs
+ * language labels, and posts/updates a bot comment with validation results.
+ *
+ * Issues with all artifacts present get `ready-for-review`; incomplete ones
+ * get `needs-info`.
+ */
 import {
     extractLabeledUrl,
     extractLabeledValue,

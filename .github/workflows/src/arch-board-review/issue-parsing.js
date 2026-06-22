@@ -1,3 +1,12 @@
+/**
+ * Issue Parsing — extracts structured data from GitHub Issue Form bodies.
+ *
+ * Shared utilities for parsing the arch-board-review issue template:
+ * - Language checkbox detection (which languages are selected)
+ * - Section extraction (per-language artifact blocks)
+ * - Labeled value/URL extraction (e.g., "APIView: https://...")
+ * - Confirmation checkbox detection (e.g., "A diff revision is selected")
+ */
 const LANGUAGE_DEFINITIONS = [
     { formLabel: '.NET', label: '.NET', id: 'dotnet', tier: 'tier1' },
     { formLabel: 'Java', label: 'Java', id: 'java', tier: 'tier1' },

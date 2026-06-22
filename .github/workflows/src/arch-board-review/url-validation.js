@@ -1,3 +1,10 @@
+/**
+ * URL Validation — validates artifact URLs with SSRF protection.
+ *
+ * Enforces a host allowlist (apiview.dev, github.com, learn.microsoft.com,
+ * azure.github.io) and validates APIView URLs contain a review ID.
+ * Falls back to HEAD/GET reachability check for non-APIView URLs.
+ */
 const ALLOWED_HOSTS = [
     'apiview.dev',
     'github.com',

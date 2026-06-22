@@ -1,3 +1,13 @@
+/**
+ * Approval Check — validates API review approval labels.
+ *
+ * Triggered by the `approval-close.yml` workflow when a label is added to a
+ * board-review issue. Loads the approver list from `api-review-approvers.yml`,
+ * verifies the label was applied by an authorized architect, and auto-closes
+ * the issue once all required language approvals are present.
+ *
+ * Unauthorized label additions are reverted with a comment.
+ */
 import { readFile } from 'node:fs/promises';
 import yaml from 'js-yaml';
 
