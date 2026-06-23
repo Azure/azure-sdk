@@ -8,7 +8,7 @@ Automated workflow for API review requests in `Azure/azure-sdk`.
 Service team fills out issue form
         ↓
   arch-board-triage.yml
-  (triggers on: opened, edited)
+  (triggers on: opened, edited, reopened)
         ↓
   triage.js parses issue body
         ↓
@@ -67,6 +67,11 @@ Architect applies <language>-api-approved label
 | `cpp-api-approved` | C++ architects | Marks C++ review complete |
 | `rust-api-approved` | Rust architects | Marks Rust review complete |
 
+For **management plane** issues, management-plane approvers (defined under
+`management-plane.all` in `api-review-approvers.yml`) can apply any
+language's `<lang>-api-approved` label in addition to the language-specific
+architects.
+
 When all selected languages have `<lang>-api-approved`, the issue is auto-closed.
 
 Unauthorized label additions are reverted with a comment.
@@ -78,6 +83,8 @@ Unauthorized label additions are reverted with a comment.
 | `ISSUE_TEMPLATE/arch-board-review.yml` | GitHub Issue Form template |
 | `workflows/arch-board-triage.yml` | Triage workflow (parse + validate + label) |
 | `workflows/approval-close.yml` | Approval workflow (label check + auto-close) |
+| `workflows/src/comment.js` | Shared helper: create or update bot comments |
+| `workflows/src/labels.js` | Shared helper: add/remove labels with error handling |
 | `workflows/src/arch-board-review/triage.js` | Triage logic |
 | `workflows/src/arch-board-review/approval-check.js` | Approval logic |
 | `workflows/src/arch-board-review/issue-parsing.js` | Shared issue body parsing |
