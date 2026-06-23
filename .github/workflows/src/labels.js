@@ -41,8 +41,8 @@ async function removeLabel(github, owner, repo, issueNumber, label) {
             issue_number: issueNumber,
             name: label
         });
-    } catch {
-        // Label was already absent — ignore
+    } catch (error) {
+        if (error.status !== 404) throw error;
     }
 }
 

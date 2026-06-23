@@ -30,10 +30,20 @@ describe('addLabels', () => {
 });
 
 describe('removeLabel', () => {
-    it('removes label and ignores 404', async () => {
+    it('ignores 404 errors', async () => {
         const github = createGithubMock();
-        github.rest.issues.removeLabel.mockRejectedValueOnce(new Error('Not Found'));
+        const error = new Error('Not Found');
+        error.status = 404;
+        github.rest.issues.removeLabel.mockRejectedValueOnce(error);
         await expect(removeLabel(github, 'o', 'r', 1, 'missing')).resolves.not.toThrow();
+    });
+
+    it('rethrows non-404 errors', async () => {
+        const github = createGithubMock();
+        const error = new Error('Internal Server Error');
+        error.status = 500;
+        github.rest.issues.removeLabel.mockRejectedValueOnce(error);
+        await expect(removeLabel(github, 'o', 'r', 1, 'bug')).rejects.toThrow('Internal Server Error');
     });
 });
 

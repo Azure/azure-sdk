@@ -23,9 +23,10 @@ describe('parseExistingComment', () => {
 describe('commentOrUpdate', () => {
     function createGithubMock(existingComments = []) {
         return {
+            paginate: vi.fn().mockResolvedValue(existingComments),
             rest: {
                 issues: {
-                    listComments: vi.fn().mockResolvedValue({ data: existingComments }),
+                    listComments: {},
                     createComment: vi.fn().mockResolvedValue({ data: { id: 99 } }),
                     updateComment: vi.fn().mockResolvedValue({})
                 }

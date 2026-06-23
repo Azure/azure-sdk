@@ -39,11 +39,12 @@ ${confirmations}
 
 function createGithubMock() {
     return {
+        paginate: vi.fn().mockResolvedValue([]),
         rest: {
             issues: {
                 addLabels: vi.fn().mockResolvedValue({}),
                 createComment: vi.fn().mockResolvedValue({ data: { id: 1 } }),
-                listComments: vi.fn().mockResolvedValue({ data: [] }),
+                listComments: {},
                 removeLabel: vi.fn().mockResolvedValue({}),
                 updateComment: vi.fn().mockResolvedValue({})
             }

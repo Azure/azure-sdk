@@ -35,10 +35,11 @@ function parseExistingComment(comments, marker) {
 async function commentOrUpdate(github, owner, repo, issueNumber, body, commentIdentifier, core) {
     const markedBody = `<!-- ${commentIdentifier} -->\n${body}`;
 
-    const { data: comments } = await github.rest.issues.listComments({
+    const comments = await github.paginate(github.rest.issues.listComments, {
         owner,
         repo,
-        issue_number: issueNumber
+        issue_number: issueNumber,
+        per_page: 100
     });
 
     const [commentId, existingBody] = parseExistingComment(comments, commentIdentifier);
