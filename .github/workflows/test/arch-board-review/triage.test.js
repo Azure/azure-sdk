@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import triage, { analyzeTriage } from '../../src/arch-board-review/triage.js';
+import triage, { analyzeTriage, COMMENT_IDENTIFIER } from '../../src/arch-board-review/triage.js';
 
 function createIssueBody({
     languages = ['Java'],
@@ -42,7 +42,7 @@ function createGithubMock() {
         rest: {
             issues: {
                 addLabels: vi.fn().mockResolvedValue({}),
-                createComment: vi.fn().mockResolvedValue({}),
+                createComment: vi.fn().mockResolvedValue({ data: { id: 1 } }),
                 listComments: vi.fn().mockResolvedValue({ data: [] }),
                 removeLabel: vi.fn().mockResolvedValue({}),
                 updateComment: vi.fn().mockResolvedValue({})

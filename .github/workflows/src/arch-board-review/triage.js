@@ -18,8 +18,10 @@ import {
     LANGUAGE_DEFINITIONS
 } from './issue-parsing.js';
 import { validateUrl as defaultValidateUrl } from './url-validation.js';
+import { commentOrUpdate } from '../comment.js';
+import { addLabels, ensureLabel, ensureLabelRemoved, removeLabel } from '../labels.js';
 
-const COMMENT_MARKER = '<!-- arch-board-triage-bot -->';
+const COMMENT_IDENTIFIER = 'arch-board-triage-bot';
 
 function createValidationItem(kind, value) {
     return `${kind}: ${value}`;
@@ -147,32 +149,6 @@ async function analyzeTriage(issueBody, currentLabels, { validateUrl = defaultVa
     };
 }
 
-async function upsertComment({ github, context, issueNumber, body }) {
-    const markedBody = `${COMMENT_MARKER}\n${body}`;
-    const { data: comments } = await github.rest.issues.listComments({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: issueNumber
-    });
-
-    const existingComment = comments.find((comment) => comment.body?.includes(COMMENT_MARKER));
-    if (existingComment) {
-        await github.rest.issues.updateComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            comment_id: existingComment.id,
-            body: markedBody
-        });
-    } else {
-        await github.rest.issues.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: issueNumber,
-            body: markedBody
-        });
-    }
-}
-
 function buildSuccessComment({ selectedLanguages, validated, warnings }) {
     let body = `✅ **All materials verified for ${selectedLanguages.map((language) => language.label).join(', ')}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
     if (warnings.length > 0) {
@@ -217,11 +193,10 @@ function buildFailureComment({ missing, validated }) {
 }
 
 export {
-    COMMENT_MARKER,
+    COMMENT_IDENTIFIER,
     analyzeTriage,
     buildFailureComment,
-    buildSuccessComment,
-    upsertComment
+    buildSuccessComment
 };
 
 export default async function triage({
@@ -234,121 +209,43 @@ export default async function triage({
     const issueBody = issue.body ?? '';
     const issueNumber = issue.number;
     const currentLabels = issue.labels.map((label) => label.name);
+    const { owner, repo } = context.repo;
     const result = await analyzeTriage(issueBody, currentLabels, { validateUrl });
 
-    if (result.labelsToAdd.length > 0) {
-        await github.rest.issues.addLabels({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: issueNumber,
-            labels: result.labelsToAdd
-        });
-    }
+    await addLabels(github, owner, repo, issueNumber, result.labelsToAdd);
 
     for (const label of result.labelsToRemove) {
-        try {
-            await github.rest.issues.removeLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                name: label
-            });
-        } catch {
-        }
+        await removeLabel(github, owner, repo, issueNumber, label);
     }
 
+    const postComment = (body) =>
+        commentOrUpdate(github, owner, repo, issueNumber, body, COMMENT_IDENTIFIER, core);
+
     if (result.selectedLanguages.length === 0) {
-        if (!currentLabels.includes('needs-info')) {
-            await github.rest.issues.addLabels({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                labels: ['needs-info']
-            });
-        }
+        await ensureLabel(github, owner, repo, issueNumber, 'needs-info', currentLabels);
+        await ensureLabelRemoved(github, owner, repo, issueNumber, 'ready-for-review', currentLabels);
 
-        if (currentLabels.includes('ready-for-review')) {
-            try {
-                await github.rest.issues.removeLabel({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    issue_number: issueNumber,
-                    name: 'ready-for-review'
-                });
-            } catch {
-            }
-        }
-
-        await upsertComment({
-            github,
-            context,
-            issueNumber,
-            body: '⚠️ **No languages were selected.** Please edit the issue and check at least one language under "Languages for this Review".'
-        });
+        await postComment(
+            '⚠️ **No languages were selected.** Please edit the issue and check at least one language under "Languages for this Review".'
+        );
 
         return { ...result, status: 'needs-info' };
     }
 
     if (result.missing.length === 0) {
-        if (!currentLabels.includes('ready-for-review')) {
-            await github.rest.issues.addLabels({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                labels: ['ready-for-review']
-            });
-        }
+        await ensureLabel(github, owner, repo, issueNumber, 'ready-for-review', currentLabels);
+        await ensureLabelRemoved(github, owner, repo, issueNumber, 'needs-info', currentLabels);
 
-        if (currentLabels.includes('needs-info')) {
-            try {
-                await github.rest.issues.removeLabel({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    issue_number: issueNumber,
-                    name: 'needs-info'
-                });
-            } catch {
-            }
-        }
-
-        await upsertComment({
-            github,
-            context,
-            issueNumber,
-            body: buildSuccessComment(result)
-        });
+        await postComment(buildSuccessComment(result));
 
         core?.info?.('Review request is ready for review.');
         return { ...result, status: 'ready-for-review' };
     }
 
-    if (!currentLabels.includes('needs-info')) {
-        await github.rest.issues.addLabels({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: issueNumber,
-            labels: ['needs-info']
-        });
-    }
+    await ensureLabel(github, owner, repo, issueNumber, 'needs-info', currentLabels);
+    await ensureLabelRemoved(github, owner, repo, issueNumber, 'ready-for-review', currentLabels);
 
-    if (currentLabels.includes('ready-for-review')) {
-        try {
-            await github.rest.issues.removeLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                name: 'ready-for-review'
-            });
-        } catch {
-        }
-    }
-
-    await upsertComment({
-        github,
-        context,
-        issueNumber,
-        body: buildFailureComment(result)
-    });
+    await postComment(buildFailureComment(result));
 
     core?.info?.('Review request still needs more information.');
     return { ...result, status: 'needs-info' };

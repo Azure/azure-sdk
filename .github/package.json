@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "lint": "node --check workflows/src/arch-board-review/approval-check.js && node --check workflows/src/arch-board-review/issue-parsing.js && node --check workflows/src/arch-board-review/triage.js && node --check workflows/src/arch-board-review/url-validation.js"
+    "lint": "node --check workflows/src/comment.js && node --check workflows/src/labels.js && node --check workflows/src/arch-board-review/approval-check.js && node --check workflows/src/arch-board-review/issue-parsing.js && node --check workflows/src/arch-board-review/triage.js && node --check workflows/src/arch-board-review/url-validation.js"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

@@ -12,6 +12,7 @@ import { readFile } from 'node:fs/promises';
 import yaml from 'js-yaml';
 
 import { getSelectedLanguages } from './issue-parsing.js';
+import { removeLabel } from '../labels.js';
 
 const APPROVAL_LABEL_PATTERN = /^(dotnet|java|python|typescript|go|cpp|rust)-api-approved$/;
 const DEFAULT_APPROVERS_PATH = new URL('../../../api-review-approvers.yml', import.meta.url);
@@ -101,15 +102,7 @@ export default async function checkApproval({
     if (!allowedApprovers.includes(addedBy)) {
         core?.info?.(`Removing unauthorized label ${labelAdded} added by ${addedBy}`);
 
-        try {
-            await github.rest.issues.removeLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber,
-                name: labelAdded
-            });
-        } catch {
-        }
+        await removeLabel(github, context.repo.owner, context.repo.repo, issueNumber, labelAdded);
 
         await github.rest.issues.createComment({
             owner: context.repo.owner,

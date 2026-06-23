@@ -2,7 +2,7 @@ name: "Arch Board Review Triage"
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, reopened]
 
 jobs:
   triage:
@@ -18,6 +18,8 @@ jobs:
           sparse-checkout: |
             .github/package.json
             .github/package-lock.json
+            .github/workflows/src/comment.js
+            .github/workflows/src/labels.js
             .github/workflows/src/arch-board-review
           sparse-checkout-cone-mode: false
 

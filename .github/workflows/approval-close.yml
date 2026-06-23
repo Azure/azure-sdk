@@ -19,6 +19,8 @@ jobs:
             .github/api-review-approvers.yml
             .github/package.json
             .github/package-lock.json
+            .github/workflows/src/comment.js
+            .github/workflows/src/labels.js
             .github/workflows/src/arch-board-review
           sparse-checkout-cone-mode: false
 
