@@ -1,0 +1,26 @@
+# cspell:words jsquire alzimmermsft xirzec kashifkhan maorleger jhendrixMSFT ArthurMa1978
+# API Review Approvers Configuration
+# This file defines who can approve API reviews per language.
+# Used by the approval-close.yml workflow to validate approval labels.
+# To update, submit a PR to this file.
+
+data-plane:
+  dotnet:
+    - jsquire
+    - m-nash
+  java:
+    - JonathanGiles
+    - alzimmermsft
+  python:
+    - xirzec
+    - kashifkhan
+  typescript:
+    - xirzec
+    - maorleger
+  go:
+    - jhendrixMSFT
+
+management-plane:
+  all:
+    - ArthurMa1978
+    - m-nash
