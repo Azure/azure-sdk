@@ -76,21 +76,6 @@ When all selected languages have `<lang>-api-approved`, the issue is auto-closed
 
 Unauthorized label additions are reverted with a comment.
 
-## Files
-
-| File | Purpose |
-|------|---------|
-| `ISSUE_TEMPLATE/arch-board-review.yml` | GitHub Issue Form template |
-| `workflows/arch-board-triage.yml` | Triage workflow (parse + validate + label) |
-| `workflows/approval-close.yml` | Approval workflow (label check + auto-close) |
-| `workflows/src/comment.js` | Shared helper: create or update bot comments |
-| `workflows/src/labels.js` | Shared helper: add/remove labels with error handling |
-| `workflows/src/arch-board-review/triage.js` | Triage logic |
-| `workflows/src/arch-board-review/approval-check.js` | Approval logic |
-| `workflows/src/arch-board-review/issue-parsing.js` | Shared issue body parsing |
-| `workflows/src/arch-board-review/url-validation.js` | URL validation with SSRF protection |
-| `api-review-approvers.yml` | Authorized approvers per language |
-
 ## Approver Configuration
 
 Approvers are defined in `.github/api-review-approvers.yml`:
@@ -106,12 +91,6 @@ management-plane:
 ```
 
 Management plane approvers can approve any language on management plane issues.
-
-## Language Tiers
-
-- **Tier-1** (.NET, Java, Python, TypeScript): Full artifact validation — APIView, Samples, PR, README
-- **Tier-1 for mgmt only** (Go): Same validation as Tier-1
-- **Tier-2** (C++, Rust): Free-form text in "Additional Languages" section, manual review
 
 ## Validation Rules
 
