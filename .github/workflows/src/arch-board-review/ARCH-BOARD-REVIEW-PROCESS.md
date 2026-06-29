@@ -48,24 +48,26 @@ Architect applies <language>-api-approved label
 ## Labels
 
 ### Applied by automation
-| Label | When applied | Meaning |
-|-------|-------------|---------|
-| `architecture` | On issue creation (from template) | Issue is a board review request |
-| `board-review` | On issue creation (from template) | Issue is a board review request |
-| `.NET`, `Java`, `Python`, `TypeScript`, `Go` | Triage detects selected language | Language needs review |
-| `ready-for-review` | All required artifacts validated | Ready for architects |
-| `needs-info` | Missing or invalid artifacts | Service team needs to fix |
+
+| Label                                        | When applied                      | Meaning                         |
+| -------------------------------------------- | --------------------------------- | ------------------------------- |
+| `architecture`                               | On issue creation (from template) | Issue is a board review request |
+| `board-review`                               | On issue creation (from template) | Issue is a board review request |
+| `.NET`, `Java`, `Python`, `TypeScript`, `Go` | Triage detects selected language  | Language needs review           |
+| `ready-for-review`                           | All required artifacts validated  | Ready for architects            |
+| `needs-info`                                 | Missing or invalid artifacts      | Service team needs to fix       |
 
 ### Applied by architects (manually)
-| Label | Who can apply | Effect |
-|-------|--------------|--------|
-| `dotnet-api-approved` | .NET architects | Marks .NET review complete |
-| `java-api-approved` | Java architects | Marks Java review complete |
-| `python-api-approved` | Python architects | Marks Python review complete |
+
+| Label                     | Who can apply         | Effect                           |
+| ------------------------- | --------------------- | -------------------------------- |
+| `dotnet-api-approved`     | .NET architects       | Marks .NET review complete       |
+| `java-api-approved`       | Java architects       | Marks Java review complete       |
+| `python-api-approved`     | Python architects     | Marks Python review complete     |
 | `typescript-api-approved` | TypeScript architects | Marks TypeScript review complete |
-| `go-api-approved` | Go architects | Marks Go review complete |
-| `cpp-api-approved` | C++ architects | Marks C++ review complete |
-| `rust-api-approved` | Rust architects | Marks Rust review complete |
+| `go-api-approved`         | Go architects         | Marks Go review complete         |
+| `cpp-api-approved`        | C++ architects        | Marks C++ review complete        |
+| `rust-api-approved`       | Rust architects       | Marks Rust review complete       |
 
 For **management plane** issues, management-plane approvers (defined under
 `management-plane.all` in `api-review-approvers.yml`) can apply any
@@ -95,6 +97,7 @@ Management plane approvers can approve any language on management plane issues.
 ## Validation Rules
 
 For each Tier-1 language, the bot checks:
+
 1. **APIView link** — must be a valid URL on `apiview.dev`
 2. **Samples** — either a URL or "Uploaded in APIView"
 3. **PR link** — must be a valid URL on `github.com/Azure/azure-sdk-for-<lang>`

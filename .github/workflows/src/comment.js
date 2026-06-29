@@ -13,12 +13,12 @@
  * @returns {[number | undefined, string | undefined]}
  */
 function parseExistingComment(comments, marker) {
-    for (const comment of comments) {
-        if (comment.body?.includes(marker)) {
-            return [comment.id, comment.body];
-        }
+  for (const comment of comments) {
+    if (comment.body?.includes(marker)) {
+      return [comment.id, comment.body];
     }
-    return [undefined, undefined];
+  }
+  return [undefined, undefined];
 }
 
 /**
@@ -33,38 +33,38 @@ function parseExistingComment(comments, marker) {
  * @param {object} [core] - @actions/core for logging (optional)
  */
 async function commentOrUpdate(github, owner, repo, issueNumber, body, commentIdentifier, core) {
-    const markedBody = `<!-- ${commentIdentifier} -->\n${body}`;
+  const markedBody = `<!-- ${commentIdentifier} -->\n${body}`;
 
-    const comments = await github.paginate(github.rest.issues.listComments, {
-        owner,
-        repo,
-        issue_number: issueNumber,
-        per_page: 100
-    });
+  const comments = await github.paginate(github.rest.issues.listComments, {
+    owner,
+    repo,
+    issue_number: issueNumber,
+    per_page: 100,
+  });
 
-    const [commentId, existingBody] = parseExistingComment(comments, commentIdentifier);
+  const [commentId, existingBody] = parseExistingComment(comments, commentIdentifier);
 
-    if (commentId) {
-        if (existingBody === markedBody) {
-            core?.info?.(`No update needed for comment ${commentId}.`);
-            return;
-        }
-        await github.rest.issues.updateComment({
-            owner,
-            repo,
-            comment_id: commentId,
-            body: markedBody
-        });
-        core?.info?.(`Updated existing comment ${commentId}.`);
-    } else {
-        const { data: newComment } = await github.rest.issues.createComment({
-            owner,
-            repo,
-            issue_number: issueNumber,
-            body: markedBody
-        });
-        core?.info?.(`Created new comment #${newComment.id}`);
+  if (commentId) {
+    if (existingBody === markedBody) {
+      core?.info?.(`No update needed for comment ${commentId}.`);
+      return;
     }
+    await github.rest.issues.updateComment({
+      owner,
+      repo,
+      comment_id: commentId,
+      body: markedBody,
+    });
+    core?.info?.(`Updated existing comment ${commentId}.`);
+  } else {
+    const { data: newComment } = await github.rest.issues.createComment({
+      owner,
+      repo,
+      issue_number: issueNumber,
+      body: markedBody,
+    });
+    core?.info?.(`Created new comment #${newComment.id}`);
+  }
 }
 
 export { commentOrUpdate, parseExistingComment };
