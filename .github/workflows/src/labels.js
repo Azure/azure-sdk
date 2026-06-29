@@ -15,13 +15,13 @@
  * @param {string[]} labels
  */
 async function addLabels(github, owner, repo, issueNumber, labels) {
-    if (labels.length === 0) return;
-    await github.rest.issues.addLabels({
-        owner,
-        repo,
-        issue_number: issueNumber,
-        labels
-    });
+  if (labels.length === 0) return;
+  await github.rest.issues.addLabels({
+    owner,
+    repo,
+    issue_number: issueNumber,
+    labels,
+  });
 }
 
 /**
@@ -34,16 +34,16 @@ async function addLabels(github, owner, repo, issueNumber, labels) {
  * @param {string} label
  */
 async function removeLabel(github, owner, repo, issueNumber, label) {
-    try {
-        await github.rest.issues.removeLabel({
-            owner,
-            repo,
-            issue_number: issueNumber,
-            name: label
-        });
-    } catch (error) {
-        if (error.status !== 404) throw error;
-    }
+  try {
+    await github.rest.issues.removeLabel({
+      owner,
+      repo,
+      issue_number: issueNumber,
+      name: label,
+    });
+  } catch (error) {
+    if (error.status !== 404) throw error;
+  }
 }
 
 /**
@@ -57,9 +57,9 @@ async function removeLabel(github, owner, repo, issueNumber, label) {
  * @param {string[]} currentLabels - Current label names on the issue
  */
 async function ensureLabel(github, owner, repo, issueNumber, label, currentLabels) {
-    if (!currentLabels.includes(label)) {
-        await addLabels(github, owner, repo, issueNumber, [label]);
-    }
+  if (!currentLabels.includes(label)) {
+    await addLabels(github, owner, repo, issueNumber, [label]);
+  }
 }
 
 /**
@@ -73,9 +73,9 @@ async function ensureLabel(github, owner, repo, issueNumber, label, currentLabel
  * @param {string[]} currentLabels - Current label names on the issue
  */
 async function ensureLabelRemoved(github, owner, repo, issueNumber, label, currentLabels) {
-    if (currentLabels.includes(label)) {
-        await removeLabel(github, owner, repo, issueNumber, label);
-    }
+  if (currentLabels.includes(label)) {
+    await removeLabel(github, owner, repo, issueNumber, label);
+  }
 }
 
 export { addLabels, ensureLabel, ensureLabelRemoved, removeLabel };
