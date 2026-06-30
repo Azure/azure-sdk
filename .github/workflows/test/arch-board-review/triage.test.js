@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import triage, { analyzeTriage, COMMENT_IDENTIFIER } from "../../src/arch-board-review/triage.js";
+import triage, { analyzeTriage } from "../../src/arch-board-review/triage.js";
 
 function createIssueBody({
   languages = ["Java"],
@@ -12,7 +12,7 @@ function createIssueBody({
 - README: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/readme.md
 `,
   confirmations = `
-- [x] A diff revision is selected in APIView for each language
+- [x] For existing packages, a diff revision is selected in APIView for each language. For brand-new packages, the initial API surface is submitted.
 - [x] CI checks are passing on all linked PRs
 `,
 } = {}) {
@@ -60,6 +60,8 @@ function createContext({ issueBody, labels }) {
 }
 
 describe("triage", () => {
+  const core = { info: vi.fn() };
+
   it("adds needs-info when required artifacts are missing", async () => {
     const github = createGithubMock();
     const issueBody = createIssueBody({
@@ -71,7 +73,7 @@ describe("triage", () => {
     const context = createContext({ issueBody, labels: ["board-review"] });
     const validateUrl = vi.fn().mockResolvedValue({ valid: true, reason: null });
 
-    const result = await triage({ github, context, validateUrl });
+    const result = await triage({ github, context, core, validateUrl });
 
     expect(result.status).toBe("needs-info");
     expect(github.rest.issues.addLabels).toHaveBeenNthCalledWith(
@@ -97,7 +99,7 @@ describe("triage", () => {
     });
     const validateUrl = vi.fn().mockResolvedValue({ valid: true, reason: null });
 
-    const result = await triage({ github, context, validateUrl });
+    const result = await triage({ github, context, core, validateUrl });
 
     expect(result.status).toBe("ready-for-review");
     expect(github.rest.issues.addLabels).toHaveBeenNthCalledWith(

@@ -8,17 +8,17 @@
  * - Confirmation checkbox detection (e.g., "A diff revision is selected")
  */
 const LANGUAGE_DEFINITIONS = [
-  { formLabel: ".NET", label: ".NET", id: "dotnet", tier: "tier1" },
-  { formLabel: "Java", label: "Java", id: "java", tier: "tier1" },
-  { formLabel: "Python", label: "Python", id: "python", tier: "tier1" },
-  { formLabel: "TypeScript", label: "TypeScript", id: "typescript", tier: "tier1" },
-  { formLabel: "Go", label: "Go", id: "go", tier: "tier1" },
-  { formLabel: "C++", label: "C++", id: "cpp", tier: "tier2" },
-  { formLabel: "Rust", label: "Rust", id: "rust", tier: "tier2" },
+  { label: ".NET", id: "dotnet", tier: "tier1" },
+  { label: "Java", id: "java", tier: "tier1" },
+  { label: "Python", id: "python", tier: "tier1" },
+  { label: "TypeScript", id: "typescript", tier: "tier1" },
+  { label: "Go", id: "go", tier: "tier1" },
+  { label: "C++", id: "cpp", tier: "tier2" },
+  { label: "Rust", id: "rust", tier: "tier2" },
 ];
 
 function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function isChecked(body, label) {
@@ -27,7 +27,7 @@ function isChecked(body, label) {
 }
 
 function getSelectedLanguages(issueBody) {
-  return LANGUAGE_DEFINITIONS.filter((language) => isChecked(issueBody, language.formLabel));
+  return LANGUAGE_DEFINITIONS.filter((language) => isChecked(issueBody, language.label));
 }
 
 function getLanguageSection(body, heading) {

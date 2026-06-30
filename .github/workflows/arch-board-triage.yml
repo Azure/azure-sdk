@@ -13,21 +13,17 @@ jobs:
       issues: write
     steps:
       - name: Checkout workflow dependencies
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
-            .github/package.json
-            .github/package-lock.json
-            .github/workflows/src/comment.js
-            .github/workflows/src/labels.js
-            .github/workflows/src/arch-board-review
-          sparse-checkout-cone-mode: false
+            .github
 
       - name: Install dependencies
-        run: cd .github && npm ci
+        run: npm ci
+        working-directory: ./.github
 
       - name: Parse and validate review request
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const { default: triageIssue } = await import('${{ github.workspace }}/.github/workflows/src/arch-board-review/triage.js');

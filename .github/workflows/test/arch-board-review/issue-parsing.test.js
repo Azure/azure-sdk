@@ -50,12 +50,15 @@ describe("issue-parsing", () => {
 
   it("detects checked confirmation checkboxes", () => {
     const issueBody = `
-- [x] A diff revision is selected in APIView for each language
+- [x] For existing packages, a diff revision is selected in APIView for each language. For brand-new packages, the initial API surface is submitted.
 - [ ] CI checks are passing on all linked PRs
 `;
 
     expect(
-      hasCheckedConfirmation(issueBody, "A diff revision is selected in APIView for each language"),
+      hasCheckedConfirmation(
+        issueBody,
+        "For existing packages, a diff revision is selected in APIView for each language. For brand-new packages, the initial API surface is submitted.",
+      ),
     ).toBe(true);
     expect(hasCheckedConfirmation(issueBody, "CI checks are passing on all linked PRs")).toBe(
       false,

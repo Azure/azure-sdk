@@ -181,6 +181,6 @@ body:
       label: Confirmations
       description: "Confirm the following for all selected languages above."
       options:
-        - label: "A diff revision is selected in APIView for each language"
+        - label: "For existing packages, a diff revision is selected in APIView for each language. For brand-new packages, the initial API surface is submitted."
           required: true
         - label: "CI checks are passing on all linked PRs"

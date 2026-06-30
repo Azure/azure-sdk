@@ -131,7 +131,10 @@ async function analyzeTriage(issueBody, currentLabels, { validateUrl = defaultVa
   }
 
   if (
-    !hasCheckedConfirmation(issueBody, "A diff revision is selected in APIView for each language")
+    !hasCheckedConfirmation(
+      issueBody,
+      "For existing packages, a diff revision is selected in APIView for each language. For brand-new packages, the initial API surface is submitted.",
+    )
   ) {
     missing.push({
       language: "Confirmations",
@@ -214,7 +217,7 @@ export default async function triage({ github, context, core, validateUrl = defa
   }
 
   const postComment = (body) =>
-    commentOrUpdate(github, owner, repo, issueNumber, body, COMMENT_IDENTIFIER, core);
+    commentOrUpdate(github, core, owner, repo, issueNumber, body, COMMENT_IDENTIFIER);
 
   if (result.selectedLanguages.length === 0) {
     await ensureLabel(github, owner, repo, issueNumber, "needs-info", currentLabels);
