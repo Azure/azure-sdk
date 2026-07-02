@@ -1,0 +1,30 @@
+name: "Arch Board Review Triage"
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+jobs:
+  triage:
+    # Only run on issues created from the arch-board-review template
+    if: contains(github.event.issue.labels.*.name, 'board-review')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Checkout workflow dependencies
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            .github
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+        working-directory: ./.github
+
+      - name: Parse and validate review request
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { default: triageIssue } = await import('${{ github.workspace }}/.github/workflows/src/arch-board-review/triage.js');
+            await triageIssue({ github, context, core });

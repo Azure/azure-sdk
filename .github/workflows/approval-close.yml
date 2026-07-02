@@ -1,0 +1,30 @@
+name: "Auto-close on Approval"
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  check-approval:
+    if: contains(github.event.issue.labels.*.name, 'board-review')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout workflow dependencies
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            .github
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+        working-directory: ./.github
+
+      - name: Check if all approvals are present
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { default: checkApproval } = await import('${{ github.workspace }}/.github/workflows/src/arch-board-review/approval-check.js');
+            await checkApproval({ github, context, core });
