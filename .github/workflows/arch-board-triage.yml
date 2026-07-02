@@ -19,7 +19,7 @@ jobs:
             .github
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund --prefer-offline
         working-directory: ./.github
 
       - name: Parse and validate review request

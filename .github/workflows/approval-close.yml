@@ -19,7 +19,7 @@ jobs:
             .github
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund --prefer-offline
         working-directory: ./.github
 
       - name: Check if all approvals are present
