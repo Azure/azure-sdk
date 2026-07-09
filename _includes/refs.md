@@ -3,8 +3,8 @@
 [General Azure SDK Guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
 [General Azure SDK Terminology]: {{ site.baseurl }}{% link docs/general/terminology.md %}
 [Azure SDK Contributors Guide]: https://review.learn.microsoft.com/en-us/help/platform/reference-document-sdk-client-libraries
-[Microsoft Writing Style Guide]: https://learn.microsoft.com/en-us/style-guide
-[Microsoft Cloud Style Guide]: https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/cloud-computing-terms
+[Microsoft Writing Style Guide]: https://learn.microsoft.com/style-guide
+[Microsoft Cloud Style Guide]: https://learn.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/cloud-computing-terms
 [general-logging]: {{ site.baseurl }}{% link docs/general/implementation.md %}#logging
 [general-distributed-tracing]: {{ site.baseurl }}{% link docs/general/implementation.md %}#distributed-tracing
 [rest-lro]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md#long-running-operations--jobs
