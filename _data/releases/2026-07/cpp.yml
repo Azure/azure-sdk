@@ -10,4 +10,15 @@ entries:
     #### Bugs Fixed
 
     - [[#7130]](https://github.com/Azure/azure-sdk-for-cpp/issues/7130) Fixed `RetryOperation::Execute` silently swallowing the final exception when every retry attempt threw, which caused `ProducerClient::Send` to return without delivering the batch and without surfacing the underlying failure. The last exception is now rethrown when retries are exhausted, and `ProducerClient::Send` throws if `Execute` ever reports failure as a defense in depth.
+- Name: azure-core
+  Version: 1.16.4
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.16.4/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - [[#7196]](https://github.com/Azure/azure-sdk-for-cpp/pull/7196) Added `Azure::Core::Http::Policies::_internal::RetryPolicyBase`, an abstract base class that exposes the retry loop and the protected `ShouldRetryOnResponse`/`ShouldRetryOnTransportFailure` hook points. Service SDKs can derive from `RetryPolicyBase` to customize retry behavior; `RetryPolicy` remains a `final` concrete policy.
 
