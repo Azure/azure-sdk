@@ -870,4 +870,12 @@ entries:
     - Fixed a race condition in `AmqpSender` where concurrent calls to `CreateMessageBatchAsync` during initial AMQP link creation could observe an inconsistent `MaxBatchSize`, causing a spurious `ArgumentOutOfRangeException`. ([#56301](https://github.com/Azure/azure-sdk-for-net/issues/56301))
 
     - The sender now reads the `com.microsoft:max-message-batch-size` vendor property from the AMQP link to correctly limit batch size on Premium large-message entities, where `max-message-size` can be up to 100 MB but the batch limit is 1 MB. The 4,500 message count cap on batches has been removed as the service does not enforce a count limit. ([#44914](https://github.com/Azure/azure-sdk-for-net/issues/44914))
+- Name: Azure.ResourceManager.Billing.Trust
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Billing.Trust
+  ServiceName: Billing.Trust
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Billing.Trust_1.0.0-beta.1/sdk/billingtrust/Azure.ResourceManager.Billing.Trust/CHANGELOG.md
+  ChangelogContent: ""
 
