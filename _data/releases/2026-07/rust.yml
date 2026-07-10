@@ -117,4 +117,48 @@ entries:
     - Added an `overridable` field-level flag (`#[option(env = "...", overridable)]`) that recognizes a `{ENV}_OVERRIDE` kill-switch environment variable, generates `from_env_override()`/`from_env_override_vars()` parsing, and adds a top-priority `env_override` layer to the generated View (constructed via `new_with_override`). ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
     - Added an `#[options(env_only)]` struct-level mode to `CosmosOptions` that generates only the `from_env()`/`from_env_vars()` constructors (no View, Builder, or `Default`), allowing an existing builder-style type to double as its own environment-variable source. ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
     - Added a `parser` field-level attribute (`#[option(env = "...", parser = path::to::fn)]`) to `CosmosOptions` that parses an environment variable with a custom `fn(&str) -> Option<T>` instead of `FromStr`, supporting field types without a suitable `FromStr` (such as a `Duration` read from a millisecond count). A `None` result is logged and ignored, matching the lenient built-in parsers. ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
+- Name: typespec_client_core
+  Version: 1.1.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.1.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
+- Name: azure_core_amqp
+  Version: 1.1.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.1.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AmqpSessionOptions::with_unbounded_windows()`, a shared constructor that sets both session flow-control windows to `u32::MAX` for messaging crates that rely on per-link credit for flow control.
+- Name: azure_core
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.1.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
+- Name: typespec
+  Version: 1.1.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.1.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
 
