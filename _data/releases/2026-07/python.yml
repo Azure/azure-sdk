@@ -39,4 +39,821 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resiliencemanagement_1.0.0b1/sdk/resiliencemanagement/azure-mgmt-resiliencemanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-notificationhubs
+  Version: 8.1.0b3
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-notificationhubs_8.1.0b3/sdk/notificationhubs/azure-mgmt-notificationhubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managedapplications
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managedapplications_1.0.0b2/sdk/managedapplications/azure-mgmt-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-frontdoor
+  Version: 2.0.0
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-frontdoor_2.0.0/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventhub
+  Version: 12.0.0b2
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_12.0.0b2/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kusto
+  Version: 4.0.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_4.0.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-powerplatform
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Powerplatform
+  ServiceName: Powerplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-powerplatform_1.0.0b1/sdk/powerplatform/azure-mgmt-powerplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datafactory
+  Version: 10.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_10.0.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-botservice
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-botservice_3.0.0b1/sdk/botservice/azure-mgmt-botservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.3.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.3.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    All breaking changes are associated with beta features, or beta features that are being promoted to stable.
+
+    * Toolbox method `create_version` now defines `tools` of type `List[ToolboxTool]` instead of `List[Tool]`. A new set of Toolbox tools classes,
+    all derived from `ToolboxTool`, have been defined.
+    * Input argument structure for method `create_version_from_code` has been simplified. The same information is passed in, but in a modified way. Also, the `code` type has changed from `FileType` to `IO[bytes]`, and the `code_zip_sha256` was made optional (it will be calculated by the method if not provided by the caller).
+    * Agent Optimization methods `.beta.agents.*optimization*` were re-written to better align with Foundry job guidelines and platform standards. The old version accumulated unused candidate sub-resources, internal-detail properties, and custom operation patterns inconsistent with the Foundry platform. The new version removes redundant models and operations, adopts shared Foundry job patterns (`JobLike<>`, standard job verbs), and introduces typed discriminated unions for dataset inputs and evaluator references.
+    * Argument `agent_session_id` on Session Files methods was renamed to `session_id`.
+    * Method `.beta.agents.list_optimization_candidates` now returns `ItemPaged[OptimizationCandidate]` instead of `AgentsPagedResultOptimizationCandidate`. The `after` parameter has been removed (use continuation-token-based paging instead).
+    * Method `.agents.patch_agent_details` was renamed to `.agents.update_details`.
+    * Optional property `default_ttl_seconds` on class `MemoryStoreDefaultOptions` has changed from type `int` to type `datetime.timedelta`.
+    * Optional properties `description`, `name` and `tool_configs` have been removed from preview tools (classes derived from class `Tool`, with name ending in `PreviewTool`).
+    * Optional properties `description`, `name` and `tool_configs` are now documented as deprecated in stable Agent tools, to be removed in a future version (classes derived from class `Tool` with names not ending with `PreviewTool`).
+    * Optional property `protocols` on class `AgentEndpointConfig` was renamed to `protocol_configuration`.
+    * Optional property `tools` removed from `HostedAgentDefinition`.
+    * Optional property `system_data` removed from `ModelVersion`.
+    * `AgentProtocol` class was removed. The `protocol` property in class `ProtocolVersionRecord` is now of type `Union[str, AgentEndpointProtocol]`.
+
+    #### Features Added
+
+    * Hosted Agent methods are now stable. There is no need to set `allow_preview=True` on the `AIProjectClient` constructor to create a Hosted Agent.
+    * Session and Session Files methods are now stable. They have moved from the `.beta.agents` subclient to the `.agents` subclient.
+    * Agent code methods are now stable. This includes `.agents.create_version_from_code` and `.agents.download_code` methods. They have moved from the `.beta.agents` subclient to the `.agents` subclient.
+    * Toolboxes methods are now stable. They have moved from `.beta.toolboxes` subclient to the `.toolboxes` subclient.
+    * Two new methods `.agents.enable` and `.agents.disable`.
+    * New toolbox tool `ReminderPreviewToolboxTool`.
+    * New concept of Draft Agent Version:
+    * Optional boolean argument `draft` added to method `.agents.create_version`.
+    * Optional boolean property `draft` added to class `AgentVersionDetails`.
+    * Optional boolean argument `include_drafts` added to method `.agents.list_versions`.
+    * Optional property `defer_loading` added to a few Agent tool classes.
+    * Optional property `supported_evaluation_levels` added to class `EvaluatorVersion`.
+    * Class `BotServiceTenantAuthorizationScheme` added (derived from `AgentEndpointAuthorizationScheme`).
+    * Class `EndpointBasedEvaluatorDefinition` added (derived from `EvaluatorDefinition`).
+- Name: azure-mgmt-signalr
+  Version: 2.0.0b3
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-signalr_2.0.0b3/sdk/signalr/azure-mgmt-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-callautomation
+  Version: 1.6.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.6.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+- Name: azure-mgmt-artifactsigning
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Artifactsigning
+  ServiceName: Artifactsigning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-artifactsigning_2.0.0b1/sdk/artifactsigning/azure-mgmt-artifactsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 4.0.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_4.0.0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicebus
+  Version: 10.0.0b2
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_10.0.0b2/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 18.0.0b1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_18.0.0b1/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 17.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_17.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resourcehealth
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcehealth_1.0.0/sdk/resourcehealth/azure-mgmt-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-monitorworkspaces
+  Version: 1.0.0
+  DisplayName: Resource Management - Monitorworkspaces
+  ServiceName: Monitorworkspaces
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitorworkspaces_1.0.0/sdk/monitor/azure-mgmt-monitorworkspaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b7
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b7/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced the `x-agent-user-isolation-key` / `x-agent-chat-isolation-key` header constants (`USER_ISOLATION_KEY` / `CHAT_ISOLATION_KEY`) with `x-agent-user-id` (`USER_ID`) and `x-agent-foundry-call-id` (`FOUNDRY_CALL_ID`) per container protocol version `2.0.0`.
+
+    #### Features Added
+
+    - Container protocol version `2.0.0` support: added the platform identity header constants `x-agent-user-id` (`USER_ID`) — the global, cross-agent per-user partition key — and `x-agent-foundry-call-id` (`FOUNDRY_CALL_ID`) — the opaque per-request call identifier — to the `_platform_headers` module.
+    - Added `FOUNDRY_AGENT_ID` environment variable support exposing the agent's stable GUID via `AgentConfig.agent_guid` and the `resolve_agent_guid()` helper.
+    - Added a request-scoped platform context: `FoundryAgentRequestContext`, `get_request_context()`, `set_request_context()`, and `reset_request_context()`. Protocol packages bind the inbound per-request call ID and user ID so that handler code (and the SDK HTTP pipeline) can read them. `FoundryAgentRequestContext.platform_headers()` builds the headers to forward on outbound Foundry 1P calls — the per-request call ID only; `x-agent-user-id` is **not** forwarded (it is not accepted/trusted by 1P services and is used only for container-side state partitioning).
+- Name: azure-mgmt-databricks
+  Version: 3.0.0
+  DisplayName: Resource Management - Databricks
+  ServiceName: Databricks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databricks_3.0.0/sdk/databricks/azure-mgmt-databricks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-powerbidedicated
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-powerbidedicated_1.1.0b2/sdk/powerbidedicated/azure-mgmt-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-relay
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relay_2.0.0b2/sdk/relay/azure-mgmt-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerregistry
+  Version: 15.1.0b2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerregistry_15.1.0b2/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservicessiterecovery
+  Version: 2.0.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicessiterecovery_2.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicessiterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-selfhelp
+  Version: 2.0.0b5
+  DisplayName: Resource Management - Self Help
+  ServiceName: Self Help
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-selfhelp_2.0.0b5/sdk/selfhelp/azure-mgmt-selfhelp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-loganalytics
+  Version: 14.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_14.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appcontainers
+  Version: 5.0.0
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appcontainers_5.0.0/sdk/appcontainers/azure-mgmt-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b55
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b55/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Align GenAI main-agent span processor with upstream OpenTelemetry SDK (>= 1.43)
+    immutable `BoundedAttributes` on span end, fixing a `TypeError` when writing
+    `microsoft.gen_ai.main_agent.*` attributes in `on_end`
+    ([#47796](https://github.com/Azure/azure-sdk-for-python/pull/47796))
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b54
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b54/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Customer Facing SDKStats: Renamed metric dimension attributes from snake_case/dotted to camelCase
+    (`compute_type` -> `computeType`, `telemetry_type` -> `telemetryType`, `telemetry_success` -> `telemetrySuccess`,
+    `drop.code` -> `dropCode`, `drop.reason` -> `dropReason`, `retry.code` -> `retryCode`, `retry.reason` -> `retryReason`)
+    ([#47469](https://github.com/Azure/azure-sdk-for-python/pull/47469))
+
+
+    #### Features Added
+    - Add `StatsbeatManager.add_metric_callback` to let SDKs/distros add their own metric
+    observations to built-in statsbeat metrics
+    ([#47363](https://github.com/Azure/azure-sdk-for-python/pull/47363))
+    - Implement RFC Retry-After header parsing for 429 responses per [spec](https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/pull/822)
+    ([#47601](https://github.com/Azure/azure-sdk-for-python/pull/47601))
+- Name: azure-mgmt-domainservices
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Domainservices
+  ServiceName: Domainservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-domainservices_1.0.0b1/sdk/domainservices/azure-mgmt-domainservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdbforpostgresql
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Cosmos DB for PostgreSQL
+  ServiceName: Cosmos DB for PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdbforpostgresql_1.1.0b2/sdk/cosmosdbforpostgresql/azure-mgmt-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mongocluster
+  Version: 1.2.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.2.0/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-recoveryservices
+  Version: 4.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_4.1.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 38.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-keys
+  Version: 4.12.0b3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.12.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a replay bug in challenge authentication policy. The original request is now stored at the request level instead of the client level [#47742](https://github.com/Azure/azure-sdk-for-python/pull/47742).
+
+    #### Features Added
+
+    - Added `secure_wrap_key` and `secure_unwrap_key` methods for wrap/unwrap operations on keys [#47591](https://github.com/Azure/azure-sdk-for-python/pull/47591).
+    - Added the `KeySecureWrapAlgorithm` enum, listing the algorithms supported by the secure wrap/unwrap operations.
+    - Added the `SecureWrapResult` and `SecureUnwrapResult` model classes wrapping the results of `secure_wrap_key` and `secure_unwrap_key`, respectively.
+- Name: azure-mgmt-hybridcompute
+  Version: 9.1.0b4
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridcompute_9.1.0b4/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mysqlflexibleservers
+  Version: 1.1.0b3
+  DisplayName: Resource Management - MySQL Flexible Servers
+  ServiceName: MySQL Flexible Servers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mysqlflexibleservers_1.1.0b3/sdk/mysqlflexibleservers/azure-mgmt-mysqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-commvaultcontentstore
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Commvaultcontentstore
+  ServiceName: Commvaultcontentstore
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commvaultcontentstore_1.0.0b1/sdk/commvaultcontentstore/azure-mgmt-commvaultcontentstore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sqlvirtualmachine
+  Version: 1.0.0b7
+  DisplayName: Resource Management - SQL Virtual Machine
+  ServiceName: SQL Virtual Machine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sqlvirtualmachine_1.0.0b7/sdk/sql/azure-mgmt-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-devcenter
+  Version: 2.0.0b1
+  DisplayName: Resource Management -  Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-devcenter_2.0.0b1/sdk/devcenter/azure-mgmt-devcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-paloaltonetworksngfw
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Palo Alto Networks - Next Generation Firewall
+  ServiceName: Palo Alto Networks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-paloaltonetworksngfw_2.0.0b2/sdk/paloaltonetworks/azure-mgmt-paloaltonetworksngfw/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b8
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b8/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the public `IsolationContext` type to `PlatformContext`. Its fields are now `user_id_key` (from `x-agent-user-id`) and `call_id` (from `x-agent-foundry-call-id`), replacing `user_key` / `chat_key`.
+    - `ResponseContext.isolation` is now `ResponseContext.platform_context`.
+    - Response provider protocol methods now accept a `context` keyword argument (previously `isolation`).
+    - In-process partition enforcement is now keyed on the user ID (`x-agent-user-id`) instead of the chat isolation key.
+
+    #### Features Added
+
+    - Container protocol version `2.0.0` support: the per-request call ID (`x-agent-foundry-call-id`) and global user ID (`x-agent-user-id`) are read from inbound requests and exposed on `ResponseContext.platform_context`. The per-request call ID is forwarded on all outbound Foundry Storage calls and bound to the request-scoped platform context so handler/tool code making raw outbound calls can forward it; `x-agent-user-id` is used only for container-side partitioning and is not forwarded to 1P services.
+- Name: azure-ai-evaluation
+  Version: 1.18.1
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.1/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Enabled `azure_ai_search`, `azure_fabric`, and `sharepoint_grounding` tool
+    calls for `ToolCallSuccessEvaluator` and `ToolOutputUtilizationEvaluator`.
+    These tools were previously rejected because their `tool_result` payloads
+    are structured (dict / list of dicts) and the internal
+    `[TOOL_RESULT] {result}` formatter rendered them with `str()`, producing
+    Python `repr` output (single quotes, `'role': 'user'`) that the LLM judges
+    could not reliably ground on. The shared formatter now JSON-encodes
+    non-string payloads via a new `_stringify_tool_result` helper
+    (`ensure_ascii=False` to preserve customer locale data), and the shared
+    `ConversationValidator.UNSUPPORTED_TOOLS` list (inherited by
+    `ToolDefinitionsValidator`) is narrowed to allow these three tools.
+    `GroundednessEvaluator` now uses a new `GroundednessConversationValidator`
+    subclass that keeps the wider rejection list, matching the corresponding
+    behavior in azureml-assets where Groundedness was intentionally not part
+    of the enablement (a follow-up will land a context-extractor helper so
+    Groundedness can also accept these tools). The remaining restricted tools
+    (`bing_grounding`, `bing_custom_search`, `web_search`,
+    `browser_automation`, `code_interpreter_call`, `computer_call`,
+    `openapi_call`) continue to be rejected. `ToolCallAccuracyEvaluator` and
+    `ToolInputAccuracyEvaluator` are unaffected — they do not render tool
+    results into the judge prompt and already opt out of the unsupported-tool
+    check.
+    - Fixed OpenAPI tool-call validation in tool evaluators (e.g. `ToolCallAccuracyEvaluator`). OpenAPI
+    tool definitions are expanded into their nested functions when present, so tool calls referencing a
+    nested function name validate correctly, while OpenAPI tool definitions without nested functions are
+    kept as is so tool calls referencing the top-level tool name continue to validate.
+- Name: azure-ai-evaluation
+  Version: 1.18.0
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.0/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Evaluators now raise `EvaluationException` (instead of bare `ValueError`/`TypeError`) for input and
+    configuration validation failures, and consistently set `blame=ErrorBlame.USER_ERROR` with an
+    appropriate `category` and `target`. Affected evaluators include `ContentSafetyEvaluator`,
+    `QAEvaluator`, `RougeScoreEvaluator`, `DocumentRetrievalEvaluator`, the task navigation efficiency
+    evaluator, and the shared evaluator base (conversation/tool-call input validation).
+
+    - Fixed `RedTeam.scan()` storing decoded plaintext instead of the actual
+    encoded payload for converter-based attack strategies (Base64, Flip,
+    Morse, ROT13, etc.) in `evaluation_results.json` / `results.json`. The
+    persisted `conversation[].content` for user turns now reflects what the
+    target actually received (`converted_value`). The pre-converter
+    adversarial objective is additionally retained as an `original_value`
+    field on user messages in the intermediate per-strategy `.jsonl`
+    artifacts (it is not surfaced in the customer-facing `results.json`,
+    which continues to expose only `role`/`content`/`name`). Baseline
+    (non-encoded) strategies are unaffected.
+    Resolves [#47228](https://github.com/Azure/azure-sdk-for-python/issues/47228).
+- Name: azure-mgmt-databox
+  Version: 4.0.0b1
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-databox_4.0.0b1/sdk/databox/azure-mgmt-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 26.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_26.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-networkfunction
+  Version: 1.0.0
+  DisplayName: Resource Management - Network Function
+  ServiceName: Network Function
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkfunction_1.0.0/sdk/networkfunction/azure-mgmt-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-managementgroups
+  Version: 2.0.0
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-managementgroups_2.0.0/sdk/managementgroups/azure-mgmt-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-billing
+  Version: 8.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-billing_8.0.0/sdk/billing/azure-mgmt-billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-costmanagement
+  Version: 5.0.0
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-costmanagement_5.0.0/sdk/costmanagement/azure-mgmt-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagesync
+  Version: 2.0.0b2
+  DisplayName: Resource Management - Storage Sync
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagesync_2.0.0b2/sdk/storage/azure-mgmt-storagesync/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-computelimit
+  Version: 1.2.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computelimit_1.2.0/sdk/computelimit/azure-mgmt-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-commerce
+  Version: 6.1.0b3
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commerce_6.1.0b3/sdk/commerce/azure-mgmt-commerce/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.0.0b3
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.0.0b3/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-confidentialledger
+  Version: 2.0.0b6
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confidentialledger_2.0.0b6/sdk/confidentialledger/azure-mgmt-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dns
+  Version: 10.0.0b1
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dns_10.0.0b1/sdk/network/azure-mgmt-dns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 31.0.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_31.0.1/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 31.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_31.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cloudhealth
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Cloudhealth
+  ServiceName: Cloudhealth
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0b3/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-elastic
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-elastic_3.0.0b1/sdk/elastic/azure-mgmt-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kubernetesconfiguration-fluxconfigurations
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration-fluxconfigurations_1.0.0/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 10.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_10.0.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-automation
+  Version: 1.1.0b5
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-automation_1.1.0b5/sdk/automation/azure-mgmt-automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-billingtrust
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Billingtrust
+  ServiceName: Billingtrust
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-billingtrust_1.0.0b1/sdk/billingtrust/azure-mgmt-billingtrust/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dynatrace
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dynatrace_3.0.0b1/sdk/dynatrace/azure-mgmt-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-administration
+  Version: 4.8.0b2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.8.0b2/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a replay bug in challenge authentication policy. The original request is now stored at the request level instead of the client level. [#47742](https://github.com/Azure/azure-sdk-for-python/pull/47742)
+- Name: azure-mgmt-certificateregistration
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-certificateregistration_1.0.0/sdk/certificateregistration/azure-mgmt-certificateregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-domainregistration
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-domainregistration_1.0.0/sdk/domainregistration/azure-mgmt-domainregistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-privatedns
+  Version: 2.0.0b1
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatedns_2.0.0b1/sdk/network/azure-mgmt-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgeorder
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Edge Order
+  ServiceName: Edge Order
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgeorder_3.0.0b1/sdk/edgeorder/azure-mgmt-edgeorder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-guestconfig
+  Version: 1.0.0b3
+  DisplayName: Resource Management - Guest Configuration
+  ServiceName: Guest Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-guestconfig_1.0.0b3/sdk/machinelearning/azure-mgmt-guestconfig/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry
+  Version: 1.8.9
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.8.9/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Enforce size limits on browser SDK snippet injection to guard against decompression bombs and oversized HTML response bodies (1 MiB compressed / 5 MiB decompressed caps).
+    ([#47233](https://github.com/Azure/azure-sdk-for-python/pull/47233))
+- Name: azure-mgmt-prometheusrulegroups
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Prometheusrulegroups
+  ServiceName: Prometheusrulegroups
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-prometheusrulegroups_1.0.0b1/sdk/alertsmanagement/azure-mgmt-prometheusrulegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-purview
+  Version: 1.1.0b3
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-purview_1.1.0b3/sdk/purview/azure-mgmt-purview/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-peering
+  Version: 2.0.0
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-peering_2.0.0/sdk/peering/azure-mgmt-peering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-webpubsub
+  Version: 3.0.0b1
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-webpubsub_3.0.0b1/sdk/webpubsub/azure-mgmt-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mongodbatlas
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongodbatlas_1.1.0b1/sdk/mongodbatlas/azure-mgmt-mongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-communication
+  Version: 3.0.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-communication_3.0.0/sdk/communication/azure-mgmt-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-networkcloud
+  Version: 3.0.0b2
+  DisplayName: Resource Management - Networkcloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-networkcloud_3.0.0b2/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-advisor
+  Version: 10.0.0b2
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-advisor_10.0.0b2/sdk/advisor/azure-mgmt-advisor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-newrelicobservability
+  Version: 2.0.0b2
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-newrelicobservability_2.0.0b2/sdk/newrelicobservability/azure-mgmt-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.9.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.9.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `check_configuration_settings()` method to efficiently check for configuration changes using HEAD requests, returning only headers (ETags) without response bodies.
+    - `list_configuration_settings()` and `check_configuration_settings()` now return `ConfigurationSettingPaged` (sync) / `ConfigurationSettingPagedAsync` (async) to expose the `by_page(match_conditions=...)` API and per-page `etag` attribute for change detection.
+    - `ConfigurationSettingPaged` and `ConfigurationSettingPagedAsync` are now publicly exported from `azure.appconfiguration`.
+    - Added a `description` property to `ConfigurationSetting` and `SecretReferenceConfigurationSetting` representing the description of the key-value (requires API version `2026-04-01` or later).
+    - Added a `description` property and a `description` keyword argument to `ConfigurationSnapshot`, and a `description` keyword argument to `begin_create_snapshot()` for both sync and async clients (requires API version `2026-04-01` or later).
+- Name: azure-mgmt-qumulo
+  Version: 3.0.0
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-qumulo_3.0.0/sdk/qumulo/azure-mgmt-qumulo/CHANGELOG.md
+  ChangelogContent: ""
 
