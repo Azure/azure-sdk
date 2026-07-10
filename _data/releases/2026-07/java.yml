@@ -133,4 +133,1309 @@ entries:
     - Don't truncate gen ai custom dimensions ([#48385](https://github.com/Azure/azure-sdk-for-java/pull/48385))
     - Truncate gen_ai attributes to 256KB instead of exempting from truncation ([#48454](https://github.com/Azure/azure-sdk-for-java/pull/48454))
   GroupId: com.azure
+- Name: com.azure+azure-communication-email
+  Version: 1.1.4
+  DisplayName: Communication Email
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-email_1.1.4/sdk/communication/azure-communication-email/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-dns
+  Version: 2.53.9
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-dns_2.53.9/sdk/dns/azure-resourcemanager-dns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.49.1
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.49.1/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-communication-rooms
+  Version: 1.2.8
+  DisplayName: Communication Rooms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-rooms_1.2.8/sdk/communication/azure-communication-rooms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-trafficmanager
+  Version: 2.53.9
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-trafficmanager_2.53.9/sdk/trafficmanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-confidentialledger
+  Version: 1.0.36
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-confidentialledger_1.0.36/sdk/confidentialledger/azure-security-confidentialledger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-napsteromniagentapi
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Napsteromniagentapi
+  ServiceName: Napsteromniagentapi
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-napsteromniagentapi_1.0.0-beta.1/sdk/napsteromniagentapi/azure-resourcemanager-napsteromniagentapi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerinstance
+  Version: 2.53.12
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerinstance_2.53.12/sdk/containerinstance/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerinstance
+  Version: 2.53.11
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerinstance_2.53.11/sdk/containerinstance/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-eventgrid-systemevents
+  Version: 1.1.0-beta.1
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventgrid-systemevents_1.1.0-beta.1/sdk/eventgrid/azure-messaging-eventgrid-systemevents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated system event models to the latest Event Grid system events definitions.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-translation-document
+  Version: 1.0.9
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-translation-document_1.0.9/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-authorization
+  Version: 2.53.10
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-authorization_2.53.10/sdk/authorization/azure-resourcemanager-authorization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-privatedns
+  Version: 2.53.9
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-privatedns_2.53.9/sdk/privatedns/azure-resourcemanager-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-webpubsub-client
+  Version: 1.1.9
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-webpubsub-client_1.1.9/sdk/webpubsub/azure-messaging-webpubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `netty-codec-http` from `4.1.132.Final` to version `4.1.135.Final`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.49.1
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.49.1/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicefabricmanagedclusters
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicefabricmanagedclusters_1.2.0-beta.1/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-keyvault
+  Version: 2.55.3
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-keyvault_2.55.3/sdk/keyvault/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-developer-devcenter
+  Version: 1.0.16
+  DisplayName: Dev Center
+  ServiceName: Dev Center
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-developer-devcenter_1.0.16/sdk/devcenter/azure-developer-devcenter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-communication-phonenumbers
+  Version: 1.4.5
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-phonenumbers_1.4.5/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure+azure-security-attestation
+  Version: 1.1.40
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-attestation_1.1.40/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-mongodbatlas
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-mongodbatlas_1.1.0-beta.1/sdk/mongodbatlas/azure-resourcemanager-mongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-documentintelligence
+  Version: 1.0.9
+  DisplayName: Document Intelligence
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-documentintelligence_1.0.9/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-communication-messages
+  Version: 1.1.11
+  DisplayName: Communication Messages
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-messages_1.1.11/sdk/communication/azure-communication-messages/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-appservice
+  Version: 2.55.4
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appservice_2.55.4/sdk/appservice/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-appservice
+  Version: 2.55.3
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appservice_2.55.3/sdk/appservice/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-cosmos
+  Version: 2.54.4
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cosmos_2.54.4/sdk/cosmos/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-networkcloud
+  Version: 2.2.0-beta.1
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-networkcloud_2.2.0-beta.1/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-redhatopenshift
+  Version: 1.0.0
+  DisplayName: Resource Management - Red Hat OpenShift
+  ServiceName: Red Hat OpenShift
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-redhatopenshift_1.0.0/sdk/redhatopenshift/azure-resourcemanager-redhatopenshift/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-msi
+  Version: 2.53.9
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-msi_2.53.9/sdk/msi/azure-resourcemanager-msi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicebus
+  Version: 2.53.9
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicebus_2.53.9/sdk/servicebus/azure-resourcemanager-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-redis
+  Version: 2.53.9
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-redis_2.53.9/sdk/redis/azure-resourcemanager-redis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-monitor-query-metrics
+  Version: 1.0.6
+  DisplayName: Monitor Query Metrics
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-query-metrics_1.0.6/sdk/monitor/azure-monitor-query-metrics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-certificates
+  Version: 4.9.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-certificates_4.9.1/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-monitor
+  Version: 2.53.9
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-monitor_2.53.9/sdk/monitor/azure-resourcemanager-monitor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-secrets
+  Version: 4.11.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-secrets_4.11.1/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.49.1
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.49.1/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13
+  Version: 4.49.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13_4.49.1/sdk/cosmos/azure-cosmos-spark_4-1_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-developer-loadtesting
+  Version: 1.0.30
+  DisplayName: Load Testing
+  ServiceName: Load Testing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-developer-loadtesting_1.0.30/sdk/loadtesting/azure-developer-loadtesting/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-monitor-ingestion
+  Version: 1.2.17
+  DisplayName: Monitor Ingestion
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-ingestion_1.2.17/sdk/monitor/azure-monitor-ingestion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-resources
+  Version: 2.54.2
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-resources_2.54.2/sdk/resources/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-network
+  Version: 2.59.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-network_2.59.1/sdk/network/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-network
+  Version: 2.59.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-network_2.59.0/sdk/network/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-network
+  Version: 2.58.3
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-network_2.58.3/sdk/network/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-storage
+  Version: 2.57.1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storage_2.57.1/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-storage
+  Version: 2.57.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storage_2.57.0/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-storage
+  Version: 2.56.1
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storage_2.56.1/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-monitor-query-logs
+  Version: 1.0.6
+  DisplayName: Monitor Query Logs
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-query-logs_1.0.6/sdk/monitor/azure-monitor-query-logs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-sql
+  Version: 2.53.10
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-sql_2.53.10/sdk/sql/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-sql
+  Version: 2.53.9
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-sql_2.53.9/sdk/sql/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-qumulo
+  Version: 1.2.0
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-qumulo_1.2.0/sdk/qumulo/azure-resourcemanager-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-mongocluster
+  Version: 1.2.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-mongocluster_1.2.0/sdk/mongocluster/azure-resourcemanager-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-communication-jobrouter
+  Version: 1.1.20
+  DisplayName: Communication JobRouter
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-jobrouter_1.1.20/sdk/communication/azure-communication-jobrouter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure+azure-messaging-eventhubs
+  Version: 5.21.5
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventhubs_5.21.5/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-amqp` from `2.11.4` to version `2.12.0`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-administration
+  Version: 4.9.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-administration_4.9.0-beta.1/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `2026-01-01-preview`
+    - Added support for External Key Management (EKM) features using clients `KeyVaultEkmClient` and `KeyVaultEkmAsyncClient`
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-administration
+  Version: 4.8.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-administration_4.8.1/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-containers-containerregistry
+  Version: 1.2.24
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-containers-containerregistry_1.2.24/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-iot-deviceupdate
+  Version: 1.0.34
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-iot-deviceupdate_1.0.34/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-textanalytics
+  Version: 5.5.14
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-textanalytics_5.5.14/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-batch
+  Version: 3.0.0
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-batch_3.0.0/sdk/batch/azure-resourcemanager-batch/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-communication-callautomation
+  Version: 1.7.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-callautomation_1.7.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` from `1.4.6` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure+azure-communication-callautomation
+  Version: 1.7.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-callautomation_1.7.0/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-cognitiveservices
+  Version: 1.5.0-beta.3
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cognitiveservices_1.5.0-beta.3/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.2.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.2.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `EndpointBasedEvaluatorDefinition` for custom evaluator definitions backed by customer-hosted endpoints and Project Connections.
+
+    #### Breaking Changes
+
+    - Preview operation group clients now use beta-prefixed names and are built through `AIProjectClientBuilder.beta()`. `DataGenerationJobsClient` / `DataGenerationJobsAsyncClient` renamed to `BetaDatasetsClient` / `BetaDatasetsAsyncClient`; `EvaluationTaxonomies`, `Evaluators`, `Insights`, `Models`, `RedTeams`, `Routines`, `Schedules`, and `Skills` clients were renamed to their corresponding `Beta*Client` / `Beta*AsyncClient` names.
+    - `Skill` renamed to `SkillDetails`. `SkillsClient` and `SkillsAsyncClient` methods such as `getSkill`, `listSkills`, and `updateSkill` now return `SkillDetails` / `PagedIterable<SkillDetails>` / `PagedFlux<SkillDetails>` instead of `Skill`.
+    - `RoutineRun.getStatus()` now returns `BinaryData` instead of `String` to align with the current Routines preview contract.
+    - `SystemDataV3` and `ModelVersion.getSystemData()` were removed because model versions no longer expose system data in the current service contract.
+
+    #### Bugs Fixed
+
+    - Fixed OpenAI clients built from `AIProjectClientBuilder` to honor a custom `HttpPipeline` supplied through `pipeline(...)`, preserving custom policies while still adding required preview feature headers for applicable preview clients.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-search
+  Version: 2.54.8
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-search_2.54.8/sdk/search/azure-resourcemanager-search/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.49.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.49.1/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-messaging-servicebus
+  Version: 7.17.19
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-servicebus_7.17.19/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-amqp` from `2.11.4` to version `2.12.0`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-messaging-servicebus
+  Version: 7.18.0-beta.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-servicebus_7.18.0-beta.2/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `drainTimeout(Duration)` to `ServiceBusProcessorClientBuilder` and `ServiceBusSessionProcessorClientBuilder` to configure the maximum wait time for in-flight message handlers during processor shutdown. Defaults to 30 seconds.
+
+    #### Bugs Fixed
+
+    - Fixed `ServiceBusProcessorClient.close()` disposing the receiver before in-flight message handlers could complete settlement, causing `IllegalStateException`. The processor now drains active handlers before closing. ([#45716](https://github.com/Azure/azure-sdk-for-java/issues/45716))
+    - Fixed `ServiceBusMessageBatch` accepting messages beyond the service-enforced batch size limit on
+    Premium large-message entities by reading the `com.microsoft:max-message-batch-size` vendor property
+    from the AMQP sender link instead of using `max-message-size`. ([#48214](https://github.com/Azure/azure-sdk-for-java/pull/48214))
+    - Fixed `ServiceBusAdministrationClient.updateSubscription()` silently ignoring `defaultMessageTimeToLive` changes. The property was incorrectly nullified before serialization. ([#48495](https://github.com/Azure/azure-sdk-for-java/issues/48495))
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-keys
+  Version: 4.12.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-keys_4.12.0-beta.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `ExternalKey` model and the `CreateExternalKeyOptions` options class, along with the `KeyClient.createExternalKey` and `KeyAsyncClient.createExternalKey` methods (and their `WithResponse` variants), for registering a Managed HSM key whose material is held in an external HSM (External Key Management). Only supported on Managed HSM with service version `2026-01-01-preview` or newer.
+    - Added support for service version `2026-01-01-preview`.
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-keys
+  Version: 4.11.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-keys_4.11.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerregistry
+  Version: 2.55.3
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerregistry_2.55.3/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-translation-text
+  Version: 2.0.1
+  DisplayName: Text Translation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-translation-text_2.0.1/sdk/translation/azure-ai-translation-text/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.2.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.2.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added convenience methods on `AgentsClient` and `AgentsAsyncClient` to read and write hosted-agent files directly from and to disk using a `String` file path. `downloadAgentCode`, `downloadAgentCodeWithResponse`, and `downloadSessionFileWithResponse` write the downloaded content to the supplied path and accept an optional `overwrite` flag; when the flag is omitted the operation fails if a file already exists at the destination. `uploadSessionFileWithResponse` and the new `CodeFileDetails(String)` constructor read the upload content from a `String` file path.
+    - Added a flattened convenience overload `createAgentVersionFromCode(String, HostedAgentDefinition, CodeFileDetails, String, Map)` on `AgentsClient` and `AgentsAsyncClient`. It accepts the hosted-agent definition, code zip, description, and metadata directly instead of a nested `CreateAgentVersionFromCodeContent`, and computes the required `x-ms-code-zip-sha256` value from the code automatically.
+    - Added `deleteMemory(String, String)` to `BetaMemoryStoresClient` and `BetaMemoryStoresAsyncClient` for deleting an individual memory item from a memory store.
+    - Added `ToolboxesClient` and `ToolboxesAsyncClient` have been moved from `beta` to GA.
+    - Added a toolbox-specific tool model hierarchy for toolbox versions, including `ToolboxTool`, `ToolboxToolType`, and related `*ToolboxTool` classes such as `CodeInterpreterToolboxTool`, `OpenApiToolboxTool`, and `ToolboxSearchPreviewToolboxTool`.
+    - Added support for additional agent tool types, including `NamespaceTool`, `ToolSearchTool`, and `ReminderPreviewTool`.
+    - Updated preview agent optimization support to the V2 preview contract on `BetaAgentsClient` and `BetaAgentsAsyncClient`.
+
+    #### Breaking Changes
+
+    - Memory store preview clients now use beta-prefixed names built through `AgentsClientBuilder.beta()`: `MemoryStoresClient` / `MemoryStoresAsyncClient` renamed to `BetaMemoryStoresClient` / `BetaMemoryStoresAsyncClient`.
+    - `BetaToolboxesClient` / `BetaToolboxesAsyncClient` renamed to `ToolboxesClient` / `ToolboxesAsyncClient` and are now built directly with `AgentsClientBuilder.buildToolboxesClient()` / `buildToolboxesAsyncClient()`. The beta-builder methods for toolboxes were removed.
+    - Toolbox version APIs now use `ToolboxTool` models instead of agent `Tool` models; for example, `ToolboxSearchPreviewTool` was replaced by `ToolboxSearchPreviewToolboxTool`.
+    - Agent optimization APIs were updated to the V2 preview contract and moved to `BetaAgentsClient` / `BetaAgentsAsyncClient`. `FoundryFeaturesOptInKeys.AGENTS_OPTIMIZATION_V1_PREVIEW` renamed to `AGENTS_OPTIMIZATION_V2_PREVIEW`, and candidate-specific APIs and models such as `CandidateDeployConfig`, `CandidateFileInfo`, `CandidateMetadata`, `CandidateResults`, `PromoteCandidateInput`, and `PromoteCandidateResult` were removed or folded into the updated optimization job models.
+    - Hosted-agent session and code-package APIs were simplified by removing `AgentDefinitionOptInKeys` parameters. `AgentSessionFilesClient` / `AgentSessionFilesAsyncClient` were removed; use the session-file methods on `AgentsClient` / `AgentsAsyncClient` instead.
+    - Tool and protocol models were aligned with the latest service contract. Notable renames include `NamespaceToolParam` → `NamespaceTool`, `ToolSearchToolParam` → `ToolSearchTool`, `AgentIdentifier` → `OptimizationAgentIdentifier`, and `DatasetRef` → `OptimizationEvaluatorRef`; `AgentProtocol` and `IsolationKeySource` were removed.
+
+    #### Bugs Fixed
+
+    - Fixed the agent-scoped OpenAI client returned by `AgentsClientBuilder.buildAgentScopedOpenAIClient` and `buildAgentScopedOpenAIAsyncClient` so requests to a hosted-agent endpoint target the correct URL. Previously the request path was duplicated (`.../protocols/openai/openai/responses`) and used an unsupported default `api-version`, causing `400` errors when invoking the OpenAI Responses API or streaming session logs through an agent endpoint. The client now uses the unified Azure URL path mode and sends `api-version=v1`.
+    - Fixed OpenAI and Responses clients built from `AgentsClientBuilder` to honor a custom `HttpPipeline` supplied through `pipeline(...)`, preserving custom policies while still adding required preview feature headers for applicable preview clients.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-managednetworkfabric
+  Version: 2.0.0
+  DisplayName: Resource Management - Managed Network Fabric
+  ServiceName: Managed Network Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-managednetworkfabric_2.0.0/sdk/managednetworkfabric/azure-resourcemanager-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-search-documents
+  Version: 12.0.1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-search-documents_12.0.1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-data-schemaregistry-apacheavro
+  Version: 1.1.33
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-schemaregistry-apacheavro_1.1.33/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-data-schemaregistry` from `1.5.11` to version `1.5.12`.
+  GroupId: com.azure
+- Name: com.azure+azure-messaging-eventgrid-namespaces
+  Version: 1.1.11
+  DisplayName: Event Grid Namespaces
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventgrid-namespaces_1.1.11/sdk/eventgrid/azure-messaging-eventgrid-namespaces/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-netapp
+  Version: 2.3.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-netapp_2.3.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.58.2
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.58.2/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.58.1
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.58.1/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.58.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.58.0/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-data-schemaregistry-jsonschema
+  Version: 1.0.9
+  DisplayName: Schema Registry - JSON
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-schemaregistry-jsonschema_1.0.9/sdk/schemaregistry/azure-data-schemaregistry-jsonschema/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-data-schemaregistry` from `1.5.11` to version `1.5.12`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-computelimit
+  Version: 1.2.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-computelimit_1.2.0/sdk/computelimit/azure-resourcemanager-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.21.7
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventhubs-checkpointstore-blob_1.21.7/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-messaging-eventhubs` from `5.21.4` to version `5.21.5`.
+    - Upgraded `azure-storage-blob` from `12.33.3` to version `12.35.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-data-schemaregistry
+  Version: 1.5.12
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-schemaregistry_1.5.12/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-monitor-workspaces
+  Version: 1.0.0
+  DisplayName: Resource Management - Monitor-Workspaces
+  ServiceName: Monitor-Workspaces
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-monitor-workspaces_1.0.0/sdk/monitor/azure-resourcemanager-monitor-workspaces/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-webpubsub
+  Version: 1.5.6
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-webpubsub_1.5.6/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-health-insights-radiologyinsights
+  Version: 1.1.8
+  DisplayName: Health Insights Radiology Insights
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-health-insights-radiologyinsights_1.1.8/sdk/healthinsights/azure-health-insights-radiologyinsights/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-azurestackhci
+  Version: 1.1.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-azurestackhci_1.1.0/sdk/azurestackhci/azure-resourcemanager-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-cdn
+  Version: 2.53.9
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-cdn_2.53.9/sdk/cdn/azure-resourcemanager-cdn/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-metricsadvisor
+  Version: 1.2.14
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-metricsadvisor_1.2.14/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-eventhubs
+  Version: 2.53.10
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-eventhubs_2.53.10/sdk/eventhubs/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-eventhubs
+  Version: 2.53.9
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-eventhubs_2.53.9/sdk/eventhubs/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-data-tables
+  Version: 12.5.11
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-tables_12.5.11/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-vision-imageanalysis
+  Version: 1.0.9
+  DisplayName: Image Analysis
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: com.azure+azure-messaging-eventgrid
+  Version: 4.31.7
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-eventgrid_4.31.7/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-digitaltwins-core
+  Version: 1.5.7
+  DisplayName: Digital Twins
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-digitaltwins-core_1.5.7/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.6.4` to version `1.6.5`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-contentsafety
+  Version: 1.0.19
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-contentsafety_1.0.19/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-communication-sms
+  Version: 1.1.40
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-sms_1.1.40/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager
+  Version: 2.63.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager_2.63.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-communication-identity
+  Version: 1.6.12
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-identity_1.6.12/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-programenrollment
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Programenrollment
+  ServiceName: Programenrollment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-programenrollment_1.0.0-beta.1/sdk/programenrollment/azure-resourcemanager-programenrollment/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-communication-chat
+  Version: 1.6.7
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-chat_1.6.7/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-communication-common` from `1.4.5` to version `1.4.7`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.49.1
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.49.1/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Added a defensive guard in bounded change feed reads (with `endLsn`) that fails the Spark task with `IllegalStateException` when the underlying paginator stops before the latest continuation token has advanced to `endLsn`. - See [PR 49393](https://github.com/Azure/azure-sdk-for-java/pull/49393)
+    * Fixed an issue in the `readManyByPartitionKeys` API in the Spark connector which could result in duplicates and missing the first record. - See [PR 49694](https://github.com/Azure/azure-sdk-for-java/pull/49694)
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-identity-extensions
+  Version: 1.2.9
+  DisplayName: Token-as-password Authentication Extensions
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-identity-extensions_1.2.9/sdk/identity/azure-identity-extensions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.18.3` to version `1.18.4`.
+  GroupId: com.azure
+- Name: com.azure+azure-communication-common
+  Version: 1.4.7
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-communication-common_1.4.7/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.16.4` to version `1.16.5`.
+    - Upgraded `azure-core` from `1.58.0` to version `1.58.1`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.61.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.61.1/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
