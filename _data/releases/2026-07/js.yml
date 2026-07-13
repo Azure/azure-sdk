@@ -788,4 +788,47 @@ entries:
     #### Other Changes
 
     - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-http-compat'
+  Version: 2.5.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.5.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-paging'
+  Version: 1.7.0
+  DisplayName: Core - Paging
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.7.0/sdk/core/core-paging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure-rest/confidential-ledger'
+  Version: 2.0.0-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_2.0.0-beta.1/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated SDK from TypeSpec specification targeting stable API version 2026-02-23
+    - Added Tags API support (ListTags)
+    - Added UserDefinedRole and UserDefinedRoles types for role management
+    - Added Stable-suffixed operation variants for user-defined endpoints and functions
+
+    #### Breaking Changes
+
+    - Renamed JSRuntimeOptions to JsRuntimeOptions
+    - Changed some enum types to extensible string types (e.g., ApplicationClaimKindOutput, ConfidentialLedgerQueryStateOutput)
+    - Client constructor now uses a 2-parameter signature (endpoint, options) with credential passed through options
+    - Removed CreateLedgerEntryMediaTypesParam (content type now inferred)
 
