@@ -15,9 +15,9 @@ jobs:
       os: linux
     steps:
       - task: UseNode@1
-        displayName: 'Use Node.js 22.x'
+        displayName: 'Use Node.js 24.x'
         inputs:
-          version: 22.x
+          version: 24.x
 
       # Match *.junit.xml only so stray XML (e.g. a DLL's doc XML) can't fake a shard.
       - task: DownloadPipelineArtifact@2

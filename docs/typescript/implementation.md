@@ -383,7 +383,7 @@ The following sections describe the package.json file that must be included with
   "browser": "./dist/browser/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "engine": {
-    "node": ">=20.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "build": "...",
