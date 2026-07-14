@@ -956,4 +956,28 @@ entries:
 
     - General availability release targeting REST API version `2026-03-26`
     - Added a utility method `CcfReceipt.GetRegistrationTransactionId(byte[] receiptCoseSign1Bytes)` to extract the entry ID (registration transaction id) from a receipt
+- Name: Azure.Provisioning.FrontDoor
+  Version: 1.0.0-beta.2
+  DisplayName: Provisioning - Frontdoor
+  ServiceName: Frontdoor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.FrontDoor_1.0.0-beta.2/sdk/frontdoor/Azure.Provisioning.FrontDoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Search
+  Version: 1.1.0-beta.2
+  DisplayName: Provisioning - Search
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Search_1.1.0-beta.2/sdk/search/Azure.Provisioning.Search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Communication
+  Version: 1.0.0-beta.5
+  DisplayName: Provisioning - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Communication_1.0.0-beta.5/sdk/communication/Azure.Provisioning.Communication/CHANGELOG.md
+  ChangelogContent: ""
 
