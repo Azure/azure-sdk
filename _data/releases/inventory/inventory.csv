@@ -52,7 +52,7 @@ Communication,0,Calling Server,data,.NET,,,11,false,Azure.Communication.CallingS
 Confidential Ledger,0,Code Transparency,data,.NET,,,11,false,Azure.Security.CodeTransparency,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,3,false,1,
 Communication,0,Communication Call Automation,data,.NET,,,11,false,Azure.Communication.CallAutomation,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/18/2026
 Communication,0,Communication Chat,data,.NET,,,11,false,Azure.Communication.Chat,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/24/2025
-Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,06/04/2025
+Communication,0,Communication Common,data,.NET,,,11,false,Azure.Communication.Common,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,07/10/2026
 Communication,0,Communication Email,data,.NET,,,11,false,Azure.Communication.Email,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,10/07/2025
 Communication,0,Communication Identity,data,.NET,,,11,false,Azure.Communication.Identity,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,03/22/2024
 Communication,0,Communication JobRouter,data,.NET,,,11,false,Azure.Communication.JobRouter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication,10,false,1,11/17/2023
@@ -139,7 +139,7 @@ Cognitive Services,0,Question Answering,data,.NET,Microsoft.Azure.CognitiveServi
 Cognitive Services,0,Question Answering Authoring,data,.NET,,,11,false,Azure.AI.Language.QuestionAnswering.Authoring,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage,3,false,1,
 Schema Registry,0,Schema Registry,data,.NET,,,11,false,Azure.Data.SchemaRegistry,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,09/18/2024
 Schema Registry,0,Schema Registry - Avro,data,.NET,Microsoft.Azure.Kafka.SchemaRegistry.Avro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,1,false,Microsoft.Azure.Data.SchemaRegistry.ApacheAvro,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry,10,false,1,03/29/2024
-Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,06/12/2025
+Service Bus,0,Service Bus,data,.NET,Microsoft.Azure.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,true,Azure.Messaging.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus,10,false,1,07/10/2026
 Storage,0,Storage - Blobs,data,.NET,Microsoft.Azure.Storage.Blob,https://github.com/Azure/azure-storage-net/tree/master/Blob,10,true,Azure.Storage.Blobs,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,06/23/2026
 Storage,0,Storage - Blobs Batch,data,.NET,,,11,false,Azure.Storage.Blobs.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,10,false,1,06/04/2026
 Storage,0,Storage - Blobs ChangeFeed,data,.NET,,,11,false,Azure.Storage.Blobs.ChangeFeed,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage,3,false,1,
@@ -174,6 +174,7 @@ App Containers,0,Provisioning - App Containers,mgmt,.NET,,,11,false,Azure.Provis
 App Service,0,Provisioning - App Service,mgmt,.NET,,,11,false,Azure.Provisioning.AppService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,01/06/2026
 Provisioning,0,Provisioning - Application Insights,mgmt,.NET,,,11,false,Azure.Provisioning.ApplicationInsights,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Batch,0,Provisioning - Batch,mgmt,.NET,,,11,false,Azure.Provisioning.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,3,false,1,
+Botservice,0,Provisioning - Botservice,mgmt,.NET,,,11,false,Azure.Provisioning.BotService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice,3,false,1,
 Cdn,0,Provisioning - Cdn,mgmt,.NET,,,11,false,Azure.Provisioning.Cdn,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cdn,3,false,1,
 Provisioning,0,Provisioning - Cognitive Services,mgmt,.NET,,,11,false,Azure.Provisioning.CognitiveServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,12/05/2025
 Communication,0,Provisioning - Communication,mgmt,.NET,,,11,false,Azure.Provisioning.Communication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,3,false,1,
@@ -205,10 +206,14 @@ Resourcegraph,0,Provisioning - Resourcegraph,mgmt,.NET,,,11,false,Azure.Provisio
 Provisioning,0,Provisioning - Search,mgmt,.NET,,,11,false,Azure.Provisioning.Search,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,10/25/2024
 Securitycenter,0,Provisioning - Securitycenter,mgmt,.NET,,,11,false,Azure.Provisioning.SecurityCenter,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/securitycenter,3,false,1,
 Provisioning,0,Provisioning - Service Bus,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceBus,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
+Servicefabric,0,Provisioning - Servicefabric,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceFabric,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicefabric,3,false,1,
+Servicefabricmanagedclusters,0,Provisioning - Servicefabricmanagedclusters,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceFabricManagedClusters,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicefabricmanagedclusters,3,false,1,
 Servicenetworking,0,Provisioning - Servicenetworking,mgmt,.NET,,,11,false,Azure.Provisioning.ServiceNetworking,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicenetworking,3,false,1,
 Provisioning,0,Provisioning - SignalR,mgmt,.NET,,,11,false,Azure.Provisioning.SignalR,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Provisioning,0,Provisioning - SQL,mgmt,.NET,,,11,false,Azure.Provisioning.Sql,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
+Standbypool,0,Provisioning - Standbypool,mgmt,.NET,,,11,false,Azure.Provisioning.StandbyPool,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/standbypool,3,false,1,
 Provisioning,0,Provisioning - Storage,mgmt,.NET,,,11,false,Azure.Provisioning.Storage,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,07/15/2025
+Trafficmanager,0,Provisioning - Trafficmanager,mgmt,.NET,,,11,false,Azure.Provisioning.TrafficManager,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/trafficmanager,3,false,1,
 Provisioning,0,Provisioning - WebPubSub,mgmt,.NET,,,11,false,Azure.Provisioning.WebPubSub,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/provisioning,10,false,1,06/17/2025
 Advisor,0,Resource Management - Advisor,mgmt,.NET,Microsoft.Azure.Management.Advisor,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/advisor/Microsoft.Azure.Management.Advisor,3,true,Azure.ResourceManager.Advisor,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/advisor,3,false,1,
 Agricultureplatform,0,Resource Management - Agricultureplatform,mgmt,.NET,,,11,false,Azure.ResourceManager.AgriculturePlatform,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agricultureplatform,3,false,1,
@@ -237,6 +242,7 @@ Azure VMware Solution,0,Resource Management - Azure VMware Solution,mgmt,.NET,Mi
 Batch,0,Resource Management - Batch,mgmt,.NET,Microsoft.Azure.Management.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,true,Azure.ResourceManager.Batch,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/batch,10,false,1,06/03/2026
 Billing,0,Resource Management - Billing,mgmt,.NET,Microsoft.Azure.Management.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,true,Azure.ResourceManager.Billing,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billing,10,false,1,04/21/2026
 Billing Benefits,0,Resource Management - Billing Benefits,mgmt,.NET,,,11,false,Azure.ResourceManager.BillingBenefits,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billingbenefits,3,false,1,
+Billing.Trust,0,Resource Management - Billing.Trust,mgmt,.NET,,,11,false,Azure.ResourceManager.Billing.Trust,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/billingtrust,3,false,1,
 Blueprint,0,Resource Management - Blueprint,mgmt,.NET,Microsoft.Azure.Management.Blueprint,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/blueprint,3,true,Azure.ResourceManager.Blueprint,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/blueprint,3,false,1,
 Bot Service,0,Resource Management - Bot Service,mgmt,.NET,Microsoft.Azure.Management.BotService,https://github.com/Azure/azure-sdk-for-net/tree/mgmt-legacy/sdk/botservice/Microsoft.Azure.Management.BotService,3,true,Azure.ResourceManager.BotService,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice,10,false,1,03/14/2025
 Carbonoptimization,0,Resource Management - Carbonoptimization,mgmt,.NET,,,11,false,Azure.ResourceManager.CarbonOptimization,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/carbon,10,false,1,04/21/2026
@@ -251,7 +257,7 @@ Compute Schedule,0,Resource Management - Compute Schedule,mgmt,.NET,,,11,false,A
 Compute.Bulkactions,0,Resource Management - Compute.Bulkactions,mgmt,.NET,,,11,false,Azure.ResourceManager.Compute.BulkActions,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/compute,10,false,1,07/07/2026
 Compute.Recommender,0,Resource Management - Compute.Recommender,mgmt,.NET,,,11,false,Azure.ResourceManager.Compute.Recommender,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computerecommender,10,false,1,06/03/2026
 Computebulkactions,0,Resource Management - Computebulkactions,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeBulkActions,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computebulkactions,3,false,1,
-Computelimit,0,Resource Management - Computelimit,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeLimit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computelimit,10,false,1,06/23/2026
+Computelimit,0,Resource Management - Computelimit,mgmt,.NET,,,11,false,Azure.ResourceManager.ComputeLimit,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/computelimit,10,false,1,07/13/2026
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,.NET,,,11,false,Azure.ResourceManager.ConfidentialLedger,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger,10,false,1,04/23/2026
 Confluent,0,Resource Management - Confluent,mgmt,.NET,Microsoft.Azure.Management.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,10,true,Azure.ResourceManager.Confluent,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confluent,10,false,1,03/11/2025
 Connected VMware vSphere,0,Resource Management - Connected VMware vSphere,mgmt,.NET,,,11,false,Azure.ResourceManager.ConnectedVMwarevSphere,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/connectedvmwarevsphere,10,false,1,04/22/2026
@@ -400,7 +406,7 @@ Purview,0,Resource Management - Purview,mgmt,.NET,Microsoft.Azure.Management.Pur
 Quantum,0,Resource Management - Quantum,mgmt,.NET,Microsoft.Azure.Management.Quantum,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Quantum,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/quantum,3,false,1,
 Qumulo,0,Resource Management - Qumulo,mgmt,.NET,,,11,false,Azure.ResourceManager.Qumulo,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/qumulo,10,false,1,06/24/2026
 Quota,0,Resource Management - Quota,mgmt,.NET,Microsoft.Azure.Management.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/NA,3,true,Azure.ResourceManager.Quota,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/quota,10,false,1,06/30/2026
-Recovery Services,0,Resource Management - Recovery Services,mgmt,.NET,Microsoft.Azure.Management.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,3,true,Azure.ResourceManager.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,10,false,1,03/20/2026
+Recovery Services,0,Resource Management - Recovery Services,mgmt,.NET,Microsoft.Azure.Management.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,3,true,Azure.ResourceManager.RecoveryServices,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices,10,false,1,07/10/2026
 Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesBackup,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-backup,10,false,1,03/20/2026
 Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesDataReplication,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-datareplication,10,false,1,04/30/2026
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,.NET,,,11,false,Azure.ResourceManager.RecoveryServicesSiteRecovery,https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/recoveryservices-siterecovery,10,false,1,04/30/2026
@@ -768,7 +774,7 @@ Compute,0,Resource Management - Compute,mgmt,Go,,,11,false,sdk/resourcemanager/c
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,Go,,,11,false,sdk/resourcemanager/computefleet/armcomputefleet,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computefleet/armcomputefleet,10,false,1,10/22/2024
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,Go,,,11,false,sdk/resourcemanager/computeschedule/armcomputeschedule,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computeschedule/armcomputeschedule,10,false,1,07/15/2025
 Computebulkactions,0,Resource Management - Computebulkactions,mgmt,Go,,,11,false,sdk/resourcemanager/computebulkactions/armcomputebulkactions,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computebulkactions/armcomputebulkactions,3,false,1,
-Computelimit,0,Resource Management - Computelimit,mgmt,Go,,,11,false,sdk/resourcemanager/computelimit/armcomputelimit,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computelimit/armcomputelimit,10,false,1,06/19/2026
+Computelimit,0,Resource Management - Computelimit,mgmt,Go,,,11,false,sdk/resourcemanager/computelimit/armcomputelimit,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computelimit/armcomputelimit,10,false,1,07/13/2026
 Computerecommender,0,Resource Management - Computerecommender,mgmt,Go,,,11,false,sdk/resourcemanager/computerecommender/armcomputerecommender,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/computerecommender/armcomputerecommender,3,false,1,
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,Go,,,11,false,sdk/resourcemanager/confidentialledger/armconfidentialledger,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confidentialledger/armconfidentialledger,10,false,1,11/27/2023
 Confluent,0,Resource Management - Confluent,mgmt,Go,,,11,false,sdk/resourcemanager/confluent/armconfluent,https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confluent/armconfluent,10,false,1,03/20/2024
@@ -1034,7 +1040,7 @@ Workloads,0,Resource Management - Workloads SAP Virtual Instance,mgmt,Go,,,11,fa
 Data Explorer,0,Kusto,data,Go,kusto,https://github.com/Azure/azure-kusto-go/,3,false,,,1,false,0,
 Management packages (old),0,Management packages (old),mgmt,Go,management ,https://github.com/Azure/azure-sdk-for-go/tree/v56.0.0/services,10,true,Replaced by: NA,,4,false,1,
 AD Hybrid Health Services,0,Resource Management - AD Hybrid Health Services,mgmt,Go,services/adhybridhealthservice/mgmt/2014-01-01,https://github.com/Azure/azure-sdk-for-go/tree/vitem.Version,10,true,Exception: Library not needed. API Spec retired.,,10,false,1,
-Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,07/09/2026
+Communication,0,Communication Calling,data,iOS,,,11,false,AzureCommunicationCalling,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,07/10/2026
 Communication,0,Communication Chat,data,iOS,,,11,false,AzureCommunicationChat,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,05/02/2025
 Communication,0,Communication Common,data,iOS,,,11,false,AzureCommunicationCommon,https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication,10,false,1,07/07/2026
 Identity,0,JDBC Authentication Plugin for MySQL,UNABLE TO BE DETERMINED,Java,,,11,false,azure-identity-providers-jdbc-mysql,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity-extensions,3,false,1,
@@ -1194,6 +1200,7 @@ Batch,0,Resource Management - Batch,mgmt,Java,azure-mgmt-batch,https://github.co
 Batch AI,0,Resource Management - Batch AI,mgmt,Java,azure-mgmt-batchai,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/NA,10,true,azure-resourcemanager-batchai,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/batchai/item.Package/,3,true,1,
 Billing,0,Resource Management - Billing,mgmt,Java,azure-mgmt-billing,https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/subscription/mgmt-v2019_10_01_preview,3,true,azure-resourcemanager-billing,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/billing/item.Package/,10,false,1,09/06/2024
 Billing Benefits,0,Resource Management - Billing Benefits,mgmt,Java,,,11,false,azure-resourcemanager-billingbenefits,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/billingbenefits/item.Package/,3,false,1,
+Billing-Trust,0,Resource Management - Billing-Trust,mgmt,Java,,,11,false,azure-resourcemanager-billing-trust,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/billingtrust,3,false,1,
 Bot Service,0,Resource Management - Bot Service,mgmt,Java,,,11,false,azure-resourcemanager-botservice,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/botservice/item.Package/,10,false,1,01/02/2025
 Carbonoptimization,0,Resource Management - Carbonoptimization,mgmt,Java,,,11,false,azure-resourcemanager-carbonoptimization,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/carbonoptimization/item.Package/,10,false,1,07/25/2025
 Chaos,0,Resource Management - Chaos,mgmt,Java,,,11,false,azure-resourcemanager-chaos,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/chaos,10,false,1,05/16/2025
@@ -1206,7 +1213,7 @@ Compute Fleet,0,Resource Management - Compute Fleet,mgmt,Java,,,11,false,azure-r
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,Java,,,11,false,azure-resourcemanager-computeschedule,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/computeschedule/item.Package/,10,false,1,06/05/2025
 Compute-Recommender,0,Resource Management - Compute-Recommender,mgmt,Java,,,11,false,azure-resourcemanager-compute-recommender,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/compute/item.Package/,3,false,1,
 Computebulkactions,0,Resource Management - Computebulkactions,mgmt,Java,,,11,false,azure-resourcemanager-computebulkactions,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/computebulkactions,3,false,1,
-Computelimit,0,Resource Management - Computelimit,mgmt,Java,,,11,false,azure-resourcemanager-computelimit,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/computelimit,10,false,1,06/22/2026
+Computelimit,0,Resource Management - Computelimit,mgmt,Java,,,11,false,azure-resourcemanager-computelimit,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/computelimit,10,false,1,07/13/2026
 Computerecommender,0,Resource Management - Computerecommender,mgmt,Java,,,11,false,azure-resourcemanager-computerecommender,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/computerecommender/item.Package/,3,false,1,
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,Java,,,11,false,azure-resourcemanager-confidentialledger,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/confidentialledger/item.Package/,10,false,1,12/26/2024
 Confluent,0,Resource Management - Confluent,mgmt,Java,,,11,false,azure-resourcemanager-confluent,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/confluent,10,false,1,12/19/2024
@@ -1362,7 +1369,7 @@ Purview,0,Resource Management - Purview,mgmt,Java,,,11,false,azure-resourcemanag
 Quantum,0,Resource Management - Quantum,mgmt,Java,,,11,false,azure-resourcemanager-quantum,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/quantum/item.Package/,3,false,1,
 Qumulo,0,Resource Management - Qumulo,mgmt,Java,,,11,false,azure-resourcemanager-qumulo,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/qumulo,10,false,1,06/24/2026
 Quota,0,Resource Management - Quota,mgmt,Java,,,11,false,azure-resourcemanager-quota,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/quota/item.Package/,10,false,1,09/22/2025
-Recovery Services,0,Resource Management - Recovery Services,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservices,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/recoveryservices/item.Package/,10,false,1,06/19/2025
+Recovery Services,0,Resource Management - Recovery Services,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservices,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/recoveryservices,10,false,1,07/10/2026
 Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservicesbackup,https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/recoveryservicesbackup,10,false,1,04/17/2025
 Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservicesdatareplication,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/recoveryservicesdatareplication/item.Package/,10,false,1,07/28/2025
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,Java,,,11,false,azure-resourcemanager-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-java/tree/item.Package_item.Version/sdk/recoveryservicessiterecovery/item.Package/,10,false,1,04/23/2025
@@ -1677,6 +1684,7 @@ BareMetal Infrastructure,0,Resource Management - BareMetal Infrastructure,mgmt,J
 Batch,0,Resource Management - Batch,mgmt,JavaScript,azure-arm-batch,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-batch,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch,10,false,1,03/24/2026
 Billing,0,Resource Management - Billing,mgmt,JavaScript,azure-arm-billing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-billing,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing,10,false,1,09/06/2024
 Billing Benefits,0,Resource Management - Billing Benefits,mgmt,JavaScript,,,11,false,@azure/arm-billingbenefits,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billingbenefits,10,false,1,12/19/2022
+Billing-Trust,0,Resource Management - Billing-Trust,mgmt,JavaScript,,,11,false,@azure/arm-billing-trust,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billingtrust,3,false,1,
 Bot Service,0,Resource Management - Bot Service,mgmt,JavaScript,,,11,false,@azure/arm-botservice,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/botservice/arm-botservice,10,false,1,01/17/2023
 Carbonoptimization,0,Resource Management - Carbonoptimization,mgmt,JavaScript,,,11,false,@azure/arm-carbonoptimization,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/carbonoptimization,10,false,1,07/25/2025
 Certificateregistration,0,Resource Management - Certificateregistration,mgmt,JavaScript,,,11,false,@azure/arm-certificateregistration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/certificateregistration,10,false,1,06/12/2026
@@ -1691,7 +1699,7 @@ Compute,0,Resource Management - Compute,mgmt,JavaScript,azure-arm-compute,https:
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,JavaScript,,,11,false,@azure/arm-computefleet,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/computefleet,10,false,1,10/24/2024
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,JavaScript,,,11,false,@azure/arm-computeschedule,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/computeschedule,10,false,1,07/15/2025
 Computebulkactions,0,Resource Management - Computebulkactions,mgmt,JavaScript,,,11,false,@azure/arm-computebulkactions,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/computebulkactions,3,false,1,
-Computelimit,0,Resource Management - Computelimit,mgmt,JavaScript,,,11,false,@azure/arm-computelimit,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/computelimit,10,false,1,06/19/2026
+Computelimit,0,Resource Management - Computelimit,mgmt,JavaScript,,,11,false,@azure/arm-computelimit,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/computelimit,10,false,1,07/13/2026
 Computerecommender,0,Resource Management - Computerecommender,mgmt,JavaScript,,,11,false,@azure/arm-computerecommender,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute,10,false,1,09/26/2025
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,JavaScript,,,11,false,@azure/arm-confidentialledger,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confidentialledger,10,false,1,02/02/2023
 Confluent,0,Resource Management - Confluent,mgmt,JavaScript,,,11,false,@azure/arm-confluent,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confluent/arm-confluent,10,false,1,03/21/2024
@@ -1784,7 +1792,7 @@ Key Vault,0,Resource Management - Key Vault,mgmt,JavaScript,azure-arm-keyvault,h
 Kubernetes Configuration,0,Resource Management - Kubernetes Configuration,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration/arm-kubernetesconfiguration,10,false,1,09/19/2023
 Kubernetesconfiguration-Extensions,0,Resource Management - Kubernetesconfiguration-Extensions,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration-extensions,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration,10,false,1,04/20/2026
 Kubernetesconfiguration-Extensiontypes,0,Resource Management - Kubernetesconfiguration-Extensiontypes,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration-extensiontypes,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration,3,false,1,
-Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration-fluxconfigurations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration,3,false,1,
+Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration-fluxconfigurations,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration,10,false,1,07/13/2026
 Kubernetesconfiguration-Privatelinkscopes,0,Resource Management - Kubernetesconfiguration-Privatelinkscopes,mgmt,JavaScript,,,11,false,@azure/arm-kubernetesconfiguration-privatelinkscopes,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration,3,false,1,
 Kusto,0,Resource Management - Kusto,mgmt,JavaScript,,,11,false,@azure/arm-kusto,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto,10,false,1,01/26/2025
 Lab Services,0,Resource Management - Lab Services,mgmt,JavaScript,azure-arm-labservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/NA,10,true,@azure/arm-labservices,https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/labservices/arm-labservices,10,false,1,01/29/2023
@@ -2136,13 +2144,14 @@ Advisor,0,Resource Management - Advisor,mgmt,Python,,,11,false,azure-mgmt-adviso
 Agricultureplatform,0,Resource Management - Agricultureplatform,mgmt,Python,,,11,false,azure-mgmt-agricultureplatform,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agricultureplatform,3,false,1,
 Agrifood,0,Resource Management - Agrifood,mgmt,Python,,,11,false,azure-mgmt-agfood,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agfood,3,true,1,
 AKS Developer Hub,0,Resource Management - AKS Developer Hub,mgmt,Python,,,11,false,azure-mgmt-devhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/devhub,3,false,1,
+Alertprocessingrules,0,Resource Management - Alertprocessingrules,mgmt,Python,,,11,false,azure-mgmt-alertprocessingrules,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/alertsmanagement,3,false,1,
 Alerts Management,0,Resource Management - Alerts Management,mgmt,Python,,,11,false,azure-mgmt-alertsmanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/alertsmanagement,10,false,1,05/13/2026
 API Center,0,Resource Management - API Center,mgmt,Python,,,11,false,azure-mgmt-apicenter,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apicenter,10,false,1,02/22/2024
 API Management,0,Resource Management - API Management,mgmt,Python,,,11,false,azure-mgmt-apimanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement,10,false,1,04/22/2025
 App Compliance Automation,0,Resource Management - App Compliance Automation,mgmt,Python,,,11,false,azure-mgmt-appcomplianceautomation,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appcomplianceautomation,10,false,1,06/27/2024
 App Configuration,0,Resource Management - App Configuration,mgmt,Python,,,11,false,azure-mgmt-appconfiguration,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration,10,false,1,06/17/2025
 App Platform,0,Resource Management - App Platform,mgmt,Python,,,11,false,azure-mgmt-appplatform,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appplatform,10,true,1,06/05/2025
-App Service,0,Resource Management - App Service,mgmt,Python,,,11,false,azure-mgmt-web,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appservice,10,false,1,04/30/2026
+App Service,0,Resource Management - App Service,mgmt,Python,,,11,false,azure-mgmt-web,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appservice,10,false,1,07/13/2026
 Application Insights,0,Resource Management - Application Insights,mgmt,Python,,,11,false,azure-mgmt-applicationinsights,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/applicationinsights,10,false,1,03/06/2025
 Arc Data,0,Resource Management - Arc Data,mgmt,Python,,,11,false,azure-mgmt-azurearcdata,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/azurearcdata,10,false,1,05/14/2026
 Arize AI,0,Resource Management - Arize AI Observability Eval,mgmt,Python,,,11,false,azure-mgmt-arizeaiobservabilityeval,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/arizeaiobservabilityeval,10,false,1,07/03/2025
@@ -2175,7 +2184,7 @@ Compute,0,Resource Management - Compute,mgmt,Python,,,11,false,azure-mgmt-comput
 Compute Fleet,0,Resource Management - Compute Fleet,mgmt,Python,,,11,false,azure-mgmt-computefleet,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computefleet,10,false,1,10/22/2024
 Compute Schedule,0,Resource Management - Compute Schedule,mgmt,Python,,,11,false,azure-mgmt-computeschedule,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computeschedule,10,false,1,06/16/2025
 Computebulkactions,0,Resource Management - Computebulkactions,mgmt,Python,,,11,false,azure-mgmt-computebulkactions,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computebulkactions,3,false,1,
-Computelimit,0,Resource Management - Computelimit,mgmt,Python,,,11,false,azure-mgmt-computelimit,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computelimit,10,false,1,06/22/2026
+Computelimit,0,Resource Management - Computelimit,mgmt,Python,,,11,false,azure-mgmt-computelimit,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computelimit,10,false,1,07/10/2026
 Computerecommender,0,Resource Management - Computerecommender,mgmt,Python,,,11,false,azure-mgmt-computerecommender,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/computerecommender,3,false,1,
 Confidential Ledger,0,Resource Management - Confidential Ledger,mgmt,Python,,,11,false,azure-mgmt-confidentialledger,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger,10,false,1,05/07/2026
 Confluent,0,Resource Management - Confluent,mgmt,Python,,,11,false,azure-mgmt-confluent,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confluent,10,false,1,03/18/2024
@@ -2189,13 +2198,13 @@ Container Registry,0,Resource Management - Container Registry,mgmt,Python,,,11,f
 Container Service,0,Resource Management - Container Service,mgmt,Python,,,11,false,azure-mgmt-containerservice,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,06/04/2026
 Container Service Fleet,0,Resource Management - Container Service Fleet,mgmt,Python,,,11,false,azure-mgmt-containerservicefleet,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,10,false,1,05/08/2025
 Containerservicesafeguards,0,Resource Management - Containerservicesafeguards,mgmt,Python,,,11,false,azure-mgmt-containerservicesafeguards,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerservice,3,false,1,
-Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Python,,,11,false,azure-mgmt-cdn,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cdn,10,false,1,06/12/2024
+Content Delivery Network,0,Resource Management - Content Delivery Network,mgmt,Python,,,11,false,azure-mgmt-cdn,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cdn,10,false,1,07/14/2026
 Cosmos DB,0,Resource Management - Cosmos DB,mgmt,Python,,,11,false,azure-mgmt-cosmosdb,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos,10,false,1,07/03/2026
 Cosmos DB for PostgreSQL,0,Resource Management - Cosmos DB for PostgreSQL,mgmt,Python,,,11,false,azure-mgmt-cosmosdbforpostgresql,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmosdbforpostgresql,10,false,1,09/20/2023
 Cost Management,0,Resource Management - Cost Management,mgmt,Python,,,11,false,azure-mgmt-costmanagement,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/costmanagement,10,false,1,07/08/2026
 Custom Providers,0,Resource Management - Custom Providers,mgmt,Python,,,11,false,azure-mgmt-customproviders,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/customproviders,10,false,1,05/15/2026
 Data Box,0,Resource Management - Data Box,mgmt,Python,,,11,false,azure-mgmt-databox,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databox,10,false,1,03/18/2025
-Data Box Edge,0,Resource Management - Data Box Edge,mgmt,Python,,,11,false,azure-mgmt-databoxedge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databoxedge,10,false,1,02/20/2025
+Data Box Edge,0,Resource Management - Data Box Edge,mgmt,Python,,,11,false,azure-mgmt-databoxedge,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/databoxedge,10,false,1,07/14/2026
 Data Factory,0,Resource Management - Data Factory,mgmt,Python,,,11,false,azure-mgmt-datafactory,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/datafactory,10,false,1,07/08/2026
 Storage,0,Resource Management - Data Lake Analytics,mgmt,Python,,,11,false,azure-mgmt-datalake-analytics,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datalake-analytics_0.6.0/azure-mgmt-datalake-analytics/,3,false,1,
 Storage,0,Resource Management - Data Lake Store,mgmt,Python,,,11,false,azure-mgmt-datalake-store,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datalake-store_0.5.0/azure-mgmt-datalake-store/,10,false,1,01/06/2021
@@ -2283,6 +2292,7 @@ Managedops,0,Resource Management - Managedops,mgmt,Python,,,11,false,azure-mgmt-
 Management Groups,0,Resource Management - Management Groups,mgmt,Python,,,11,false,azure-mgmt-managementgroups,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/managementgroups,10,false,1,06/28/2026
 Management Partner,0,Resource Management - Management Partner,mgmt,Python,,,11,false,azure-mgmt-managementpartner,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/managementpartner,10,false,1,05/18/2026
 Maps,0,Resource Management - Maps,mgmt,Python,,,11,false,azure-mgmt-maps,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps,10,false,1,09/12/2023
+Marketplace,0,Resource Management - Marketplace,mgmt,Python,,,11,false,azure-mgmt-marketplace,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/marketplace,3,false,1,
 Marketplace Ordering,0,Resource Management - Marketplace Ordering,mgmt,Python,,,11,false,azure-mgmt-marketplaceordering,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/marketplaceordering,10,false,1,05/18/2026
 Media Services,0,Resource Management - Media Services,mgmt,Python,,,11,false,azure-mgmt-media,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/media,10,true,1,06/03/2025
 Migration,0,Resource Management - Migration Assessment,mgmt,Python,,,11,false,azure-mgmt-migrationassessment,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/migrate,3,false,1,
@@ -2325,6 +2335,7 @@ Powerplatform,0,Resource Management - Powerplatform,mgmt,Python,,,11,false,azure
 Private DNS,0,Resource Management - Private DNS,mgmt,Python,,,11,false,azure-mgmt-privatedns,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/network,10,false,1,09/23/2024
 Programenrollment,0,Resource Management - Programenrollment,mgmt,Python,,,11,false,azure-mgmt-programenrollment,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/programenrollment,3,false,1,
 Prometheusrulegroups,0,Resource Management - Prometheusrulegroups,mgmt,Python,,,11,false,azure-mgmt-prometheusrulegroups,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/alertsmanagement,3,false,1,
+Providerhub,0,Resource Management - Providerhub,mgmt,Python,,,11,false,azure-mgmt-providerhub,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/providerhub,3,false,1,
 Purestorageblock,0,Resource Management - Purestorageblock,mgmt,Python,,,11,false,azure-mgmt-purestorageblock,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purestorageblock,10,false,1,07/03/2025
 Purview,0,Resource Management - Purview,mgmt,Python,,,11,false,azure-mgmt-purview,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview,10,false,1,05/20/2026
 Quantum,0,Resource Management - Quantum,mgmt,Python,,,11,false,azure-mgmt-quantum,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/quantum,3,false,1,
@@ -2335,7 +2346,7 @@ Recovery Services,0,Resource Management - Recovery Services Backup,mgmt,Python,,
 Recovery Services,0,Resource Management - Recovery Services Data Replication,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesdatareplication,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservicesdatareplication,10,false,1,07/28/2025
 Recovery Services,0,Resource Management - Recovery Services Site Recovery,mgmt,Python,,,11,false,azure-mgmt-recoveryservicessiterecovery,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,10,false,1,06/30/2026
 Recoveryservicesbackup-Passivestamp,0,Resource Management - Recoveryservicesbackup-Passivestamp,mgmt,Python,,,11,false,azure-mgmt-recoveryservicesbackup-passivestamp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/recoveryservices,3,false,1,
-Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,02/06/2026
+Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Python,,,11,false,azure-mgmt-redhatopenshift,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redhatopenshift,10,false,1,07/14/2026
 Redis,0,Resource Management - Redis,mgmt,Python,,,11,false,azure-mgmt-redis,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redis,10,false,1,01/20/2025
 Redis,0,Resource Management - Redis Enterprise,mgmt,Python,,,11,false,azure-mgmt-redisenterprise,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/redisenterprise,10,false,1,10/20/2025
 Region Move,0,Resource Management - Region Move,mgmt,Python,,,11,false,azure-mgmt-regionmove,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/regionmove,3,true,1,
@@ -2348,7 +2359,7 @@ Resource Health,0,Resource Management - Resource Health,mgmt,Python,,,11,false,a
 Resource Mover,0,Resource Management - Resource Mover,mgmt,Python,,,11,false,azure-mgmt-resourcemover,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resourcemover,10,false,1,10/23/2023
 Resource-Bicep,0,Resource Management - Resource-Bicep,mgmt,Python,,,11,false,azure-mgmt-resource-bicep,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Changes,0,Resource Management - Resource-Changes,mgmt,Python,,,11,false,azure-mgmt-resource-changes,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
-Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,Python,,,11,false,azure-mgmt-resource-databoundaries,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,Python,,,11,false,azure-mgmt-resource-databoundaries,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,10,false,1,07/14/2026
 Resource-Deployments,0,Resource Management - Resource-Deployments,mgmt,Python,,,11,false,azure-mgmt-resource-deployments,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Deploymentscripts,0,Resource Management - Resource-Deploymentscripts,mgmt,Python,,,11,false,azure-mgmt-resource-deploymentscripts,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,3,false,1,
 Resource-Deploymentstacks,0,Resource Management - Resource-Deploymentstacks,mgmt,Python,,,11,false,azure-mgmt-resource-deploymentstacks,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/resources,10,false,1,02/10/2026
@@ -2367,7 +2378,7 @@ Secretsstoreextension,0,Resource Management - Secretsstoreextension,mgmt,Python,
 Security,0,Resource Management - Security,mgmt,Python,,,11,false,azure-mgmt-security,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/security,10,false,1,05/20/2024
 Security Insights,0,Resource Management - Security Insights,mgmt,Python,,,11,false,azure-mgmt-securityinsight,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/securityinsight,10,false,1,07/26/2022
 Self Help,0,Resource Management - Self Help,mgmt,Python,,,11,false,azure-mgmt-selfhelp,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/selfhelp,10,false,1,06/25/2023
-Serial Console,0,Resource Management - Serial Console,mgmt,Python,,,11,false,azure-mgmt-serialconsole,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/serialconsole,10,false,1,05/13/2026
+Serial Console,0,Resource Management - Serial Console,mgmt,Python,,,11,false,azure-mgmt-serialconsole,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/serialconsole,10,false,1,07/14/2026
 Server Management,0,Resource Management - Server Management,mgmt,Python,,,11,false,azure-mgmt-servermanager,https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servermanager_2.0.0/azure-mgmt-servermanager/,10,true,1,10/31/2024
 Service Bus,0,Resource Management - Service Bus,mgmt,Python,,,11,false,azure-mgmt-servicebus,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus,10,false,1,04/22/2025
 Service Fabric,0,Resource Management - Service Fabric,mgmt,Python,,,11,false,azure-mgmt-servicefabric,https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicefabric,10,false,1,12/18/2023
@@ -2435,8 +2446,8 @@ Key Vault,0,Key Vault - Certificates,data,Rust,,,11,false,azure_security_keyvaul
 Key Vault,0,Key Vault - Keys,data,Rust,,,11,false,azure_security_keyvault_keys,UNABLE TO DETERMINE REPO LINK,10,false,1,05/13/2026
 Key Vault,0,Key Vault - Secrets,data,Rust,,,11,false,azure_security_keyvault_secrets,UNABLE TO DETERMINE REPO LINK,10,false,1,05/13/2026
 Storage,0,Storage - Blobs,data,Rust,,,11,false,azure_storage_blob,UNABLE TO DETERMINE REPO LINK,10,false,1,05/13/2026
-TypeSpec,0,TypeSpec Client Core,data,Rust,,,11,false,typespec_client_core,UNABLE TO DETERMINE REPO LINK,10,false,1,05/12/2026
-TypeSpec,0,TypeSpec Core,data,Rust,,,11,false,typespec,UNABLE TO DETERMINE REPO LINK,10,false,1,05/12/2026
+TypeSpec,0,TypeSpec Client Core,data,Rust,,,11,false,typespec_client_core,UNABLE TO DETERMINE REPO LINK,10,false,1,07/10/2026
+TypeSpec,0,TypeSpec Core,data,Rust,,,11,false,typespec,UNABLE TO DETERMINE REPO LINK,10,false,1,07/10/2026
 TypeSpec,0,TypeSpec Core Macros,data,Rust,,,11,false,typespec_macros,UNABLE TO DETERMINE REPO LINK,10,false,1,05/12/2026
 Cognitive Services,0,AI Agents Persistent,data,JavaScript,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
 Cognitive Services,0,AI Agents Persistent,data,Python,,,11,false,Missing: Created from existing package: Azure.AI.Agents.Persistent,,2,false,0,
@@ -2740,7 +2751,6 @@ Machine Learning,0,Resource Management - Machine Learning,mgmt,Python,,,11,false
 Managed Services,0,Resource Management - Managed Services,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ManagedServices,,2,false,0,
 Managed Services,0,Resource Management - Managed Services,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.ManagedServices,,2,false,0,
 Marketplace,0,Resource Management - Marketplace,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Marketplace,,2,false,0,
-Marketplace,0,Resource Management - Marketplace,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Marketplace,,2,false,0,
 Media,0,Resource Management - Media,mgmt,Java,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Media,,2,false,0,
 Media,0,Resource Management - Media,mgmt,JavaScript,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Media,,2,false,0,
 Media,0,Resource Management - Media,mgmt,Python,,,11,false,Missing: Created from existing package: Azure.ResourceManager.Media,,2,false,0,
@@ -2963,7 +2973,6 @@ AD External Identities,0,Resource Management - AD External Identities,mgmt,Pytho
 AD External Identities,0,Resource Management - AD External Identities,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-azureadexternalidentities,,2,false,0,
 Alertprocessingrules,0,Resource Management - Alertprocessingrules,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-alertprocessingrules,,2,false,0,
 Alertprocessingrules,0,Resource Management - Alertprocessingrules,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-alertprocessingrules,,2,false,0,
-Alertprocessingrules,0,Resource Management - Alertprocessingrules,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-alertprocessingrules,,2,false,0,
 Analysis Services,0,Resource Management - Analysis Services,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-analysisservices,,2,false,0,
 Analysis Services,0,Resource Management - Analysis Services,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-analysisservices,,2,false,0,
 Billing Benefits,0,Resource Management - Billing Benefits,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-billingbenefits,,2,false,0,
@@ -3009,6 +3018,8 @@ Health Data AI Services,0,Resource Management - Health Data AI  Services,mgmt,.N
 Health Data AI Services,0,Resource Management - Health Data AI  Services,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-healthdataaiservices,,2,false,0,
 Health Data AI Services,0,Resource Management - Health Data AI  Services,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-healthdataaiservices,,2,false,0,
 Health Data AI Services,0,Resource Management - Health Data AI  Services,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-healthdataaiservices,,2,false,0,
+Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-kubernetesconfiguration-fluxconfigurations,,2,false,0,
+Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,Go,,,11,false,Missing: Created from existing package: @azure/arm-kubernetesconfiguration-fluxconfigurations,,2,false,0,
 Links,0,Resource Management - Links,mgmt,.NET,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
 Links,0,Resource Management - Links,mgmt,Java,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
 Links,0,Resource Management - Links,mgmt,Python,,,11,false,Missing: Created from existing package: @azure/arm-links,,2,false,0,
@@ -3115,8 +3126,6 @@ Dellstorage,0,Resource Management - Dellstorage,mgmt,Java,,,11,false,Missing: Cr
 Dellstorage,0,Resource Management - Dellstorage,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-dellstorage,,2,false,0,
 Dellstorage,0,Resource Management - Dellstorage,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-dellstorage,,2,false,0,
 Deployment Manager,0,Resource Management - Deployment Manager,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-deploymentmanager,,2,false,0,
-Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-kubernetesconfiguration-fluxconfigurations,,2,false,0,
-Kubernetesconfiguration-Fluxconfigurations,0,Resource Management - Kubernetesconfiguration-Fluxconfigurations,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-kubernetesconfiguration-fluxconfigurations,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Logz,0,Resource Management - Logz,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-logz,,2,false,0,
 Machine Learning,0,Resource Management - Machine Learning Services,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-machinelearningservices,,2,false,0,
@@ -3142,6 +3151,10 @@ Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,.NET,,,11
 Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-redhatopenshift,,2,false,0,
 Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-redhatopenshift,,2,false,0,
 Red Hat OpenShift (ARO),0,Resource Management - Red Hat OpenShift,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-redhatopenshift,,2,false,0,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-resource-databoundaries,,2,false,0,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-resource-databoundaries,,2,false,0,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-resource-databoundaries,,2,false,0,
+Resource-Databoundaries,0,Resource Management - Resource-Databoundaries,mgmt,Go,,,11,false,Missing: Created from existing package: azure-mgmt-resource-databoundaries,,2,false,0,
 Resource-Deploymentstacks,0,Resource Management - Resource-Deploymentstacks,mgmt,.NET,,,11,false,Missing: Created from existing package: azure-mgmt-resource-deploymentstacks,,2,false,0,
 Resource-Deploymentstacks,0,Resource Management - Resource-Deploymentstacks,mgmt,Java,,,11,false,Missing: Created from existing package: azure-mgmt-resource-deploymentstacks,,2,false,0,
 Resource-Deploymentstacks,0,Resource Management - Resource-Deploymentstacks,mgmt,JavaScript,,,11,false,Missing: Created from existing package: azure-mgmt-resource-deploymentstacks,,2,false,0,
@@ -4431,16 +4444,6 @@ Desktop Virtualization,0,suppressions.yaml,data,Java,,,11,false,Missing: Created
 Desktop Virtualization,0,suppressions.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: desktopvirtualization/suppressions.yaml,,2,false,0,
 Desktop Virtualization,0,suppressions.yaml,data,Python,,,11,false,Missing: Created from API in specs repo: desktopvirtualization/suppressions.yaml,,2,false,0,
 Desktop Virtualization,0,suppressions.yaml,data,Go,,,11,false,Missing: Created from API in specs repo: desktopvirtualization/suppressions.yaml,,2,false,0,
-Dev Center,0,DevCenter,data,.NET,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,DevCenter,data,Java,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,DevCenter,data,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,DevCenter,data,Python,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,DevCenter,data,Go,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter,,2,false,0,
-Dev Center,0,Resource Management - DevCenter.Management,mgmt,.NET,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
-Dev Center,0,Resource Management - DevCenter.Management,mgmt,Java,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
-Dev Center,0,Resource Management - DevCenter.Management,mgmt,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
-Dev Center,0,Resource Management - DevCenter.Management,mgmt,Python,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
-Dev Center,0,Resource Management - DevCenter.Management,mgmt,Go,,,11,false,Missing: Created from API in specs repo: devcenter/DevCenter.Management,,2,false,0,
 Dev Center,0,cspell.yaml,data,.NET,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
 Dev Center,0,cspell.yaml,data,Java,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
 Dev Center,0,cspell.yaml,data,JavaScript,,,11,false,Missing: Created from API in specs repo: devcenter/cspell.yaml,,2,false,0,
