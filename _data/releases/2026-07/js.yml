@@ -831,4 +831,12 @@ entries:
     - Changed some enum types to extensible string types (e.g., ApplicationClaimKindOutput, ConfidentialLedgerQueryStateOutput)
     - Client constructor now uses a 2-parameter signature (endpoint, options) with credential passed through options
     - Removed CreateLedgerEntryMediaTypesParam (content type now inferred)
+- Name: '@azure/arm-computelimit'
+  Version: 1.2.1
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.2.1/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
 
