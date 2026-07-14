@@ -9,10 +9,10 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Setup pages
-      uses: actions/configure-pages@v5
+      uses: actions/configure-pages@v6
 
     - name: Build site
       uses: actions/jekyll-build-pages@v1
@@ -20,7 +20,7 @@ jobs:
         destination: "./_site/azure-sdk"
 
     - name: Upload site artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v5
       with:
         path: "./_site/azure-sdk"
 
