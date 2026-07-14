@@ -290,7 +290,7 @@ entries:
     #### Features Added
     - GPT-4 models are now supported via new `GetChatCompletions` and `GetChatCompletionsStreaming` methods on `OpenAIClient`. These use the `/chat/completions` REST endpoint and represent the OpenAI Chat messages format.
     - The `gpt-3.5-model` can also be used with Chat completions; prior models like text-davinci-003 cannot be used with Chat completions and should still use the `GetCompletions` methods.
-    - Support for using OpenAI's endpoint via valid API keys obtained from https://platform.openai.com/api-keys has been added. `OpenAIClient` has new constructors that accept an OpenAI API key instead of an Azure endpoint URI and credential; once configured, Completions, Chat Completions, and Embeddings can be used with identical calling patterns.
+    - Support for using OpenAI's endpoint via valid API keys obtained from `platform.openai.com` has been added. `OpenAIClient` has new constructors that accept an OpenAI API key instead of an Azure endpoint URI and credential; once configured, Completions, Chat Completions, and Embeddings can be used with identical calling patterns.
 - Name: Azure.ResourceManager.Media
   Version: 1.2.0
   DisplayName: Resource Management - Media
