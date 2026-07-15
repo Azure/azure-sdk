@@ -175,4 +175,15 @@ entries:
     - Added support for `list_blobs_hierarchical` to `BlobContainerClient`.
     - Added support for `list_page_ranges` to `PageBlobClient`.
     - Added support for `download_into` to `BlobClient` which enables downloads to write blob contents directly into a caller-provided buffer.
+- Name: azure_storage_sas
+  Version: 0.1.0
+  DisplayName: Azure Storage SAS
+  ServiceName: Storage SAS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_sas@0.1.0/sdk/storage/azure_storage_sas/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
 
