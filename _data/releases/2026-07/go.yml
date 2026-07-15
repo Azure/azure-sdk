@@ -504,4 +504,12 @@ entries:
     * `Diagnostics.StartTimeUTC()` now returns a `time.Time` (zero value when no diagnostics are present) instead of a `*time.Time`. This API was previously only present in a beta release. See [PR 27166](https://github.com/Azure/azure-sdk-for-go/pull/27166).
     * Removed the `NewFeedRange` constructor. Construct a `FeedRange` directly using a struct initializer instead. This API was previously only present in a beta release. See [PR 27166](https://github.com/Azure/azure-sdk-for-go/pull/27166).
     * Removed the `PriorityLevel.ToPtr` method. Use [`to.Ptr`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/to#Ptr) from `azcore` instead. This API was previously only present in a beta release. See [PR 27166](https://github.com/Azure/azure-sdk-for-go/pull/27166).
+- Name: sdk/resourcemanager/recoveryservices/armrecoveryservices
+  Version: 3.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/recoveryservices/armrecoveryservices/v3.1.0/sdk/resourcemanager/recoveryservices/armrecoveryservices/CHANGELOG.md
+  ChangelogContent: ""
 
