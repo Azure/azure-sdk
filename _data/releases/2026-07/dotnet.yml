@@ -1007,4 +1007,17 @@ entries:
     #### Bugs Fixed
 
     - Hardened receipt verification to reject empty inclusion-proof collections.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.11.0-beta.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.11.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added the `SecureWrapKey` and `SecureUnwrapKey` methods (and their async counterparts) to `CryptographyClient` for secure wrap/unwrap operations on Managed HSM keys ([#60933](https://github.com/Azure/azure-sdk-for-net/pull/60933)).
+    - Added the `SecureKeyWrapAlgorithm` type, listing the algorithms supported by the secure wrap/unwrap operations.
+    - Added the `SecureWrapResult` and `SecureUnwrapResult` model classes wrapping the results of `SecureWrapKey` and `SecureUnwrapKey`, respectively.
+    - Added the `SecureWrapKey` and `SecureUnwrapKey` values to `KeyOperation`.
 
