@@ -1764,4 +1764,17 @@ entries:
 
     - Fixed `datastore create` failing with `TypeError: Object of type Datastore is not JSON serializable`. The datastore operation was migrated to the TypeSpec client while the datastore entity still produced a legacy msrest model; the request body is now serialized to its wire form before being sent, keeping the on-the-wire request unchanged.
     - Fixed `BatchEndpoint` defaults serialization regression where `deployment_name` was sent to the service as snake_case instead of camelCase (`deploymentName`), causing `begin_create_or_update` to fail with "Could not find member 'deployment_name' on object of type 'BatchEndpointDefaults'". Serialization now emits the correct camelCase wire format, while `BatchEndpoint.defaults` returned from `get()` continues to expose an object that supports attribute access (e.g. `endpoint.defaults.deployment_name`), preserving backward compatibility with existing code and samples.
+- Name: azure-cosmos
+  Version: 4.16.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.16.2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed `KeyError: 'version'` in `SessionContainer.get_session_token` (sync and async) when the container's `partitionKey` definition returned by the service does not include the optional `version` field. The error was silently swallowed by a broad `except`, causing the client to send no `x-ms-session-token` header on subsequent reads. Against the Dedicated Gateway, this turned every Session-consistency read into an Integrated Cache miss. `partitionKey.version` is now treated as optional and defaults to `1`, matching how `PartitionKey` handles a missing version. See [PR 47143](https://github.com/Azure/azure-sdk-for-python/pull/47143)
+
+    #### Features Added
+    * Added `GlobalSecondaryIndexDefinition` class and `global_secondary_index` keyword to `create_container`, `create_container_if_not_exists`, and `replace_container` methods for creating Global Secondary Index (GSI) containers. See [PR 47468](https://github.com/Azure/azure-sdk-for-python/pull/47468).
 
