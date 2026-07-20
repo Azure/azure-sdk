@@ -297,7 +297,7 @@ for pager.More() {
 	page, err := pager.NextPage(context.Background())
 	if err != nil {
 		// process error and exit the loop
-		break;
+		break
 	}
 	// no error, enumerate widgets
 	for _, w := range page.Value {
@@ -442,6 +442,7 @@ if azErr := (&azcore.ResponseError{}); errors.As(err, &azErr) {
 } else if err != nil {
 	// some other error was returned
 }
+// if there was no error then process resp
 ```
 
 {% include requirement/MUST id="golang-errors-on-request-failed" %} return the service/operation specific error type when an HTTP request fails with an unsuccessful HTTP status code as defined by the service.  For operations that do not define an error type, return the HTTP response body in string format if available, else return the `Status` string on the HTTP response.
