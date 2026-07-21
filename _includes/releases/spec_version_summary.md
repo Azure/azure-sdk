@@ -11,7 +11,7 @@
   {% for spec in sortedVersions %}
     {% assign specParts = spec.SpecPath | split: '/' %}
     {% assign specReadmePath = specParts[0] | append: '/' | append: specParts[1] | append: '/readme.md' %}
-    <li><a href="https://github.com/Azure/azure-rest-api-specs/blob/main/specification/{{ specReadmePath }}">{{ spec.SpecPath }}{% if spec.SpecReadmeTag <> '' %}/README.md-[{{ spec.SpecReadmeTag }}]{%endif%}</a> {% if spec.DateCreated <> '' %}<small> - <i>Created on {{ spec.DateCreated }}</i></small>{% endif %}
+    <li><a href="https://github.com/Azure/azure-rest-api-specs/blob/main/specification/{{ specReadmePath }}">{{ spec.SpecPath }}{% if spec.SpecReadmeTag <> '' %}/readme.md-[{{ spec.SpecReadmeTag }}]{%endif%}</a> {% if spec.DateCreated <> '' %}<small> - <i>Created on {{ spec.DateCreated }}</i></small>{% endif %}
     </li>
   {% endfor %}
   </ul>
