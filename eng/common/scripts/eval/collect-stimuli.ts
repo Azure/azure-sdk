@@ -6,12 +6,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { globFiles } from "./lib/glob.js";
+import { globFiles } from "./lib/glob.ts";
 
 // Fallback patterns when run with no --pattern. Mirrors archetype-eval.yml's evalGlobs default.
 const DEFAULT_PATTERNS = [
-  "evals/tools/*.eval.yaml",
-  "evals/workflow-scenarios/mock/*.eval.yaml",
+  "tools/*.eval.yaml",
+  "workflows/mock/*.eval.yaml",
 ];
 
 const SANITIZE = /[^A-Za-z0-9]/g;
