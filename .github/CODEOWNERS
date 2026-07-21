@@ -2,11 +2,10 @@
 ##### TEAM:
 #####
 #####   Architecture:
-#####       Brian Terlson               @bterlson           TypeScript / JavaScript
-#####       Jeffrey Richter             @JeffreyRichter     At large
+#####       Maor Leger                  @maorleger          TypeScript / JavaScript
 #####       Jonathan Giles              @JonathanGiles      Java
-#####       Krzysztof Cwalina           @KrzysztofCwalina   .NET
-#####       Johan Stenberg              @johanste           Python
+#####       Michael Nash                @m-nash             .NET
+#####       Kashif Khan                 @kashifkhan         Python
 #####       Joel Hendrix                @jhendrixMSFT       Go
 #####       Larry Osterman              @LarryOsterman      C / C++
 #####       Heath Stewart               @HeathS             Rust
@@ -16,26 +15,12 @@
 #####       Ben Broderick Phillips      @benbp              Eng. Sys. Engineer
 #####
 #####   Team Management:
-#####       Peter Marcu                 @petermarcu         Dev Management
 #####       Mayuri Diwan                @mayurid            Dev Management
-#####       Samer Alameer               @salameer           Dev Management
 #####       Lori Fraleigh               @lorifraleigh       PM Management
-#####       Scott Kurtzeborn            @Kurtzeborn         Eng. Sys. Dev Lead
-#####       Rick Winter                 @RickWinter         Dev Lead - C++, Go, and Rust
-#####       Josh Free                   @joshfree           Dev Lead - Java
-#####       Jeff Fisher                 @xirzec             Dev Lead - JavaScript
-#####       Jesse Squire                @jsquire            Dev Lead - .NET
-#####       Laurent Mazuel              @lmazuel            Dev Lead - Python
+#####       Jeff Fisher                 @xirzec             Dev Lead - C++, Go, JavaScript, Rust, and Python
+#####       Jesse Squire                @jsquire            Dev Lead - .NET and Java
+#####       Laurent Mazuel              @lmazuel            Dev Lead - Developer Platforms / Eng. Sys.
 #####
-#####   External language experts:
-#####       Asir Vedamuthu Selvasingh   @Selvasingh         Java
-#####       Brian Holt                  @btholt             JavaScript
-#####       Bruno Borges                @brunoborges        Java
-#####       Bryan Van de Ven            @bryevdv            Python
-#####       Chris Dias                  @chrisdias          JavaScript
-#####       David Fowler                @davidfowl          .NET
-#####       Matt Hernandez              @fiveisprime        JavaScript
-#####       Steve Dower                 @zooba              Python
 #####
 #####
 ##### REVIEW REQUIREMENTS:
@@ -47,21 +32,24 @@
 ##### * Engineering Systems PRs must be approved by two engineering systems team members.
 #####
 
+# Fallback
+/** @mayurid @xirzec @jsquire @lmazuel
+
 # Engineering systems documents
-/docs/android/                   @JonathanGiles @salameer
-/docs/clang/                     @JeffreyRichter @LarryOsterman @RickWinter
-/docs/cpp/                       @LarryOsterman @RickWinter
-/docs/dotnet/                    @KrzysztofCwalina @jsquire @christothes @salameer
-/docs/general/                   @salameer
-/docs/golang/                    @jhendrixMSFT @RickWinter
-/docs/ios/                       @salameer
-/docs/java/                      @JonathanGiles @salameer @srnagar
+/docs/android/                   @JonathanGiles @jsquire
+/docs/clang/                     @LarryOsterman @xirzec
+/docs/cpp/                       @LarryOsterman @xirzec
+/docs/dotnet/                    @jsquire @m-nash
+/docs/general/                   @xirzec
+/docs/golang/                    @jhendrixMSFT @xirzec
+/docs/ios/                       @jsquire
+/docs/java/                      @JonathanGiles @jsquire @srnagar
 /docs/policies/                  @mikeharder @benbp
-/docs/python/                    @johanste @salameer @annatisch
+/docs/python/                    @kashifkhan @xirzec
 /docs/redirects/                 @lfraleigh
-/docs/rust/                      @HeathS @LarryOsterman @RickWinter
-/docs/tables/                    @bterlson @KrzysztofCwalina @JeffreyRichter @johanste @JonathanGiles
-/docs/typescript/                @bterlson @salameer @xirzec
+/docs/rust/                      @HeathS @LarryOsterman @xirzec
+/docs/tables/                    @JonathanGiles
+/docs/typescript/                @maorleger @xirzec
 /eng/                            @mikeharder @benbp
 /eng/common/                     @Azure/azure-sdk-eng
 /eng/scripts/inventory-dashboard @mikeharder @benbp
@@ -70,32 +58,32 @@
 /**/android.md                   @vcolin7 @anuchandy
 /**/android.yml                  @vcolin7 @anuchandy
 /**/android-packages.csv         @benbp @vcolin7 @anuchandy
-/**/c.md                         @RickWinter
-/**/c-packages.csv               @benbp @RickWinter
-/**/cpp.md                       @antkmsft
-/**/cpp.yml                      @antkmsft
+/**/c.md                         @xirzec
+/**/c-packages.csv               @benbp @xirzec
+/**/cpp.md                       @antkmsft @xirzec
+/**/cpp.yml                      @antkmsft @xirzec
 /**/cpp-packages.csv             @benbp @antkmsft
-/**/dotnet.md                    @JonathanCrd
-/**/dotnet.yml                   @JonathanCrd
-/**/dotnet-packages.csv          @benbp @JonathanCrd
+/**/dotnet.md                    @JonathanCrd @jsquire @m-nash 
+/**/dotnet.yml                   @JonathanCrd @jsquire @m-nash
+/**/dotnet-packages.csv          @benbp @JonathanCrd @jsquire @m-nash 
 /**/ios.md                       @vcolin7 @tjprescott
 /**/ios.yml                      @vcolin7 @tjprescott
 /**/ios-packages.csv             @benbp @vcolin7 @tjprescott
-/**/java.md                      @jairmyree
-/**/java.yml                     @jairmyree
-/**/java-packages.csv            @benbp @jairmyree
-/**/js.md                        @timovv
-/**/js.yml                       @timovv
-/**/js-packages.csv              @benbp @timovv
-/**/python.md                    @kashifkhan
-/**/python.yml                   @kashifkhan
-/**/python-packages.csv          @benbp @kashifkhan
-/**/go.md                        @benbp
-/**/go.yml                       @benbp
-/**/go-packages.csv              @benbp
-/**/rust.md                      @heaths
-/**/rust.yml                     @heaths
-/**/rust-packages.csv            @benbp @heaths
+/**/java.md                      @jairmyree @jsquire @JonathanGiles
+/**/java.yml                     @jairmyree @jsquire @JonathanGiles
+/**/java-packages.csv            @benbp @jairmyree @jsquire @JonathanGiles
+/**/js.md                        @xirzec @maorleger
+/**/js.yml                       @xirzec @maorleger
+/**/js-packages.csv              @benbp @xirzec @maorleger
+/**/python.md                    @kashifkhan @xirzec
+/**/python.yml                   @kashifkhan @xirzec
+/**/python-packages.csv          @benbp @kashifkhan @xirzec
+/**/go.md                        @benbp @xirzec @jhendrixMSFT
+/**/go.yml                       @benbp @xirzec @jhendrixMSFT
+/**/go-packages.csv              @benbp @xirzec @jhendrixMSFT
+/**/rust.md                      @heaths @xirzec
+/**/rust.yml                     @heaths @xirzec
+/**/rust-packages.csv            @benbp @heaths @xirzec
 
 ################################################################################
 # Event yml files and CODEOWNERS should be near the bottom of CODEOWNERS files #
