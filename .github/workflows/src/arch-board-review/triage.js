@@ -18,6 +18,7 @@ import {
   LANGUAGE_DEFINITIONS,
 } from "./issue-parsing.js";
 import { validateUrl as defaultValidateUrl } from "./url-validation.js";
+import defaultAssignReviewers from "./assign-reviewers.js";
 import { commentOrUpdate } from "../comment.js";
 import { addLabels, ensureLabel, ensureLabelRemoved, removeLabel } from "../labels.js";
 
@@ -156,10 +157,21 @@ async function analyzeTriage(issueBody, currentLabels, { validateUrl = defaultVa
   };
 }
 
-function buildSuccessComment({ selectedLanguages, validated, warnings }) {
+function buildSuccessComment({ selectedLanguages, validated, warnings, assignments, unassigned }) {
   let body = `✅ **All materials verified for ${selectedLanguages.map((language) => language.label).join(", ")}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
   if (warnings.length > 0) {
     body += `**Note:** ${warnings.join(", ")}\n\n`;
+  }
+
+  if (assignments && assignments.length > 0) {
+    const assignedLine = assignments
+      .map((entry) => `${entry.language} → @${entry.reviewer}`)
+      .join(" · ");
+    body += `**Assigned for review:** ${assignedLine}\n\nAssigned architects are notified via GitHub. Apply your \`<language>-api-approved\` label when the review is complete.\n\n`;
+  }
+
+  if (unassigned && unassigned.length > 0) {
+    body += `⚠️ **No architect is configured for: ${unassigned.join(", ")}.** These languages need manual assignment - please assign a reviewer.\n\n`;
   }
 
   body += "<details><summary>Validation details</summary>\n\n";
@@ -202,7 +214,13 @@ function buildFailureComment({ missing, validated }) {
 
 export { COMMENT_IDENTIFIER, analyzeTriage, buildFailureComment, buildSuccessComment };
 
-export default async function triage({ github, context, core, validateUrl = defaultValidateUrl }) {
+export default async function triage({
+  github,
+  context,
+  core,
+  validateUrl = defaultValidateUrl,
+  assignReviewers = defaultAssignReviewers,
+}) {
   const issue = context.payload.issue;
   const issueBody = issue.body ?? "";
   const issueNumber = issue.number;
@@ -234,10 +252,18 @@ export default async function triage({ github, context, core, validateUrl = defa
     await ensureLabel(github, owner, repo, issueNumber, "ready-for-review", currentLabels);
     await ensureLabelRemoved(github, owner, repo, issueNumber, "needs-info", currentLabels);
 
-    await postComment(buildSuccessComment(result));
+    const assignment = await assignReviewers({ github, context, core });
+
+    await postComment(
+      buildSuccessComment({
+        ...result,
+        assignments: assignment?.byLanguage ?? [],
+        unassigned: assignment?.unassigned ?? [],
+      }),
+    );
 
     core?.info?.("Review request is ready for review.");
-    return { ...result, status: "ready-for-review" };
+    return { ...result, status: "ready-for-review", assignment };
   }
 
   await ensureLabel(github, owner, repo, issueNumber, "needs-info", currentLabels);

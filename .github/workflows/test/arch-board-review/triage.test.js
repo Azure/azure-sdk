@@ -36,6 +36,7 @@ function createGithubMock() {
     paginate: vi.fn().mockResolvedValue([]),
     rest: {
       issues: {
+        addAssignees: vi.fn().mockResolvedValue({}),
         addLabels: vi.fn().mockResolvedValue({}),
         createComment: vi.fn().mockResolvedValue({ data: { id: 1 } }),
         listComments: {},
@@ -116,6 +117,14 @@ describe("triage", () => {
     expect(github.rest.issues.createComment).toHaveBeenCalledWith(
       expect.objectContaining({
         body: expect.stringContaining("All materials verified"),
+      }),
+    );
+    expect(github.rest.issues.addAssignees).toHaveBeenCalledWith(
+      expect.objectContaining({ assignees: ["JonathanGiles"] }),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("Assigned for review:"),
       }),
     );
   });
