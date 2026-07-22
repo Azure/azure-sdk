@@ -129,4 +129,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.4.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.18.2
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.2/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for admin-connected (BYO) judge models in prompty-based evaluators. Models configured
+    with `byo_model` and `project_endpoint` are routed through the Foundry project Responses API, which
+    resolves the connection and its authentication.
+
+    #### Bugs Fixed
+
+    - Updated `TaskNavigationEfficiencyEvaluator` validation errors to name both accepted input aliases:
+    `response` / `actions` and `ground_truth` / `expected_actions`.
 
