@@ -20,6 +20,7 @@ function createGithubMock() {
     rest: {
       issues: {
         addAssignees: vi.fn().mockResolvedValue({}),
+        removeAssignees: vi.fn().mockResolvedValue({}),
       },
     },
   };
@@ -148,5 +149,40 @@ describe("assignReviewers", () => {
     expect(result.unassigned).toEqual(["C++"]);
     expect(result.skipped).toBe(true);
     expect(github.rest.issues.addAssignees).not.toHaveBeenCalled();
+  });
+
+  it("removes a stale automation-assigned architect when the language selection changes", async () => {
+    // Previously assigned java-user-1 (roster member); issue was edited to Python only.
+    const github = createGithubMock();
+    const context = createContext({
+      issueBody: "- [x] Python",
+      assignees: ["java-user-1"],
+    });
+
+    const result = await assignReviewers({ github, context, core, approversConfig });
+
+    expect(result.assigned).toEqual(["python-user-1"]);
+    expect(result.removed).toEqual(["java-user-1"]);
+    expect(github.rest.issues.addAssignees).toHaveBeenCalledWith(
+      expect.objectContaining({ assignees: ["python-user-1"] }),
+    );
+    expect(github.rest.issues.removeAssignees).toHaveBeenCalledWith(
+      expect.objectContaining({ assignees: ["java-user-1"] }),
+    );
+  });
+
+  it("preserves manual (non-roster) assignees during reconciliation", async () => {
+    const github = createGithubMock();
+    const context = createContext({
+      issueBody: "- [x] Python",
+      assignees: ["some-manual-user", "java-user-1"],
+    });
+
+    const result = await assignReviewers({ github, context, core, approversConfig });
+
+    expect(result.removed).toEqual(["java-user-1"]);
+    expect(github.rest.issues.removeAssignees).toHaveBeenCalledWith(
+      expect.objectContaining({ assignees: ["java-user-1"] }),
+    );
   });
 });

@@ -15,11 +15,17 @@
  * surfaced in triage's "materials verified" comment for visibility. Idempotent:
  * only newly resolved assignees are added, so edits to an already-assigned issue
  * do not re-assign or re-notify.
+ *
+ * Edits are reconciled: if a language selection changes (e.g. Java swapped for
+ * Python), architects the automation previously assigned but that no longer apply
+ * are removed. Only roster members are removed, so assignees added manually (or by
+ * anyone outside the roster) are always preserved.
  */
 import { readFile } from "node:fs/promises";
 
 import { getSelectedLanguages } from "./issue-parsing.js";
 import {
+  getAllApprovers,
   getApproversForLanguage,
   getManagementApprovers,
   isManagementPlaneIssue,
@@ -84,11 +90,12 @@ function resolveAssignments({ issueBody, issueNumber, approversConfig }) {
 export { pickReviewer, resolveAssignments };
 
 /**
- * Resolve reviewers for the issue and assign any that are not already assigned.
+ * Resolve reviewers for the issue, assign any that are not already assigned, and
+ * remove stale automation-assigned architects that no longer apply after an edit.
  * Does not post a comment - the resolved handles are surfaced by the caller's
  * validation comment. Returns the per-language mapping for that rendering.
  *
- * @returns {Promise<{ byLanguage: { language: string, reviewer: string }[], assigned: string[], unassigned: string[], skipped: boolean }>}
+ * @returns {Promise<{ byLanguage: { language: string, reviewer: string }[], assigned: string[], removed: string[], unassigned: string[], skipped: boolean }>}
  */
 export default async function assignReviewers({
   github,
@@ -117,21 +124,51 @@ export default async function assignReviewers({
     core?.warning?.(`No architect configured for: ${unassigned.join(", ")}`);
   }
 
+  const resolvedLower = new Set(assignees.map((login) => login.toLowerCase()));
   const currentLower = new Set(currentAssignees.map((login) => login.toLowerCase()));
+  const rosterManaged = new Set(
+    getAllApprovers(resolvedConfig).map((login) => login.toLowerCase()),
+  );
+
   const newAssignees = assignees.filter((login) => !currentLower.has(login.toLowerCase()));
 
-  if (newAssignees.length === 0) {
-    core?.info?.("Reviewers already assigned; skipping assignment.");
-    return { byLanguage, assigned: [], unassigned, skipped: true };
+  // Reconcile edits: remove architects the automation manages (roster members)
+  // that are no longer resolved for the current languages. Manual assignees that
+  // are not in the roster are left untouched.
+  const staleAssignees = currentAssignees.filter(
+    (login) => rosterManaged.has(login.toLowerCase()) && !resolvedLower.has(login.toLowerCase()),
+  );
+
+  if (newAssignees.length > 0) {
+    await github.rest.issues.addAssignees({
+      owner,
+      repo,
+      issue_number: issueNumber,
+      assignees: newAssignees,
+    });
+    core?.info?.(`Assigned reviewers: ${newAssignees.join(", ")}`);
   }
 
-  await github.rest.issues.addAssignees({
-    owner,
-    repo,
-    issue_number: issueNumber,
-    assignees: newAssignees,
-  });
+  if (staleAssignees.length > 0) {
+    await github.rest.issues.removeAssignees({
+      owner,
+      repo,
+      issue_number: issueNumber,
+      assignees: staleAssignees,
+    });
+    core?.info?.(`Removed stale reviewers: ${staleAssignees.join(", ")}`);
+  }
 
-  core?.info?.(`Assigned reviewers: ${newAssignees.join(", ")}`);
-  return { byLanguage, assigned: newAssignees, unassigned, skipped: false };
+  if (newAssignees.length === 0 && staleAssignees.length === 0) {
+    core?.info?.("Reviewers already up to date; no assignment changes.");
+    return { byLanguage, assigned: [], removed: [], unassigned, skipped: true };
+  }
+
+  return {
+    byLanguage,
+    assigned: newAssignees,
+    removed: staleAssignees,
+    unassigned,
+    skipped: false,
+  };
 }

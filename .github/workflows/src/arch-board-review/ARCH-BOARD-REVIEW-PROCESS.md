@@ -93,7 +93,10 @@ For **management plane** issues, the management-plane approvers are included in
 the candidate pool alongside the language-specific architects.
 
 Assignment is idempotent: an architect already assigned is not re-assigned, so
-subsequent edits to a ready issue do not re-notify.
+subsequent edits to a ready issue do not re-notify. If an edit changes the
+selected languages, architects the automation previously assigned but that no
+longer apply are removed; assignees added manually (anyone outside the roster)
+are always preserved.
 
 ## Approver Configuration
 

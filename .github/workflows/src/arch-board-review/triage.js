@@ -165,7 +165,7 @@ function buildSuccessComment({ selectedLanguages, validated, warnings, assignmen
 
   if (assignments && assignments.length > 0) {
     const assignedLine = assignments
-      .map((entry) => `${entry.language} → @${entry.reviewer}`)
+      .map((entry) => `${entry.language} → \`${entry.reviewer}\``)
       .join(" · ");
     body += `**Assigned for review:** ${assignedLine}\n\nAssigned architects are notified via GitHub. Apply your \`<language>-api-approved\` label when the review is complete.\n\n`;
   }

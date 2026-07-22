@@ -29,6 +29,25 @@ function getManagementApprovers(approversConfig) {
   return approversConfig["management-plane"]?.all ?? [];
 }
 
+/**
+ * Every login that appears anywhere in the roster (all data-plane languages plus
+ * management-plane). Used to distinguish automation-managed assignees from manual
+ * ones during reviewer reconciliation.
+ */
+function getAllApprovers(approversConfig) {
+  const all = new Set();
+  const dataPlane = approversConfig["data-plane"] ?? {};
+  for (const approvers of Object.values(dataPlane)) {
+    for (const login of approvers ?? []) {
+      all.add(login);
+    }
+  }
+  for (const login of getManagementApprovers(approversConfig)) {
+    all.add(login);
+  }
+  return [...all];
+}
+
 function isManagementPlaneIssue(issueBody) {
   return /management\s*plane/i.test(issueBody);
 }
@@ -64,6 +83,7 @@ export {
   APPROVAL_LABEL_PATTERN,
   buildApprovalCompleteComment,
   buildUnauthorizedComment,
+  getAllApprovers,
   getAllowedApprovers,
   getApproversForLanguage,
   getManagementApprovers,
