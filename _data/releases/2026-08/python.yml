@@ -79,4 +79,54 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computelimit_1.3.0/sdk/computelimit/azure-mgmt-computelimit/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.0.0b8
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.0.0b8/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `azure.ai.agentserver.core.storage`, the protocol-neutral Foundry durable state-store layer. `FoundryStateStore.get_or_create(name, ...)` is the primary entry point -- an async classmethod that resolves (or creates, on first use) the store in one call. Store-level operations act on the bound store: `get()` (its descriptor), `update(...)` (its mutable `description` / `tags`), and `delete()` (the whole store, cascade-deleting every item). Item operations are explicit and consistently named: `create_item`, `set_item`, `get_item`, `delete_item`, `list_keys`. Store names are path-encoded with base64url on the wire, store-level `item_ttl_seconds` is configured once at create, optional `user_isolation` is declared at store create, and trusted callers may delegate end-user partitioning with `user_id` (`x-ms-user-id`). Response bodies (`StateStore`, `StateStoreItem`, `StateStoreItemRef`, `DeletedStateStore`, `DeletedStateStoreItem`, `StateStoreItemKey`) are typed model classes generated from a formal TypeSpec contract, not hand-written dataclasses. See the [Durable State Store Guide](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/agentserver/azure-ai-agentserver-core/docs/state-store-guide.md).
+
+    #### Bugs Fixed
+
+    - Fixed span attribute enrichment under `opentelemetry-sdk` >= 1.43.0, where `span._attributes` became a `BoundedAttributes` (backed by `._dict`) that no longer supports item assignment. Enrichment now resolves the backing store so agent identity attributes are written on both older and newer OpenTelemetry SDKs.
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.0.0b4
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.0.0b4/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 1.0.0b9
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_1.0.0b9/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Raised the `azure-ai-agentserver-core` dependency floor to `>=2.0.0b8`.
+- Name: azure-mgmt-compute-bulkaction
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute-bulkaction_1.0.0b1/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.4.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.4.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
