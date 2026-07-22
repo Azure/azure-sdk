@@ -21,6 +21,7 @@ function createGithubMock() {
       issues: {
         addAssignees: vi.fn().mockResolvedValue({}),
         removeAssignees: vi.fn().mockResolvedValue({}),
+        createComment: vi.fn().mockResolvedValue({}),
       },
     },
   };
@@ -124,7 +125,7 @@ describe("assignReviewers", () => {
 
     await assignReviewers({ github, context, core, approversConfig });
 
-    expect(github.rest.issues.createComment).toBeUndefined();
+    expect(github.rest.issues.createComment).not.toHaveBeenCalled();
   });
 
   it("is idempotent when the reviewer is already assigned (case-insensitive)", async () => {
@@ -137,6 +138,7 @@ describe("assignReviewers", () => {
     const result = await assignReviewers({ github, context, core, approversConfig });
 
     expect(result.skipped).toBe(true);
+    expect(result.reason).toBe("already-assigned");
     expect(github.rest.issues.addAssignees).not.toHaveBeenCalled();
   });
 
@@ -148,6 +150,7 @@ describe("assignReviewers", () => {
 
     expect(result.unassigned).toEqual(["C++"]);
     expect(result.skipped).toBe(true);
+    expect(result.reason).toBe("no-reviewers-resolved");
     expect(github.rest.issues.addAssignees).not.toHaveBeenCalled();
   });
 

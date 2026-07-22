@@ -252,7 +252,12 @@ export default async function triage({
     await ensureLabel(github, owner, repo, issueNumber, "ready-for-review", currentLabels);
     await ensureLabelRemoved(github, owner, repo, issueNumber, "needs-info", currentLabels);
 
-    const assignment = await assignReviewers({ github, context, core });
+    let assignment = null;
+    try {
+      assignment = await assignReviewers({ github, context, core });
+    } catch (error) {
+      core?.warning?.(`Reviewer assignment failed: ${error.message}`);
+    }
 
     await postComment(
       buildSuccessComment({

@@ -129,6 +129,29 @@ describe("triage", () => {
     );
   });
 
+  it("still posts the success comment when reviewer assignment fails", async () => {
+    const github = createGithubMock();
+    const context = createContext({
+      issueBody: createIssueBody(),
+      labels: ["board-review", "needs-info"],
+    });
+    const validateUrl = vi.fn().mockResolvedValue({ valid: true, reason: null });
+    const assignReviewers = vi.fn().mockRejectedValue(new Error("addAssignees failed"));
+    const core = { info: vi.fn(), warning: vi.fn() };
+
+    const result = await triage({ github, context, core, validateUrl, assignReviewers });
+
+    expect(result.status).toBe("ready-for-review");
+    expect(core.warning).toHaveBeenCalledWith(
+      expect.stringContaining("Reviewer assignment failed"),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("All materials verified"),
+      }),
+    );
+  });
+
   it("syncs language labels when the selection changes", async () => {
     const analysis = await analyzeTriage(createIssueBody(), ["board-review", "Java", "Python"], {
       validateUrl: vi.fn().mockResolvedValue({ valid: true, reason: null }),

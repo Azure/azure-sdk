@@ -95,7 +95,10 @@ export { pickReviewer, resolveAssignments };
  * Does not post a comment - the resolved handles are surfaced by the caller's
  * validation comment. Returns the per-language mapping for that rendering.
  *
- * @returns {Promise<{ byLanguage: { language: string, reviewer: string }[], assigned: string[], removed: string[], unassigned: string[], skipped: boolean }>}
+ * @returns {Promise<{ byLanguage: { language: string, reviewer: string }[], assigned: string[], removed: string[], unassigned: string[], skipped: boolean, reason: string | null }>}
+ *   When `skipped` is true, `reason` is `"already-assigned"` (reviewers exist and
+ *   nothing changed) or `"no-reviewers-resolved"` (no architect could be resolved
+ *   for the selected languages). When `skipped` is false, `reason` is null.
  */
 export default async function assignReviewers({
   github,
@@ -160,8 +163,13 @@ export default async function assignReviewers({
   }
 
   if (newAssignees.length === 0 && staleAssignees.length === 0) {
-    core?.info?.("Reviewers already up to date; no assignment changes.");
-    return { byLanguage, assigned: [], removed: [], unassigned, skipped: true };
+    const reason = assignees.length === 0 ? "no-reviewers-resolved" : "already-assigned";
+    core?.info?.(
+      reason === "already-assigned"
+        ? "Reviewers already up to date; no assignment changes."
+        : "No architect could be resolved for the selected languages.",
+    );
+    return { byLanguage, assigned: [], removed: [], unassigned, skipped: true, reason };
   }
 
   return {
@@ -170,5 +178,6 @@ export default async function assignReviewers({
     removed: staleAssignees,
     unassigned,
     skipped: false,
+    reason: null,
   };
 }
