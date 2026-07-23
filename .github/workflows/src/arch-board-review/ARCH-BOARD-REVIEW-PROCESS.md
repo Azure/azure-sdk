@@ -82,21 +82,23 @@ Unauthorized label additions are reverted with a comment.
 
 ## Reviewer Assignment
 
-When an issue reaches `ready-for-review`, `assign-reviewers.js` assigns one
-architect per selected language, chosen from the same
-`api-review-approvers.yml` roster (round-robin, keyed off the issue number).
-Assigning the issue triggers GitHub's native notifications, so architects are
-reached through their own notification preferences. The assigned handles are
-listed in the triage "materials verified" comment for visibility.
+When an issue reaches `ready-for-review`, `assign-reviewers.js` assigns every
+architect configured for each selected language, drawn from the same
+`api-review-approvers.yml` approvers list. Assigning the issue triggers GitHub's
+native notifications, so architects are reached through their own notification
+preferences. The assigned handles are listed in the triage "materials verified"
+comment for visibility.
 
-For **management plane** issues, the management-plane approvers are included in
-the candidate pool alongside the language-specific architects.
+For **management plane** issues, the management-plane approvers are assigned
+alongside the language-specific architects.
 
 Assignment is idempotent: an architect already assigned is not re-assigned, so
 subsequent edits to a ready issue do not re-notify. If an edit changes the
 selected languages, architects the automation previously assigned but that no
-longer apply are removed; assignees added manually (anyone outside the roster)
-are always preserved.
+longer apply are removed; assignees added manually (anyone outside the approvers
+list) are always preserved. If the assignment API call fails, the "materials verified"
+comment still posts with a note asking for manual assignment, so the issue is
+never left silently unassigned.
 
 ## Approver Configuration
 

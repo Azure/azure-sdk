@@ -23,6 +23,8 @@ import { commentOrUpdate } from "../comment.js";
 import { addLabels, ensureLabel, ensureLabelRemoved, removeLabel } from "../labels.js";
 
 const COMMENT_IDENTIFIER = "arch-board-triage-bot";
+const APPROVERS_FILE_URL =
+  "https://github.com/Azure/azure-sdk/blob/main/.github/api-review-approvers.yml";
 
 function createValidationItem(kind, value) {
   return `${kind}: ${value}`;
@@ -157,21 +159,33 @@ async function analyzeTriage(issueBody, currentLabels, { validateUrl = defaultVa
   };
 }
 
-function buildSuccessComment({ selectedLanguages, validated, warnings, assignments, unassigned }) {
+function buildSuccessComment({
+  selectedLanguages,
+  validated,
+  warnings,
+  assignments,
+  unassigned,
+  assignmentFailed,
+}) {
   let body = `✅ **All materials verified for ${selectedLanguages.map((language) => language.label).join(", ")}.**\n\nThis review request is ready for architects. The \`ready-for-review\` label has been applied.\n\n`;
   if (warnings.length > 0) {
     body += `**Note:** ${warnings.join(", ")}\n\n`;
   }
 
-  if (assignments && assignments.length > 0) {
+  if (assignmentFailed) {
+    body += `⚠️ **Automatic reviewer assignment failed.** Please assign an architect manually - see the [architect approvers list](${APPROVERS_FILE_URL}).\n\n`;
+  } else if (assignments && assignments.length > 0) {
     const assignedLine = assignments
-      .map((entry) => `${entry.language} → \`${entry.reviewer}\``)
+      .map(
+        (entry) =>
+          `${entry.language} → ${entry.reviewers.map((reviewer) => `\`${reviewer}\``).join(", ")}`,
+      )
       .join(" · ");
     body += `**Assigned for review:** ${assignedLine}\n\nAssigned architects are notified via GitHub. Apply your \`<language>-api-approved\` label when the review is complete.\n\n`;
   }
 
   if (unassigned && unassigned.length > 0) {
-    body += `⚠️ **No architect is configured for: ${unassigned.join(", ")}.** These languages need manual assignment - please assign a reviewer.\n\n`;
+    body += `⚠️ **No architect is configured for: ${unassigned.join(", ")}.** These languages need manual assignment - please assign a reviewer or add one to the [architect approvers list](${APPROVERS_FILE_URL}).\n\n`;
   }
 
   body += "<details><summary>Validation details</summary>\n\n";
@@ -253,9 +267,11 @@ export default async function triage({
     await ensureLabelRemoved(github, owner, repo, issueNumber, "needs-info", currentLabels);
 
     let assignment = null;
+    let assignmentFailed = false;
     try {
       assignment = await assignReviewers({ github, context, core });
     } catch (error) {
+      assignmentFailed = true;
       core?.warning?.(`Reviewer assignment failed: ${error.message}`);
     }
 
@@ -264,6 +280,7 @@ export default async function triage({
         ...result,
         assignments: assignment?.byLanguage ?? [],
         unassigned: assignment?.unassigned ?? [],
+        assignmentFailed,
       }),
     );
 

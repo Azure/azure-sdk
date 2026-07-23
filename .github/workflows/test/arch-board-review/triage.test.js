@@ -120,7 +120,7 @@ describe("triage", () => {
       }),
     );
     expect(github.rest.issues.addAssignees).toHaveBeenCalledWith(
-      expect.objectContaining({ assignees: ["JonathanGiles"] }),
+      expect.objectContaining({ assignees: ["JonathanGiles", "alzimmermsft"] }),
     );
     expect(github.rest.issues.createComment).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -148,6 +148,11 @@ describe("triage", () => {
     expect(github.rest.issues.createComment).toHaveBeenCalledWith(
       expect.objectContaining({
         body: expect.stringContaining("All materials verified"),
+      }),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("Automatic reviewer assignment failed"),
       }),
     );
   });

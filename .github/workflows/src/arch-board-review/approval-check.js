@@ -30,7 +30,7 @@ function getManagementApprovers(approversConfig) {
 }
 
 /**
- * Every login that appears anywhere in the roster (all data-plane languages plus
+ * Every login that appears anywhere in the approvers list (all data-plane languages plus
  * management-plane). Used to distinguish automation-managed assignees from manual
  * ones during reviewer reconciliation.
  */

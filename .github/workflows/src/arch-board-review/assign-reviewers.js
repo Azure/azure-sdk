@@ -2,14 +2,14 @@
  * Assign Reviewers — routes a ready review request to per-language architects.
  *
  * Called by triage once an issue reaches `ready-for-review`. For each selected
- * language it picks one architect (round-robin, keyed off the issue number) from
- * the shared `api-review-approvers.yml` roster and assigns them to the issue.
- * Assigning triggers GitHub's native notifications, so architects are reached
- * through their own notification preferences.
+ * language it assigns every configured architect from the shared
+ * `api-review-approvers.yml` approvers list to the issue. Assigning triggers
+ * GitHub's native notifications, so architects are reached through their own
+ * notification preferences.
  *
- * The roster is the same source of truth used by approval validation, so there is
- * no separate reviewer list to keep in sync. Management-plane issues additionally
- * consider the management-plane approvers.
+ * The approvers list is the same source of truth used by approval validation, so
+ * there is no separate reviewer list to keep in sync. Management-plane issues
+ * additionally consider the management-plane approvers.
  *
  * The assignment itself is the notification mechanism; the resolved handles are
  * surfaced in triage's "materials verified" comment for visibility. Idempotent:
@@ -18,8 +18,8 @@
  *
  * Edits are reconciled: if a language selection changes (e.g. Java swapped for
  * Python), architects the automation previously assigned but that no longer apply
- * are removed. Only roster members are removed, so assignees added manually (or by
- * anyone outside the roster) are always preserved.
+ * are removed. Only configured approvers are removed, so assignees added manually
+ * (or by anyone outside the approvers list) are always preserved.
  */
 import { readFile } from "node:fs/promises";
 
@@ -35,30 +35,20 @@ import {
 const DEFAULT_APPROVERS_PATH = new URL("../../../api-review-approvers.yml", import.meta.url);
 
 /**
- * Deterministically pick one candidate, distributing across issues by number.
+ * Resolve the architects for each selected language from the approvers list.
  *
- * @param {string[]} candidates
- * @param {number} issueNumber
- * @returns {string | null}
- */
-function pickReviewer(candidates, issueNumber) {
-  if (!candidates || candidates.length === 0) {
-    return null;
-  }
-  return candidates[issueNumber % candidates.length];
-}
-
-/**
- * Resolve one architect per selected language from the roster.
+ * Every configured architect for a language is assigned (management-plane issues
+ * additionally include the management-plane approvers). There is intentionally no
+ * load balancing - if a language has more than one architect they are all tagged.
+ * If that ever gets noisy we can add distribution later.
  *
  * @param {object} params
  * @param {string} params.issueBody
- * @param {number} params.issueNumber
  * @param {object} params.approversConfig
- * @returns {{ byLanguage: { language: string, reviewer: string }[], assignees: string[], unassigned: string[] }}
+ * @returns {{ byLanguage: { language: string, reviewers: string[] }[], assignees: string[], unassigned: string[] }}
  *   `unassigned` lists selected languages that have no configured architect.
  */
-function resolveAssignments({ issueBody, issueNumber, approversConfig }) {
+function resolveAssignments({ issueBody, approversConfig }) {
   const selectedLanguages = getSelectedLanguages(issueBody);
   const managementReviewers = isManagementPlaneIssue(issueBody)
     ? getManagementApprovers(approversConfig)
@@ -69,16 +59,17 @@ function resolveAssignments({ issueBody, issueNumber, approversConfig }) {
   const unassigned = [];
 
   for (const language of selectedLanguages) {
-    const candidates = [
+    const reviewers = [
       ...new Set([
         ...getApproversForLanguage(approversConfig, language.id),
         ...managementReviewers,
       ]),
     ];
-    const reviewer = pickReviewer(candidates, issueNumber);
-    if (reviewer) {
-      byLanguage.push({ language: language.label, reviewer });
-      assigneeSet.add(reviewer);
+    if (reviewers.length > 0) {
+      byLanguage.push({ language: language.label, reviewers });
+      for (const reviewer of reviewers) {
+        assigneeSet.add(reviewer);
+      }
     } else {
       unassigned.push(language.label);
     }
@@ -87,7 +78,7 @@ function resolveAssignments({ issueBody, issueNumber, approversConfig }) {
   return { byLanguage, assignees: [...assigneeSet], unassigned };
 }
 
-export { pickReviewer, resolveAssignments };
+export { resolveAssignments };
 
 /**
  * Resolve reviewers for the issue, assign any that are not already assigned, and
@@ -95,7 +86,7 @@ export { pickReviewer, resolveAssignments };
  * Does not post a comment - the resolved handles are surfaced by the caller's
  * validation comment. Returns the per-language mapping for that rendering.
  *
- * @returns {Promise<{ byLanguage: { language: string, reviewer: string }[], assigned: string[], removed: string[], unassigned: string[], skipped: boolean, reason: string | null }>}
+ * @returns {Promise<{ byLanguage: { language: string, reviewers: string[] }[], assigned: string[], removed: string[], unassigned: string[], skipped: boolean, reason: string | null }>}
  *   When `skipped` is true, `reason` is `"already-assigned"` (reviewers exist and
  *   nothing changed) or `"no-reviewers-resolved"` (no architect could be resolved
  *   for the selected languages). When `skipped` is false, `reason` is null.
@@ -119,7 +110,6 @@ export default async function assignReviewers({
 
   const { byLanguage, assignees, unassigned } = resolveAssignments({
     issueBody,
-    issueNumber,
     approversConfig: resolvedConfig,
   });
 
@@ -129,17 +119,18 @@ export default async function assignReviewers({
 
   const resolvedLower = new Set(assignees.map((login) => login.toLowerCase()));
   const currentLower = new Set(currentAssignees.map((login) => login.toLowerCase()));
-  const rosterManaged = new Set(
+  const configuredApprovers = new Set(
     getAllApprovers(resolvedConfig).map((login) => login.toLowerCase()),
   );
 
   const newAssignees = assignees.filter((login) => !currentLower.has(login.toLowerCase()));
 
-  // Reconcile edits: remove architects the automation manages (roster members)
-  // that are no longer resolved for the current languages. Manual assignees that
-  // are not in the roster are left untouched.
+  // Reconcile edits: remove architects the automation manages (configured
+  // approvers) that are no longer resolved for the current languages. Manual
+  // assignees that are not in the approvers list are left untouched.
   const staleAssignees = currentAssignees.filter(
-    (login) => rosterManaged.has(login.toLowerCase()) && !resolvedLower.has(login.toLowerCase()),
+    (login) =>
+      configuredApprovers.has(login.toLowerCase()) && !resolvedLower.has(login.toLowerCase()),
   );
 
   if (newAssignees.length > 0) {
