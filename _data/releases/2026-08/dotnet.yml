@@ -85,4 +85,15 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for service version 2026-10-06.
+- Name: Azure.Messaging.EventGrid.SystemEvents
+  Version: 1.1.0
+  DisplayName: System Events
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid.SystemEvents_1.1.0/sdk/eventgrid/Azure.Messaging.EventGrid.SystemEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implemented `IJsonModel` and `IPersistableModel` deserialization methods for events.
 
