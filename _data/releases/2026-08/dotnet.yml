@@ -96,4 +96,47 @@ entries:
     #### Features Added
 
     - Implemented `IJsonModel` and `IPersistableModel` deserialization methods for events.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.11.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.11.0/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Improved authentication in sovereign clouds (such as Bleu) when using a `TokenCredential`. Previously, if you did not set `ConfigurationClientOptions.Audience`, the client fell back to the Azure Public Cloud audience and authentication could fail. The client now infers the correct Microsoft Entra audience from your App Configuration endpoint, so no additional configuration is required. Public, Azure China, and Azure US Government endpoints continue to work as before, and you can still set `Audience` explicitly to override the inferred value.
+- Name: Azure.ResourceManager.CosmosDB
+  Version: 1.5.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.5.0/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.18.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.18.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Datadog
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Datadog
+  ServiceName: Datadog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Datadog_1.1.0-beta.2/sdk/datadog/Azure.ResourceManager.Datadog/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Enclave
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Enclave
+  ServiceName: Enclave
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Enclave_1.0.0-beta.1/sdk/enclave/Azure.ResourceManager.Enclave/CHANGELOG.md
+  ChangelogContent: ""
 
