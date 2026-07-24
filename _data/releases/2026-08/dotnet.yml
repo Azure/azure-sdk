@@ -139,4 +139,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Enclave_1.0.0-beta.1/sdk/enclave/Azure.ResourceManager.Enclave/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Monitor.OpenTelemetry.Exporter
+  Version: 1.8.3
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.Exporter_1.8.3/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Hardened ingestion and Live Metrics redirect handling to reject untrusted destinations before replaying telemetry or caching the redirect. Redirect targets must now use HTTPS and match an approved Azure Monitor trust boundary, preventing credentials and telemetry from being forwarded to attacker-controlled endpoints.
+    ([#61244](https://github.com/Azure/azure-sdk-for-net/pull/61244))
 
