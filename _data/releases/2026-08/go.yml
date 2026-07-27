@@ -83,4 +83,22 @@ entries:
     * Added `StorageResponseFormat` enum (`Auto`, `XML`, `Arrow`) for list blobs operations. Set `ResponseFormat` on `ListBlobsFlatOptions`/`ListBlobsHierarchyOptions` to opt into Apache Arrow format for improved performance. `Auto` defaults to XML for this release.
     * Added `AccessTier`, `AccessTierInferred`, `AccessTierChangeTime`, and `SmartAccessTier` fields to blob download response.
     * Blob put operations now return both `ContentMD5` and `ContentCRC64` in the response when a Content-MD5 header is provided (service version 2026-10-06+).
+- Name: sdk/storage/azqueue
+  Version: 2.2.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azqueue/v2.2.0-beta.1/sdk/storage/azqueue/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azidentity` version to `1.14.0`
+- Name: sdk/resourcemanager/computefleet/armcomputefleet
+  Version: 2.0.0-beta.3
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computefleet/armcomputefleet/v2.0.0-beta.3/sdk/resourcemanager/computefleet/armcomputefleet/CHANGELOG.md
+  ChangelogContent: ""
 
