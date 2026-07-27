@@ -26,8 +26,30 @@ function isChecked(body, label) {
   return regex.test(body);
 }
 
+function getDropdownSelections(body, heading) {
+  const section = getLanguageSection(body, heading);
+  if (!section) {
+    return [];
+  }
+
+  // A multi-select dropdown renders its chosen values immediately after the
+  // heading (e.g. "Java, Python"). Only look at that leading value block,
+  // before any horizontal rule or markdown sub-heading that follows it.
+  const valueBlock = section.split(/\n(?:---|#{1,6}\s)/)[0];
+  return valueBlock
+    .split(/[\n,]+/)
+    .map((token) => token.trim())
+    .filter(Boolean);
+}
+
 function getSelectedLanguages(issueBody) {
-  return LANGUAGE_DEFINITIONS.filter((language) => isChecked(issueBody, language.label));
+  // Tolerant of both renderings: the legacy checkbox group (- [x] Java) and a
+  // required multi-select dropdown (comma-separated values under the heading).
+  const dropdownSelections = getDropdownSelections(issueBody, "Languages for this Review");
+  return LANGUAGE_DEFINITIONS.filter(
+    (language) =>
+      isChecked(issueBody, language.label) || dropdownSelections.includes(language.label),
+  );
 }
 
 function getLanguageSection(body, heading) {
