@@ -151,4 +151,16 @@ entries:
 
     - Hardened ingestion and Live Metrics redirect handling to reject untrusted destinations before replaying telemetry or caching the redirect. Redirect targets must now use HTTPS and match an approved Azure Monitor trust boundary, preventing credentials and telemetry from being forwarded to attacker-controlled endpoints.
     ([#61244](https://github.com/Azure/azure-sdk-for-net/pull/61244))
+- Name: Azure.Monitor.OpenTelemetry.AspNetCore
+  Version: 1.6.0
+  DisplayName: OpenTelemetry AspNetCore
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.OpenTelemetry.AspNetCore_1.6.0/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Hardened Azure Monitor ingestion and Live Metrics redirect handling to prevent credentials and telemetry from being forwarded to untrusted destinations.
+    ([#61244](https://github.com/Azure/azure-sdk-for-net/pull/61244))
 
