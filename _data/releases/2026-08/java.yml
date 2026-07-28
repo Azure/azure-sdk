@@ -212,4 +212,44 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.2/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-storage-blob
+  Version: 12.36.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-blob_12.36.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue where `BlobClientBase.openSeekableByteChannelRead` issued an unnecessary HTTP request (resulting
+    in an HTTP 416 response) after the entire blob had already been returned in the initial range download. When the
+    channel is opened with ETag consistency control (the default), the read behavior now short-circuits to end-of-file
+    once the known resource length is reached, avoiding the extra round trip.
+    - Fixed an issue where a transport-level failure while streaming the body of the trailing HTTP 416 response from
+    `BlobClientBase.openSeekableByteChannelRead` (for example "Connection reset by peer") could propagate out of the
+    channel even though all of the blob's content had already been delivered to the caller. The read behavior now
+    logs a warning and signals end-of-file when such an error occurs at or past the known end of the resource.
+
+    #### Features Added
+    - Added support for service version 2026-10-06.
+    - Added support for retrieving `AccessTier` headers to `BlobDownloadHeaders`.
+    - Added support for `PutBlob` operations returning both the existing MD5 content hash and the new CRC64 checksum.
+    - Added support for Apache Arrow response format for `ListBlobs` flat and `ListBlobs` hierarchical options.
+    - Added support for content validation with structured message and CRC64 via `ContentValidationAlgorithm`. Supported for
+    `GetBlob`, `PutBlob`, `PutBlock`, `PutPage`, and `AppendBlock` operations.
+  GroupId: com.azure
+- Name: com.azure+azure-storage-common
+  Version: 12.35.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-storage-common_12.35.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an async retry hang that could occur when draining a retryable response body after the response was closed.
+
+    #### Features Added
+    - Added support for service version 2026-10-06.
+  GroupId: com.azure
 
