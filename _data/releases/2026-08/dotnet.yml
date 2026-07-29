@@ -203,4 +203,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.6.0/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.27
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.27/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added a durable key-value **state store** client under `Azure.AI.AgentServer.Core.Storage`. `FoundryStateStore.GetOrCreateAsync` binds (creating if needed) a named, Foundry-backed store; instances expose async `GetAsync`/`UpdateAsync`/`DeleteAsync` for the store and `CreateItemAsync`/`SetItemAsync`/`GetItemAsync`/`DeleteItemAsync`/`ListKeysAsync` for its items, with optimistic concurrency (`If-Match`/`ETag`), optional per-user isolation, and store-level item TTL. The .NET analogue of the Python SDK's `FoundryStateStore`.
+    - Added support for Microsoft Entra authentication when exporting telemetry to Azure Monitor. When `APPLICATIONINSIGHTS_AUTH_MODE` is set to `Entra`, the Azure Monitor exporter attempts to use a system-assigned managed identity credential (falling back to connection-string authentication if the credential cannot be created).
 
