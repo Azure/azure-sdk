@@ -219,4 +219,42 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automation/arm-automation/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.44
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.44/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Persist telemetry for later retry when no HTTP response is received. [#39277](https://github.com/Azure/azure-sdk-for-js/pull/39277)
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.19.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.19.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL=NONE` not disabling log collection. `NONE` now skips registering the log instrumentations entirely, so no logs are collected. [#39400](https://github.com/Azure/azure-sdk-for-js/pull/39400)
+
+    #### Features Added
+
+    - Live Metrics (QuickPulse) now honors the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable for Azure Active Directory (AAD) authentication as a fallback when no explicit credential is supplied. [#39445](https://github.com/Azure/azure-sdk-for-js/pull/39445)
+    - Added support for collecting `console` logs via the `@opentelemetry/instrumentation-console` package. Enable it with `instrumentationOptions: { console: { enabled: true } }` (disabled by default). [#39400](https://github.com/Azure/azure-sdk-for-js/pull/39400)
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.8
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.8/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an optional `internal` property to `ClientOptions` for `getClient`, carrying a `noDefaultAcceptHeader` flag (defaults to `false`). When set to `true`, the client no longer adds a default `Accept: application/json` request header to operations that do not otherwise specify one, allowing operations that expect no response body to omit the `Accept` header. This option is intended for use by generated clients. [PR #39291](https://github.com/Azure/azure-sdk-for-js/pull/39291)
 
