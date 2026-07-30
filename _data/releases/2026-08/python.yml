@@ -403,4 +403,60 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed regression introduced in 4.16.0 on [47105](https://github.com/Azure/azure-sdk-for-python/pull/47105) for complete-partition-key queries scanning documents instead of using partition-key routing, which caused excessive RU consumption and latency for aggregates such as `COUNT`. See [PR 48237](https://github.com/Azure/azure-sdk-for-python/pull/48237)
+- Name: azure-mgmt-containerservicepreparedimgspec
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicepreparedimgspec_1.0.0b1/sdk/containerservice/azure-mgmt-containerservicepreparedimgspec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-reservations
+  Version: 3.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-reservations_3.0.0/sdk/reservations/azure-mgmt-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-eventhub
+  Version: 12.0.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_12.0.0/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-marketplace
+  Version: 1.0.0
+  DisplayName: Resource Management - Marketplace
+  ServiceName: Marketplace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-marketplace_1.0.0/sdk/marketplace/azure-mgmt-marketplace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-elastic
+  Version: 3.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-elastic_3.0.0/sdk/elastic/azure-mgmt-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-alertprocessingrules
+  Version: 1.0.0
+  DisplayName: Resource Management - Alertprocessingrules
+  ServiceName: Alertprocessingrules
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-alertprocessingrules_1.0.0/sdk/alertsmanagement/azure-mgmt-alertprocessingrules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-providerhub
+  Version: 1.0.0
+  DisplayName: Resource Management - Providerhub
+  ServiceName: Providerhub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-providerhub_1.0.0/sdk/providerhub/azure-mgmt-providerhub/CHANGELOG.md
+  ChangelogContent: ""
 
