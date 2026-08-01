@@ -484,4 +484,12 @@ entries:
 
     - `AgentServerHost` no longer makes a blocking hosted task-store `list()` round-trip (plus credential-token acquisition) at startup unless resilient tasks are actually in use. The `TaskManager` is still constructed so `get_task_manager()` and `.run()` / `.start()` keep working, but its network-backed **startup recovery scan** now runs only when **either** at least one durable task (`@task` / `@multi_turn_task`) has been declared **or** `set_resilient_tasks_enabled(True)` was called. Apps that use tasks keep automatic crash recovery with no code change; plain servers (e.g. invocations-only hosts) no longer pay tens of seconds of startup latency for a scan that has nothing to recover.
     - Cleaned up `AgentServerHost` public signatures so inherited middleware typing does not expose Starlette private type aliases.
+- Name: azure-mgmt-discovery
+  Version: 1.0.0
+  DisplayName: Resource Management - Discovery
+  ServiceName: Discovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-discovery_1.0.0/sdk/discovery/azure-mgmt-discovery/CHANGELOG.md
+  ChangelogContent: ""
 
