@@ -9,3 +9,9 @@ https://github.com/Azure/azure-sdk-pr/blob/24384df0202021ab86ee37fcb14e9554182cd
 # move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
 # source link is ignored while the current preview link resolves correctly.
 https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Search_1.0.0/sdk/search/Azure.Provisioning.Search/
+
+# Azure.Provisioning.EventHubs moved from sdk/provisioning to sdk/eventhub after the 1.1.0 GA release.
+# The latest preview (1.2.0-beta.1) lives under sdk/eventhub, but the GA (1.1.0) source predates the
+# move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
+# source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.EventHubs_1.1.0/sdk/eventhub/Azure.Provisioning.EventHubs/
