@@ -401,4 +401,25 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-connectedcache_1.0.0/sdk/connectedcache/azure-resourcemanager-connectedcache/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-voicelive
+  Version: 1.1.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-voicelive_1.1.0/sdk/voicelive/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - **Streaming input text** into a conversation item:
+    - New `ClientEventInputTextDelta` (`input_text.delta`) and `ClientEventInputTextDone` (`input_text.done`), each with optional `contentIndex`
+    - New `ClientEventType.INPUT_TEXT_DELTA` and `ClientEventType.INPUT_TEXT_DONE` values
+    - **Echo cancellation reference source**: `AudioEchoCancellation` is now `@Fluent` and exposes `referenceSource` (new `EchoCancellationReferenceSource` enum with `SERVER` / `CLIENT`) and `channels` for stereo input where channel 1 is the client-supplied echo reference
+    - **Azure realtime native voices**: new `AzureRealtimeNativeVoice` (type `azure-realtime-native`) and `AzureRealtimeNativeVoiceName` expandable enum (`AARTI`, `ANDREW`, `AVA`, `DENISE`, `DIYA`, `ELSA`, `FLORIAN`, `FRANCISCA`, `MEERA`, `XIAOXIAO`, `YUNXI`, `XIMENA`) for use with the `azure-realtime` model
+    - **Parallel tool calls**: `VoiceLiveSessionOptions.setParallelToolCalls(Boolean)` / `isParallelToolCalls()` (and matching accessors on `VoiceLiveSessionResponse`) to control whether the model may invoke tools in parallel
+    - **Hosted agent invocation passthrough**:
+    - `ResponseCreateParams.setInvokeInput(Map<String, BinaryData>)` / `getInvokeInput()` to attach input data for a hosted agent invocation on a single response request
+    - New `ServerEventResponseInvocationDelta` (`response.invocation.delta`) and `ServerEventType.RESPONSE_INVOCATION_DELTA` pass through non-speech SSE events from the hosted agent
+    - **Session expiration**: `VoiceLiveSessionResponse.getExpiresAt()` / `setExpiresAt(OffsetDateTime)` expose the server-assigned session expiration time (serialized on the wire as seconds since epoch)
+  GroupId: com.azure
 
