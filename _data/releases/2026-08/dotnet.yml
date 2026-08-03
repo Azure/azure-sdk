@@ -278,4 +278,12 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where response content logging could emit more bytes than were actually read when a non-buffered (streaming) response was read into a buffer larger than the response body. Previously, when the read began at offset 0, `MessageLoggingPolicy` logged the entire caller-supplied buffer — including the bytes past the response payload, which for a pooled buffer contain unrelated in-process content — and the configured `MessageContentSizeLimit` was not applied. Only the bytes that were read are now logged. ([#61399](https://github.com/Azure/azure-sdk-for-net/issues/61399))
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Compute.Bulkactions
+  ServiceName: Compute.Bulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-beta.1/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
 
