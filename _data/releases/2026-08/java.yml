@@ -422,4 +422,13 @@ entries:
     - New `ServerEventResponseInvocationDelta` (`response.invocation.delta`) and `ServerEventType.RESPONSE_INVOCATION_DELTA` pass through non-speech SSE events from the hosted agent
     - **Session expiration**: `VoiceLiveSessionResponse.getExpiresAt()` / `setExpiresAt(OffsetDateTime)` expose the server-assigned session expiration time (serialized on the wire as seconds since epoch)
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservicepreparedimgspec
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerservicepreparedimgspec
+  ServiceName: Containerservicepreparedimgspec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservicepreparedimgspec_1.0.0-beta.1/sdk/containerservicepreparedimgspec/azure-resourcemanager-containerservicepreparedimgspec/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
