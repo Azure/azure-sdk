@@ -669,4 +669,16 @@ entries:
     - **Bookshelf**: the models `KnowledgeBaseOperationStatus` and `KnowledgeBaseVersion` are removed. Operation-status payloads are now typed as `KnowledgeBaseOperationResponse`, `KnowledgeBaseIndexingOperationResponse`, or `KnowledgeBaseSearchOperationResponse` depending on the operation; create/update returns the `KnowledgeBase` resource.
     - The preview API version `2026-02-01-preview` is no longer listed as a supported value for the `api_version` kwarg. Both `WorkspaceClient` and `BookshelfClient` now default to `2026-06-01`. Pinning to the removed preview value is not supported in the GA SDK.
     - **Workspace**: the investigations long-running operation status model, previously generated as `ResourceOperationStatusInvestigationInvestigationError`, has been renamed to `InvestigationOperationStatus`. The payload is unchanged; only the model name differs.
+- Name: azure-ai-agentserver-responses
+  Version: 2.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.0.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Cleaned up the public API surface by moving validation-only error helpers to a private implementation module and renaming runtime terminal/replay helpers as private.
+    - Bumped the minimum `azure-ai-agentserver-core` dependency to `>=2.0.0b10`, which adds an opt-in gate for resilient-task startup recovery. The resilient Responses samples now call `set_resilient_tasks_enabled(True)` to explicitly opt in, mirroring the invocations resilient samples.
 
