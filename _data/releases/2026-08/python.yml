@@ -720,4 +720,26 @@ entries:
     #### Breaking Changes
 
     - Removed the unused public `AgentServerHost.sse_keepalive_stream` helper.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b56
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b56/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Retry payloads for which request is sent successfully but no response is received, per [SPEC.](https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/pull/1018)
+    ([#47870](https://github.com/Azure/azure-sdk-for-python/pull/47870))
+
+    #### Bugs Fixed
+    - Propagate main agent attribute to child spans
+    ([#47950](https://github.com/Azure/azure-sdk-for-python/pull/47950))
+    - Live Metrics now honors the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable for AAD
+    authentication as a fallback when no explicit credential is supplied and local authentication is disabled.
+    ([#48284](https://github.com/Azure/azure-sdk-for-python/pull/48284))
+    - Fix a memory leak where exporters registered as OneSettings configuration callbacks were retained for the
+    process lifetime; bound-method callbacks are now held via weak references so discarded exporters can be
+    garbage collected.
+    ([#48379](https://github.com/Azure/azure-sdk-for-python/pull/48379))
 
