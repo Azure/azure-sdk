@@ -1,0 +1,536 @@
+entries:
+- Name: '@azure/cosmos'
+  Version: 4.10.0-beta.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.10.0-beta.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a semantic reranking API. Use `Container.semanticRerank(rerankContext, documents, options)` to score and reorder documents by relevance via the Cosmos DB Inference Service. Configure it through `enablePreviewFeatures.semanticRerank` on `CosmosClientOptions`: `inferenceEndpoint` (required) and an optional `inferenceRequestTimeout` (ms, default 5000) single-attempt timeout that fails with HTTP 408 when exceeded. Requires AAD authentication. The result and any thrown error include `CosmosDiagnostics` for the operation.
+    - Added `enablePreviewFeatures` to `CosmosClientOptions`, a dictionary for opting into preview features of the SDK.
+
+    #### Bugs Fixed
+
+    - [#38087](https://github.com/Azure/azure-sdk-for-js/issues/38087) Made `boundingBox` optional on the `SpatialIndex` type. Bounding boxes are only required for geometry spatial indexes, not geography ones.
+    - Fixed cross-partition queries making a redundant `/pkranges` metadata call on every query. Queries now reuse the shared partition key range cache (worst for hybrid queries, which previously fetched ranges per component query). The cache is also made failure-safe so a transient fetch error no longer poisons later lookups.
+    - [#39115](https://github.com/Azure/azure-sdk-for-js/issues/39115) Fixed continuation token handling for `enableQueryControl` queries. Resuming now routes through the query plan instead of forwarding the SDK-internal composite token to the gateway, avoiding an extra failing call and the `MalformedContinuationToken` error.
+- Name: '@azure/cosmos'
+  Version: 4.10.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.10.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [#38087](https://github.com/Azure/azure-sdk-for-js/issues/38087) Made `boundingBox` optional on the `SpatialIndex` type. Bounding boxes are only required for geometry spatial indexes, not geography ones.
+    - Fixed cross-partition queries making a redundant `/pkranges` metadata call on every query. Queries now reuse the shared partition key range cache (worst for hybrid queries, which previously fetched ranges per component query). The cache is also made failure-safe so a transient fetch error no longer poisons later lookups.
+    - [#39115](https://github.com/Azure/azure-sdk-for-js/issues/39115) Fixed continuation token handling for `enableQueryControl` queries. Resuming now routes through the query plan instead of forwarding the SDK-internal composite token to the gateway, avoiding an extra failing call and the `MalformedContinuationToken` error.
+
+    #### Features Added
+
+    - Added a semantic reranking API. Use `Container.semanticRerank(rerankContext, documents, options)` to score and reorder documents by relevance via the Cosmos DB Inference Service. Configure it through `enablePreviewFeatures.semanticRerank` on `CosmosClientOptions`: `inferenceEndpoint` (required) and an optional `inferenceRequestTimeout` (ms, default 5000) single-attempt timeout that fails with HTTP 408 when exceeded. Requires AAD authentication. The result and any thrown error include `CosmosDiagnostics` for the operation.
+    - Added `enablePreviewFeatures` to `CosmosClientOptions`, a dictionary for opting into preview features of the SDK.
+- Name: '@azure/arm-confluent'
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confluent/arm-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute-bulkactions'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Compute-Bulkactions
+  ServiceName: Compute-Bulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-compute-bulkactions_1.0.0-beta.1/sdk/compute/arm-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 7.0.1
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 24.2.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridcompute'
+  Version: 5.0.0-beta.3
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_5.0.0-beta.3/sdk/hybridcompute/arm-hybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservicepreparedimgspec'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerservicepreparedimgspec
+  ServiceName: Containerservicepreparedimgspec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicepreparedimgspec_1.0.0-beta.1/sdk/containerservice/arm-containerservicepreparedimgspec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 25.4.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computelimit'
+  Version: 1.3.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.3.0/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computefleet'
+  Version: 2.0.0-beta.3
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_2.0.0-beta.3/sdk/computefleet/arm-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 25.5.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute-bulkactions'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Compute-Bulkactions
+  ServiceName: Compute-Bulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-compute-bulkactions_1.0.0-beta.2/sdk/compute/arm-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub'
+  Version: 6.0.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-consumption'
+  Version: 10.0.0
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-frontdoor'
+  Version: 6.0.0
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/frontdoor/arm-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hybridkubernetes'
+  Version: 3.0.0
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_3.0.0/sdk/hybridkubernetes/arm-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkfunction'
+  Version: 3.0.0
+  DisplayName: Resource Management - Network Function
+  ServiceName: Network Function
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkfunction_3.0.0/sdk/networkfunction/arm-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cdn'
+  Version: 10.0.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicebus'
+  Version: 7.0.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kusto'
+  Version: 9.0.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relay'
+  Version: 4.0.0
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/relay/arm-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elastic'
+  Version: 3.0.0
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_3.0.0/sdk/elastic/arm-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoxedge'
+  Version: 3.0.0
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Data Box Edge
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge_3.0.0/sdk/databoxedge/arm-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-automation'
+  Version: 11.0.0
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automation/arm-automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.44
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.44/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Persist telemetry for later retry when no HTTP response is received. [#39277](https://github.com/Azure/azure-sdk-for-js/pull/39277)
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.19.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.19.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL=NONE` not disabling log collection. `NONE` now skips registering the log instrumentations entirely, so no logs are collected. [#39400](https://github.com/Azure/azure-sdk-for-js/pull/39400)
+
+    #### Features Added
+
+    - Live Metrics (QuickPulse) now honors the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable for Azure Active Directory (AAD) authentication as a fallback when no explicit credential is supplied. [#39445](https://github.com/Azure/azure-sdk-for-js/pull/39445)
+    - Added support for collecting `console` logs via the `@opentelemetry/instrumentation-console` package. Enable it with `instrumentationOptions: { console: { enabled: true } }` (disabled by default). [#39400](https://github.com/Azure/azure-sdk-for-js/pull/39400)
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.8
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.8/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an optional `internal` property to `ClientOptions` for `getClient`, carrying a `noDefaultAcceptHeader` flag (defaults to `false`). When set to `true`, the client no longer adds a default `Accept: application/json` request header to operations that do not otherwise specify one, allowing operations that expect no response body to omit the `Accept` header. This option is intended for use by generated clients. [PR #39291](https://github.com/Azure/azure-sdk-for-js/pull/39291)
+- Name: '@azure/arm-connectedcache'
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedcache_1.0.0/sdk/connectedcache/arm-connectedcache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-discovery'
+  Version: 1.0.0
+  DisplayName: Resource Management - Discovery
+  ServiceName: Discovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-discovery_1.0.0/sdk/discovery/arm-discovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cloudhealth'
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cloudhealth_1.0.0-beta.3/sdk/cloudhealth/arm-cloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcegraph'
+  Version: 5.0.0
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-voicelive'
+  Version: 1.1.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.1.0/sdk/voicelive/ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientEventInputTextDelta` and `ClientEventInputTextDone` client events (`input_text.delta` / `input_text.done`, plus the corresponding `KnownClientEventType` members) for streaming input text content into a conversation item.
+    - Added Azure realtime native voices via `AzureRealtimeNativeVoice` (and `AzureRealtimeNativeVoiceName`), including the `KnownAzureRealtimeNativeVoiceName` enum of service-known voice names. `AzureRealtimeNativeVoice` is now part of the `Voice` union.
+    - Added echo-cancellation reference configuration: `AudioEchoCancellation.channels` and `AudioEchoCancellation.referenceSource`, plus the `EchoCancellationReferenceSource` type and `KnownEchoCancellationReferenceSource` enum.
+    - Added `ServerEventResponseInvocationDelta` (and `KnownServerEventType.ResponseInvocationDelta`) for passthrough hosted-agent invocation SSE payloads.
+    - Added `ResponseCreateParams.invokeInput` to supply input data for hosted-agent invocation.
+    - Added `ResponseSession.expiresAt`: a `Date` for the server-assigned session expiration. It is read-only and cannot be changed with `session.update`.
+    - Re-exported `RestError` and `isRestError` from `@azure/core-rest-pipeline`.
+
+    #### Breaking Changes
+
+    - API version updated from `2026-04-10` to `2026-07-15`.
+    - Renamed `RequestImageContentPart.url` to `RequestImageContentPart.imageUrl` to align the SDK model with the `image_url` wire shape.
+- Name: '@azure/storage-blob'
+  Version: 12.34.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.34.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2026-10-06.
+    - Added `accessTier`, `accessTierInferred`, `accessTierChangedOn`, and `smartAccessTier` to the blob download response.
+    - Added an opt-in Apache Arrow response format for `listBlobsFlat` and `listBlobsByHierarchy` (set `responseFormat` to `StorageResponseFormat.Arrow`), plus a new `endBefore` list option. The default remains XML.
+- Name: '@azure/storage-queue'
+  Version: 12.32.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.32.0-beta.1/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrated to TypeSpec-based code generation [PR #38224](https://github.com/Azure/azure-sdk-for-js/pull/38224)
+- Name: '@azure/storage-common'
+  Version: 12.5.0
+  DisplayName: Storage Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.5.0/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the ESM build of the CRC64 checksum calculator crashing (`TypeError [ERR_INVALID_ARG_VALUE]` from `import.meta.url`) when an ESM consumer is bundled to CommonJS with a Node-targeted bundler such as esbuild. Because the WebAssembly module is base64-embedded, none of the Emscripten-generated filesystem/URL machinery is reachable, so the `import.meta.url` polyfill, `node:*` imports, `require('fs')`/`require('path')` reads, and the shell/web read hooks have been removed from `crc64.js`. The ESM, browser, and react-native builds are now identical, and the CommonJS copy differs only by its export statement. Issue [#39057](https://github.com/Azure/azure-sdk-for-js/issues/39057).
+
+    #### Features Added
+
+    - add `storageRedirectRangeHeaderPolicy`
+    - Added the `StorageResponseFormat` enum (`Auto`, `Xml`, `Arrow`), re-exported by `@azure/storage-blob` to opt into the Apache Arrow response format when listing blobs.
+- Name: '@azure/storage-file-share'
+  Version: 12.33.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.33.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Stopped exporting the internal-only `FileDownloadOptionalParams` and `FileUploadRangeFromURLOptionalParams` types, which are not referenced by any public API.
+
+    #### Features Added
+
+    - Added support for service version 2026-10-06.
+    - Added `ShareFileClient.listRanges()` and `ShareFileClient.listRangesDiff()` to list file ranges as a paginated async iterable with continuation-token support.
+    - Deprecated `ShareFileClient.getRangeList()` and `ShareFileClient.getRangeListDiff()` in favor of `listRanges()` and `listRangesDiff()`.
+- Name: '@azure/communication-common'
+  Version: 2.5.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.5.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AzureCommunicationTokenCredential` now supports encrypted/opaque access tokens that cannot be decoded (e.g. for enterprise Entra users):
+    - `tokenRefresher` may return an `AccessToken` (`{ token, expiresOnTimestamp }`) and the static constructor accepts an `AccessToken`, allowing the expiry to be supplied explicitly instead of decoded from the token. This is the recommended way to supply encrypted/opaque tokens.
+    - A token that cannot be decoded is now accepted as-is and assigned a fallback expiry, instead of throwing at construction as it did previously; only an empty token is rejected.
+    - Added `undecodableTokenExpiryIntervalInSeconds` to `CommunicationTokenRefreshOptions` to configure the lifetime assumed for an undecodable token without an explicit expiry (default 600 seconds).
+
+    #### Bugs Fixed
+
+    - Fixed `dispose()` not always cancelling the scheduled proactive token refresh, which could trigger a token refresh after the credential was disposed.
+    - A token that decodes successfully but has no `exp` claim no longer yields a `NaN` expiry; it now uses the fallback expiry.
+- Name: '@azure/ai-projects'
+  Version: 2.4.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.4.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `JobOperationState` and `JobPoller` types, exposing the `jobId` of a queued job on the pollers returned by the beta job creation operations.
+    - Added `project.agents.patchAgentObject` for merge-patching agent endpoint configuration and agent card metadata.
+    - Added `ToolSearchToolboxTool` as a generally available `toolbox_search` tool type on `project.toolboxes`, letting an agent discover a toolbox's tools at run time instead of binding every tool up front.
+    - Added `status` property and `AgentIdentityStatus` type on `AgentIdentity` to report whether an agent instance identity or agent blueprint is active or disabled.
+    - Added `TaskGenerationDataGenerationJobOptions` as a `task_generation` job type on `project.beta.datasets` for generating multiturn evaluation test cases.
+    - Added `max_stalls` to `OptimizationOptions` to cap the number of consecutive reflective minibatch rejections before an optimization job stops early.
+    - Added generation provenance and input-quality advisories to `project.beta.evaluators`: `generation_job_id` and `warnings` on `EvaluatorVersion`, and `input_quality_warnings` on `EvaluatorGenerationJob`. The advisories are surfaced as `RubricGenerationInputQualityWarning` values.
+
+    #### Breaking Changes
+
+    - Changed the beta job creation operations `project.beta.agents.createOptimizationJob`, `project.beta.datasets.createGenerationJob`, and `project.beta.evaluators.createGenerationJob` into long-running operations. Each now returns a poller instead of a promise, and resolves to the job result (`OptimizationJobResult`, `DataGenerationJobResult`, and `EvaluatorVersion` respectively) rather than the queued job. Call `pollUntilDone()` to await completion, or `submitted()` to continue once the job is queued. Each operation also accepts a new `updateIntervalInMs` option to control the polling interval. The queued job's id is available as `poller.operationState?.jobId` once `submitted()` resolves, so it can still be passed to the paired get, cancel, and delete operations.
+- Name: '@azure/arm-computerecommender'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Compute Recommender
+  ServiceName: Compute Recommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computerecommender_1.1.0-beta.1/sdk/compute/arm-computerecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-discovery'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-discovery_1.0.0/sdk/discovery/ai-discovery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release of the Azure AI Discovery client library for JavaScript, exposing `WorkspaceClient` (conversations, investigations, tasks, tools) and `BookshelfClient` (knowledge bases).
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.1.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-translation-document'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-translation-document_1.0.0/sdk/translation/ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The package name changed from `@azure-rest/ai-translation-document` to `@azure/ai-translation-document`.
+    - The REST-level client (RLC) surface (`client.path(...).post(...)`) has been replaced with a modeled client surface exposing `DocumentTranslationClient` and `SingleDocumentTranslationClient`. See the README for migration examples.
+
+    ##### Migration guide
+
+    - **Install the new package:** replace `@azure-rest/ai-translation-document` with `@azure/ai-translation-document`.
+    - **Create the client:** the default export factory is replaced by named clients.
+
+    ```diff
+    - import DocumentTranslator from "@azure-rest/ai-translation-document";
+    - const client = DocumentTranslator(endpoint, credential);
+    + import { DocumentTranslationClient } from "@azure/ai-translation-document";
+    + const client = new DocumentTranslationClient(endpoint, credential);
+    ```
+
+    - **Call operations:** replace the `path(...).method()` pattern with typed methods.
+
+    ```diff
+    - await client.path("/document/batches").post({ body: { inputs } });
+    + await client.startTranslation({ inputs });
+    ```
+
+    - **Single document translation:** use `SingleDocumentTranslationClient`.
+
+    ```diff
+    - import DocumentTranslator from "@azure-rest/ai-translation-document";
+    - const client = DocumentTranslator(endpoint, credential);
+    - await client.path("/document:translate").post({ ... });
+    + import { SingleDocumentTranslationClient } from "@azure/ai-translation-document";
+    + const client = new SingleDocumentTranslationClient(endpoint, credential);
+    + await client.translate(targetLanguage, content);
+    ```
+
+    - **Responses:** results are returned as typed objects and errors are thrown as `RestError`, instead of checking `response.status` on a raw HTTP response.
+
+    #### Features Added
+
+    - Added support for the `2026-03-01` service API version.
+    - Added `deploymentName` to `TargetInput` and `DocumentStatus` to support translating with a custom translation model.
+    - Added `deploymentName` parameter to single document translation.
+    - Added support for translating text within images: `translateTextWithinImage` on batch and single document translation, and image-scan fields (`imageCharacterDetected`, `imageCharged`, `totalImageScansSucceeded`, `totalImageScansFailed`) on `DocumentStatus`.
+- Name: '@azure/arm-containerserviceaimanager'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerserviceaimanager
+  ServiceName: Containerserviceaimanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerserviceaimanager_1.0.0-beta.1/sdk/containerservice/arm-containerserviceaimanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hardwaresecuritymodules'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Hardware Security Modules
+  ServiceName: Hardware Security Modules
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hardwaresecuritymodules_3.0.0-beta.1/sdk/hardwaresecuritymodules/arm-hardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-iotoperations'
+  Version: 2.1.0
+  DisplayName: Resource Management - IoT Operations
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_2.1.0/sdk/iotoperations/arm-iotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 25.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/iot-device-update'
+  Version: 1.1.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.1.0/sdk/deviceupdate/iot-device-update/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release of the Azure Device Update for IoT Hub client library
+    for JavaScript, generated from TypeSpec.
+    - Added support for API version `2026-06-01`, including the new optional
+    `downloadSecurity` property on `Deployment` so callers can choose the protocol
+    the device should use when downloading update payload (defaults to `"https"`).
+
