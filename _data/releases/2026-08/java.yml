@@ -490,4 +490,51 @@ entries:
 
     * `V2026_06_01` was added
   GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.3.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.3.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added task-generation support to `BetaDatasetsClient` / `BetaDatasetsAsyncClient`: new `DataGenerationJobType.TASK_GENERATION` value and new `TaskGenerationDataGenerationJobOptions` subtype for the `task_generation` data generation scenario, intended for multi-turn evaluation with prompt, file, or agent sources.
+    - Added rubric-generation input-quality warnings on `BetaEvaluatorsClient` / `BetaEvaluatorsAsyncClient`:
+    - `EvaluatorGenerationJob.getInputQualityWarnings()` returns any non-fatal input-quality advisories produced by the rubric generation pipeline.
+    - `EvaluatorVersion.getGenerationJobId()` and `EvaluatorVersion.getWarnings()` provide the read-only link back to the `EvaluatorGenerationJob` that produced the version and the categories of warnings surfaced on it.
+    - New models `GenerationWarningType`, `RubricGenerationInputQualityWarning`, `RubricGenerationInputQualityWarningCode`, `RubricGenerationInputQualityWarningSeverity`, and `RubricGenerationInputQualityWarningSource`.
+    - Marked `HumanEvaluationPreviewRuleAction` with `@Beta` so preview surface area is explicit in generated API docs.
+
+    #### Breaking Changes
+
+    - `BetaDatasetsClient` / `BetaDatasetsAsyncClient` data generation job creation is now a long-running operation. `createGenerationJob(DataGenerationJob, String)`, `createGenerationJob(DataGenerationJob)`, and `createGenerationJobWithResponse(BinaryData, RequestOptions)` were removed and replaced by `beginCreateGenerationJob` overloads returning `SyncPoller<DataGenerationJob, DataGenerationJobResult>` / `PollerFlux<DataGenerationJob, DataGenerationJobResult>`. Call `.poll().getValue()` (or the async equivalent) to obtain the created `DataGenerationJob`.
+    - `BetaEvaluatorsClient` / `BetaEvaluatorsAsyncClient` evaluator generation job creation is now a long-running operation. `createEvaluatorGenerationJob(EvaluatorGenerationJob, String)`, `createEvaluatorGenerationJob(EvaluatorGenerationJob)`, and `createEvaluatorGenerationJobWithResponse(BinaryData, RequestOptions)` were removed and replaced by `beginCreateEvaluatorGenerationJob` overloads returning `SyncPoller<EvaluatorGenerationJob, EvaluatorVersion>` / `PollerFlux<EvaluatorGenerationJob, EvaluatorVersion>`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.3.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.3.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzureUserSecurityContext` and `AzureCreateResponseOptions.setUserSecurityContext(...)` for supplying application and end-user context to Microsoft Defender for Cloud when creating an Azure response. See [Protecting AI applications](https://aka.ms/TP4AI/Documentation/EndUserContext) for details.
+    - Added `AgentIdentityStatus` (values `ACTIVE` and `DISABLED`) and `AgentIdentity.getStatus()` to expose the status of an agent's instance identity or blueprint identity.
+    - Added an `allowedCallers` property to many tool models, backed by the new `CallableToolAllowedCaller` enum (`DIRECT`, `PROGRAMMATIC`), so callers can restrict how a tool may be invoked. Supported types include `ApplyPatchToolParameter`, `CodeInterpreterTool`, `CodeInterpreterToolboxTool`, `CustomToolParameter`, `FunctionShellToolParameter`, `FunctionTool`, `McpTool`, and `McpToolboxTool`.
+    - Added programmatic tool calling support: new `ProgrammaticToolCallingParameter` tool and `ToolType.PROGRAMMATIC_TOOL_CALLING` value.
+    - Toolbox Search graduated to general availability. Added `ToolSearchToolboxTool` and `ToolboxToolType.TOOLBOX_SEARCH` for the GA tool; the preview `ToolboxSearchPreviewToolboxTool` (`toolbox_search_preview`) is retained alongside for backward compatibility.
+    - Added `McpTool.setTunnelId(...)` / `getTunnelId()` and the same on `McpToolboxTool` to route MCP calls through a Secure MCP Tunnel as an alternative to `serverUrl` or `connectorId`.
+    - Added `FunctionTool.setOutputSchema(...)` / `getOutputSchema()` for declaring the JSON schema of a function tool's return payload.
+    - Added `OptimizationOptions.setMaxStalls(...)` / `getMaxStalls()` for configuring early-stop behavior of preview agent-optimization jobs.
+    - Added `ResponseUsageInputTokensDetails.getCacheWriteTokens()` to expose the number of tokens written to the prompt cache in a response.
+
+    #### Breaking Changes
+
+    - `BetaAgentsClient.createOptimizationJob(OptimizationJob)` and `createOptimizationJob(OptimizationJob, String)` were replaced by long-running operations `beginCreateOptimizationJob(OptimizationJob)` and `beginCreateOptimizationJob(OptimizationJob, String)`, which return `SyncPoller<OptimizationJob, OptimizationJobResult>` instead of `OptimizationJob`. The corresponding `BetaAgentsAsyncClient` methods now return `PollerFlux<OptimizationJob, OptimizationJobResult>`. The protocol method was likewise replaced by `beginCreateOptimizationJob(BinaryData, RequestOptions)` returning `SyncPoller<BinaryData, BinaryData>` / `PollerFlux<BinaryData, BinaryData>`.
+    - `ResponseUsageInputTokensDetails` now also carries a `cacheWriteTokens` field. Deserialized instances continue to work, but any code depending on the previous single-field structure should be updated to read the new value.
+  GroupId: com.azure
 
