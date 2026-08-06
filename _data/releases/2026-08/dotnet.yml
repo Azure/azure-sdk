@@ -382,4 +382,36 @@ entries:
     - Changed the default `DocumentTranslationClientOptions.ServiceVersion` from `V2024_05_01` to `V2026_03_01`, and removed the interim `V2024_11_01_Preview` and `V2025_12_01_Preview` preview service versions. Use the stable `V2026_03_01` version instead.
     - Added `deploymentName` and `translateTextWithinImage` parameters (positioned after `category`) to the `SingleDocumentTranslationClient.Translate` and `TranslateAsync` overloads. This is a binary-breaking change for existing callers.
     - Made the format type parameter required (`FileFormatType fileFormatType` instead of `FileFormatType? type`) on `DocumentTranslationClient.GetSupportedFormats` and `GetSupportedFormatsAsync`, since the `2026-03-01` service version requires it. Specify `FileFormatType.Document` or `FileFormatType.Glossary`. The previous nullable overload is retained for binary compatibility but now throws `NotSupportedException` when called without a type.
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.7.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.7.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridCompute
+  Version: 1.1.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridCompute_1.1.0/sdk/hybridcompute/Azure.ResourceManager.HybridCompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceBus
+  Version: 1.2.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceBus_1.2.0/sdk/servicebus/Azure.ResourceManager.ServiceBus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.2.0-beta.5
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.2.0-beta.5/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
 
