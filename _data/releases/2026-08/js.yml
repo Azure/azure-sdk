@@ -518,4 +518,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/iot-device-update'
+  Version: 1.1.0
+  DisplayName: IoT Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.1.0/sdk/deviceupdate/iot-device-update/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial stable release of the Azure Device Update for IoT Hub client library
+    for JavaScript, generated from TypeSpec.
+    - Added support for API version `2026-06-01`, including the new optional
+    `downloadSecurity` property on `Deployment` so callers can choose the protocol
+    the device should use when downloading update payload (defaults to `"https"`).
 
