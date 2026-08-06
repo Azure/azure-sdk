@@ -777,4 +777,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerserviceaimanager_1.0.0b1/sdk/containerservice/azure-mgmt-containerserviceaimanager/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-iot-deviceupdate
+  Version: 1.1.0
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.1.0/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated the client library from the TypeSpec specification for the Device Update for IoT Hub `2026-06-01` GA API version.
+    - Added support for configuring TLS-secured update payload downloads through the `downloadSecurity` property when creating or updating a deployment.
 
