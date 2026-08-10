@@ -797,4 +797,58 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_5.0.0b1/sdk/sql/azure-mgmt-sql/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.27.0b1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.27.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Return type of get_share_access_policies is now the publicly exposed SignedIdentifier model containing the publicly exposed AccessPolicy model. Previously we were leaking the internal generated SignedIdentifier model without exposing it in the api.
+
+
+    #### Features Added
+    - Added support for service version 2026-10-06.
+    - Added `list_ranges` and `list_ranges_diff` APIs to `ShareFileClient` which return an auto-paging iterable of
+    `FileRange` and support continuation tokens and `results_per_page` for enumerating file ranges across multiple
+    service responses.
+- Name: azure-storage-queue
+  Version: 12.18.0b1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.18.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Return type of get_access_policies is now the publicly exposed AccessPolicy model. Previously we were leaking the internal generated AccessPolicy model without exposing it in the api.
+
+
+    #### Features Added
+    - Added support for service version 2026-10-06.
+- Name: azure-storage-blob
+  Version: 12.31.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.31.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-10-06.
+    - Added support for parsing List Blobs responses in Apache Arrow format by passing
+    `response_format="arrow"` keyword to `ContainerClient`'s `list_blobs`, `walk_blobs`, and `list_blob_names` APIs
+    (`response_format` defaults to `"auto"`, and `"auto"` currently means `"xml"`).
+    The use of `"response_format=arrow"` requires `nanoarrow` to be installed.
+    This change also enables the new `end_before` keyword for range-based listing.
+    - Added access tier information to the response of `BlobClient`'s `download_blob` API.
+    The `blob_tier`, `blob_tier_inferred`, `blob_tier_change_time`, and `smart_access_tier`
+    properties are now populated on the downloaded blob's `properties`.
+    - The service-calculated CRC64 is now surfaced as `content_crc64` on the response of
+    `BlobClient` upload operations (`stage_block`, `stage_block_from_url`, `upload_page`,
+    `upload_pages_from_url`, `append_block`, `append_block_from_url`, `upload_blob`, and
+    `upload_blob_from_url`) in addition to `content_md5` when a content MD5 is
+    provided with the request.
 
