@@ -861,4 +861,41 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for service version 2026-10-06.
+- Name: azure-ai-contentunderstanding
+  Version: 1.2.0b3
+  DisplayName: Azure Content Understanding in Foundry Tools
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentunderstanding_1.2.0b3/sdk/contentunderstanding/azure-ai-contentunderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for selecting `2025-11-01` or `2026-06-01-preview` through the `api_version` keyword argument on `ContentUnderstandingClient`; this beta package defaults to `2026-06-01-preview`. See the [README service API version examples](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/README.md#service-api-versions).
+
+    - Added support for `2026-06-01-preview` service. Features included:
+    - Analyze smaller inputs without long-running operation polling with `analyze_inline` and `analyze_binary_inline`. See [sample_analyze_inline.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_inline.py) and [sample_analyze_binary_inline.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_binary_inline.py).
+    - Extract fields whose answers must be built from evidence across a document, such as multistep reasoning or calculations, with agentic analyzer workflows by setting `ContentAnalyzerConfig.workflow` to `ContentAnalyzerWorkflow.AGENTIC`. See [sample_create_analyzer_workflow.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_create_analyzer_workflow.py).
+    - Classify mixed document packets with boundaries within a page by enabling `ContentAnalyzerConfig.allow_in_page_segments`. See [sample_classify_in_page_segments.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_classify_in_page_segments.py).
+    - Prepare documents for retrieval and LLM workflows with semantic chunks by configuring `ContentAnalyzerConfig.chunking_strategy` with `SemanticChunkingStrategy` and reading `DocumentContent.chunks`. See [sample_analyze_chunking.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_chunking.py).
+    - Identify signatures and their locations in documents with `DocumentSignature` and `DocumentContent.signatures`. See [sample_detect_signatures.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_detect_signatures.py) and [sample_analyze_configs.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_configs.py).
+    - Preserve source document context in retrieval and LLM output with `AnalysisContent.metadata` and `to_llm_input`. See [sample_extract_document_metadata.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_extract_document_metadata.py) and [sample_to_llm_input.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_to_llm_input.py).
+    - Troubleshoot analyses with diagnostic information from `AnalysisResult.infos`. See [sample_analysis_diagnostics.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analysis_diagnostics.py).
+    - Track inline page usage and agentic workflow token consumption with expanded `UsageDetails`, available from `AnalyzeLROPoller.usage`, `AnalyzeAsyncLROPoller.usage`, and `ContentAnalyzerInlineResponse.usage`. See [sample_analyze_invoice.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_invoice.py), [sample_analyze_inline.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_inline.py), and [sample_analyze_binary_inline.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/samples/sample_analyze_binary_inline.py).
+- Name: azure-ai-agentserver-responses
+  Version: 2.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.0.0/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the Azure AI Agent Server Responses client library.
+
+    #### Breaking Changes
+
+    - Removed the duplicate `azure.ai.agentserver.responses.get_input_expanded`
+    export. Import it from `azure.ai.agentserver.responses.models` instead.
 
