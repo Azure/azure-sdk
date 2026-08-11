@@ -186,4 +186,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerserviceaimanager/armcontainerserviceaimanager/v0.1.0/sdk/resourcemanager/containerserviceaimanager/armcontainerserviceaimanager/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.23.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.23.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue where `runtime.Pager[T].More` could return `true` indefinitely after `NextPage` failed to retrieve the first page, causing `for pager.More()` loops to spin. After a page fetch returns an error the `Pager` now enters a terminal state: `More` returns `false` and subsequent `NextPage` calls return the same error without invoking the fetcher again.
+
+    #### Features Added
+
+    * Helper method `runtime.NewRequestForNextLink` for creating requests for pageable operations that uses a next link.  It handles absolute and relative next links.
 
