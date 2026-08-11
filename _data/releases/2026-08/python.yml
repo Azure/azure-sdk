@@ -851,4 +851,14 @@ entries:
     `upload_pages_from_url`, `append_block`, `append_block_from_url`, `upload_blob`, and
     `upload_blob_from_url`) in addition to `content_md5` when a content MD5 is
     provided with the request.
+- Name: azure-storage-file-datalake
+  Version: 12.26.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.26.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2026-10-06.
 
