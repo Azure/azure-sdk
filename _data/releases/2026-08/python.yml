@@ -898,4 +898,37 @@ entries:
 
     - Removed the duplicate `azure.ai.agentserver.responses.get_input_expanded`
     export. Import it from `azure.ai.agentserver.responses.models` instead.
+- Name: azure-ai-agentserver-responses
+  Version: 2.1.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.1.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `ResponseContext.conversation_chain_metadata` and the
+    `ConversationChainMetadataNamespace` protocol. Resilient response
+    applications now persist cross-turn state explicitly with
+    `FoundryStateStore`.
+- Name: azure-ai-agentserver-core
+  Version: 2.1.0b1
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.1.0b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `TaskMetadata`, `TaskContext.metadata`, and `TaskRun.metadata`.
+    Durable application state now belongs in an explicit `FoundryStateStore`
+    and no longer shares task lifecycle PATCHes or lease renewal. Typed task
+    inputs may carry a top-level `call_id`, which the framework restores in
+    `FoundryAgentRequestContext` for every handler attempt.
+
+    #### Features Added
+
+    - `FoundryStateStore` now uses a file-backed local fallback when AgentServer is not hosted, and item operations accept an explicit `call_id` for forwarding recovered durable work outside the original request context.
 
