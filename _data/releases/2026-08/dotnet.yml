@@ -488,4 +488,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Attestation_1.0.0-beta.1/sdk/attestation/Azure.Provisioning.Attestation/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Analytics.PlanetaryComputer
+  Version: 1.0.0
+  DisplayName: Planetary Computer
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.PlanetaryComputer_1.0.0/sdk/planetarycomputer/Azure.Analytics.PlanetaryComputer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General availability release of the Azure Planetary Computer client library for .NET.
+    - Full support for STAC API (v1.0.0) operations: collections, items, search, and tiles endpoints.
+    - Data client with support for rendering data (GetTile, GetPreview, GetStatistics, GetBounds, GetWmtsCapabilities).
+    - Ingestion client for managing data ingestion workflows.
+    - Managed Storage Shared Access Signature (SAS) client for secure token generation.
+    - Full async/await support throughout the SDK.
+    - Support for .NET 8.0, .NET 10.0, and .NET Standard 2.0.
+    - Added `PlanetaryComputerProClientSettings` to support creating a `PlanetaryComputerProClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Data client methods with many parameters use options bag pattern for improved usability (e.g., `GetItemPointAsync(GetItemPointOptions)`).
 
