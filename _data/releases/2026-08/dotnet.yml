@@ -446,4 +446,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServicePreparedImgSpec_1.0.0-beta.1/sdk/containerservicepreparedimgspec/Azure.ResourceManager.ContainerServicePreparedImgSpec/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.1.0
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.1.0/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated the client library from the TypeSpec specification for the Device Update for IoT Hub `2026-06-01` GA API version.
+    - Added support for TLS-secured update payload downloads.
 
