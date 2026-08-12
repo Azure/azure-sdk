@@ -507,4 +507,28 @@ entries:
     - Support for .NET 8.0, .NET 10.0, and .NET Standard 2.0.
     - Added `PlanetaryComputerProClientSettings` to support creating a `PlanetaryComputerProClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
     - Data client methods with many parameters use options bag pattern for improved usability (e.g., `GetItemPointAsync(GetItemPointOptions)`).
+- Name: Azure.Provisioning.RecoveryServicesBackup
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Recoveryservicesbackup
+  ServiceName: Recoveryservicesbackup
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.RecoveryServicesBackup_1.0.0-beta.1/sdk/recoveryservices-backup/Azure.Provisioning.RecoveryServicesBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.RecoveryServices
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Recoveryservices
+  ServiceName: Recoveryservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.RecoveryServices_1.0.0-beta.1/sdk/recoveryservices/Azure.Provisioning.RecoveryServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.IotHub
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Iothub
+  ServiceName: Iothub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.IotHub_1.0.0-beta.1/sdk/iothub/Azure.Provisioning.IotHub/CHANGELOG.md
+  ChangelogContent: ""
 
