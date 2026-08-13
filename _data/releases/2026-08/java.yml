@@ -591,4 +591,214 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-iothub_1.4.0-beta.3/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.65
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-tracing-opentelemetry_1.0.0-beta.65/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.38
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-metrics-opentelemetry_1.0.0-beta.38/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-jdk-httpclient
+  Version: 1.1.6
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-jdk-httpclient_1.1.6/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-vertx
+  Version: 1.1.6
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-vertx_1.1.6/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+    - Upgraded `vertx-codegen` from `4.5.27` to `4.5.32`.
+    - Upgraded `vertx-core` from `4.5.27` to `4.5.32`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-jackson
+  Version: 1.6.6
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-jackson_1.6.6/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Jackson from `2.18.7` to `2.18.9`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-okhttp
+  Version: 1.13.6
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-okhttp_1.13.6/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+    - Upgraded `okio-jvm` from `3.16.0` to `3.18.1`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-amqp
+  Version: 2.12.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-amqp_2.12.1/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a memory leak in `RequestResponseChannel` (used by management/request-response operations such as
+    lock renewal, peek, schedule, and session state). The channel's `SendLinkHandler` emits a link-credit value
+    on every AMQP flow frame into a unicast, unbounded-buffer sink, but the channel never subscribed to it, so the
+    credits buffered indefinitely and the heap grew steadily for long-lived, cached channels. The channel now drains
+    the credit flux. ([#47261](https://github.com/Azure/azure-sdk-for-java/issues/47261))
+  GroupId: com.azure
+- Name: com.azure+azure-core-experimental
+  Version: 1.0.0-beta.69
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-experimental_1.0.0-beta.69/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-netty
+  Version: 1.16.6
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-netty_1.16.6/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+    - Upgraded Netty dependencies from `4.1.135.Final` to `4.1.137.Final`.
+    - Upgraded Netty TcNative dependencies from `2.0.78.Final` to `2.0.81.Final`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-gson
+  Version: 1.4.6
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-gson_1.4.6/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-test
+  Version: 1.27.0-beta.17
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-test_1.27.0-beta.17/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.66
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-avro-apache_1.0.0-beta.66/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.58.1` to `1.58.2`.
+    - Upgraded Reactor from `3.7.18` to `3.7.19`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-management
+  Version: 1.19.6
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-management_1.19.6/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: com.azure+azure-core
+  Version: 1.59.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core_1.59.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where retrying requests with bodies created from a mark/reset-capable `InputStream` could fail because the stream was closed between retry attempts. ([#49650](https://github.com/Azure/azure-sdk-for-java/pull/49650))
+    - Fixed GraalVM native-image compilation with SLF4J 2 by no longer forcing Azure Core logging and logging provider
+    classes to initialize at image build time. ([#49844](https://github.com/Azure/azure-sdk-for-java/issues/49844))
+
+    #### Features Added
+
+    - Promoted `AccessTokenCache` to a public API in the `com.azure.core.credential` package. This class provides a thread-safe, proactively refreshing token cache that wraps a `TokenCredential`, supporting both synchronous and asynchronous token retrieval.
+  GroupId: com.azure
 
