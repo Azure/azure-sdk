@@ -687,4 +687,12 @@ entries:
     provider, matching the Python implementation. The local default event-stream backing is
     in-memory replay, upgraded automatically to durable file-backed replay when resilient
     background is enabled outside a hosted environment.
+- Name: Azure.ResourceManager.ContainerServiceFleet
+  Version: 1.2.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.2.0/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
+  ChangelogContent: ""
 
