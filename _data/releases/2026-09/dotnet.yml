@@ -28,4 +28,76 @@ entries:
     - Updated dependency `Azure.Core` to version `1.61.0`.
     - Updated dependency `Microsoft.Extensions.Configuration.Binder` to version `10.0.10`.
     - Updated dependency `Microsoft.Extensions.Logging` to version `10.0.10`.
+- Name: Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Extensiontypes
+  ServiceName: Kubernetesconfiguration.Extensiontypes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Privatelinkscopes
+  ServiceName: Kubernetesconfiguration.Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.6.4
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.6.4/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.55.0 to 1.61.0.
+    - Updated `Microsoft.AspNetCore.DataProtection` to patched versions that resolve `System.Security.Cryptography.Xml` advisories GHSA-g8r8-53c2-pm3f, GHSA-8q5v-6pqq-x66h, GHSA-23rf-6693-g89p, GHSA-cvvh-rhrc-wg4q, and GHSA-mmjf-rqrv-855v: from 8.0.26 to 8.0.29 for `net8.0`, and from 10.0.7 to 10.0.10 for all other target frameworks.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.5.2
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.5.2/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.54.0 to 1.61.0.
+    - Updated `Azure.Security.KeyVault.Secrets` dependency from 4.10.0 to 4.11.0.
+    - Updated `Microsoft.Extensions.Configuration` dependency from 10.0.3 to the serviced 10.0.10 release.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.11.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.11.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `GetRevisions` and `GetRevisionsAsync` throwing a `UriFormatException` when retrieving subsequent pages. [#62095](https://github.com/Azure/azure-sdk-for-net/issues/62095)
+- Name: Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Fluxconfigurations
+  ServiceName: Kubernetesconfiguration.Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.5.4
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.5.4/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.55.0 to 1.61.0.
+    - Updated `Microsoft.AspNetCore.DataProtection` to patched versions that resolve `System.Security.Cryptography.Xml` advisories GHSA-g8r8-53c2-pm3f, GHSA-8q5v-6pqq-x66h, GHSA-23rf-6693-g89p, GHSA-cvvh-rhrc-wg4q, and GHSA-mmjf-rqrv-855v: from 8.0.26 to 8.0.29 for `net8.0`, and from 10.0.7 to 10.0.10 for all other target frameworks.
 
