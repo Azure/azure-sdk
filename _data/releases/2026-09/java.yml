@@ -50,4 +50,16 @@ entries:
     [Sample 19](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/src/samples/java/com/azure/ai/contentunderstanding/samples/Sample19_AnalyzeInline.java), and
     [Sample 20](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/contentunderstanding/azure-ai-contentunderstanding/src/samples/java/com/azure/ai/contentunderstanding/samples/Sample20_AnalyzeBinaryInline.java).
   GroupId: com.azure
+- Name: com.azure+azure-monitor-opentelemetry-autoconfigure
+  Version: 1.6.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-opentelemetry-autoconfigure_1.6.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Validate ingestion and Live Metrics redirect targets before following them ([#50117](https://github.com/Azure/azure-sdk-for-java/pull/50117))
+  GroupId: com.azure
 
