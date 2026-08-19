@@ -31,4 +31,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.3.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.1.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.1.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the hosted task provider's `Foundry-Features` opt-in header from `Routines=V1Preview` to `Routines=V2Preview` to align with the `agentserver-persistence` contract. #48617
+- Name: azure-mgmt-servicegroups
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Groups
+  ServiceName: Service Groups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicegroups_1.0.0/sdk/servicegroups/azure-mgmt-servicegroups/CHANGELOG.md
+  ChangelogContent: ""
 
