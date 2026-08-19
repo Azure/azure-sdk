@@ -1,0 +1,37 @@
+entries:
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.14
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.14/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - [[#7250]](https://github.com/Azure/azure-sdk-for-cpp/issues/7250) Restored connection-string authentication for `ProducerClient` and `ConsumerClient`, including support for the Event Hubs emulator.
+    - [[#7295]](https://github.com/Azure/azure-sdk-for-cpp/issues/7295) Connection-string authentication now works on the Rust AMQP backend. `ProducerClient` and `ConsumerClient` no longer throw when the caller passes a connection string.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) `ProducerClient::Send` now builds a new sender on each retry attempt. A failed attempt discards the sender, the session, and the connection for that partition, so the next attempt builds all three again and authenticates with a current token. A send that a link detach ended previously failed for the life of the client.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) `PartitionClient::ReceiveEvents` now attaches a new receiver after a link fault, and it starts after the last event that it gave the caller. So the caller sees no duplicate event and no lost event. A permanent condition, for example `amqp:link:stolen`, still reaches the caller at once. A call that already holds events gives them back and recovers on the next call.
+
+    #### Bugs Fixed
+
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) A teardown of the cached sender no longer runs while another thread sends on that sender. `ProducerClient::Send` gives each attempt a copy of the sender, and a failed attempt on one thread closed the object that a second thread was using. On the Rust AMQP backend that close frees the sender, so the race was a use after free. Each partition now has a guard that lets sends run at the same time and makes a teardown wait for the sends in flight. `ProducerClient::Close` uses the same guard, and it now logs a failed close and continues instead of leaving the other objects open.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) `ProducerClient::CreateBatch` now builds a new sender when it cannot read the maximum message size. The client caches a sender for each partition, and a cached sender holds a link that the service detaches after 30 idle minutes. The size of a batch comes from the attached link, so this call was the first one to touch the dead link, and it threw. The `Send(EventData)` overloads go through this call, so the whole producer failed after an idle period even though `Send` builds a new sender on each attempt.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) Updated producer retries to honor `EventHubsException::IsTransient`, treat empty AMQP error conditions as transient, stop immediately for unknown and known non-transient failures, preserve bounded retries for AMQP runtime failures, and make backoff cancellable through `Azure::Core::Context`. Retry accounting now always performs the initial attempt and treats `MaxRetries` as additional retry attempts.
+    - [[#7335]](https://github.com/Azure/azure-sdk-for-cpp/issues/7335) The internal properties client can no longer end the process through its destructor. `EventHubsPropertiesClient::Close` marked the client closed only after `ManagementClient::Close` returned, so a close that threw left the client marked open, and it also skipped the session end. The destructor then closed the same client a second time with no try block, and a destructor is `noexcept`, so that second throw would call `std::terminate`. `Close` now marks the client closed before the call, gives each step its own try block, and ends the session on the failing path too. The destructor catches and logs. This is a guard against a throwing close, and not a fix for an observed crash: a live test that left a management link idle for 35 minutes did not make the uAMQP close throw. Release 1.0.0-beta.11 records the same rule in [[#6957]](https://github.com/Azure/azure-sdk-for-cpp/issues/6957).
+    - [[#7257]](https://github.com/Azure/azure-sdk-for-cpp/issues/7257) Fixed the partition key on a batch envelope. `EventDataBatch::ToAmqpMessage` wrote the `x-opt-partition-key` value to the AMQP delivery-annotations section. The Event Hubs service ignores that section. The batch also built the envelope from the message before the code applied the partition key annotation. A batch with a partition key thus spread across all partitions. The partition key now goes in the message-annotations section, on the batch envelope and on each message in the batch. A batch that sets `EventDataBatchOptions::PartitionKey` now lands on one partition.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) `ProducerClient::Send` no longer waits forever when the connection goes away. A caller that gives no deadline now gets a bound of 60 seconds on the send, and the client treats that timeout as transient, so the next attempt builds a new sender. A close of the sender or of the receiver also comes back when the connection is gone, instead of waiting for a detach that never arrives, and the attach that a rebuild runs next carries the same bound. `PartitionClient::ReceiveEvents` keeps the deadline of the caller, because a receive is a long poll that the caller controls.
+    - [[#7254]](https://github.com/Azure/azure-sdk-for-cpp/issues/7254) `Processor::Close` and `ConsumerClient::Close` now finish closing every partition after one AMQP teardown reports a lost connection. A receiver detach can report `IllegalSessionState` after the service resets its connection. That error stopped the cleanup loops, left other connections open, and could end the process when those open connections were destroyed.
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.0.0-beta.4
+  DisplayName: Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs-checkpointstore-blob_1.0.0-beta.4/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - No public changes in this release.
+
