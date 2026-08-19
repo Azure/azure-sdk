@@ -100,4 +100,15 @@ entries:
 
     - Updated `Azure.Core` dependency from 1.55.0 to 1.61.0.
     - Updated `Microsoft.AspNetCore.DataProtection` to patched versions that resolve `System.Security.Cryptography.Xml` advisories GHSA-g8r8-53c2-pm3f, GHSA-8q5v-6pqq-x66h, GHSA-23rf-6693-g89p, GHSA-cvvh-rhrc-wg4q, and GHSA-mmjf-rqrv-855v: from 8.0.26 to 8.0.29 for `net8.0`, and from 10.0.7 to 10.0.10 for all other target frameworks.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.3
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.3/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `ConfidentialLedgerClientOptions.EnableArchivedCollectionFallback` to default to `false`. Callers that require `GetCurrentLedgerEntry` and `GetCurrentLedgerEntryAsync` to search ledger history after a collection-specific 404 must now explicitly opt in by setting the option to `true`.
 
