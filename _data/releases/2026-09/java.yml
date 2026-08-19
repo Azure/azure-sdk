@@ -1314,4 +1314,52 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.60.0/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-agents
+  Version: 2.4.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.4.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Preview agent-optimization models were renamed to include the `Agent` prefix, and `BetaAgentsClient` / `BetaAgentsAsyncClient` methods (`getOptimizationJob`, `listOptimizationJobs`, `cancelOptimizationJob`, `beginCreateOptimizationJob`, and their async counterparts) now use the renamed types. Notable renames:
+    - `OptimizationJob` → `AgentOptimizationJob`
+    - `OptimizationJobInputs` → `AgentOptimizationJobInputs`
+    - `OptimizationJobListItem` → `AgentOptimizationJobListItem`
+    - `OptimizationJobProgress` → `AgentOptimizationJobProgress`
+    - `OptimizationJobResult` → `AgentOptimizationJobResult`
+    - `OptimizationOptions` → `AgentOptimizationOptions`
+    - `OptimizationCandidate` → `AgentOptimizationCandidate`
+    - `OptimizationDatasetInput` / `OptimizationInlineDatasetInput` / `OptimizationReferenceDatasetInput` / `OptimizationDatasetItem` / `OptimizationDatasetCriterion` / `OptimizationDatasetInputType` → their `AgentOptimization*` counterparts
+    - `OptimizationEvaluatorRef` → `AgentOptimizationEvaluatorRef`
+    - `OptimizationAgentIdentifier` → `OptimizedAgentIdentifier`
+
+    #### Features Added
+
+    - Agent-to-agent (A2A) tool graduated to general availability. Added `A2ATool` and `A2AToolboxTool` with `A2AProtocolVersion` (values include `V1_0`), plus `ToolType.A2A` and `ToolboxToolType.A2A` discriminator values. The preview `A2APreviewTool` / `A2APreviewToolboxTool` (`a2a_preview`) are retained alongside for backward compatibility.
+    - Added `AgentDetails.getStateSource()` and the new `AgentStateSource` enum (`AGENT_INSTANCE_IDENTITY`, `AGENT_BLUEPRINT`) to expose where an agent's operational state is derived from (agent instance identity or agent blueprint).
+    - Added `ContainerConfiguration.setRegistryConnectionId(...)` / `getRegistryConnectionId()` for supplying the Foundry project connection that holds the credentials for a private container registry hosting the hosted-agent image. `ContainerConfiguration` is now `@Fluent` instead of `@Immutable`.
+    - Added `AgentOptimizationJob.setInputs(...)` and `AgentOptimizationJob.getWarnings()` to configure inputs directly and to read non-fatal warnings emitted during preview optimization.
+    - Added `AgentDefinitionOptInKeys.VOICE_AGENTS_V1_PREVIEW` (`VoiceAgents=V1Preview`) opt-in flag.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.4.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.4.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Routines preview was rolled to V2. `FoundryFeaturesOptInKeys.ROUTINES_V1_PREVIEW` was renamed to `ROUTINES_V2_PREVIEW` (`Routines=V2Preview`); `BetaRoutinesClient` / `BetaRoutinesAsyncClient` now emit `Foundry-Features: Routines=V2Preview` on every request, and the `@Beta` markers on routine models (`Routine`, `RoutineAction`, `RoutineActionType`, `RoutineTrigger`, `RoutineTriggerType`, `RoutineRun`, `RoutineRunPhase`, `RoutineAttemptSource`, `RoutineDispatchPayload`, `RoutineDispatchPayloadType`, `DispatchRoutineResult`, `ScheduleRoutineTrigger`, `TimerRoutineTrigger`, `CustomRoutineTrigger`, `GitHubIssueEvent`, `GitHubIssueRoutineTrigger`, `InvokeAgentInvocationsApiRoutineAction` / `InvokeAgentInvocationsApiDispatchPayload`, `InvokeAgentResponsesApiRoutineAction` / `InvokeAgentResponsesApiDispatchPayload`) were updated to reference `Routines=V2Preview`.
+    - The `task_generation` data generation scenario was renamed to `simulation_seed`. `TaskGenerationDataGenerationJobOptions` was renamed to `SimulationSeedDataGenerationJobOptions`, and `DataGenerationJobType.TASK_GENERATION` was replaced by `DataGenerationJobType.SIMULATION_SEED`. The discriminator value on `DataGenerationJobOptions` changed from `task_generation` to `simulation_seed`.
+    - Routine listing convenience methods on `BetaRoutinesClient` / `BetaRoutinesAsyncClient` dropped the `before` parameter and now take `com.azure.ai.agents.models.PageOrder` instead of `String` for the `order` argument. `listRoutines(Integer, String, String, String)` was replaced by `listRoutines(Integer, String, PageOrder)`, and `listRoutineRuns(String, String, Integer, String, String, String)` was replaced by `listRoutineRuns(String, String, Integer, String, PageOrder)`.
+
+    #### Features Added
+
+    - Added `TracesDataGenerationJobOptions.setRedactPrivateContent(...)` / `isRedactPrivateContent()` to control whether private content in traces is redacted (default is to redact; set `false` to opt out).
+  GroupId: com.azure
 
