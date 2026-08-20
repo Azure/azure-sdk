@@ -111,4 +111,12 @@ entries:
     #### Breaking Changes
 
     - Changed `ConfidentialLedgerClientOptions.EnableArchivedCollectionFallback` to default to `false`. Callers that require `GetCurrentLedgerEntry` and `GetCurrentLedgerEntryAsync` to search ledger history after a collection-specific 404 must now explicitly opt in by setting the option to `true`.
+- Name: Azure.Provisioning
+  Version: 1.6.0
+  DisplayName: Provisioning
+  ServiceName: Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.6.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: ""
 
