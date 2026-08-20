@@ -65,4 +65,44 @@ entries:
     - `FeatureFlagClient` is available from `azure.appconfiguration` (sync) and `azure.appconfiguration.aio` (async).
     - Added the `FeatureFlag` model along with `FeatureFlagConditions`, `FeatureFilter`, `FeatureFlagVariantDefinition`, `FeatureFlagAllocation`, `FeatureFlagTelemetryConfiguration`, `PercentileAllocation`, `UserAllocation`, and `GroupAllocation`, plus the `RequirementType` and `StatusOverride` enums.
     - `FeatureFlagClient.list_labels()` always lists feature-flag labels, while `AzureAppConfigurationClient.list_labels()` always lists key-value labels.
+- Name: azure-ai-projects
+  Version: 2.5.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.5.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    All breaking changes are associated with beta features.
+
+    * Methods `.beta.routines.list` and `.beta.routines.list_runs` replaced the `before` argument with `after` and now use the service-provided `next_link` for continuation.
+    * Renamed class `TaskGenerationDataGenerationJobOptions` to `SimulationSeedDataGenerationJobOptions`. The corresponding `DataGenerationJobType.TASK_GENERATION` enum member was renamed to `DataGenerationJobType.SIMULATION_SEED`, and its wire value changed from `task_generation` to `simulation_seed`.
+    * Renamed enum `OptimizationDatasetInputType` to `AgentOptimizationDatasetInputType`.
+    * Renamed class `OptimizationAgentIdentifier` to `OptimizedAgentIdentifier`.
+    * Renamed class `OptimizationCandidate` to `AgentOptimizationCandidate`.
+    * Renamed class `OptimizationDatasetCriterion` to `AgentOptimizationDatasetCriterion`.
+    * Renamed class `OptimizationDatasetInput` to `AgentOptimizationDatasetInput`.
+    * Renamed class `OptimizationDatasetItem` to `AgentOptimizationDatasetItem`.
+    * Renamed class `OptimizationEvaluatorRef` to `AgentOptimizationEvaluatorRef`.
+    * Renamed class `OptimizationInlineDatasetInput` to `AgentOptimizationInlineDatasetInput`.
+    * Renamed class `OptimizationJob` to `AgentOptimizationJob`.
+    * Renamed class `OptimizationJobInputs` to `AgentOptimizationJobInputs`.
+    * Renamed class `OptimizationJobListItem` to `AgentOptimizationJobListItem`.
+    * Renamed class `OptimizationJobProgress` to `AgentOptimizationJobProgress`.
+    * Renamed class `OptimizationJobResult` to `AgentOptimizationJobResult`.
+    * Renamed class `OptimizationOptions` to `AgentOptimizationOptions`.
+    * Renamed class `OptimizationReferenceDatasetInput` to `AgentOptimizationReferenceDatasetInput`.
+
+    #### Features Added
+
+    * Added stable Agent-to-Agent (A2A) tools `A2ATool` and `A2AToolboxTool`, with the new `A2AProtocolVersion` enum for selecting protocol version `1.0`.
+    * Method `.beta.agents.begin_create_optimization_job` now returns a custom LRO poller named `AgentOptimizationLROPoller`. Its `details` property exposes the created job ID as `job_id`.
+    * Method `.beta.datasets.begin_create_generation_job` now returns a custom LRO poller named `DatasetGenerationLROPoller`. Its `details` property exposes the created job ID as `job_id`.
+    * Method `.beta.evaluators.begin_create_generation_job` now returns a custom LRO poller named `EvaluatorGenerationLROPoller`. Its `details` property exposes the created job ID as `job_id`.
+    * Added the optional read-only `state_source` property to `AgentDetails` and the new `AgentStateSource` enum.
+    * Added programmatic tool calling through `ProgrammaticToolCallingParam` and `SpecificProgrammaticToolCallingParam`, with new `ToolType.PROGRAMMATIC_TOOL_CALLING` and `ToolChoiceParamType.PROGRAMMATIC_TOOL_CALLING` enum members.
+    * Added the optional `allowed_callers` property to `ApplyPatchToolParam`, `CodeInterpreterTool`, `CodeInterpreterToolboxTool`, `CustomToolParam`, `FunctionShellToolParam`, `FunctionTool`, `FunctionToolParam`, `MCPTool`, and `MCPToolboxTool`. Added the new `CallableToolAllowedCaller` enum values `direct` and `programmatic`.
+    * Expanded `Reasoning` with optional `mode` and `context` properties. Added `ReasoningModeEnum` for `standard` and `pro`; `effort` now uses the new `ReasoningEffort` enum, including the new `max` effort.
 
