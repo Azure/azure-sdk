@@ -144,4 +144,43 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.3.0/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.1.0-beta.3/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.21.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.21.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SqlFilterCount` and `CorrelationFilterCount` properties to `TopicRuntimeProperties`, exposing the total number of SQL filters and correlation filters across all of a topic's subscriptions. These are populated by `GetTopicRuntimePropertiesAsync` and `GetTopicsRuntimePropertiesAsync`.
+    - Added `ServiceBusAdministrationClientOptions.ServiceVersion.V2024_05` and made it the default service version. The topic filter counts above are served by the `2024-05` service API version, so the administration client now sends `api-version=2024-05` by default.
+    - Added `GetMessageSessionsAsync` overloads on `ServiceBusClient` for queues and subscriptions. The no-filter overload returns the IDs of sessions that have active messages or session state, and the `sessionStateUpdatedAfter` overload returns session IDs whose session state was updated after the specified timestamp. Implements the `com.microsoft:get-message-sessions` AMQP management operation. ([#58761](https://github.com/Azure/azure-sdk-for-net/pull/58761))
+    - Added opt-in support for non-exclusive session locking on `ServiceBusSessionReceiver`, allowing a session to be cooperatively taken over by another receiver. Set `ServiceBusSessionReceiverOptions.EnableNonExclusiveSession` to accept a session non-exclusively, then read the token from `ServiceBusSessionReceiver.SessionLockToken` and pass it as `ServiceBusSessionReceiverOptions.SessionLockToken = Guid.Parse(token)` to take that session over. `ServiceBusSessionReceiver.IsSessionExclusive` reports the mode the session was established under. Dispositions for a non-exclusive session are routed over the management link so that settlement keeps working across a takeover, which lowers settlement throughput compared to an exclusive session. This applies to `ServiceBusSessionReceiver` only; `ServiceBusSessionProcessor` continues to lock sessions exclusively. Accepting a session with `EnableNonExclusiveSession` set throws `NotSupportedException` when the endpoint declines it, either by refusing the request outright or by accepting it without assigning a lock token, which is how a caller detects whether the feature is available for a namespace. An endpoint that declines in some other way surfaces the exception its own error maps to. ([#60060](https://github.com/Azure/azure-sdk-for-net/pull/60060))
+- Name: Azure.Data.Tables
+  Version: 12.12.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.12.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an error handling issue where `GetEntityAsync` and `GetEntityIfExistsAsync` could throw an
+    `ArgumentNullException` instead of `RequestFailedException` when the HTTP response had a null
+    `ContentStream`. ([#58303](https://github.com/Azure/azure-sdk-for-net/issues/58303))
+    - Fixed an `IndexOutOfRangeException` when constructing `TableServiceClient` or `TableClient` with a loopback URI that does not contain an account name in the path, such as the Cosmos DB emulator endpoint `http://localhost:8902/`.
+    - Fixed an issue where `TimeSpan` properties in strongly typed table entities were not being deserialized.
+    - Fixed an issue when deserializing strongly typed table entities with enum properties. Enum values that aren't defined in the enum type are now skipped during deserialization of the table entity.
+    - Fixed an issue when comparing `TableErrorCode` with null strings using equality operators.
+    - Fixed duplicated diagnostic scopes in `TableClient.Query` and `TableServiceClient.Query` (A community contribution, courtesy of _[e-i-n-s](https://github.com/e-i-n-s)_)
 
