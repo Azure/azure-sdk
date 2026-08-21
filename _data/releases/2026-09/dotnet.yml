@@ -1,0 +1,186 @@
+entries:
+- Name: Azure.Provisioning.LoadTesting
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Loadtesting
+  ServiceName: Loadtesting
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.LoadTesting_1.0.0-beta.1/sdk/loadtestservice/Azure.Provisioning.LoadTesting/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.DesktopVirtualization
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Desktopvirtualization
+  ServiceName: Desktopvirtualization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.DesktopVirtualization_1.0.0-beta.1/sdk/desktopvirtualization/Azure.Provisioning.DesktopVirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Extensions.Azure
+  Version: 1.14.1
+  DisplayName: Azure client library integration for ASP.NET Core
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.14.1/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated dependency `Azure.Core` to version `1.61.0`.
+    - Updated dependency `Microsoft.Extensions.Configuration.Binder` to version `10.0.10`.
+    - Updated dependency `Microsoft.Extensions.Logging` to version `10.0.10`.
+- Name: Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Extensiontypes
+  ServiceName: Kubernetesconfiguration.Extensiontypes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.ExtensionTypes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Privatelinkscopes
+  ServiceName: Kubernetesconfiguration.Privatelinkscopes
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.PrivateLinkScopes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.6.4
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.6.4/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.55.0 to 1.61.0.
+    - Updated `Microsoft.AspNetCore.DataProtection` to patched versions that resolve `System.Security.Cryptography.Xml` advisories GHSA-g8r8-53c2-pm3f, GHSA-8q5v-6pqq-x66h, GHSA-23rf-6693-g89p, GHSA-cvvh-rhrc-wg4q, and GHSA-mmjf-rqrv-855v: from 8.0.26 to 8.0.29 for `net8.0`, and from 10.0.7 to 10.0.10 for all other target frameworks.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.5.2
+  DisplayName: Secrets Configuration Provider for .NET
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.5.2/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.54.0 to 1.61.0.
+    - Updated `Azure.Security.KeyVault.Secrets` dependency from 4.10.0 to 4.11.0.
+    - Updated `Microsoft.Extensions.Configuration` dependency from 10.0.3 to the serviced 10.0.10 release.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.11.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.11.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `GetRevisions` and `GetRevisionsAsync` throwing a `UriFormatException` when retrieving subsequent pages. [#62095](https://github.com/Azure/azure-sdk-for-net/issues/62095)
+- Name: Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Kubernetesconfiguration.Fluxconfigurations
+  ServiceName: Kubernetesconfiguration.Fluxconfigurations
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations_1.0.0-beta.1/sdk/kubernetesconfiguration/Azure.ResourceManager.KubernetesConfiguration.FluxConfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.5.4
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.5.4/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Azure.Core` dependency from 1.55.0 to 1.61.0.
+    - Updated `Microsoft.AspNetCore.DataProtection` to patched versions that resolve `System.Security.Cryptography.Xml` advisories GHSA-g8r8-53c2-pm3f, GHSA-8q5v-6pqq-x66h, GHSA-23rf-6693-g89p, GHSA-cvvh-rhrc-wg4q, and GHSA-mmjf-rqrv-855v: from 8.0.26 to 8.0.29 for `net8.0`, and from 10.0.7 to 10.0.10 for all other target frameworks.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.3
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.3/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `ConfidentialLedgerClientOptions.EnableArchivedCollectionFallback` to default to `false`. Callers that require `GetCurrentLedgerEntry` and `GetCurrentLedgerEntryAsync` to search ledger history after a collection-specific 404 must now explicitly opt in by setting the option to `true`.
+- Name: Azure.Provisioning
+  Version: 1.6.0
+  DisplayName: Provisioning
+  ServiceName: Resource Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.6.0/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.62.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.62.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added experimental (`SCME0002`) `AzureCredentialResolver.Default` public static property so standalone callers can share the process-wide credential cache used by DI-resolved paths.
+    - `AzureCredentialResolver` now resolves every `ChainedTokenCredential` `Sources[]` entry through the active resolver chain, so any registered `CredentialResolver` (built-in, broker, or third-party) can claim or override an entry. Entries are constructed as chained, so transient failures surface as `CredentialUnavailableException` and the chain falls through.
+
+    #### Breaking Changes
+
+    - `AzureCredentialResolver` now resolves a top-level single source (e.g. `CredentialSource: AzureCliCredential`) to the concrete credential type (`AzureCliCredential`) rather than a `DefaultAzureCredential` wrapper. Construction is unchanged (it uses the same `DefaultAzureCredentialFactory` helpers) — only the returned type differs; callers using `CredentialSettings.TokenProvider` as a `TokenCredential` are unaffected.
+    - `AzureCredentialResolver` no longer claims top-level `BrokerCredential` sections (canonical name or `broker` alias); they now require `BrokerCredentialResolver` from `Azure.Identity.Broker` 1.7.0+ (e.g. via `AddBrokerCredentialResolver()`). `BrokerCredential` entries nested inside a `ChainedTokenCredential` continue to resolve. Note: if `BrokerCredentialResolver` from `Azure.Identity.Broker` 1.7.0 is registered ahead of `AzureCredentialResolver`, a nested `BrokerCredential` entry is currently built as non-chained, so it may surface `AuthenticationFailedException` and abort the chain instead of falling through to the next entry. Without a broker resolver registered, the built-in chain path builds the broker entry as chained (correct fall-through). A future `Azure.Identity.Broker` release will make its resolver honor chained semantics for nested entries.
+- Name: Azure.ResourceManager.Hci
+  Version: 1.3.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.3.0/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Fabric
+  Version: 1.1.0-beta.3
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Fabric_1.1.0-beta.3/sdk/fabric/Azure.ResourceManager.Fabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.21.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.21.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `SqlFilterCount` and `CorrelationFilterCount` properties to `TopicRuntimeProperties`, exposing the total number of SQL filters and correlation filters across all of a topic's subscriptions. These are populated by `GetTopicRuntimePropertiesAsync` and `GetTopicsRuntimePropertiesAsync`.
+    - Added `ServiceBusAdministrationClientOptions.ServiceVersion.V2024_05` and made it the default service version. The topic filter counts above are served by the `2024-05` service API version, so the administration client now sends `api-version=2024-05` by default.
+    - Added `GetMessageSessionsAsync` overloads on `ServiceBusClient` for queues and subscriptions. The no-filter overload returns the IDs of sessions that have active messages or session state, and the `sessionStateUpdatedAfter` overload returns session IDs whose session state was updated after the specified timestamp. Implements the `com.microsoft:get-message-sessions` AMQP management operation. ([#58761](https://github.com/Azure/azure-sdk-for-net/pull/58761))
+    - Added opt-in support for non-exclusive session locking on `ServiceBusSessionReceiver`, allowing a session to be cooperatively taken over by another receiver. Set `ServiceBusSessionReceiverOptions.EnableNonExclusiveSession` to accept a session non-exclusively, then read the token from `ServiceBusSessionReceiver.SessionLockToken` and pass it as `ServiceBusSessionReceiverOptions.SessionLockToken = Guid.Parse(token)` to take that session over. `ServiceBusSessionReceiver.IsSessionExclusive` reports the mode the session was established under. Dispositions for a non-exclusive session are routed over the management link so that settlement keeps working across a takeover, which lowers settlement throughput compared to an exclusive session. This applies to `ServiceBusSessionReceiver` only; `ServiceBusSessionProcessor` continues to lock sessions exclusively. Accepting a session with `EnableNonExclusiveSession` set throws `NotSupportedException` when the endpoint declines it, either by refusing the request outright or by accepting it without assigning a lock token, which is how a caller detects whether the feature is available for a namespace. An endpoint that declines in some other way surfaces the exception its own error maps to. ([#60060](https://github.com/Azure/azure-sdk-for-net/pull/60060))
+- Name: Azure.Data.Tables
+  Version: 12.12.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.12.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an error handling issue where `GetEntityAsync` and `GetEntityIfExistsAsync` could throw an
+    `ArgumentNullException` instead of `RequestFailedException` when the HTTP response had a null
+    `ContentStream`. ([#58303](https://github.com/Azure/azure-sdk-for-net/issues/58303))
+    - Fixed an `IndexOutOfRangeException` when constructing `TableServiceClient` or `TableClient` with a loopback URI that does not contain an account name in the path, such as the Cosmos DB emulator endpoint `http://localhost:8902/`.
+    - Fixed an issue where `TimeSpan` properties in strongly typed table entities were not being deserialized.
+    - Fixed an issue when deserializing strongly typed table entities with enum properties. Enum values that aren't defined in the enum type are now skipped during deserialization of the table entity.
+    - Fixed an issue when comparing `TableErrorCode` with null strings using equality operators.
+    - Fixed duplicated diagnostic scopes in `TableClient.Query` and `TableServiceClient.Query` (A community contribution, courtesy of _[e-i-n-s](https://github.com/e-i-n-s)_)
+
