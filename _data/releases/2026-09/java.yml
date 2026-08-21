@@ -1362,4 +1362,13 @@ entries:
 
     - Added `TracesDataGenerationJobOptions.setRedactPrivateContent(...)` / `isRedactPrivateContent()` to control whether private content in traces is redacted (default is to redact; set `false` to opt out).
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-storagesync
+  Version: 1.0.0
+  DisplayName: Resource Management - Storagesync
+  ServiceName: Storagesync
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storagesync_1.0.0/sdk/storagesync/azure-resourcemanager-storagesync/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
