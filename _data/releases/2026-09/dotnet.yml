@@ -199,4 +199,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.11/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.AI.Discovery
+  Version: 1.0.0-beta.1
+  DisplayName: Discovery
+  ServiceName: Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Discovery_1.0.0-beta.1/sdk/discovery/Azure.AI.Discovery/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `WorkspaceClient` for managing investigations, conversations, tasks, and tools.
+    - Added `BookshelfClient` for creating, indexing, searching, and managing knowledge bases.
 
