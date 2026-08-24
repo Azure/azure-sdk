@@ -183,4 +183,20 @@ entries:
     - Fixed an issue when deserializing strongly typed table entities with enum properties. Enum values that aren't defined in the enum type are now skipped during deserialization of the table entity.
     - Fixed an issue when comparing `TableErrorCode` with null strings using equality operators.
     - Fixed duplicated diagnostic scopes in `TableClient.Query` and `TableServiceClient.Query` (A community contribution, courtesy of _[e-i-n-s](https://github.com/e-i-n-s)_)
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-beta.2
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-beta.2/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.11
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.11/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
 
