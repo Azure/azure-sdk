@@ -384,4 +384,36 @@ entries:
     #### Bugs Fixed
     - Fixed a bug where client-side encryption 2.0 could not detect a rearrangement of otherwise-untampered authenticated regions in blob content. This is now detected and exceptions are thrown. For data recovery purposes, this behavior can be reverted by enabling "Azure.Storage.CseV2AllowMisorderedAuthRegions" in the AppContext switch or "AZURE_STORAGE_CSE_V2_ALLOW_MISORDERED_AUTH_REGIONS" in environment variables.
     - Fixed a bug in client-side encryption where version downgrades were only detected at the start of a download.
+- Name: Azure.Provisioning.Enclave
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Enclave
+  ServiceName: Enclave
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Enclave_1.0.0-beta.1/sdk/enclave/Azure.Provisioning.Enclave/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConnectedCache
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedCache_1.0.0/sdk/connectedcache/Azure.ResourceManager.ConnectedCache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.17.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.17.0/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CommvaultContentStore
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Commvaultcontentstore
+  ServiceName: Commvaultcontentstore
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CommvaultContentStore_1.0.0-beta.1/sdk/commvaultcontentstore/Azure.ResourceManager.CommvaultContentStore/CHANGELOG.md
+  ChangelogContent: ""
 
