@@ -1458,4 +1458,13 @@ entries:
     - `WorkspaceClientBuilder` for building clients that work with Discovery workspaces: `ConversationsClient`, `InvestigationsClient`, `TasksClient`, and `ToolsClient` (each with an asynchronous variant).
     - `BookshelfClient` and `BookshelfAsyncClient` for managing knowledge bases, including long-running create/update, indexing, and search operations.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-chaos
+  Version: 1.4.0-beta.2
+  DisplayName: Resource Management - Chaos
+  ServiceName: Chaos
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-chaos_1.4.0-beta.2/sdk/chaos/azure-resourcemanager-chaos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
