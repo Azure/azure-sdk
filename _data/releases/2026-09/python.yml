@@ -230,4 +230,27 @@ entries:
     #### Bugs Fixed
 
     - Fixed the challenge authentication policy to cache the authentication challenge only after the challenge resource is verified, so that a rejected challenge is not cached and reused by subsequent requests.
+- Name: azure-ai-agentserver-core
+  Version: 2.1.0
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.1.0/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added compatibility bounds to runtime and development dependencies so installation cannot silently resolve to incompatible releases.
+- Name: azure-ai-agentserver-responses
+  Version: 2.1.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.1.0/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Constrained runtime, development, and sample dependencies to compatible release lines.
+    - Updated the minimum `azure-ai-agentserver-core` dependency to the stable `2.1.0` release.
 
