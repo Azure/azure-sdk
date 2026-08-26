@@ -297,4 +297,12 @@ entries:
     #### Bugs Fixed
 
     - Fixed the challenge authentication policy to cache the authentication challenge only after the challenge resource is verified, so that a rejected challenge is not cached and reused by subsequent requests.
+- Name: azure-mgmt-horizondb
+  Version: 1.0.0b2
+  DisplayName: Resource Management - HorizonDB
+  ServiceName: HorizonDB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-horizondb_1.0.0b2/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md
+  ChangelogContent: ""
 
