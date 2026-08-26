@@ -1,0 +1,35 @@
+entries:
+- Name: azure_security_keyvault_secrets
+  Version: 1.0.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@1.0.1/sdk/keyvault/azure_security_keyvault_secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the challenge authentication policy to cache the challenge scope only after the challenge resource is verified, so that a rejected challenge is not cached and reused by subsequent requests.
+- Name: azure_security_keyvault_keys
+  Version: 1.0.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@1.0.1/sdk/keyvault/azure_security_keyvault_keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the challenge authentication policy to cache the challenge scope only after the challenge resource is verified, so that a rejected challenge is not cached and reused by subsequent requests.
+- Name: azure_security_keyvault_certificates
+  Version: 1.0.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@1.0.1/sdk/keyvault/azure_security_keyvault_certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the challenge authentication policy to cache the challenge scope only after the challenge resource is verified, so that a rejected challenge is not cached and reused by subsequent requests.
+
