@@ -321,4 +321,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.6.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.30.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.30.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where client-side encryption 2.0 could not detect a rearrangement of otherwise-untampered authenticated regions in blob content. This is now detected and exceptions are thrown. For data recovery purposes, this behavior can be reverted by setting the "AZURE_STORAGE_CSE_V2_ALLOW_MISORDERED_AUTH_REGIONS" environment variable.
+    - Fixed a bug in client-side encryption where version downgrades, and other metadata tampering, was only detected at the start of a download.
+- Name: azure-ai-agentserver-responses
+  Version: 2.2.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.2.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added prompt caching and programmatic tool-calling models from the latest AgentServer contract.
+
+    #### Bugs Fixed
+
+    - Made `logprobs` optional in assistant output-text content to match the OpenAI Responses API runtime behavior.
+    - Added validation for prompt-cache options and tool-call caller discriminators.
+
+    #### Breaking Changes
+
+    - `ResponseUsageInputTokensDetails.cache_write_tokens` is now required by the latest AgentServer contract.
 
