@@ -1503,4 +1503,47 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-horizondb_1.0.0-beta.2/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-cosmos
+  Version: 4.82.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos_4.82.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Enabled Gateway V2 (thin-client) data-plane routing by default for `Cosmos(Async)Client` instances configured with `gatewayMode` and HTTP/2, gated by an HTTP/2 connectivity probe with automatic fallback to Gateway V1. - See [PR 49437](https://github.com/Azure/azure-sdk-for-java/pull/49437)
+    * Added support for QueryPlan and Execute Stored Procedure requests to be routed to Gateway V2. - See [PR 47759](https://github.com/Azure/azure-sdk-for-java/pull/47759)
+
+    #### Bugs Fixed
+    * Fixed a possible delay of PPCB failback when the SDK has never received a successful address response for the affected partition before failover, which could impact tail latency in certain workloads - See [PR 50182](https://github.com/Azure/azure-sdk-for-java/pull/50182).
+    * Fixed an intermittent `IndexOutOfBoundsException` in cross-partition hybrid search queries caused by multiple subscriptions to the coalesced component query results. - See PR [49831](https://github.com/Azure/azure-sdk-for-java/issues/49831)
+    * Fixed document requests failing when Gateway V2 is enabled with resource-token or permission-feed authentication by routing those requests through Compute Gateway. - See PR [50084](https://github.com/Azure/azure-sdk-for-java/pull/50084).
+    * Unified request-level consistency override behavior across transports: invalid attempts to upgrade the request consistency level above the account default are now silently ignored instead of returning `BadRequest` in some gateway paths. - See PR [49606](https://github.com/Azure/azure-sdk-for-java/pull/49606).
+    * Fixed `partitionLevelCircuitBreakerCfg` missing from the `clientCfgs` section of `CosmosDiagnostics` when Per-Partition Circuit Breaker is explicitly enabled. - See PR [49734](https://github.com/Azure/azure-sdk-for-java/pull/49734).
+    * Fixed thin-client (Gateway V2) queries with a prefix (partial) hierarchical partition key returning co-located documents from other logical partitions. - See PR [49688](https://github.com/Azure/azure-sdk-for-java/pull/49688).
+    * Fixed hedged requests losing request-scoped routing, timeout, authorization, throughput-control, and metadata state when cloning the original request. - See [PR 50069](https://github.com/Azure/azure-sdk-for-java/pull/50069).
+  GroupId: com.azure
+- Name: com.azure+azure-cosmos-test
+  Version: 1.0.0-beta.20
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-test_1.0.0-beta.20/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.82.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-cosmos-encryption
+  Version: 2.31.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-encryption_2.31.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.82.0`.
+  GroupId: com.azure
 
