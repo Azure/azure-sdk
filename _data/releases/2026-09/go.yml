@@ -135,4 +135,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/purestorageblock/armpurestorageblock/v1.1.0-beta.2/sdk/resourcemanager/purestorageblock/armpurestorageblock/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/resourcemanager/enclave/armenclave
+  Version: 1.0.0
+  DisplayName: Resource Management - Enclave
+  ServiceName: Enclave
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/enclave/armenclave/v1.0.0/sdk/resourcemanager/enclave/armenclave/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azappconfig
+  Version: 2.2.1-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v2.2.1-beta.1/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Exposed the `Description` property on configuration settings and snapshots.
+    * Added `Description` field to the `Setting` and `Snapshot` structs.
+    * Added `Description` field to `AddSettingOptions`, `SetSettingOptions`, and `BeginCreateSnapshotOptions`.
+    * Added `SettingFieldsDescription` and `SnapshotFieldsDescription` field selector constants.
+    * Added a new `FeatureFlagClient` for interacting with the dedicated feature flag endpoint.
+    * Added constructors `NewFeatureFlagClient`, `NewFeatureFlagClientFromConnectionString`, and factory method `Client.NewFeatureFlagClient`.
+    * Added methods `AddFeatureFlag`, `SetFeatureFlag`, `GetFeatureFlag`, `DeleteFeatureFlag`, `NewListFeatureFlagsPager`, and `NewListFeatureFlagRevisionsPager`.
+    * Added support for per-page match conditions when listing feature flags.
+    * Added types `FeatureFlag`, `FeatureFlagSelector`, `FeatureFlagAllocation`, `FeatureFlagConditions`, `FeatureFlagFilter`, `FeatureFlagTelemetryConfiguration`, `FeatureFlagVariantDefinition`, `GroupAllocation`, `PercentileAllocation`, and `UserAllocation`.
+    * Added option and response types for each feature flag operation.
+    * Added field selector constants `FeatureFlagFields*`, and the `RequirementType` and `StatusOverride` enums with corresponding constants.
 
