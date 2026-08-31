@@ -558,4 +558,36 @@ entries:
     #### Bugs Fixed
 
     - Fixed `System.Text.Json.JsonException` / `InvalidOperationException: Cannot skip tokens on partial JSON` thrown when asynchronously deserializing a `SearchDocument` (for example `SearchAsync<SearchDocument>`) whose result elements are large and contain OData (`@search.*`) properties. The internal converter now uses `Utf8JsonReader.TrySkip()` instead of `Skip()` so these properties can be skipped even when the converter is invoked over a non-final JSON block. ([#40768](https://github.com/Azure/azure-sdk-for-net/issues/40768))
+- Name: Azure.ResourceManager.Enclave
+  Version: 1.0.0
+  DisplayName: Resource Management - Enclave
+  ServiceName: Enclave
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Enclave_1.0.0/sdk/enclave/Azure.ResourceManager.Enclave/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeZones
+  Version: 1.0.0
+  DisplayName: Resource Management - Edge Zones
+  ServiceName: Edge Zones
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeZones_1.0.0/sdk/edgezones/Azure.ResourceManager.EdgeZones/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.19.0-beta.2
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.19.0-beta.2/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Maps
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Maps
+  ServiceName: Maps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Maps_1.0.0-beta.1/sdk/maps/Azure.Provisioning.Maps/CHANGELOG.md
+  ChangelogContent: ""
 
