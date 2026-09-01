@@ -475,4 +475,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0b4/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-postgresql-auth
+  Version: 1.1.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-postgresql-auth_1.1.0/sdk/postgresql/azure-postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `create_asyncpg_engine` for SQLAlchemy async engines using `asyncpg` and asynchronous Microsoft Entra credentials.
+
+    #### Bugs Fixed
+
+    - Fixed SQLAlchemy connection pools failing to create subsequent connections when using Entra authentication.
 
