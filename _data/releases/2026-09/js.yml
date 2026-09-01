@@ -231,4 +231,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cloudhealth_1.0.0-beta.4/sdk/cloudhealth/arm-cloudhealth/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/postgresql-auth'
+  Version: 1.0.0
+  DisplayName: Azure PostgreSQL Authentication
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/postgresql-auth_1.0.0/sdk/postgresql/postgresql-auth/CHANGELOG.md
+  ChangelogContent: |-
+    This is the first stable release of `@azure/postgresql-auth`. The API surface is unchanged from `1.0.0-beta.1`.
+
+    #### Other Changes
+
+    - The minimum supported Node.js version is now 22.0.0.
 
