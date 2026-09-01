@@ -598,4 +598,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageSync_1.4.0/sdk/storagesync/Azure.ResourceManager.StorageSync/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.PostgreSQL.Auth
+  Version: 1.0.0
+  DisplayName: PostgreSQL Authentication
+  ServiceName: PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.PostgreSQL.Auth_1.0.0/sdk/postgresql/Microsoft.Azure.PostgreSQL.Auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the Entra ID authentication extension for the Npgsql PostgreSQL driver.
 
