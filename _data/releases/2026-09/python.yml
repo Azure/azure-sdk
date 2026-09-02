@@ -490,4 +490,15 @@ entries:
     #### Bugs Fixed
 
     - Fixed SQLAlchemy connection pools failing to create subsequent connections when using Entra authentication.
+- Name: azure-cosmos
+  Version: 4.16.4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.16.4/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed regression with handling of v1 legacy containers when passing `{}` as a partition key. `{}` and `NonePartitionKeyValue` now both resolve to the `Undefined` effective partition key. See [PR 48422](https://github.com/Azure/azure-sdk-for-python/pull/48422)
+    * Fixed the same `TypeError` on system key (migrated) containers, where a missing partition key value resolves to `_Empty` instead of `Undefined`. It now maps to the minimum effective partition key. See [PR 48422](https://github.com/Azure/azure-sdk-for-python/pull/48422)
 
