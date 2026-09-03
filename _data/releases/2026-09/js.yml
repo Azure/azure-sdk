@@ -327,4 +327,75 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicenetworking_3.0.0/sdk/servicenetworking/arm-servicenetworking/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/web-pubsub-chat'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-chat_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial public preview of the Azure Web PubSub Chat service client. [#39180](https://github.com/Azure/azure-sdk-for-js/pull/39180)
+- Name: '@azure/core-amqp'
+  Version: 4.5.1
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.5.1/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Preserve caught errors as the cause when wrapping them. [#39423](https://github.com/Azure/azure-sdk-for-js/issues/39423)
+- Name: '@azure/core-lro'
+  Version: 3.4.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.4.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Preserve caught errors as the cause when wrapping them. [#39423](https://github.com/Azure/azure-sdk-for-js/issues/39423)
+- Name: '@azure-rest/core-client'
+  Version: 2.9.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.9.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an optional `internal` property to `ClientOptions` for `getClient`, carrying a `noDefaultAcceptHeader` flag (defaults to `false`). When set to `true`, the client no longer adds a default `Accept: application/json` request header to operations that do not otherwise specify one, allowing operations that expect no response body to omit the `Accept` header. This option is intended for use by generated clients. [PR #39291](https://github.com/Azure/azure-sdk-for-js/pull/39291)
+
+    #### Bugs Fixed
+
+    - Added support for normalizing package-local `customHeaders` aliases. [#39593](https://github.com/Azure/azure-sdk-for-js/issues/39593)
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.9
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.9/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `NodeHttpClient` request timeouts now remain active while buffered response bodies are being read. [Issue #39519](https://github.com/Azure/azure-sdk-for-js/issues/39519)
+    - `FetchHttpClient` now surfaces the system error code (such as `ECONNRESET` or `ETIMEDOUT`) carried by the `cause` of a failed `fetch()` call on the resulting `RestError`, so that `systemErrorRetryPolicy` retries transient network failures instead of rethrowing them immediately. [Issue #39703](https://github.com/Azure/azure-sdk-for-js/issues/39703)
+- Name: '@azure/core-client'
+  Version: 1.11.1
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.11.1/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Preserve caught errors as the cause when wrapping them. [#39423](https://github.com/Azure/azure-sdk-for-js/issues/39423)
 
