@@ -34,4 +34,16 @@ entries:
     #### Other Changes
 
     - No public changes in this release.
+- Name: azure-messaging-eventhubs
+  Version: 1.0.0-beta.15
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-messaging-eventhubs_1.0.0-beta.15/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - [[#7389]](https://github.com/Azure/azure-sdk-for-cpp/issues/7389) `ProducerClient` now tests a cached sender for liveness before it uses one. Holding a sender in the map is not the same as holding a usable one: a link that the service detached during an idle period stayed cached, and the read of the maximum message size in `CreateBatch` was the first call to touch it, so that read threw and the exception was how the client learned the link had died. The producer now discards a detached stack before use, and the size read no longer depends on a live link. A rebuild after an idle close costs the same connection, TLS and claims based security handshake as before; what this removes is the exception and its warnings on that path. This change applies to the uAMQP transport.
+    - [[#7389]](https://github.com/Azure/azure-sdk-for-cpp/issues/7389) The claims based security retry in `ProducerClient::CreateBatch` now waits a short random interval before its one further attempt, instead of making it in the same instant. Every producer in a process that failed together went back into whatever caused the first failure together. The wait is a uniform value between zero and 100 milliseconds, drawn from a generator seeded for each thread. It is deliberately not the configured `RetryDelay` and not a backoff step: the purpose is to spread producers that failed at the same moment, not to wait for a condition to clear, so it does not add the best part of a second to a path that is already rebuilding a connection, and it does not depend on `RetryOptions`. The bound stays one retry, and only a claims based security open that reported `CbsOpenResult::Error` is retried; `Cancelled` and `Invalid` still reach the caller on the first attempt.
 
