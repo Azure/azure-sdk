@@ -432,4 +432,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.2.0-beta.1/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.20.0
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.20.0/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed incorrect performance-counter sampling by giving standard and normalized process CPU counters independent state and initializing the first request and exception rate intervals with the current time. [#39520](https://github.com/Azure/azure-sdk-for-js/pull/39520)
+    - Fixed a failed IMDS request being recorded as a dependency when running on App Service, Functions, and Container Apps. The Azure VM resource detector now runs only when no other detector has identified the platform. [#39510](https://github.com/Azure/azure-sdk-for-js/issues/39510)
+    - The built-in `BatchSpanProcessor` now respects the standard OpenTelemetry `OTEL_BSP_*` environment variables. [#39607](https://github.com/Azure/azure-sdk-for-js/issues/39607)
+
+    #### Features Added
+
+    - `instrumentationOptions.console` now accepts a `logSeverity` value, allowing the console log severity to be configured programmatically instead of only through the `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` environment variable. [#39483](https://github.com/Azure/azure-sdk-for-js/pull/39483)
+    - Added support for the Azure Container Apps resource detector from `@opentelemetry/resource-detector-azure`. [#39510](https://github.com/Azure/azure-sdk-for-js/issues/39510)
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.45
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.45/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed `microsoft.availability.testTimestamp` support so availability telemetry uses the OpenTelemetry log record timestamp. [#39818](https://github.com/Azure/azure-sdk-for-js/pull/39818)
+    - Fixed global-to-regional ingestion redirects across trusted same-cloud Azure Monitor host suffixes and updated internal Statsbeat routing so EU SDK statistics use the EU Statsbeat destination. [#39622](https://github.com/Azure/azure-sdk-for-js/pull/39622)
+
+    #### Features Added
+
+    - Added support for exporting finite numeric entries from the `microsoft.custom_measurements` span and log attribute as Breeze measurements. [Telemetry Collection Spec #887](https://github.com/aep-health-and-standards/Telemetry-Collection-Spec/pull/887)
+    - Added support for exporting availability telemetry from OpenTelemetry log records with `microsoft.availability.*` attributes. [#39734](https://github.com/Azure/azure-sdk-for-js/pull/39734)
 
