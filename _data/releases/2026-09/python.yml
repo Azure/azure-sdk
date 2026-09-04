@@ -566,4 +566,47 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computerecommender_1.0.0b3/sdk/computerecommender/azure-mgmt-computerecommender/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-invocations
+  Version: 1.2.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.2.0b1/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added W3C Voice connection tracing with one `agentserver.connection` span,
+    content-free `voice.callback` dispatch spans, and aggregate duration and
+    propagation-failure metrics.
+    - Added application-declared target-turn tracing through
+    `Session.start_target_turn`, `TargetTurn.activate`, and explicit
+    `TargetTurn.complete` outcomes. The SDK does not infer response lifecycle or
+    own application tasks.
+    - Added source-aware `Session.termination` for classifying unfinished
+    application work during connection cleanup.
+- Name: azure-ai-agentserver-invocations
+  Version: 1.1.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.1.0/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the typed Voice event relay API under `azure.ai.agentserver.invocations.voice`, including `VoiceAgentServerHost`, typed protocol messages, session lifecycle callbacks, response cancellation and timeout handling, and a basic Voice agent sample.
+- Name: azure-ai-agentserver-core
+  Version: 2.2.0b1
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.2.0b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AgentConfig.session_guid`, populated from the platform-owned
+    `FOUNDRY_AGENT_SESSION_GUID` environment variable for hosted session
+    incarnation identity.
 
