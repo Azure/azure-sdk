@@ -140,4 +140,86 @@ entries:
     - Added the non-default `control_plane` feature that gates the control-plane APIs (database and container CRUD, and throughput/offer management). It is intentionally independent of `key_auth` so these APIs are not tied to key-based authentication. ([#4854](https://github.com/Azure/azure-sdk-for-rust/pull/4854))
     - Added full text search policy support: the `FullTextPolicy` and `FullTextPath` models, `ContainerProperties::full_text_policy` (with `with_full_text_policy`), the `FullTextIndex` model, and `IndexingPolicy::full_text_indexes` (with `with_full_text_index`). Containers configured for full text search can now be created and read with this SDK instead of only through another SDK or the portal. ([#5034](https://github.com/Azure/azure-sdk-for-rust/pull/5034))
     - Added the vector index tuning options the service accepts: `VectorIndex::quantizer_type` (the new `QuantizerType` enum), `quantization_byte_size`, `indexing_search_list_size`, and `vector_index_shard_key`, each with a matching `with_*` setter. ([#5034](https://github.com/Azure/azure-sdk-for-rust/pull/5034))
+- Name: azure_core_opentelemetry
+  Version: 1.1.0-beta.1
+  DisplayName: Core - OpenTelemetry
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@1.1.0-beta.1/sdk/core/azure_core_opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Implemented span backdating (`Tracer::start_span_with_options`, `Tracer::start_span_with_parent_and_options`, and `Span::end_at`) by mapping to the OpenTelemetry `SpanBuilder::with_start_time` and `Span::end_with_timestamp` APIs, so late-bound (tail-sampled) spans can be emitted with their original timestamps.
+- Name: azure_core
+  Version: 1.2.0-beta.1
+  DisplayName: Core
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.2.0-beta.1/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated `typespec_client_core` so dropping a sleep future created by the standard (non-`tokio`) async runtime promptly cancels its worker thread.
+
+    #### Features Added
+
+    - Added `Tracer::start_span_with_options`, `Tracer::start_span_with_parent_and_options`, and `Span::end_at`, along with a `SpanOptions` struct, to allow reconstructing spans with explicit (backdated) start and end timestamps. These are additive with default implementations, so existing `Tracer`/`Span` implementations continue to work unchanged.
+    - Added `DeserializeWith::deserialize_from` with a body-only default, allowing custom model decoders to inspect response headers without requiring serde deserialization.
+    - Added cloneable `stream::ReadStream` and `stream::SeekableReadStream` adapters, along with `RequestContent::from_reader` and `RequestContent::from_seekable_reader`, to build request bodies from `futures::io::AsyncRead` sources.
+- Name: azure_core_amqp
+  Version: 1.2.0-beta.1
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.2.0-beta.1/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Link properties set through `AmqpReceiverOptions::properties` and `AmqpSenderOptions::properties` now reach the Attach frame. They were discarded before the link attached.
+    - A failed receive now reports the link-state kind the sender path already reports: `AmqpDescribedError` when the remote closed or detached with an AMQP error, and `LinkClosedByRemote` or `LinkDetachedByRemote` otherwise. All of these previously reported `LinkStateError`.
+
+    #### Features Added
+
+    - Added `AmqpTransport` and `AmqpConnectionOptions::transport` to support AMQP over secure WebSockets.
+    - Added the `fe2o3_amqp_ws` and `fe2o3_amqp_ws_rustls` features for AMQP over WebSockets. Both are enabled by default.
+    - Added the `fe2o3_amqp_rustls` feature for AMQP over TCP with rustls and the aws-lc-rs provider. It is enabled by default. ([#4189](https://github.com/Azure/azure-sdk-for-rust/issues/4189))
+    - Added `AmqpReceiverApis::settle_delivery` and `AmqpDeliveryOutcome` to settle deliveries with accepted, rejected, released, or modified outcomes. See [#4935](https://github.com/Azure/azure-sdk-for-rust/issues/4935).
+    - Added the `AmqpErrorCondition::DeadLetter` variant for the `com.microsoft:dead-letter` error condition. See [#4935](https://github.com/Azure/azure-sdk-for-rust/issues/4935).
+
+    #### Breaking Changes
+
+    - Added the `transport` field to `AmqpConnectionOptions`. Use struct update syntax with `Default::default()` when initializing the struct.
+    - The default AMQP-over-TCP TLS backend changed from native-tls to rustls with the aws-lc-rs provider. The TLS connector uses the operating system trust store. ([#4189](https://github.com/Azure/azure-sdk-for-rust/issues/4189))
+- Name: typespec
+  Version: 1.2.0-beta.1
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.2.0-beta.1/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    <!-- cspell:disable-next-line -->
+    - Added `azure-deprecating` to the default allowed HTTP header list so shared debug and logging paths stop redacting it.
+- Name: typespec_client_core
+  Version: 1.2.0-beta.1
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.2.0-beta.1/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Dropping a sleep future created by the standard (non-`tokio`) async runtime now cancels its worker thread immediately instead of leaving it blocked until the original deadline.
+
+    #### Features Added
+
+    - Added `Tracer::start_span_with_options`, `Tracer::start_span_with_parent_and_options`, and `Span::end_at`, along with a `SpanOptions` struct, to allow reconstructing spans with explicit (backdated) start and end timestamps. These are additive with default implementations, so existing `Tracer`/`Span` implementations continue to work unchanged.
+    - Added `DeserializeWith::deserialize_from` with a body-only default, allowing custom model decoders to inspect response headers without requiring serde deserialization.
+    - Added cloneable `stream::ReadStream` and `stream::SeekableReadStream` adapters, along with `RequestContent::from_reader` and `RequestContent::from_seekable_reader`, to build request bodies from `futures::io::AsyncRead` sources.
 
