@@ -243,4 +243,456 @@ entries:
     #### Breaking Changes
 
     #### Features Added
+- Name: Azure.Security.CodeTransparency
+  Version: 1.0.0-beta.12
+  DisplayName: Code Transparency
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.CodeTransparency_1.0.0-beta.12/sdk/confidentialledger/Azure.Security.CodeTransparency/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed asynchronous registration and receipt retrieval against a still-pending transaction. When a
+    write is routed to a backup node the service replies with a redirect whose `Location` (for example
+    `/entries/{entryId}`) omits the `api-version`. `CodeTransparencyRedirectPolicy` now carries the
+    originating request's `api-version` onto followed `303`/`307`/`308` redirect targets, so the
+    subsequent read stays on the versioned API instead of falling back to the service's unversioned
+    (legacy) behavior. On the versioned API a read of a not-yet-committed entry is answered with a
+    `302 Found` whose `Location` points back at the same entry URL; the followed read now treats that
+    `302` as retriable, and the client's default retry settings were raised (more, exponentially
+    backed-off retries starting at 200 ms) so the pipeline polls until the committed receipt (`200`).
+    All retry and delay values remain overridable through `CodeTransparencyClientOptions.Retry`.
+- Name: System.ClientModel
+  Version: 1.15.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.15.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added sealed, one-shot `AsyncStreamingClientResult<T>` for asynchronous streaming responses, with factories for custom producers, server-sent events, and newline-delimited JSON.
+
+    #### Bugs Fixed
+
+    - Fixed an issue where response content logging could emit more bytes than were actually read when a non-buffered (streaming) response was read into a buffer larger than the response body. Previously, when the read began at offset 0, `MessageLoggingPolicy` logged the entire caller-supplied buffer — including the bytes past the response payload, which for a pooled buffer contain unrelated in-process content — and the configured `MessageContentSizeLimit` was not applied. Only the bytes that were read are now logged. ([#61399](https://github.com/Azure/azure-sdk-for-net/issues/61399))
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-beta.1
+  DisplayName: Resource Management - Compute.Bulkactions
+  ServiceName: Compute.Bulkactions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-beta.1/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerRegistry
+  Version: 1.5.0-beta.3
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerRegistry_1.5.0-beta.3/sdk/containerregistry/Azure.ResourceManager.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.EventHubs
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Event Hubs
+  ServiceName: Provisioning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.EventHubs_1.2.0-beta.1/sdk/eventhub/Azure.Provisioning.EventHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.61.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.61.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where response content logging could emit more bytes than were actually read when a non-buffered (streaming) response was read into a buffer larger than the response body. Previously, when the read began at offset 0, the entire caller-supplied buffer was logged — including the bytes past the response payload, which for a pooled buffer contain unrelated in-process content — and the configured `LoggedContentSizeLimit` was not applied. The logging policy now logs only the bytes that were read. ([#61399](https://github.com/Azure/azure-sdk-for-net/issues/61399))
+    - Fixed an issue where `RequestFailedException` could throw a secondary `ArgumentNullException` while formatting a failed response that had a text content-type header but an empty body, masking the actual service failure. The exception now preserves the original HTTP status, reason phrase, and headers, and no longer formats empty response content.
+    - Fixed `AzureCliCredential` to not pass both `--tenant` and `--subscription` flags to the Azure CLI, as the CLI rejects this combination. When a tenant is requested (for example, via challenge-based authentication) it now takes precedence and `--subscription` is omitted; `--subscription` is used only when no tenant is requested. ([#58949](https://github.com/Azure/azure-sdk-for-net/issues/58949))
+
+    #### Features Added
+
+    - Added `AzureAuthorityHosts.AzureBleuCloud` (`https://login.sovcloud-identity.fr/`), the Microsoft Entra authority host for Bleu Cloud, the national partner cloud for France. Interactive credentials' `Authenticate` methods now also resolve the default Azure Resource Manager scope for Bleu Cloud.
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.1/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for stable API version 2026-02-23.
+    - Added opt-in support for the Azure Confidential Ledger Gateway via `ConfidentialLedgerClientOptions.UseLedgerGateway`. When enabled:
+    - The SDK skips the per-ledger CCF identity-service TLS bootstrap. The gateway uses publicly-rooted certificates, so the OS trust store is sufficient.
+    - `ConfidentialLedgerClient.PostLedgerEntry` accepts an HTTP 202 response and returns an operation whose `Id` is the gateway-assigned `operationId` (read from the `x-ms-webfe-operation-id` response header, with a fallback to the response body). The operation transparently polls `GET /app/operations/{operationId}` and surfaces the underlying CCF transaction once committed.
+    - Client-certificate (mTLS) authentication is rejected at construction time — only `TokenCredential` is supported by the gateway.
+    - Primary-node redirect caching (added in 1.4.1-beta.5) is automatically disabled, since the gateway brokers node routing on the server side.
+    - Added `ConfidentialLedgerClient.GetOperationStatus` / `GetOperationStatusAsync` for direct polling of the gateway operation queue.
+    - Added `ConfidentialLedgerClient.RehydratePostLedgerEntryOperation(string operationId)` for resuming a previously-started write submission across process restarts (no I/O is performed until polling begins). Operation IDs remain valid on the server for the gateway's operation-record retention period.
+
+    #### Bugs Fixed
+
+    - `PostLedgerEntryOperation.GetRawResponse()` now returns the initial submit response before the first poll. Previously, callers using `WaitUntil.Started` who inspected response headers (for example `x-ms-ccf-transaction-id` or `x-ms-webfe-operation-id`) on the returned operation observed a `NullReferenceException`.
+- Name: Azure.AI.VoiceLive
+  Version: 1.2.0
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.2.0/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzureRealtimeNativeVoice` and `AzureRealtimeNativeVoiceName` with 12 new voice options (Aarti, Andrew, Ava, Denise, Diya, Elsa, Florian, Francisca, Meera, Xiaoxiao, Ximena, Yunxi).
+    - Added `AllowParallelToolCalls` property on `VoiceLiveSessionOptions`.
+    - Added `Channels` and `ReferenceSource` (`EchoCancellationReferenceSource`) properties on `AudioEchoCancellation`.
+    - Added streaming text input events: `ClientEventInputTextDelta`, `ClientEventInputTextDone`.
+    - Added `ServerEventResponseInvocationDelta` for streaming invocation deltas.
+    - Added `ExpiresOn` property on `VoiceLiveSessionResponse` (server-set session expiration time).
+    - Added the `2026-07-15` GA service version (`VoiceLiveClientOptions.ServiceVersion.V2026_07_15`), which is now the default.
+- Name: Azure.AI.Translation.Document
+  Version: 3.0.0
+  DisplayName: Document Translation
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_3.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for the `2026-03-01` service API version, which is now the default.
+    - Added image translation support: the `TranslateTextWithinImage` property on `BatchOptions` for batch requests, and a `translateTextWithinImage` parameter on `SingleDocumentTranslationClient.Translate` and `TranslateAsync` for single document requests.
+    - Added `StartTranslation` and `StartTranslationAsync` convenience overloads on `DocumentTranslationClient` that take an `IEnumerable<DocumentTranslationInput>` plus a `translateTextWithinImage` flag, so batch image translation can be enabled without constructing a `TranslationBatch`/`BatchOptions`.
+    - Added image scan reporting to `DocumentStatusResult`: `ImageCharactersDetected`, `ImagesCharged`, `TotalImageScansSucceeded`, and `TotalImageScansFailed`.
+    - Added the `DeploymentName` property to `TranslationTarget` to specify the deployment name of the custom translation model for a batch translation request.
+    - Added the `DeploymentName` property to `DocumentStatusResult`, exposing the deployment name of the custom translation model used for the translation.
+    - Added the `deploymentName` parameter to `SingleDocumentTranslationClient.Translate` and `TranslateAsync` for single document translation requests.
+    - Added dependency-injection and hosting support via `DocumentTranslationClientHostExtensions`, `SingleDocumentTranslationClientHostExtensions`, the `DocumentTranslationClientSettings` and `SingleDocumentTranslationClientSettings` types, and new constructors that accept these settings.
+
+    #### Breaking Changes
+
+    - Changed the default `DocumentTranslationClientOptions.ServiceVersion` from `V2024_05_01` to `V2026_03_01`, and removed the interim `V2024_11_01_Preview` and `V2025_12_01_Preview` preview service versions. Use the stable `V2026_03_01` version instead.
+    - Added `deploymentName` and `translateTextWithinImage` parameters (positioned after `category`) to the `SingleDocumentTranslationClient.Translate` and `TranslateAsync` overloads. This is a binary-breaking change for existing callers.
+    - Made the format type parameter required (`FileFormatType fileFormatType` instead of `FileFormatType? type`) on `DocumentTranslationClient.GetSupportedFormats` and `GetSupportedFormatsAsync`, since the `2026-03-01` service version requires it. Specify `FileFormatType.Document` or `FileFormatType.Glossary`. The previous nullable overload is retained for binary compatibility but now throws `NotSupportedException` when called without a type.
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.7.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.7.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.HybridCompute
+  Version: 1.1.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridCompute_1.1.0/sdk/hybridcompute/Azure.ResourceManager.HybridCompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ServiceBus
+  Version: 1.2.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceBus_1.2.0/sdk/servicebus/Azure.ResourceManager.ServiceBus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ComputeSchedule
+  Version: 1.2.0-beta.5
+  DisplayName: Resource Management - Compute Schedule
+  ServiceName: Compute Schedule
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeSchedule_1.2.0-beta.5/sdk/computeschedule/Azure.ResourceManager.ComputeSchedule/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute.Recommender
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Compute Recommender
+  ServiceName: Compute Recommender
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.Recommender_1.1.0-beta.1/sdk/computerecommender/Azure.ResourceManager.Compute.Recommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Discovery
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Discovery
+  ServiceName: Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Discovery_1.0.0-beta.1/sdk/discovery/Azure.ResourceManager.Discovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.4/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerServicePreparedImgSpec
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Containerservicepreparedimgspec
+  ServiceName: Containerservicepreparedimgspec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServicePreparedImgSpec_1.0.0-beta.1/sdk/containerservicepreparedimgspec/Azure.ResourceManager.ContainerServicePreparedImgSpec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.1.0
+  DisplayName: Device Update
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.1.0/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated the client library from the TypeSpec specification for the Device Update for IoT Hub `2026-06-01` GA API version.
+    - Added support for TLS-secured update payload downloads.
+- Name: Azure.AI.ContentUnderstanding
+  Version: 1.2.0-beta.3
+  DisplayName: Content Understanding
+  ServiceName: Content Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentUnderstanding_1.2.0-beta.3/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-06-01-preview`, which is the default service API version for this beta package.
+    - Added inline analysis convenience APIs `AnalyzeInline` / `AnalyzeInlineAsync` and `AnalyzeBinaryInline` / `AnalyzeBinaryInlineAsync`, available only with service API version `2026-06-01-preview`. These return `AnalysisResult` in a single HTTP 200 response (no LRO polling) and throw `RequestFailedException` when the inline operation status is not Succeeded. `AnalyzeBinaryInline*` includes a `ContentRange?` convenience overload matching `AnalyzeBinary*`. See [Sample 18](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample18_AnalyzeInline.md) and [Sample 19](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample19_AnalyzeBinaryInline.md).
+    - Added `AnalyzeBinaryOptions` and corresponding `AnalyzeBinary*` / `AnalyzeBinaryInline*` overloads for binary analyze request settings (`ContentRange`, `ContentType`, `ProcessingLocation`, and future options). Required analyzer ID and binary input live on the options bag. See [Sample 01](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample01_AnalyzeBinary.md) and [Sample 19](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample19_AnalyzeBinaryInline.md).
+    - Added `AnalyzeOptions` and corresponding `Analyze*` / `AnalyzeInline*` overloads for JSON analyze request settings (`ModelDeployments`, `ProcessingLocation`, and future options). Required analyzer ID and inputs live on the options bag.
+    - Added semantic chunking for custom analyzers in `2026-06-01-preview`: configure `ContentAnalyzerConfig.ChunkingStrategy` with `SemanticChunkingStrategy` (for example `MaxTokens`) when creating an analyzer, then read `DocumentContent.Chunks` (`DocumentChunk` spans into markdown) from the analysis result. See [Sample 17](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample17_AnalyzeChunking.md).
+    - Added analyzer workflow selection via `ContentAnalyzerConfig.Workflow` / `ContentAnalyzerWorkflow` for `2026-06-01-preview`. Omit `Workflow` for standard extraction, or set `ContentAnalyzerWorkflow.Agentic` when an answer must be built from evidence. See [Sample 16](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample16_CreateAnalyzerWorkflow.md).
+    - Added signature detection via `DocumentSignature` / `DocumentContent.Signatures` for `2026-06-01-preview` when layout extraction is enabled (`EnableLayout`, including `prebuilt-layout`). See [Detect signatures](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_DetectSignatures.md) and [Sample 10](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample10_AnalyzeConfigs.md).
+    - Added in-page segmentation opt-in via `ContentAnalyzerConfig.AllowInPageSegments` for `2026-06-01-preview`. Used with `EnableSegment`, this allows classification segments to split within a page (for example supplemental statements appended after a K-1 tax form) instead of only at page boundaries. See [Classify in-page segments](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_ClassifyInPageSegments.md).
+    - Added embedded document metadata via `AnalysisContent.Metadata` for `2026-06-01-preview`. See [Extract document metadata](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_ExtractDocumentMetadata.md).
+    - Added analysis diagnostics via `AnalysisResult.Infos` for `2026-06-01-preview`. The collection exposes service information as `ResponseError` values for troubleshooting. See [Analysis diagnostics](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_AnalysisDiagnostics.md).
+    - Updated `ToLlmInput` (preview) to emit analysis-result metadata (`AnalysisContent.Metadata`) under a `metadata:` front-matter block. See [ToLlmInput](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample_Advanced_ToLlmInput.md).
+    - Added `AnalyzeOperationExtensions.GetUsageDetails()` to return generated `UsageDetails` from a completed analyze LRO (`Operation<AnalysisResult>`) or inline analyze response (`Response<AnalysisResult>`). See [Sample 03](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample03_AnalyzeInvoice.md), [Sample 18](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample18_AnalyzeInline.md), and [Sample 19](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/contentunderstanding/Azure.AI.ContentUnderstanding/samples/Sample19_AnalyzeBinaryInline.md). `GetUsage()` / `AnalyzeUsageDetails` are obsolete and retained for 1.1.0 compatibility.
+- Name: Azure.Provisioning.Attestation
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Attestation_1.0.0-beta.1/sdk/attestation/Azure.Provisioning.Attestation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Analytics.PlanetaryComputer
+  Version: 1.0.0
+  DisplayName: Planetary Computer
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.PlanetaryComputer_1.0.0/sdk/planetarycomputer/Azure.Analytics.PlanetaryComputer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General availability release of the Azure Planetary Computer client library for .NET.
+    - Full support for STAC API (v1.0.0) operations: collections, items, search, and tiles endpoints.
+    - Data client with support for rendering data (GetTile, GetPreview, GetStatistics, GetBounds, GetWmtsCapabilities).
+    - Ingestion client for managing data ingestion workflows.
+    - Managed Storage Shared Access Signature (SAS) client for secure token generation.
+    - Full async/await support throughout the SDK.
+    - Support for .NET 8.0, .NET 10.0, and .NET Standard 2.0.
+    - Added `PlanetaryComputerProClientSettings` to support creating a `PlanetaryComputerProClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Data client methods with many parameters use options bag pattern for improved usability (e.g., `GetItemPointAsync(GetItemPointOptions)`).
+- Name: Azure.Provisioning.RecoveryServicesBackup
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Recoveryservicesbackup
+  ServiceName: Recoveryservicesbackup
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.RecoveryServicesBackup_1.0.0-beta.1/sdk/recoveryservices-backup/Azure.Provisioning.RecoveryServicesBackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.RecoveryServices
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Recoveryservices
+  ServiceName: Recoveryservices
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.RecoveryServices_1.0.0-beta.1/sdk/recoveryservices/Azure.Provisioning.RecoveryServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.IotHub
+  Version: 1.0.0-beta.1
+  DisplayName: Provisioning - Iothub
+  ServiceName: Iothub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.IotHub_1.0.0-beta.1/sdk/iothub/Azure.Provisioning.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.19.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.19.0-beta.1/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.2
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.2/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Failover requests are now validated by endpoint-specific transports against that ledger's own identity TLS certificate, fetched from the independently validated Identity Service. A certificate trusted for one ledger cannot authenticate another ledger. Custom transports remain supported.
+    - `PostLedgerEntryOperation` now treats transient `406 NotAcceptable` responses from the status endpoint as `Pending` and tolerates exactly 3 consecutive `404 NotFound` HTTP responses while a transaction is replicated. The operation-specific 404 tolerance no longer multiplies with pipeline retries; normal 404 retry behavior remains unchanged for other operations.
+    - Archived-collection fallback responses now preserve the complete historical ledger entry payload, including optional tags.
+
+    #### Features Added
+    - Added support to route retryable HTTP responses and retryable transport failures to failover ledgers for `GetLedgerEntry`, `GetLedgerEntryAsync`, `GetCurrentLedgerEntry`, and `GetCurrentLedgerEntryAsync`. No other reads or writes fail over. The primary and every failover endpoint receive independent normal retry budgets; caller cancellation never initiates failover, and the original primary failure is preserved if discovery or all failovers fail.
+    - Added `ConfidentialLedgerClientOptions.Failover` to control the order in which failover endpoints are attempted: `Ordered` (default, preserves the order reported by the identity service) or `Random` (shuffles the candidates to spread load across failover ledgers).
+    - Added `ConfidentialLedgerClientOptions.FailoverNetworkTimeout`. When set, this network timeout applies independently to requests against each failover endpoint. When unset, the configured retry network timeout applies.
+    - The client now treats a `GetLedgerEntry`/`GetLedgerEntryAsync` response that is still in the `Loading` state as transient and automatically polls until the entry is committed, bounded by the client's configured retry settings (`ClientOptions.Retry.MaxRetries` attempts with `ClientOptions.Retry.Delay` between attempts). Callers no longer need to write a manual polling loop.
+    - Added `ConfidentialLedgerClientOptions.EnableArchivedCollectionFallback`. It defaults to `true`, so `GetCurrentLedgerEntry` and `GetCurrentLedgerEntryAsync` transparently fall back to a historical query for a collection whose latest entry has been archived (pruned), without additional caller logic or configuration. Set it to `false` to retain the legacy `404 Not Found` behavior.
+
+    - Added strongly typed convenience overloads for service operations. The existing protocol methods remain available for advanced scenarios.
+    - Added experimental configuration and host-builder integration through `ConfidentialLedgerClientSettings` and `ConfidentialLedgerClientHostExtensions`.
+
+    #### Breaking Changes
+
+    - Renamed and moved `Azure.Security.ConfidentialLedger.Models.SecurityConfidentialLedgerModelFactory` to `Azure.Security.ConfidentialLedger.ConfidentialLedgerModelFactory`.
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.2.0-beta.4
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.2.0-beta.4/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.AppConfiguration
+  Version: 1.12.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.12.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a `Description` property on `ConfigurationSetting` and `ConfigurationSnapshot` to associate descriptive text with settings and snapshots.
+    - Added `SettingFields.Description` so `Description` can be requested when retrieving configuration settings.
+    - Added support for `2024-09-01`, `2026-04-01`, and `2026-05-01-preview` (default) service API versions.
+    - Added support for the new feature flag endpoint via a dedicated `FeatureFlagClient`, which exposes `GetFeatureFlag`, `GetFeatureFlags`, `AddFeatureFlag`, `SetFeatureFlag`, and `DeleteFeatureFlag` operations (and their async counterparts), along with the `FeatureFlag` model and related types (`FeatureFlagConditions`, `FeatureFlagAllocation`, `FeatureFlagTelemetryConfiguration`, `FeatureFlagVariantDefinition`, etc.). Requires the `2026-05-01-preview` service API version.
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.6
+  DisplayName: AI Agent Server - Invocations
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.6/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - AsyncAPI discovery endpoints — `InvocationHandler` now exposes two new
+    virtual methods, `GetAsyncApiJsonAsync` and `GetAsyncApiYamlAsync`, served
+    at `GET /invocations/docs/asyncapi.json` and `GET /invocations/docs/asyncapi.yaml`
+    respectively. Both default to `404`; override either or both to publish the
+    AsyncAPI companion to the existing `openapi.json` endpoint for
+    streaming/bidirectional surfaces (e.g. the `invocations_ws` WebSocket protocol)
+    that OpenAPI cannot express. The path extension is authoritative for the
+    returned content type — no `Accept` negotiation and no format conversion.
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.28
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.28/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `FoundryStateStore` item operations now accept an explicit `callId` and forward
+    the ambient `FoundryAgentRequestContext.Current.CallId` by default. Resilient
+    task handlers restore a top-level persisted `call_id` for every execution attempt.
+    - Added resilient **task** and **streaming** primitives for building durable, long-running agents (`Azure.AI.AgentServer.Core.Tasks` and `Azure.AI.AgentServer.Core.Streaming`):
+    - Register one-shot and multi-turn tasks with `IServiceCollection.AddResilientTasks()` and the `ResilientTaskBuilder` (`AddTask` / `AddMultiTurnTask`), including overloads that accept a source-generated `JsonTypeInfo<TInput>` for Native-AOT / trimming-safe input serialization. The reflection-based overloads carry `[RequiresUnreferencedCode]` / `[RequiresDynamicCode]` so trimming/AOT builds get a compile-time warning steering them to the `JsonTypeInfo<TInput>` overloads.
+    - Run and resume tasks through `ITaskInvoker` (`RunAsync`, `StartAsync`, `GetActiveRunAsync`) with the `TaskRun<TOutput>` handle (await its `Completion` task, or `Completion.WaitAsync(token)` to cancel only your wait) and the `TaskContext<TInput>` handler surface (entry mode, retry attempt, cooperative cancellation, shutdown, and steering signals).
+    - Configure per-task durability with `TaskRegistrationOptions` (title, timeout, retry) and `TaskRetryPolicy` (attempt count + an `Azure.Core.DelayStrategy` for the backoff).
+    - Resumable event streaming with `AgentEventStreamRegistry` / `AgentEventStream` and `AddAgentEventStreams()`, supporting in-memory live, in-memory replay, and file-backed replay backings via `AgentEventStreamOptions`. The event representation is `System.Net.ServerSentEvents.SseItem<string>`: the caller places the serialized event text in `SseItem<string>.Data` and an opaque `SseItem<string>.EventId` is the resume/reconnect token (`Subscribe(afterEventId)`, `GetLastEventIdAsync()`). Because the data is already a string, there is no payload codec — `SseFormatter` can frame a `Subscribe(...)` stream directly onto an HTTP response.
+    - A single `ResilientTaskException` carrying an extensible `ResilientTaskErrorCode` (`HandlerError`, `ExhaustedRetries`, `Conflict`, `PreconditionFailed`, `QueueFull`) with code-specific data exposed as nullable properties (`CurrentStatus`, `ActualLastInputId`, `Failure`). Argument validation surfaces as `ArgumentException` and cancellation as `OperationCanceledException`; recovery deferral (`ExitForRecoveryAsync`) is an internal lifecycle handoff and never surfaces as an exception. The streaming layer keeps its `AgentEventStreamException` hierarchy.
+
+    #### Bugs Fixed
+
+    - Kept the task lease renewed across retry backoff delays so a long inter-attempt backoff cannot let the lease lapse and allow a concurrent re-invocation of the same task turn.
+    - Hardened the resilient-task engine shutdown signalling against a benign race between a completing turn and host disposal.
+    - A one-shot task whose durable completion write fails, and a multi-turn task whose durable suspend write fails, now surface the failure to the caller instead of reporting success while the record remains `in_progress` (which a later recovery scan could re-run).
+    - The local file-backed task store now serializes its existence check and record write under the same lock as patch/delete, so two concurrent creates for the same id can no longer both succeed with the later write silently overwriting the earlier record.
+    - The file-backed event-stream custom serializer/deserializer are now `Func<object, string>` / `Func<string, object>` (previously `byte[]`), matching the UTF-8 JSON-string on-disk format so a custom codec cannot silently corrupt non-UTF-8 payloads.
+    - The local file-backed task store now writes each record through a temporary file and an atomic replace, so a crash mid-write can no longer leave a truncated record that reads back as a parse error and renders the task id permanently unusable.
+    - The per-task write gate is no longer disposed when its bookkeeping entry is removed, closing a race where a concurrent write could observe `ObjectDisposedException` on a gate that was torn down while still in use.
+    - A turn transition that replaces and disposes a handler's cancellation source concurrently with a cancel/steering signal no longer surfaces `ObjectDisposedException` from the cancel path.
+    - `AddResilientTasks` and `AddAgentEventStreams` are now safe against repeated registration: `AddResilientTasks` no longer registers the durability hosted service more than once (and rejects a conflicting second credential), and `AddAgentEventStreams` rejects a second configuring call instead of silently discarding its configuration.
+    - Steering inputs that were queued but not yet drained when a process crashed are no longer stranded: on recovery the persisted `pending_inputs` queue is rehydrated into the in-process steering FIFO, so a recovered chain drains them instead of silently dropping them. Each queued input's per-turn `InputId` is persisted alongside it so a recovered turn keeps its own identity and advances the chain head (`last_input_id`) exactly as it would without a crash.
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.8
+  DisplayName: AI Agent Server - Responses
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Resilient responses. Resilient background responses (`ResponsesServerOptions.ResilientBackground`)
+    are composed directly on the `Azure.AI.AgentServer.Core` durable-task and event-stream primitives
+    rather than a bespoke Responses-owned recovery stack, matching the Python implementation.
+    Interrupted background responses are automatically recovered and re-invoked in the next process
+    lifetime.
+    - Resilient streaming with checkpoint/resumption: handlers persist durable snapshots at safe
+    boundaries via `ResponseEventStream.Checkpoint()` and, on a recovered entry, reconstruct the
+    resumption response from `ResponseContext.IsRecovery` / `ResponseContext.PersistedResponse`.
+    - Steerable conversations (`ResponsesServerOptions.SteerableConversations`) with in-turn steering:
+    a superseding turn enqueues and drains against the active turn, observable through
+    `ResponseContext.IsSteeredTurn` and `ResponseContext.PendingInputCount`; fork, lock, and
+    queue-full conflicts map to `409 Conflict`.
+    - Internal metadata is persisted for recovery and stripped on egress so it never leaks to clients.
+    - Fail-loud composition validation: misconfigured resilient setups fail at startup with actionable
+    errors instead of silently degrading.
+    - The local default response provider is now file-based (durable) when resilient background is
+    enabled outside a hosted environment.
+    - Every stored (`store=true`) request now runs its handler inside a Core resilient task —
+    foreground or background, streaming or non-streaming — so a crashed turn is task-tracked and
+    recovered/marked-failed by the next-lifetime recovery scan (matching the Python resilience
+    contract; only `store=false` runs inline). Streaming relays the per-response event stream
+    immediately, preserving standalone SSE `error` semantics for pre-creation failures and
+    `response.failed` (not `response.completed`) for terminal persistence failures.
+    - A streaming turn superseded by steering that reaches its terminal via the framework
+    completion fallback (a non-cooperative handler that lets its token trip without emitting its
+    own terminal) is now durably persisted as `completed`, so the client-visible
+    `response.completed` matches the stored record and the turn is valid conversation context for
+    the draining steered turn (FR-053).
+
+    #### Breaking Changes
+    - Removed `ConversationChainMetadata`, `ConversationChainMetadataNamespace`,
+    `ResponseContext.ConversationChainMetadata`, and `ResponseContextExtensions.MetadataNamespace`.
+    Durable application state now belongs in an explicit
+    `Azure.AI.AgentServer.Core.Storage.FoundryStateStore` scoped with
+    `ResponseContext.ConversationChainId`.
+    - Removed the public `ResponsesStreamProvider` abstract class and the public `IAsyncObserver<T>`
+    interface. SSE streaming is now composed on the `Azure.AI.AgentServer.Core` event-stream
+    primitive (`IEventStreamRegistry` / `IEventStream`) rather than a Responses-owned stream
+    provider, matching the Python implementation. The local default event-stream backing is
+    in-memory replay, upgraded automatically to durable file-backed replay when resilient
+    background is enabled outside a hosted environment.
+- Name: Azure.ResourceManager.ContainerServiceFleet
+  Version: 1.2.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.2.0/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
+  ChangelogContent: ""
 
