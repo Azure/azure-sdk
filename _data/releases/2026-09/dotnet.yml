@@ -836,4 +836,43 @@ entries:
     - Log fields are now culture-invariant. ([#61996](https://github.com/Azure/azure-sdk-for-net/pull/61996))
     - Added the `telemetrySuccess` dimension to `Item_Dropped_Count` for request and dependency telemetry.
     ([#62081](https://github.com/Azure/azure-sdk-for-net/pull/62081))
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.7
+  DisplayName: AI Agent Server - Invocations
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.7/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added application-owned target-turn tracing for Voice handlers.
+    `VoiceSession.StartTurn` creates a mockable `VoiceTurnTrace` parented to the
+    physical Voice connection; applications activate it around model/tool work and
+    complete it once with an immutable, content-free `VoiceTurnResult`. The relay
+    does not infer target outcomes from sent messages or connection termination.
+    - Added the experimental typed Voice Live Bridge Protocol 1.0 relay. `VoiceHandler` dispatches
+    immutable inbound events, `VoiceSession.SendAsync` serializes explicit outbound
+    messages, and `AddVoice<THandler>()` / `VoiceServer.Run<THandler>()` reuse the
+    existing `/invocations_ws` transport without owning application lifecycle state.
+    Consumers acknowledge this preview surface with the `AAAS001` diagnostic.
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.5/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.29
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.29/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Released to provide the public `Azure.AI.AgentServer.Core` dependency required by `Azure.AI.AgentServer.Invocations` 1.0.0-beta.7.
 
