@@ -883,4 +883,74 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceNetworking_1.2.0/sdk/servicenetworking/Azure.ResourceManager.ServiceNetworking/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.NewRelicObservability
+  Version: 1.2.0
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NewRelicObservability_1.2.0/sdk/newrelicobservability/Azure.ResourceManager.NewRelicObservability/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Monitor
+  Version: 1.0.0-beta.2
+  DisplayName: Provisioning - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Monitor_1.0.0-beta.2/sdk/monitor/Azure.Provisioning.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.18.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.18.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a memory leak on the scale-only host path where `MessagingProvider` and its cached `ServiceBusClient`s were never disposed on host teardown. `AddServiceBusScaleForTrigger` now forces construction of `CleanupService`, which the DI container then disposes automatically, tearing down the cached clients and releasing their AMQP connections, CBS-refresh timers, and heartbeat timers. Previously these stayed registered on the process-wide static `TimerQueue` for the life of the process, because a scale-only host (`ConfigureWebJobsScale`) does not initialize `IExtensionConfigProvider`s — the binding path's normal route into `CleanupService`.
+    - Fixed overly aggressive scale-out in `ServiceBusScaleMonitor`. When queue time is increasing, the monitor now votes to scale out only once the most recent sample's queue latency reaches 2 seconds, matching Scale Controller V2 behavior. - AB#32302750
+    - Fixed AMQP map key deserialization in the settlement path so that `AmqpSymbol` keys use their underlying value rather than `ToString()`. (#60653)
+    - Fixed a log message in `ServiceBusMetricsProvider` that was missing string interpolation and emitted literal placeholder text instead of the entity type and path. (#60818)
+- Name: Azure.ResourceManager.IotOperations
+  Version: 1.2.0
+  DisplayName: Resource Management - IoT Operations
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotOperations_1.2.0/sdk/iotoperations/Azure.ResourceManager.IotOperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerInstance
+  Version: 1.4.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerInstance_1.4.0/sdk/containerinstance/Azure.ResourceManager.ContainerInstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MachineLearning
+  Version: 1.3.0
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MachineLearning_1.3.0/sdk/machinelearningservices/Azure.ResourceManager.MachineLearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Confluent
+  Version: 1.3.0-beta.2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Confluent_1.3.0-beta.2/sdk/confluent/Azure.ResourceManager.Confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DevOpsInfrastructure
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - DevOps Infrastructure
+  ServiceName: DevOps Infrastructure
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevOpsInfrastructure_1.1.0-beta.1/sdk/devopsinfrastructure/Azure.ResourceManager.DevOpsInfrastructure/CHANGELOG.md
+  ChangelogContent: ""
 
