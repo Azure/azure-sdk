@@ -953,4 +953,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DevOpsInfrastructure_1.1.0-beta.1/sdk/devopsinfrastructure/Azure.ResourceManager.DevOpsInfrastructure/CHANGELOG.md
   ChangelogContent: ""
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.4
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where the checkpoint store's `BlobServiceClient` was constructed using the hard-coded `core.windows.net` suffix when `AzureWebJobsStorage__accountName` was set, even if an explicit `AzureWebJobsStorage__blobServiceUri` was also present. The explicit `__blobServiceUri` is now preferred over `__accountName`, and an optional `__endpointSuffix` setting is honored when constructing the URI from `__accountName`. This unblocks Event Hub triggers that use managed-identity storage in sovereign clouds (e.g. Azure US Government, Azure China). ([#57543](https://github.com/Azure/azure-sdk-for-net/issues/57543))
 
