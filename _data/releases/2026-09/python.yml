@@ -741,4 +741,20 @@ entries:
     ([#48899](https://github.com/Azure/azure-sdk-for-python/pull/48899))
     - Add httpx instrumentation support
     ([#47953](https://github.com/Azure/azure-sdk-for-python/pull/47953))
+- Name: azure-cosmos
+  Version: 4.17.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.17.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed sync and async item PATCH requests to explicitly send the registered `application/json-patch+json`
+    content type. See [PR 48914](https://github.com/Azure/azure-sdk-for-python/pull/48914).
+
+    #### Features Added
+    * Added the `enable_compact_utf8_item_writes` client option. Set it to `True` to reduce item write request sizes by
+    serializing valid Unicode as compact UTF-8 for create, upsert, replace, patch, and transactional batch operations.
+    See [PR 48914](https://github.com/Azure/azure-sdk-for-python/pull/48914).
 
