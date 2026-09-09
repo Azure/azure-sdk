@@ -720,4 +720,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_11.1.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-providerhub
+  Version: 2.0.0
+  DisplayName: Resource Management - ProviderHub
+  ServiceName: ProviderHub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-providerhub_2.0.0/sdk/providerhub/azure-mgmt-providerhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-monitor-opentelemetry
+  Version: 1.8.10
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.8.10/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Add support for the `httpx2` OpenTelemetry instrumentation entry point
+    ([#48899](https://github.com/Azure/azure-sdk-for-python/pull/48899))
+    - Add httpx instrumentation support
+    ([#47953](https://github.com/Azure/azure-sdk-for-python/pull/47953))
 
