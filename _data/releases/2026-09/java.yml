@@ -1987,4 +1987,74 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-newrelicobservability_1.3.0/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-agents
+  Version: 2.5.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.5.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Microsoft 365 agent publishing. `AgentsClient` / `AgentsAsyncClient` gained `publishAgentToMicrosoft365`,
+    `getMicrosoft365AppPackage`, and `getMicrosoft365PublishDefaults` (plus `WithResponse` methods), backed by new
+    `PublishAgentToMicrosoft365Options`, `GetMicrosoft365AppPackageOptions`, `Microsoft365PublishResult`,
+    `Microsoft365PublishDefaults`, `Microsoft365PublishScope`, and `Microsoft365PermissionScopes` models.
+    `AgentEndpointConfig.getPublishApprovalStatus()` exposes the Microsoft 365 store review status through the new
+    `PublishApprovalStatus` enum.
+    - Added the `CreateAgentVersionOptions` model for configuring agent-version metadata, description, blueprint reference,
+    digital-worker type, and draft status.
+    - Added preview support for Microsoft 365 digital workers (formerly "autopilot") through `DigitalWorkerType`,
+    `AgentDetails.getDigitalWorkerType()`, `CreateAgentVersionInput.setDigitalWorkerType(...)`, and the
+    `publishAsAutopilot` option on the Microsoft 365 publish and app-package options.
+    - Added activity-protocol access boundaries through `ActivityProtocolAccessBoundary`,
+    `ActivityProtocolConfiguration.getAccessBoundaries()`, and the Microsoft 365 publish and app-package options. These
+    boundaries scope developer, manager, allowlisted-user, and tenant access to one-on-one and group conversations.
+    - Added preview Model Router details through `AzureCreateResponseDetails.getModelSelectionDetails()` and the new
+    `ModelSelectionDetails`, `ModelRouterDetails`, `ModelRouterMode`, `RoutingTraceEntry`, `ModelRouterAttempt`,
+    `ModelRouterAttemptResult`, and `ModelRouterAttemptError` models.
+    - Added `WebIqPreviewTool` and `WebIqPreviewToolboxTool` for connecting an agent to a WebIQ MCP server.
+    - Added `ShellToolboxTool` for running shell commands in an automatically provisioned or existing container, with
+    environment and network configuration provided by `ToolboxShellEnvironment`,
+    `ToolboxShellContainerAutoEnvironment`, `ToolboxShellContainerReferenceEnvironment`, and
+    `ToolboxShellNetworkPolicy`.
+    - Added `WebSearchTool.setExternalWebAccess(...)` and `WebSearchToolboxTool.setExternalWebAccess(...)` to control
+    whether web search can fetch live external content.
+    - Added hosted-agent session defaults through `SessionConfiguration` and
+    `HostedAgentDefinition.setSessionConfiguration(...)`, including configuration of the session idle timeout.
+
+    #### Breaking Changes
+
+    - Updated preview agent-optimization APIs:
+    - Renamed `AgentOptimizationEvaluatorRef` to `AgentOptimizationEvaluatorReference`; the
+    `AgentOptimizationJobInputs` constructor and `getEvaluators()` now use the renamed type.
+    - Renamed `AgentOptimizationDatasetItem.getDesiredNumTurns()` / `setDesiredNumTurns(...)` to
+    `getDesiredNumberTurns()` / `setDesiredNumberTurns(...)`.
+    - Replaced `AgentOptimizationJobProgress.getElapsedSeconds()`, which returned `double`, with `getElapsed()`, which
+    returns `java.time.Duration`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.5.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.5.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added preview `BetaAgentInsightMonitorsClient` and `BetaAgentInsightMonitorsAsyncClient`, available through `AIProjectClientBuilder.beta().buildBetaAgentInsightMonitorsClient()` and `buildBetaAgentInsightMonitorsAsyncClient()`. These clients automatically opt in to `Foundry-Features: AgentInsights=V1Preview` using the new `FoundryFeaturesOptInKeys.AGENT_INSIGHTS_V1_PREVIEW` value and support:
+    - Managing monitors with `createAgentInsightMonitor`, `getAgentInsightMonitor`, `listAgentInsightMonitors`, `updateAgentInsightMonitor`, `deleteAgentInsightMonitor`, and `resetAgentInsightMonitor`.
+    - Starting and tracking runs with `beginCreateAgentInsightRun`, `listAgentInsightRuns`, `getAgentInsightRun`, and `cancelAgentInsightRun`.
+    - Reading and updating insights with `listAgentInsights`, `getAgentInsight`, and `updateAgentInsight`, including optional expanded details through `getAgentInsight(monitorId, insightId, includeDetails)`.
+    - New models for monitors, runs, and insights, including `AgentInsightMonitor`, `AgentInsightMonitorCreate`, `AgentInsightMonitorUpdate`, `AgentInsightRun`, `AgentInsightRunCreate`, `AgentInsightRunResult`, `AgentInsight`, `AgentInsightDetails`, `AgentInsightUpdate`, `AgentInsightsOverview`, `AgentInsightProposedFix`, and related types.
+    - Added optional routine dispatch authorization through `RoutineAuthorization.setIdentity(RoutineDispatchIdentity)`. Dispatch defaults to `RoutineDispatchIdentity.AGENT`; use `RoutineDispatchIdentity.CREATOR` to explicitly dispatch as the principal that created a new routine. Authorization is ignored when updating an existing routine.
+
+    #### Breaking Changes
+
+    - `BetaRoutinesClient.createOrUpdateRoutine(String, String, Boolean, Map<String, RoutineTrigger>, RoutineAction)` and its `BetaRoutinesAsyncClient` counterpart now require an additional trailing `RoutineAuthorization authorization` parameter. Pass `null` to retain the previous agent-identity dispatch behavior.
+
+    - Regenerated client from the updated TypeSpec specification.
+  GroupId: com.azure
 
