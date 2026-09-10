@@ -757,4 +757,20 @@ entries:
     * Added the `enable_compact_utf8_item_writes` client option. Set it to `True` to reduce item write request sizes by
     serializing valid Unicode as compact UTF-8 for create, upsert, replace, patch, and transactional batch operations.
     See [PR 48914](https://github.com/Azure/azure-sdk-for-python/pull/48914).
+- Name: azure-mgmt-resource-deployments
+  Version: 2.0.0
+  DisplayName: Resource Management - Resource-Deployments
+  ServiceName: Resource-Deployments
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-deployments_2.0.0/sdk/resources/azure-mgmt-resource-deployments/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-newrelicobservability
+  Version: 2.0.0
+  DisplayName: Resource Management - New Relic Observability
+  ServiceName: New Relic Observability
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-newrelicobservability_2.0.0/sdk/newrelicobservability/azure-mgmt-newrelicobservability/CHANGELOG.md
+  ChangelogContent: ""
 
