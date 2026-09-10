@@ -964,4 +964,12 @@ entries:
     #### Bugs Fixed
 
     - Fixed an issue where the checkpoint store's `BlobServiceClient` was constructed using the hard-coded `core.windows.net` suffix when `AzureWebJobsStorage__accountName` was set, even if an explicit `AzureWebJobsStorage__blobServiceUri` was also present. The explicit `__blobServiceUri` is now preferred over `__accountName`, and an optional `__endpointSuffix` setting is honored when constructing the URI from `__accountName`. This unblocks Event Hub triggers that use managed-identity storage in sovereign clouds (e.g. Azure US Government, Azure China). ([#57543](https://github.com/Azure/azure-sdk-for-net/issues/57543))
+- Name: Azure.ResourceManager.RedHatOpenShiftHcp
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Redhatopenshifthcp
+  ServiceName: Redhatopenshifthcp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedHatOpenShiftHcp_1.0.0-beta.1/sdk/redhatopenshifthcp/Azure.ResourceManager.RedHatOpenShiftHcp/CHANGELOG.md
+  ChangelogContent: ""
 
