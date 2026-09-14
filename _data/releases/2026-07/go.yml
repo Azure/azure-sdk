@@ -7,15 +7,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.14.0/sdk/azidentity/CHANGELOG.md
   ChangelogContent: |-
-    #### Bugs Fixed
-
-    - `AzureDeveloperCLICredential` improved reporting of error messages returned from `azd`
-
     #### Breaking Changes
 
     > These changes affect only code written against a beta version such as v1.14.0-beta.3
     - Removed `WorkloadIdentityCredentialOptions.EnableAzureProxy`.
     It will return in v1.15.0-beta.1
+
+    #### Bugs Fixed
+
+    - `AzureDeveloperCLICredential` improved reporting of error messages returned from `azd`
 - Name: sdk/storage/azdatalake
   Version: 1.6.0
   DisplayName: Storage - Files Data Lake

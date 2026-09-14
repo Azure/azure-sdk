@@ -6,6 +6,6 @@
 | [`Jackson`]       | JSON parser                   | Implementation |
 
 [`ThreeTen`]: https://github.com/JakeWharton/ThreeTenABP
-[`OkHttp`]: https://square.github.io/okhttp/
-[`Retrofit`]: https://square.github.io/retrofit/
+[`OkHttp`]: https://github.com/square/okhttp
+[`Retrofit`]: https://github.com/square/retrofit
 [`Jackson`]: https://github.com/FasterXML/jackson
