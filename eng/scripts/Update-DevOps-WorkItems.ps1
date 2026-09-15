@@ -265,10 +265,11 @@ function RefreshItems()
           $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToString().ToLower()
           $csvEntry.Type = $pkgWI.fields["Custom.PackageType"]
 
-          if ($csvEntry.DisplayName.Contains("Unknown")) {
+          # Match both canonical lowercase unknown and the legacy placeholders.
+          if ($csvEntry.DisplayName -like "*unknown*") {
             $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           }
-          if ($csvEntry.ServiceName.Contains("Unknown")) {
+          if ($csvEntry.ServiceName -like "*unknown*") {
             $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
           }
 

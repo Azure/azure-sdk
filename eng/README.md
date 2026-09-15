@@ -5,6 +5,52 @@ We have one csv file for each language and an [automation pipeline](https://gith
 new releases and updates the versioning information and doc links in the csv for each package. The version information will be updated from the specific package managers for the
 given package ecosystem as well as by reading release tags from our mono repos. We can update more information like repo and doc information for things coming from our mono repos.
 
+### Package naming review pilot
+
+Discovery does not infer friendly names from package identifiers. New entries
+start with `ServiceName` and `DisplayName` set to `unknown`, matching package CI's
+existing unknown parent. The existing `Notes` value `Needs Review` is retained;
+no new review state or naming dictionary is introduced. Existing CSV names are
+preserved when package versions are refreshed.
+
+Copilot's [release CSV naming instructions](../.github/instructions/release-csv-names.instructions.md)
+cover newly added rows and changes to the two name fields. Copilot can suggest
+word spacing and acronym/product casing using reviewed equivalents or official
+documentation, or ask the owner to confirm an unknown name. It is not a naming
+authority: human reviewers verify and apply the accepted CSV edits. Version-only
+changes and row reordering do not need naming comments. Keep `Package`, Java
+`GroupId`, and `RepoPath` unchanged when correcting friendly names.
+
+The existing repository rule already requests automatic Copilot reviews. Keep
+custom instructions enabled and verify the guidance is used in a generated CSV
+PR. No additional review-request workflow is needed. The rule does not review
+every push; manually request another review if new naming changes are added to
+an already-reviewed package-index PR. Existing human/code-owner approval rules
+remain required; Copilot does not approve, apply suggestions, or merge. Verify
+that any automation identity used for auto-merge cannot bypass those approvals
+before enabling the pilot. Coordinate rollout and review quality with the
+repository maintainers rather than changing repository permissions.
+
+DevOps synchronization occurs before the generated CSV PR is reviewed. Unknown
+names therefore stay under the existing unknown parent until a reviewer supplies
+names; when a package work item already has known names, the normal CSV fallback
+reuses them. Synchronization recognizes both lowercase `unknown` and the legacy
+`Unknown Service`/`Unknown Display Name` placeholders. Subsequent runs consume
+accepted CSV names and find their matching Service/Product Epics. This does not
+repair pre-existing incorrectly named or duplicate Epics; audit those separately.
+
+Run the offline regression suite with Pester 5.7.1 or later from the repository root:
+
+```powershell
+Import-Module Pester -MinimumVersion 5.7.1
+Invoke-Pester -Path ./eng/scripts/tests/Package-Names.Tests.ps1 -Output Detailed
+```
+
+The suite mocks registry, GitHub, and DevOps IO and does not execute Python or
+change real CSV/work-item data. It covers all five language discovery paths,
+version/metadata preservation, unknown-parent reuse, legacy placeholders, and
+reviewed-name synchronization over repeated runs. It also runs in the site's CI.
+
 
 ## CSV fields
 

@@ -11,6 +11,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+    - name: Test package discovery and work item naming
+      shell: pwsh
+      run: |
+        . ./eng/common/scripts/Helpers/PSModule-Helpers.ps1
+        Install-ModuleIfNotInstalled "Pester" "5.7.1" | Import-Module
+        $result = Invoke-Pester -Path ./eng/scripts/tests/Package-Names.Tests.ps1 -PassThru
+        if ($result.Result -ne 'Passed') { throw 'Package naming tests failed.' }
+
     - name: Setup pages
       uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
