@@ -4,15 +4,19 @@ applyTo: "_data/releases/latest/*-packages.csv"
 
 # Release CSV Naming Review
 
-Keep this targeted pilot aligned with the
-[Azure SDK code-review skill](https://github.com/Azure/azure-sdk-tools/tree/main/.github/skills/code-review).
-These local instructions provide the review behavior; that repository-local
-skill is not automatically installed in this repository.
+This deployed instruction is the canonical naming policy. The
+[Azure SDK code-review skill](https://github.com/Azure/azure-sdk-tools/tree/main/.github/skills/code-review)
+loads this file rather than maintaining a second copy of the rules. Its CSV
+evaluations use this file from a pinned Azure/azure-sdk revision.
 
 - Compare base and head rows by `Package` and, for Java, `GroupId`. Review only
-  newly added rows or changed `ServiceName`/`DisplayName` values. Ignore routine
-  version/date/link updates, row reordering, and pre-existing names (including
-  unchanged unknown names on version-only updates).
+  files in `_data/releases/latest/` whose names end in `-packages.csv`; auxiliary
+  files such as `python-packages_other.csv` are outside scope. On a new row,
+  both friendly-name fields are eligible; on an existing row, only changed
+  `ServiceName`/`DisplayName` fields are eligible. Ignore version/date/link
+  updates, row reordering, and unchanged fields, including unknown names.
+- All naming feedback is non-blocking and advisory. Do not require a naming
+  correction as a prerequisite for merging or present it as a blocking defect.
 - `ServiceName` is the friendly service grouping; `DisplayName` is the friendly
   package/product label. Preserve intentional `Resource Management - ` and
   `Provisioning - ` prefixes in `DisplayName`, not in `ServiceName`.
@@ -27,15 +31,16 @@ skill is not automatically installed in this repository.
   that evidence for a correction. If the correct name cannot be established,
   ask the package/service owner rather than inventing a definitive name.
 - `unknown`, `Unknown Service`, and `Unknown Display Name` are intentional
-  unresolved placeholders, not blocking defects. For a new row or newly
-  changed unknown field, leave one non-blocking note asking the owner to
-  confirm both friendly names. Label any candidate as a suggestion requiring
-  human verification; do not invent a name to remove the placeholder.
+  unresolved placeholders. Ask the owner to confirm only eligible fields that
+  remain unresolved. Ask for both names when both are unknown on a new row;
+  never request reconfirmation or a rename of an unchanged field. If there is
+  no supporting evidence, retain the placeholder and request owner input
+  without proposing a value. Do not invent a name to remove the placeholder.
 - Anchor each concise comment to the changed CSV row and identify the package,
-  affected fields, current values, and proposed values with evidence or a
-  request for owner input. State each proposed field value and its supporting
-  source explicitly, and ask the human reviewer/owner to verify before applying.
-  Consolidate feedback for both name fields.
+  affected fields, and current values. Only propose a value when supported by
+  evidence, citing that source and asking the human reviewer to verify before
+  applying. Otherwise a request for owner input is complete feedback; proposed
+  values are not required. Consolidate feedback for affected fields into one note.
 - Only suggest changes to `ServiceName`/`DisplayName`. Do not change `Package`,
   `GroupId`, `RepoPath`, versions, URLs, other columns, quoting, or existing
   review markers. Do not reformat CSVs or add generic praise/approval comments.
