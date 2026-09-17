@@ -52,11 +52,11 @@ At the end of this document, you can find a section with [the most commonly over
 
 {% include requirement/MUST id="dotnet-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines][general-guidelines].
 
-The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) section.
+The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-httppipeline) section.
 
 {% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
-The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
+The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
 ### Support for non-HTTP Protocols
 
@@ -735,7 +735,7 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 }
 ```
 
-Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](implementation.md#dotnet-usage-json).
+Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-json).
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
@@ -801,7 +801,7 @@ TODO: issue #2298
 
 {% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
 
-See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+See [enumeration-like structure documentation](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-enums) for implementation details.
 
 #### Using Azure Core Types {#dotnet-commontypes}
 
