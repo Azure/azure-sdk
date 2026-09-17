@@ -910,22 +910,30 @@ For example, `Azure.Storage.Blobs`.
 - `Azure.AI` for artificial intelligence, including machine learning
 - `Azure.Analytics` for client libraries that gather or process analytics data
 - `Azure.Communication` communication services
+- `Azure.Compute` for client libraries that provide compute services, such as batch processing
+- `Azure.Containers` for client libraries that work with containers and container registries
 - `Azure.Core` for libraries that aren't service specific
 - `Azure.Cosmos` for object database technologies
 - `Azure.Data` for client libraries that handle databases or structured data stores
+- `Azure.Developer` for client libraries that support developer workflows, such as development environments and load testing
 - `Azure.DigitalTwins` for DigitalTwins related technologies
+- `Azure.Extensions` for libraries that integrate Azure services with .NET frameworks and libraries
+- `Azure.Health` for client libraries that handle healthcare data and insights
 - `Azure.Identity` for authentication and authorization client libraries
 - `Azure.IoT` for client libraries dealing with the Internet of Things.
     - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
     - Do not use `IoT` more than once in a namespace.
+- `Azure.Maps` for client libraries that provide geospatial and location services
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub/sub.
 - `Azure.Monitor` for observability and Azure Monitor client libraries.
+- `Azure.Provisioning` for libraries that define and provision Azure infrastructure
 - `Azure.ResourceManager.[ResourceProvider]` for management plane client libraries for a given resource provider.
     - For example the compute management plane namespace would be Azure.ResourceManager.Compute.
 - `Azure.Search` for search technologies
 - `Azure.Security` for client libraries dealing with security
 - `Azure.Storage` for client libraries that handle unstructured data
+- `Azure.Verticals` for client libraries for industry-specific services, such as agriculture
 
 If you think a new group should be added to the list, contact [adparch].
 
