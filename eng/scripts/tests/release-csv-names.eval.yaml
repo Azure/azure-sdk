@@ -200,6 +200,7 @@ stimuli:
           DisplayName: Resource Management - Mesh Gateway
         Ask the owner for ServiceName only; keep its placeholder without proposing a name
         or restoring Nebula Classic. Do not change or reconfirm the valid DisplayName.
+        Merely noting that DisplayName is unchanged is allowed.
       - *advisory-note
     graders: *review-graders
 
@@ -232,6 +233,7 @@ stimuli:
           DisplayName: Unknown Display Name
         Ask the owner for DisplayName only; keep its placeholder without proposing a label
         or restoring Gateway Classic. Do not change or reconfirm the valid ServiceName.
+        Merely noting that ServiceName is unchanged is allowed.
       - *advisory-note
     graders: *review-graders
 
