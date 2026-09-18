@@ -4,10 +4,8 @@ applyTo: "_data/releases/latest/*-packages.csv"
 
 # Release CSV Naming Review
 
-This deployed instruction is the canonical naming policy. The
-[repo-local code-review skill](../skills/code-review/SKILL.md)
-loads this file rather than maintaining a second copy of the rules. Its CSV
-evaluations use this exact in-PR file without a cross-repository dependency.
+Use these instructions directly for release CSV reviews. Human reviewers
+confirm friendly names; no separate skill or naming dictionary is required.
 
 - Compare base and head rows by `Package` and, for Java, `GroupId`. Review only
   files in `_data/releases/latest/` whose names end in `-packages.csv`; auxiliary

@@ -20,11 +20,8 @@ jobs:
       run: npm ci --ignore-scripts
       working-directory: eng/common/scripts/eval
 
-    - name: Validate naming-review skill and graders
-      run: |
-        ./eng/common/scripts/eval/node_modules/.bin/vally lint .github/skills/code-review --strict
-        ./eng/common/scripts/eval/node_modules/.bin/vally lint -e .github/skills/code-review/evals/package-names.eval.yaml --strict
-        node --test .github/skills/code-review/evals/grader-guards.test.mjs
+    - name: Validate naming-review evaluation
+      run: ./eng/common/scripts/eval/node_modules/.bin/vally lint -e eng/scripts/tests/release-csv-names.eval.yaml --strict
 
     - name: Test package discovery and work item naming
       shell: pwsh
