@@ -11,6 +11,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+    - name: Setup Node for static naming-review validation
+      uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      with:
+        node-version: '22.x'
+
+    - name: Install pinned evaluation tooling
+      run: npm ci --ignore-scripts
+      working-directory: eng/common/scripts/eval
+
+    - name: Validate naming-review skill and graders
+      run: |
+        ./eng/common/scripts/eval/node_modules/.bin/vally lint .github/skills/code-review --strict
+        ./eng/common/scripts/eval/node_modules/.bin/vally lint -e .github/skills/code-review/evals/package-names.eval.yaml --strict
+        node --test .github/skills/code-review/evals/grader-guards.test.mjs
+
     - name: Test package discovery and work item naming
       shell: pwsh
       run: |
