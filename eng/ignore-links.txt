@@ -19,3 +19,69 @@ https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.EventHubs_1.1
 # Azure.Provisioning.Resources is deprecated and was replaced by Azure.Provisioning. Its MS Docs
 # preview readme page has since been removed, so the auto-generated docs link now 404s.
 https://learn.microsoft.com/dotnet/api/overview/azure/Provisioning.Resources-readme?view=azure-dotnet-preview&preserve-view=true
+
+# Azure.Provisioning.AppConfiguration moved from sdk/provisioning to sdk/appconfiguration after the
+# 1.1.0 GA release. The latest preview (1.2.0-beta.2) lives under sdk/appconfiguration, but the GA
+# (1.1.0) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
+# satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppConfiguration_1.1.0/sdk/appconfiguration/Azure.Provisioning.AppConfiguration/
+
+# Azure.Provisioning.CognitiveServices moved from sdk/provisioning to sdk/cognitiveservices after the
+# 1.2.0 GA release. The latest preview (1.3.0-beta.1) lives under sdk/cognitiveservices, but the GA
+# (1.2.0) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
+# satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.CognitiveServices_1.2.0/sdk/cognitiveservices/Azure.Provisioning.CognitiveServices/
+
+# Azure.Provisioning.EventGrid moved from sdk/provisioning to sdk/eventgrid after the 1.1.0 GA release.
+# The latest preview (1.2.0-beta.1) lives under sdk/eventgrid, but the GA (1.1.0) source predates the
+# move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
+# source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.EventGrid_1.1.0/sdk/eventgrid/Azure.Provisioning.EventGrid/
+
+# Azure.Provisioning.OperationalInsights moved from sdk/provisioning to sdk/operationalinsights after
+# the 1.1.0 GA release. The latest preview (1.2.0-beta.2) lives under sdk/operationalinsights, but the
+# GA (1.1.0) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
+# satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.OperationalInsights_1.1.0/sdk/operationalinsights/Azure.Provisioning.OperationalInsights/
+
+# Azure.Provisioning.ServiceBus moved from sdk/provisioning to sdk/servicebus after the 1.1.0 GA release.
+# The latest preview (1.2.0-beta.1) lives under sdk/servicebus, but the GA (1.1.0) source predates the
+# move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
+# source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ServiceBus_1.1.0/sdk/servicebus/Azure.Provisioning.ServiceBus/
+
+# Azure.Provisioning.SignalR moved from sdk/provisioning to sdk/signalr after the 1.1.0 GA release.
+# The latest preview (1.2.0-beta.1) lives under sdk/signalr, but the GA (1.1.0) source predates the
+# move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
+# source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.SignalR_1.1.0/sdk/signalr/Azure.Provisioning.SignalR/
+
+# Azure.Provisioning.Sql moved from sdk/provisioning to sdk/sqlmanagement after the 1.1.0 GA release.
+# The latest preview (1.2.0-beta.2) lives under sdk/sqlmanagement, but the GA (1.1.0) source predates
+# the move and remains under sdk/provisioning. A single RepoPath cannot satisfy both, so the stale GA
+# source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Sql_1.1.0/sdk/sqlmanagement/Azure.Provisioning.Sql/
+
+# Azure.ResourceManager.PineconeVectorDB, resourcemanager-pineconevectordb, arm-pineconevectordb, and
+# resourcemanager-weightsandbiases are deprecated management packages (EOL 09/30/2026). Their MS Docs
+# readme pages have since been removed, so the auto-generated docs links now 404.
+https://learn.microsoft.com/dotnet/api/overview/azure/ResourceManager.PineconeVectorDB-readme?view=azure-dotnet-preview&preserve-view=true
+https://learn.microsoft.com/java/api/overview/azure/resourcemanager-pineconevectordb-readme?view=azure-java-preview&preserve-view=true
+https://learn.microsoft.com/javascript/api/overview/azure/arm-pineconevectordb-readme
+https://learn.microsoft.com/java/api/overview/azure/resourcemanager-weightsandbiases-readme?view=azure-java-preview&preserve-view=true
+
+# @azure/api-management-custom-widgets-scaffolder and @azure/api-management-custom-widgets-tools were
+# fully removed from azure-sdk-for-js (Azure/azure-sdk-for-js#39717) because they were unmaintained.
+# Their source links point at the main branch, which no longer contains these package trees.
+https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-scaffolder
+https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-tools
+
+# These azure-rest-api-specs preview spec versions have since been superseded on the main branch
+# (keyvault moved to 2026-06-01-preview, deviceprovisioningservices data-plane moved to
+# 2026-11-02-preview), so the historical preview folder no longer exists at HEAD.
+https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2026-03-01-preview
+https://github.com/Azure/azure-rest-api-specs/tree/main/specification/deviceprovisioningservices/data-plane/DeviceProvisioningServices/preview/2026-07-01-preview
+
+# This is a historical changelog entry (2024-02 Image Analysis SDK release notes) linking to a
+# region-specific Cognitive Services "dev portal" preview API reference that has since been retired.
+https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01
