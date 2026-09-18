@@ -628,9 +628,14 @@ Describe 'Package names (issue 16628)' {
       Should -Invoke CreateWorkItem -Times 1 -Exactly -Scope It -ParameterFilter { $type -eq 'Package' -and $parentId -eq 102 }
     }
 
-    It 'recognizes legacy Unknown placeholders as a passing control for the sync fixture' {
-      $script:csvRows[0].DisplayName = 'Unknown Display Name'
-      $script:csvRows[0].ServiceName = 'Unknown Service'
+    It 'recognizes exact placeholders case-insensitively: <DisplayName> / <ServiceName>' -ForEach @(
+      @{ DisplayName = 'Unknown Display Name'; ServiceName = 'Unknown Service' }
+      @{ DisplayName = 'unknown display name'; ServiceName = 'unknown service' }
+      @{ DisplayName = 'UNKNOWN DISPLAY NAME'; ServiceName = 'UNKNOWN SERVICE' }
+      @{ DisplayName = 'UnKnOwN'; ServiceName = 'uNkNoWn' }
+    ) {
+      $script:csvRows[0].DisplayName = $DisplayName
+      $script:csvRows[0].ServiceName = $ServiceName
       $item = Add-TestPackageWorkItem 'Agriculture Platform' 'Agriculture Platform - Management' 202
 
       RefreshItems
@@ -642,6 +647,37 @@ Describe 'Package names (issue 16628)' {
       $script:csvWrites[0].Packages[0].ServiceName | Should -BeExactly 'Agriculture Platform'
       $script:createdItems | Should -HaveCount 0
       $script:parentChanges | Should -HaveCount 0
+    }
+
+    It 'preserves curated names containing unknown: <ServiceName> / <DisplayName>' -ForEach @(
+      @{ ServiceName = 'Unknown Threat Detection'; DisplayName = 'Resource Management - Unknown Threat Detection' }
+      @{ ServiceName = 'unknown threat detection'; DisplayName = 'Resource Management - unknown threat detection' }
+      @{ ServiceName = 'Known Service'; DisplayName = 'Unknown Display Name Extension' }
+      @{ ServiceName = 'Unknown Service Extension'; DisplayName = 'Agriculture Platform - Management' }
+    ) {
+      # A reviewer can correct the names while leaving the existing review marker.
+      # Start with an unresolved work item so an accidental fallback loses the names.
+      $script:csvRows[0].ServiceName = $ServiceName
+      $script:csvRows[0].DisplayName = $DisplayName
+      Add-TestParents 301 302 $ServiceName $DisplayName
+      $item = Add-TestPackageWorkItem
+
+      RefreshItems
+      Reset-TestSyncCaches
+      RefreshItems
+
+      $item.fields['Custom.ServiceName'] | Should -BeExactly $ServiceName
+      $item.fields['Custom.PackageDisplayName'] | Should -BeExactly $DisplayName
+      $item.fields['System.Parent'] | Should -Be 302
+      $script:csvWrites | Should -HaveCount 2
+      foreach ($write in $script:csvWrites) {
+        $write.Packages[0].ServiceName | Should -BeExactly $ServiceName
+        $write.Packages[0].DisplayName | Should -BeExactly $DisplayName
+        $write.Packages[0].Notes | Should -BeExactly 'Needs Review'
+      }
+      $script:createdItems | Should -HaveCount 0
+      $script:parentChanges | Should -HaveCount 1
+      $script:parentChanges[0].ParentId | Should -Be 302
     }
 
     # Canonical lowercase unknown must use the same fallback as legacy placeholders,
