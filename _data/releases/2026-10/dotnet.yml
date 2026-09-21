@@ -1,0 +1,48 @@
+entries:
+- Name: Azure.ResourceManager.Network
+  Version: 1.18.0-beta.1
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.18.0-beta.1/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.18.0-alpha.20260920.2
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.18.0-alpha.20260920.2/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Messaging.WebPubSub.Chat
+  Version: 1.0.0-beta.1
+  DisplayName: Web PubSub Chat
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub.Chat_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub.Chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial beta release of the Azure Web PubSub Chat client library for .NET.
+    - Added `WebPubSubChatServiceClient` with support for connection string, `AzureKeyCredential`, and Microsoft Entra ID (`TokenCredential`) authentication.
+    - Added management of chat rooms, room members, users, and roles.
+    - Added reading of message history from a conversation, and updating and deleting messages.
+    - Added `GetClientAccessUri` to generate a client access URI for connecting to the service.
+    - Added generated extensible chat permissions (`ChatPermission`) and built-in roles (`BuiltInChatRoles`).
+- Name: Azure.AI.ContentSafety
+  Version: 1.1.0-beta.1
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.ContentSafety_1.1.0-beta.1/sdk/contentsafety/Azure.AI.ContentSafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `UnifiedModerate` and `UnifiedModerateAsync` operations for the `2026-09-01-preview` service API.
+    - Exposed `JsonModelWriteCore` for model serialization procedure.
+    - Added `ContentSafetyClientSettings` to support creating a `ContentSafetyClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+    - Added `BlocklistClientSettings` to support creating a `BlocklistClient` from `IConfiguration`, including configuration-based credential resolution and dependency injection registration.
+
