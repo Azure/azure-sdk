@@ -23,4 +23,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-policy_1.0.0/sdk/resources/azure-mgmt-resource-policy/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-contentsafety
+  Version: 1.1.0b1
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentsafety_1.1.0b1/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Python 3.10 or later is now required.
+
+    #### Features Added
+
+    - Added support for Content Provenance Detection operations.
+    - Added support for Unified Moderate policy evaluation.
+    - Added support for prompt shielding and protected-material detection.
+    - Added regular-expression matching for text blocklist items.
 
