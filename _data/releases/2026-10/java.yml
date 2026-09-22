@@ -107,4 +107,115 @@ entries:
 
     - Data generation sample limits are now scenario-specific instead of being defined on `DataGenerationJobOptions`. `DataGenerationJobOptions(int)` was replaced by `DataGenerationJobOptions()` and its `getMaxSamples()` method was removed. `TracesDataGenerationJobOptions(int)` was replaced by a no-argument constructor and optional `Integer`-based `getMaxSamples()` / `setMaxSamples(Integer)` methods. `SimulationSeedDataGenerationJobOptions(int)` was replaced by a no-argument constructor and no longer accepts a sample limit. `SimpleQnADataGenerationJobOptions` and `ToolUseFineTuningDataGenerationJobOptions` continue to require `maxSamples` in their constructors.
   GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos
+  Version: 4.83.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos_4.83.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Promoted the Throughput Bucket from Beta to GA. - See [PR 50339](https://github.com/Azure/azure-sdk-for-java/pull/50339)
+    * Added support for hierarchical (sub)partition keys whose last path is `/id`. When the last partition key path is `/id`, point operations, bulk operations and `readMany` now automatically append the item's `id` to the partition key. - See [PR 49709](https://github.com/Azure/azure-sdk-for-java/pull/49709)
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.50.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos-encryption
+  Version: 2.32.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-encryption_2.32.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.kafka+azure-cosmos-kafka-connect
+  Version: 2.12.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.kafka+azure-cosmos-kafka-connect_2.12.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.kafka
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_4-1_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos-test
+  Version: 1.0.0-beta.21
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-test_1.0.0-beta.21/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure
 
