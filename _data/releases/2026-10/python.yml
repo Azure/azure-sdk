@@ -41,4 +41,14 @@ entries:
     - Added support for Unified Moderate policy evaluation.
     - Added support for prompt shielding and protected-material detection.
     - Added regular-expression matching for text blocklist items.
+- Name: azure-storage-blob
+  Version: 12.30.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.30.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Async clients now reject header names and values containing a `\r` or `\n` when sending a batch request, matching the behavior of the sync clients.
 
