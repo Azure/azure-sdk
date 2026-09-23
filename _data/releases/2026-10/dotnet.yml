@@ -89,4 +89,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Search_1.4.0-beta.3/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Data.Tables
+  Version: 12.13.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.13.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where combined `[Flags]` enum values written as comma-separated names were skipped during strongly typed table entity deserialization, while continuing to reject comma-separated values for non-`[Flags]` enums. ([#62508](https://github.com/Azure/azure-sdk-for-net/issues/62508))
 
