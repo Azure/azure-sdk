@@ -218,4 +218,16 @@ entries:
     ##### Other Changes
     * Updated `azure-cosmos` to version `4.83.0`.
   GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.6.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.6.1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of OpenAI tools passed to `AzureAIAgentTarget.setToolsAsOpenAITools(...)` to avoid emitting computed properties such as `isValid` in request bodies.
+  GroupId: com.azure
 
