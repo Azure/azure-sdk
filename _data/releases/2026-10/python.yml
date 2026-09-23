@@ -51,4 +51,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Async clients now reject header names and values containing a `\r` or `\n` when sending a batch request, matching the behavior of the sync clients.
+- Name: azure-mgmt-relationships
+  Version: 1.0.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relationships_1.0.0/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md
+  ChangelogContent: ""
 
