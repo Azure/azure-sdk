@@ -59,4 +59,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relationships_1.0.0/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.18.6
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.6/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed automatic mappings for Azure OpenAI graders omitting nested input fields with duplicate leaf names from the evaluation schema, and corrected type inference for wrapped input fields.
+    - Prevented AOAI data-source generation from mutating nested input data shared with callable evaluators.
+- Name: azure-mgmt-oracledatabase
+  Version: 4.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_4.0.0/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
 
