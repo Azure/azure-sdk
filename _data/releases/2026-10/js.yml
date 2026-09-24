@@ -1,0 +1,109 @@
+entries:
+- Name: '@azure/ai-content-safety'
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-content-safety_1.0.0-beta.1/sdk/contentsafety/ai-content-safety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial beta release of the modular `@azure/ai-content-safety` package, generated from API version `2026-09-01-preview`. ([#39966](https://github.com/Azure/azure-sdk-for-js/pull/39966))
+    - Added `ContentSafetyClient` operations for Unified Moderate, prompt shielding, and protected-material detection.
+    - Added `ContentProvenanceClient` with long-running content provenance detection and poller restoration.
+    - Added regex matching support for blocklist items.
+
+    #### Bugs Fixed
+
+    - Honor `byPage({ maxPageSize })` for initial, continuation, and resumed blocklist-item pages. The operation-level `maxpagesize` option remains supported but is deprecated.
+    - Preserve the custom response type in `restorePoller` deserialization callbacks.
+
+    #### Breaking Changes
+
+    - Migrating from `@azure-rest/ai-content-safety` requires installing `@azure/ai-content-safety` and updating package imports.
+    - Replaced the default REST factory with named `ContentSafetyClient`, `ContentProvenanceClient`, and `BlocklistClient` classes.
+    - Added dedicated request models for blocklist item and blocklist update payloads so service-generated identifiers are not required as input.
+    - Changed `ImageData.content` from a base64-encoded string to raw `Uint8Array` bytes.
+- Name: '@azure/app-configuration'
+  Version: 1.13.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that placed the App Configuration SDK identifier before custom User-Agent prefixes. [#39594](https://github.com/Azure/azure-sdk-for-js/issues/39594)
+    - Fixed custom request headers not being sent after the TypeSpec migration in 1.12.0. [#39596](https://github.com/Azure/azure-sdk-for-js/issues/39596)
+    - Fixed a bug that incorrectly truncated configuration setting keys containing reserved URL characters such as `?`. [#39670](https://github.com/Azure/azure-sdk-for-js/issues/39670)
+- Name: '@azure/ai-projects'
+  Version: 2.7.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.7.1/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix browser bundling of `VoiceAgentRealtimeClient` and `AIProjectClient` by isolating Node.js-only dataset and model file uploads from the browser entry point. [#40054](https://github.com/Azure/azure-sdk-for-js/pull/40054)
+- Name: '@azure/storage-queue'
+  Version: 12.32.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.32.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.32.0-beta.1.
+- Name: '@azure/arm-storage'
+  Version: 20.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relationships'
+  Version: 1.0.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-relationships_1.0.0/sdk/relationships/arm-relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-oracledatabase'
+  Version: 4.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_4.0.0/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.33.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.33.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.33.0-beta.1.
+- Name: '@azure/storage-blob'
+  Version: 12.34.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.34.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.34.0-beta.1.
+
