@@ -87,4 +87,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_10.0.0b2/sdk/search/azure-mgmt-search/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.2.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.2.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `flush_spans_async`, a non-blocking variant of `flush_spans` that
+    offloads the blocking `TracerProvider.force_flush` to a worker thread so it
+    does not stall the asyncio event loop, and `schedule_flush_spans`, a
+    fire-and-forget helper that flushes in the background without delaying the
+    caller. Background flushes are coalesced: at most one runs at a time and
+    concurrent requests collapse into a single follow-up flush, so the work does
+    not grow with the request rate. Async flushes drain queued or running exports
+    before propagating request cancellation. Both helpers are marked
+    `@experimental`.
+- Name: azure-mgmt-storage
+  Version: 25.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_25.2.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
 
