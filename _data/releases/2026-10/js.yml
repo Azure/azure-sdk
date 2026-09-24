@@ -49,4 +49,39 @@ entries:
     #### Bugs Fixed
 
     - Fix browser bundling of `VoiceAgentRealtimeClient` and `AIProjectClient` by isolating Node.js-only dataset and model file uploads from the browser entry point. [#40054](https://github.com/Azure/azure-sdk-for-js/pull/40054)
+- Name: '@azure/storage-queue'
+  Version: 12.32.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.32.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.32.0-beta.1.
+- Name: '@azure/arm-storage'
+  Version: 20.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relationships'
+  Version: 1.0.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-relationships_1.0.0/sdk/relationships/arm-relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-oracledatabase'
+  Version: 4.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_4.0.0/sdk/oracledatabase/arm-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
 
