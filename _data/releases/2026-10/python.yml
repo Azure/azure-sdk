@@ -1,0 +1,209 @@
+entries:
+- Name: azure-mgmt-confluent
+  Version: 3.0.0b2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-confluent_3.0.0b2/sdk/confluent/azure-mgmt-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerserviceaimanager
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Containerserviceaimanager
+  ServiceName: Containerserviceaimanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerserviceaimanager_1.0.0b2/sdk/containerservice/azure-mgmt-containerserviceaimanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-policy
+  Version: 1.0.0
+  DisplayName: Resource Management - Resource-Policy
+  ServiceName: Resource-Policy
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-policy_1.0.0/sdk/resources/azure-mgmt-resource-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-contentsafety
+  Version: 1.1.0b1
+  DisplayName: Content Safety
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-contentsafety_1.1.0b1/sdk/contentsafety/azure-ai-contentsafety/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Python 3.10 or later is now required.
+
+    #### Features Added
+
+    - Added support for Content Provenance Detection operations.
+    - Added support for Unified Moderate policy evaluation.
+    - Added support for prompt shielding and protected-material detection.
+    - Added regular-expression matching for text blocklist items.
+- Name: azure-storage-blob
+  Version: 12.30.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.30.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Async clients now reject header names and values containing a `\r` or `\n` when sending a batch request, matching the behavior of the sync clients.
+- Name: azure-mgmt-relationships
+  Version: 1.0.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-relationships_1.0.0/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.18.6
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.6/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed automatic mappings for Azure OpenAI graders omitting nested input fields with duplicate leaf names from the evaluation schema, and corrected type inference for wrapped input fields.
+    - Prevented AOAI data-source generation from mutating nested input data shared with callable evaluators.
+- Name: azure-mgmt-oracledatabase
+  Version: 4.0.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-oracledatabase_4.0.0/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-search
+  Version: 10.0.0b2
+  DisplayName: Resource Management - Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-search_10.0.0b2/sdk/search/azure-mgmt-search/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.2.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.2.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `flush_spans_async`, a non-blocking variant of `flush_spans` that
+    offloads the blocking `TracerProvider.force_flush` to a worker thread so it
+    does not stall the asyncio event loop, and `schedule_flush_spans`, a
+    fire-and-forget helper that flushes in the background without delaying the
+    caller. Background flushes are coalesced: at most one runs at a time and
+    concurrent requests collapse into a single follow-up flush, so the work does
+    not grow with the request rate. Async flushes drain queued or running exports
+    before propagating request cancellation. Both helpers are marked
+    `@experimental`.
+- Name: azure-mgmt-storage
+  Version: 25.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_25.2.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.2.0
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.2.0/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release promoting the 2.2.0 preview series. No functional changes since 2.2.0b2.
+- Name: azure-ai-agentserver-responses
+  Version: 2.2.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.2.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Closed a graceful-shutdown admission race for stored streams and bounded
+    DELETE waits when deferred terminal persistence is stalled.
+
+    - Changed the default history fetch limit from 100 to -1 (unlimited), avoiding
+    automatic truncation of conversation history. Positive limits remain supported.
+    - Restored compatibility with usage payloads that omit
+    `ResponseUsageInputTokensDetails.cache_write_tokens`.
+    - The per-request span flush in the Responses endpoint no longer blocks the
+    asyncio event loop. The synchronous `flush_spans()` call in the request
+    `finally` block ran `TracerProvider.force_flush` inline, which blocks the
+    event loop until the exporter drains and serialises concurrent requests
+    behind a single export (head-of-line blocking). It now awaits the
+    non-blocking `flush_spans_async()` by default. A new `AGENTSERVER_FLUSH_MODE`
+    environment variable selects the strategy: `async` (default, off the event
+    loop), `background` (return the response first, flush in the background --
+    requires a platform drain window), or `sync` (legacy blocking behaviour).
+    Streaming requests use the same strategy for a single flush after stream
+    cleanup, without an additional pre-stream flush.
+
+    - Scoped durable multi-turn task IDs with `FOUNDRY_AGENT_SESSION_GUID` when
+    available, preventing recreated same-name sessions from colliding with task
+    tombstones. Existing pre-rollout active chains remain resumable through a
+    legacy-ID lookup.
+
+    #### Features Added
+
+    - Added optional response metadata to `ResponseEventStream.emit_failed`. Invalid failure metadata is logged and
+    omitted so metadata validation cannot suppress the original failure response.
+- Name: azure-ai-evaluation
+  Version: 1.18.7
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.7/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the `aoai_output_items_page_size` option from `evaluate` and its input validation.
+    Callers using this option must remove it; it no longer configures native Azure OpenAI grader output retrieval.
+    Output-item requests again use a fixed page size of 100 and the existing OpenAI client's configured retry
+    policy, without adaptive page-size reduction or a separate SDK-level retry budget. All cursor pages are
+    still retrieved, and result ordering and missing-row alignment are unchanged.
+
+    #### Bugs Fixed
+
+    - Fixed native Azure OpenAI grader evaluations overriding explicit item-schema types and constraints with inferred schemas and converting corresponding typed input values to strings during request construction, including fields governed by a schema-valued `additionalProperties`.
+- Name: azure-mgmt-compute
+  Version: 38.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.4.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-platformvalidation
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-platformvalidation_1.0.0b1/sdk/platformvalidation/azure-mgmt-platformvalidation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-computeworkloadmanager
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computeworkloadmanager_1.0.0b1/sdk/compute/azure-mgmt-computeworkloadmanager/CHANGELOG.md
+  ChangelogContent: ""
+
