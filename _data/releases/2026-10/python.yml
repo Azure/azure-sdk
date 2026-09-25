@@ -163,4 +163,31 @@ entries:
 
     - Added optional response metadata to `ResponseEventStream.emit_failed`. Invalid failure metadata is logged and
     omitted so metadata validation cannot suppress the original failure response.
+- Name: azure-ai-evaluation
+  Version: 1.18.7
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.7/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the `aoai_output_items_page_size` option from `evaluate` and its input validation.
+    Callers using this option must remove it; it no longer configures native Azure OpenAI grader output retrieval.
+    Output-item requests again use a fixed page size of 100 and the existing OpenAI client's configured retry
+    policy, without adaptive page-size reduction or a separate SDK-level retry budget. All cursor pages are
+    still retrieved, and result ordering and missing-row alignment are unchanged.
+
+    #### Bugs Fixed
+
+    - Fixed native Azure OpenAI grader evaluations overriding explicit item-schema types and constraints with inferred schemas and converting corresponding typed input values to strings during request construction, including fields governed by a schema-valued `additionalProperties`.
+- Name: azure-mgmt-compute
+  Version: 38.4.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_38.4.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
 
