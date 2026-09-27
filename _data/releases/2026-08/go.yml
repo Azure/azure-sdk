@@ -1,0 +1,236 @@
+entries:
+- Name: sdk/resourcemanager/confluent/armconfluent
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/confluent/armconfluent/v2.0.0-beta.2/sdk/resourcemanager/confluent/armconfluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridcompute/armhybridcompute
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcompute/armhybridcompute/v3.0.0-beta.1/sdk/resourcemanager/hybridcompute/armhybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 10.2.0
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v10.2.0/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.4.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.4.0/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservicepreparedimgspec/armcontainerservicepreparedimgspec
+  Version: 0.1.0
+  DisplayName: Resource Management - Containerservicepreparedimgspec
+  ServiceName: Containerservicepreparedimgspec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservicepreparedimgspec/armcontainerservicepreparedimgspec/v0.1.0/sdk/resourcemanager/containerservicepreparedimgspec/armcontainerservicepreparedimgspec/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.5.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.5.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/computelimit/armcomputelimit
+  Version: 1.3.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computelimit/armcomputelimit/v1.3.0/sdk/resourcemanager/computelimit/armcomputelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azdatalake
+  Version: 1.6.1-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.6.1-beta.1/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated code generator to `@autorest/go@4.0.0-preview.80`.
+    * Default upload/download concurrency is now based on CPU core count (clamped between 8 and 96) instead of the fixed value of 5. Set `AZURE_STORAGE_USE_LEGACY_DEFAULT_CONCURRENCY=true` to revert to previous defaults.
+    * Updated `azidentity` version to `1.14.0`
+- Name: sdk/storage/azblob
+  Version: 1.8.1-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.8.1-beta.1/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed `UploadFile`/`UploadBuffer` responses not including `ContentCRC64` when returned by the service.
+
+    #### Features Added
+    * Added support for Structured Message CRC64 content validation on upload and download operations using `TransferValidationTypeComputeStructuredMessageCRC64`.
+    * Added `StorageResponseFormat` enum (`Auto`, `XML`, `Arrow`) for list blobs operations. Set `ResponseFormat` on `ListBlobsFlatOptions`/`ListBlobsHierarchyOptions` to opt into Apache Arrow format for improved performance. `Auto` defaults to XML for this release.
+    * Added `AccessTier`, `AccessTierInferred`, `AccessTierChangeTime`, and `SmartAccessTier` fields to blob download response.
+    * Blob put operations now return both `ContentMD5` and `ContentCRC64` in the response when a Content-MD5 header is provided (service version 2026-10-06+).
+- Name: sdk/storage/azqueue
+  Version: 2.2.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azqueue/v2.2.0-beta.1/sdk/storage/azqueue/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azidentity` version to `1.14.0`
+- Name: sdk/resourcemanager/computefleet/armcomputefleet
+  Version: 2.0.0-beta.3
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/computefleet/armcomputefleet/v2.0.0-beta.3/sdk/resourcemanager/computefleet/armcomputefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.7.1-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.7.1-beta.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `NewListRangesPager` method on file `Client` for paginated range listing with continuation token and `MaxResults` support.
+- Name: sdk/resourcemanager/compute/armbulkactions
+  Version: 0.2.0
+  DisplayName: Resource Management - Bulkactions
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armbulkactions/v0.2.0/sdk/resourcemanager/compute/armbulkactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/connectedcache/armconnectedcache
+  Version: 1.0.0
+  DisplayName: Resource Management - Connected Cache
+  ServiceName: Connected Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/connectedcache/armconnectedcache/v1.0.0/sdk/resourcemanager/connectedcache/armconnectedcache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/azcosmos
+  Version: 1.6.0-beta.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v1.6.0-beta.2/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed partition key range cache refreshes failing against containers undergoing physical partition splits. A change-feed drain accumulates every page, so a range that is updated mid-split is re-delivered as a second revision of the same range ID; the routing map now deduplicates by range ID (keeping the latest revision) before validating range continuity, instead of rejecting the set with a "service returned an incomplete set of ranges" error reporting that the range overlaps itself. A full refresh that still observes an incomplete set is now retried up to three times with bounded jittered backoff before failing. See [PR 27282](https://github.com/Azure/azure-sdk-for-go/pull/27282).
+- Name: sdk/resourcemanager/compute/armrecommender
+  Version: 0.2.0
+  DisplayName: Resource Management - Recommender
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armrecommender/v0.2.0/sdk/resourcemanager/compute/armrecommender/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules
+  Version: 3.1.0-beta.1
+  DisplayName: Resource Management - Hardware Security Module
+  ServiceName: Hardware Security Module
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules/v3.1.0-beta.1/sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/discovery/armdiscovery
+  Version: 0.1.0
+  DisplayName: Resource Management - Discovery
+  ServiceName: Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/discovery/armdiscovery/v0.1.0/sdk/resourcemanager/discovery/armdiscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerservicefleet/armcontainerservicefleet
+  Version: 3.0.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/v3.0.0/sdk/resourcemanager/containerservicefleet/armcontainerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/iotoperations/armiotoperations
+  Version: 1.2.0
+  DisplayName: Resource Management - IoT Operations
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iotoperations/armiotoperations/v1.2.0/sdk/resourcemanager/iotoperations/armiotoperations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/containerserviceaimanager/armcontainerserviceaimanager
+  Version: 0.1.0
+  DisplayName: Resource Management - Containerserviceaimanager
+  ServiceName: Containerserviceaimanager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerserviceaimanager/armcontainerserviceaimanager/v0.1.0/sdk/resourcemanager/containerserviceaimanager/armcontainerserviceaimanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.23.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.23.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed an issue where `runtime.Pager[T].More` could return `true` indefinitely after `NextPage` failed to retrieve the first page, causing `for pager.More()` loops to spin. After a page fetch returns an error the `Pager` now enters a terminal state: `More` returns `false` and subsequent `NextPage` calls return the same error without invoking the fetcher again.
+
+    #### Features Added
+
+    * Helper method `runtime.NewRequestForNextLink` for creating requests for pageable operations that uses a next link.  It handles absolute and relative next links.
+- Name: sdk/resourcemanager/fabric/armfabric
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Fabric
+  ServiceName: Fabric
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/fabric/armfabric/v1.1.0-beta.1/sdk/resourcemanager/fabric/armfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 11.0.0-beta.2
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v11.0.0-beta.2/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/iothub/armiothub
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/iothub/armiothub/v2.0.0-beta.2/sdk/resourcemanager/iothub/armiothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hybridcompute/armhybridcompute
+  Version: 3.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridcompute/armhybridcompute/v3.0.0/sdk/resourcemanager/hybridcompute/armhybridcompute/CHANGELOG.md
+  ChangelogContent: ""
+

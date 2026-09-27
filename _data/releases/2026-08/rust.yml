@@ -74,4 +74,21 @@ entries:
     #### Bugs Fixed
 
     - Fixed partition-range discovery for containers whose routing metadata spans more than ten pages, added full-refresh recovery for invalid incremental maps, and prevented empty routing maps from remaining cached. ([#4845](https://github.com/Azure/azure-sdk-for-rust/pull/4845))
+- Name: azure_storage_blob
+  Version: 1.1.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@1.1.0-beta.2/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `BlobClient::start_copy_from_url()` and `BlobClient::abort_copy()` for asynchronous blob copy operations.
+
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    - Removed `BlobContainerClient::list_blobs_hierarchical()`.
 

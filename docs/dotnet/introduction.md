@@ -52,11 +52,11 @@ At the end of this document, you can find a section with [the most commonly over
 
 {% include requirement/MUST id="dotnet-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines][general-guidelines].
 
-The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) section.
+The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-httppipeline) section.
 
 {% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
-The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
+The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
 ### Support for non-HTTP Protocols
 
@@ -735,7 +735,7 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 }
 ```
 
-Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](implementation.md#dotnet-usage-json).
+Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-usage-json).
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
@@ -801,7 +801,7 @@ TODO: issue #2298
 
 {% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
 
-See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+See [enumeration-like structure documentation](https://azure.github.io/azure-sdk/dotnet_implementation.html#dotnet-enums) for implementation details.
 
 #### Using Azure Core Types {#dotnet-commontypes}
 
@@ -910,22 +910,30 @@ For example, `Azure.Storage.Blobs`.
 - `Azure.AI` for artificial intelligence, including machine learning
 - `Azure.Analytics` for client libraries that gather or process analytics data
 - `Azure.Communication` communication services
+- `Azure.Compute` for client libraries that provide compute services, such as batch processing
+- `Azure.Containers` for client libraries that work with containers and container registries
 - `Azure.Core` for libraries that aren't service specific
 - `Azure.Cosmos` for object database technologies
 - `Azure.Data` for client libraries that handle databases or structured data stores
+- `Azure.Developer` for client libraries that support developer workflows, such as development environments and load testing
 - `Azure.DigitalTwins` for DigitalTwins related technologies
+- `Azure.Extensions` for libraries that integrate Azure services with .NET frameworks and libraries
+- `Azure.Health` for client libraries that handle healthcare data and insights
 - `Azure.Identity` for authentication and authorization client libraries
 - `Azure.IoT` for client libraries dealing with the Internet of Things.
     - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
     - Do not use `IoT` more than once in a namespace.
+- `Azure.Maps` for client libraries that provide geospatial and location services
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub/sub.
 - `Azure.Monitor` for observability and Azure Monitor client libraries.
+- `Azure.Provisioning` for libraries that define and provision Azure infrastructure
 - `Azure.ResourceManager.[ResourceProvider]` for management plane client libraries for a given resource provider.
     - For example the compute management plane namespace would be Azure.ResourceManager.Compute.
 - `Azure.Search` for search technologies
 - `Azure.Security` for client libraries dealing with security
 - `Azure.Storage` for client libraries that handle unstructured data
+- `Azure.Verticals` for client libraries for industry-specific services, such as agriculture
 
 If you think a new group should be added to the list, contact [adparch].
 

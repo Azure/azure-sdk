@@ -10,6 +10,10 @@ Set-StrictMode -Version 3
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
+# Package identifiers do not encode reliable word boundaries or product branding.
+# Keep CreatePackage's unknown names for review in the package-index CSV PR.
+# Write-Latest-Versions preserves the names of entries already in the CSV.
+
 function Get-android-Packages
 {
   $userAgent = "azure-sdk-indexing"
@@ -90,12 +94,9 @@ function Get-java-Packages
         -and $package.Package -match "^azure-resourcemanager-(?<serviceName>.*?)$" `
         -and ($repoTags.ContainsKey($package.Package) -or $repoTags.ContainsKey("$($package.GroupId)+$($package.Package)")))
     {
-      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
       # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
-      $package.ServiceName = $serviceName
-      $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
@@ -131,12 +132,9 @@ function Get-dotnet-Packages
     # then treat it as a new mgmt library
     if ($package.Package -match "^Azure.ResourceManager.(?<serviceName>.*?)$" -and $repoTags.ContainsKey($package.Package))
     {
-      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
       # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
-      $package.ServiceName = $serviceName
-      $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
 
@@ -144,12 +142,9 @@ function Get-dotnet-Packages
     # then treat it as a new mgmt library
     if ($package.Package -match "^Azure.Provisioning.(?<serviceName>.*?)$" -and $repoTags.ContainsKey($package.Package))
     {
-      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt" # provisioning is a special case of mgmt so this is the correct type.
       $package.New = "true"
       # $package.RepoPath = "provisioning" -- moved away from common folder to service but the path should be set by the pipelines
-      $package.ServiceName = $serviceName
-      $package.DisplayName = "Provisioning - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
@@ -202,12 +197,9 @@ function Get-js-Packages
     # then treat it as a new mgmt library
     if ($package.Package -match "^@azure/arm-(?<serviceName>.*?)(-profile.*)?$" -and $repoTags.ContainsKey($package.Package))
     {
-      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
       # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
-      $package.ServiceName = $serviceName
-      $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
@@ -257,12 +249,9 @@ function Get-python-Packages
     # then treat it as a new mgmt library
     if ($package.Package -match "^azure-mgmt-(?<serviceName>.*?)?$" -and $repoTags.ContainsKey($package.Package))
     {
-      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
       # $package.RepoPath = $matches["serviceName"].ToLower() -- Should be set by the pipelines now so lets not guess at the repo path
-      $package.ServiceName = $serviceName
-      $package.DisplayName = "Resource Management - $serviceName"
       Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
@@ -305,8 +294,6 @@ function Get-go-Packages
       #$modPath = $matches["modPath"] Not using modPath currently here but keeping the capture group to be consistent with the go repo
       $modName = $matches["modName"]
       $serviceDir = $matches["serviceDir"]
-      $serviceName = $matches["serviceName"]
-      if (!$serviceName) { $serviceName = $modName }
 
       if ($modName.StartsWith("arm"))
       {
@@ -314,19 +301,14 @@ function Get-go-Packages
         if (!$serviceDir.StartsWith("resourcemanager")) { continue }
         $package.Type = "mgmt"
         $package.New = "true"
-        $modName = $modName.Substring(3); # Remove arm from front
-        $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($modName))"
         Write-Verbose "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
       }
       elseif ($modName.StartsWith("az"))
       {
         $package.Type = "client"
         $package.New = "true"
-        $modName = $modName.Substring(2); # Remove az from front
-        $package.DisplayName = $((Get-Culture).TextInfo.ToTitleCase($modName))
       }
 
-      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
       $package.RepoPath = $serviceDir.ToLower()
 
       $packages += $package
