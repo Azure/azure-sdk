@@ -26,6 +26,18 @@ https://learn.microsoft.com/dotnet/api/overview/azure/Provisioning.Resources-rea
 # satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
 https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppConfiguration_1.1.0/sdk/appconfiguration/Azure.Provisioning.AppConfiguration/
 
+# Azure.Provisioning.AppContainers moved from sdk/provisioning to sdk/containerapps after the
+# 1.2.0 GA release. The latest preview (1.3.0-beta.2) lives under sdk/containerapps, but the GA
+# (1.2.0) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
+# satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppContainers_1.2.0/sdk/containerapps/Azure.Provisioning.AppContainers/
+
+# Azure.Provisioning.AppService moved from sdk/provisioning to sdk/websites after the
+# 1.3.1 GA release. The latest preview (1.4.0-beta.3) lives under sdk/websites, but the GA
+# (1.3.1) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
+# satisfy both, so the stale GA source link is ignored while the current preview link resolves correctly.
+https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppService_1.3.1/sdk/websites/Azure.Provisioning.AppService/
+
 # Azure.Provisioning.CognitiveServices moved from sdk/provisioning to sdk/cognitiveservices after the
 # 1.2.0 GA release. The latest preview (1.3.0-beta.1) lives under sdk/cognitiveservices, but the GA
 # (1.2.0) source predates the move and remains under sdk/provisioning. A single RepoPath cannot
