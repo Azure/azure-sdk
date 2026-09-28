@@ -308,4 +308,13 @@ entries:
 
     - Added `drainTimeout(Duration)` to `ServiceBusProcessorClientBuilder` and `ServiceBusSessionProcessorClientBuilder` to configure the maximum wait time for in-flight message handlers during processor shutdown. Defaults to 30 seconds.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-platformvalidation
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-platformvalidation_1.0.0-beta.1/sdk/platformvalidation/azure-resourcemanager-platformvalidation/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
