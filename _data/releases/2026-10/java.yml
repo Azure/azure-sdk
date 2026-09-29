@@ -317,4 +317,55 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-platformvalidation_1.0.0-beta.1/sdk/platformvalidation/azure-resourcemanager-platformvalidation/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.6/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-keys
+  Version: 4.12.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-keys_4.12.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added secure key wrap and unwrap operations via `CryptographyClient`/`CryptographyAsyncClient` `secureWrapKey` and `secureUnwrapKey` methods, along with the `SecureKeyWrapAlgorithm`, `SecureWrapResult`, and `SecureUnwrapResult` models. Only supported on Managed HSM with service version `2026-01-01-preview` or newer, and requires a remote-key client.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.64.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.64.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-monitor-opentelemetry-autoconfigure
+  Version: 1.8.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-opentelemetry-autoconfigure_1.8.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add custom measurements support ([#50578](https://github.com/Azure/azure-sdk-for-java/pull/50578))
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-secretsstoreextension
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Secrets Store Extension
+  ServiceName: Secrets Store Extension
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-secretsstoreextension_1.0.0-beta.2/sdk/secretsstoreextension/azure-resourcemanager-secretsstoreextension/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
