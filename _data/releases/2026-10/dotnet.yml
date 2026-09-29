@@ -293,4 +293,15 @@ entries:
     - Added `IDisposable` to `KeyVaultAccessControlClient`, `KeyVaultBackupClient`, `KeyVaultEkmClient`, and `KeyVaultSettingsClient` to release internally owned HTTP pipelines and transports. Reuse clients and dispose them after all operations and polling have completed; caller-provided transports are not disposed.
     - Added a narrowly scoped bearer-token fallback for attested managed-identity tenant eligibility denials, with the decision remembered by the Key Vault client for subsequent token acquisitions.
     - Added support for Proof-of-Possession (PoP) token binding in the Key Vault authentication policy.
+- Name: Azure.Communication.CallAutomation
+  Version: 1.6.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.CallAutomation_1.6.1/sdk/communication/Azure.Communication.CallAutomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed ResultInformation property handling in event parsing and deserialization scenarios to ensure correct initialization and serialization of result codes and messages.
 
