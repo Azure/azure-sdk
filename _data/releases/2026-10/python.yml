@@ -312,4 +312,35 @@ entries:
     - Require HTTPS and configured-origin scoping for default API-key authentication, with explicit configured-loopback HTTP opt-in only. Remove SDK-default direct-route headers outside their origin/path scope, including prepopulated defaults, while preserving distinct caller overrides.
     - Disable automatic POST transport retries in default sync/async policies, including heartbeats. Explicit retry policies remain caller-owned; this does not guarantee deduplication or change convenience-level recovery decisions.
     - Make default raw `begin_*` pollers use HTTP 200 acceptance and session/request-ID GET polling in both clients, without POST replay or synthetic HTTP 202. Preserve result callbacks, custom polling, no-polling, and strategy-specific continuation behavior.
+- Name: azure-ai-agentserver-responses
+  Version: 2.3.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.3.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Expanded supported `azure-ai-agentserver-core` versions to `<3.0.0`.
+    - Changed the default `AGENTSERVER_FLUSH_MODE` from `async` to `background`
+    so Responses request completion no longer awaits telemetry export.
+    Unset, empty, whitespace-only, and invalid values use `background`;
+    invalid values continue to log a warning. Explicit `async` and `sync`
+    selections retain their existing behavior.
+    Background export requires a platform drain window before suspension or
+    shutdown; request completion does not guarantee telemetry delivery.
+    Set `AGENTSERVER_FLUSH_MODE=async` to retain request-awaited flushing.
+- Name: azure-ai-agentserver-invocations
+  Version: 1.2.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.2.0/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release of the 1.2.0 preview series.
+    - Generate fallback invocation and session IDs only when no valid supplied ID is available.
 
