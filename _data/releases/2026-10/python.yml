@@ -351,4 +351,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-trafficmanager_2.0.0/sdk/trafficmanager/azure-mgmt-trafficmanager/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-data-ai
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-ai_1.0.0b1/sdk/dataai/azure-data-ai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview of the Azure Data AI semantic reranking client.
+    - Synchronous and asynchronous `InferenceClient.semantic_rerank` APIs
+    accepting generated request models or dictionaries and returning generated
+    response models with dictionary-style access.
+    - API-key authentication with `AzureKeyCredential`, and Microsoft Entra
+    authentication, for both synchronous and asynchronous clients.
+    - Reranking options for model selection, batching, sorting, and JSON document paths.
+    - Document and sentence-level scoring, response metadata, and standard Azure
+    Core error handling and retry policies.
 
