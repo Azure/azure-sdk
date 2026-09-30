@@ -395,4 +395,208 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appnetwork_1.0.0-beta.2/sdk/appnetwork/azure-resourcemanager-appnetwork/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-core-amqp
+  Version: 2.12.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-amqp_2.12.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.0` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-jackson
+  Version: 1.6.8
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-jackson_1.6.8/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Jackson from `2.18.9` to `2.18.11`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-vertx
+  Version: 1.2.0
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-vertx_1.2.0/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Requests carrying the `Expect: 100-continue` header now perform the handshake: the headers are sent with
+    `sendHead()` and the request body is written from `continueHandler()`, rather than sending headers and body
+    together.
+    If the service does not answer the expectation the body is sent after a one second fallback, so the request does
+    not stall.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-netty
+  Version: 1.16.8
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-netty_1.16.8/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Netty dependencies from `4.1.137.Final` to `4.1.138.Final`.
+    - Upgraded Netty TcNative dependencies from `2.0.81.Final` to `2.0.84.Final`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-jdk-httpclient
+  Version: 1.2.0
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-jdk-httpclient_1.2.0/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Requests carrying the `Expect: 100-continue` header now perform the handshake: the headers are sent and the request
+    body is withheld until the service responds `100 Continue`. Previously the header was dropped and the body was sent
+    immediately.
+  GroupId: com.azure
+- Name: com.azure+azure-core-management
+  Version: 1.19.8
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-management_1.19.8/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.68
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-avro-apache_1.0.0-beta.68/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-test
+  Version: 1.27.0-beta.19
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-test_1.27.0-beta.19/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Apache Ant from `1.10.15` to `1.10.18`.
+  GroupId: com.azure
+- Name: com.azure+azure-core
+  Version: 1.60.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core_1.60.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CloseableIterableStream<T>` for resource-backed iteration with deterministic cleanup.
+
+    #### Bugs Fixed
+
+    - Fixed retention of unused shared executors and shutdown hooks by serializing executor initialization.
+    - Registering or removing the shutdown hook that closes the shared executor service no longer fails when the JVM is
+    already shutting down. `Runtime.addShutdownHook` throws `IllegalStateException` once shutdown has begun, which
+    surfaced to callers of `SharedExecutorService` as `IllegalStateException: Shutdown in progress` when work, such as
+    an in-flight request draining during shutdown, needed the executor after it had been closed. A hook registered at
+    that point could never run, so this case is now logged and the work continues.
+  GroupId: com.azure
+- Name: com.azure+azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.40
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-metrics-opentelemetry_1.0.0-beta.40/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded `opentelemetry-api` from `1.58.0` to `1.65.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-experimental
+  Version: 1.0.0-beta.71
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-experimental_1.0.0-beta.71/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.67
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-tracing-opentelemetry_1.0.0-beta.67/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded `opentelemetry-api` from `1.58.0` to `1.65.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-okhttp
+  Version: 1.13.8
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-okhttp_1.13.8/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-gson
+  Version: 1.4.8
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-gson_1.4.8/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
 
