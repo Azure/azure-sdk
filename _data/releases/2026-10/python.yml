@@ -402,4 +402,46 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resiliencemanagement_1.0.0b2/sdk/resiliencemanagement/azure-mgmt-resiliencemanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 6.0.0b3
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_6.0.0b3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-administration
+  Version: 4.8.0b3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.8.0b3/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-07-01-preview` [#48963](https://github.com/Azure/azure-sdk-for-python/pull/48963)
+    - Added EKM proxy private endpoint management to `KeyVaultEkmClient`. The client now exposes
+    `begin_create_ekm_private_endpoint`, `begin_delete_ekm_private_endpoint`, `get_ekm_private_endpoint`,
+    `list_ekm_private_endpoints`, and `get_ekm_private_endpoint_operation_status`.
+    - Added `KeyVaultEkmPrivateEndpoint`, `KeyVaultEkmPrivateEndpointConnectionState`,
+    `KeyVaultEkmPrivateEndpointProperties`, and `KeyVaultEkmPrivateEndpointOperation` models, along with the
+    `KeyVaultEkmConnectivityMode`, `KeyVaultEkmPrivateEndpointConnectionStatus`,
+    `KeyVaultEkmPrivateEndpointOperationStatus`, `KeyVaultEkmPrivateEndpointOperationType`, and
+    `KeyVaultEkmPrivateEndpointProvisioningState` enums.
+    - Added a `connectivity_mode` keyword argument and attribute to `KeyVaultEkmConnection`. Set this to
+    `KeyVaultEkmConnectivityMode.PRIVATE_ENDPOINT` to reach the EKM proxy through an EKM proxy private endpoint, in which
+    case `host` is the name of the private endpoint instead of a DNS name or IP address.
+
+    #### Bugs Fixed
+
+    - Fixed a bug in the challenge authentication policy where the authentication challenge was cached before the challenge resource was verified. The challenge is now cached only after resource verification succeeds [#48710](https://github.com/Azure/azure-sdk-for-python/pull/48710).
+- Name: azure-mgmt-compute-bulkaction
+  Version: 1.0.0b5
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute-bulkaction_1.0.0b5/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md
+  ChangelogContent: ""
 
