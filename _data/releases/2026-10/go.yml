@@ -173,4 +173,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagecache/armstoragecache/v4.3.0/sdk/resourcemanager/storagecache/armstoragecache/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.8.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.8.2/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed `blob.Client.GetSASURL()` generating a SAS that omitted the pinned blob version from the signed string-to-sign when called on a client returned by `WithVersionID`. The resulting SAS was byte-for-byte identical to an ordinary base-blob (`sr=b`) SAS and, once corrected to include `sr=bv`, would still fail to authenticate because the version identifier was never included in the signed payload. Both the resource-type binding and the signed version identifier are now correctly propagated for `SignWithSharedKey` and `SignWithUserDelegation`.
+    * Fixed `GetSASURL()` on `blob.Client`, `container.Client`, and `service.Client` (and the specialized blob clients `blockblob.Client`, `appendblob.Client`, `pageblob.Client` which delegate to `blob.Client`) appending a duplicated `?` to the resulting URL when called on a client whose URL already contained a query string (e.g. a client returned by `WithSnapshot` or `WithVersionID`, or a custom endpoint with pre-existing query parameters), which produced a malformed SAS URL.
 
