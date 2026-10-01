@@ -502,4 +502,41 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_3.0.0b3/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 4.1.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_4.1.0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 2.3.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.3.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Preserved the canonical request `agent_reference` on lifecycle snapshots when
+    handlers emit a partial reference, preventing stored response updates from
+    losing the agent name or version.
+- Name: azure-identity
+  Version: 1.26.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.26.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ManagedIdentityCredential` now supports user-assigned managed identities on Azure Arc-enabled servers. An identity can be selected by client ID, object ID, or resource ID. Token responses that do not confirm the requested identity are rejected. ([#48967](https://github.com/Azure/azure-sdk-for-python/pull/48967))
+
+    #### Bugs Fixed
+
+    - Fixed synchronous Service Fabric managed identity authentication with MSAL 1.39.0 and later. Service Fabric now uses the session from an Azure Core `RequestsTransport`. ([#48967](https://github.com/Azure/azure-sdk-for-python/pull/48967))
+    - Fixed an issue where `AuthorizationCodeCredential` and the asynchronous `OnBehalfOfCredential` could return a cached token for another account when multiple credentials shared a token cache. ([#49001](https://github.com/Azure/azure-sdk-for-python/pull/49001))
 
