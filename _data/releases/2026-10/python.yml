@@ -567,4 +567,46 @@ entries:
     - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
     - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
     - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-securitydomain
+  Version: 1.0.0b4
+  DisplayName: Key Vault - Security Domain
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-securitydomain_1.0.0b4/sdk/keyvault/azure-keyvault-securitydomain/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-keys
+  Version: 4.11.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.11.3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-administration
+  Version: 4.7.2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.7.2/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
 
