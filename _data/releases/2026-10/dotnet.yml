@@ -457,4 +457,43 @@ entries:
     `CreateUserAndTokenAsync`. The overloads without `customId` are unchanged.
     - Removed `ServiceVersion.V2025_03_02_PREVIEW`. The previously released stable service API versions
     `V2021_03_07`, `V2022_06_01`, `V2022_10_01` and `V2023_10_01` remain available and unchanged.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.11.2
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.11.2/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed handling of claims challenges when the authentication challenge cache is empty or cleared while a request is in flight.
+    - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
+    - Improved authentication challenge resource validation.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.10.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.10.2/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed handling of claims challenges when the authentication challenge cache is empty or cleared while a request is in flight.
+    - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
+    - Improved authentication challenge resource validation.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.8.2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.8.2/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed handling of claims challenges when the authentication challenge cache is empty or cleared while a request is in flight.
+    - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
+    - Improved authentication challenge resource validation.
 
