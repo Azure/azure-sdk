@@ -539,4 +539,32 @@ entries:
 
     - Fixed synchronous Service Fabric managed identity authentication with MSAL 1.39.0 and later. Service Fabric now uses the session from an Azure Core `RequestsTransport`. ([#48967](https://github.com/Azure/azure-sdk-for-python/pull/48967))
     - Fixed an issue where `AuthorizationCodeCredential` and the asynchronous `OnBehalfOfCredential` could return a cached token for another account when multiple credentials shared a token cache. ([#49001](https://github.com/Azure/azure-sdk-for-python/pull/49001))
+- Name: azure-keyvault-certificates
+  Version: 4.11.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.11.3/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-secrets
+  Version: 4.11.3
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.11.3/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
 
