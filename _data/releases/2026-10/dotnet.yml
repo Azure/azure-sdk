@@ -509,4 +509,12 @@ entries:
     - Fixed handling of claims challenges when the authentication challenge cache is empty or cleared while a request is in flight.
     - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
     - Improved authentication challenge resource validation.
+- Name: Azure.ResourceManager.RecoveryServicesBackup
+  Version: 1.5.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesBackup_1.5.0/sdk/recoveryservices-backup/Azure.ResourceManager.RecoveryServicesBackup/CHANGELOG.md
+  ChangelogContent: ""
 
