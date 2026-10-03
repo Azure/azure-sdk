@@ -609,4 +609,12 @@ entries:
     - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
     - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
     - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-mgmt-computefleet
+  Version: 2.0.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computefleet_2.0.0/sdk/computefleet/azure-mgmt-computefleet/CHANGELOG.md
+  ChangelogContent: ""
 
