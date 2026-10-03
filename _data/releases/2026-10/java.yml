@@ -1,0 +1,665 @@
+entries:
+- Name: com.azure.resourcemanager+azure-resourcemanager
+  Version: 2.64.0
+  DisplayName: Resource Management
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager_2.64.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-relationships
+  Version: 1.0.0
+  DisplayName: Resource Management - Relationships
+  ServiceName: Relationships
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-relationships_1.0.0/sdk/relationships/azure-resourcemanager-relationships/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-sql
+  Version: 2.55.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-sql_2.55.0-beta.1/sdk/sql/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-agents
+  Version: 2.6.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.6.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of openai-java `Reasoning` values in `PromptAgentDefinition` so retrieved definitions can be
+    reused to create new agent versions without emitting unsupported request properties.
+    - Fixed polling for agent-optimization jobs that return the `cancelled` status spelling.
+
+    #### Features Added
+
+    - Added preview voice-agent lifecycle support through `VoiceAgentDefinition`, `AgentKind.VOICE`, and
+    `AgentEndpointProtocol.VOICE`. With `AgentsClientBuilder.allowPreview(true)`, voice agents can be created and versioned
+    with `AgentsClient` and `AgentsAsyncClient`, with configuration for speech models, instructions, structured inputs,
+    audio and transcription, turn detection, greetings and interim responses, function/MCP/toolbox/system tools,
+    subagents, persistence, avatars, and animation.
+    - Added `createAgentFromPrompt` and `createAgentFromPromptWithResponse` to `BetaAgentsClient` and
+    `BetaAgentsAsyncClient` for generating and creating agents from kind-specific high-level inputs.
+    - Added preview `BetaVoiceAgentWebSocketClient`, `BetaVoiceAgentWebSocketAsyncClient`,
+    `BetaVoiceAgentWebSocketSessionClient`, and `BetaVoiceAgentWebSocketSessionAsyncClient` for authenticated realtime
+    `wss://` sessions. The clients support typed and raw events, text and audio input, response cancellation,
+    client-executed function results, persisted conversations, agent-version overrides, and the related realtime session,
+    conversation-item, response, transcription, MCP, audio, avatar, and RTC event models.
+    - Added `VoiceAgentWebSocketConnectionOptions` for session IDs, structured inputs, persistence, version selection,
+    handshake and close timeouts, receive-buffer and message-size limits (32 MiB by default), overflow policies, and
+    opt-in recovery from malformed events. Sessions also support raw JSON sends, complete unknown-event payloads,
+    UTF-8 binary JSON, per-event synchronous receive timeouts, and custom close codes and reasons.
+    - Added type-safe constructors and accessors for union-valued voice and realtime properties, including session
+    configurations, tool choices, token limits, tracing, truncation, voices, MCP options, and transcription usage.
+    - Added preview `BetaVoiceAgentsConversationsClient` and `BetaVoiceAgentsConversationsAsyncClient` for listing,
+    retrieving, and deleting persisted voice-agent conversations; reading responses and conversation items; and retrieving
+    or downloading input, generated, and full-conversation audio.
+    - Added preview `BetaVoiceAgentsTelephonyClient` and `BetaVoiceAgentsTelephonyAsyncClient` for Teams Phone Extension and
+    Twilio bindings, call listing and inspection, call transfer and termination, transfer-target management, and scheduled
+    outbound call jobs with retry and cancellation support. All voice beta clients are built through
+    `AgentsClientBuilder.beta()` and automatically add the `VoiceAgents=V1Preview` feature opt-in.
+    - Added preview GitHub Copilot harness and built-in toolset support for prompt agents through
+    `PromptAgentDefinition.setHarness(...)`, `GitHubCopilotHarness`, `GitHubCopilotToolsetPreview`, and related types.
+    Prompt agents can also reference versioned Foundry skills through `PromptAgentDefinition.setSkills(...)` and
+    `SkillReference`.
+    - Added preview Model Router session affinity. `AzureCreateResponseOptions.setRoutingConfig(...)` configures affinity
+    mode and session ID, while `ModelRouterDetails.getSessionAffinity()` exposes the effective mode, source, and routing
+    decision.
+    - Added invocation-protocol content moderation through `RaiConfig.setInvocationsModeration(...)`, with JSON/text input
+    and output selectors plus SSE event selectors for streaming responses.
+    - Added `invokeLatestToolboxMcp` and `invokeLatestToolboxMcpWithResponse` to `ToolboxesClient` and
+    `ToolboxesAsyncClient`. `ToolboxDetails` now exposes its last-updated time and latest-version details through
+    `getUpdatedAt()` and `getVersions()`.
+    - Added `AgentDetails.getConfigurationState()` to expose an agent's administrative enablement state and
+    `AgentSessionResource.getStoppedAt()` to expose when a hosted-agent session last stopped or became idle.
+    - Added `ToolType.GITHUB_COPILOT_TOOLSET_PREVIEW` and `ToolType.BROWSER_AUTOMATION` discriminator values, along with
+    typed MCP list-tools models for voice-agent realtime sessions.
+    - Added `VersionSelector.setVersionSelectionRule(...)` as a convenience for configuring one version-selection rule.
+    - Added public `StreamingResponseUtils` in `com.azure.ai.agents.util` for converting OpenAI streaming responses to Azure
+    SDK `IterableStream` and Reactor `Flux` types.
+    - Added voice-agent samples covering lifecycle and version management, guided generation, audio and tool configuration,
+    persisted conversations and audio, synchronous and asynchronous live text, asynchronous Java Sound audio with
+    barge-in, and client-executed function tools.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.6.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.6.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added trace filtering and sampling controls for preview data generation jobs. `TracesDataGenerationJobSource.setTraceIds(List<String>)` selects explicit trace IDs, while `TracesDataGenerationJobOptions.setMaxSamples(Integer)` optionally limits the number of generated samples; omitting the limit disables sampling.
+    - Added `DataGenerationJobOutputOptions.setWriteMode(DataGenerationJobOutputWriteMode)` to control how generated dataset outputs are written. `OVERWRITE` creates the next dataset version from newly generated rows, while `MERGE` combines new rows with the latest dataset version and de-duplicates trace rows for trace-based evaluation jobs.
+
+    #### Breaking Changes
+
+    - Data generation sample limits are now scenario-specific instead of being defined on `DataGenerationJobOptions`. `DataGenerationJobOptions(int)` was replaced by `DataGenerationJobOptions()` and its `getMaxSamples()` method was removed. `TracesDataGenerationJobOptions(int)` was replaced by a no-argument constructor and optional `Integer`-based `getMaxSamples()` / `setMaxSamples(Integer)` methods. `SimulationSeedDataGenerationJobOptions(int)` was replaced by a no-argument constructor and no longer accepts a sample limit. `SimpleQnADataGenerationJobOptions` and `ToolUseFineTuningDataGenerationJobOptions` continue to require `maxSamples` in their constructors.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_3-5_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos
+  Version: 4.83.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos_4.83.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Promoted the Throughput Bucket from Beta to GA. - See [PR 50339](https://github.com/Azure/azure-sdk-for-java/pull/50339)
+    * Added support for hierarchical (sub)partition keys whose last path is `/id`. When the last partition key path is `/id`, point operations, bulk operations and `readMany` now automatically append the item's `id` to the partition key. - See [PR 49709](https://github.com/Azure/azure-sdk-for-java/pull/49709)
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12
+  Version: 4.50.0
+  DisplayName: OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API
+  ServiceName: OLTP Spark 3.3 Connector
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-3_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.5
+  ServiceName: Cosmos
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-5_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-5_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos-encryption
+  Version: 2.32.0
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-encryption_2.32.0/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 3.4
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_3-4_2-12_4.50.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark 4.0
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-0_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_4-0_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure.cosmos.kafka+azure-cosmos-kafka-connect
+  Version: 2.12.0
+  DisplayName: Cosmos Kafka Connect
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.kafka+azure-cosmos-kafka-connect_2.12.0/sdk/cosmos/azure-cosmos-kafka-connect/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.kafka
+- Name: com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13
+  Version: 4.50.0
+  DisplayName: Cosmos Spark
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.cosmos.spark+azure-cosmos-spark_4-1_2-13_4.50.0/sdk/cosmos/azure-cosmos-spark_4-1_2-13/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure.cosmos.spark
+- Name: com.azure+azure-cosmos-test
+  Version: 1.0.0-beta.21
+  DisplayName: Cosmos Test
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-cosmos-test_1.0.0-beta.21/sdk/cosmos/azure-cosmos-test/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.83.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.6.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.6.1/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed serialization of OpenAI tools passed to `AzureAIAgentTarget.setToolsAsOpenAITools(...)` to avoid emitting computed properties such as `isValid` in request bodies.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-storage
+  Version: 2.58.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-storage_2.58.0/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-oracledatabase
+  Version: 1.3.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-oracledatabase_1.3.0/sdk/oracledatabase/azure-resourcemanager-oracledatabase/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.5/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute
+  Version: 2.61.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute_2.61.0/sdk/compute/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-messaging-servicebus
+  Version: 7.18.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-messaging-servicebus_7.18.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `ServiceBusSessionReceiverClient.acceptNextSession()`/`acceptSession()` blocking for the full
+    operation timeout (~245s with default retry options) and throwing
+    `IllegalStateException: Timeout on blocking read ... (client-timeout)` when the broker accepts the
+    session-acquire link but never responds (a hung acquire). The session acquirer now bounds a single
+    acquire attempt on the synchronous (non-retry) path with a client-side guard of twice the
+    `tryTimeout`, disposing the half-open receive link when the guard fires so the broker-side session
+    lock is released instead of orphaned. On the retry-enabled path (session `ServiceBusProcessorClient`
+    and `ServiceBusSessionReceiverAsyncClient`), retries are now spaced by a bounded backoff instead of
+    retrying with no delay, preventing a tight CPU-burning loop when acquire attempts fail fast.
+    ([#49093](https://github.com/Azure/azure-sdk-for-java/issues/49093))
+
+    - Fixed `ServiceBusProcessorClient.close()` disposing the receiver before in-flight message handlers could complete settlement, causing `IllegalStateException`. The processor now drains active handlers before closing. ([#45716](https://github.com/Azure/azure-sdk-for-java/issues/45716))
+    - Fixed the first call to `ServiceBusSenderClient.sendMessage()` (and `ServiceBusSenderAsyncClient.sendMessage()`) not recognizing the caller's current OpenTelemetry trace context, causing the `ServiceBus.send` span and the outgoing message's `traceparent` to start a new, disconnected trace. The send span is now started on the calling thread before the first send establishes the AMQP connection on a background thread. ([#44958](https://github.com/Azure/azure-sdk-for-java/issues/44958))
+    - Fixed `ServiceBusMessageBatch` accepting messages beyond the service-enforced batch size limit on
+    Premium large-message entities by reading the `com.microsoft:max-message-batch-size` vendor property
+    from the AMQP sender link instead of using `max-message-size`. ([#48214](https://github.com/Azure/azure-sdk-for-java/pull/48214))
+    - Fixed `ServiceBusAdministrationClient.updateSubscription()` silently ignoring `defaultMessageTimeToLive` changes. The property was incorrectly nullified before serialization. ([#48495](https://github.com/Azure/azure-sdk-for-java/issues/48495))
+    - Fixed session-enabled `ServiceBusProcessorClient` logging a spurious `DeliveryNotOnLinkException`
+    ("...does not exist in the link's DeliveryMap") at ERROR when a message handler settles a message
+    manually (e.g. `complete()`) while auto-complete is left enabled. The V2 session disposition path now
+    marks the message settled on success, so the redundant auto-settlement short-circuits at the
+    already-settled guard instead of attempting a second disposition on the receive-link. The message was
+    always settled correctly; only the misleading error log is removed. ([#47356](https://github.com/Azure/azure-sdk-for-java/issues/47356))
+
+    #### Features Added
+
+    - Added `listSessions()` and `listSessions(OffsetDateTime sessionStateUpdatedAfter)` to `ServiceBusSessionReceiverAsyncClient` (returning `PagedFlux<String>`) and `ServiceBusSessionReceiverClient` (returning `PagedIterable<String>`). The no-arg overload returns sessions with active messages or stored session state; the `sessionStateUpdatedAfter` overload returns sessions whose session state was set or updated after the given timestamp. Implements the `com.microsoft:get-message-sessions` AMQP management operation. ([#48956](https://github.com/Azure/azure-sdk-for-java/pull/48956))
+    - Added `getSqlFilterCount()` and `getCorrelationFilterCount()` to `TopicRuntimeProperties`, exposing the total number of SQL filters and correlation filters across all of a topic's subscriptions.
+    - Added `ServiceBusServiceVersion.V2024_05` and made it the latest version. The administration client now uses `api-version=2024-05` by default, which is required for the topic filter counts above.
+
+    - Added `drainTimeout(Duration)` to `ServiceBusProcessorClientBuilder` and `ServiceBusSessionProcessorClientBuilder` to configure the maximum wait time for in-flight message handlers during processor shutdown. Defaults to 30 seconds.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-platformvalidation
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-platformvalidation_1.0.0-beta.1/sdk/platformvalidation/azure-resourcemanager-platformvalidation/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.6/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-keys
+  Version: 4.12.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-keys_4.12.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added secure key wrap and unwrap operations via `CryptographyClient`/`CryptographyAsyncClient` `secureWrapKey` and `secureUnwrapKey` methods, along with the `SecureKeyWrapAlgorithm`, `SecureWrapResult`, and `SecureUnwrapResult` models. Only supported on Managed HSM with service version `2026-01-01-preview` or newer, and requires a remote-key client.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-containerservice
+  Version: 2.64.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.64.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-monitor-opentelemetry-autoconfigure
+  Version: 1.8.0
+  DisplayName: OpenTelemetry AutoConfigure
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-monitor-opentelemetry-autoconfigure_1.8.0/sdk/monitor/azure-monitor-opentelemetry-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add custom measurements support ([#50578](https://github.com/Azure/azure-sdk-for-java/pull/50578))
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-secretsstoreextension
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Secrets Store Extension
+  ServiceName: Secrets Store Extension
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-secretsstoreextension_1.0.0-beta.2/sdk/secretsstoreextension/azure-resourcemanager-secretsstoreextension/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute-workloadmanager
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-workloadmanager_1.0.0-beta.1/sdk/compute/azure-resourcemanager-compute-workloadmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-servicegroups
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Groups
+  ServiceName: Service Groups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-servicegroups_1.0.0/sdk/servicegroups/azure-resourcemanager-servicegroups/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-appnetwork
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - App Network
+  ServiceName: App Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-appnetwork_1.0.0-beta.2/sdk/appnetwork/azure-resourcemanager-appnetwork/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-core-amqp
+  Version: 2.12.2
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-amqp_2.12.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.0` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-jackson
+  Version: 1.6.8
+  DisplayName: Core - Client - Core Serializer Jackson JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-jackson_1.6.8/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Jackson from `2.18.9` to `2.18.11`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-vertx
+  Version: 1.2.0
+  DisplayName: azure-core-http-vertx
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-vertx_1.2.0/sdk/core/azure-core-http-vertx/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Requests carrying the `Expect: 100-continue` header now perform the handshake: the headers are sent with
+    `sendHead()` and the request body is written from `continueHandler()`, rather than sending headers and body
+    together.
+    If the service does not answer the expectation the body is sent after a one second fallback, so the request does
+    not stall.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-netty
+  Version: 1.16.8
+  DisplayName: Core - Client - HTTP Netty
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-netty_1.16.8/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Netty dependencies from `4.1.137.Final` to `4.1.138.Final`.
+    - Upgraded Netty TcNative dependencies from `2.0.81.Final` to `2.0.84.Final`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-jdk-httpclient
+  Version: 1.2.0
+  DisplayName: azure-core-http-jdk-httpclient
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-jdk-httpclient_1.2.0/sdk/core/azure-core-http-jdk-httpclient/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Requests carrying the `Expect: 100-continue` header now perform the handshake: the headers are sent and the request
+    body is withheld until the service responds `100 Continue`. Previously the header was dropped and the body was sent
+    immediately.
+  GroupId: com.azure
+- Name: com.azure+azure-core-management
+  Version: 1.19.8
+  DisplayName: Core - Management - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-management_1.19.8/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.68
+  DisplayName: Core - Client - Core Serializer Apache Avro
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-avro-apache_1.0.0-beta.68/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-test
+  Version: 1.27.0-beta.19
+  DisplayName: Core - Client - Test
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-test_1.27.0-beta.19/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded Apache Ant from `1.10.15` to `1.10.18`.
+  GroupId: com.azure
+- Name: com.azure+azure-core
+  Version: 1.60.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core_1.60.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `CloseableIterableStream<T>` for resource-backed iteration with deterministic cleanup.
+
+    #### Bugs Fixed
+
+    - Fixed retention of unused shared executors and shutdown hooks by serializing executor initialization.
+    - Registering or removing the shutdown hook that closes the shared executor service no longer fails when the JVM is
+    already shutting down. `Runtime.addShutdownHook` throws `IllegalStateException` once shutdown has begun, which
+    surfaced to callers of `SharedExecutorService` as `IllegalStateException: Shutdown in progress` when work, such as
+    an in-flight request draining during shutdown, needed the executor after it had been closed. A hook registered at
+    that point could never run, so this case is now logged and the work continues.
+  GroupId: com.azure
+- Name: com.azure+azure-core-metrics-opentelemetry
+  Version: 1.0.0-beta.40
+  DisplayName: azure-core-metrics-opentelemetry
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-metrics-opentelemetry_1.0.0-beta.40/sdk/core/azure-core-metrics-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded `opentelemetry-api` from `1.58.0` to `1.65.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-experimental
+  Version: 1.0.0-beta.71
+  DisplayName: Core - Client - Core Experimental
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-experimental_1.0.0-beta.71/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.67
+  DisplayName: Core - Plugin - Tracing OpenTelemetry Plugin
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-tracing-opentelemetry_1.0.0-beta.67/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+    - Upgraded `opentelemetry-api` from `1.58.0` to `1.65.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-http-okhttp
+  Version: 1.13.8
+  DisplayName: Core - Client - HTTP OkHttp
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-http-okhttp_1.13.8/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure+azure-core-serializer-json-gson
+  Version: 1.4.8
+  DisplayName: Core - Client - Core Serializer GSON JSON
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-core-serializer-json-gson_1.4.8/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.59.1` to `1.60.0`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions
+  Version: 1.0.0-beta.7
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.7/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-postgresqlflexibleserver
+  Version: 2.1.0-beta.3
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-postgresqlflexibleserver_2.1.0-beta.3/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-identity
+  Version: 1.18.7
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-identity_1.18.7/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for user-assigned managed identities on Azure Arc in `ManagedIdentityCredential` and `DefaultAzureCredential`. ([#50371](https://github.com/Azure/azure-sdk-for-java/pull/50371))
+
+    #### Bugs Fixed
+
+    - Fixed `NullPointerException` in `IdentityClientOptions` when running in GraalVM native images (e.g., Quarkus applications). Replaced reflection-dependent `AzureIdentityEnvVars` enum usage with direct string literal to ensure compatibility with native compilation. ([#47940](https://github.com/Azure/azure-sdk-for-java/pull/47940))
+    - Fixed logging for token authentication errors to include full stack traces with inner exceptions. Previously, error logs referenced "inner exceptions" but only logged the error message, making debugging difficult. ([#47974](https://github.com/Azure/azure-sdk-for-java/pull/47974))
+    - Disabled MSAL's internal retry for Confidential Client, Managed Identity and Public Client Applications. ([#48472](https://github.com/Azure/azure-sdk-for-java/pull/48472))
+    - Improved `AzureDeveloperCliCredential` error handling to extract meaningful messages from `azd auth token` JSON output, providing cleaner error messages to users. ([#47975](https://github.com/Azure/azure-sdk-for-java/pull/47975))
+    - Fixed misleading authentication error reporting when token requests are interrupted or the JVM shuts down. ([#50585](https://github.com/Azure/azure-sdk-for-java/issues/50585))
+    - Fixed IMDS discovery in `DefaultAzureCredential` to wait for HTTP response headers with a read timeout, allowing the credential chain to continue when a local endpoint accepts connections but does not respond, while preserving fallback on probe setup failures. ([#50517](https://github.com/Azure/azure-sdk-for-java/pull/50517))
+  GroupId: com.azure
+- Name: com.azure+azure-identity-broker
+  Version: 1.1.24
+  DisplayName: Identity Broker
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-identity-broker_1.1.24/sdk/identity/azure-identity-broker/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-identity` from `1.18.6` to version `1.18.7`.
+    - Upgraded `msal4j` from `1.23.1` to version `1.26.0`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-computefleet
+  Version: 1.1.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-computefleet_1.1.0/sdk/computefleet/azure-resourcemanager-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
