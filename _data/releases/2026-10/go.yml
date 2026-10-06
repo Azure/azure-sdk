@@ -203,4 +203,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed `QueueClient.GetSASURL()` and `ServiceClient.GetSASURL()` appending a duplicated `?` to the resulting URL when the client's underlying URL already contained a query string, which produced a malformed SAS URL.
+- Name: sdk/azcore
+  Version: 1.23.3
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.23.3/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed `arm.ResourceID.Location` being empty when the `locations` segment uses different casing.
 
