@@ -206,4 +206,456 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computeworkloadmanager_1.0.0b1/sdk/compute/azure-mgmt-computeworkloadmanager/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.7.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.7.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-features
+  Version: 1.0.0
+  DisplayName: Resource Management - Features
+  ServiceName: Features
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-features_1.0.0/sdk/resources/azure-mgmt-resource-features/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-locks
+  Version: 1.0.0
+  DisplayName: Resource Management - Locks
+  ServiceName: Locks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-locks_1.0.0/sdk/resources/azure-mgmt-resource-locks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-computeworkloadmanager
+  Version: 1.0.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computeworkloadmanager_1.0.0b2/sdk/compute/azure-mgmt-computeworkloadmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-secretsstoreextension
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Secrets Store Extension
+  ServiceName: Secrets Store Extension
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-secretsstoreextension_1.0.0b2/sdk/secretsstoreextension/azure-mgmt-secretsstoreextension/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource-templatespecs
+  Version: 1.0.0
+  DisplayName: Resource Management - Template Specs
+  ServiceName: Template Specs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource-templatespecs_1.0.0/sdk/resources/azure-mgmt-resource-templatespecs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 2.2.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.2.0/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release promoting the 2.2.0 preview series. No functional changes
+    since 2.2.0b2.
+    - Updated the minimum `azure-ai-agentserver-core` dependency to the stable
+    `2.2.0` release.
+- Name: azure-ai-finetuningsessions
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-finetuningsessions_1.0.0b1/sdk/ai/azure-ai-finetuningsessions/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add the generated `InputChunk` hierarchy and `InputChunkType`. Existing `ModelInputChunk` keyword/mapping calls remain valid and now emit `type="text"`; image inputs retain their existing serialization and validation.
+    - Reuse the current 12-member canonical shared `FoundryFeaturesOptInKeys`, preserving six original member names/values with six canonical additions. The fine-tuning preview header is unchanged.
+    - Add optional `SamplingParams.response_format` for compatible sampling providers and the friendly `SamplingOperationResult` alias for `SampleOperationResult`.
+    - Include Loom's maintained read-only `SampleOperationResult.prompt_tokens: Optional[int]` for backend-reported evidence, counted once per prompt. Accept only exact non-negative integers; missing or invalid evidence is `None`, with no boolean/float/string coercion or inferred counts. The identical `SamplingOperationResult` alias and existing constructor keywords/overloads are unchanged.
+    - Support `AZURE_AI_FINETUNING_MAX_CHUNK_BYTES` as an import-time positive-integer override for the approximate request chunk-size budget. Unset or invalid values keep the 5,000,000-byte default; invalid values log a warning. Service-side limits are unchanged.
+    - Add the string-backed `TrainingType` enum, reusing the REST training-tier definition. Existing string inputs and omission behavior remain supported.
+    - Initial preview of interactive fine-tuning sessions with synchronous and asynchronous clients.
+    - Forward-only requests, checkpoint resume and deletion, JSON-valued session metadata, and training-tier selection.
+    - Multimodal image input, vision/projector LoRA settings, nullable prompt log-probabilities, and per-operation metrics.
+    - Bounded retries, preserved session identifiers, typed service errors, and operation progress logging.
+
+    #### Breaking Changes
+
+    - Require Python 3.10 or later; Python 3.9 is no longer supported.
+    - Remove `AGENTS_OPTIMIZATION_V2_PREVIEW` from the historical 13-member enum snapshot to follow its removal from the upstream canonical definition; the six original fine-tuning SDK members remain available.
+    - Require an explicit `lora_config` with `LoRAConfig.rank` in session creation and checkpoint-resume methods, and in `CreateSessionRequest`. No implicit rank or empty configuration is supplied.
+    - The distribution is named `azure-ai-finetuningsessions` and Python imports now use `azure.ai.finetuningsessions`. Remove older preview installations and update imports/dependency files before installing this build.
+    - The preview baseline replaces the earlier regenerated-only surface with the established preview API plus explicitly documented contract changes. Callers of earlier raw models, operation methods, or keyword adapters should check the current signatures when migrating.
+
+    #### Bugs Fixed
+
+    - Preserve credential redirect protections with the declared minimum Azure Core 1.37.0 as well as current versions; handle the cleanup flag location change in Azure Core 1.38.3.
+    - Drain async heartbeat tasks before session/client shutdown, including concurrent cancellation; share the sync client's pipeline so custom policies work and all transports close normally.
+    - Bound creation and sustained-error retry sleeps; tolerate bounded request-store propagation after creation and reject unexpected polling states immediately.
+    - Reject empty training batches and incomplete sampler identifiers; bound synchronous chunk workers and offload async forward chunking.
+    - Preserve generic handling for explicit non-batch payload limits and typed errors for malformed capacity retry hints; reject unhandled redirects during deletion.
+    - Propagate direct-route context headers through default raw-operation pipelines with endpoint scoping and caller overrides; omit response payloads from normal INFO logs.
+    - Preserve the sync heartbeat thread when shutdown has not completed, validate mapping-form image inputs, and return actual completed Tasks from async multichunk/wave methods as documented.
+    - Handle nested HTTP 503 error details while preserving flat-response compatibility.
+    - Map `engine_dead` polling failures to `TrainingEngineError`, preserving error codes and diagnostic references without retrying lost engine state.
+    - Handle non-object error bodies safely, ignore invalid or non-finite retry hints, and validate positional image mappings consistently with keyword inputs.
+    - Require HTTPS and configured-origin scoping for default API-key authentication, with explicit configured-loopback HTTP opt-in only. Remove SDK-default direct-route headers outside their origin/path scope, including prepopulated defaults, while preserving distinct caller overrides.
+    - Disable automatic POST transport retries in default sync/async policies, including heartbeats. Explicit retry policies remain caller-owned; this does not guarantee deduplication or change convenience-level recovery decisions.
+    - Make default raw `begin_*` pollers use HTTP 200 acceptance and session/request-ID GET polling in both clients, without POST replay or synthetic HTTP 202. Preserve result callbacks, custom polling, no-polling, and strategy-specific continuation behavior.
+- Name: azure-ai-agentserver-responses
+  Version: 2.3.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.3.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Expanded supported `azure-ai-agentserver-core` versions to `<3.0.0`.
+    - Changed the default `AGENTSERVER_FLUSH_MODE` from `async` to `background`
+    so Responses request completion no longer awaits telemetry export.
+    Unset, empty, whitespace-only, and invalid values use `background`;
+    invalid values continue to log a warning. Explicit `async` and `sync`
+    selections retain their existing behavior.
+    Background export requires a platform drain window before suspension or
+    shutdown; request completion does not guarantee telemetry delivery.
+    Set `AGENTSERVER_FLUSH_MODE=async` to retain request-awaited flushing.
+- Name: azure-ai-agentserver-invocations
+  Version: 1.2.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.2.0/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release of the 1.2.0 preview series.
+    - Generate fallback invocation and session IDs only when no valid supplied ID is available.
+- Name: azure-mgmt-trafficmanager
+  Version: 2.0.0
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-trafficmanager_2.0.0/sdk/trafficmanager/azure-mgmt-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-data-ai
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-ai_1.0.0b1/sdk/dataai/azure-data-ai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview of the Azure Data AI semantic reranking client.
+    - Synchronous and asynchronous `InferenceClient.semantic_rerank` APIs
+    accepting generated request models or dictionaries and returning generated
+    response models with dictionary-style access.
+    - API-key authentication with `AzureKeyCredential`, and Microsoft Entra
+    authentication, for both synchronous and asynchronous clients.
+    - Reranking options for model selection, batching, sorting, and JSON document paths.
+    - Document and sentence-level scoring, response metadata, and standard Azure
+    Core error handling and retry policies.
+- Name: azure-mgmt-appnetwork
+  Version: 1.0.0b2
+  DisplayName: Resource Management - App Network
+  ServiceName: App Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appnetwork_1.0.0b2/sdk/appnetwork/azure-mgmt-appnetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-ml
+  Version: 1.35.1
+  DisplayName: Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-ml_1.35.1/sdk/ml/azure-ai-ml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed artifact cache path validation, wildcard version handling across supported Python versions, and concurrent downloads for component `additional_includes`.
+    - Fixed artifact cache reads failing on transient Windows checksum-sharing errors during initial validation.
+    - Improved the missing Azure CLI error reported when initializing the artifact cache.
+    - Fixed `MLClient.jobs.download(..., output_name=...)` returning without downloading named data outputs ([#48941](https://github.com/Azure/azure-sdk-for-python/issues/48941)).
+    - Fixed `MLClient.jobs.stream()` failing for jobs using identity-based or SAS-authenticated datastores.
+    - Fixed datastore-backed log streaming for output paths ending in a slash and corrected log URL generation for Azure Data Lake Storage Gen2.
+    - Fixed Azure DevOps artifact tool downloads to validate request URLs and extracted executables before installing an override.
+- Name: azure-mgmt-resiliencemanagement
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Resilience Management
+  ServiceName: Resilience Management
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resiliencemanagement_1.0.0b2/sdk/resiliencemanagement/azure-mgmt-resiliencemanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 6.0.0b3
+  DisplayName: Text Analytics
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_6.0.0b3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-keyvault-administration
+  Version: 4.8.0b3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.8.0b3/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-07-01-preview` [#48963](https://github.com/Azure/azure-sdk-for-python/pull/48963)
+    - Added EKM proxy private endpoint management to `KeyVaultEkmClient`. The client now exposes
+    `begin_create_ekm_private_endpoint`, `begin_delete_ekm_private_endpoint`, `get_ekm_private_endpoint`,
+    `list_ekm_private_endpoints`, and `get_ekm_private_endpoint_operation_status`.
+    - Added `KeyVaultEkmPrivateEndpoint`, `KeyVaultEkmPrivateEndpointConnectionState`,
+    `KeyVaultEkmPrivateEndpointProperties`, and `KeyVaultEkmPrivateEndpointOperation` models, along with the
+    `KeyVaultEkmConnectivityMode`, `KeyVaultEkmPrivateEndpointConnectionStatus`,
+    `KeyVaultEkmPrivateEndpointOperationStatus`, `KeyVaultEkmPrivateEndpointOperationType`, and
+    `KeyVaultEkmPrivateEndpointProvisioningState` enums.
+    - Added a `connectivity_mode` keyword argument and attribute to `KeyVaultEkmConnection`. Set this to
+    `KeyVaultEkmConnectivityMode.PRIVATE_ENDPOINT` to reach the EKM proxy through an EKM proxy private endpoint, in which
+    case `host` is the name of the private endpoint instead of a DNS name or IP address.
+
+    #### Bugs Fixed
+
+    - Fixed a bug in the challenge authentication policy where the authentication challenge was cached before the challenge resource was verified. The challenge is now cached only after resource verification succeeds [#48710](https://github.com/Azure/azure-sdk-for-python/pull/48710).
+- Name: azure-mgmt-compute-bulkaction
+  Version: 1.0.0b5
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute-bulkaction_1.0.0b5/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.27.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.27.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.27.0b1
+
+    #### Breaking Changes
+    - Custom transports that use legacy `azure-core` Request/Response types will no longer be supported and may now cause errors if used. Please ensure custom transports are utilizing types from `azure.core.rest`.
+- Name: azure-storage-blob
+  Version: 12.31.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.31.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.31.0b1
+    - Added `list` support to `BlobSasPermissions` for use with directory-scoped SAS tokens.
+
+    #### Bugs Fixed
+    - Fixed an issue where `destination_snapshot` on a blob's copy properties was always `None` when listing blobs with `response_format="arrow"`.
+- Name: azure-storage-queue
+  Version: 12.18.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.18.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.18.0b1
+
+    #### Breaking Changes
+    - Custom transports that use legacy `azure-core` Request/Response types will no longer be supported and may now cause errors if used. Please ensure custom transports are utilizing types from `azure.core.rest`.
+- Name: azure-storage-file-datalake
+  Version: 12.26.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.26.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.26.0b1
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 3.0.0b3
+  DisplayName: Resource Management - PostgreSQL  Flexible Servers
+  ServiceName: PostgreSQL  Flexible Servers
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_3.0.0b3/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storagecache
+  Version: 4.1.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagecache_4.1.0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 2.3.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.3.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Preserved the canonical request `agent_reference` on lifecycle snapshots when
+    handlers emit a partial reference, preventing stored response updates from
+    losing the agent name or version.
+- Name: azure-identity
+  Version: 1.26.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.26.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ManagedIdentityCredential` now supports user-assigned managed identities on Azure Arc-enabled servers. An identity can be selected by client ID, object ID, or resource ID. Token responses that do not confirm the requested identity are rejected. ([#48967](https://github.com/Azure/azure-sdk-for-python/pull/48967))
+
+    #### Bugs Fixed
+
+    - Fixed synchronous Service Fabric managed identity authentication with MSAL 1.39.0 and later. Service Fabric now uses the session from an Azure Core `RequestsTransport`. ([#48967](https://github.com/Azure/azure-sdk-for-python/pull/48967))
+    - Fixed an issue where `AuthorizationCodeCredential` and the asynchronous `OnBehalfOfCredential` could return a cached token for another account when multiple credentials shared a token cache. ([#49001](https://github.com/Azure/azure-sdk-for-python/pull/49001))
+- Name: azure-keyvault-certificates
+  Version: 4.11.3
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.11.3/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-secrets
+  Version: 4.11.3
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.11.3/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-securitydomain
+  Version: 1.0.0b4
+  DisplayName: Key Vault - Security Domain
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-securitydomain_1.0.0b4/sdk/keyvault/azure-keyvault-securitydomain/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-keys
+  Version: 4.11.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.11.3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-keyvault-administration
+  Version: 4.7.2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.7.2/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Verify cached authentication challenges before token use and clear rejected or malformed challenges without removing newer entries installed by concurrent requests.
+    - Preserve redirect header updates and cleanup when restoring request bodies during authentication.
+    - Remove stale request authorization and clear the observed cached challenge when a 401 response omits `WWW-Authenticate`, without retrying authentication.
+- Name: azure-mgmt-computefleet
+  Version: 2.0.0
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computefleet_2.0.0/sdk/computefleet/azure-mgmt-computefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.8.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.8.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Agent Optimization APIs are now GA, including job management, cost estimation, candidate retrieval, and candidate promotion.
+    * Added typed Agent Optimization models for agent and prompt optimization, configuration, evaluation, candidate search and mutations, cost estimates, latency, token usage, and termination details.
+    * Data generation job APIs are now GA.
+    * Added scenario-specific data generation models for evaluation, supervised fine-tuning, reinforcement fine-tuning, and user-conversation simulation.
+    * Evaluator lifecycle and generation job APIs are now GA.
+    * Added GA Agent tools `BrowserAutomationTool` and `BrowserAutomationToolboxTool`, with `ToolboxToolType.BROWSER_AUTOMATION`.
+    * Added `ChatCompletionTool`, `FunctionObject`, and `FunctionParameters` for describing function tools used by chat completions.
+    * Added optional `async_property` to `CustomToolParam`, `FunctionTool`, and `FunctionToolParam`.
+    * Added `ConnectionType.OPEN_API` and `ConnectionType.REMOTE_A2A`.
+    * Added optional `ApiError.misalignment` with `MisalignmentErrorDetailsResource`, `MisalignmentErrorType`, and `MisalignmentSteer`.
+    * Added `gpt-image-2` and `gpt-image-2-2026-04-21` as known `ImageGenTool.model` values.
+
+    #### Breaking Changes
+
+    All breaking changes affect preview APIs.
+
+    Breaking changes in preview methods:
+
+    * `list_optimization_jobs` now returns `ItemPaged[AgentOptimizationJob]` instead of `ItemPaged[AgentOptimizationJobListItem]`.
+    * `.datasets.begin_create_generation_job` now accepts `DataGenerationJobInputs` instead of `DataGenerationJob`.
+    * `.evaluators.begin_create_generation_job` now accepts `EvaluatorGenerationInputs` directly instead of an `EvaluatorGenerationJob` wrapping the inputs under an `inputs` property.
+
+    Breaking changes in preview classes:
+
+    * Restructured `AgentOptimizationCandidate`, `AgentOptimizationJob`, and `AgentOptimizationJobResult` around typed configuration, candidate output, evaluation, usage, latency, and termination models.
+    * `DataGenerationJob` now requires `name`, `sources`, `generation_configuration`, and `scenario` instead of `inputs`.
+    * `DataGenerationJobInputs` now uses `generation_configuration` and the scenario-specific input models for output configuration.
+    * Renamed `DataGenerationJobOptions` to `DataGenerationJobConfiguration`, along with its derived classes: `SimpleQnADataGenerationJobOptions` to `SimpleQnADataGenerationJobConfiguration`, `SimulationSeedDataGenerationJobOptions` to `SimulationSeedDataGenerationJobConfiguration`, `ToolUseFineTuningDataGenerationJobOptions` to `ToolUseFineTuningDataGenerationJobConfiguration`, and `TracesDataGenerationJobOptions` to `TracesDataGenerationJobConfiguration`.
+    * Replaced `DataGenerationJobOutputOptions` with scenario-specific `EvaluationDataGenerationJobOutputConfiguration`, `SupervisedFineTuningDataGenerationJobOutputConfiguration`, and `ReinforcementFineTuningDataGenerationJobOutputConfiguration` models.
+    * Renamed the supervised and reinforcement fine-tuning `DataGenerationJobScenario` values with a `_PREVIEW` suffix. Their wire values now also end in `_preview`.
+    * `EvaluatorGenerationJob` now exposes `sources`, `model`, `evaluator_name`, `evaluator_display_name`, and `evaluator_description` as top-level properties and no longer has an `inputs` property.
 
