@@ -662,4 +662,138 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-computefleet_1.1.0/sdk/computefleet/azure-resourcemanager-computefleet/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.7.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.7.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed OpenAI clients built from `AIProjectClientBuilder` to acquire bearer tokens through the Azure HTTP pipeline.
+    Asynchronous clients now use asynchronous token acquisition instead of calling `TokenCredential.getTokenSync(...)`;
+    synchronous clients continue to use synchronous token acquisition.
+    - Fixed skill file uploads to omit an unset `default` flag instead of sending the literal text `null`.
+
+    #### Breaking Changes
+
+    - Removed `BetaDatasetsClient`, `BetaDatasetsAsyncClient`, and their beta-builder methods. Use `DatasetsClient` /
+    `DatasetsAsyncClient`, built directly through `AIProjectClientBuilder`, for data generation job operations.
+    Default requests do not send a preview feature header; set `allowPreview(true)` for preview data generation.
+    - Moved evaluator-version CRUD, listing, and evaluator-generation job operations from `BetaEvaluatorsClient` /
+    `BetaEvaluatorsAsyncClient` to `EvaluatorsClient` / `EvaluatorsAsyncClient`. Build the new clients directly through
+    `AIProjectClientBuilder`; generally available operations no longer require the `Evaluations=V1Preview` header.
+    - Data generation creation methods now accept `DataGenerationJobInputs` instead of `DataGenerationJob`. Construct
+    `EvaluationDataGenerationJobInputs`, `SupervisedFineTuningDataGenerationJobInputs`, or
+    `ReinforcementFineTuningDataGenerationJobInputs` with a name, sources, and generation configuration.
+    `DataGenerationJob` is now an immutable response model with top-level `getName()`, `getSources()`, and
+    `getGenerationConfiguration()` properties; its no-argument constructor and `getInputs()` / `setInputs(...)` were
+    removed.
+    - Renamed `DataGenerationJobOptions` and its `SimpleQnA`, `SimulationSeed`, `ToolUseFineTuning`, and `Traces` subtypes to
+    the corresponding `*DataGenerationJobConfiguration` types. `DataGenerationJobInputs.getOptions()` was replaced by
+    `getGenerationConfiguration()`. `DataGenerationJobOutputOptions` and the `getOutputOptions()` /
+    `setOutputOptions(...)` accessors were replaced by scenario-specific `*DataGenerationJobOutputConfiguration` types
+    and `getOutputConfiguration()` / `setOutputConfiguration(...)` accessors on concrete input models.
+    - Renamed `DataGenerationJobScenario.SUPERVISED_FINETUNING` and `REINFORCEMENT_FINETUNING` to
+    `SUPERVISED_FINETUNING_PREVIEW` and `REINFORCEMENT_FINETUNING_PREVIEW`. Their wire values now use the
+    `supervised_finetuning_preview` and `reinforcement_finetuning_preview` discriminator values.
+    - Renamed `DataGenerationJobResult.getGeneratedSamples()` to `getGeneratedSampleCount()`.
+    - Evaluator generation creation methods now accept `EvaluatorGenerationInputs` instead of `EvaluatorGenerationJob`.
+    `EvaluatorGenerationJob` is now an immutable response model with top-level source, model, and evaluator-name
+    properties; its no-argument constructor and `getInputs()` / `setInputs(...)` were removed.
+    - Changed public constructors on polymorphic base models to protected: `DataGenerationJobInputs`,
+    `DataGenerationJobSource`, `EvaluationTaxonomyInput`, `EvaluatorDefinition`, `EvaluatorGenerationJobSource`,
+    `InsightRequest`, `RecurrenceSchedule`, `RoutineAction`, `RoutineDispatchPayload`, `RoutineTrigger`, `ScheduleTask`,
+    `TargetConfig`, and `Trigger`. The renamed `DataGenerationJobConfiguration` base also has a protected constructor.
+    Construct concrete subtypes instead; deserialization of unknown discriminator values remains supported.
+
+    #### Features Added
+
+    - Added `EvaluatorsClient` and `EvaluatorsAsyncClient`, built directly through
+    `AIProjectClientBuilder.buildEvaluatorsClient()` and `buildEvaluatorsAsyncClient()`, for generally available
+    evaluator-version management and rubric-generation jobs. Preview evaluator definitions such as
+    `EndpointBasedEvaluatorDefinition` require `allowPreview(true)`. `BetaEvaluatorsClient` and
+    `BetaEvaluatorsAsyncClient` retain preview pending-upload and credential operations.
+    - Evaluation data generation graduated to general availability on `DatasetsClient` and `DatasetsAsyncClient`.
+    Added scenario-specific input and result models for evaluation, supervised fine-tuning, and reinforcement
+    fine-tuning. Fine-tuning scenarios remain in preview and require `allowPreview(true)`; their output configurations
+    support merge-file IDs.
+    - Added `ConnectionType.OPEN_API` (`OpenAPI`) and `ConnectionType.REMOTE_A2A` (`RemoteA2A`) for listing and identifying
+    OpenAPI and remote agent-to-agent connections.
+    - Added `ApiError.getMisalignment()` to expose structured misalignment details using the OpenAI
+    `ErrorObject.Misalignment` model.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.7.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.7.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed OpenAI clients built from `AgentsClientBuilder` to acquire bearer tokens through the Azure HTTP pipeline.
+    Asynchronous clients now use asynchronous token acquisition instead of calling `TokenCredential.getTokenSync(...)`;
+    synchronous clients continue to use synchronous token acquisition.
+
+    #### Breaking Changes
+
+    - Moved agent-optimization job operations from `BetaAgentsClient` / `BetaAgentsAsyncClient` to
+    `AgentsClient` / `AgentsAsyncClient`. Optimization no longer requires the `AgentsOptimization=V2Preview` header.
+    `BetaAgentsClient` and `BetaAgentsAsyncClient` retain preview agent-generation operations.
+    - Replaced the no-argument `AgentOptimizationJob` constructor and `getInputs()` / `setInputs(...)` with
+    `AgentOptimizationJob(AgentOptimizationModelConfiguration, AgentOptimizationConfigurationBase)` and top-level
+    configuration properties. Use `setTargetConfiguration(...)` with
+    `AgentOptimizationFoundryAgentTargetConfiguration` to identify a registered Foundry agent.
+    - Replaced the old optimization input hierarchy: `AgentOptimizationJobInputs`, `AgentOptimizationOptions`,
+    `OptimizedAgentIdentifier`, `AgentOptimizationDatasetInput`, `AgentOptimizationDatasetInputType`,
+    `AgentOptimizationInlineDatasetInput`, `AgentOptimizationReferenceDatasetInput`, `AgentOptimizationDatasetItem`,
+    `AgentOptimizationDatasetCriterion`, and `EvaluationLevel` were removed. Use the new optimization configuration,
+    evaluation-set, data-source, and test-case models instead.
+    - Optimization job listing now returns `AgentOptimizationJob` instead of `AgentOptimizationJobListItem`.
+    `AgentOptimizationJobProgress` and `AgentOptimizationJob.getProgress()` were removed; use `getRunDuration()` and
+    the job result's candidate summary. `AgentOptimizationJobResult.getBaseline()`, `getBest()`, and `getCandidates()`
+    were replaced by `getCandidateSummary()`, with separate token-usage, latency, and termination-reason accessors.
+    Retrieve candidates through `listOptimizationCandidates(...)`.
+    - `AgentOptimizationCandidate` now exposes typed output and nested evaluation details instead of top-level mutations,
+    scores, token averages, and evaluation IDs. Use `getOutput()` and `getEvaluation()`. `PromotionInfo` was replaced by
+    `AgentOptimizationCandidatePromotionInfo`, which exposes the promoted agent through an `AgentReference`.
+    - `RealtimeSessionUpdateEvent` now has a single constructor accepting `RealtimeSessionConfigurationBase` and a public
+    `getSession()` accessor. The constructors accepting `RealtimeSessionConfiguration` or
+    `RealtimeTranscriptionSessionConfiguration` and their corresponding `getSessionAs...()` accessors were removed.
+    Pass either concrete session subtype to the new constructor and inspect the subtype returned by `getSession()`.
+    - Changed the constructors of `MemoryItem` and `MemoryStoreDefinition` from public to protected. Construct their
+    concrete subtypes instead; deserialization of unknown discriminator values remains supported.
+    - Removed the unused public `VoiceAgentFunctionToolType` enum.
+
+    #### Features Added
+
+    - Browser automation graduated to general availability. Added `BrowserAutomationTool` and
+    `BrowserAutomationToolboxTool` with the `browser_automation` discriminator, plus
+    `ToolboxToolType.BROWSER_AUTOMATION`. The existing `BrowserAutomationPreviewTool` and
+    `BrowserAutomationPreviewToolboxTool` remain available.
+    - Added `estimateOptimizationJob`, `listOptimizationCandidates`, `getOptimizationCandidate`, and
+    `promoteOptimizationCandidate` to `AgentsClient` and `AgentsAsyncClient`, with corresponding protocol methods.
+    Estimates expose call-count and cost bands by stage; candidate listing supports pagination and optional mutation
+    expansion through `AgentOptimizationCandidateExpand`.
+    - Added typed agent-optimization configuration for baseline instructions, models, skills, and OpenAI function tools;
+    model search spaces; evaluator initialization parameters; training and validation evaluation sets; and concurrent
+    agent-run limits. `AgentOptimizationConfiguration` supports agent optimization, while
+    `PromptOptimizationConfiguration` supports prompt optimization with steering-prompt context.
+    - Added target-completion and user-conversation-simulation evaluation sets with inline or registered-dataset sources.
+    `UserConversationSimulationConfiguration` supports turn limits, conversation repetitions, audio effects, and user
+    interruption behavior. `EvaluationModelConfiguration` supports text and voice model selection and
+    `ModelSamplingParameters`, including a `Long` completion-token limit.
+    - Added `FunctionTool.setAsync(...)` and `CustomToolParameter.setAsync(...)` to configure asynchronous tool execution.
+    - Added `ImageGenToolModel` values for `gpt-image-2`, `gpt-image-2.5-sunburst`, and `gpt-image-2.5-flare`, including
+    their dated model versions.
+    - Added `ApiError.getMisalignment()` to expose structured misalignment details using the OpenAI
+    `ErrorObject.Misalignment` model.
+    - Added `VoiceAgentWebSocketConnectionOptions.setTransport(...)` and `getTransport()` to select
+    `VoiceAgentTransport.WEBSOCKET` (the default) or `VoiceAgentTransport.WEBRTC`. WebRTC mode uses the WebSocket for
+    signaling; the SDK does not implement a WebRTC peer connection or media transport.
+  GroupId: com.azure
 
