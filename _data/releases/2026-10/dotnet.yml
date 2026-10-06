@@ -531,4 +531,34 @@ entries:
     - Added the `AkpAlgorithm` type listing the supported AKP algorithms.
     - Added the `CreateAkpKeyOptions` model and the new `CreateAkpKey` and `CreateAkpKeyAsync` methods in `KeyClient`.
     - Added the `Algorithm` and `Pub` properties to `JsonWebKey`.
+- Name: Azure.Storage.Blobs
+  Version: 12.30.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.30.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `AuthenticatedRegionCryptoStream.Dispose()` to be idempotent and thread-safe, so the buffer it rents is no longer returned to the shared `ArrayPool<byte>` more than once when the stream is disposed repeatedly or concurrently. Returning the same array twice allowed unrelated callers to rent the same array instance and corrupt each other's data.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.27.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.27.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded `Azure.Storage.Blobs` package dependency to 12.30.1
+- Name: Azure.Storage.Queues
+  Version: 12.28.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.28.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `AuthenticatedRegionCryptoStream.Dispose()` to be idempotent and thread-safe, so the buffer it rents is no longer returned to the shared `ArrayPool<byte>` more than once when the stream is disposed repeatedly or concurrently. Returning the same array twice allowed unrelated callers to rent the same array instance and corrupt each other's data.
 
