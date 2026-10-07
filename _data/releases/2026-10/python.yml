@@ -694,4 +694,15 @@ entries:
     #### Features Added
     - Map the `session.id` attribute on spans and logs to the Azure Monitor session context
     ([#49179](https://github.com/Azure/azure-sdk-for-python/pull/49179))
+- Name: azure-monitor-opentelemetry
+  Version: 1.8.11
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry_1.8.11/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Corrected the package metadata to require Python 3.10 or later, matching the existing support policy
+    ([#49200](https://github.com/Azure/azure-sdk-for-python/pull/49200))
 
