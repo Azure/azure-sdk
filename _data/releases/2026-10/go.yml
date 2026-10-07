@@ -214,4 +214,22 @@ entries:
     #### Bugs Fixed
 
     * Fixed `arm.ResourceID.Location` being empty when the `locations` segment uses different casing.
+- Name: sdk/resourcemanager/containerservice/armcontainerservice
+  Version: 9.7.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/containerservice/armcontainerservice/v9.7.0-beta.1/sdk/resourcemanager/containerservice/armcontainerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azfile
+  Version: 1.7.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azfile/v1.7.1/sdk/storage/azfile/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed `GetSASURL()` on `share.Client`, `file.Client`, and `service.Client` appending a duplicated `?` to the resulting URL when called on a client whose URL already contained a query string (e.g. a client returned by `WithSnapshot`, a file client derived from a share snapshot, or a custom endpoint with pre-existing query parameters), which produced a malformed SAS URL.
 
