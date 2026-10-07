@@ -658,4 +658,40 @@ entries:
     * Replaced `DataGenerationJobOutputOptions` with scenario-specific `EvaluationDataGenerationJobOutputConfiguration`, `SupervisedFineTuningDataGenerationJobOutputConfiguration`, and `ReinforcementFineTuningDataGenerationJobOutputConfiguration` models.
     * Renamed the supervised and reinforcement fine-tuning `DataGenerationJobScenario` values with a `_PREVIEW` suffix. Their wire values now also end in `_preview`.
     * `EvaluatorGenerationJob` now exposes `sources`, `model`, `evaluator_name`, `evaluator_display_name`, and `evaluator_description` as top-level properties and no longer has an `inputs` property.
+- Name: azure-messaging-webpubsubchatservice
+  Version: 1.0.0b1
+  DisplayName: Web PubSub Chat
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubchatservice_1.0.0b1/sdk/webpubsub/azure-messaging-webpubsubchatservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial preview release of the Azure Web PubSub Chat Service client library for Python
+    - Added connection string, access key, and Microsoft Entra ID authentication
+    - Added client access token generation for connected Chat clients
+    - Added built-in Chat role and permission constants
+    - Support for room management (create, get, update, delete rooms)
+    - Support for user management (create, get, delete users)
+    - Support for room membership management (add, list, delete room members)
+    - Support for message operations (list, update, delete messages)
+    - Support for role-based access control (create, get, list, delete roles)
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b58
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b58/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update to the new stable OpenTelemetry database semantic conventions
+    (`db.system.name`, `db.query.text`, `db.operation.name`, `db.namespace`) when
+    mapping `CLIENT` spans to `RemoteDependencyData`
+    ([#48979](https://github.com/Azure/azure-sdk-for-python/pull/48979))
+
+    #### Features Added
+    - Map the `session.id` attribute on spans and logs to the Azure Monitor session context
+    ([#49179](https://github.com/Azure/azure-sdk-for-python/pull/49179))
 
