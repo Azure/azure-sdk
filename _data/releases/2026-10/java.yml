@@ -2001,4 +2001,55 @@ entries:
     #### Features Added
     - Added support for service version 2026-10-06.
   GroupId: com.azure
+- Name: com.azure+azure-security-attestation
+  Version: 1.2.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-attestation_1.2.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `attestTpm(BinaryData)` and `attestTpmWithResponse(BinaryData, ...)` overloads to `AttestationClient` and
+    `AttestationAsyncClient`. They treat the TPM attestation request and response as opaque binary data, consistent with
+    `attestOpenEnclave`, `attestSgxEnclave`, and the other Azure Attestation SDKs.
+    - Added `TpmAttestationResult`, the result type returned by the new `BinaryData`-based TPM attestation overloads.
+
+    #### Bugs Fixed
+
+    - Fixed a signature verification bypass (CWE-347) in attestation token validation. Previously, a signed token
+    whose signature could not be verified by any of the trusted signers was silently accepted. Such tokens are now
+    rejected with a validation error, matching the behavior of the other Azure Attestation SDKs.
+    - Hardened attestation token validation so that a signed token can no longer vouch for its own signature via its
+    embedded certificate chain when no trusted signers are supplied. Validation now fails closed in that case,
+    matching the behavior of the other Azure Attestation SDKs.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-resources
+  Version: 2.55.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-resources_2.55.0/sdk/resources/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-resources-templatespecs
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-resources-templatespecs_1.0.0/sdk/resources/azure-resourcemanager-resources-templatespecs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-trafficmanager
+  Version: 2.54.0
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-trafficmanager_2.54.0/sdk/trafficmanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
