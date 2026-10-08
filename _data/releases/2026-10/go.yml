@@ -253,4 +253,20 @@ entries:
     - Setting `APIVersion` in the administration client's `ClientOptions` now takes effect. Setting it previously made every administration call fail with "this client doesn't support overriding its API version". (PR#27323)
     - Management operations (PeekMessages, ScheduleMessages, CancelScheduledMessages, and others) now send a `server-timeout` that expires one second before the caller's context, so the broker answers first and the caller gets a service-side timeout instead of `context deadline exceeded`. When the context has no deadline, each attempt asks the broker to answer within 60 seconds, where it was previously given no bound at all. The client still waits only on its context, so set one to cap the call itself. (#26421)
     - Read `com.microsoft:max-message-batch-size` vendor property from the AMQP sender link to correctly limit batch size on Premium large-message entities, where `max-message-size` can be up to 100 MB but the batch limit is 1 MB.
+- Name: sdk/resourcemanager/storagediscovery/armstoragediscovery
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Storage Discovery
+  ServiceName: Storage Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/storagediscovery/armstoragediscovery/v1.1.0-beta.1/sdk/resourcemanager/storagediscovery/armstoragediscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/elasticsan/armelasticsan
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsan/armelasticsan/v2.0.0-beta.1/sdk/resourcemanager/elasticsan/armelasticsan/CHANGELOG.md
+  ChangelogContent: ""
 
