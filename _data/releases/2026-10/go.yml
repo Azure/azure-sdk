@@ -269,4 +269,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/elasticsan/armelasticsan/v2.0.0-beta.1/sdk/resourcemanager/elasticsan/armelasticsan/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/resourcemanager/keyvault/armkeyvault
+  Version: 2.1.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/keyvault/armkeyvault/v2.1.0/sdk/resourcemanager/keyvault/armkeyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/storage/azdatalake
+  Version: 1.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azdatalake/v1.7.0/sdk/storage/azdatalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added structured message (XSM/1.0) CRC64 content validation for `azdatalake` uploads and downloads via the new `TransferValidationTypeComputeStructuredMessageCRC64` transfer validation option.
+
+    #### Bugs Fixed
+    * Fixed a panic in `GetProperties` (and `DownloadStream`) for file and directory clients created via `directory.NewFileClient`/`directory.NewSubdirectoryClient`. These clients did not capture the raw HTTP response, so reading the datalake-specific headers dereferenced a nil response. Fixes [#25490](https://github.com/Azure/azure-sdk-for-go/issues/25490).
+    * Fixed `Rename` on `file.Client` and `directory.Client` so source paths containing spaces or non-ASCII characters are percent-encoded in the `x-ms-rename-source` header instead of being sent decoded, which previously failed with `400 InvalidSourceUri`. Fixes [#23831](https://github.com/Azure/azure-sdk-for-go/issues/23831) and [#24369](https://github.com/Azure/azure-sdk-for-go/issues/24369).
+    * Fixed `GetSASURL()` on `filesystem.Client`, `file.Client`, `directory.Client`, and `service.Client` appending a duplicated `?` to the resulting URL when the client's underlying blob URL already contained a query string, which produced a malformed SAS URL.
+- Name: sdk/resourcemanager/resiliencemanagement/armresiliencemanagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Resilience Management
+  ServiceName: Resilience Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resiliencemanagement/armresiliencemanagement/v1.0.0/sdk/resourcemanager/resiliencemanagement/armresiliencemanagement/CHANGELOG.md
+  ChangelogContent: ""
 
