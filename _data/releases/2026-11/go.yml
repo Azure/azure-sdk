@@ -1,0 +1,17 @@
+entries:
+- Name: sdk/data/azappconfig
+  Version: 2.3.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azappconfig/v2.3.0/sdk/data/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `Description` field to the `Setting` and `Snapshot` structs.
+    * Added `Description` field to `AddSettingOptions`, `SetSettingOptions`, and `BeginCreateSnapshotOptions`.
+    * Added `SettingFieldsDescription` and `SnapshotFieldsDescription` field selector constants.
+
+    #### Bugs Fixed
+    * Fixed paging through settings, revisions, and snapshots when the service returns relative or absolute continuation URLs.
+
