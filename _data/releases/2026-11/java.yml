@@ -38,4 +38,22 @@ entries:
 
     - Updated Azure SDK dependency versions to the latest releases.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-weightsandbiases
+  Version: 1.0.1
+  DisplayName: Resource Management - Weights & Biases
+  ServiceName: Weights & Biases
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-weightsandbiases_1.0.1/sdk/weightsandbiases/azure-resourcemanager-weightsandbiases/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-dataprotection
+  Version: 1.7.0-beta.1
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-dataprotection_1.7.0-beta.1/sdk/dataprotection/azure-resourcemanager-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
