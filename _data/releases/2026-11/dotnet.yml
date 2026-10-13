@@ -102,4 +102,41 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added `BrowserAutomationTool` for browser automation through an MCP project connection.
+- Name: Microsoft.Azure.WebPubSub.AspNetCore
+  Version: 1.6.0
+  DisplayName: Microsoft.Azure.WebPubSub.AspNetCore
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed inbound request signature validation being skipped when the service endpoint was configured with the `WebPubSubServiceEndpoint(Uri, AzureKeyCredential, ...)` constructor. The supplied key is now used to validate `ce-signature`, and credential rotation via `AzureKeyCredential.Update` is honored.
+
+    #### Features Added
+    - Support handling group presence events.
+- Name: Azure.ResourceManager.PlatformValidation
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PlatformValidation_1.0.0-beta.1/sdk/platformvalidation/Azure.ResourceManager.PlatformValidation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.18.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.18.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ResilienceManagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Resilience Management
+  ServiceName: Resilience Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResilienceManagement_1.0.0/sdk/azureresiliencemanagement/Azure.ResourceManager.ResilienceManagement/CHANGELOG.md
+  ChangelogContent: ""
 
