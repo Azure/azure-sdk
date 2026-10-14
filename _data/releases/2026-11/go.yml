@@ -46,4 +46,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armbulkactions/v0.7.0/sdk/resourcemanager/compute/armbulkactions/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azidentity
+  Version: 1.15.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.15.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `ManagedIdentityCredential` and `DefaultAzureCredential` support user-assigned managed identities
+    on Azure Arc when the agent supports them
+    - `WorkloadIdentityCredential` supports identity binding mode via `WorkloadIdentityCredentialOptions.EnableAzureProxy`
+
+    #### Bugs Fixed
+
+    - `ManagedIdentityCredential` verifies the Service Fabric endpoint's certificate against
+    `IDENTITY_SERVER_THUMBPRINT` and rejects redirects
 
