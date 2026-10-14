@@ -74,4 +74,18 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-compute-bulkactions_1.0.0-beta.8/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-administration
+  Version: 4.9.0-beta.2
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-administration_4.9.0-beta.2/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `2026-07-01-preview`.
+    - Added External Key Manager (EKM) proxy private endpoint support to `KeyVaultEkmClient` and `KeyVaultEkmAsyncClient`, including the `beginCreateEkmPrivateEndpoint`, `getEkmPrivateEndpoint`, `listEkmPrivateEndpoints`, `beginDeleteEkmPrivateEndpoint`, and `getEkmPrivateEndpointOperationStatus` operations.
+    - Added `KeyVaultEkmConnectivityMode` to `KeyVaultEkmConnection` to route an EKM connection through an EKM proxy private endpoint.
+  GroupId: com.azure
 
