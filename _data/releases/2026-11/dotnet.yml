@@ -211,4 +211,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ContainerService_1.0.0-beta.7/sdk/containerservice/Azure.Provisioning.ContainerService/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.6
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.6/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed long-lived clients failing TLS validation after a ledger's service identity certificate changes, for example after disaster recovery or after a new ledger instance replaces the old one behind the same DNS name. Previously the certificate was fetched only when the client was constructed, so the application had to be restarted. The pinned certificate is still used for every handshake; only when server authentication fails because the presented certificate no longer chains to the pinned certificate does the client re-query the independently trusted Identity Service for that ledger's current certificate, replace the pin, and re-validate. The refresh is throttled per ledger so a persistently mismatched certificate cannot force an Identity Service lookup on every handshake, and a man-in-the-middle certificate is still rejected because it cannot chain to the Identity Service's current certificate.
+- Name: Azure.ResourceManager.ElasticSan
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ElasticSan_1.3.0-beta.1/sdk/elasticsan/Azure.ResourceManager.ElasticSan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageDiscovery
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Storage Discovery
+  ServiceName: Storage Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageDiscovery_1.1.0-beta.1/sdk/storagediscovery/Azure.ResourceManager.StorageDiscovery/CHANGELOG.md
+  ChangelogContent: ""
 
