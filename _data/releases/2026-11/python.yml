@@ -67,4 +67,12 @@ entries:
 
     - Hardened multimodal evaluation image handling. The output file name is now derived from a validated allow-list of known image types rather than the raw `data:image/<subtype>;` value, and decoded image bytes are confined to the intended `images/` folder.
     - Added Microsoft-scoped evaluation status and boolean pass/fail attributes to Application Insights result events.
+- Name: azure-mgmt-monitorworkspaces
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Monitor Workspaces
+  ServiceName: Monitor Workspaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitorworkspaces_1.1.0b1/sdk/monitor/azure-mgmt-monitorworkspaces/CHANGELOG.md
+  ChangelogContent: ""
 
