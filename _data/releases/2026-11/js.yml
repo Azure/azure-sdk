@@ -92,4 +92,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.13.0-beta.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.0-beta.2/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the HTTP response compatibility of configuration setting and revision pages, including snapshot contents and conditional checks, so response headers support `get()` and status codes are numeric. [#40352](https://github.com/Azure/azure-sdk-for-js/pull/40352)
 
