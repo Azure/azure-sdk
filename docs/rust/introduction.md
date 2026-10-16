@@ -652,6 +652,63 @@ pub enum ExtensibleEnum {
 
 {% include requirement/MAY id="rust-enum-convenience-attributes" %} use container attribute `#[serde(rename_all = "camelCase")]` for convenience layers, or whatever casing is appropriate.
 
+##### Polymorphic Types {#rust-enum-unions}
+
+Rust `enum` is also used for polymorphic types whether the discriminator is a [literal string](#rust-enum-fixed) or defined by a TypeSpec `enum`.
+
+{% include requirement/MUST id="rust-enum-unions-enum-kind" %} use an `enum` for the discriminator using either the defined name or `{Model}Kind` if unnamed e.g., `DogKind` for a `Dog` base model.
+
+{% include requirement/MUST id="rust-enum-unions-enum-kind-unknown" %} define an `UnknownValue(String)` variant for [extensible discriminators](#rust-enum-extensible).
+
+{% include requirement/MUST id="rust-enum-unions-struct" %} define a `struct` for each model variant of the union.
+
+{% include requirement/MUST id="rust-enum-unions-struct-common" %} define common fields from a base model in each model variant of the union.
+
+{% include requirement/MUST id="rust-enum-unions-variants" %} define a variant using the model struct name for each model struct.
+
+{% include requirement/MUST id="rust-enum-unions-serde-kind" %} define a `#[serde]` attribute on each model struct referencing the discriminator field e.g., `#[serde(tag = "kind")]`.
+
+{% include requirement/MUST id="rust-enum-unions-serde-kind-unknown" %} define an `UnknownKind` variant with a discriminator field and defined base model fields for extensible discriminators. This variant will be attributed with `#[serde(untagged)]`.
+
+{% include requirement/MUST id="rust-enum-unions-serde" %} define serializers for discriminators and discriminants to serialize the model variants with the tagged kind e.g., `#[serde(rename = "golden", tag = "kind")]`.
+
+```rust
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum DogKind {
+    Golden,
+    UnknownValue(String),
+}
+
+#[derive(Clone, Default, Deserialize, SafeDebug, Serialize)]
+#[serde(rename = "golden", tag = "kind")]
+pub struct Golden {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub weight: Option<i32>,
+}
+
+#[derive(Clone, Deserialize, SafeDebug)]
+#[serde(tag = "kind")]
+pub enum Dog {
+    #[serde(rename = "golden")]
+    Golden(Golden),
+
+    #[serde(untagged)]
+    UnknownKind {
+        kind: Option<DogKind>,
+        weight: Option<i32>,
+    },
+}
+```
+
+##### Status Code-dependent Types {#rust-enum-status}
+
+Some operations may return different models for different status codes including status codes that are typically errors e.g., `404` but not treated as an error i.e., the models are not decorated with the TypeSpec [`@error`](https://typespec.io/docs/standard-library/built-in-decorators/#@error) decorator.
+
+{% include requirement/MUST id="rust-enum-status-fold" %} fold 1 or more status codes returning a named model into an `enum` variant named after the model.
+
+{% include requirement/MUST id="rust-enum-status-status-description" %} use the status code description for an unnamed model e.g., a variant for `204` with no name would be `NoContent(..)`.
+If there is no body, no headers, and no parameters, the unit type `()` would be the type within the variant type i.e., `NoContent(())`.
+
 #### Using Azure Core Types {#rust-core-types}
 
 The `azure_core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [Azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
