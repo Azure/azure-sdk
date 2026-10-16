@@ -593,9 +593,11 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Debug`, `Eq`, and `PartialEq` for all enums.
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums, following the [debug safety guidelines](implementation.md#rust-safety-debug).
 
-{% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
+{% include requirement/MUST id="rust-enums-derive-eq" %} derive or implement `Eq` and `PartialEq` for all value enums, excluding enums representing model unions.
+
+{% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed value enums.
 
 {% include requirement/MUST id="rust-enums-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the enum is used in input (serializable), output (deserializable), or both.
 
@@ -632,7 +634,7 @@ pub enum FixedEnum {
 }
 ```
 
-{% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
+{% include requirement/MUST id="rust-enum-extensible" %} implement all extensible value enumerations - those which may take a variant that is not defined - using defined variants and an `UnknownValue(String)` variant:
 
 ```rust
 #[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
@@ -648,17 +650,13 @@ pub enum ExtensibleEnum {
 
 {% include requirement/MAY id="rust-enum-serialize" %} implement `serde::Deserialize`, `serde::Serialize`, or both as appropriate depending on whether the enumeration is found only in responses, requests, or both, respectively.
 
-{% include requirement/SHOULD id="rust-enum-generated-attributes" %} define variant attribute `#[serde(rename = "name")]` for generated code for each variant.
-
-{% include requirement/MAY id="rust-enum-convenience-attributes" %} use container attribute `#[serde(rename_all = "camelCase")]` for convenience layers, or whatever casing is appropriate.
-
 ##### Polymorphic Types {#rust-enum-unions}
 
-Rust `enum` is also used for polymorphic types whether the discriminator is a [literal string](#rust-enum-fixed) or defined by a TypeSpec `enum`.
+Rust `enum` is also used for polymorphic types whether the discriminator is a string literal or defined by a TypeSpec `enum`.
 
-{% include requirement/MUST id="rust-enum-unions-enum-kind" %} use an `enum` for the discriminator using either the defined name or `{Model}Kind` if unnamed e.g., `DogKind` for a `Dog` base model.
+{% include requirement/MUST id="rust-enum-unions-enum-kind" %} use the defined enum type for a TypeSpec enum discriminator, or `String` for a string literal discriminator.
 
-{% include requirement/MUST id="rust-enum-unions-enum-kind-unknown" %} define an `UnknownValue(String)` variant for [extensible discriminators](#rust-enum-extensible).
+{% include requirement/MUST id="rust-enum-unions-enum-kind-unknown" %} define an `UnknownValue(String)` variant for extensible discriminator enums.
 
 {% include requirement/MUST id="rust-enum-unions-struct" %} define a `struct` for each model variant of the union.
 
@@ -666,16 +664,23 @@ Rust `enum` is also used for polymorphic types whether the discriminator is a [l
 
 {% include requirement/MUST id="rust-enum-unions-variants" %} define a variant using the model struct name for each model struct.
 
-{% include requirement/MUST id="rust-enum-unions-serde-kind" %} define a `#[serde]` attribute on each model struct referencing the discriminator field e.g., `#[serde(tag = "kind")]`.
+{% include requirement/MUST id="rust-enum-unions-unknown" %} define an `Unknown{DiscriminatorPropertyPascalCase}` e.g., `UnknownKind` variant containing the discriminator and base model fields for extensible discriminators, including models with no defined subtypes.
 
-{% include requirement/MUST id="rust-enum-unions-serde-kind-unknown" %} define an `UnknownKind` variant with a discriminator field and defined base model fields for extensible discriminators. This variant will be attributed with `#[serde(untagged)]`.
+{% include requirement/MUST id="rust-enum-unions-unknown-fallback" %} deserialize unknown or missing extensible discriminators into the unknown variant.
 
-{% include requirement/MUST id="rust-enum-unions-serde" %} define serializers for discriminators and discriminants to serialize the model variants with the tagged kind e.g., `#[serde(rename = "golden", tag = "kind")]`.
+{% include requirement/MUSTNOT id="rust-enum-unions-fixed-fallback" %} define an unknown variant for fixed enum discriminators.
+
+For example, an extensible enum discriminator and its model union have the following shape. See [serialization implementation guidelines](implementation.md#rust-enum-unions) for the union's `Serialize` implementation.
 
 ```rust
-#[derive(Clone, Debug, Eq, PartialEq)]
+use azure_core::fmt::SafeDebug;
+use serde::{Deserialize, Serialize};
+
+#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
 pub enum DogKind {
+    #[serde(rename = "golden")]
     Golden,
+    #[serde(untagged)]
     UnknownValue(String),
 }
 
