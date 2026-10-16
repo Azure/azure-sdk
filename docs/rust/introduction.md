@@ -593,7 +593,7 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums, following the [debug safety guidelines](implementation.md#rust-safety-debug).
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums, following the [debug safety guidelines][rust-safety-debug].
 
 {% include requirement/MUST id="rust-enums-derive-eq" %} derive or implement `Eq` and `PartialEq` for all value enums, excluding enums representing model unions.
 
@@ -670,7 +670,7 @@ Rust `enum` is also used for polymorphic types whether the discriminator is a st
 
 {% include requirement/MUSTNOT id="rust-enum-unions-fixed-fallback" %} define an unknown variant for fixed enum discriminators.
 
-For example, an extensible enum discriminator and its model union have the following shape. See [serialization implementation guidelines](implementation.md#rust-enum-unions) for the union's `Serialize` implementation.
+For example, an extensible enum discriminator and its model union have the following shape. See [serialization implementation guidelines][rust-enum-unions-implementation] for the union's `Serialize` implementation.
 
 ```rust
 use azure_core::fmt::SafeDebug;

@@ -36,7 +36,7 @@ impl fmt::Debug for MyModel {
 
 ## Service Clients {#rust-client}
 
-Implementation details of [service clients](introduction.md#rust-client).
+Implementation details of [service clients][rust-client].
 
 ### Convenience Clients {#rust-client-convenience}
 
@@ -235,7 +235,7 @@ For a complete example, see pull request [Azure/azure-sdk-for-rust#3337](https:/
 
 ## Enumerations {#rust-enums}
 
-Implementation details of [enumerations](introduction.md#rust-enums).
+Implementation details of [enumerations][rust-enums].
 
 {% include requirement/SHOULD id="rust-enum-generated-attributes" %} define `#[serde(rename = "name")]` on each known variant in generated enums when deriving serialization traits.
 
@@ -253,7 +253,7 @@ Manually implemented serialization traits need not use serde attributes, but mus
 
 {% include requirement/MUST id="rust-enum-unions-serde" %} preserve the discriminator and model fields when serializing each union variant.
 
-For the [polymorphic type example](introduction.md#rust-enum-unions), serialization can delegate to the model structs and a crate-private helper for the unknown variant. Emitting the helper as a model ensures any required field serialization helpers are also generated.
+For the [polymorphic type example][rust-enum-unions], serialization can delegate to the model structs and a crate-private helper for the unknown variant. Emitting the helper as a model ensures any required field serialization helpers are also generated.
 
 ```rust
 #[derive(serde::Serialize)]
