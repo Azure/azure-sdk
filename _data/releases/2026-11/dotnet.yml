@@ -464,4 +464,16 @@ entries:
 
     #### Breaking Changes
     - Removed the `UpdateMemories(string, BinaryContent, RequestOptions)` and `UpdateMemoriesAsync(string, BinaryContent, RequestOptions)` protocol overloads from `AIProjectMemoryStores`. Use the corresponding long-running operation overloads that accept `waitUntilCompleted` instead, passing `false` to return after starting the operation.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.4.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.4.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed streaming blob downloads to enforce the declared content length and disallow seeking, ensuring SHA-256 validation
+    covers the complete sequential content stream.
 
