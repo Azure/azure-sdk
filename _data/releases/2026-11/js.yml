@@ -172,4 +172,12 @@ entries:
     - Add `MicrosoftCopilotHarness` and `MicrosoftCopilotToolsetPreview` for prompt agents, including built-in tool enablement overrides and the `MicrosoftCopilot=V1Preview` opt-in. Retain the legacy GitHub Copilot contracts for compatibility. [#40375](https://github.com/Azure/azure-sdk-for-js/issues/40375)
     - Add OpenTelemetry tracing for Voice Agents generation, telephony mutations, conversation deletion, and realtime connection/response lifecycles using the existing experimental tracing configuration. Include content-free message summaries, response duration/token metrics, aggregate audio bytes, and SDK-observed first-audio latency. Preserve message roles and correlate delayed audio transcripts without replacing newer pending input. Message contents require `contentRecording: true`; raw media and transport authentication fields are excluded. [#40320](https://github.com/Azure/azure-sdk-for-js/pull/40320)
     - Add `FineTuningSessions=V1Preview` to `FoundryFeaturesOptInKeys`. [#40216](https://github.com/Azure/azure-sdk-for-js/issues/40216)
+- Name: '@azure/arm-monitorworkspaces'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Monitor Workspaces
+  ServiceName: Monitor Workspaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitorworkspaces_1.1.0-beta.1/sdk/monitor/arm-monitorworkspaces/CHANGELOG.md
+  ChangelogContent: ""
 
