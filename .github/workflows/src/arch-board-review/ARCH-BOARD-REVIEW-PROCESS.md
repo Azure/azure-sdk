@@ -45,6 +45,15 @@ Architect applies <language>-api-approved label
   • All selected languages approved
         ↓
   Issue auto-closed when complete
+
+Open board-review issue has no activity for 7 days
+        ↓
+  arch-board-review-reminders.yml
+  (scheduled on weekdays)
+        ↓
+  Explicitly mentions the party expected to act:
+  • Architects for missing approvals
+  • Service contacts for needs-info
 ```
 
 ## Labels
@@ -79,6 +88,24 @@ architects.
 When all selected languages have `<lang>-api-approved`, the issue is auto-closed.
 
 Unauthorized label additions are reverted with a comment.
+
+## Review Reminders
+
+`arch-board-review-reminders.yml` checks open `board-review` issues. After seven
+days without issue activity, it explicitly mentions the party expected to act:
+
+- For `needs-info`, the service contacts from the issue form are reminded to
+  provide the missing materials.
+- For `ready-for-review`, only architects for languages that still lack an
+  approval label are mentioned.
+
+For ready reviews, the reminder links to each language PR and uses neutral
+wording: architects can either complete the review or apply the missing approval
+label if the API was already approved. The workflow does not duplicate APIView
+or cross-repository PR state.
+
+Posting the reminder updates the issue, so another reminder is not posted until
+the issue has again had no activity for seven days.
 
 ## Reviewer Assignment
 

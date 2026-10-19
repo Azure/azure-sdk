@@ -1,0 +1,34 @@
+name: "Arch Board Review Reminders"
+
+on:
+  schedule:
+    - cron: "0 16 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: arch-board-review-reminders
+  cancel-in-progress: false
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout workflow dependencies
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: |
+            .github
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+        working-directory: ./.github
+
+      - name: Remind reviewers on stale requests
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { default: remindReviewers } = await import('${{ github.workspace }}/.github/workflows/src/arch-board-review/remind-reviewers.js');
+            await remindReviewers({ github, context, core });
