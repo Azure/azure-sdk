@@ -293,4 +293,20 @@ entries:
     * Added experimental Voice Agents REST and realtime tracing through `AIProjectInstrumentor`, including correlated session, connection and response spans, tool/lifecycle events, aggregate audio sizes and existing GenAI response metrics. Existing tracing and content-recording settings apply; message content is not captured by default.
     * Added an optional `transport` keyword on synchronous and asynchronous realtime `connect()` using `VoiceAgentTransport.WEBSOCKET` or `VoiceAgentTransport.WEBRTC`. The SDK constructs the transport wire query internally.
     * Added preview Microsoft Copilot managed harness and toolset support for prompt agents.
+- Name: azure-mgmt-containerservice
+  Version: 41.8.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.8.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cloudhealth
+  Version: 1.0.0
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
+  ChangelogContent: ""
 
