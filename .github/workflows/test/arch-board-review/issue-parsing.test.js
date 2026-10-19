@@ -22,6 +22,28 @@ describe("issue-parsing", () => {
     ]);
   });
 
+  it("detects languages selected via a multi-select dropdown (comma-separated values)", () => {
+    const issueBody = `
+### Languages for this Review
+
+Java, Python, C++
+
+---
+## Artifacts Required (per language)
+
+For each selected language above, fill in the links below.
+
+### .NET
+Leave blank if .NET is not selected above.
+`;
+
+    expect(getSelectedLanguages(issueBody).map((language) => language.id)).toEqual([
+      "java",
+      "python",
+      "cpp",
+    ]);
+  });
+
   it("extracts a language section until the next heading", () => {
     const issueBody = `
 ### Java

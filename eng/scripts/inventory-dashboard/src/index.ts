@@ -31,10 +31,9 @@ async function main() {
         formattedPackageArr.push(formattedCSVData[pkgKey]);
     }
     // Write Formatted Object to CSV File
-    json2csv(formattedPackageArr, (err, csv) => {
-        if (err) {
-            log.err(`Error Writing to CSV. Error: ${err}`);
-        } else if (csv) {
+    try {
+        const csv = json2csv(formattedPackageArr);
+        if (csv) {
             fs.writeFileSync(
                 path.join(__dirname, "../../../../_data/releases/inventory/inventory.csv"),
                 csv
@@ -42,6 +41,8 @@ async function main() {
         } else {
             log.err(`CSV is undefined`);
         }
-    });
+    } catch (err) {
+        log.err(`Error Writing to CSV. Error: ${err}`);
+    }
 }
 main();

@@ -74,19 +74,22 @@ body:
       placeholder: "https://github.com/Azure/azure-sdk/issues/..."
 
   # ── About the Client Library ───────────────────────────────────
-  - type: checkboxes
+  - type: dropdown
     id: languages
     attributes:
       label: Languages for this Review
       description: "Select all languages that need to be reviewed. You must provide the required artifacts for each selected language in the sections below."
+      multiple: true
       options:
-        - label: ".NET"
-        - label: "Java"
-        - label: "Python"
-        - label: "TypeScript"
-        - label: "Go"
-        - label: "C++"
-        - label: "Rust"
+        - ".NET"
+        - "Java"
+        - "Python"
+        - "TypeScript"
+        - "Go"
+        - "C++"
+        - "Rust"
+    validations:
+      required: true
 
   # ── Artifacts Required (per language) ──────────────────────────
   - type: markdown

@@ -55,4 +55,1028 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_2.0.0-beta.1/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-resiliencemanagement'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Resiliencemanagement
+  ServiceName: Resiliencemanagement
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resiliencemanagement_1.0.0-beta.1/sdk/resiliencemanagement/arm-resiliencemanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry'
+  Version: 1.18.2
+  DisplayName: Azure Monitor OpenTelemetry
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.18.2/sdk/monitor/monitor-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed missing Azure SDK dependency spans (Service Bus, Event Grid, Storage, etc.) when running as an ESM application on Node.js 22+ — most notably in Azure Functions, where the `--import @azure/monitor-opentelemetry/loader` flag cannot be configured. The distro now wires the Azure SDK instrumenter into `@azure/core-tracing` directly, so Azure SDK tracing works in ESM even when the OpenTelemetry module hooks never fire.
+    - Fixed Azure SDK spans being silently dropped when any Azure SDK package is imported before `useAzureMonitor()`. The fix eagerly installs the `@azure/core-tracing` OpenTelemetry bridge after SDK initialization, handling the case where the RITM hook could not intercept an already-loaded `@azure/core-tracing`.
+    - Fixed a CPU-saturating deactivate/reactivate loop in Live Metrics that occurred when live-endpoint posts failed while subscribed.
+    - Hardened Live Metrics (QuickPulse) redirect handling so a `x-ms-qps-service-endpoint-redirect-v2` header is only followed when the target host matches the configured endpoint or a known Azure Monitor ingestion domain. This prevents an attacker-controlled redirect from causing the bearer auth token (and telemetry body) to be sent to an untrusted host.
+- Name: '@azure-rest/core-client'
+  Version: 2.7.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.7.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `getBinaryStreamResponse` helper that resolves a `StreamableMethod` into a binary stream response. It can be imported and shared by generated SDK packages. [PR #38909](https://github.com/Azure/azure-sdk-for-js/pull/38909)
+- Name: '@azure/storage-blob'
+  Version: 12.33.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.33.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.33.0-beta.1.
+- Name: '@azure/storage-common'
+  Version: 12.4.1
+  DisplayName: Storage Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.4.1/sdk/storage/storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the browser and react-native builds of the CRC64 checksum calculator still containing Node.js `require('fs')`/`require('path')` calls, which broke esbuild-based bundlers. The post-build step now replaces the unreachable Node-only filesystem read block with a no-op in the browser and react-native copies of `crc64.js`. Issue [#38924](https://github.com/Azure/azure-sdk-for-js/issues/38924).
+- Name: '@azure/arm-cognitiveservices'
+  Version: 9.0.0-beta.3
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-automation'
+  Version: 11.0.0-beta.6
+  DisplayName: Resource Management - Automation
+  ServiceName: Automation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automation/arm-automation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 24.1.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-relay'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Relay
+  ServiceName: Relay
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/relay/arm-relay/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 17.0.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-call-automation'
+  Version: 1.6.0
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.6.0/sdk/communication/communication-call-automation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for moving a participant from one call to another, enabling seamless participant transfer between active calls.
+    - Added support for retrieving Teams phone call details, including the ability to specify a custom calling context for enhanced integration scenarios.
+- Name: '@azure/planetarycomputer'
+  Version: 1.0.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/planetarycomputer_1.0.0/sdk/planetarycomputer/planetarycomputer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the `@azure/planetarycomputer` package.
+    - STAC API support: list, get, create, update, delete collections and items; search with spatial, temporal, and CQL2-JSON filters.
+    - Data/Tiler API support: tile rendering, preview generation, mosaic search, bounding box and GeoJSON crop, WMTS capabilities, legends, and statistics.
+    - Ingestion API support: create and manage ingestion sources, definitions, and runs; track operations.
+    - Shared Access Signature API support: generate, sign, and revoke SAS tokens for secure data sharing.
+    - Long-running operation (LRO) support for collection and item create/delete operations.
+- Name: '@azure/arm-cdn'
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices-siterecovery'
+  Version: 6.0.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicessiterecovery/arm-recoveryservices-siterecovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-qumulo'
+  Version: 3.0.0
+  DisplayName: Resource Management - Qumulo
+  ServiceName: Qumulo
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-qumulo_3.0.0/sdk/liftrqumulo/arm-qumulo/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-frontdoor'
+  Version: 6.0.0-beta.1
+  DisplayName: Resource Management - Front Door
+  ServiceName: Front Door
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/frontdoor/arm-frontdoor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 24.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-monitor'
+  Version: 8.0.0-beta.7
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-powerplatform'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Powerplatform
+  ServiceName: Powerplatform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-powerplatform_1.0.0-beta.1/sdk/powerplatform/arm-powerplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-computelimit'
+  Version: 1.2.0
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.2.0/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-keys'
+  Version: 4.11.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.11.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyClient.secureWrapKey` and `KeyClient.secureUnwrapKey` methods to wrap a 256-bit AES key generated inside a Trusted Execution Environment (TEE) using a key encryption key stored in Managed HSM, and to unwrap that key back inside an attested TEE via the Microsoft Azure Attestation service (MAA).
+    - Added the `externalKey` property to `KeyProperties` and `CreateKeyOptions`, and the read-only `keySize` property to `KeyProperties`, exposing the new key attributes introduced in service API version `2026-01-01-preview`.
+    - Added the `KeyClient.createExternalKey` method to create a key backed by a key stored in an external key management system.
+- Name: '@azure/arm-networkcloud'
+  Version: 2.0.0-beta.2
+  DisplayName: Resource Management - Network Cloud
+  ServiceName: Operator Nexus - Network Cloud
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.2/sdk/networkcloud/arm-networkcloud/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-admin'
+  Version: 4.7.3-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.7.3-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-01-01-preview` [#40761](https://github.com/Azure/azure-rest-api-specs/pull/40761)
+    - Added `KeyVaultEkmClient` for managing Managed HSM External Key Manager (EKM) connections. This new client exposes `getEkmConnection`,
+    `createEkmConnection`, `updateEkmConnection`, `deleteEkmConnection`, `getEkmCertificate`, and `checkEkmConnection`.
+    - Added `EkmConnection`, `EkmProxyClientCertificateInfo`, and `EkmProxyInfo` models supporting the EKM client.
+- Name: '@azure/arm-containerinstance'
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-client'
+  Version: 1.1.0
+  DisplayName: Web PubSub Client
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.1.0/sdk/web-pubsub/web-pubsub-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added group streaming support
+- Name: '@azure/arm-communication'
+  Version: 5.0.0
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_5.0.0/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.12.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.12.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a regression introduced in 1.12.0 where creating an `AppConfigurationClient` from a connection string caused every request to fail with `TypeError [ERR_INVALID_HTTP_TOKEN]: Header name must be a valid HTTP token ["Connection String"]`. [#39025](https://github.com/Azure/azure-sdk-for-js/issues/39025)
+- Name: '@azure/app-configuration'
+  Version: 1.12.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.12.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new `description` property to `ConfigurationSetting`/`ConfigurationSettingParam`, `ConfigurationSnapshot`, and `SnapshotInfo`, allowing a description to be set on configuration settings and snapshots. Requires the `2026-04-01` API version or later.
+    - Updated the default service API version to `2026-04-01`.
+    - Added `KnownAppConfigurationApiVersion` enum exposing the service API versions supported by `AppConfigurationClient`.
+- Name: '@azure/arm-extendedlocation'
+  Version: 1.0.0-beta.5
+  DisplayName: Resource Management - Extended Location
+  ServiceName: Extended Location
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.5/sdk/extendedlocation/arm-extendedlocation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-machinelearning'
+  Version: 4.0.0-beta.1
+  DisplayName: Resource Management - Machine Learning
+  ServiceName: Machine Learning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-machinelearning_4.0.0-beta.1/sdk/machinelearning/arm-machinelearning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mongocluster'
+  Version: 1.2.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.2.0/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/ai-projects'
+  Version: 2.3.1
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.3.1/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - The `project.beta.datasets` data generation job operations now always send the `foundry-features: DataGenerationJobs=V1Preview` header instead of deriving it from the caller-supplied `foundryFeatures` option.
+    - Added hosted agent samples:
+    - `agents/hostedAgents/agentUserIdentityIsolation.ts`
+    - `agents/hostedAgents/createHostedAgentFromImage.ts`
+    - `agents/hostedAgents/sessionsCrud.ts`
+    - `agents/hostedAgents/sessionsFilesUploadDownload.ts`
+    - `agents/hostedAgents/toolboxWithSkill.ts`
+- Name: '@azure/ai-projects'
+  Version: 2.3.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.3.0/sdk/ai/ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the global `enableGenAITracing()` and `disableGenAITracing()` functions. Use `tracingOptions` on `AIProjectClientOptionalParams` instead.
+    - Removed `ToolboxSearchPreviewTool` from the `ToolUnion`.
+    - Removed `name`, `description`, and `tool_configs` properties from `MicrosoftFabricPreviewTool`, `SharepointPreviewTool`, and other preview tool interfaces. On `BingGroundingTool`, these properties are deprecated.
+    - Removed `tools` property from `HostedAgentDefinition`.
+    - Removed `AgentEndpointProtocol` type alias; replaced by `ProtocolConfiguration` on the agent endpoint.
+    - Removed beta agent optimization candidate operations, including `listOptimizationCandidates`, `getOptimizationCandidate`, `getOptimizationCandidateConfig`, `getOptimizationCandidateResults`, `getCandidateFile`, and `promoteCandidate`.
+    - Removed related beta agent optimization candidate response and metadata types, including `AgentsPagedResultOptimizationCandidate`, `CandidateMetadata`, `CandidateFileInfo`, `CandidateDeployConfig`, `CandidateResults`, `PromoteCandidateRequest`, `PromoteCandidateResponse`, and `BetaAgentsGetCandidateFileResponse`.
+    - Changed `project.beta.agents.createOptimizationJob` to accept an `OptimizationJob` request body instead of `OptimizationJobInputs`.
+    - Changed `project.beta.agents.listOptimizationJobs` to return `OptimizationJobListItem` values.
+    - Changed `AgentVersion.metadata` from required to optional.
+    - Renamed optimization model types from `AgentIdentifier` and `DatasetRef` to the new `Optimization*` model names (e.g., `OptimizationAgentIdentifier`, `OptimizationDatasetInput`, `OptimizationEvaluatorRef`).
+    - Renamed `BetaAgentsCreateAgentVersionFromCodeOptionalParams` to `AgentsCreateVersionFromCodeOptionalParams`.
+    - Renamed the `project.beta.models.update` request parameter from `body` to `modelVersionUpdate`.
+    - Renamed `BetaToolboxesOperations` to `ToolboxesOperations` and moved toolbox option types from `api/beta/toolboxes` to `api/toolboxes`.
+    - Renamed beta skills option types to include `BetaSkills` prefix (e.g., `DeleteVersionOptionalParams` → `BetaSkillsDeleteVersionOptionalParams`, `ListVersionsOptionalParams` → `BetaSkillsListVersionsOptionalParams`).
+    - Renamed `VersionSelectorType` to `VersionSelectionRuleType`.
+    - Removed `SystemDataV3` from the public API surface.
+    - Removed the implicit `foundry-features` header injection for agent endpoints.
+
+    #### Bugs Fixed
+
+    - Fixed routine run status exports so `RoutineRun.status` can reference the exported `RoutineRunStatus` type.
+    - Fixed package import mappings for browser and React Native platform-specific helpers.
+    - Fixed union type deserializers to use bracket notation (`item["type"]`) for consistent property access.
+
+    #### Features Added
+
+    - Changed GenAI tracing from a process-wide setting to a per-client configuration via `tracingOptions` on `AIProjectClientOptionalParams`. Tracing is now enabled by passing `tracingOptions: { experimental: true }` when constructing the client instead of calling the global `enableGenAITracing()` function.
+    - Added `ProtocolConfiguration` and per-protocol configuration types (`ActivityProtocolConfiguration`, `ResponsesProtocolConfiguration`, `A2AProtocolConfiguration`, `McpProtocolConfiguration`, `InvocationsProtocolConfiguration`, `InvocationsWsProtocolConfiguration`) on the agent endpoint.
+    - Added `BotServiceTenantAuthorizationScheme` as a new `AgentEndpointAuthorizationScheme` subtype.
+    - Added `VersionSelectionRuleType` type alias.
+    - Added `draft` property on `AgentVersion` to indicate whether a version is a draft candidate rather than a release.
+    - Added `isRestError` and `NodeReadableStream` exports.
+    - Added `enable` and `disable` methods on `project.agents` to control agent operational state.
+    - Added `AgentState` type and `state` property on `Agent` to reflect whether an agent endpoint is enabled or disabled.
+    - Promoted session operations (`createSession`, `getSession`, `deleteSession`, `stopSession`, `listSessions`, `getSessionLogStream`, `listSessionFiles`, `downloadSessionFile`, `uploadSessionFile`, `deleteSessionFile`) from `project.beta.agents` to `project.agents`.
+    - Promoted `createVersionFromCode`, `downloadAgentCode`, and `updateAgentObject` from `project.beta.agents` to `project.agents`.
+    - Promoted `project.beta.toolboxes` operations to `project.toolboxes`. Toolbox tool types now use `ToolboxToolUnion` and its subtypes (`CodeInterpreterToolboxTool`, `FileSearchToolboxTool`, `WebSearchToolboxTool`, `MCPToolboxTool`).
+- Name: '@azure/arm-network'
+  Version: 37.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-prometheusrulegroups'
+  Version: 1.0.0
+  DisplayName: Resource Management - Prometheusrulegroups
+  ServiceName: Prometheusrulegroups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-prometheusrulegroups_1.0.0/sdk/prometheusrulegroups/arm-prometheusrulegroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-marketplace'
+  Version: 1.0.0
+  DisplayName: Resource Management - Marketplace
+  ServiceName: Marketplace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-marketplace_1.0.0/sdk/marketplace/arm-marketplace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-napsteromniagentapi'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Napsteromniagentapi
+  ServiceName: Napsteromniagentapi
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-napsteromniagentapi_1.0.0-beta.1/sdk/napsteromniagentapi/arm-napsteromniagentapi/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 11.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-networkfunction'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Network Function
+  ServiceName: Network Function
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkfunction_3.0.0-beta.1/sdk/networkfunction/arm-networkfunction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 20.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.43
+  DisplayName: OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.43/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed customer SDK Stats attribute keys to camelCase: `drop.code` → `dropCode`, `drop.reason` → `dropReason`, `retry.code` → `retryCode`, `retry.reason` → `retryReason`, `telemetry_type` → `telemetryType`, `telemetry_success` → `telemetrySuccess`.
+
+    #### Bugs Fixed
+
+    - Throttle startup replay of persisted telemetry with a randomized startup delay and jittered inter-batch spacing to avoid a fleet-wide thundering herd against the ingestion endpoint.
+    - Fixed customer SDK Stats not counting telemetry that was dropped while saving to disk.
+    - Clamp the server-controlled `Retry-After` header to a maximum of 24 hours, preventing a malformed value from overflowing `setTimeout` or stalling offline retries.
+    - Refuse to follow server-issued 307/308 redirects whose `Location` header points outside the configured ingestion host or the known Azure Monitor / Application Insights ingestion domain suffixes. Previously a single attacker-controlled redirect could permanently re-point the exporter at a foreign host, causing every subsequent telemetry call (and the AAD bearer token attached by the auth policy) to be sent to the attacker.
+- Name: '@azure/storage-file-share'
+  Version: 12.32.0
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.32.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.32.0-beta.1.
+- Name: '@azure/arm-policyinsights'
+  Version: 7.0.0-beta.1
+  DisplayName: Resource Management - Policy Insights
+  ServiceName: Policy Insights
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managednetworkfabric'
+  Version: 2.0.0
+  DisplayName: Resource Management - Managed Network Fabric
+  ServiceName: Managed Network Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managednetworkfabric_2.0.0/sdk/managednetworkfabric/arm-managednetworkfabric/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-artifactsigning'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Artifactsigning
+  ServiceName: Artifactsigning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-artifactsigning_2.0.0-beta.1/sdk/artifactsigning/arm-artifactsigning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-programenrollment'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Programenrollment
+  ServiceName: Programenrollment
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-programenrollment_1.0.0-beta.1/sdk/programenrollment/arm-programenrollment/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.31.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.31.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.31.0-beta.1.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.31.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.31.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.31.0-beta.1.
+- Name: '@azure/arm-alertprocessingrules'
+  Version: 1.0.0
+  DisplayName: Resource Management - Alertprocessingrules
+  ServiceName: Alertprocessingrules
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-alertprocessingrules_1.0.0/sdk/alertprocessingrules/arm-alertprocessingrules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 20.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kusto'
+  Version: 9.0.0-beta.1
+  DisplayName: Resource Management - Kusto
+  ServiceName: Kusto
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-consumption'
+  Version: 10.0.0-beta.1
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-elastic'
+  Version: 3.0.0-beta.1
+  DisplayName: Resource Management - Elastic
+  ServiceName: Elastic
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_3.0.0-beta.1/sdk/elastic/arm-elastic/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdbforpostgresql'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - CosmosDB for PostgreSQL
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_2.0.0-beta.1/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-netapp'
+  Version: 25.0.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-devcenter'
+  Version: 2.0.0-beta.1
+  DisplayName: Resource Management - Dev Center
+  ServiceName: Dev Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devcenter_2.0.0-beta.1/sdk/devcenter/arm-devcenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-mongodbatlas'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Mongodbatlas
+  ServiceName: Mongodbatlas
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongodbatlas_1.1.0-beta.1/sdk/mongodbatlas/arm-mongodbatlas/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-billing-trust'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Billing-Trust
+  ServiceName: Billing-Trust
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-billing-trust_1.0.0-beta.1/sdk/billingtrust/arm-billing-trust/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-kubernetesconfiguration-fluxconfigurations'
+  Version: 1.0.0
+  DisplayName: Resource Management - Kubernetesconfiguration-Fluxconfigurations
+  ServiceName: Kubernetesconfiguration-Fluxconfigurations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-kubernetesconfiguration-fluxconfigurations_1.0.0/sdk/kubernetesconfiguration/arm-kubernetesconfiguration-fluxconfigurations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/core-tracing'
+  Version: 1.4.0
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.4.0/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+    - Deprecated `Resolved<T>` type alias in favor of the built-in TypeScript `Awaited<T>` type.
+- Name: '@azure/abort-controller'
+  Version: 2.2.0
+  DisplayName: Core - Client - Abort Controller
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_2.2.0/sdk/core/abort-controller/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.7
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.7/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `logPolicy` now redacts non-allowlisted response header values when verbose logging is enabled, instead of logging them in plaintext.
+- Name: '@azure/core-util'
+  Version: 1.14.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.14.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-lro'
+  Version: 3.4.0
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.4.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-client'
+  Version: 1.11.0
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.11.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-xml'
+  Version: 1.6.0
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.6.0/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/logger'
+  Version: 1.4.0
+  DisplayName: Core - Client - Logger
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.4.0/sdk/core/logger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.25.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.25.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-sse'
+  Version: 2.4.0
+  DisplayName: '@azure/core-sse'
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.4.0/sdk/core/core-sse/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure-rest/core-client'
+  Version: 2.8.0
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.8.0/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-auth'
+  Version: 1.11.0
+  DisplayName: Core - Client - Auth
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.11.0/sdk/core/core-auth/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-amqp'
+  Version: 4.5.0
+  DisplayName: Core - Client - AMQP
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_4.5.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-http-compat'
+  Version: 2.5.0
+  DisplayName: Core - Client - Http Compat
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.5.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure/core-paging'
+  Version: 1.7.0
+  DisplayName: Core - Paging
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.7.0/sdk/core/core-paging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update `engines` to `"node": ">=22.0.0"`. Please refer to our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more information on our supported Node.js versions.
+- Name: '@azure-rest/confidential-ledger'
+  Version: 2.0.0-beta.1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_2.0.0-beta.1/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Regenerated SDK from TypeSpec specification targeting stable API version 2026-02-23
+    - Added Tags API support (ListTags)
+    - Added UserDefinedRole and UserDefinedRoles types for role management
+    - Added Stable-suffixed operation variants for user-defined endpoints and functions
+
+    #### Breaking Changes
+
+    - Renamed JSRuntimeOptions to JsRuntimeOptions
+    - Changed some enum types to extensible string types (e.g., ApplicationClaimKindOutput, ConfidentialLedgerQueryStateOutput)
+    - Client constructor now uses a 2-parameter signature (endpoint, options) with credential passed through options
+    - Removed CreateLedgerEntryMediaTypesParam (content type now inferred)
+- Name: '@azure/arm-computelimit'
+  Version: 1.2.1
+  DisplayName: Resource Management - Computelimit
+  ServiceName: Computelimit
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.2.1/sdk/computelimit/arm-computelimit/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-monitorworkspaces'
+  Version: 1.0.0
+  DisplayName: Resource Management - Monitorworkspaces
+  ServiceName: Monitorworkspaces
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitorworkspaces_1.0.0/sdk/monitor/arm-monitorworkspaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commvaultcontentstore'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Commvaultcontentstore
+  ServiceName: Commvaultcontentstore
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commvaultcontentstore_1.0.0-beta.1/sdk/commvaultcontentstore/arm-commvaultcontentstore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-azurestackhci'
+  Version: 4.1.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_4.1.0/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-recoveryservices'
+  Version: 7.1.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservices/arm-recoveryservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 12.1.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagesync'
+  Version: 10.0.0
+  DisplayName: Resource Management - Storage Sync
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagesync/arm-storagesync/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-operationalinsights'
+  Version: 11.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-powerbidedicated'
+  Version: 5.0.0
+  DisplayName: Resource Management - Power BI Dedicated
+  ServiceName: Power BI Dedicated
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managementgroups'
+  Version: 3.0.0
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managementgroups/arm-managementgroups/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-privatedns'
+  Version: 4.0.0
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-providerhub'
+  Version: 1.0.0
+  DisplayName: Resource Management - Providerhub
+  ServiceName: Providerhub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-providerhub_1.0.0/sdk/providerhub/arm-providerhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-redisenterprisecache'
+  Version: 5.0.0-beta.2
+  DisplayName: Resource Management - Redis Enterprise Cache
+  ServiceName: Redis
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_5.0.0-beta.2/sdk/redisenterprise/arm-redisenterprisecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicefabricmanagedclusters'
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Service Fabric Managed Clusters
+  ServiceName: Service Fabric Managed Clusters
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.1.0-beta.1/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confidentialledger'
+  Version: 2.0.0
+  DisplayName: Resource Management - Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_2.0.0/sdk/confidentialledger/arm-confidentialledger/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-guestconfiguration'
+  Version: 1.0.0
+  DisplayName: Resource Management - Guest Configuration
+  ServiceName: Guest Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-guestconfiguration_1.0.0/sdk/guestconfiguration/arm-guestconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-billing'
+  Version: 6.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-peering'
+  Version: 2.2.0
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-reservations'
+  Version: 10.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoundaries'
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Boundaries
+  ServiceName: Data Boundaries
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoundaries_1.0.0/sdk/databoundaries/arm-databoundaries/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-serialconsole'
+  Version: 3.0.0
+  DisplayName: Resource Management - Serial Console
+  ServiceName: Serial Console
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/serialconsole/arm-serialconsole/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-dynatrace'
+  Version: 3.0.0
+  DisplayName: Resource Management - Dynatrace
+  ServiceName: Dynatrace
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_3.0.0/sdk/dynatrace/arm-dynatrace/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databox'
+  Version: 6.0.0
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-attestation'
+  Version: 3.0.0
+  DisplayName: Resource Management - Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-attestation_3.0.0/sdk/attestation/arm-attestation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sqlvirtualmachine'
+  Version: 5.0.0
+  DisplayName: Resource Management - SQL Virtual Machine
+  ServiceName: SQL Virtual Machine
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databricks'
+  Version: 4.0.0
+  DisplayName: Resource Management - Databricks
+  ServiceName: Databricks
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storagecache'
+  Version: 9.0.0
+  DisplayName: Resource Management - Storage Cache
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-costmanagement'
+  Version: 1.0.0
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-costmanagement_1.0.0/sdk/cost-management/arm-costmanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources-subscriptions'
+  Version: 3.0.0
+  DisplayName: Resource Management - Resources Subscriptions
+  ServiceName: Resources Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_3.0.0/sdk/resources-subscriptions/arm-resources-subscriptions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-edgeorder'
+  Version: 1.0.0
+  DisplayName: Resource Management - Edgeorder
+  ServiceName: Edgeorder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgeorder_1.0.0/sdk/edgeorder/arm-edgeorder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resourcehealth'
+  Version: 5.0.0
+  DisplayName: Resource Management - Resource Health
+  ServiceName: Resource Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth/CHANGELOG.md
+  ChangelogContent: ""
 

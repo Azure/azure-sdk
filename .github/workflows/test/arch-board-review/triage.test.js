@@ -36,6 +36,7 @@ function createGithubMock() {
     paginate: vi.fn().mockResolvedValue([]),
     rest: {
       issues: {
+        addAssignees: vi.fn().mockResolvedValue({}),
         addLabels: vi.fn().mockResolvedValue({}),
         createComment: vi.fn().mockResolvedValue({ data: { id: 1 } }),
         listComments: {},
@@ -116,6 +117,42 @@ describe("triage", () => {
     expect(github.rest.issues.createComment).toHaveBeenCalledWith(
       expect.objectContaining({
         body: expect.stringContaining("All materials verified"),
+      }),
+    );
+    expect(github.rest.issues.addAssignees).toHaveBeenCalledWith(
+      expect.objectContaining({ assignees: ["JonathanGiles", "alzimmermsft"] }),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("Assigned for review:"),
+      }),
+    );
+  });
+
+  it("still posts the success comment when reviewer assignment fails", async () => {
+    const github = createGithubMock();
+    const context = createContext({
+      issueBody: createIssueBody(),
+      labels: ["board-review", "needs-info"],
+    });
+    const validateUrl = vi.fn().mockResolvedValue({ valid: true, reason: null });
+    const assignReviewers = vi.fn().mockRejectedValue(new Error("addAssignees failed"));
+    const core = { info: vi.fn(), warning: vi.fn() };
+
+    const result = await triage({ github, context, core, validateUrl, assignReviewers });
+
+    expect(result.status).toBe("ready-for-review");
+    expect(core.warning).toHaveBeenCalledWith(
+      expect.stringContaining("Reviewer assignment failed"),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("All materials verified"),
+      }),
+    );
+    expect(github.rest.issues.createComment).toHaveBeenCalledWith(
+      expect.objectContaining({
+        body: expect.stringContaining("Automatic reviewer assignment failed"),
       }),
     );
   });
