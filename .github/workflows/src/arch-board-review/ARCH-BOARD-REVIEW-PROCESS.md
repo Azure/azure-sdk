@@ -107,6 +107,10 @@ or cross-repository PR state.
 Posting the reminder updates the issue, so another reminder is not posted until
 the issue has again had no activity for seven days.
 
+When a request first reaches `ready-for-review`, the triage comment also
+explicitly mentions the assigned architects. Assignment remains in place for
+queue ownership, while the mention provides the stronger initial notification.
+
 ## Reviewer Assignment
 
 When an issue reaches `ready-for-review`, `assign-reviewers.js` assigns every
