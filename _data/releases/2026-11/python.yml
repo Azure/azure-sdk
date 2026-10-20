@@ -341,4 +341,37 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maintenance_2.2.0b4/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.18.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.18.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_queue_sas`, and `QueueServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-storage-blob
+  Version: 12.31.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.31.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_container_sas`, `generate_blob_sas`, and `BlobServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-storage-file-share
+  Version: 12.27.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.27.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_share_sas`, `generate_file_sas`, and `ShareServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
 
