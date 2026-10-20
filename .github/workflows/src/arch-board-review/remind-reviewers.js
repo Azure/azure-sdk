@@ -9,7 +9,12 @@ import { readFile } from "node:fs/promises";
 
 import { loadApproversConfig } from "./approval-check.js";
 import { resolveAssignments } from "./assign-reviewers.js";
-import { extractLabeledUrl, getLanguageSection, getSelectedLanguages } from "./issue-parsing.js";
+import {
+  extractLabeledUrl,
+  getBoldSubsection,
+  getLanguageSection,
+  getSelectedLanguages,
+} from "./issue-parsing.js";
 
 const DEFAULT_APPROVERS_PATH = new URL("../../../api-review-approvers.yml", import.meta.url);
 const DEFAULT_STALE_DAYS = 7;
@@ -33,7 +38,13 @@ function getMissingReviews(issue, approversConfig) {
   return getSelectedLanguages(issueBody)
     .filter((language) => !labels.has(`${language.id}-api-approved`))
     .map((language) => {
-      const section = getLanguageSection(issueBody, language.label);
+      const section =
+        language.tier === "tier2"
+          ? getBoldSubsection(
+              getLanguageSection(issueBody, "Additional Languages (C++, Rust)"),
+              language.label,
+            )
+          : getLanguageSection(issueBody, language.label);
       return {
         language,
         reviewers: reviewersByLanguage.get(language.label) ?? [],
@@ -49,17 +60,15 @@ function getContactLogins(issue) {
     return fallback;
   }
 
-  const explicitMentions = [...contactsSection.matchAll(/@([A-Za-z0-9-]+)/g)].map(
-    (match) => match[1],
-  );
-  const candidates =
-    explicitMentions.length > 0
-      ? explicitMentions
-      : contactsSection.split(/[,\n]+/).map((candidate) => candidate.trim());
+  const candidates = contactsSection
+    .split(/[,\n\s]+/)
+    .map((candidate) => candidate.replace(/^@/, "").trim())
+    .filter(Boolean);
   const contacts = candidates.filter((candidate) =>
     /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(candidate),
   );
-  return [...new Set(contacts)];
+  const uniqueContacts = [...new Set(contacts)];
+  return uniqueContacts.length > 0 ? uniqueContacts : fallback;
 }
 
 function buildReminderComment(reviews, staleDays) {

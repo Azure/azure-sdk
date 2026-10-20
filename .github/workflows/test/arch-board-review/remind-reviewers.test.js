@@ -99,7 +99,60 @@ service-owner, sdk-owner
         }),
       ),
     ).toEqual(["service-owner", "sdk-owner"]);
+    expect(
+      getContactLogins(
+        createIssue({
+          body: `
+### Main Contacts
+
+@service-owner, sdk-owner
+`,
+        }),
+      ),
+    ).toEqual(["service-owner", "sdk-owner"]);
+    expect(
+      getContactLogins(
+        createIssue({
+          body: `
+### Main Contacts
+
+@service_owner
+`,
+        }),
+      ),
+    ).toEqual(["issue-author"]);
     expect(getContactLogins(createIssue())).toEqual(["issue-author"]);
+  });
+
+  it("keeps separate PR links for C++ and Rust in the shared artifacts section", () => {
+    const issue = createIssue({
+      body: `
+### Languages for this Review
+
+C++, Rust
+
+### Additional Languages (C++, Rust)
+
+**C++**
+- PR: https://github.com/Azure/azure-sdk-for-cpp/pull/100
+
+**Rust**
+- PR: https://github.com/Azure/azure-sdk-for-rust/pull/200
+`,
+    });
+
+    expect(getMissingReviews(issue, approversConfig)).toEqual([
+      {
+        language: { label: "C++", id: "cpp", tier: "tier2" },
+        reviewers: [],
+        pullRequestUrl: "https://github.com/Azure/azure-sdk-for-cpp/pull/100",
+      },
+      {
+        language: { label: "Rust", id: "rust", tier: "tier2" },
+        reviewers: [],
+        pullRequestUrl: "https://github.com/Azure/azure-sdk-for-rust/pull/200",
+      },
+    ]);
   });
 
   it("builds an explicit needs-info reminder", () => {

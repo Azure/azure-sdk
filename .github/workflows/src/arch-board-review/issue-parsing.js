@@ -64,6 +64,24 @@ function getLanguageSection(body, heading) {
   return nextHeaderIndex === -1 ? afterHeader.trim() : afterHeader.slice(0, nextHeaderIndex).trim();
 }
 
+function getBoldSubsection(sectionText, heading) {
+  if (!sectionText) {
+    return null;
+  }
+
+  const headingPattern = new RegExp(`^\\*\\*${escapeRegex(heading)}\\*\\*\\s*$`, "m");
+  const headingMatch = headingPattern.exec(sectionText);
+  if (!headingMatch) {
+    return null;
+  }
+
+  const afterHeading = sectionText.slice(headingMatch.index + headingMatch[0].length);
+  const nextHeadingIndex = afterHeading.search(/\n\*\*[^*\n]+\*\*\s*(?:\n|$)/);
+  return nextHeadingIndex === -1
+    ? afterHeading.trim()
+    : afterHeading.slice(0, nextHeadingIndex).trim();
+}
+
 function extractLabeledValue(sectionText, label) {
   if (!sectionText) {
     return null;
@@ -92,6 +110,7 @@ export {
   escapeRegex,
   extractLabeledUrl,
   extractLabeledValue,
+  getBoldSubsection,
   getLanguageSection,
   getSelectedLanguages,
   hasCheckedConfirmation,
