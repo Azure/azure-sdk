@@ -374,4 +374,12 @@ entries:
     #### Bugs Fixed
     - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_share_sas`, `generate_file_sas`, and `ShareServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
     - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-mgmt-durabletask
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-durabletask_1.2.0b1/sdk/durabletask/azure-mgmt-durabletask/CHANGELOG.md
+  ChangelogContent: ""
 
