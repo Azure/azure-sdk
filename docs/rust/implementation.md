@@ -36,7 +36,7 @@ impl fmt::Debug for MyModel {
 
 ## Service Clients {#rust-client}
 
-Implementation details of [service clients](introduction.md#rust-client).
+Implementation details of [service clients][rust-client].
 
 ### Convenience Clients {#rust-client-convenience}
 
@@ -232,6 +232,50 @@ async fn readme(ctx: TestContext) -> Result<()> {
 Now you can record and later play back your tests. See our [contribution guide for integration tests](https://github.com/Azure/azure-sdk-for-rust/blob/main/CONTRIBUTING.md#integration-tests) for details.
 
 For a complete example, see pull request [Azure/azure-sdk-for-rust#3337](https://github.com/Azure/azure-sdk-for-rust/pull/3337/files).
+
+## Enumerations {#rust-enums}
+
+Implementation details of [enumerations][rust-enums].
+
+{% include requirement/SHOULD id="rust-enum-generated-attributes" %} define `#[serde(rename = "name")]` on each known variant in generated enums when deriving serialization traits.
+
+{% include requirement/MAY id="rust-enum-convenience-attributes" %} use `#[serde(rename_all = "camelCase")]`, or the appropriate casing, for convenience layers.
+
+{% include requirement/MUST id="rust-enum-extensible-untagged" %} attribute `UnknownValue` with `#[serde(untagged)]` when deriving serialization traits for extensible value enums.
+
+Manually implemented serialization traits need not use serde attributes, but must preserve the same wire representation.
+
+### Polymorphic Types {#rust-enum-unions}
+
+{% include requirement/MUST id="rust-enum-unions-serde-kind" %} tag model structs with the discriminator property and their discriminator value.
+
+{% include requirement/MUST id="rust-enum-unions-serde-kind-unknown" %} attribute the unknown variant with `#[serde(untagged)]` when deriving deserialization for a tagged model union.
+
+{% include requirement/MUST id="rust-enum-unions-serde" %} preserve the discriminator and model fields when serializing each union variant.
+
+For the [polymorphic type example][rust-enum-unions], serialization can delegate to the model structs and a crate-private helper for the unknown variant. Emitting the helper as a model ensures any required field serialization helpers are also generated.
+
+```rust
+#[derive(serde::Serialize)]
+pub(crate) struct UnknownDogKind<'a> {
+    pub kind: &'a Option<DogKind>,
+    pub weight: &'a Option<i32>,
+}
+
+impl serde::Serialize for Dog {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        match self {
+            Dog::Golden(golden) => serde::Serialize::serialize(golden, serializer),
+            Dog::UnknownKind { kind, weight } => {
+                serde::Serialize::serialize(&UnknownDogKind { kind, weight }, serializer)
+            }
+        }
+    }
+}
+```
 
 ## Errors {#rust-errors}
 
