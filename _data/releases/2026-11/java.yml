@@ -196,4 +196,78 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-containerservice_2.65.0/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure.resourcemanager+azure-resourcemanager-keyvault
+  Version: 2.56.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-keyvault_2.56.0/sdk/keyvault/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-ai-projects
+  Version: 2.8.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.8.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed typed asynchronous list operations to forward the page-size hint supplied through `PagedFlux.byPage(...)`,
+    including when resuming from a continuation token, instead of ignoring it.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.8.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.8.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed typed asynchronous list operations to forward the page-size hint supplied through `PagedFlux.byPage(...)`,
+    including when resuming from a continuation token, instead of ignoring it.
+
+    #### Features Added
+
+    - Added experimental OpenTelemetry GenAI tracing and metrics for agent-version creation and Azure response operations,
+    including synchronous, asynchronous, streaming, and raw-response methods. Instrumentation emits `create_agent`,
+    `chat`, and `invoke_agent` spans, plus `gen_ai.client.operation.duration` and `gen_ai.client.token.usage` metrics.
+    Set `AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING=true` to enable it and configure tracing and metrics per client through
+    `AgentsClientBuilder.clientOptions(...)` using `TracingOptions` and `MetricsOptions`. Message content capture is
+    disabled by default; enable it with `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true`.
+    `AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED` remains supported as a fallback when the newer setting is unset.
+    - Added tracing samples for custom OpenTelemetry configuration, console export, and Azure Monitor export.
+    - Added preview Microsoft Copilot harness and built-in toolset support for prompt agents through
+    `MicrosoftCopilotHarness`, `MicrosoftCopilotToolsetPreview`, and related configuration types.
+    `AgentsClientBuilder.allowPreview(true)` and beta agent clients include the `MicrosoftCopilot=V1Preview` feature
+    opt-in. The legacy GitHub Copilot types remain available for compatibility.
+
+    #### Breaking Changes
+
+    - Flattened the preview voice response models. Removed `VoiceResponseBase` and `VoiceAgentRealtimeResponseBase`;
+    use `VoiceResponse` and `VoiceAgentRealtimeResponse` directly. Response properties and typed token-limit accessors
+    are now declared on those concrete models.
+    - Renamed `VoiceResponseBaseObject` to `VoiceResponseObjectType` and replaced `getObject()` with `getObjectType()`
+    on `VoiceResponse` and `VoiceAgentRealtimeResponse`. The JSON property remains `object`.
+    - Renamed the preview Teams Phone binding models from `CreateTeamsPhoneExtensionTelephonyBindingInput`,
+    `TeamsPhoneExtensionTelephonyBinding`, and `TeamsPhoneExtensionTelephonyBindingListItem` to
+    `CreateTeamsPhoneExtensibilityTelephonyBindingInput`, `TeamsPhoneExtensibilityTelephonyBinding`, and
+    `TeamsPhoneExtensibilityTelephonyBindingListItem`, respectively.
+    - Renamed `TelephonyProvider.TEAMS_PHONE_EXTENSION` and
+    `TelephonyCallLifecycleEventSource.TEAMS_PHONE_EXTENSION` to `TEAMS_PHONE_EXTENSIBILITY`.
+    Their serialized value changed from `teams_phone_extension` to `teams_phone_extensibility`.
+  GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-edgeactions
+  Version: 1.1.0
+  DisplayName: Resource Management - Edge Actions
+  ServiceName: Edge Actions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-edgeactions_1.1.0/sdk/edgeactions/azure-resourcemanager-edgeactions/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
