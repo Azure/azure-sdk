@@ -2252,7 +2252,7 @@ entries:
     #### Breaking Changes
 
     - Updated distributed traces and metrics to follow OpenTelemetry semantic conventions 1.27.0.
-    Please refer to [OpenTelemetry messaging semantic conventions](https://github.com/open-telemetry/semantic-conventions/tree/main/docs/messaging) for more details.
+    Please refer to [OpenTelemetry messaging semantic conventions](https://github.com/open-telemetry/semantic-conventions/tree/v1.27.0/docs/messaging) for more details.
     ([#38899](https://github.com/Azure/azure-sdk-for-java/pull/38899))
     - Span names now follow `{operaiton name} {entity name}` pattern
     - Updated metric names and attributes

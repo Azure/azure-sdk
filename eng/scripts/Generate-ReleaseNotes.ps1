@@ -82,6 +82,38 @@ function GetReleaseNoteEntryContent($packageName, $packageVersion, $changelogCon
   return $releaseEntryContent
 }
 
+function ConvertToReleaseTagLinks([string]$content, [string]$changelogBlobLink)
+{
+  if (!$content) {
+    return $content
+  }
+
+  $release = [regex]::Match(
+    $changelogBlobLink,
+    '^https://github\.com/(?<repository>[^/]+/[^/]+)/(?:tree|blob)/(?<tag>.+?)/(?:sdk/|CHANGELOG\.md(?:[?#]|$))'
+  )
+  if (!$release.Success -or $release.Groups["tag"].Value -match '^(?:refs/heads/)?(?:main|master)(?:/|$)') {
+    LogWarning "Cannot pin release-note links because the changelog does not identify a release tag: $changelogBlobLink"
+    return $content
+  }
+
+  $repository = [regex]::Escape($release.Groups["repository"].Value)
+  $releaseTag = $release.Groups["tag"].Value
+  $boundary = '(?=[/?#\s"''`<>()\],;]|$)'
+  $patterns = @(
+    "(?<![\w.@-])(?<prefix>(?:(?:https?:)?//)?github\.com/$repository/(?:blob|tree|raw|blame|commits?)/)(?:refs/heads/)?(?:main|master)$boundary",
+    "(?<![\w.@-])(?<prefix>(?:(?:https?:)?//)?(?:raw\.githubusercontent\.com|raw\.github\.com)/$repository/)(?:refs/heads/)?(?:main|master)$boundary"
+  )
+  $replacement = [System.Text.RegularExpressions.MatchEvaluator]{
+    param($match)
+    return $match.Groups["prefix"].Value + $releaseTag
+  }
+  foreach ($pattern in $patterns) {
+    $content = [regex]::Replace($content, $pattern, $replacement, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+  }
+  return $content
+}
+
 function GetReleaseNotesData($packageName, $packageVersion, $packageMetadata)
 {
   $releaseEntryContent = ""
@@ -111,6 +143,9 @@ function GetReleaseNotesData($packageName, $packageVersion, $packageMetadata)
   }
 
   $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($packageVersion)
+  $releaseEntryContent = ConvertToReleaseTagLinks `
+    -content ($releaseEntryContent | % { $_.Trim() } | Out-String).Trim() `
+    -changelogBlobLink $changelogBlobLink
 
   $entry = [ordered]@{
     Name = $packageName
@@ -120,7 +155,7 @@ function GetReleaseNotesData($packageName, $packageVersion, $packageMetadata)
     VersionType = $packageSemVer.VersionType
     Hidden = $false
     ChangelogUrl = $changelogBlobLink
-    ChangelogContent = ($releaseEntryContent | % { $_.Trim() } | Out-String).Trim()
+    ChangelogContent = $releaseEntryContent
   }
 
   if (!$entry.DisplayName)

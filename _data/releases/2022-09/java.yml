@@ -158,7 +158,7 @@ entries:
   VersionType: Beta
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-rooms_1.0.0-beta.2/sdk/communication/azure-communication-rooms/CHANGELOG.md
-  ChangelogContent: Azure Communication Services for rooms. For more information, please see the [README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-rooms/README.md) and [documentation](https://docs.microsoft.com/azure/communication-services/concepts/rooms/room-concept).
+  ChangelogContent: Azure Communication Services for rooms. For more information, please see the [README](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-rooms_1.0.0-beta.2/sdk/communication/azure-communication-rooms/README.md) and [documentation](https://docs.microsoft.com/azure/communication-services/concepts/rooms/room-concept).
   GroupId: com.azure
 - Name: azure-communication-rooms
   Version: 1.0.0-beta.1
@@ -946,7 +946,7 @@ entries:
     #### Features Added
 
     - Added AMQP-level metrics to reporting number of sent batches, duration of network call, number of received message and consumer lag as well as
-    error counters. Metrics are off by default and can be enabled with [azure-core-metrics-opentelemetry](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-metrics-opentelemetry/README.md)
+    error counters. Metrics are off by default and can be enabled with [azure-core-metrics-opentelemetry](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_2.7.1/sdk/core/azure-core-metrics-opentelemetry/README.md)
     plugin. ([#30583](https://github.com/Azure/azure-sdk-for-java/pull/30583))
   GroupId: com.azure
 - Name: azure-core-management

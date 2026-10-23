@@ -859,7 +859,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.1.0/sdk/core/abort-controller/CHANGELOG.md
   ChangelogContent: |-
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.1.0/SUPPORT.md) for more details.
 - Name: '@azure/core-rest-pipeline'
   Version: 1.8.1
   DisplayName: Core - Client - Core Rest Pipeline
@@ -1187,7 +1187,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - Migrated from using `@azure/core-http` to depend on newer version of Core libraries `@azure/core-client` and `@azure/core-rest-pipeline` which bring better maintainability and performance. [#20766](https://github.com/Azure/azure-sdk-for-js/pull/20766). See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
+    - Migrated from using `@azure/core-http` to depend on newer version of Core libraries `@azure/core-client` and `@azure/core-rest-pipeline` which bring better maintainability and performance. [#20766](https://github.com/Azure/azure-sdk-for-js/pull/20766). See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/@azure/app-configuration_1.4.0-beta.1/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
     - As part of the migration to `@azure/core-client` and `@azure/core-rest-pipeline`,
     through the operation options, the methods such as `AppConfgurationClient#addConfigurationSetting` can take a callback (`onResponse`) to access the HTTP response. See [Change to the \_response property](https://github.com/Azure/autorest.typescript/wiki/%60core-http%60-dependency-migration-to-%60core-client%60-%60core-rest-pipeline%60#change-to-the-_response-property).
 

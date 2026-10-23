@@ -50,7 +50,7 @@ entries:
 
     #### Features Added
 
-    - Added support for distributed tracing macros in Azure service clients, including convenience macros `#[tracing::new]`, `#[tracing::client]` and `#[tracing::function]` to reduce implementation details. See [distributed tracing in rust](https://github.com/Azure/azure-sdk-for-rust/blob/main/doc/distributed-tracing-for-rust-service-clients.md) for more information on distributed tracing.
+    - Added support for distributed tracing macros in Azure service clients, including convenience macros `#[tracing::new]`, `#[tracing::client]` and `#[tracing::function]` to reduce implementation details. See [distributed tracing in rust](https://github.com/Azure/azure-sdk-for-rust/blob/azure_core@0.27.0/doc/distributed-tracing-for-rust-service-clients.md) for more information on distributed tracing.
 - Name: azure_core_macros
   Version: 0.1.0
   DisplayName: Core - Macros

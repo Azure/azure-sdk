@@ -6,6 +6,4 @@ sidebar: releases_sidebar
 repository: Azure/azure-sdk-for-c
 ---
 
-The Azure SDK team is pleased to make available the December 2021 client library release.
-
-No packaged released this month yet.
+{% include releases/notes/common.md language="c" date="2021-12" displayDate="December 2021" %}

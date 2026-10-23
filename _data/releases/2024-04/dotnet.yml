@@ -37,8 +37,8 @@ entries:
     and [System.Net.Http](https://learn.microsoft.com/en-in/dotnet/core/diagnostics/built-in-metrics-system-net#systemnethttp).
     * For environments targetting `.NET 7.0` and below, distro uses ASP.NET Core and HTTP Client Instrumentation.
     Detailed metrics information can be found in the
-    [ASP.NET Core Instrumentation](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#list-of-metrics-produced)
-    and [HTTP Client Instrumentation](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md#list-of-metrics-produced)
+    [ASP.NET Core Instrumentation](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNetCore-1.9.0/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#list-of-metrics-produced)
+    and [HTTP Client Instrumentation](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Http-1.9.0/src/OpenTelemetry.Instrumentation.Http/README.md#list-of-metrics-produced)
     documentation.
     ([#42307](https://github.com/Azure/azure-sdk-for-net/pull/42307))
 
@@ -733,7 +733,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.11.0/sdk/identity/Azure.Identity/CHANGELOG.md
   ChangelogContent: |-
     #### Breaking Changes
-    - `DefaultAzureCredential` now sends a probe request with no retries for IMDS managed identity environments to avoid excessive retry delays when the IMDS endpoint is not available. This should improve credential chain resolution for local development scenarios. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#1110).
+    - `DefaultAzureCredential` now sends a probe request with no retries for IMDS managed identity environments to avoid excessive retry delays when the IMDS endpoint is not available. This should improve credential chain resolution for local development scenarios. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.11.0/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#1110).
 
     #### Bugs Fixed
     - `AzurePowerShellCredential` now handles the case where it falls back to legacy PowerShell without relying on the error message string.
