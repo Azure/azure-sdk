@@ -1,4 +1,10 @@
-{% assign allPackages = site.data.releases.[include.date].[include.language].entries %}
+{% assign releaseData = site.data.releases.[include.date].[include.language] %}
+{% if releaseData.content %}
+{% capture releaseReferences %}{% include refs.md %}{% endcapture %}
+{% assign releaseMonth = page.date | date: "%B %Y" %}
+{{ releaseData.content | replace: "%%RELEASE_REFERENCES%%", releaseReferences | replace: "%%SITE_BASEURL%%", site.baseurl | replace: "%%PAGE_MONTH%%", releaseMonth }}
+{% else %}
+{% assign allPackages = releaseData.entries %}
 {% if allPackages %}
 The Azure SDK team is pleased to announce our {{ include.displayDate }} client library releases.
 
@@ -10,4 +16,5 @@ The Azure SDK team is pleased to announce our {{ include.displayDate }} client l
 
 {% else %}
 No packages released this month.
+{% endif %}
 {% endif %}

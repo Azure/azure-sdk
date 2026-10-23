@@ -7,7 +7,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_1.4.0/sdk/identity/identity/CHANGELOG.md
   ChangelogContent: |-
-    - With this release, we drop support for Node.js versions that have reached the end of life, like Node.js 8. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With this release, we drop support for Node.js versions that have reached the end of life, like Node.js 8. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/aeafc4b6e4697fa9720b3fb2734b9243f7beeeda/SUPPORT.md) for more details.
     - Updated the default timeout of the first request of the IMDS MSI from half a second to three seconds to compensate for the slowness caused by `node-fetch` for initial requests in specific environments, like Kubernetes pods.
     - Upgraded `@azure/core-http` to version `^2.0.0`, and `@azure/core-tracing` to version `1.0.0-preview.12`.
 - Name: '@azure/cosmos'
@@ -19,7 +19,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.12.0/sdk/cosmosdb/cosmos/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.12.0/SUPPORT.md) for more details.
     - Added background refresher for endpoints, and new `ConnectionPolicy` options. Refreshing defaults to true, and the default refresh rate is every 5 minutes.
     ```js
     const client = new CosmosClient({
@@ -90,10 +90,10 @@ entries:
     #### Features Added
 
     - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our
-    [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.4.0/SUPPORT.md) for more details.
 
     - `EventGridPublisherClient` now supports Azure Active Directory (AAD) for authentication. When constructing an `EventGridPublisherClient` you may now pass an instance
-    of a `TokenCredential` as the credential. See the readme for [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) to learn
+    of a `TokenCredential` as the credential. See the readme for [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.4.0/sdk/identity/identity) to learn
     more about using Azure Active Directory for authentication.
 
     - Added a "metadata" property for the following system events:
@@ -131,7 +131,7 @@ entries:
   VersionType: GA
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_1.5.0/sdk/identity/identity/CHANGELOG.md
-  ChangelogContent: "- With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods."
+  ChangelogContent: "- With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_1.5.0/sdk/core/core-https/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods."
 - Name: '@azure/cosmos'
   Version: 3.12.2
   DisplayName: Cosmos DB
@@ -164,7 +164,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_1.1.0/sdk/communication/communication-common/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.1.0/SUPPORT.md) for more details.
 - Name: '@azure/cosmos'
   Version: 3.12.3
   DisplayName: Cosmos DB
@@ -194,7 +194,7 @@ entries:
     - Added support for listing deleted root blobs with versions `ContainerClient.listBlobFlat()` and `ContainerClient.listBlobHierarchy()`.
     - Added support for OAuth copy sources for synchronous copy operations.
     - Added support for Parquet as an input format in `BlockBlobClient.query()`.
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.8.0-beta.1/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
 - Name: '@azure/storage-file-share'
   Version: 12.8.0-beta.1
@@ -209,7 +209,7 @@ entries:
     - Added support for service version 2020-10-02.
     - Added support for including additional information in `ShareDirectoryClient.listFilesAndDirectories()`.
     - Added support for OAuth in copying source in `ShareFileClient.uploadRangeFromURL()` when source is a Blob.
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.8.0-beta.1/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
 - Name: '@azure/storage-file-datalake'
   Version: 12.7.0-beta.1
@@ -223,7 +223,7 @@ entries:
 
     - Added support for service version 2020-10-02.
     - Added support for Parquet as an input format in `DataLakeFileClient.query()`.
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.7.0-beta.1/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
 - Name: '@azure/app-configuration'
   Version: 1.3.0
@@ -255,7 +255,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-secrets_4.3.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features.
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/keyvault-certificates'
@@ -268,7 +268,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-certificates_4.3.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features.
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/keyvault-admin'
@@ -281,7 +281,7 @@ entries:
   ChangelogContent: |-
     #### New Features
 
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-admin_4.1.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 to produce smaller bundles and use more native platform features.
     - Updated our internal core package dependencies to their latest versions to add support for Opentelemetry 1.0.0, which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/keyvault-keys'
@@ -294,7 +294,7 @@ entries:
   ChangelogContent: |-
     #### New Features
 
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-keys_4.3.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 to produce smaller bundles and use more native platform features.
     - Updated our internal core package dependencies to their latest versions to add support for Opentelemetry 1.0.0, which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/arm-compute'
@@ -485,7 +485,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.7.0/sdk/storage/storage-file-share/CHANGELOG.md
   ChangelogContent: |-
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.7.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/web-pubsub-express'
@@ -521,7 +521,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.7.0/sdk/storage/storage-blob/CHANGELOG.md
   ChangelogContent: |-
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.7.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/storage-file-datalake'
@@ -532,7 +532,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.6.0/sdk/storage/storage-file-datalake/CHANGELOG.md
   ChangelogContent: |-
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.6.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/storage-queue'
@@ -543,7 +543,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.6.0/sdk/storage/storage-queue/CHANGELOG.md
   ChangelogContent: |-
-    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-queue_12.6.0/SUPPORT.md) for more details.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 - Name: '@azure/arm-features'
@@ -735,7 +735,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
   ChangelogContent: |-
-    - Move generated client to use @azure/core-rest-pipeline. For more information about Core V2, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#core-v1-and-core-v2).
+    - Move generated client to use @azure/core-rest-pipeline. For more information about Core V2, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0-beta.1/sdk/core#core-v1-and-core-v2).
 
     - With this change, the response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag.
 
@@ -770,7 +770,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.2/sdk/communication/communication-network-traversal/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-network-traversal_1.0.0-beta.2/SUPPORT.md) for more details.
 
     #### Breaking Changes
     - Renamed `CommunicationTurnServer` to `CommunicationIceServer`
@@ -787,7 +787,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-chat_1.1.0-beta.1/SUPPORT.md) for more details.
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Added support to add `metadata` for `message`
@@ -911,7 +911,7 @@ entries:
 
     #### Bugs Fixed
 
-    - With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods.
+    - With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.5/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods.
 - Name: '@azure/ai-form-recognizer'
   Version: 3.2.0
   DisplayName: Form Recognizer
@@ -926,7 +926,7 @@ entries:
 
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-form-recognizer_3.2.0/SUPPORT.md) for more details.
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
     - Changed TS compilation target to
     ES2017 in order to produce smaller bundles and use more native platform features

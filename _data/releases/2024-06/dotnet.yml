@@ -259,7 +259,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    * All three signals (Traces, Metrics, and Logs) now support OpenTelemetry's ["service.version"](https://github.com/open-telemetry/semantic-conventions/tree/main/docs/resource#service) in Resource attributes.
+    * All three signals (Traces, Metrics, and Logs) now support OpenTelemetry's ["service.version"](https://github.com/open-telemetry/semantic-conventions/tree/v1.26.0/docs/resource#service) in Resource attributes.
     This is mapped as [Application Version](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#application-version) in Application Insights.
     ([#42174](https://github.com/Azure/azure-sdk-for-net/pull/42174))
     * Turned off internal spans and logs in exporter HTTP pipeline
@@ -563,7 +563,7 @@ entries:
 
     #### Breaking Changes
 
-    Given the nature of this update, breaking changes are extensive. Please see the README and the [OpenAI library README](https://github.com/openai/openai-dotnet/blob/master/README.md) for usage details. OpenAI's library carries forward many of the same design concepts as the Azure.AI.OpenAI library used as a standalone library, but considerable improvements have been made to the surface that will require significant code adjustments.
+    Given the nature of this update, breaking changes are extensive. Please see the README and the [OpenAI library README](https://github.com/openai/openai-dotnet/blob/OpenAI_2.0.0-beta.7/README.md) for usage details. OpenAI's library carries forward many of the same design concepts as the Azure.AI.OpenAI library used as a standalone library, but considerable improvements have been made to the surface that will require significant code adjustments.
 - Name: Azure.Identity
   Version: 1.11.4
   DisplayName: Identity

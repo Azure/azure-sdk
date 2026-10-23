@@ -58,7 +58,7 @@ entries:
 
     #### Breaking Changes
 
-    - Updated @azure/core-tracing to version `1.0.0-preview.12`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+    - Updated @azure/core-tracing to version `1.0.0-preview.12`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.1.0/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 - Name: '@azure/core-lro'
   Version: 2.0.0
   DisplayName: Core - LRO
@@ -97,7 +97,7 @@ entries:
 
     #### Breaking Changes
 
-    - Updated @azure/core-tracing to version `1.0.0-preview.12`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+    - Updated @azure/core-tracing to version `1.0.0-preview.12`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-http_2.0.0/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 
     #### Fixed
 
@@ -168,7 +168,7 @@ entries:
   VersionType: GA
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.2.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
-  ChangelogContent: "#### Features Added\r\n\r\n- Special configuration settings - feature flag and secret reference are now supported. \U0001F389\r\n\r\n- For types, use `ConfigurationSetting<FeatureFlagValue>` and `ConfigurationSetting<SecretReferenceValue>`.\r\n- Use `parseFeatureFlag` and `parseSecretReference` methods to parse the configuration settings into feature flag and secret reference respectively.\r\n\r\n- With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details."
+  ChangelogContent: "#### Features Added\r\n\r\n- Special configuration settings - feature flag and secret reference are now supported. \U0001F389\r\n\r\n- For types, use `ConfigurationSetting<FeatureFlagValue>` and `ConfigurationSetting<SecretReferenceValue>`.\r\n- Use `parseFeatureFlag` and `parseSecretReference` methods to parse the configuration settings into feature flag and secret reference respectively.\r\n\r\n- With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/app-configuration_1.2.0/SUPPORT.md) for more details."
 - Name: '@azure/ai-text-analytics'
   Version: 5.1.0
   DisplayName: Text Analytics
@@ -233,7 +233,7 @@ entries:
     - Removed the protected method `getAzureCliAccessToken` from the public API of the `AzureCliCredential`. While it will continue to be available as part of v1, we won't be supporting this method as part of v2's public API.
 
     #### Features Added
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.4/SUPPORT.md) for more details.
     - Introduced an extension API through a top-level method `useIdentityExtension`. The function accepts an "extension" as an argument, which is a function accepting a `context`. The extension context is an internal part of the Azure Identity API, so it has an `unknown` type. Two new packages are designed to be used with this API:
     - `@azure/identity-vscode`, which provides the dependencies of `VisualStudioCodeCredential` and enables it (see more below).
     - `@azure/identity-cache-persistence`, which provides persistent token caching (same as was available in version 2.0.0-beta.2, but now provided through a secondary extension package).
@@ -264,7 +264,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-keys_4.3.0-beta.1/SUPPORT.md) for more details.
     - Added support for `KeyClient.getRandomBytes` which, when connected to a managed HSM, can be used to generate a byte array of a given length with random values.
     - Updated the service version to 7.3-preview.
 
@@ -281,7 +281,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-admin_4.1.0-beta.1/SUPPORT.md) for more details.
 - Name: '@azure/data-tables'
   Version: 12.1.0
   DisplayName: Tables
@@ -292,7 +292,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/data-tables_12.1.0/SUPPORT.md) for more details.
     - Support for Azure Active Directory (AAD) authorization has been added to `TableServiceClient` and `TableClient`. This enables use of `TokenCredential` credentials. Note: Only Azure Storage API endpoints currently support AAD authorization. [#15852](https://github.com/Azure/azure-sdk-for-js/pull/15852)
 - Name: '@azure/search-documents'
   Version: 11.3.0-beta.1
@@ -302,7 +302,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.1/sdk/search/search-documents/CHANGELOG.md
   ChangelogContent: |-
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/search-documents_11.3.0-beta.1/SUPPORT.md) for more details.
 
     - Regenerated the search SDK with the latest swaggers that includes the following changes:
 
@@ -324,7 +324,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/service-bus_7.3.0/SUPPORT.md) for more details.
 
     #### Key Bugs Fixed
 
@@ -340,7 +340,7 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/event-hubs_5.6.0/SUPPORT.md) for more details.
 
     - Adds the `contentType`, `correlationId`, and `messageId` AMQP properties as top-level fields on `EventData` and `ReceivedEventData`.
 
@@ -439,7 +439,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.12.0/sdk/cosmosdb/cosmos/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.12.0/SUPPORT.md) for more details.
     - Added background refresher for endpoints, and new `ConnectionPolicy` options. Refreshing defaults to true, and the default refresh rate is every 5 minutes.
     ```js
     const client = new CosmosClient({
@@ -550,7 +550,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_1.4.0/sdk/identity/identity/CHANGELOG.md
   ChangelogContent: |-
-    - With this release, we drop support for Node.js versions that have reached the end of life, like Node.js 8. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - With this release, we drop support for Node.js versions that have reached the end of life, like Node.js 8. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/dc88f6c899b62d63c3d98482d911218247077db9/SUPPORT.md) for more details.
     - Updated the default timeout of the first request of the IMDS MSI from half a second to three seconds to compensate for the slowness caused by `node-fetch` for initial requests in specific environments, like Kubernetes pods.
     - Upgraded `@azure/core-http` to version `^2.0.0`, and `@azure/core-tracing` to version `1.0.0-preview.12`.
 

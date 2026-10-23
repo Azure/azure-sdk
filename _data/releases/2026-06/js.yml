@@ -5,7 +5,7 @@ entries:
   ServiceName: Support
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/support/arm-support/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-support_4.0.0-beta.1/sdk/support/arm-support/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/ai-projects'
   Version: 2.2.0
@@ -136,7 +136,7 @@ entries:
   ServiceName: Data Box
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databox_6.0.0-beta.1/sdk/databox/arm-databox/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-billing'
   Version: 6.0.0-beta.1
@@ -144,7 +144,7 @@ entries:
   ServiceName: Billing
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-billing_6.0.0-beta.1/sdk/billing/arm-billing/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-containerservice'
   Version: 25.3.0-beta.1
@@ -152,7 +152,7 @@ entries:
   ServiceName: Container Service
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservice_25.3.0-beta.1/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-containerservice'
   Version: 25.2.0
@@ -160,7 +160,7 @@ entries:
   ServiceName: Container Service
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservice_25.2.0/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-authorization'
   Version: 10.0.0-beta.3
@@ -168,7 +168,7 @@ entries:
   ServiceName: Authorization
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-authorization_10.0.0-beta.3/sdk/authorization/arm-authorization/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/communication-common'
   Version: 2.4.2
@@ -199,7 +199,7 @@ entries:
   ServiceName: Traffic Manager
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/trafficmanager/arm-trafficmanager/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-trafficmanager_6.2.0-beta.1/sdk/trafficmanager/arm-trafficmanager/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-resourcesdeployments'
   Version: 1.0.0-beta.2
@@ -215,7 +215,7 @@ entries:
   ServiceName: Security
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-security_6.0.0-beta.7/sdk/security/arm-security/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/ai-voicelive'
   Version: 1.1.0-beta.1
@@ -268,7 +268,7 @@ entries:
     - Reasoning effort configuration (`ReasoningEffort`, `KnownReasoningEffort`).
     - Interim response configuration (`InterimResponseConfig`, `StaticInterimResponseConfig`, `LlmInterimResponseConfig`, triggers, and types).
     - Response `metadata` for arbitrary key-value pairs on `ResponseCreateParams` and `VoiceLiveResponse`.
-    - Distributed tracing via `@azure/core-tracing`. Spans cover the session lifecycle (`connect`, `send`, `recv`, `close`) following [GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). See the [Telemetry / Distributed Tracing](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/README.md#telemetry--distributed-tracing) section in the README and the [`samples/telemetry/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry/README.md) and [`samples/telemetry-browser/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry-browser/README.md) samples.
+    - Distributed tracing via `@azure/core-tracing`. Spans cover the session lifecycle (`connect`, `send`, `recv`, `close`) following [GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). See the [Telemetry / Distributed Tracing](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/README.md#telemetry--distributed-tracing) section in the README and the [`samples/telemetry/`](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/samples/telemetry/README.md) and [`samples/telemetry-browser/`](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/samples/telemetry-browser/README.md) samples.
     - Automatic proxy support via standard `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY` environment variables.
     - New types added in this GA release (API version `2026-04-10`):
     - Voice: `AzureAvatarVoiceSyncVoice`.
@@ -291,7 +291,7 @@ entries:
     - Reasoning effort configuration (`ReasoningEffort`, `KnownReasoningEffort`).
     - Interim response configuration (`InterimResponseConfig`, `StaticInterimResponseConfig`, `LlmInterimResponseConfig`, triggers, and types).
     - Response `metadata` for arbitrary key-value pairs on `ResponseCreateParams` and `VoiceLiveResponse`.
-    - Distributed tracing via `@azure/core-tracing`. Spans cover the session lifecycle (`connect`, `send`, `recv`, `close`) following [GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). See the [Telemetry / Distributed Tracing](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/README.md#telemetry--distributed-tracing) section in the README and the [`samples/telemetry/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry/README.md) and [`samples/telemetry-browser/`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/voicelive/ai-voicelive/samples/telemetry-browser/README.md) samples.
+    - Distributed tracing via `@azure/core-tracing`. Spans cover the session lifecycle (`connect`, `send`, `recv`, `close`) following [GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). See the [Telemetry / Distributed Tracing](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/README.md#telemetry--distributed-tracing) section in the README and the [`samples/telemetry/`](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/samples/telemetry/README.md) and [`samples/telemetry-browser/`](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-voicelive_1.0.0/sdk/voicelive/ai-voicelive/samples/telemetry-browser/README.md) samples.
     - Automatic proxy support via standard `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY` environment variables.
     - New types added in this GA release (API version `2026-04-10`):
     - Voice: `AzureAvatarVoiceSyncVoice`.
@@ -375,7 +375,7 @@ entries:
   ServiceName: Log Analytics
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-operationalinsights_11.0.0-beta.1/sdk/operationalinsights/arm-operationalinsights/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-serialconsole'
   Version: 3.0.0-beta.1
@@ -383,7 +383,7 @@ entries:
   ServiceName: Serial Console
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/serialconsole/arm-serialconsole/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-serialconsole_3.0.0-beta.1/sdk/serialconsole/arm-serialconsole/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-billingbenefits'
   Version: 2.0.0-beta.1
@@ -407,7 +407,7 @@ entries:
   ServiceName: Managed Service Identity
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/msi/arm-msi/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-msi_2.3.0-beta.1/sdk/msi/arm-msi/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/monitor-opentelemetry'
   Version: 1.18.1
@@ -480,7 +480,7 @@ entries:
   ServiceName: Hana on Azure
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hanaonazure/arm-hanaonazure/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hanaonazure_4.0.0-beta.5/sdk/hanaonazure/arm-hanaonazure/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-dns'
   Version: 6.0.0-beta.1
@@ -488,7 +488,7 @@ entries:
   ServiceName: DNS
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dns/arm-dns/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dns_6.0.0-beta.1/sdk/dns/arm-dns/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-resources-subscriptions'
   Version: 3.0.0-beta.1
@@ -585,7 +585,7 @@ entries:
   ServiceName: Power BI Dedicated
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-powerbidedicated_5.0.0-beta.1/sdk/powerbidedicated/arm-powerbidedicated/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/storage-queue'
   Version: 12.30.0
@@ -633,7 +633,7 @@ entries:
   ServiceName: Resource Health
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcehealth_5.0.0-beta.1/sdk/resourcehealth/arm-resourcehealth/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-selfhelp'
   Version: 2.0.0-beta.7
@@ -649,7 +649,7 @@ entries:
   ServiceName: Redis
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-rediscache_9.0.0-beta.1/sdk/redis/arm-rediscache/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/playwright'
   Version: 1.1.6
@@ -683,7 +683,7 @@ entries:
   ServiceName: Subscriptions
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/subscription/arm-subscriptions/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-subscriptions_7.0.0-beta.1/sdk/subscription/arm-subscriptions/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/storage-blob'
   Version: 12.32.0
@@ -715,7 +715,7 @@ entries:
   ServiceName: Peering
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-peering_2.2.0-beta.1/sdk/peering/arm-peering/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-storage'
   Version: 20.0.0
@@ -723,7 +723,7 @@ entries:
   ServiceName: Storage
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storage_20.0.0/sdk/storage/arm-storage/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-managementgroups'
   Version: 3.0.0-beta.1
@@ -731,7 +731,7 @@ entries:
   ServiceName: Management Groups
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managementgroups/arm-managementgroups/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-managementgroups_3.0.0-beta.1/sdk/managementgroups/arm-managementgroups/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/keyvault-certificates'
   Version: 4.11.0-beta.1
@@ -785,7 +785,7 @@ entries:
   ServiceName: Application Insights
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appinsights_5.0.0-beta.9/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-guestconfiguration'
   Version: 1.0.0-beta.3
@@ -820,7 +820,7 @@ entries:
   ServiceName: HDInsight
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hdinsight_2.0.0-beta.1/sdk/hdinsight/arm-hdinsight/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-advisor'
   Version: 4.0.0-beta.1
@@ -828,7 +828,7 @@ entries:
   ServiceName: Advisor
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-advisor_4.0.0-beta.1/sdk/advisor/arm-advisor/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-storagesync'
   Version: 10.0.0-beta.1
@@ -836,7 +836,7 @@ entries:
   ServiceName: Storage
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagesync/arm-storagesync/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagesync_10.0.0-beta.1/sdk/storagesync/arm-storagesync/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-resourcesdeploymentstacks'
   Version: 2.0.0
@@ -852,7 +852,7 @@ entries:
   ServiceName: Notification Hubs
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs/arm-notificationhubs/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-notificationhubs_3.0.0-beta.3/sdk/notificationhubs/arm-notificationhubs/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure-rest/core-client'
   Version: 2.6.1
@@ -871,7 +871,7 @@ entries:
   ServiceName: Cognitive Services
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cognitiveservices_9.0.0-beta.2/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-cognitiveservices'
   Version: 9.0.0-beta.1
@@ -879,7 +879,7 @@ entries:
   ServiceName: Cognitive Services
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cognitiveservices_9.0.0-beta.1/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/monitor-opentelemetry-exporter'
   Version: 1.0.0-beta.42
@@ -945,7 +945,7 @@ entries:
   ServiceName: Resources
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources_8.0.0-beta.1/sdk/resources/arm-resources/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-devhub'
   Version: 1.0.0-beta.5
@@ -961,7 +961,7 @@ entries:
   ServiceName: IoT
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iothub_7.0.0-beta.2/sdk/iothub/arm-iothub/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-storagecache'
   Version: 9.0.0-beta.1
@@ -969,7 +969,7 @@ entries:
   ServiceName: Storage
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagecache_9.0.0-beta.1/sdk/storagecache/arm-storagecache/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-containerservice'
   Version: 25.3.0
@@ -977,7 +977,7 @@ entries:
   ServiceName: Container Service
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservice_25.3.0/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-costmanagement'
   Version: 1.0.0-beta.3
@@ -993,7 +993,7 @@ entries:
   ServiceName: Reservations
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-reservations_10.0.0-beta.1/sdk/reservations/arm-reservations/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/keyvault-admin'
   Version: 4.7.2
@@ -1012,7 +1012,7 @@ entries:
   ServiceName: API Management
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-apimanagement_11.0.0-beta.1/sdk/apimanagement/arm-apimanagement/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-domainservices'
   Version: 5.0.0-beta.1
@@ -1020,7 +1020,7 @@ entries:
   ServiceName: Domain Services
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/domainservices/arm-domainservices/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-domainservices_5.0.0-beta.1/sdk/domainservices/arm-domainservices/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-databricks'
   Version: 4.0.0-beta.1
@@ -1028,7 +1028,7 @@ entries:
   ServiceName: Databricks
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databricks_4.0.0-beta.1/sdk/databricks/arm-databricks/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/keyvault-keys'
   Version: 4.10.2
@@ -1051,7 +1051,7 @@ entries:
   ServiceName: App Service
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appservice_19.0.0/sdk/appservice/arm-appservice/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-hybridcompute'
   Version: 5.0.0-beta.2
@@ -1075,7 +1075,7 @@ entries:
   ServiceName: Container Service
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservice_25.4.0-beta.1/sdk/containerservice/arm-containerservice/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-privatedns'
   Version: 4.0.0-beta.1
@@ -1083,7 +1083,7 @@ entries:
   ServiceName: Private DNS
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-privatedns_4.0.0-beta.1/sdk/privatedns/arm-privatedns/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-newrelicobservability'
   Version: 2.0.0-beta.2
@@ -1131,7 +1131,7 @@ entries:
   ServiceName: SignalR
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/signalr/arm-signalr/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-signalr_6.0.0-beta.3/sdk/signalr/arm-signalr/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-chaos'
   Version: 2.1.0-beta.1
@@ -1195,7 +1195,7 @@ entries:
   ServiceName: Resource Graph
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcegraph_5.0.0-beta.5/sdk/resourcegraph/arm-resourcegraph/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/arm-dnsresolver'
   Version: 2.0.0-beta.2
@@ -1238,7 +1238,7 @@ entries:
   ServiceName: SQL Virtual Machine
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-sqlvirtualmachine_5.0.0-beta.10/sdk/sqlvirtualmachine/arm-sqlvirtualmachine/CHANGELOG.md
   ChangelogContent: ""
 - Name: '@azure/planetarycomputer'
   Version: 1.0.0-beta.1

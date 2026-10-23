@@ -21,6 +21,33 @@ Each release cycle, we produce release notes for every language. This process is
 
 Release notes are part of the release and must be ready for final edit by the "Code Complete" date.
 
+## Archived release pages
+
+Dated language pages, including the early previews and Embedded C releases, use the
+`releases/notes/common.md` include. Keep their existing filenames, frontmatter, and
+permalinks when updating an archive.
+When a heading contains a URL, preserve its original fragment ID while pinning
+that URL to a release. GFM's numeric fragment IDs may require an explicit HTML
+heading.
+
+Most release data uses the `entries` format described above. Older releases with
+custom introductions, installation instructions, or changelog formatting instead
+preserve their original Markdown in a `content` block in the corresponding dated
+YAML file. The shared include expands these placeholders without evaluating
+arbitrary Liquid in the data:
+
+- `%%RELEASE_REFERENCES%%` includes the shared reference-link definitions.
+- `%%SITE_BASEURL%%` preserves the configured site base URL.
+- `%%PAGE_MONTH%%` preserves the original `page.date` month formatting.
+
+Source, sample, and changelog links in dated release notes should identify the
+package's repository release tag, not a moving `main` or `master` branch. For links
+to another repository, use the applicable dependency release tag. If no applicable
+tag exists, use a verified historical commit SHA. Report links whose repositories
+or historical targets are inaccessible rather than inventing a tag or SHA.
+Automation pins links within the package's own repository; external references
+still need review by the release owner.
+
 ## What's in a release note?
 
 The release notes consist of four sections:

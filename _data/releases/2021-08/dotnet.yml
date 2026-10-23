@@ -125,7 +125,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - Added support for [RequestOptions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md#using-requestoptions-to-customize-behavior) on protocol methods.
+    - Added support for [RequestOptions](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub_1.0.0-beta.2/sdk/core/Azure.Core/samples/ProtocolMethods.md#using-requestoptions-to-customize-behavior) on protocol methods.
     - Added support for API management with `ReverseProxyEndpoint` option. https://github.com/Azure/azure-webpubsub/issues/194 describes how to integrate with the API Management service.
     - Removed dependency on `System.IdentityModel.Tokens.Jwt`.
 
@@ -424,7 +424,7 @@ entries:
     - Enhanced the documentation of some `SearchOptions` properties by adding links to REST docs - https://github.com/Azure/azure-sdk-for-net/issues/22808
 
     #### Features Added
-    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `SearchClient`, `SearchIndexClient` or a `SearchIndexerClient`. For example, you can get started with `new SearchClient(endpoint, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). For more details see [how to use role-based authentication in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-rbac?tabs=config-svc-portal%2Crbac-portal).
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `SearchClient`, `SearchIndexClient` or a `SearchIndexerClient`. For example, you can get started with `new SearchClient(endpoint, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.4.0-beta.2/sdk/identity/Azure.Identity/README.md). For more details see [how to use role-based authentication in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-rbac?tabs=config-svc-portal%2Crbac-portal).
 - Name: Azure.Data.AppConfiguration
   Version: 1.2.0-beta.1
   DisplayName: App Configuration
