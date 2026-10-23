@@ -414,4 +414,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgeoperator_1.0.0b1/sdk/edgeoperator/azure-mgmt-edgeoperator/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-voicelive
+  Version: 1.3.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.3.1/sdk/voicelive/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WebSocket connections now reject HTTP redirects to prevent forwarding authentication headers to redirected endpoints.
 
