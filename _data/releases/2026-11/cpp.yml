@@ -1,0 +1,14 @@
+entries:
+- Name: azure-storage-blobs
+  Version: 12.19.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.19.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed Blob Batch response parsing to reject malformed multipart responses and invalid, duplicate,
+    or incomplete response IDs.
+
