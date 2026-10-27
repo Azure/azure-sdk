@@ -490,4 +490,97 @@ entries:
     - Fixed `AzureDeveloperCliCredential` to correctly parse error messages from Azure Developer CLI v1.23.7 and later, which previously caused raw JSON to surface in `ClientAuthenticationError` instead of the underlying error text. ([#46711](https://github.com/Azure/azure-sdk-for-python/pull/46711))
     - Fixed persistent token cache isolation on macOS when using custom cache names or CAE-enabled caches. ([#49314](https://github.com/Azure/azure-sdk-for-python/pull/49314))
     - Fixed a regression in 1.26.0 where asynchronous `OnBehalfOfCredential` instances could not reuse access or refresh tokens cached by another instance with the same user assertion. Cache entries are now isolated by user assertion, allowing safe reuse across instances, including with `TokenCachePersistenceOptions`. Existing cache entries without assertion binding require a fresh token exchange. ([#49533](https://github.com/Azure/azure-sdk-for-python/pull/49533))
+- Name: azure-ai-agentserver-invocations
+  Version: 1.3.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.3.0b1/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Capture invocation-local original-subject assertions for HTTP, WebSocket and
+    typed Voice handlers. Model-header propagation is an explicit per-call opt-in.
+    - Added immutable `InputDataPart` and `ResponseOutputDataDone` for structured application data in Bridge protocol `1.0`. Existing callbacks and explicit `ResponseNone` silent completion remain application-owned.
+    - Added a standalone `/voice_conversation_engine` WebSocket route to the experimental `VoiceAgentServerHost`, reusing the existing typed Bridge event relay alongside `/invocations_ws`. Existing `invocations_ws` behavior and generic `InvocationAgentServerHost` raw WebSocket handlers are unchanged.
+    - Aligned the experimental Voice caller-interruption contract with `user.barge_in`, `UserBargeIn`, `UserBargeInCallback`, and `VoiceAgentServerHost.on_user_barge_in`, preserving playback snapshots and application-owned cancellation/history. Voice Live senders must use the same event contract.
+
+    #### Bugs Fixed
+
+    - Reject malformed platform attribution before binding HTTP context, and
+    finalize WebSocket connections with a classified error on invalid metadata.
+    - Upgrade both typed Voice WebSocket endpoints before closing with code `1011`
+    on malformed platform attribution, instead of rejecting the HTTP handshake.
+    - Apply the Invocations task-runtime switch to both typed Voice WebSocket
+    endpoints, including composed Voice/Responses hosts where Responses
+    independently enables the task manager.
+- Name: azure-ai-agentserver-core
+  Version: 2.3.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added immutable `FoundryOriginalSubject` assertions and invocation-local
+    `FoundryAgentRequestContext.original_subject` with an explicit, model-only
+    `model_attribution_headers()` helper for the proposed `x-ms-original-subject`
+    dictionary contract. The assertions do not establish identity proof or change
+    model authentication; model integration remains an explicit per-call opt-in.
+    Both the assertions class and header helper are marked experimental.
+    - Added protocol-scoped task-runtime startup requests so protocol hosts can
+    obtain scoped `TaskManager` access without mutating the process-wide
+    resilient-task switch. This prevents one protocol's enablement from
+    activating another protocol in a mixed host.
+
+    #### Bugs Fixed
+
+    - Preserve host-owned recovery callbacks and task options when loading
+    process-wide task descriptors at startup.
+    - Exclude protocol-disabled task functions before startup, periodic or inline
+    recovery can reclaim their leases or dispatch their handlers.
+    - Require explicit owning-host registration for protocol-internal recovery
+    callbacks instead of importing them into unrelated managers.
+    - Treat a persisted task function identity as authoritative before recovery
+    cleanup or reclaim. Legacy callback fallback applies only when that
+    identity is absent.
+- Name: azure-ai-agentserver-responses
+  Version: 2.4.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.4.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Preserve original-subject assertions in `PlatformContext` and the ambient
+    request context across streaming and in-process stored Responses execution.
+    - Responses hosts now request the task runtime when either
+    `resilient_background` or `steerable_conversations` is enabled. Steering-only
+    hosts receive persistent queue/cancel behavior; after a crash the interrupted
+    response is marked failed without re-running its handler, while persisted
+    queued turns may continue as new steered turns.
+
+    #### Bugs Fixed
+
+    - Classify malformed platform attribution headers and end the request span
+    before returning an error, without invoking the handler.
+    - Bind recovery callbacks and task options to their owning Responses host so
+    constructing another host cannot redirect recovered work to its handler or
+    response provider.
+    - Do not recover Responses tasks when both Responses features are disabled,
+    including when Invocations enables a shared task manager.
+    - Keep eager Responses task registration host-bound so a separate
+    Invocations-only host cannot recover another host's Responses work.
+
+    #### Breaking Changes
+
+    - Responses task-runtime activation is now protocol-scoped. The Core
+    `set_resilient_tasks_enabled` switch no longer force-enables Responses when
+    both Responses options are disabled, and Responses activation does not
+    activate another protocol in a mixed host.
 
