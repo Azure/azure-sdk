@@ -193,9 +193,10 @@ function Get-js-Packages
 
   foreach ($package in $packages)
   {
-    # If package starts with arm- and we shipped it recently because it is in the last months repo tags
-    # then treat it as a new mgmt library
-    if ($package.Package -match "^@azure/arm-(?<serviceName>.*?)(-profile.*)?$" -and $repoTags.ContainsKey($package.Package))
+    # ARM and provisioning packages with recent release tags are modern management libraries.
+    if (($package.Package -match "^@azure/arm-(?<serviceName>.*?)(-profile.*)?$" `
+         -or $package.Package -match "^@azure/provisioning-(?<serviceName>.*?)$") `
+        -and $repoTags.ContainsKey($package.Package))
     {
       $package.Type = "mgmt"
       $package.New = "true"

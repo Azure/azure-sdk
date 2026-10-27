@@ -296,7 +296,13 @@ Describe 'Package names (issue 16628)' {
         @{ Lang = 'js'; Package = '@azure/arm-resourcehealth' }
         @{ Lang = 'js'; Package = '@azure/arm-dns' }
         @{ Lang = 'js'; Package = '@azure/arm-apimanagement' }
+        @{ Lang = 'js'; Package = '@azure/arm-keyvault-profile-2020-09-01-hybrid' }
         @{ Lang = 'js'; Package = '@azure/arm-dns'; Tagged = $false; Type = ''; New = 'false' }
+        @{ Lang = 'js'; Package = '@azure/provisioning-core' }
+        @{ Lang = 'js'; Package = '@azure/provisioning-keyvault' }
+        @{ Lang = 'js'; Package = '@azure/provisioning-core'; Tagged = $false; Type = ''; New = 'false' }
+        @{ Lang = 'js'; Package = '@azure/provisioning-keyvault'; Tagged = $false; Type = ''; New = 'false' }
+        @{ Lang = 'js'; Package = '@azure/core-client'; Type = ''; New = 'false' }
         @{ Lang = 'python'; Package = 'azure-mgmt-agricultureplatform' }
         @{ Lang = 'python'; Package = 'azure-mgmt-resourcehealth' }
         @{ Lang = 'python'; Package = 'azure-mgmt-dns' }
@@ -427,6 +433,150 @@ Describe 'Package names (issue 16628)' {
       $actual | Should -HaveCount 0
       Should -Invoke GetPackageVersions -Times 1 -Exactly -Scope It
       Should -Invoke Invoke-RestMethod -Times 0 -Exactly -Scope It
+    }
+  }
+
+  Context 'JavaScript provisioning catalog updates' {
+    BeforeEach {
+      $script:jsRegistryPackages = @(
+        @{ package = @{
+          name = '@azure/provisioning-core'; version = '1.0.0-beta.1'; publisher = @{ username = 'azure-sdk' }
+        } }
+        @{ package = @{
+          name = '@azure/provisioning-keyvault'; version = '1.0.0-beta.1'; publisher = @{ username = 'azure-sdk' }
+        } }
+      )
+      $script:jsRegistryTags = @{
+        '@azure/provisioning-core' = @{ Versions = @((ToSemVer '1.0.0-beta.1' '09/28/2026')) }
+        '@azure/provisioning-keyvault' = @{ Versions = @((ToSemVer '1.0.0-beta.1' '09/28/2026')) }
+      }
+      $script:jsDistTags = @{ latest = '1.0.0-beta.1' }
+
+      Mock Invoke-RestMethod {
+        if ($Uri -match '&from=0$') { return @{ objects = $script:jsRegistryPackages } }
+        if ($Uri -match '&from=2$') { return @{ objects = @() } }
+        Deny-TestExternalCall "Unexpected npm page: $Uri"
+      } -ParameterFilter { $Uri -like 'https://registry.npmjs.com/-/v1/search?*' }
+      Mock Invoke-RestMethod {
+        return [pscustomobject]@{ 'dist-tags' = [pscustomobject]$script:jsDistTags }
+      } -ParameterFilter {
+        $Uri -in @(
+          'https://registry.npmjs.com/@azure/provisioning-core',
+          'https://registry.npmjs.com/@azure/provisioning-keyvault'
+        )
+      }
+      Mock GetPackageVersions { return $script:jsRegistryTags } -ParameterFilter { $lang -eq 'js' }
+      Mock Get-PackageListForLanguage { return ,$script:csvRows } -ParameterFilter { $lang -eq 'js' }
+      Mock Set-PackageListForLanguage { Save-TestPackageList $lang $packageList } -ParameterFilter { $lang -eq 'js' }
+    }
+
+    It 'upgrades existing classification placeholders without overwriting curated metadata' {
+      $script:csvRows = @(
+        foreach ($fixture in @(
+          @{ Package = '@azure/provisioning-core'; DisplayName = 'Provisioning'; ServiceName = 'Resource Manager'; Directory = 'core' }
+          @{ Package = '@azure/provisioning-keyvault'; DisplayName = 'Provisioning - Key Vault'; ServiceName = 'Key Vault'; Directory = 'keyvault' }
+        )) {
+          $existing = CreatePackage $fixture.Package '1.0.0-beta.1'
+          $existing.DisplayName = $fixture.DisplayName
+          $existing.ServiceName = $fixture.ServiceName
+          $existing.RepoPath = "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/$($fixture.Directory)/$($fixture.Package.Replace('@azure/', ''))"
+          $existing.MSDocs = 'https://example.test/provisioning/reference'
+          $existing.GHDocs = 'https://example.test/provisioning/api'
+          $existing.FirstPreviewDate = '09/28/2026'
+          $existing.Notes = 'Human-reviewed metadata'
+          $existing
+        }
+      )
+      $expected = @($script:csvRows | ForEach-Object {
+        $copy = $_.PSObject.Copy()
+        $copy.Type = 'mgmt'
+        $copy.New = 'true'
+        $copy
+      }) | ConvertTo-Json -Compress
+
+      Write-Latest-Versions 'js'
+      $script:csvRows = @($script:csvWrites[0].Packages | ForEach-Object { $_.PSObject.Copy() })
+      $script:jsRegistryTags.Clear()
+      Write-Latest-Versions 'js'
+
+      $script:csvWrites | Should -HaveCount 2
+      foreach ($write in $script:csvWrites) {
+        $write.Language | Should -BeExactly 'js'
+        ($write.Packages | ConvertTo-Json -Compress) | Should -BeExactly $expected
+      }
+      Should -Invoke GetPackageVersions -Times 2 -Exactly -Scope It
+      Should -Invoke Invoke-RestMethod -Times 4 -Exactly -Scope It
+    }
+
+    It 'keeps the repaired CSV rows in Management Libraries after repeated catalog updates' {
+      $script:csvRows = @(Import-Csv (Join-Path $releaseFolder 'js-packages.csv') | Where-Object {
+        $_.Package -in @('@azure/provisioning-core', '@azure/provisioning-keyvault')
+      })
+      $script:csvRows | Should -HaveCount 2
+      $dotnetPackages = GetPackageLookup (Import-Csv (Join-Path $releaseFolder 'dotnet-packages.csv'))
+      foreach ($fixture in @(
+        @{ Package = '@azure/provisioning-core'; Precedent = 'Azure.Provisioning'; RepoPath = 'core' }
+        @{ Package = '@azure/provisioning-keyvault'; Precedent = 'Azure.Provisioning.KeyVault'; RepoPath = 'keyvault' }
+      )) {
+        $row = $script:csvRows.Where({ $_.Package -eq $fixture.Package })[0]
+        $row.DisplayName | Should -BeExactly $dotnetPackages[$fixture.Precedent].DisplayName
+        $row.ServiceName | Should -BeExactly $dotnetPackages[$fixture.Precedent].ServiceName
+        $row.RepoPath | Should -BeExactly $fixture.RepoPath
+        $row.Type | Should -BeExactly 'mgmt'
+        $row.New | Should -BeExactly 'true'
+        $row.Notes | Should -Not -BeExactly 'Needs Review'
+        $registryEntry = $script:jsRegistryPackages.Where({ $_.package.name -eq $row.Package })[0]
+        $registryEntry.package.version = if ($row.VersionPreview) { $row.VersionPreview } else { $row.VersionGA }
+        $registryEntry.package.version | Should -Not -BeNullOrEmpty
+        $script:jsRegistryTags[$row.Package].Versions = @((ToSemVer $registryEntry.package.version))
+      }
+      $expected = $script:csvRows | ConvertTo-Json -Compress
+
+      Write-Latest-Versions 'js'
+      $script:csvRows = @($script:csvWrites[0].Packages | ForEach-Object { $_.PSObject.Copy() })
+      $script:jsRegistryTags.Clear()
+      Write-Latest-Versions 'js'
+
+      $script:csvWrites | Should -HaveCount 2
+      foreach ($write in $script:csvWrites) {
+        ($write.Packages | ConvertTo-Json -Compress) | Should -BeExactly $expected
+        $managementPackages = @($write.Packages.Where({
+          $_.Type -ceq 'mgmt' -and $_.New -ceq 'true' -and $_.Support -cne 'deprecated'
+        }))
+        $managementPackages | Should -HaveCount 2
+      }
+      Should -Invoke GetPackageVersions -Times 2 -Exactly -Scope It
+      Should -Invoke Invoke-RestMethod -Times 4 -Exactly -Scope It
+    }
+
+    It 'still excludes new alpha-only provisioning packages with qualifying tags' {
+      foreach ($entry in $script:jsRegistryPackages) {
+        $entry.package.version = '1.0.0-alpha.20261002.1'
+      }
+      $script:jsDistTags['latest'] = '1.0.0-alpha.20261002.1'
+
+      Write-Latest-Versions 'js'
+
+      $script:csvWrites | Should -HaveCount 1
+      $script:csvWrites[0].Packages | Should -HaveCount 0
+      Should -Invoke Invoke-RestMethod -Times 4 -Exactly -Scope It
+    }
+
+    It 'still uses the released beta when npm latest is an alpha' {
+      foreach ($entry in $script:jsRegistryPackages) {
+        $entry.package.version = '1.0.0-alpha.20261002.1'
+      }
+      $script:jsDistTags['latest'] = '1.0.0-alpha.20261002.1'
+      $script:jsDistTags['beta'] = '1.0.0-beta.1'
+
+      Write-Latest-Versions 'js'
+
+      $script:csvWrites | Should -HaveCount 1
+      $script:csvWrites[0].Packages | Should -HaveCount 2
+      foreach ($package in $script:csvWrites[0].Packages) {
+        Assert-UnreviewedPackage $package $package.Package -VersionGA '' -VersionPreview '1.0.0-beta.1'
+      }
+      Should -Invoke Invoke-RestMethod -Times 4 -Exactly -Scope It
     }
   }
 
