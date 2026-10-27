@@ -124,7 +124,7 @@ describe("triage", () => {
     );
     expect(github.rest.issues.createComment).toHaveBeenCalledWith(
       expect.objectContaining({
-        body: expect.stringContaining("Assigned for review:"),
+        body: expect.stringMatching(/Assigned for review:.*@JonathanGiles, @alzimmermsft/s),
       }),
     );
   });
