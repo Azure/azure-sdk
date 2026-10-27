@@ -308,4 +308,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-azurestackhcivm'
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Azure Stack HCI VM
+  ServiceName: Azure Stack HCI VM
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhcivm_1.0.0-beta.2/sdk/azurestackhcivm/arm-azurestackhcivm/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.13.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.1/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `deleteConfigurationSetting` ignoring the caller's `onResponse` callback. Previously ignored callbacks now execute with the existing runtime timing and arguments, making their side effects and exceptions observable.
+    - Fixed `getConfigurationSetting` ignoring the caller's `onResponse` callback, including for conditional reads returning 304. Previously ignored callbacks now execute with the existing runtime timing and arguments, making their side effects and exceptions observable. Callback exceptions are propagated rather than treated as conditional-read 304 responses.
 
