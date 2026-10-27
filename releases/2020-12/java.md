@@ -372,11 +372,11 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Dependency Updates
 - Upgraded `azure-core` dependency to 1.11.0
 
-#### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-spark_1.0.0-beta.1/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta1-2020-12-08)
+#### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta1-2020-12-08)
 
 - Initial Release.
 
-#### Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-accesscontrol_1.0.0-beta.1/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta1-2020-12-08)
+#### Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta1-2020-12-08)
 
 - Initial Release.
 
@@ -384,11 +384,11 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 - Initial release.
 
-#### Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-managedprivateendpoints_1.0.0-beta.1/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta1-2020-12-15)
+#### Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta1-2020-12-15)
 
 - Initial release.
 
-#### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-monitoring_1.0.0-beta.1/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
+#### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
 
 - Initial release.
 
