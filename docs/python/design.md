@@ -431,6 +431,37 @@ In cases where a service API is not explicitly implemented as a long-running ope
 
 {% include requirement/MUST id="python-method-conditional-request-etag" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
+{% include requirement/MUST id="python-method-conditional-request-raise-resource-modified" %} raise `azure.core.exceptions.ResourceModifiedError` when an unsafe conditional request (e.g. `PUT`, `POST`, `DELETE`) fails because the condition was not met. This typically corresponds to an HTTP `412 Precondition Failed` response.
+
+{% include requirement/MUST id="python-method-conditional-request-raise-resource-not-modified" %} raise `azure.core.exceptions.ResourceNotModifiedError` when a safe conditional request (e.g. `GET`, `HEAD`) determines the resource has not changed. This corresponds to an HTTP `304 Not Modified` response.
+
+> Note: Use the `map_error` function from `azure.core.exceptions` to map HTTP status codes to the appropriate exception types in your service method implementation. DPG-generated code already includes `304 → ResourceNotModifiedError` by default. For unsafe conditional requests, you must also handle `412 Precondition Failed`. Because HTTP 412 only indicates that one or more preconditions failed, the correct exception type depends on which condition was passed by the caller — it is not always `ResourceModifiedError`:
+
+```python
+from azure.core.exceptions import (
+    HttpResponseError, ResourceExistsError, ResourceModifiedError,
+    ResourceNotFoundError, ResourceNotModifiedError, map_error
+)
+from azure.core import MatchConditions
+
+error_map = {
+    304: ResourceNotModifiedError,
+}
+if match_condition == MatchConditions.IfNotModified:
+    # Condition: If-Match / If-Unmodified-Since — resource was modified
+    error_map[412] = ResourceModifiedError
+elif match_condition == MatchConditions.IfPresent:
+    # Condition: If-Match: * — resource does not exist
+    error_map[412] = ResourceNotFoundError
+elif match_condition == MatchConditions.IfMissing:
+    # Condition: If-None-Match: * — resource already exists
+    error_map[412] = ResourceExistsError
+
+if response.status_code not in [200]:
+    map_error(status_code=response.status_code, response=response, error_map=error_map)
+    raise HttpResponseError(response=response)
+```
+
 ```python
 class Thing:
 
