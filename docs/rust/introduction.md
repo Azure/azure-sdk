@@ -718,6 +718,16 @@ If there is no body, no headers, and no parameters, the unit type `()` would be 
 
 The `azure_core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [Azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
 
+#### Azure Resource Manager Types {#rust-supporting-types-resource-manager}
+
+{% include requirement/MUST id="rust-supporting-types-resource-manager-snake-case" %} use `resource_manager` when referring to Azure Resource Manager (ARM) in module, field, function, or method names. These names must be snake_case and may combine `resource_manager` with other words in any position e.g., `resource_manager_resource_id` or `get_resource_manager_endpoint`.
+
+{% include requirement/MAY id="rust-supporting-types-resource-manager-types" %} include `ResourceManager` in type or enum variant names when disambiguation from data plane APIs is needed.
+
+{% include requirement/SHOULD id="rust-supporting-types-resource-manager-module" %} prefer a nested `resource_manager` module at the point where disambiguation from data plane APIs is needed, rather than adding `ResourceManager` to type or enum variant names.
+
+For example, define an ARM-specific `PollerOptions` as `azure_core::http::poller::resource_manager::PollerOptions`, while the data plane type remains `azure_core::http::poller::PollerOptions`. Using modules to disambiguate is more idiomatic Rust than changing type or variant names. Do not add a `resource_manager` module when disambiguation is unnecessary.
+
 ### Errors {#rust-errors}
 
 {% include requirement/MUST id="rust-errors-core" %} return or convert into an `azure_core::Result<T>` which uses `azure_core::Error`.
@@ -826,6 +836,10 @@ pub(crate) mod helpers;
 // helpers.rs
 pub fn helper() {} // not exported publicly
 ```
+
+#### Azure Resource Manager {#rust-namespace-naming-resource-manager}
+
+{% include requirement/MUST id="rust-namespace-naming-resource-manager-crates" %} use `resourcemanager`, not `resource_manager`, `arm`, or `mgmt`, in the ARM crate prefix. Unlike crate names, module and member names use `resource_manager` as described in [Azure Resource Manager Types](#rust-supporting-types-resource-manager).
 
 ## Azure SDK Library Design
 
