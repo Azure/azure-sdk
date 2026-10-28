@@ -363,4 +363,38 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-hybridconnectivity_1.1.0/sdk/hybridconnectivity/azure-resourcemanager-hybridconnectivity/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-security-keyvault-secrets
+  Version: 4.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-secrets_4.12.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Regenerated the library for stable Key Vault API version `2026-04-01`.
+  GroupId: com.azure
+- Name: com.azure+azure-security-keyvault-certificates
+  Version: 4.10.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-security-keyvault-certificates_4.10.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * `models.PlatformManaged` was added
+
+    ##### `models.CertificatePolicy` was modified
+
+    * `getPlatformManaged()` was added
+    * `setPlatformManaged(models.PlatformManaged)` was added
+    * `forPlatformManaged(models.PlatformManaged)` was added
+
+    ##### `CertificateServiceVersion` was modified
+
+    * `V2026_04_01` was added and is the default service version.
+  GroupId: com.azure
 
