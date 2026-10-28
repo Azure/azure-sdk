@@ -175,8 +175,8 @@ type WidgetClientGetResponse struct {
 }
 
 type Widget struct {
-	Name string
-	Color WidgetColor
+	Name  *string
+	Color *WidgetColor
 }
 
 func (c *WidgetClient) Get(ctx context.Context, name string, options *WidgetClientGetOptions) (WidgetClientGetResponse, error) {
@@ -235,7 +235,7 @@ Cancellation is handled via the `context.Context` paramater, which is _always_ t
 ```go
 // WidgetClientGetOptions contains the optional parameters for the WidgetClient.Get method.
 type WidgetClientGetOptions struct {
-	Tag *string
+	Tag    *string
 	Length *int
 }
 
@@ -296,8 +296,10 @@ pager := client.NewListPager(nil)
 for pager.More() {
 	page, err := pager.NextPage(context.Background())
 	if err != nil {
-		// handle error...
+		// process error and exit the loop
+		break
 	}
+	// no error, enumerate widgets
 	for _, w := range page.Value {
 		process(w)
 	}
@@ -432,10 +434,15 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 {% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
 
 ```go
-err := xml.Unmarshal(resp.Payload, v)
-if err != nil {
-	return fmt.Errorf("unmarshalling type %s: %w", reflect.TypeOf(v).Elem().Name(), err)
+resp, err := client.Get(context.Background(), "widget_name", nil)
+if azErr := (&azcore.ResponseError{}); errors.As(err, &azErr) {
+	// service returned an error (e.g. 404 not found)
+} else if authErr := (&azidentity.AuthenticationFailedError{}); errors.As(err, &authErr) {
+	// authentication failed during the request
+} else if err != nil {
+	// some other error was returned
 }
+// if there was no error then process resp
 ```
 
 {% include requirement/MUST id="golang-errors-on-request-failed" %} return the service/operation specific error type when an HTTP request fails with an unsuccessful HTTP status code as defined by the service.  For operations that do not define an error type, return the HTTP response body in string format if available, else return the `Status` string on the HTTP response.

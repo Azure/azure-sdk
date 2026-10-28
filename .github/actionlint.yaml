@@ -1,0 +1,8 @@
+paths:
+  .github/workflows/*.lock.yml:
+    ignore:
+      - ".+"
+
+self-hosted-runner:
+  labels:
+    - 1ES.Pool=azsdk-pool-github-runners

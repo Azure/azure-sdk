@@ -593,9 +593,11 @@ If you do implement a builder, it must be defined according to the following gui
 
 {% include requirement/MUST id="rust-enums-names" %} implement all enumeration variations as PascalCase.
 
-{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone`, `Debug`, `Eq`, and `PartialEq` for all enums.
+{% include requirement/MUST id="rust-enums-derive" %} derive or implement `Clone` and `Debug` for all enums, following the [debug safety guidelines][rust-safety-debug].
 
-{% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed enums.
+{% include requirement/MUST id="rust-enums-derive-eq" %} derive or implement `Eq` and `PartialEq` for all value enums, excluding enums representing model unions.
+
+{% include requirement/MUST id="rust-enums-derive-copy" %} derive `Copy` for all fixed value enums.
 
 {% include requirement/MUST id="rust-enums-serde" %} derive or implement `serde::Serialize` and/or `serde::Deserialize` as appropriate i.e., if the enum is used in input (serializable), output (deserializable), or both.
 
@@ -632,7 +634,7 @@ pub enum FixedEnum {
 }
 ```
 
-{% include requirement/MUST id="rust-enum-extensible" %} implement all extensible enumerations - those which may take a variant that is not defined - using defined variants and an untagged `UnknownValue`:
+{% include requirement/MUST id="rust-enum-extensible" %} implement all extensible value enumerations - those which may take a variant that is not defined - using defined variants and an `UnknownValue(String)` variant:
 
 ```rust
 #[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
@@ -648,13 +650,83 @@ pub enum ExtensibleEnum {
 
 {% include requirement/MAY id="rust-enum-serialize" %} implement `serde::Deserialize`, `serde::Serialize`, or both as appropriate depending on whether the enumeration is found only in responses, requests, or both, respectively.
 
-{% include requirement/SHOULD id="rust-enum-generated-attributes" %} define variant attribute `#[serde(rename = "name")]` for generated code for each variant.
+##### Polymorphic Types {#rust-enum-unions}
 
-{% include requirement/MAY id="rust-enum-convenience-attributes" %} use container attribute `#[serde(rename_all = "camelCase")]` for convenience layers, or whatever casing is appropriate.
+Rust `enum` is also used for polymorphic types whether the discriminator is a string literal or defined by a TypeSpec `enum`.
+
+{% include requirement/MUST id="rust-enum-unions-enum-kind" %} use the defined enum type for a TypeSpec enum discriminator, or `String` for a string literal discriminator.
+
+{% include requirement/MUST id="rust-enum-unions-enum-kind-unknown" %} define an `UnknownValue(String)` variant for extensible discriminator enums.
+
+{% include requirement/MUST id="rust-enum-unions-struct" %} define a `struct` for each model variant of the union.
+
+{% include requirement/MUST id="rust-enum-unions-struct-common" %} define common fields from a base model in each model variant of the union.
+
+{% include requirement/MUST id="rust-enum-unions-variants" %} define a variant using the model struct name for each model struct.
+
+{% include requirement/MUST id="rust-enum-unions-unknown" %} define an `Unknown{DiscriminatorPropertyPascalCase}` e.g., `UnknownKind` variant containing the discriminator and base model fields for extensible discriminators, including models with no defined subtypes.
+
+{% include requirement/MUST id="rust-enum-unions-unknown-fallback" %} deserialize unknown or missing extensible discriminators into the unknown variant.
+
+{% include requirement/MUSTNOT id="rust-enum-unions-fixed-fallback" %} define an unknown variant for fixed enum discriminators.
+
+For example, an extensible enum discriminator and its model union have the following shape. See [serialization implementation guidelines][rust-enum-unions-implementation] for the union's `Serialize` implementation.
+
+```rust
+use azure_core::fmt::SafeDebug;
+use serde::{Deserialize, Serialize};
+
+#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
+pub enum DogKind {
+    #[serde(rename = "golden")]
+    Golden,
+    #[serde(untagged)]
+    UnknownValue(String),
+}
+
+#[derive(Clone, Default, Deserialize, SafeDebug, Serialize)]
+#[serde(rename = "golden", tag = "kind")]
+pub struct Golden {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub weight: Option<i32>,
+}
+
+#[derive(Clone, Deserialize, SafeDebug)]
+#[serde(tag = "kind")]
+pub enum Dog {
+    #[serde(rename = "golden")]
+    Golden(Golden),
+
+    #[serde(untagged)]
+    UnknownKind {
+        kind: Option<DogKind>,
+        weight: Option<i32>,
+    },
+}
+```
+
+##### Status Code-dependent Types {#rust-enum-status}
+
+Some operations may return different models for different status codes including status codes that are typically errors e.g., `404` but not treated as an error i.e., the models are not decorated with the TypeSpec [`@error`](https://typespec.io/docs/standard-library/built-in-decorators/#@error) decorator.
+
+{% include requirement/MUST id="rust-enum-status-fold" %} fold 1 or more status codes returning a named model into an `enum` variant named after the model.
+
+{% include requirement/MUST id="rust-enum-status-status-description" %} use the status code description for an unnamed model e.g., a variant for `204` with no name would be `NoContent(..)`.
+If there is no body, no headers, and no parameters, the unit type `()` would be the type within the variant type i.e., `NoContent(())`.
 
 #### Using Azure Core Types {#rust-core-types}
 
 The `azure_core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [Azure/azure-sdk-for-rust](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core) repository.
+
+#### Azure Resource Manager Types {#rust-supporting-types-resource-manager}
+
+{% include requirement/MUST id="rust-supporting-types-resource-manager-snake-case" %} use `resource_manager` when referring to Azure Resource Manager (ARM) in module, field, function, or method names. These names must be snake_case and may combine `resource_manager` with other words in any position e.g., `resource_manager_resource_id` or `get_resource_manager_endpoint`.
+
+{% include requirement/MAY id="rust-supporting-types-resource-manager-types" %} include `ResourceManager` in type or enum variant names when disambiguation from data plane APIs is needed.
+
+{% include requirement/SHOULD id="rust-supporting-types-resource-manager-module" %} prefer a nested `resource_manager` module at the point where disambiguation from data plane APIs is needed, rather than adding `ResourceManager` to type or enum variant names.
+
+For example, define an ARM-specific `PollerOptions` as `azure_core::http::poller::resource_manager::PollerOptions`, while the data plane type remains `azure_core::http::poller::PollerOptions`. Using modules to disambiguate is more idiomatic Rust than changing type or variant names. Do not add a `resource_manager` module when disambiguation is unnecessary.
 
 ### Errors {#rust-errors}
 
@@ -764,6 +836,10 @@ pub(crate) mod helpers;
 // helpers.rs
 pub fn helper() {} // not exported publicly
 ```
+
+#### Azure Resource Manager {#rust-namespace-naming-resource-manager}
+
+{% include requirement/MUST id="rust-namespace-naming-resource-manager-crates" %} use `resourcemanager`, not `resource_manager`, `arm`, or `mgmt`, in the ARM crate prefix. Unlike crate names, module and member names use `resource_manager` as described in [Azure Resource Manager Types](#rust-supporting-types-resource-manager).
 
 ## Azure SDK Library Design
 

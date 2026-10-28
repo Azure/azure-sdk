@@ -34,12 +34,23 @@ function Update-ArchivedReleaseNotes
     [Parameter(Mandatory = $true)][string]$sidebarPath,
     [Parameter(Mandatory = $true)][string]$ignoreLinksPath,
     [DateTime]$referenceDate = [DateTime]::Now,
-    [int]$monthsToKeep = 12,
-    [string]$siteBaseUrl = "/azure-sdk"
+    [ValidateRange(1, 1200)][int]$monthsToKeep = 12,
+    [string]$siteBaseUrl = "/azure-sdk",
+    [string]$releaseNotesRoot = "$PSScriptRoot\..\..\releases"
   )
 
-  # Anything strictly older than the first day of the month, $monthsToKeep months ago, is archived.
-  $cutoff = [DateTime]::new($referenceDate.Year, $referenceDate.Month, 1).AddMonths(-$monthsToKeep)
+  # Include the reference month in the rolling window.
+  $cutoff = [DateTime]::new($referenceDate.Year, $referenceDate.Month, 1).AddMonths(1 - $monthsToKeep)
+
+  $ignoreLines = @(Get-Content -LiteralPath $ignoreLinksPath -ErrorAction Stop)
+  $beginMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesBeginMarker })
+  $endMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesEndMarker })
+  if ($beginMarkers.Count -ne $endMarkers.Count -or $beginMarkers.Count -gt 1 -or
+      ($beginMarkers.Count -eq 1 -and
+       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesBeginMarker) -gt
+       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesEndMarker))) {
+    throw "Invalid archived release note markers in '$ignoreLinksPath'."
+  }
 
   $lines = @(Get-Content -LiteralPath $sidebarPath)
   $newLines = new-object "System.Collections.Generic.List[string]"
@@ -63,6 +74,14 @@ function Update-ArchivedReleaseNotes
         if ($releaseMonth -lt $cutoff) {
           $newLines.Add("$($indent)archived: true")
           $archivedUrls.Add("$siteBaseUrl$url")
+          # Exclude direct links to language pages as well as the monthly index.
+          $releaseDirectory = Split-Path ($url -replace '^/releases/', '') -Parent
+          $sourceDirectory = Join-Path $releaseNotesRoot $releaseDirectory
+          if (Test-Path -LiteralPath $sourceDirectory) {
+            foreach ($page in (Get-ChildItem -LiteralPath $sourceDirectory -File | Where-Object { $_.Extension -in '.md', '.html' })) {
+              $archivedUrls.Add("$siteBaseUrl/releases/$releaseDirectory/$($page.BaseName).html")
+            }
+          }
         }
       }
     }
@@ -70,10 +89,9 @@ function Update-ArchivedReleaseNotes
 
   Set-Content -LiteralPath $sidebarPath -Value $newLines -NoNewline:$false
 
-  $sortedArchivedUrls = $archivedUrls | Sort-Object -Unique
+  $sortedArchivedUrls = @($archivedUrls | Sort-Object -Unique)
 
   # Rebuild the ignore-links file keeping everything outside the managed block untouched.
-  $ignoreLines = @(Get-Content -LiteralPath $ignoreLinksPath)
   $staticLines = new-object "System.Collections.Generic.List[string]"
   $inManagedBlock = $false
   foreach ($ignoreLine in $ignoreLines) {
@@ -93,7 +111,7 @@ function Update-ArchivedReleaseNotes
   if ($sortedArchivedUrls.Count -gt 0) {
     $outputLines.Add("")
     $outputLines.Add($script:ArchivedReleasesBeginMarker)
-    $outputLines.Add("# Release notes older than $monthsToKeep months. They stay available on the site but")
+    $outputLines.Add("# Release notes outside the latest $monthsToKeep months. They stay available on the site but")
     $outputLines.Add("# are excluded from link verification so outdated links in old notes don't fail CI.")
     foreach ($archivedUrl in $sortedArchivedUrls) {
       $outputLines.Add($archivedUrl)
@@ -103,7 +121,7 @@ function Update-ArchivedReleaseNotes
 
   Set-Content -LiteralPath $ignoreLinksPath -Value $outputLines
 
-  Write-Host "Marked $($sortedArchivedUrls.Count) release note page(s) older than $monthsToKeep months as archived (cutoff $($cutoff.ToString('yyyy-MM')))."
+  Write-Host "Marked $($sortedArchivedUrls.Count) release note page(s) outside the latest $monthsToKeep months as archived (cutoff $($cutoff.ToString('yyyy-MM')))."
 }
 
 # When dot-sourced (e.g. to reuse the functions above) stop here without running the
@@ -151,8 +169,8 @@ if ($publishRelease) {
 
   ### Archive release notes older than the rolling 12-month window so link
   ### verification only checks recent notes (older notes stay on the site).
-  $ignoreLinksFile = Resolve-Path "$PSScriptRoot\ignore-links.txt"
-  Update-ArchivedReleaseNotes -sidebarPath $releaseSidebar -ignoreLinksPath $ignoreLinksFile -referenceDate $releaseDate
+  $ignoreLinksFile = Resolve-Path "$PSScriptRoot\..\ignore-links.txt"
+  Update-ArchivedReleaseNotes -sidebarPath $releaseSidebar -ignoreLinksPath $ignoreLinksFile -referenceDate $releaseDate -releaseNotesRoot $releaseRootFolder
 
   # If the release folder exists exit otherwise continue on and create the release folder
   if (Test-Path $releaseFolder) {

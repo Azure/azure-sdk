@@ -52,8 +52,10 @@ function CreatePackage(
   $otherProps = [ordered]@{
     VersionGA = $versionGA
     VersionPreview = $versionPreview
-    DisplayName = "Unknown Display Name"
-    ServiceName = "Unknown Service"
+    # Use the same placeholder as package CI so unresolved packages share its parent.
+    # Friendly names must be supplied by a reviewer, not inferred from package IDs.
+    DisplayName = "unknown"
+    ServiceName = "unknown"
     RepoPath = "NA"
     MSDocs = "NA"
     GHDocs = "NA"

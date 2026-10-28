@@ -21,10 +21,12 @@ Service team fills out issue form
   │ • Sync language labels      │
   └─────────────────────────────┘
         ↓
-  ┌──────────────┐    ┌──────────────┐
-  │ All valid?   │───→│ ready-for-   │
-  │              │ Y  │ review label │
-  └──────────────┘    └──────────────┘
+  ┌──────────────┐    ┌───────────────────────────┐
+  │ All valid?   │───→│ ready-for-review label    │
+  │              │ Y  │ + assign one architect    │
+  │              │    │   per language (notifies  │
+  │              │    │   them via GitHub)        │
+  └──────────────┘    └───────────────────────────┘
         │ N
         ↓
   ┌──────────────┐
@@ -43,19 +45,28 @@ Architect applies <language>-api-approved label
   • All selected languages approved
         ↓
   Issue auto-closed when complete
+
+Open board-review issue has no activity for 7 days
+        ↓
+  arch-board-review-reminders.yml
+  (scheduled on weekdays)
+        ↓
+  Explicitly mentions the party expected to act:
+  • Architects for missing approvals
+  • Service contacts for needs-info
 ```
 
 ## Labels
 
 ### Applied by automation
 
-| Label                                        | When applied                      | Meaning                         |
-| -------------------------------------------- | --------------------------------- | ------------------------------- |
-| `architecture`                               | On issue creation (from template) | Issue is a board review request |
-| `board-review`                               | On issue creation (from template) | Issue is a board review request |
-| `.NET`, `Java`, `Python`, `TypeScript`, `Go` | Triage detects selected language  | Language needs review           |
-| `ready-for-review`                           | All required artifacts validated  | Ready for architects            |
-| `needs-info`                                 | Missing or invalid artifacts      | Service team needs to fix       |
+| Label                                                       | When applied                      | Meaning                         |
+| ----------------------------------------------------------- | --------------------------------- | ------------------------------- |
+| `architecture`                                              | On issue creation (from template) | Issue is a board review request |
+| `board-review`                                              | On issue creation (from template) | Issue is a board review request |
+| `.NET`, `Java`, `Python`, `TypeScript`, `Go`, `C++`, `Rust` | Triage detects selected language  | Language needs review           |
+| `ready-for-review`                                          | All required artifacts validated  | Ready for architects            |
+| `needs-info`                                                | Missing or invalid artifacts      | Service team needs to fix       |
 
 ### Applied by architects (manually)
 
@@ -77,6 +88,48 @@ architects.
 When all selected languages have `<lang>-api-approved`, the issue is auto-closed.
 
 Unauthorized label additions are reverted with a comment.
+
+## Review Reminders
+
+`arch-board-review-reminders.yml` checks open `board-review` issues. After seven
+days without issue activity, it explicitly mentions the party expected to act:
+
+- For `needs-info`, the service contacts from the issue form are reminded to
+  provide the missing materials.
+- For `ready-for-review`, only architects for languages that still lack an
+  approval label are mentioned.
+
+For ready reviews, the reminder links to each language PR and uses neutral
+wording: architects can either complete the review or apply the missing approval
+label if the API was already approved. The workflow does not duplicate APIView
+or cross-repository PR state.
+
+Posting the reminder updates the issue, so another reminder is not posted until
+the issue has again had no activity for seven days.
+
+When a request first reaches `ready-for-review`, the triage comment also
+explicitly mentions the assigned architects. Assignment remains in place for
+queue ownership, while the mention provides the stronger initial notification.
+
+## Reviewer Assignment
+
+When an issue reaches `ready-for-review`, `assign-reviewers.js` assigns every
+architect configured for each selected language, drawn from the same
+`api-review-approvers.yml` approvers list. Assigning the issue triggers GitHub's
+native notifications, so architects are reached through their own notification
+preferences. The assigned handles are listed in the triage "materials verified"
+comment for visibility.
+
+For **management plane** issues, the management-plane approvers are assigned
+alongside the language-specific architects.
+
+Assignment is idempotent: an architect already assigned is not re-assigned, so
+subsequent edits to a ready issue do not re-notify. If an edit changes the
+selected languages, architects the automation previously assigned but that no
+longer apply are removed; assignees added manually (anyone outside the approvers
+list) are always preserved. If the assignment API call fails, the "materials verified"
+comment still posts with a note asking for manual assignment, so the issue is
+never left silently unassigned.
 
 ## Approver Configuration
 

@@ -5,6 +5,18 @@ We have one csv file for each language and an [automation pipeline](https://gith
 new releases and updates the versioning information and doc links in the csv for each package. The version information will be updated from the specific package managers for the
 given package ecosystem as well as by reading release tags from our mono repos. We can update more information like repo and doc information for things coming from our mono repos.
 
+## Archived release notes
+
+Publishing a release with `eng/scripts/Generate-Release-Structure.ps1 -publishRelease $true`
+keeps the release month and the preceding eleven months active. Older monthly entries in
+`_data/sidebars/releases_sidebar.yml` are marked `archived: true` and displayed as
+`(Archived)` in the sidebar. The pages remain published at their original URLs.
+
+The script regenerates the marked block in `eng/ignore-links.txt` for archived monthly
+indexes and language pages. Static exclusions outside that block are preserved.
+The site crawler skips these URLs entirely, including their outgoing links; this does
+not validate the existence or local links of archived pages. Current release notes,
+the latest package index, and the rest of the site continue to be checked normally.
 
 ## CSV fields
 
@@ -33,7 +45,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 - `Replace` - This field is used to store the package name of the newer package that replaces the older package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`). If a package is marked as `deprecated`, this field must have a valid value.
 - `ReplaceGuide` - This field is used to store a link to a migration guide for folks to follow if they are trying to move from the older package to the replacement package. If the field is empty then nothing no link is displayed. If a package is marked as `deprecated`, this field must have a valid value.
 - `ServiceId` - The id for that represents the service in other internal data sources.
-- `MSDocService` - This field is the value of docs.ms metadata `ms.service`. If it is empty, then ms.service assigns to service directory. The value is defined [here](https://review.docs.microsoft.com/en-us/help/contribute/metadata-taxonomies?branch=main#msservice).
+- `MSDocService` - This field is the value of the Microsoft Learn `ms.service` metadata. If it is empty, the service directory is used.
 - `Notes` - This is an open field that can be used to add any particular notes for a given package.
 
 ### Spec CSV Fields
@@ -75,6 +87,13 @@ We also parse those templates in our automation so that when updating we ensure 
 ```
 
 The values in these templates of the format `item.<property>` are replaced from the field values in the CSV files.
+
+For Java, the version updater resolves placeholders in full `RepoPath` URLs before
+writing the CSV, even for packages without recent release tags. It uses `VersionGA`
+when present, otherwise `VersionPreview`, and verifies the resolved source URL.
+Unresolved placeholders or invalid source URLs fail the update rather than being
+saved. Concrete URL overrides and service-directory paths are preserved. The CSV
+data check also rejects Java `RepoPath` values containing unresolved placeholders.
 
 ## Editing the CSV files
 

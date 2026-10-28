@@ -1,0 +1,189 @@
+entries:
+- Name: azure_data_cosmos
+  Version: 0.36.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.36.0/sdk/cosmos/azure_data_cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Reorganized the public API: types are now grouped under `models`, `diagnostics`, `feed`, and `options`; the `query`, `regions`, and `routing_strategy` modules were removed; the previously `#[doc(hidden)]` feature-gated builder methods on `CosmosClientBuilder` are now visible (and remain feature-gated); `PartitionKey::EMPTY`, its `Default` impl, and `From<()> for PartitionKey` were removed (use the query/feed APIs for cross-partition operations); and `ETag` is no longer re-exported from `azure_data_cosmos::options` — use `azure_core::http::Etag` directly (construct via `Etag::from(&str)` / `Etag::from(String)`). See the PR for the full list of moves and import paths. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - Renamed `CosmosClientBuilder::with_operation_options` to `CosmosClientBuilder::with_default_operation_options` to reflect the fact that it specifies defaults for per-operation options rather than actual client-level options. ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588))
+    - `TransactionalBatch::{create_item, upsert_item, replace_item}` and `TransactionalBatchOperationResult::into_model` now return `azure_data_cosmos::Result<_>` instead of `Result<_, serde_json::Error>`. The underlying `resource_body` is now stored as `Option<Box<serde_json::value::RawValue>>` and exposed via a new `resource_body()` accessor. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - `DatabaseProperties::id` is now `Option<String>` (previously `String`) to match the wire schema. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - Partition Circuit Breaker (PPCB) is now ENABLED by default. To disable it, set `PartitionFailoverOptions::circuit_breaker_enabled` to `false` when configuring a `CosmosClient` or set the `AZURE_COSMOS_PPCB_ENABLED` environment variable to `false`. ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588))
+    - `CosmosClientBuilder` has been slimmed to a runtime-aware surface. Per-runtime concerns (transport, cert validation, proxy, UA defaults) move onto `CosmosRuntime` and are shared across clients; per-client concerns (operation defaults, FI rules, throughput-control groups) stay on the builder ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588)). Migration impact:
+    - `with_proxy_allowed` — removed. Move to `CosmosRuntimeBuilder::with_connection_pool(ConnectionPoolOptionsBuilder::new().with_proxy_allowed(true).build())`.
+    - `with_throttling_retry_options` — removed. The throttle settings now live on `OperationOptions`; use `with_default_operation_options(OperationOptionsBuilder::new().with_throttling_retry_options(...).build())` (or attach to a `CosmosRuntime` for process-wide defaults).
+    - `with_fault_injection` — renamed to `with_fault_injection_rules` and now returns `Result<Self>` to surface duplicate-ID errors at registration time.
+    - `with_throughput_control_group` — renamed to `register_throughput_control_group` and now returns `Result<Self>`. Throughput-control groups are now a per-client (driver-level) concept only; `CosmosRuntimeBuilder` does not expose a corresponding registration method.
+    - `with_driver_runtime_builder` — replaced by `with_runtime(CosmosRuntime)`. The `__internal_in_memory_emulator` harness builds its runtime via `CosmosRuntimeBuilder::from(driver_builder)` (the `From<CosmosDriverRuntimeBuilder>` escape hatch).
+    - The `allow_invalid_certificates` Cargo feature has been removed. The capability is now in the default feature set but requires explicit opt-in via `CosmosRuntimeBuilder::with_connection_pool(ConnectionPoolOptionsBuilder::new().with_server_certificate_validation(ServerCertificateValidation::RequiredUnlessEmulator).build())`. The new `RequiredUnlessEmulator` policy is not a blanket "disable validation" knob — it validates the server certificate normally and only relaxes validation for detected Cosmos DB emulator hosts (via `AccountEndpoint` + `Region` heuristics, or the `AZURE_COSMOS_EMULATOR_HOST` environment variable). See the driver CHANGELOG for the underlying `EmulatorServerCertValidation` → `ServerCertificateValidation` rename.
+    - Per-account driver caching has been removed from the underlying runtime — each `CosmosClient::build(...)` now constructs a fresh `CosmosDriver`. Clients sharing the same `CosmosRuntime` continue to share transport pools, sampler, account cache, etc.; only the per-account `CosmosDriver` instance is no longer reused. ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588))
+
+
+    #### Features Added
+
+    - Derived `SafeDebug` on `CosmosCredential`, `ItemResponse`, `ResourceResponse<T>`, and `BatchResponse`. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - Added standard derives (`Clone`, `Copy`, `PartialEq`, `Eq`, `Hash`, `Serialize`, `Deserialize`) to `ConsistencyLevel` and `RoutingStrategy`. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - `Query::with_text` now accepts `impl Into<String>`. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - Exposed `CosmosRuntime` and a runtime-aware `CosmosClientBuilder`, splitting the Cosmos client into a per-process runtime (transport / cert / proxy / UA defaults) and per-client driver (operation defaults, fault injection, throughput-control groups), and re-exporting the driver's options surface from `azure_data_cosmos::options`:
+    - New `CosmosRuntime` and `CosmosRuntimeBuilder` types. A default process-wide runtime is initialized lazily; users can configure their own runtime through `CosmosRuntimeBuilder` and attach it via `CosmosClientBuilder::with_runtime`. The runtime builder exposes:
+    - `with_connection_pool(ConnectionPoolOptions)` — runtime-wide transport / cert / proxy settings.
+    - `with_default_operation_options(OperationOptions)` — runtime-default `OperationOptions`.
+    - `with_user_agent_suffix(UserAgentSuffix)` — runtime-default User-Agent suffix.
+    - `with_cpu_refresh_interval(Duration)` — diagnostics sampler interval.
+    - `build()` — auto-applies an `azsdk-rust-cosmos/<crate-version>` wrapping SDK identifier so wire User-Agent strings always advertise the SDK alongside any custom suffix.
+    - New per-client setters on `CosmosClientBuilder`:
+    - `with_runtime(CosmosRuntime)` — attach an explicit runtime; when not set, `build()` resolves `CosmosRuntime::global()` lazily.
+    - `with_default_operation_options(OperationOptions)` — client-level default `OperationOptions` (overrides runtime defaults; overridden by per-call options).
+    - `with_partition_failover_options(PartitionFailoverOptions)` — configures the driver's per-partition circuit-breaker / failover tuning for this client; when unset, the driver falls back to `PartitionFailoverOptions::default()`, which honors the `AZURE_COSMOS_PPCB_*` environment variables.
+    - `with_fault_injection_rules(Vec<Arc<FaultInjectionRule>>) -> Result<Self>` — registers fault-injection rules on this specific client (gated on `fault_injection`).
+    - `register_throughput_control_group(ThroughputControlGroupOptions) -> Result<Self>` — registers a throughput-control group for this client's driver.
+    - New re-exports from `azure_data_cosmos::options` (so users configuring a custom runtime don't have to take a direct dependency on the driver crate): `ConnectionPoolOptions`, `ConnectionPoolOptionsBuilder`, `ServerCertificateValidation`, `PartitionFailoverOptions`, `PartitionFailoverOptionsBuilder`, `ThroughputControlOptions`, `ThroughputControlOptionsBuilder`, and `ThroughputControlOptionsView`.
+    - New nested `OperationOptions::throughput_control` group lets callers set `throughput_bucket` and `priority_level` per request without first registering a throughput-control group; registered groups are still consulted as fallbacks through `ThroughputControlOptions::group_name`. (See the driver CHANGELOG for the full per-field layering and header-emission rules.)
+
+    #### Bugs Fixed
+
+    - `403/1008 (DatabaseAccountNotFound)` and `403/3 (WriteForbidden)` now trigger an account-topology refresh and retry against the refreshed endpoints instead of bubbling up. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - Gateway-mode transport connect failures no longer bump the per-partition circuit breaker counter; only the endpoint-unavailable mark is emitted. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - `403/3 (WriteForbidden)` and `403/1008 (DatabaseAccountNotFound)` on a PPCB-managed multi-write partition no longer mark the endpoint unavailable; the per-partition counter drives failover so other partitions on the same endpoint keep writing normally. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - The per-partition circuit breaker override now respects `OperationOptions::excluded_regions`; previously a tripped override could silently route to a region the caller had excluded. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+- Name: azure_data_cosmos_driver
+  Version: 0.5.0
+  DisplayName: Cosmos DB Client Driver
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_driver@0.5.0/sdk/cosmos/azure_data_cosmos_driver/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Cross-partition query continuation tokens minted by `0.4.0` cannot be resumed against `0.5.0`. The on-wire token shape was reshaped to record per-range sibling state so that pausing a fan-out query mid-flight preserves information about siblings that hadn't been touched yet. Callers holding a `0.4.0`-minted token will receive a continuation-token error on resume and must re-issue the query. ([#4550](https://github.com/Azure/azure-sdk-for-rust/pull/4550))
+    - `azure_data_cosmos_driver::models::ETag` has been removed. Use `azure_core::http::Etag` directly. The previous `ETag::new(...)` is gone; construct via `Etag::from(&str)` / `Etag::from(String)`. ([#4512](https://github.com/Azure/azure-sdk-for-rust/pull/4512))
+    - Migration impact of the client / runtime options restructure. Per-runtime concerns (transport, cert validation, proxy, UA defaults) are configured once on the `CosmosDriverRuntime`; per-client concerns (operation defaults, FI rules, throughput-control groups, partition-failover tuning) move onto `DriverOptions` ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588)):
+    - Runtime-builder rename: `CosmosDriverRuntimeBuilder::with_operation_options` → `with_default_operation_options` (and the matching accessor on `CosmosDriverRuntime`). Update direct driver consumers accordingly.
+    - Per-account driver cache removed. `CosmosDriverRuntime::get_or_create_driver` is now `create_driver` and always returns a fresh `Arc<CosmosDriver>`. Driver sharing is the consumer's responsibility (the SDK shares the *runtime* across clients via the new `CosmosClientBuilder::with_runtime`).
+    - Fault injection moves to the driver. Removed `CosmosDriverRuntime{,Builder}::with_fault_injection_rules` and the runtime-time `FaultInjectingFactory` wrap (gated on the `fault_injection` feature). Configure fault injection per-driver via `DriverOptionsBuilder::with_fault_injection_rules`. Each driver wraps the runtime's HTTP client factory if and only if its own `DriverOptions` carries rules; bootstrap transport is never wrapped.
+    - Throughput-control groups are now driver-only. Removed `CosmosDriverRuntime::get_throughput_control_group`, `get_default_throughput_control_group`, and the runtime-level registry entirely (including `CosmosDriverRuntimeBuilder::register_throughput_control_group`). Register groups via `DriverOptionsBuilder::register_throughput_control_group`.
+    - `OperationOptions::throughput_control_group` removed. Configure per-operation throughput-control bucket / priority headers via the new nested `OperationOptions::throughput_control` group (`ThroughputControlOptions`): set `group_name` to reference a registered group, or set `throughput_bucket` / `priority_level` directly to override the wire headers without registering a group. The driver-side resolver `CosmosDriver::effective_throughput_control_group` has been renamed to `effective_throughput_control` and now returns the resolved header inputs (`ResolvedThroughputControl`) instead of `Option<ThroughputControlGroupSnapshot>`; the implicit "default group for container" fallback on the request path was removed.
+    - Removed the seven per-partition / hedging fields from `OperationOptions`: `circuit_breaker_failure_count_for_reads`, `circuit_breaker_failure_count_for_writes`, `circuit_breaker_timeout_counter_reset_window_in_minutes`, `allowed_partition_unavailability_duration_in_seconds`, `ppcb_stale_partition_unavailability_refresh_interval_in_seconds`, `per_partition_circuit_breaker_enabled`, and `consecutive_hedge_win_threshold`. These were never resolved per-operation; configure them via the new `DriverOptionsBuilder::with_partition_failover_options(PartitionFailoverOptions)` instead.
+    - TLS cert-validation type renamed: `EmulatorServerCertValidation` → `ServerCertificateValidation`, with reshaped variants `Enabled` / `DangerousDisabled` → `Required` / `RequiredUnlessEmulator`. The new `RequiredUnlessEmulator` policy is not a blanket "disable validation" knob — it validates the server certificate normally and only relaxes validation when the connection target is identified as a Cosmos DB emulator (via `AccountEndpoint` + `Region` host heuristics, or the `AZURE_COSMOS_EMULATOR_HOST` environment variable). `Required` always validates and is the new default. The `From<bool>` / `Into<bool>` conversions on the enum were removed (the semantics no longer map to a single boolean). On `ConnectionPoolOptions`, the `emulator_server_cert_validation` field/accessor and the `ConnectionPoolOptionsBuilder::with_emulator_server_cert_validation` setter were renamed to `server_certificate_validation` / `with_server_certificate_validation`.
+    - Partition-failover environment variables consolidated under the `AZURE_COSMOS_PPCB_*` prefix (with a `_MS` suffix on duration knobs):
+    - `AZURE_COSMOS_PER_PARTITION_CIRCUIT_BREAKER_ENABLED` → `AZURE_COSMOS_PPCB_ENABLED`
+    - `AZURE_COSMOS_CIRCUIT_BREAKER_FAILURE_COUNT_FOR_READS` → `AZURE_COSMOS_PPCB_READ_FAILURE_THRESHOLD`
+    - `AZURE_COSMOS_CIRCUIT_BREAKER_FAILURE_COUNT_FOR_WRITES` → `AZURE_COSMOS_PPCB_WRITE_FAILURE_THRESHOLD`
+    - `AZURE_COSMOS_CIRCUIT_BREAKER_TIMEOUT_COUNTER_RESET_WINDOW_IN_MINUTES` → `AZURE_COSMOS_PPCB_COUNTER_RESET_WINDOW_MS`
+    - `AZURE_COSMOS_ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS` → `AZURE_COSMOS_PPCB_PARTITION_UNAVAILABILITY_DURATION_MS`
+    - `AZURE_COSMOS_PPCB_STALE_PARTITION_UNAVAILABILITY_REFRESH_INTERVAL_IN_SECONDS` → `AZURE_COSMOS_PPCB_FAILBACK_SWEEP_INTERVAL_MS`
+    - `AZURE_COSMOS_CONSECUTIVE_HEDGE_WIN_THRESHOLD` → `AZURE_COSMOS_PPCB_CONSECUTIVE_HEDGE_WIN_THRESHOLD`
+
+    #### Features Added
+
+    - Added support for using a native query planning library to generate query plans locally, avoiding a Gateway round-trip on cross-partition queries. Gated behind the `__internal_native_query_plan` feature flag. ([#4554](https://github.com/Azure/azure-sdk-for-rust/pull/4554))
+    - Restructured the client / runtime options layering on the driver. Two new nested option groups, a per-client overrides surface on `DriverOptionsBuilder`, and a single canonical `AZURE_COSMOS_PPCB_*` namespace for partition-failover environment variables. The driver now consumes partition-failover configuration once at construction (`CosmosDriver::new` no longer fabricates an `OperationOptionsView` outside any operation context) ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588)):
+    - Added new nested `OperationOptions::throughput_control` group (`ThroughputControlOptions` / `…Builder` / `…View`, mirroring the `ThrottlingRetryOptions` pattern). Exposes three layered fields ([#4588](https://github.com/Azure/azure-sdk-for-rust/pull/4588)):
+    - `group_name: Option<ThroughputControlGroupName>` — replaces the old top-level `OperationOptions::throughput_control_group`.
+    - `throughput_bucket: Option<u32>` — direct override for the `x-ms-cosmos-throughput-bucket` header, overrides the value specified by the group if present.
+    - `priority_level: Option<PriorityLevel>` — direct override for the `x-ms-cosmos-priority-level` header, overrides the value specified by the group if present.
+    - Added new client-level `PartitionFailoverOptions` / `PartitionFailoverOptionsBuilder`, attached to `DriverOptions` via `DriverOptionsBuilder::with_partition_failover_options`. Mirrors the `ConnectionPoolOptions` shape (private fields, public getters, env-var-aware `Default`). Every env-driven field uses the `AZURE_COSMOS_PPCB_*` prefix (with a `_MS` suffix on duration knobs), giving the PPCB family a single, discoverable namespace.
+    - Added new per-driver overrides on `DriverOptionsBuilder`:
+    - `with_user_agent_suffix(UserAgentSuffix)` — overrides the runtime's default User-Agent suffix for this driver. The runtime continues to precompute its own `Arc<UserAgent>`; drivers with no override clone that `Arc` (no per-request UA recomputation), drivers with an override compute their own `UserAgent` once at construction.
+    - `with_fault_injection_rules(Vec<Arc<FaultInjectionRule>>) -> Result<Self>` — registers fault-injection rules at the driver level (gated on the `fault_injection` feature). Rejects duplicate rule IDs.
+    - `register_throughput_control_group(ThroughputControlGroupOptions) -> Result<Self>` — registers a throughput-control group for this driver. Throughput-control groups are now a driver-only concept; the per-runtime registry has been removed.
+
+    #### Bugs Fixed
+
+    - Fixed account-level regional endpoints failing back into the routing rotation on a time-based cooldown alone, with no connectivity check. A firewall-blocked endpoint would rejoin rotation once its unavailability TTL elapsed, fail to connect, and be re-marked unavailable — a sustained low-throughput loop. A background probe loop now gates failback: an unavailable endpoint only rejoins rotation after a lightweight `GET /probe` connectivity check confirms it is reachable; otherwise its cooldown is reset and it stays out of rotation. ([#4604](https://github.com/Azure/azure-sdk-for-rust/pull/4604))
+    - `403/1008 (DatabaseAccountNotFound)` now drives an account-topology refresh and a retry against the refreshed endpoint set (paced at 1 s, bounded by the backend-failover retry budget) on both single-master and multi-master accounts instead of bubbling up. `403/3 (WriteForbidden)` gets the same backend-failover treatment on multi-master accounts; single-master 403/3 still uses the generic failover budget (no delay) pending the upcoming single-master DR drill. When `is_ppcb_managed` is true, the per-partition mark and topology refresh fire but `MarkEndpointUnavailable` is suppressed so PPCB drives failover per partition. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - `evaluate_transport_layer_outcome`'s `definitely_not_sent` branch now emits only `MarkEndpointUnavailable` (the `MarkPartitionUnavailable` emit was dropped) so Gateway-mode connect failures stop inflating per-partition PPCB counters. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - `try_handle_write_forbidden` now suppresses `MarkEndpointUnavailable` when `is_ppcb_managed` is true (multi-write + partitioned + PPCB active); the per-partition mark and topology refresh still fire. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - `ppcb_should_skip` in `resolve_endpoint` now treats `OperationOptions::excluded_regions` as a hard filter on the PPCB override path; previously the override fast-path bypassed the exclusion check enforced in `try_select_endpoint`. ([#4590](https://github.com/Azure/azure-sdk-for-rust/pull/4590))
+    - Fixed duplicate items being returned on cross-partition query resume after a physical partition split. When a cross-partition query was paused, serialized to a continuation token, and resumed after the underlying partition had split, the resumed iterator could re-emit items the caller had already consumed on a prior page. The continuation token now records per-range sibling state and is correctly propagated to every surviving leaf after a split. ([#4550](https://github.com/Azure/azure-sdk-for-rust/pull/4550))
+    - Fixed per-attempt `activity_id` in diagnostics serializing as `null` on transport failures; it is now seeded from the operation-level activity ID. ([#4602](https://github.com/Azure/azure-sdk-for-rust/pull/4602))
+    - Fixed `system_usage.cpu` in diagnostics emitting the literal string `"empty"`; it now serializes as a structured `{ samples, status }` object when no CPU samples are available. ([#4602](https://github.com/Azure/azure-sdk-for-rust/pull/4602))
+- Name: azure_data_cosmos_macros
+  Version: 0.2.0
+  DisplayName: Cosmos DB SDK Macros
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_macros@0.2.0/sdk/cosmos/azure_data_cosmos_macros/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an `overridable` field-level flag (`#[option(env = "...", overridable)]`) that recognizes a `{ENV}_OVERRIDE` kill-switch environment variable, generates `from_env_override()`/`from_env_override_vars()` parsing, and adds a top-priority `env_override` layer to the generated View (constructed via `new_with_override`). ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
+    - Added an `#[options(env_only)]` struct-level mode to `CosmosOptions` that generates only the `from_env()`/`from_env_vars()` constructors (no View, Builder, or `Default`), allowing an existing builder-style type to double as its own environment-variable source. ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
+    - Added a `parser` field-level attribute (`#[option(env = "...", parser = path::to::fn)]`) to `CosmosOptions` that parses an environment variable with a custom `fn(&str) -> Option<T>` instead of `FromStr`, supporting field types without a suitable `FromStr` (such as a `Duration` read from a millisecond count). A `None` result is logged and ignored, matching the lenient built-in parsers. ([#4562](https://github.com/Azure/azure-sdk-for-rust/pull/4562))
+- Name: typespec_client_core
+  Version: 1.1.0
+  DisplayName: TypeSpec Client Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.1.0/sdk/core/typespec_client_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
+- Name: azure_core_amqp
+  Version: 1.1.0
+  DisplayName: Core - AMQP
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.1.0/sdk/core/azure_core_amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AmqpSessionOptions::with_unbounded_windows()`, a shared constructor that sets both session flow-control windows to `u32::MAX` for messaging crates that rely on per-link credit for flow control.
+- Name: azure_core
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.1.0/sdk/core/azure_core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
+- Name: typespec
+  Version: 1.1.0
+  DisplayName: TypeSpec Core
+  ServiceName: TypeSpec
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.1.0/sdk/core/typespec/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `Error` now captures a `std::backtrace::Backtrace` at construction time and includes it in `Debug` output (e.g., `{:?}`) when `RUST_BACKTRACE=1` is set.
+- Name: azure_storage_blob
+  Version: 1.1.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@1.1.0-beta.1/sdk/storage/azure_storage_blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `BlobServiceClient::get_user_delegation_key()` to obtain a user delegation key for creating user delegation SAS tokens.
+    - Added support for `list_blobs_hierarchical` to `BlobContainerClient`.
+    - Added support for `list_page_ranges` to `PageBlobClient`.
+    - Added support for `download_into` to `BlobClient` which enables downloads to write blob contents directly into a caller-provided buffer.
+- Name: azure_storage_sas
+  Version: 0.1.0
+  DisplayName: Azure Storage SAS
+  ServiceName: Storage SAS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_sas@0.1.0/sdk/storage/azure_storage_sas/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial supported release.
+
