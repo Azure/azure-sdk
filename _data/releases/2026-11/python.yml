@@ -627,4 +627,12 @@ entries:
     - Clear the request's cached challenge when a 401 response omits `WWW-Authenticate`, returning that response without an authentication retry.
     If no newer challenge remains, the next request rediscovers it, which can add an unauthenticated request even when
     resource verification is disabled.
+- Name: azure-mgmt-cdn
+  Version: 14.1.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cdn_14.1.0/sdk/cdn/azure-mgmt-cdn/CHANGELOG.md
+  ChangelogContent: ""
 
