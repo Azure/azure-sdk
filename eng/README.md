@@ -76,6 +76,13 @@ We also parse those templates in our automation so that when updating we ensure 
 
 The values in these templates of the format `item.<property>` are replaced from the field values in the CSV files.
 
+For Java, the version updater resolves placeholders in full `RepoPath` URLs before
+writing the CSV, even for packages without recent release tags. It uses `VersionGA`
+when present, otherwise `VersionPreview`, and verifies the resolved source URL.
+Unresolved placeholders or invalid source URLs fail the update rather than being
+saved. Concrete URL overrides and service-directory paths are preserved. The CSV
+data check also rejects Java `RepoPath` values containing unresolved placeholders.
+
 ## Editing the CSV files
 
 If you need to edit the CSV files please do not use Excel as it will remove all the quoting which is required by the consumers of the CSV (i.e. Jekyll and automation). Instead if it is a small edit please just use a normal text editor. If it is a larger edit the recommendation is to use the [Edit csv](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv) extension for VS Code. When using that extension please set the following configuration options to ensure consistency.
