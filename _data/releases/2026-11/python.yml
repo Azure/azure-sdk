@@ -635,4 +635,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cdn_14.1.0/sdk/cdn/azure-mgmt-cdn/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-callautomation
+  Version: 1.6.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.6.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Security: Hardened recording URL validation against ambiguous authorities that could send authenticated requests to unintended endpoints. Synchronous and asynchronous recording downloads and deletes now validate each redirect destination before authentication.
 
