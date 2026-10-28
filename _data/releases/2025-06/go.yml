@@ -169,7 +169,7 @@ entries:
 
     This library has been updated to function as a companion to the [official OpenAI Go client library](https://github.com/openai/openai-go). It provides types and functions that allow interaction with Azure-specific extensions available in the Azure OpenAI service.
 
-    See the [migration guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for details on how to update your code to use this library alongside the official OpenAI Go client.
+    See the [migration guide](https://github.com/Azure/azure-sdk-for-go/blob/sdk/ai/azopenai/v0.8.0/sdk/ai/azopenai/MIGRATION.md) for details on how to update your code to use this library alongside the official OpenAI Go client.
 - Name: sdk/ai/azopenaiassistants
   Version: 0.4.0
   DisplayName: OpenAI Assistants
@@ -180,7 +180,7 @@ entries:
   ChangelogContent: |-
     #### Other Changes
 
-    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for more details.
+    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/sdk/ai/azopenaiassistants/v0.4.0/sdk/ai/azopenai/MIGRATION.md) for more details.
 - Name: sdk/ai/azopenaiextensions
   Version: 0.2.0
   DisplayName: OpenAI Extensions
@@ -191,7 +191,7 @@ entries:
   ChangelogContent: |-
     #### Other Changes
 
-    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/ai/azopenai/MIGRATION.md) for more details.
+    - This module is now DEPRECATED. See [Migration Guide](https://github.com/Azure/azure-sdk-for-go/blob/sdk/ai/azopenaiextensions/v0.2.0/sdk/ai/azopenai/MIGRATION.md) for more details.
 - Name: sdk/resourcemanager/appplatform/armappplatform
   Version: 2.0.1
   DisplayName: Resource Management - App Platform
@@ -298,7 +298,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.4.0/sdk/security/keyvault/azadmin/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azadmin/v1.4.0/sdk/samples/fakes)
 - Name: sdk/security/keyvault/azkeys
   Version: 1.4.0
   DisplayName: Key Vault  - Keys
@@ -308,7 +308,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.4.0/sdk/security/keyvault/azkeys/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azkeys/v1.4.0/sdk/samples/fakes)
 - Name: sdk/security/keyvault/azsecrets
   Version: 1.4.0
   DisplayName: Key Vault - Secrets
@@ -318,7 +318,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.4.0/sdk/security/keyvault/azsecrets/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.4.0/sdk/samples/fakes)
 - Name: sdk/security/keyvault/azcertificates
   Version: 1.4.0
   DisplayName: Key Vault - Certificates
@@ -328,7 +328,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.4.0/sdk/security/keyvault/azcertificates/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/samples/fakes)
+    * Add fakes support (https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azcertificates/v1.4.0/sdk/samples/fakes)
 - Name: sdk/resourcemanager/chaos/armchaos
   Version: 2.0.0
   DisplayName: Resource Management - Chaos

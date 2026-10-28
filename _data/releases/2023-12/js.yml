@@ -101,7 +101,7 @@ entries:
     #### Features Added
 
     This marks the first preview of `@azure-rest/ai-document-intelligence` Rest Level Client Library for the Azure AI Document Intelligence service (formerly known as Form Recognizer).
-    Please refer to the [Readme](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/README.md) and samples for more details.
+    Please refer to the [Readme](https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/ai-document-intelligence_1.0.0-beta.1/sdk/documentintelligence/ai-document-intelligence-rest/README.md) and samples for more details.
 - Name: '@azure-rest/communication-job-router'
   Version: 1.0.0
   DisplayName: Communication JobRouter
@@ -352,8 +352,8 @@ entries:
   ChangelogContent: |-
     #### Features Added
 
-    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
-    - Migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.1.0/SUPPORT.md) for more details.
+    - Migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.1.0/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
     - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features.
 - Name: '@azure/arm-networkanalytics'

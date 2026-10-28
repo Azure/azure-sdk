@@ -933,7 +933,7 @@ entries:
     #### Breaking Changes
 
     - Updated distributed traces and metrics to follow OpenTelemetry semantic conventions 1.27.0.
-    Please refer to [OpenTelemetry messaging semantic conventions](https://github.com/open-telemetry/semantic-conventions/tree/main/docs/messaging) for more details.
+    Please refer to [OpenTelemetry messaging semantic conventions](https://github.com/open-telemetry/semantic-conventions/tree/v1.28.0/docs/messaging) for more details.
     ([#38899](https://github.com/Azure/azure-sdk-for-java/pull/38899))
     - Span names now follow `{operaiton name} {entity name}` pattern
     - Updated metric names and attributes
@@ -1198,7 +1198,7 @@ entries:
     OpenTelemetry openTelemetry = sdkBuilder.build().getOpenTelemetrySdk();
     ```
 
-    See the [Readme](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter) for more details
+    See the [Readme](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.29/sdk/monitor/azure-monitor-opentelemetry-exporter) for more details
   GroupId: com.azure
 - Name: azure-ai-inference
   Version: 1.0.0-beta.2

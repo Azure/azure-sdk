@@ -5,7 +5,7 @@ entries:
   ServiceName: Core
   VersionType: Patch
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/CHANGELOG.md
   ChangelogContent: |-
     ### Breaking Changes
     * Split content out of `azcore` into various packages.  The intent is to separate content based on its usage (common, uncommon, SDK authors).
@@ -35,7 +35,7 @@ entries:
   ServiceName: Tables
   VersionType: Patch
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/data/aztables/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/blob/2b9acaa71d3677a0f00e880a2492ac42599fa0db/sdk/data/aztables/CHANGELOG.md
   ChangelogContent: |-
     ### Features Added
     * This is the initial release of the `aztables` library

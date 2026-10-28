@@ -30,7 +30,7 @@ entries:
     #### Other Changes
 
     - Updated dependency from `Azure.Identity` to `Azure.Core` directly, as the `Azure.Identity` types moved to `Azure.Core`.
-    - **This version is required when using `Azure.Identity` 1.21.0 or later (or `Azure.Core` 1.53.0 or later).** Older `Azure.Identity.Broker` versions are not compatible with the type consolidation. See the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/MigrationGuide.md#azureidentitybroker-compatibility) for details.
+    - **This version is required when using `Azure.Identity` 1.21.0 or later (or `Azure.Core` 1.53.0 or later).** Older `Azure.Identity.Broker` versions are not compatible with the type consolidation. See the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity.Broker_1.6.0/sdk/identity/Azure.Identity/MigrationGuide.md#azureidentitybroker-compatibility) for details.
 - Name: Azure.AI.AgentServer.Core
   Version: 1.0.0-beta.21
   DisplayName: AI Agent Server - Core
@@ -65,7 +65,7 @@ entries:
     Versions prior to `1.0.0-beta.21` used a monolithic architecture where `Azure.AI.AgentServer.Core`
     bundled protocol logic and depended on `Azure.AI.AgentServer.Contracts` for generated models.
     These versions are superseded by the new 3-package architecture. See the
-    [Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/agentserver/Azure.AI.AgentServer.Core/MigrationGuide.md)
+    [Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AgentServer.Core_1.0.0-beta.21/sdk/agentserver/Azure.AI.AgentServer.Core/MigrationGuide.md)
     for details.
 - Name: Azure.Identity
   Version: 1.17.2

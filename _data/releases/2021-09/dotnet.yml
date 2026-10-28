@@ -197,7 +197,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.3/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
   ChangelogContent: |-
     #### Features Added
-    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `WebPubSubServiceClient`. For example, you can get started with `new WebPubSubServiceClient(endpoint, hub, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `WebPubSubServiceClient`. For example, you can get started with `new WebPubSubServiceClient(endpoint, hub, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub_1.0.0-beta.3/sdk/identity/Azure.Identity/README.md).
 - Name: Azure.Data.Tables
   Version: 12.2.0
   DisplayName: Tables
