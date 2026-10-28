@@ -146,8 +146,8 @@ Describe 'Site crawler archive exclusions' {
     $verifierArguments = @(
       '-NoProfile', '-File', $verifier, '-urls', $entry,
       '-ignoreLinksFile', $ignoreLinksPath,
-      '-baseUrl', ([uri]($siteDirectory + [IO.Path]::DirectorySeparatorChar)).AbsoluteUri,
-      '-rootUrl', ([uri]($siteRoot + [IO.Path]::DirectorySeparatorChar)).AbsoluteUri
+      '-baseUrl', ([uri]::new(($siteDirectory + [IO.Path]::DirectorySeparatorChar), [UriKind]::Absolute)).AbsoluteUri,
+      '-rootUrl', ([uri]::new(($siteRoot + [IO.Path]::DirectorySeparatorChar), [UriKind]::Absolute)).AbsoluteUri
     )
 
     $output = & $pwsh @verifierArguments 2>&1
