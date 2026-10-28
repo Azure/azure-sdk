@@ -113,6 +113,64 @@ Describe 'Monthly release note archiving' {
     $ignore | Should -Contain '/azure-sdk/releases/2025-10/dotnet.html'
     $ignore | Should -Not -Contain '/azure-sdk/releases/2026-10/index.html'
   }
+
+  It 'uses front-matter permalinks instead of legacy filenames: <Permalink>' -ForEach @(
+    @{ Permalink = '/releases/2019-07-10/dotnet.html' }
+    @{ Permalink = '"/releases/2019-07-10/dotnet.html"' }
+    @{ Permalink = "'/releases/2019-07-10/dotnet.html'" }
+  ) {
+    Set-Content $sidebarPath '    url: /releases/2019-07-10/index.html'
+    $oldDirectory = Join-Path $releaseNotesRoot '2019-07-10'
+    New-Item -ItemType Directory $oldDirectory -Force | Out-Null
+    Set-Content (Join-Path $oldDirectory '2019-07-10-dotnet-preview1.md') @(
+      '---'
+      'title: Legacy release'
+      "permalink: $Permalink"
+      '---'
+      'Release notes'
+    )
+    Set-Content (Join-Path $oldDirectory 'java.md') @(
+      '---'
+      'title: Java release'
+      '---'
+      'permalink: /not-front-matter.html'
+    )
+
+    Update-ArchivedReleaseNotes @archiveArguments
+
+    $ignore = Get-Content $ignoreLinksPath
+    $ignore | Should -Contain '/azure-sdk/releases/2019-07-10/dotnet.html'
+    $ignore | Should -Not -Contain '/azure-sdk/releases/2019-07-10/2019-07-10-dotnet-preview1.html'
+    $ignore | Should -Contain '/azure-sdk/releases/2019-07-10/java.html'
+    $ignore | Should -Not -Contain '/azure-sdk/not-front-matter.html'
+  }
+}
+
+Describe 'Release publishing entrypoint' {
+  It 'rejects malformed markers before changing the sidebar or ignore file' {
+    $fixtureRoot = Join-Path $TestDrive 'publish'
+    $scriptsDirectory = Join-Path $fixtureRoot 'eng\scripts'
+    $sidebarDirectory = Join-Path $fixtureRoot '_data\sidebars'
+    $releaseNotesRoot = Join-Path $fixtureRoot 'releases'
+    New-Item -ItemType Directory $scriptsDirectory, $sidebarDirectory, $releaseNotesRoot -Force | Out-Null
+    $scriptPath = Join-Path $scriptsDirectory 'Generate-Release-Structure.ps1'
+    Copy-Item (Join-Path $repoRoot 'eng\scripts\Generate-Release-Structure.ps1') $scriptPath
+    $sidebarPath = Join-Path $sidebarDirectory 'releases_sidebar.yml'
+    Copy-Item (Join-Path $repoRoot '_data\sidebars\releases_sidebar.yml') $sidebarPath
+    $ignoreLinksPath = Join-Path $fixtureRoot 'eng\ignore-links.txt'
+    Set-Content $ignoreLinksPath @($script:ArchivedReleasesBeginMarker, 'https://example.test/keep')
+    $originalSidebar = [IO.File]::ReadAllBytes($sidebarPath)
+    $originalIgnore = [IO.File]::ReadAllBytes($ignoreLinksPath)
+
+    { & $scriptPath -releaseDateString '2026-11-01' -publishRelease $true } |
+      Should -Throw '*Invalid archived release note markers*'
+
+    [Convert]::ToBase64String([IO.File]::ReadAllBytes($sidebarPath)) |
+      Should -BeExactly ([Convert]::ToBase64String($originalSidebar))
+    [Convert]::ToBase64String([IO.File]::ReadAllBytes($ignoreLinksPath)) |
+      Should -BeExactly ([Convert]::ToBase64String($originalIgnore))
+    Test-Path (Join-Path $releaseNotesRoot '2026-11') | Should -BeFalse
+  }
 }
 
 Describe 'Site crawler archive exclusions' {

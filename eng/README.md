@@ -14,6 +14,9 @@ keeps the release month and the preceding eleven months active. Older monthly en
 
 The script regenerates the marked block in `eng/ignore-links.txt` for archived monthly
 indexes and language pages. Static exclusions outside that block are preserved.
+Language-page exclusions honor front-matter permalinks, including legacy release
+pages whose published URLs differ from their filenames. Publishing validates the
+managed-block markers before modifying the sidebar or the ignore file.
 The site crawler skips these URLs entirely, including their outgoing links; this does
 not validate the existence or local links of archived pages. Current release notes,
 the latest package index, and the rest of the site continue to be checked normally.

@@ -23,6 +23,32 @@ function Get-ReleaseMonthFromReleaseUrl($url)
   return $null
 }
 
+function Get-ArchivedReleaseIgnoreLines([string]$ignoreLinksPath)
+{
+  $ignoreLines = @(Get-Content -LiteralPath $ignoreLinksPath -ErrorAction Stop)
+  $beginMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesBeginMarker })
+  $endMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesEndMarker })
+  if ($beginMarkers.Count -ne $endMarkers.Count -or $beginMarkers.Count -gt 1 -or
+      ($beginMarkers.Count -eq 1 -and
+       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesBeginMarker) -gt
+       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesEndMarker))) {
+    throw "Invalid archived release note markers in '$ignoreLinksPath'."
+  }
+  return ,$ignoreLines
+}
+
+function Get-ReleasePageUrl([System.IO.FileInfo]$page, [string]$releaseDirectory)
+{
+  $content = Get-Content -LiteralPath $page.FullName -Raw -ErrorAction Stop
+  if ($content -match '(?s)\A---\r?\n(?<frontMatter>.*?)\r?\n---(?:\r?\n|$)') {
+    $frontMatter = $matches['frontMatter']
+    if ($frontMatter -match '(?m)^permalink:\s*(?<permalink>[^\r\n]+)') {
+      return $matches['permalink'].Trim().Trim('"', "'")
+    }
+  }
+  return "/releases/$releaseDirectory/$($page.BaseName).html"
+}
+
 # Marks monthly release notes older than $monthsToKeep as archived in the sidebar and
 # regenerates the managed block of archived release note urls in the ignore-links file so
 # that link verification skips (and does not recurse into) release notes older than the
@@ -42,15 +68,7 @@ function Update-ArchivedReleaseNotes
   # Include the reference month in the rolling window.
   $cutoff = [DateTime]::new($referenceDate.Year, $referenceDate.Month, 1).AddMonths(1 - $monthsToKeep)
 
-  $ignoreLines = @(Get-Content -LiteralPath $ignoreLinksPath -ErrorAction Stop)
-  $beginMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesBeginMarker })
-  $endMarkers = @($ignoreLines | Where-Object { $_ -eq $script:ArchivedReleasesEndMarker })
-  if ($beginMarkers.Count -ne $endMarkers.Count -or $beginMarkers.Count -gt 1 -or
-      ($beginMarkers.Count -eq 1 -and
-       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesBeginMarker) -gt
-       [Array]::IndexOf($ignoreLines, $script:ArchivedReleasesEndMarker))) {
-    throw "Invalid archived release note markers in '$ignoreLinksPath'."
-  }
+  $ignoreLines = Get-ArchivedReleaseIgnoreLines $ignoreLinksPath
 
   $lines = @(Get-Content -LiteralPath $sidebarPath)
   $newLines = new-object "System.Collections.Generic.List[string]"
@@ -79,7 +97,8 @@ function Update-ArchivedReleaseNotes
           $sourceDirectory = Join-Path $releaseNotesRoot $releaseDirectory
           if (Test-Path -LiteralPath $sourceDirectory) {
             foreach ($page in (Get-ChildItem -LiteralPath $sourceDirectory -File | Where-Object { $_.Extension -in '.md', '.html' })) {
-              $archivedUrls.Add("$siteBaseUrl/releases/$releaseDirectory/$($page.BaseName).html")
+              $pageUrl = Get-ReleasePageUrl $page $releaseDirectory
+              $archivedUrls.Add("$siteBaseUrl$pageUrl")
             }
           }
         }
@@ -139,10 +158,12 @@ $releaseString = $releaseDate.ToString("yyyy-MM")
 $releaseFolder = Join-Path (Resolve-Path $releaseRootFolder) $releaseString
 $releaseSidebar = Resolve-Path "$PSScriptRoot\..\..\_data\sidebars\releases_sidebar.yml"
 
-. (Join-Path $PSScriptRoot .. common scripts Helpers PSModule-Helpers.ps1)
-
 if ($publishRelease) {
+  $ignoreLinksFile = Resolve-Path "$PSScriptRoot\..\ignore-links.txt" -ErrorAction Stop
+  $null = Get-ArchivedReleaseIgnoreLines $ignoreLinksFile
+
   ### Update release sidebar
+  . (Join-Path $PSScriptRoot .. common scripts Helpers PSModule-Helpers.ps1)
   Install-ModuleIfNotInstalled "powershell-yaml" "0.4.2" | Import-Module
 
   $yml = Get-Content $releaseSidebar | ConvertFrom-Yaml -Ordered
@@ -169,7 +190,6 @@ if ($publishRelease) {
 
   ### Archive release notes older than the rolling 12-month window so link
   ### verification only checks recent notes (older notes stay on the site).
-  $ignoreLinksFile = Resolve-Path "$PSScriptRoot\..\ignore-links.txt"
   Update-ArchivedReleaseNotes -sidebarPath $releaseSidebar -ignoreLinksPath $ignoreLinksFile -referenceDate $releaseDate -releaseNotesRoot $releaseRootFolder
 
   # If the release folder exists exit otherwise continue on and create the release folder
