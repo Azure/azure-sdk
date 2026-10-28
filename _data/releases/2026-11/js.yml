@@ -328,4 +328,33 @@ entries:
 
     - Fixed `deleteConfigurationSetting` ignoring the caller's `onResponse` callback. Previously ignored callbacks now execute with the existing runtime timing and arguments, making their side effects and exceptions observable.
     - Fixed `getConfigurationSetting` ignoring the caller's `onResponse` callback, including for conditional reads returning 304. Previously ignored callbacks now execute with the existing runtime timing and arguments, making their side effects and exceptions observable. Callback exceptions are propagated rather than treated as conditional-read 304 responses.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.11.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.11.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `updateCertificatePolicy` returning a policy built from an unassigned
+    variable instead of the updated policy returned by the service.
+    [#39461](https://github.com/Azure/azure-sdk-for-js/pull/39461)
+
+    #### Features Added
+
+    - Added support for service API version `2026-04-01`, which is now the default.
+    - Includes the experimental `platformManaged` certificate policy property introduced in `4.11.0-beta.1`. This property is for internal Azure Key Vault usage only; requests using it currently fail and its use is not recommended.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.12.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-04-01`, which is now the default, and for explicitly selecting it via `serviceVersion`. [#40486](https://github.com/Azure/azure-sdk-for-js/pull/40486)
 
