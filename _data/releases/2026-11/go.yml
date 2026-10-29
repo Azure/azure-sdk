@@ -300,4 +300,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/deviceprovisioningservices/armdeviceprovisioningservices/v1.4.0/sdk/resourcemanager/deviceprovisioningservices/armdeviceprovisioningservices/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/security/keyvault/azsecrets
+  Version: 1.5.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/security/keyvault/azsecrets/v1.5.1/sdk/security/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-04-01`, which is now the default, and for explicitly selecting it via `serviceVersion`.
 
