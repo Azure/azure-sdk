@@ -679,4 +679,66 @@ entries:
     #### Other Changes
 
     - Regenerated the library for stable Key Vault API version `2026-04-01`.
+- Name: Azure.Provisioning
+  Version: 1.7.0-beta.2
+  DisplayName: Provisioning
+  ServiceName: Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.7.0-beta.2/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.9.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.9.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.2.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.2.1/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WebSocket connections no longer follow redirects, preventing API keys and other handshake headers from being forwarded to redirect destinations.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.5
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.5/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where stale checkpoints could prevent scale-in when `BatchCheckpointFrequency` was greater than 1. Pending processed events are now checkpointed after 10 minutes of inactivity so that the scale controller does not report backlog for events that have already been processed. ([#59801](https://github.com/Azure/azure-sdk-for-net/pull/59801))
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.10.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.10.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.8
+  DisplayName: AI Agent Server - Invocations
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `VoiceInputDataPart`, ordered `VoiceUserMessageEvent.ContentParts`, and `VoiceResponseOutputDataDoneMessage` for application data in Bridge protocol `1.0`. The existing text-only `Content` projection and explicit silent completion remain available.
+    - Added a standalone `/voice_conversation_engine` WebSocket route for typed Voice
+    handlers registered with `AddVoice<THandler>()`. It reuses the existing Bridge
+    Protocol 1.0 relay alongside `/invocations_ws`, without new registration options
+    or changes to generic Invocations handlers.
+    - Aligned the experimental Voice caller-interruption contract with `user.barge_in`, `VoiceUserBargeInEvent`, and `OnUserBargeInAsync`, preserving playback snapshots and application-owned cancellation/history. Voice Live senders must use the same event contract. Generic raw WebSocket handlers are unchanged.
 
