@@ -578,7 +578,7 @@ entries:
 
     #### Features Added
 
-    - Changed visibility of `AzureKeyVaultConfigurationSource` as public to allow for custom ordering of configuration sections when reading.  _(A community contribution, courtesy of [jabberwik](https://github.com/jabberwik))_
+    - Changed visibility of `AzureKeyVaultConfigurationSource` as public to allow for custom ordering of configuration sections when reading.  _(A community contribution, courtesy of jabberwik)_
 - Name: Azure.Messaging.EventHubs.Processor
   Version: 5.10.0
   DisplayName: Event Hubs - Event Processor
@@ -732,4 +732,3 @@ entries:
 
     - Added `RequiresUnreferencedCode` attribute to `RequestContent.Create(object)` overloads that use reflection to serialize the input object.  This provides support for native AOT compilation when Azure.Core is used for diagnostics.
     - Use System.Text.Json source generation to deserialize the error response in `RequestFailedException` on `net6.0` and above targets.
-
