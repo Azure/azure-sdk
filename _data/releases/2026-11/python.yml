@@ -646,4 +646,12 @@ entries:
     #### Bugs Fixed
 
     - Security: Hardened recording URL validation against ambiguous authorities that could send authenticated requests to unintended endpoints. Synchronous and asynchronous recording downloads and deletes now validate each redirect destination before authentication.
+- Name: azure-mgmt-privatetrafficmanager
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatetrafficmanager_1.0.0b1/sdk/privatetrafficmanager/azure-mgmt-privatetrafficmanager/CHANGELOG.md
+  ChangelogContent: ""
 
