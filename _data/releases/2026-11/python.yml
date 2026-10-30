@@ -1,0 +1,782 @@
+entries:
+- Name: azure-mgmt-network
+  Version: 33.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_33.1.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resiliencemanagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Resilience Management
+  ServiceName: Resilience Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resiliencemanagement_1.0.0/sdk/resiliencemanagement/azure-mgmt-resiliencemanagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 5.0.0b5
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_5.0.0b5/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-commvaultcontentstore
+  Version: 1.0.0
+  DisplayName: Resource Management - Commvault ContentStore
+  ServiceName: Commvault ContentStore
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-commvaultcontentstore_1.0.0/sdk/commvaultcontentstore/azure-mgmt-commvaultcontentstore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.0.0b6
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.0.0b6/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cloudhealth
+  Version: 1.0.0b5
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0b5/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute-bulkaction
+  Version: 1.0.0b6
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute-bulkaction_1.0.0b6/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.18.9
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.9/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Hardened multimodal evaluation image handling. The output file name is now derived from a validated allow-list of known image types rather than the raw `data:image/<subtype>;` value, and decoded image bytes are confined to the intended `images/` folder.
+    - Added Microsoft-scoped evaluation status and boolean pass/fail attributes to Application Insights result events.
+- Name: azure-mgmt-monitorworkspaces
+  Version: 1.1.0b1
+  DisplayName: Resource Management - Monitor Workspaces
+  ServiceName: Monitor Workspaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitorworkspaces_1.1.0b1/sdk/monitor/azure-mgmt-monitorworkspaces/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-dataprotection
+  Version: 2.3.0b1
+  DisplayName: Resource Management - Data Protection
+  ServiceName: Data Protection
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dataprotection_2.3.0b1/sdk/dataprotection/azure-mgmt-dataprotection/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-core
+  Version: 2.3.0b1
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.0b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Preserve an observed final terminal marker before recovery-time TTL
+    compaction, keeping closed replay logs closed across subsequent restarts.
+    - Retain replay backing ownership through deletion: keep POSIX inode locks
+    until unlink and Windows sidecar locks until log removal. Acquire Windows
+    ownership before opening the log, reject stale or replaced locked descriptors,
+    and retry cleanup without unlinking a successor's backing file.
+    - Release owned replay-file and writer-lock resources on every rehydration
+    failure, including callback errors and cancellation. Surface cleanup errors
+    with their original failure context and retain exact registry cleanup owners
+    when resource release must be retried.
+    - Fail closed after compaction replaces the log but cannot establish a usable
+    writer. Retire stale handles, reject further writes, wake subscribers with an
+    explicit error, and reacquire ownership before deleting a failed replacement.
+    Keep the original writer usable when preparation fails before replacement.
+    - Open existing replay logs in non-creating mode during cold lookup and
+    compaction reopen, preventing concurrent removal from recreating an empty
+    log. Preserve explicit creation and propagate backing-lock acquisition errors.
+    - Delete cold file-backed replay logs without deserializing their events, so
+    malformed logs remain removable after restart. Preserve locking and retryable
+    cleanup when file access, lock acquisition, or removal fails.
+    - Apply explicit task-list limits to the total returned records for both hosted
+    and local providers, clamped to 100. Keep omitted or `None` limits as complete
+    enumeration so recovery and response-ownership scans include every page.
+    - Reclaim per-ID stream lifecycle locks after their last holder or waiter exits,
+    including cancellation, without splitting concurrent lookup, creation, or deletion.
+    - Enumerate every matching local durable task when no listing limit is
+    requested, matching hosted task enumeration. Reject missing or repeated
+    hosted continuation cursors instead of returning an incomplete task list.
+    - Restore existing file-backed replay logs during stream lookup and deletion
+    after restart without creating absent logs. Serialize lookup, creation, and
+    deletion for the same stream ID within the registry.
+    - Propagate replay-file deletion failures without installing a successful
+    deletion tombstone, allowing cleanup to be retried.
+    - Make Windows replay lock-file removal failures retryable without closing
+    an already-released file descriptor or reporting successful deletion.
+
+    #### Features Added
+
+    - Added `AgentServerHost.readiness_handler` for replacing the default
+    `GET /readiness` response with application-specific readiness logic. When no
+    handler is registered, the existing healthy response remains unchanged.
+    - Added the private `POST /_agent/before-snapshot` and
+    `POST /_agent/after-restore` lifecycle endpoints, with equivalent
+    `POST /_before_snapshot` and `POST /_after_restore` aliases, for safely
+    capturing and restoring hosted agent processes. Applications can register
+    `before_snapshot_handler` and `after_restore_handler` callbacks; lifecycle
+    calls are serialized and idempotent, and restored session environment
+    overrides are applied before the after-restore callback runs. Protocol
+    subclasses can extend the lifecycle through protected hooks without
+    bypassing the host's required hydration and rollback behavior. Later
+    materializations reset omitted overrides to their captured values and expose
+    the restored session through the ambient request context during callbacks.
+    Environment-backed `AgentConfig` values are refreshed in place before
+    callbacks run, and `AgentSessionContext` is marked experimental.
+- Name: azure-mgmt-azurestackhci
+  Version: 8.2.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_8.2.0/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-responses
+  Version: 2.4.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.4.0b1/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `FileResponseStore` now persists data under user-scoped
+    `partitions-v1/{anonymous|user-hash}` directories. Existing files in the
+    previous shared layout remain unchanged but are not read or migrated
+    automatically, because their user ownership cannot be established safely.
+    Back up and explicitly migrate any required local data into the correct
+    partition only after independently verifying its ownership.
+    - Identified users now use private user-scoped stream and task keys. Existing
+    shared replay logs and task chains are not adopted for those users because
+    their ownership cannot be verified. Drain active work before upgrading.
+    Anonymous lifecycle keys retain their previous format.
+
+    #### Bugs Fixed
+
+    - Propagate source cancellation through SSE keep-alive streams instead of
+    treating interrupted durable admission as successful stream completion.
+    - Signal accepted durable task shutdown before awaiting response execution, so
+    explicit and checkpoint-based recovery exits preserve recoverable input.
+    Rebind cold-recovery cancellation to the handler's exact event before
+    publication, allowing cancellation to finish the tracked execution.
+    - Atomically close fresh response reservations and unpublished execution
+    admission when shutdown takes its drain snapshot. Preserve exact accepted
+    executions for terminal finalization, track handler work before its first
+    event, and return the existing HTTP 503 shutdown response for late creates.
+    - Validate durable user partitions as strings or `None` before constructing
+    platform, lifecycle, or runtime identities. Invalid partitions never fall
+    back to anonymous storage. Fail the response only with independently proven
+    original task references and current-input/deletion guards; otherwise settle
+    only the malformed input and leave response, replay, and references untouched.
+    - Allow only the current execution's exact record or request context to finalize
+    while DELETE checks eligibility, so rejected in-flight DELETE requests cannot
+    suppress terminal SSE events or response persistence.
+    - Reject runtime publication once DELETE retains cleanup ownership, and bind
+    fresh admission to its exact request context so late callbacks cannot replace
+    a successor or clear a completed deletion marker.
+    - Partition local in-memory and file-backed responses, items, history, and
+    conversation indexes by the platform user key, keeping anonymous local state
+    separate.
+    - Release exact caller-scoped incarnation references when durable inputs settle
+    before handler dispatch, preserving successor entries and admission deferrals.
+    - Read retained DELETE cleanup ownership through the authorized response
+    provider and noncreating replay lookup, without allocating replacement streams.
+    - Retire stopped nonterminal runtime executions under scoped recovery admission,
+    preventing early settlement or cancellation from retaining stale live state.
+    - Settle malformed current durable response incarnations as failed without
+    re-invoking execution, while retaining deletion fences and rejecting stale inputs.
+    - Check all durable task owners before reclaiming empty replay or fencing DELETE,
+    including older conversation tasks beyond the first listing page.
+    - Partition live execution, cancellation state, SSE streams, and resilient
+    task identifiers by the platform user key. Different users can use the same
+    public response ID independently. Duplicate creation within one user's
+    partition returns HTTP 409 while execution or replay is retained.
+    - Require a successful user-scoped provider lookup before replaying stored SSE
+    events; storage errors no longer fall through to cached replay.
+    - Require Core 2.3.0b1 so retained file replay is discovered after restart for
+    duplicate admission, authorized replay, and deletion.
+    - Return an error when replay cleanup fails during DELETE and retain ownership
+    state so the owner can retry cleanup.
+    - Reserve the caller-scoped response ID throughout DELETE cleanup so a new
+    POST cannot reuse the ID before stream, runtime, and provider cleanup finish.
+    - Finish retained replay with the persisted terminal snapshot when crash
+    recovery cannot resume execution, preventing indefinite SSE waits.
+    - Remove newly allocated replay streams when durable task admission fails or
+    shutdown rejects the request before execution starts, allowing response ID
+    reuse after cleanup. Emit startup errors only on the requesting HTTP stream
+    without recreating rejected replay or closing another execution's stream.
+    - Release streaming create reservations and stop disconnect monitors even
+    when sending HTTP headers fails before the first body iteration.
+    - Shield non-streaming create reservation cleanup from request cancellation
+    so an interrupted request does not prevent later reuse of the response ID.
+    - Reclaim empty crash-abandoned file replay only when no caller-scoped runtime,
+    response provider, or durable task retains ownership.
+    - Retain DELETE ownership through provider cleanup failures and cancellation,
+    and fence deleted durable response inputs without deleting unrelated turns.
+    Recovery participates in scoped admission and cannot resurrect deleted responses.
+    - Scope durable deletion fences and process-local recovery references by a
+    private response incarnation, allowing a fresh same-ID turn on a retained
+    conversation task without admitting an old deleted recovery.
+- Name: azure-mgmt-recoveryservicesbackup
+  Version: 11.2.0
+  DisplayName: Resource Management - Recovery Services Backup
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_11.2.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 10.1.0b1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_10.1.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 25.3.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_25.3.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.9.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.9.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed synchronous and asynchronous Azure AI Projects long-running operations to treat both `cancelled` and `canceled` as terminal cancellation statuses without changing Azure Core polling behavior for other SDKs.
+
+    #### Breaking Changes
+
+    All breaking changes affect preview APIs.
+
+    Breaking changes in preview classes:
+
+    * Renamed `CreateTeamsPhoneExtensionTelephonyBindingRequest`, `TeamsPhoneExtensionTelephonyBinding`, and `TeamsPhoneExtensionTelephonyBindingListItem` to `CreateTeamsPhoneExtensibilityTelephonyBindingRequest`, `TeamsPhoneExtensibilityTelephonyBinding`, and `TeamsPhoneExtensibilityTelephonyBindingListItem`, respectively.
+    * Renamed `TelephonyProvider.TEAMS_PHONE_EXTENSION` and `TelephonyCallLifecycleEventSource.TEAMS_PHONE_EXTENSION` to `TEAMS_PHONE_EXTENSIBILITY`; their wire value changed from `teams_phone_extension` to `teams_phone_extensibility`.
+    * Removed `VoiceAgentRealtimeResponseBase` and `VoiceResponseBase`; their properties now live directly on `VoiceAgentRealtimeResponse` and `VoiceResponse`. Several persisted `VoiceResponse` fields are now optional, and `metadata` now uses the `Metadata` model.
+
+    #### Features Added
+
+    * Added experimental Voice Agents REST and realtime tracing through `AIProjectInstrumentor`, including correlated session, connection and response spans, tool/lifecycle events, aggregate audio sizes and existing GenAI response metrics. Existing tracing and content-recording settings apply; message content is not captured by default.
+    * Added an optional `transport` keyword on synchronous and asynchronous realtime `connect()` using `VoiceAgentTransport.WEBSOCKET` or `VoiceAgentTransport.WEBRTC`. The SDK constructs the transport wire query internally.
+    * Added preview Microsoft Copilot managed harness and toolset support for prompt agents.
+- Name: azure-mgmt-containerservice
+  Version: 41.8.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.8.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cloudhealth
+  Version: 1.0.0
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cloudhealth_1.0.0/sdk/cloudhealth/azure-mgmt-cloudhealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgeactions
+  Version: 1.0.0
+  DisplayName: Resource Management - Edge Actions
+  ServiceName: Edge Actions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgeactions_1.0.0/sdk/edgeactions/azure-mgmt-edgeactions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 39.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_39.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-horizondb
+  Version: 1.0.0b3
+  DisplayName: Resource Management - HorizonDB
+  ServiceName: HorizonDB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-horizondb_1.0.0b3/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-maintenance
+  Version: 2.2.0b4
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-maintenance_2.2.0b4/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-queue
+  Version: 12.18.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.18.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_queue_sas`, and `QueueServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-storage-blob
+  Version: 12.31.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.31.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_container_sas`, `generate_blob_sas`, and `BlobServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-storage-file-share
+  Version: 12.27.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.27.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_share_sas`, `generate_file_sas`, and `ShareServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-mgmt-durabletask
+  Version: 1.2.0b1
+  DisplayName: Resource Management - Durable Task
+  ServiceName: Durable Task
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-durabletask_1.2.0b1/sdk/durabletask/azure-mgmt-durabletask/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridconnectivity
+  Version: 2.0.0
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridconnectivity_2.0.0/sdk/hybridconnectivity/azure-mgmt-hybridconnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 18.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_18.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-aigateway
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-aigateway_1.0.0b1/sdk/apimanagement/azure-mgmt-aigateway/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-edgeoperator
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-edgeoperator_1.0.0b1/sdk/edgeoperator/azure-mgmt-edgeoperator/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-voicelive
+  Version: 1.3.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-voicelive_1.3.1/sdk/voicelive/azure-ai-voicelive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WebSocket connections now reject HTTP redirects to prevent forwarding authentication headers to redirected endpoints.
+- Name: azure-mgmt-redhatopenshifthcp
+  Version: 1.0.0
+  DisplayName: Resource Management - Redhatopenshifthcp
+  ServiceName: Redhatopenshifthcp
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshifthcp_1.0.0/sdk/redhatopenshifthcp/azure-mgmt-redhatopenshifthcp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-evaluation
+  Version: 1.18.10
+  DisplayName: AI Evaluation
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.18.10/sdk/evaluation/azure-ai-evaluation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Retained known earlier-turn Decision usage and model metadata when an asynchronous split evaluation is cancelled directly, while preserving `CancelledError` and existing callback cancellation behavior.
+    - Rejected non-JSON-safe native answer provenance with typed errors that retain known usage, without validating unused scores on applicability skips.
+    - Accepted explicit numeric zero in zero-inclusive shared Prompty score ranges while keeping missing, invalid and boolean grades on the typed error path. Missing-score fallbacks cannot manufacture a ranged grade.
+    - Validated complete signed, decimal, and exponent scores in shared Prompty text fallbacks with explicit score ranges, preventing out-of-range values from becoming passing scores through single-digit parsing.
+    - Classified oversized integer scores in explicit Prompty score ranges as invalid scores, preserving the configured error target in strict and legacy parsing.
+    - Preserved the primary initialization error or cancellation when legacy token-provider cleanup also fails.
+    - Preserved known Decision usage when a later split conversation turn fails, without assigning mixed-model usage to one model or treating the failed turn's execution summary as a conversation summary.
+    - Reconciled successful split-conversation properties with aggregate Decision usage and common model identity, omitting single-request execution summaries while preserving final-turn diagnostics and original per-turn data.
+    - Kept numeric-overflow validation failures on the typed Decision error path so known usage and provenance survive failed-row conversion.
+    - Classified oversized numeric execution settings as user configuration errors and safely omitted invalid probability metadata without interrupting batch error and usage summaries.
+    - Preserved measured token usage, model metadata, and response properties when the shared Prompty strategy parses a post-inference skipped result. Pre-inference skips still make no model request.
+    - Hardened local Prompty image resolution so only relative files within the Prompty directory are inlined, with opened-file validation to prevent path changes from redirecting reads and without exposing the local directory in fallback logs.
+
+    #### Features Added
+
+    - Added shared model runners and evaluation strategies for asset evaluators using Decision models in Microsoft Foundry, including Output Quality and Tool Use Quality aggregate and member metrics.
+    - Decision authentication uses an explicit `api_key` or caller-owned credential with a callable `get_token`. Reuse a synchronous `azure.identity.DefaultAzureCredential` for synchronous or batch calls and close it afterward; async credentials require the same caller-managed event loop. API keys take precedence; Prompty authentication is unchanged.
+    - Decision score probabilities use precision-aware sum validation: hundredth-precision values allow `0.005` rounding error per level plus `1e-12`; other values use an absolute `0.001` tolerance. Invalid distributions raise a system-classified `EvaluationException`; probabilities are not normalized.
+    - Decision results expose known final-response usage, model, and provenance on completed, skipped, and failed evaluations, counting shared requests once and summing split-turn usage. Usage excludes earlier retry attempts.
+    - Decision requests provide context-aware per-attempt and terminal execution observations with optional OpenTelemetry metrics. Validated shared and independent execution summaries and their distinct usage scopes are preserved in failed-row metadata.
+    - Decision HTTP errors include the provider's nested `error.code` when it starts with an ASCII letter and contains only letters, digits, dots, underscores, or hyphens, up to 128 characters. This is provider-controlled diagnostic text, not a guarantee that the code is free of sensitive data. Messages, details, and raw response bodies are not exposed.
+    - Decision native async HTTP supports overall deadlines and cancellation during response body reads. TLS uses Python/OpenSSL trust settings such as `SSL_CERT_FILE`, not `REQUESTS_CA_BUNDLE`; shared Prompty transport behavior is unchanged.
+- Name: azure-mgmt-containerservice
+  Version: 41.9.0b1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.9.0b1/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.27.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.27.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `WorkloadIdentityCredential` identity binding mode in AKS environments. This feature uses an AKS proxy to handle FIC exchanges on behalf of pods, addressing Entra's limit on federated identity credentials per managed identity. Enable it by constructing `WorkloadIdentityCredential` directly with `enable_azure_proxy=True`. Identity binding mode isn't supported through `DefaultAzureCredential`. ([#43287](https://github.com/Azure/azure-sdk-for-python/pull/43287), [#44147](https://github.com/Azure/azure-sdk-for-python/pull/44147))
+
+    #### Bugs Fixed
+
+    - Fixed `AzureDeveloperCliCredential` to correctly parse error messages from Azure Developer CLI v1.23.7 and later, which previously caused raw JSON to surface in `ClientAuthenticationError` instead of the underlying error text. ([#46711](https://github.com/Azure/azure-sdk-for-python/pull/46711))
+    - Fixed persistent token cache isolation on macOS when using custom cache names or CAE-enabled caches. ([#49314](https://github.com/Azure/azure-sdk-for-python/pull/49314))
+    - Fixed a regression in 1.26.0 where asynchronous `OnBehalfOfCredential` instances could not reuse access or refresh tokens cached by another instance with the same user assertion. Cache entries are now isolated by user assertion, allowing safe reuse across instances, including with `TokenCachePersistenceOptions`. Existing cache entries without assertion binding require a fresh token exchange. ([#49533](https://github.com/Azure/azure-sdk-for-python/pull/49533))
+- Name: azure-ai-agentserver-invocations
+  Version: 1.3.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.3.0b1/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Capture invocation-local original-subject assertions for HTTP, WebSocket and
+    typed Voice handlers. Model-header propagation is an explicit per-call opt-in.
+    - Added immutable `InputDataPart` and `ResponseOutputDataDone` for structured application data in Bridge protocol `1.0`. Existing callbacks and explicit `ResponseNone` silent completion remain application-owned.
+    - Added a standalone `/voice_conversation_engine` WebSocket route to the experimental `VoiceAgentServerHost`, reusing the existing typed Bridge event relay alongside `/invocations_ws`. Existing `invocations_ws` behavior and generic `InvocationAgentServerHost` raw WebSocket handlers are unchanged.
+    - Aligned the experimental Voice caller-interruption contract with `user.barge_in`, `UserBargeIn`, `UserBargeInCallback`, and `VoiceAgentServerHost.on_user_barge_in`, preserving playback snapshots and application-owned cancellation/history. Voice Live senders must use the same event contract.
+
+    #### Bugs Fixed
+
+    - Reject malformed platform attribution before binding HTTP context, and
+    finalize WebSocket connections with a classified error on invalid metadata.
+    - Upgrade both typed Voice WebSocket endpoints before closing with code `1011`
+    on malformed platform attribution, instead of rejecting the HTTP handshake.
+    - Apply the Invocations task-runtime switch to both typed Voice WebSocket
+    endpoints, including composed Voice/Responses hosts where Responses
+    independently enables the task manager.
+- Name: azure-ai-agentserver-core
+  Version: 2.3.0b2
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.0b2/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added immutable `FoundryOriginalSubject` assertions and invocation-local
+    `FoundryAgentRequestContext.original_subject` with an explicit, model-only
+    `model_attribution_headers()` helper for the proposed `x-ms-original-subject`
+    dictionary contract. The assertions do not establish identity proof or change
+    model authentication; model integration remains an explicit per-call opt-in.
+    Both the assertions class and header helper are marked experimental.
+    - Added protocol-scoped task-runtime startup requests so protocol hosts can
+    obtain scoped `TaskManager` access without mutating the process-wide
+    resilient-task switch. This prevents one protocol's enablement from
+    activating another protocol in a mixed host.
+
+    #### Bugs Fixed
+
+    - Preserve host-owned recovery callbacks and task options when loading
+    process-wide task descriptors at startup.
+    - Exclude protocol-disabled task functions before startup, periodic or inline
+    recovery can reclaim their leases or dispatch their handlers.
+    - Require explicit owning-host registration for protocol-internal recovery
+    callbacks instead of importing them into unrelated managers.
+    - Treat a persisted task function identity as authoritative before recovery
+    cleanup or reclaim. Legacy callback fallback applies only when that
+    identity is absent.
+- Name: azure-ai-agentserver-responses
+  Version: 2.4.0b2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.4.0b2/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Preserve original-subject assertions in `PlatformContext` and the ambient
+    request context across streaming and in-process stored Responses execution.
+    - Responses hosts now request the task runtime when either
+    `resilient_background` or `steerable_conversations` is enabled. Steering-only
+    hosts receive persistent queue/cancel behavior; after a crash the interrupted
+    response is marked failed without re-running its handler, while persisted
+    queued turns may continue as new steered turns.
+
+    #### Bugs Fixed
+
+    - Classify malformed platform attribution headers and end the request span
+    before returning an error, without invoking the handler.
+    - Bind recovery callbacks and task options to their owning Responses host so
+    constructing another host cannot redirect recovered work to its handler or
+    response provider.
+    - Do not recover Responses tasks when both Responses features are disabled,
+    including when Invocations enables a shared task manager.
+    - Keep eager Responses task registration host-bound so a separate
+    Invocations-only host cannot recover another host's Responses work.
+
+    #### Breaking Changes
+
+    - Responses task-runtime activation is now protocol-scoped. The Core
+    `set_resilient_tasks_enabled` switch no longer force-enables Responses when
+    both Responses options are disabled, and Responses activation does not
+    activate another protocol in a mixed host.
+- Name: azure-keyvault-certificates
+  Version: 4.12.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.12.0/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where cached authentication challenges could bypass challenge resource verification.
+    - Preserve newer cached authentication challenges installed by concurrent requests when an older request fails.
+    Failed requests now clear only the cache entry they observed or accepted.
+    - Hardened challenge cache reuse as a follow-up to [#48710](https://github.com/Azure/azure-sdk-for-python/pull/48710).
+    Cached challenges are now verified before token use, and stale entries are cleared when challenge parsing or resource verification fails.
+    Request replay and existing CAE scope/tenant precedence are preserved when concurrent requests invalidate the shared cache.
+    - Preserved redirect header cleanup and header updates when restoring request bodies during authentication.
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Clear the request's cached challenge when a 401 response omits `WWW-Authenticate`, returning that response without an authentication retry.
+    If no newer challenge remains, the next request rediscovers it, which can add an unauthenticated request even when
+    resource verification is disabled.
+
+    - Fixed a bug in the challenge authentication policy where the authentication challenge was cached before the challenge resource was verified. The challenge is now cached only after resource verification succeeds [#48710](https://github.com/Azure/azure-sdk-for-python/pull/48710).
+- Name: azure-keyvault-secrets
+  Version: 4.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.12.0/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where cached authentication challenges could bypass challenge resource verification.
+    - Preserve newer cached authentication challenges installed by concurrent requests when an older request fails.
+    Failed requests now clear only the cache entry they observed or accepted.
+    - Hardened challenge cache reuse as a follow-up to [#48710](https://github.com/Azure/azure-sdk-for-python/pull/48710).
+    Cached challenges are now verified before token use, and stale entries are cleared when challenge parsing or resource verification fails.
+    Request replay and existing CAE scope/tenant precedence are preserved when concurrent requests invalidate the shared cache.
+    - Preserved redirect header cleanup and header updates when restoring request bodies during authentication.
+    - Reject request URLs containing backslashes in the authority before authentication.
+    - Clear the request's cached challenge when a 401 response omits `WWW-Authenticate`, returning that response without an authentication retry.
+    If no newer challenge remains, the next request rediscovers it, which can add an unauthenticated request even when
+    resource verification is disabled.
+- Name: azure-mgmt-cdn
+  Version: 14.1.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cdn_14.1.0/sdk/cdn/azure-mgmt-cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-callautomation
+  Version: 1.6.1
+  DisplayName: Communication Call Automation
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-callautomation_1.6.1/sdk/communication/azure-communication-callautomation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Security: Hardened recording URL validation against ambiguous authorities that could send authenticated requests to unintended endpoints. Synchronous and asynchronous recording downloads and deletes now validate each redirect destination before authentication.
+- Name: azure-mgmt-privatetrafficmanager
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatetrafficmanager_1.0.0b1/sdk/privatetrafficmanager/azure-mgmt-privatetrafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.26.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.26.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_file_system_sas`, `generate_directory_sas`, `generate_file_sas`, and `DataLakeServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-ai-agentserver-responses
+  Version: 2.4.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.4.0/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed the broken documentation link from experimental API warnings and docstrings by using the shared Core decorator.
+- Name: azure-mgmt-storagemover
+  Version: 3.2.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_3.2.0/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-invocations
+  Version: 1.3.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.3.0/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release of the 1.3.0 preview series, including the experimental
+    Voice route and protocol-scoped task activation. No implementation changes
+    since 1.3.0b1.
+    - Require the stable `azure-ai-agentserver-core>=2.3.0` release. Publish Core
+    before Invocations.
+- Name: azure-ai-agentserver-core
+  Version: 2.3.0
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.0/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the internal `EXPERIMENTAL_LINK_MESSAGE` constant. When using
+    `azure-ai-agentserver-responses`, upgrade it to `2.4.0` or later alongside
+    Core; older Responses compatibility shims require the removed constant.
+
+    #### Features Added
+
+    - Add one percent-encoded `foundry.original_subject` member containing the full
+    quoted dictionary to custom Foundry baggage for baggage-only model attribution.
+    The experimental `model_attribution_headers` helper accepts optional existing
+    per-call headers, preserving unrelated dimensions without mutating defaults
+    and replacing or clearing competing subject assertions.
+
+    #### Bugs Fixed
+
+    - Removed the broken documentation link from experimental API warnings and docstrings.
+    - Stop emitting standalone subject headers on outbound model calls while
+    preserving platform-to-container ingress parsing.
+    - Remove stale subject baggage even when a malformed member has properties before
+    its value, while preserving unrelated baggage order, encoding, and duplicates.
+    - Reject subject tuples over 256 characters and merged baggage over 1024
+    characters rather than forwarding oversized model-attribution baggage.
+    - Place the subject before unrelated baggage so bounded transport normalization
+    cannot displace the attribution member.
+- Name: azure-mgmt-aiinfraoptimization
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-aiinfraoptimization_1.0.0b1/sdk/aiinfraoptimization/azure-mgmt-aiinfraoptimization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-projects
+  Version: 2.10.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-projects_2.10.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Fixed tracing to record `temperature=0` and `top_p=0` instead of omitting these valid values.
+    * Fixed `SimulationSeedDataGenerationJobConfiguration` to expose the service-required `max_samples` property and constructor argument. Updated the simulation-seed evaluation sample to pass this argument directly instead of using the mapping workaround.
+
+    #### Features Added
+
+    * Added optional `VoiceAgentDefinition.soundscape` for built-in background ambience and event cues in telephony calls, with `VoiceAgentSoundscapeConfig`, `VoiceAgentSoundscapeSourceConfig`, `VoiceAgentSoundscapeTrackConfig`, `VoiceAgentSoundscapeWorkingTrackConfig`, and `VoiceAgentSoundscapeSound`.
+    * Added optional `VoiceAgentInputTranscription.profanity_filter` and `VoiceAgentProfanityFilterMode` for configuring Azure Speech input-transcript filtering before a session starts.
+    * Added `VoiceAgentInputTranscriptionModel.AZURE_SPEECH_STREAMING` for Azure Speech streaming transcription in cascaded text-model conversations. This model requires a nonempty `VoiceAgentInputTranscription.language` and is not supported with realtime speech-to-speech models.
+    * Added `VoiceAgentNoiseReductionType.AZURE_DEEP_NOISE_SUPPRESSION_HEADSET` and `VoiceAgentNoiseReductionType.AZURE_PERSONAL_NOISE_SUPPRESSION` for local voice activity detection without changing recognition audio.
+    * Added `AgentEndpointProtocol.VOICE_CONVERSATION_ENGINE` for hosted text agents used as Voice Agent conversation engines. Hosted agents must declare this protocol with version `1.0.0`; `invocations_ws` does not substitute for it.
+    * Added optional `HostedAgentDefinition.enable_memory_snapshot` to start hosted-agent sessions from a snapshot of the initialized process instead of starting the process from its image.
+    * Added known `ImageGenTool.model` values `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, with `xhigh` and `max` quality options for these models.
+- Name: azure-appconfiguration-provider
+  Version: 2.5.1
+  DisplayName: App Configuration Provider
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration-provider_2.5.1/sdk/appconfiguration/azure-appconfiguration-provider/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a resource leak where replica clients that were no longer part of the auto-failover set were not closed during client refresh. ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
+    - Fixed auto-failover replica discovery so that a DNS SRV lookup timeout (for either the origin or replica records) is distinguished from an empty replica list. A timeout now correctly triggers the longer fallback refresh interval, while an empty result refreshes at the normal interval. ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
+    - Fixed a thread-safety issue by publishing refreshed secret values through a new configuration mapping instead of mutating the existing mapping while readers may be iterating. ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
+    - Fixed `refresh_on` handling so that a single-string watched setting is treated as a key with the default (no) label instead of being incorrectly unpacked character-by-character. ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
+    - Fixed a `KeyError` when loading with an endpoint and credential (no connection string). ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
+    - Fixed feature flag processing so that an empty feature flag list clears previously loaded feature flags. ([#49152](https://github.com/Azure/azure-sdk-for-python/pull/49152))
+    - Fixed feature flag refresh so that the `on_refresh_success` callback is invoked when the refreshed feature flag list is empty. ([#49216](https://github.com/Azure/azure-sdk-for-python/pull/49216))
+
