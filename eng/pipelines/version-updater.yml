@@ -82,11 +82,13 @@ jobs:
       npm install
     workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
     displayName: Installing Inventory Dashboard Data Scripts Dependencies
+    condition: false
 
   - bash: |
       npm run start $(Pipeline.Workspace)/azure-rest-api-specs/specification
     workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
     displayName: Run Inventory Dashboard Data Scripts
+    condition: false
 
   - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
