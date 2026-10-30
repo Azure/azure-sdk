@@ -5,6 +5,21 @@ We have one csv file for each language and an [automation pipeline](https://gith
 new releases and updates the versioning information and doc links in the csv for each package. The version information will be updated from the specific package managers for the
 given package ecosystem as well as by reading release tags from our mono repos. We can update more information like repo and doc information for things coming from our mono repos.
 
+## Archived release notes
+
+Publishing a release with `eng/scripts/Generate-Release-Structure.ps1 -publishRelease $true`
+keeps the release month and the preceding eleven months active. Older monthly entries in
+`_data/sidebars/releases_sidebar.yml` are marked `archived: true` and displayed as
+`(Archived)` in the sidebar. The pages remain published at their original URLs.
+
+The script regenerates the marked block in `eng/ignore-links.txt` for archived monthly
+indexes and language pages. Static exclusions outside that block are preserved.
+Language-page exclusions honor front-matter permalinks, including legacy release
+pages whose published URLs differ from their filenames. Publishing validates the
+managed-block markers before modifying the sidebar or the ignore file.
+The site crawler skips these URLs entirely, including their outgoing links; this does
+not validate the existence or local links of archived pages. Current release notes,
+the latest package index, and the rest of the site continue to be checked normally.
 
 ## CSV fields
 
