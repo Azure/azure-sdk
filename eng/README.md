@@ -83,6 +83,9 @@ Unresolved placeholders or invalid source URLs fail the update rather than being
 saved. Concrete URL overrides and service-directory paths are preserved. The CSV
 data check also rejects Java `RepoPath` values containing unresolved placeholders.
 
+`Generate-Package-Index.ps1` also substitutes the Java `GroupId` when generating
+source links for GA and preview versions in `java-all.md` and `java-new.md`.
+
 ## Editing the CSV files
 
 If you need to edit the CSV files please do not use Excel as it will remove all the quoting which is required by the consumers of the CSV (i.e. Jekyll and automation). Instead if it is a small edit please just use a normal text editor. If it is a larger edit the recommendation is to use the [Edit csv](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv) extension for VS Code. When using that extension please set the following configuration options to ensure consistency.
