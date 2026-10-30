@@ -763,4 +763,66 @@ entries:
     before a buffer's position, when that position was not 0 and the buffer was larger than the block size. This affected
     both the sync and async clients.
   GroupId: com.azure
+- Name: com.azure+azure-ai-projects
+  Version: 2.9.0
+  DisplayName: AI Projects
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-projects_2.9.0/sdk/ai/azure-ai-projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `SimulationSeedDataGenerationJobConfiguration` to accept and serialize the service-required `max_samples`
+    through its constructor or `setMaxSamples(int)`, while preserving the no-argument constructor for backward
+    compatibility.
+    - Fixed cursor-based list operations that stopped after the first page, including data-generation jobs,
+    evaluator-generation jobs, skills and skill versions, and agent insight monitors, runs, and insights.
+    Paging now follows the service's `last_id` cursor and supports resuming from a continuation token.
+    - Fixed cursor-based paging to stop when the service returns `has_more: false`, even if the response still includes
+    a `last_id`, avoiding unnecessary requests after the final page.
+  GroupId: com.azure
+- Name: com.azure+azure-ai-agents
+  Version: 2.9.0
+  DisplayName: AI Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-ai-agents_2.9.0/sdk/ai/azure-ai-agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed cursor-based list operations that stopped after the first page, including memory-store, memory-item,
+    toolbox, and voice-agent listings. Paging now follows the service's `last_id` cursor and supports resuming from
+    a continuation token.
+    - Fixed cursor-based paging to stop when the service returns `has_more: false`, even if the response still includes
+    a `last_id`, avoiding unnecessary requests after the final page.
+
+    #### Features Added
+
+    - Added hosted-agent memory snapshot opt-in through `HostedAgentDefinition.setMemorySnapshotEnabled(...)` and
+    `isMemorySnapshotEnabled()`. Sessions for a snapshot-enabled agent version start from a snapshot of its initialized
+    process instead of starting the process from its image.
+    - Added preview voice-agent soundscapes through `VoiceAgentDefinition.setSoundscape(...)`,
+    `VoiceAgentSoundscapeConfiguration`, and related track and built-in sound models. Soundscapes support background
+    ambience, delayed working audio while tools are pending, and opening, transfer, and closing cues. Rendering is
+    currently limited to telephony calls; persisted conversation recordings do not include the soundscape mix.
+    - Added preview input-transcript profanity filtering through `VoiceAgentInputTranscription.setProfanityFilter(...)`
+    and `VoiceAgentProfanityFilterMode`, with `MASKED`, `REMOVED`, and `UNFILTERED` modes. Filtering is supported with
+    managed Azure Speech, including Custom Speech, and must be configured before the session starts.
+    - Added `VoiceAgentInputTranscriptionModel.AZURE_SPEECH_STREAMING` for preview streaming Azure Speech transcription
+    in cascaded text-model conversations. It requires a nonempty language setting and supports Custom Speech,
+    phrase hints, and profanity filtering; it is not supported with realtime speech-to-speech models.
+    - Added preview `VoiceAgentNoiseReductionType.AZURE_DEEP_NOISE_SUPPRESSION_HEADSET` and
+    `AZURE_PERSONAL_NOISE_SUPPRESSION` modes for local voice activity detection. These modes enhance detection audio
+    without changing the audio used for recognition.
+    - Added preview `AgentEndpointProtocol.VOICE_CONVERSATION_ENGINE` for the hosted-agent text conversation protocol
+    used by Voice Live Bridge. Audio transport remains outside this protocol.
+
+    #### Breaking Changes
+
+    - Updated the preview hosted voice conversation-engine contract: hosted agents referenced by
+    `VoiceHostedAgentConversationEngine` must declare `voice_conversation_engine` version `1.0.0`.
+    Declaring `invocations_ws` is optional and no longer substitutes for the dedicated voice conversation-engine protocol.
+  GroupId: com.azure
 
