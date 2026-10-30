@@ -665,4 +665,79 @@ entries:
     #### Bugs Fixed
     - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_file_system_sas`, `generate_directory_sas`, `generate_file_sas`, and `DataLakeServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
     - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
+- Name: azure-ai-agentserver-responses
+  Version: 2.4.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-responses_2.4.0/sdk/agentserver/azure-ai-agentserver-responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed the broken documentation link from experimental API warnings and docstrings by using the shared Core decorator.
+- Name: azure-mgmt-storagemover
+  Version: 3.2.0
+  DisplayName: Resource Management - Storage Mover
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storagemover_3.2.0/sdk/storagemover/azure-mgmt-storagemover/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-agentserver-invocations
+  Version: 1.3.0
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-invocations_1.3.0/sdk/agentserver/azure-ai-agentserver-invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Stable release of the 1.3.0 preview series, including the experimental
+    Voice route and protocol-scoped task activation. No implementation changes
+    since 1.3.0b1.
+    - Require the stable `azure-ai-agentserver-core>=2.3.0` release. Publish Core
+    before Invocations.
+- Name: azure-ai-agentserver-core
+  Version: 2.3.0
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.0/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed the internal `EXPERIMENTAL_LINK_MESSAGE` constant. When using
+    `azure-ai-agentserver-responses`, upgrade it to `2.4.0` or later alongside
+    Core; older Responses compatibility shims require the removed constant.
+
+    #### Features Added
+
+    - Add one percent-encoded `foundry.original_subject` member containing the full
+    quoted dictionary to custom Foundry baggage for baggage-only model attribution.
+    The experimental `model_attribution_headers` helper accepts optional existing
+    per-call headers, preserving unrelated dimensions without mutating defaults
+    and replacing or clearing competing subject assertions.
+
+    #### Bugs Fixed
+
+    - Removed the broken documentation link from experimental API warnings and docstrings.
+    - Stop emitting standalone subject headers on outbound model calls while
+    preserving platform-to-container ingress parsing.
+    - Remove stale subject baggage even when a malformed member has properties before
+    its value, while preserving unrelated baggage order, encoding, and duplicates.
+    - Reject subject tuples over 256 characters and merged baggage over 1024
+    characters rather than forwarding oversized model-attribution baggage.
+    - Place the subject before unrelated baggage so bounded transport normalization
+    cannot displace the attribution member.
+- Name: azure-mgmt-aiinfraoptimization
+  Version: 1.0.0b1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-aiinfraoptimization_1.0.0b1/sdk/aiinfraoptimization/azure-mgmt-aiinfraoptimization/CHANGELOG.md
+  ChangelogContent: ""
 
