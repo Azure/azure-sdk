@@ -741,4 +741,44 @@ entries:
     Protocol 1.0 relay alongside `/invocations_ws`, without new registration options
     or changes to generic Invocations handlers.
     - Aligned the experimental Voice caller-interruption contract with `user.barge_in`, `VoiceUserBargeInEvent`, and `OnUserBargeInAsync`, preserving playback snapshots and application-owned cancellation/history. Voice Live senders must use the same event contract. Generic raw WebSocket handlers are unchanged.
+- Name: Azure.ResourceManager.PrivateTrafficManager
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PrivateTrafficManager_1.0.0-beta.1/sdk/privatetrafficmanager/Azure.ResourceManager.PrivateTrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Network
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.2.0-beta.1/sdk/network/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeActions
+  Version: 1.0.0
+  DisplayName: Resource Management - Edge Actions
+  ServiceName: Edge Actions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeActions_1.0.0/sdk/edgeactions/Azure.ResourceManager.EdgeActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RedHatOpenShiftHcp
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Redhatopenshifthcp
+  ServiceName: Redhatopenshifthcp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedHatOpenShift_1.0.0-beta.1/sdk/redhatopenshift/Azure.ResourceManager.RedHatOpenShift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.18.0-beta.3
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.18.0-beta.3/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
 
