@@ -1,0 +1,838 @@
+entries:
+- Name: Azure.Provisioning.CertificateRegistration
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.CertificateRegistration_1.0.0-beta.1/sdk/certificateregistration/Azure.Provisioning.CertificateRegistration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.TrafficManager
+  Version: 1.2.0
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.TrafficManager_1.2.0/sdk/trafficmanager/Azure.ResourceManager.TrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OperationalInsights
+  Version: 1.4.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OperationalInsights_1.4.0/sdk/operationalinsights/Azure.ResourceManager.OperationalInsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AppNetwork
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AppNetwork_1.0.0-beta.1/sdk/appnetwork/Azure.Provisioning.AppNetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.AppNetwork
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - App Network
+  ServiceName: App Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppNetwork_1.0.0-beta.2/sdk/appnetwork/Azure.ResourceManager.AppNetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ProviderHub
+  Version: 1.3.0
+  DisplayName: Resource Management - ProviderHub
+  ServiceName: ProviderHub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ProviderHub_1.3.0/sdk/providerhub/Azure.ResourceManager.ProviderHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.2.0-beta.5
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.2.0-beta.5/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects.Agents
+  Version: 3.0.0-beta.4
+  DisplayName: AI Projects - Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_3.0.0-beta.4/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Expanded Agent Optimization with cost estimation, a dedicated candidate-listing client, and new models for optimization configuration, evaluation sets, candidate mutations, results, token usage, and latency metrics.
+    - Added toolbox support for browser automation tool, and added external web access configuration for web-search toolbox tools.
+    - Added language and keyword metadata to voice telephony call records.
+    - Added support for starting an agent's initiated process from a memory snapshot.
+
+    #### Breaking Changes
+    - Redesigned the Agent Optimization API and model hierarchy. Job creation now uses optimization model and configuration objects, job listings return `AgentOptimizationJob`, and the previous dataset input, job input, options, progress, and list-item models were removed.
+    - Renamed the Teams Phone Extension telephony APIs to Teams Phone Extensibility and renamed `MCPToolboxToolConnectorId` to `McpToolConnectorId`.
+    - Replaced voice response status, output modality, semantic VAD eagerness, and web-search context-size types with the corresponding shared OpenAI types.
+    - Moved `CallableToolAllowedCaller`, `VoiceAgentAudioInputConfigTranscriptionDelay`, `RealtimeFunctionToolParameters`, `ContainerSkill`, `InlineSkillParam`, `InlineSkillSourceParam`, and `SkillReferenceParam` from the `OpenAI` namespace to `Azure.AI.Projects.Agents`.
+- Name: Azure.AI.Projects
+  Version: 3.0.0-beta.4
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_3.0.0-beta.4/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `EvaluatorGenerationJobs` and `DataGenerationJob` do not require warning suppression anymore.
+    - Agent optimization does not require `AAIP001` warning suppression anymore.
+
+    #### Breaking Changes
+    - `EvaluatorGenerationJobs.Create` and `EvaluatorGenerationJobs.CreateAsync` are now returning the LRO poller.
+    - To create a data generation job, `DataGenerationJobInputs` is now need to be used. It can be of three types: `EvaluationDataGenerationJobInputs`, `ReinforcementFineTuningDataGenerationJobInputs` and `SupervisedFineTuningDataGenerationJobInputs`.
+    - `DataGenerationJobOptions` was replaced by `DataGenerationJobConfiguration` subtypes.
+    - `DataGenerationJobOutputOptions` was replaced by `EvaluationDataGenerationJobOutputConfiguration`.
+    - The `EvaluatorName` property of `EvaluatorGenerationInputs` now can only be set through constructor.
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 3.0.0-beta.4
+  DisplayName: AI Extensions - OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_3.0.0-beta.4/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `BrowserAutomationTool` for browser automation through an MCP project connection.
+- Name: Microsoft.Azure.WebPubSub.AspNetCore
+  Version: 1.6.0
+  DisplayName: Microsoft.Azure.WebPubSub.AspNetCore
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebPubSub.AspNetCore_1.6.0/sdk/webpubsub/Microsoft.Azure.WebPubSub.AspNetCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed inbound request signature validation being skipped when the service endpoint was configured with the `WebPubSubServiceEndpoint(Uri, AzureKeyCredential, ...)` constructor. The supplied key is now used to validate `ce-signature`, and credential rotation via `AzureKeyCredential.Update` is honored.
+
+    #### Features Added
+    - Support handling group presence events.
+- Name: Azure.ResourceManager.PlatformValidation
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PlatformValidation_1.0.0-beta.1/sdk/platformvalidation/Azure.ResourceManager.PlatformValidation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute
+  Version: 1.18.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute_1.18.0/sdk/compute/Azure.ResourceManager.Compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ResilienceManagement
+  Version: 1.0.0
+  DisplayName: Resource Management - Resilience Management
+  ServiceName: Resilience Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ResilienceManagement_1.0.0/sdk/azureresiliencemanagement/Azure.ResourceManager.ResilienceManagement/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-beta.4
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-beta.4/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.12.0-beta.3
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.12.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
+    - Improved authentication challenge resource validation.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.10.0-beta.4
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.10.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue in the challenge-based authentication policy where a cached authentication challenge accepted with challenge resource verification disabled could be reused by a separate default-strict client without revalidating the challenge resource.
+    - Improved authentication challenge resource validation.
+- Name: Azure.Provisioning.Sphere
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Sphere_1.0.0-beta.1/sdk/sphere/Azure.Provisioning.Sphere/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ApiCenter
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ApiCenter_1.0.0-beta.1/sdk/apicenter/Azure.Provisioning.ApiCenter/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-beta.5
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-beta.5/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Compute.BulkActions
+  Version: 1.2.0-alpha.20261013.7
+  DisplayName: Resource Management - Compute Bulk Actions
+  ServiceName: Compute Bulk Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.BulkActions_1.2.0-alpha.20261013.7/sdk/compute/Azure.ResourceManager.Compute.BulkActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ContainerService
+  Version: 1.0.0-beta.7
+  DisplayName: Provisioning - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ContainerService_1.0.0-beta.7/sdk/containerservice/Azure.Provisioning.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0-beta.6
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0-beta.6/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.ConfidentialLedger
+  Version: 2.0.0-beta.6
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_2.0.0-beta.6/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed long-lived clients failing TLS validation after a ledger's service identity certificate changes, for example after disaster recovery or after a new ledger instance replaces the old one behind the same DNS name. Previously the certificate was fetched only when the client was constructed, so the application had to be restarted. The pinned certificate is still used for every handshake; only when server authentication fails because the presented certificate no longer chains to the pinned certificate does the client re-query the independently trusted Identity Service for that ledger's current certificate, replace the pin, and re-validate. The refresh is throttled per ledger so a persistently mismatched certificate cannot force an Identity Service lookup on every handshake, and a man-in-the-middle certificate is still rejected because it cannot chain to the Identity Service's current certificate.
+- Name: Azure.ResourceManager.ElasticSan
+  Version: 1.3.0-beta.1
+  DisplayName: Resource Management - Elastic SAN
+  ServiceName: Elastic SAN
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ElasticSan_1.3.0-beta.1/sdk/elasticsan/Azure.ResourceManager.ElasticSan/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.StorageDiscovery
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Storage Discovery
+  ServiceName: Storage Discovery
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StorageDiscovery_1.1.0-beta.1/sdk/storagediscovery/Azure.ResourceManager.StorageDiscovery/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Responses
+  Version: 1.0.0-beta.9
+  DisplayName: AI Agent Server - Responses
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Responses_1.0.0-beta.9/sdk/agentserver/Azure.AI.AgentServer.Responses/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Legacy-chain migration now atomically requires the selected legacy task to still exist. If
+    deletion wins after the compatibility probe, Responses starts the session-instance-scoped task
+    instead of recreating the tombstoned legacy ID, including when the legacy chain is active and
+    accepting steering input.
+    - Scope local in-memory and file-backed response envelopes, items, history, and conversation
+    indexes to `PlatformContext.UserIdKey`. Anonymous requests use a separate local partition.
+    - Require an existing response in the caller's partition for updates, and retain deletion
+    semantics without allowing updates to recreate deleted responses.
+    - Changed the default history fetch limit from 100 to `-1` (unlimited), avoiding
+    automatic truncation of conversation history. Positive limits remain supported.
+    - Hosted `ResponsesServer.Run` and `AgentHostBuilder.AddResponses` now bind through the
+    `ResponsesServer` settings section instead of routing through the local-only service-collection
+    registration path.
+    - Hosted `ResponsesServer.Run<THandler>()` and `AgentHostBuilder.AddResponses` no longer fail at
+    startup in a hosted Foundry container that provides only the platform environment
+    (`FOUNDRY_PROJECT_ENDPOINT` and a managed identity). Unconfigured values fall back to the
+    platform, and the fallback is logged at startup. A configured but unresolvable `Credential`
+    section still fails startup.
+    - The Foundry response-storage HTTP pipeline is now private to its provider, preventing unrelated
+    ambient pipeline registrations from replacing the configured credential-bound pipeline.
+    - Task-bound SSE relays now observe durable task completion failures, emit the existing SSE error
+    event instead of hanging, and leave the underlying stream open for recovery.
+
+    #### Breaking Changes
+    - Stored responses use Core durable tasks only when the resilient-task runtime is enabled.
+    `ResilientBackground=true` enables it automatically; otherwise `store=true` requests execute
+    in-process and are not recovered after an ungraceful crash.
+    - The local file-backed response provider now uses a new `responses/partitions-v1` namespace.
+    Previously persisted responses and their history are not visible after upgrade, including
+    for anonymous requests and crash recovery. Legacy files remain unchanged; there is no
+    automatic migration or legacy read fallback. Restoring old data requires an explicit,
+    operator-controlled migration with independently verified ownership. Newly persisted
+    partitioned data continues to survive restarts.
+    - Hosted registration now uses the `ClientSettings` pattern. The
+    `AddResponsesServer(IServiceCollection, Action<ResponsesServerOptions>)` overload remains for
+    local / non-hosted scenarios and now throws in a hosted Foundry environment (use the
+    `IHostApplicationBuilder` overload there). The internal `DEFAULT_FETCH_HISTORY_ITEM_COUNT`
+    environment-variable read and the ambient `TokenCredential` registration were removed
+    (`FOUNDRY_PROJECT_ENDPOINT` is now only the fallback for an unconfigured
+    `ResponsesServer:Endpoint`); the HTTPS-in-non-development check now honors
+    `IHostEnvironment.IsDevelopment()` rather than reading `ASPNETCORE_ENVIRONMENT` /
+    `DOTNET_ENVIRONMENT` directly.
+    - `ResponseEventStream.Checkpoint()` was renamed to the virtual `CreateCheckpointEvent()`, and
+    `ResponseEventStream.InternalMetadata` was renamed to `PersistedMetadata`.
+    - `ResponseContext.ClientCancelled` was renamed to `IsClientCancelled`. `IsShutdownRequested` and
+    `IsClientCancelled` are now get-only virtual passthroughs over the `Shutdown` /
+    `ClientCancellation` tokens; the settable `IsShutdownRequested` was removed.
+
+    #### Features Added
+    - Hosted durable multi-turn task IDs are now scoped by `FOUNDRY_AGENT_SESSION_GUID`, preventing
+    recreated sessions from reusing name-derived IDs that refer to tombstoned tasks from an earlier
+    incarnation and can cause a service precondition failure (HTTP 412).
+    Public `ResponseContext.ConversationChainId` values and one-shot task IDs are unchanged, and
+    pending, in-progress, or suspended pre-rollout chains continue under their legacy task IDs.
+    - Added `AddResponsesServer(IHostApplicationBuilder host, string sectionName)` and
+    `AddResponsesServer(IHostApplicationBuilder host, string sectionName, Action<ResponsesServerSettings>)`,
+    which bind a new `ResponsesServerSettings : ClientSettings` (the Foundry credential, `Endpoint`,
+    and option flags) from a single configuration section. Because response storage and
+    resilient-task storage bind the same identity and endpoint from one section, the two cannot
+    diverge. This is the required entry point in hosted Foundry environments. In a hosted
+    container, values the section does not provide default to the platform: `Endpoint` to
+    `FOUNDRY_PROJECT_ENDPOINT`, and an absent `Credential` section to a `DefaultAzureCredential`
+    limited by default to the production credentials (environment, workload identity and managed
+    identity; `AZURE_TOKEN_CREDENTIALS` overrides the selection), so
+    `ResponsesServer.Run<THandler>()` needs no configuration. A `Credential` section that does not
+    resolve still fails startup.
+    - Added `ResponseContext.ClientCancellation` (a `CancellationToken`) alongside
+    `ResponseContext.Shutdown`, so an explicit client cancel is composable as a token.
+- Name: Azure.ResourceManager.Compute.WorkloadManager
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Compute.WorkloadManager_1.0.0-beta.1/sdk/compute/Azure.ResourceManager.Compute.WorkloadManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.5.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.5.0/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.30
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.30/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Recovered handlers and queued turns drained by their recovered chain can invoke other registered
+    task definitions while the cold-start scan is still running. External callers remain gated until
+    startup recovery completes.
+    - Graceful shutdown now closes task-start admission and signals the shutdown cause before waiting
+    for the periodic recovery scan to stop, preventing recovered handlers from starting nested work
+    after shutdown begins.
+    - Multi-turn suspension now coordinates the empty-queue decision and execution
+    retirement with steering admission. Inputs waiting at that boundary are drained
+    or resumed with their own identity instead of being accepted and then erased.
+    - Queued input acceptance now advances the last-input precondition atomically with
+    persistence. Active input identity is stored separately for recovery and stream
+    cleanup, and rejected appends cannot be promoted or restored by a stale queue snapshot.
+    - Task deletion now coordinates stream closure with confirmed storage deletion and
+    producer unwind. Failed or cancelled deletes preserve recoverable streams without
+    undoing cancellation, including inputs being promoted or removed from the queue.
+    - Concurrent first starts within one task engine now coordinate task creation before
+    routing subsequent multi-turn inputs to steering, preserving each input's own handle.
+    Recovery no longer mistakes an unpublished initial start for an abandoned task, and
+    duplicate creation by another engine reports a task-level conflict.
+    - Task-bound streams now record their owning task and reject cross-task reuse of an
+    explicit input id. File-backed replay persists the ownership beside the stream log so
+    isolation is enforced after process restart.
+    - Closed replay streams are swept after their retention window, closed live streams are
+    removed immediately, and ownership entries are released with the stream.
+    - Task-stream closure is synchronized with lazy materialization so a terminal transition
+    cannot miss a concurrently created stream. Deleting a task abandoned for recovery closes
+    its existing persisted turn stream without creating a stream that was never used.
+
+    #### Breaking Changes
+
+    - Resilient tasks now default to disabled. Applications that start Core tasks directly must call
+    `SetResilientTasksEnabled()` before host startup. Starting a registered task while disabled
+    throws `ResilientTaskException` with `ResilientTaskErrorCode.NotEnabled`.
+    - `UseInMemoryReplay()` now defaults to a bounded 10-minute retention window instead of
+    retaining closed streams indefinitely.
+    - State-store optimistic-concurrency values now use the standard `Azure.ETag` type.
+    This includes `StateStoreItem.Etag`, `StateStoreItemRef.Etag`,
+    `StateStoreItemKey.Etag`, `FoundryStoragePreconditionException.CurrentETag`, the
+    corresponding model-factory parameters, and `FoundryStateStore.SetItemAsync` /
+    `DeleteItemAsync` `ifMatch` parameters.
+
+    #### Features Added
+
+    - Added the private `POST /_agent/before-snapshot` and `POST /_agent/after-restore`
+    lifecycle endpoints for memory snapshot capture and restoration, with
+    `POST /_before_snapshot` and `POST /_after_restore` as aliases. Applications can register
+    an `IAgentSnapshotLifecycle` singleton to release and rebuild process state; Core applies
+    session environment overrides first and provides serialized, idempotent retry handling.
+    Consumers acknowledge this experimental contract with the `AAAS002` diagnostic.
+    - Added `FoundryEnvironment.SessionInstanceId`, sourced from `FOUNDRY_AGENT_SESSION_GUID`, and
+    validation of the hosted platform's 32-character lowercase hexadecimal session-incarnation ID.
+    - Added `TaskDefinition<TInput, TOutput>.GetStatusAsync()` for task-ID migration and compatibility
+    probes without activating or reclaiming the task.
+    - Added the hidden `TaskDefinition<TInput, TOutput>.TryStartExistingAsync()` compatibility
+    primitive, which starts a multi-turn task only if its record still exists and never enters the
+    create path.
+    - Added host-scoped resilient-task opt-in through `SetResilientTasksEnabled()` and
+    `ResilientTaskOptions.Enabled`. Task registration alone no longer initializes task storage or
+    recovery; enabled hosts run startup recovery and the periodic recovery loop.
+    - Added constructor-injected resilient task handlers through
+    `IResilientTaskHandler<TInput, TOutput>` registration overloads. The task engine creates
+    and asynchronously disposes a fresh dependency-injection scope for every execution
+    attempt, including retries, steered turns, and recovered attempts.
+    - Added deterministic event-stream backing composition and
+    `IHostApplicationBuilder.AddAgentEventStreams(sectionName)`. Explicit application
+    configuration now overrides protocol defaults regardless of registration order,
+    identical selections are idempotent, and conflicting same-precedence selections fail
+    with source diagnostics instead of silently discarding durability settings.
+    - Added lazy task-bound stream capabilities: handlers emit through
+    `TaskContext<TInput>.Stream`, and callers subscribe through `TaskRun<TOutput>.Stream`.
+    Streams use the per-turn `InputId`, remain open across retry and recovery deferral, and
+    close only after the existing terminal task-store transition succeeds.
+    - Added `ResilientTaskSettings : ClientSettings` and configuration-bound
+    `IHostApplicationBuilder.AddResilientTasks(sectionName)` overloads. Hosted task storage
+    now accepts its credential and project endpoint from one settings object.
+- Name: Azure.AI.Projects.Agents
+  Version: 3.0.0-beta.5
+  DisplayName: AI Projects - Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_3.0.0-beta.5/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `VoiceAgentAvatarVideoCrop.BottomRight` and `VoiceAgentAvatarVideoCrop.TopLeft` types were changed from `IList<object>` to `IList<uint>`.
+    - `VoiceAgentAzureSemanticVadEnTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadEnTurnDetection.IdleTimeout`.
+    - `VoiceAgentAzureSemanticVadMultilingualTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadMultilingualTurnDetection.IdleTimeout`.
+    - `VoiceAgentAzureSemanticVadTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadTurnDetection.IdleTimeout`.
+    - `VoiceAgentSubagent.InvokeTimeoutSeconds` was renamed to `VoiceAgentSubagent.InvokeTimeout`.
+    - Changed types of `VoiceAgentAvatarVideoCrop.BottomRight` and `TopLeft` from `IList<object>` to `IList<uint>`. Its constructor and `ProjectsAgentsModelFactory.VoiceAgentAvatarVideoCrop` now accept `IEnumerable<uint>` instead of `IEnumerable<object>`.
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 3.0.0-beta.5
+  DisplayName: AI Extensions - OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_3.0.0-beta.5/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The `MicrosoftCopilotToolsetPreview` tool was added as a replacement for `GitHubCopilotToolsetPreview`.
+    - `GitHubCopilotToolsetPreview` was marked as legacy and will be removed in the future releases.
+- Name: Azure.AI.Projects
+  Version: 3.0.0-beta.5
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_3.0.0-beta.5/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `ProjectsRealtimeSessionClientOptions.Transport` to select a Voice Agent's WebSocket or WebRTC signaling transport.
+
+    #### Breaking Changes
+    - Removed the `UpdateMemories(string, BinaryContent, RequestOptions)` and `UpdateMemoriesAsync(string, BinaryContent, RequestOptions)` protocol overloads from `AIProjectMemoryStores`. Use the corresponding long-running operation overloads that accept `waitUntilCompleted` instead, passing `false` to return after starting the operation.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.4.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.4.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed streaming blob downloads to enforce the declared content length and disallow seeking, ensuring SHA-256 validation
+    covers the complete sequential content stream.
+- Name: Azure.ResourceManager.HybridConnectivity
+  Version: 1.2.0
+  DisplayName: Resource Management - Hybrid Connectivity
+  ServiceName: Hybrid Connectivity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.HybridConnectivity_1.2.0/sdk/hybridconnectivity/Azure.ResourceManager.HybridConnectivity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.AgriculturePlatform
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.AgriculturePlatform_1.0.0-beta.1/sdk/agricultureplatform/Azure.Provisioning.AgriculturePlatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.ContainerService
+  Version: 1.0.0
+  DisplayName: Provisioning - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.ContainerService_1.0.0/sdk/containerservice/Azure.Provisioning.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Maintenance
+  Version: 1.2.0-beta.12
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Maintenance_1.2.0-beta.12/sdk/maintenance/Azure.ResourceManager.Maintenance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.6.5
+  DisplayName: Key Encryptor for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.6.5/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.AspNetCore.DataProtection` dependency to `8.0.32` for `net8.0` and `10.0.13` for all other target frameworks.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.5.5
+  DisplayName: Blob Storage Key Store for .NET Data Protection
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.5.5/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated `Microsoft.AspNetCore.DataProtection` dependency to `8.0.32` for `net8.0` and `10.0.13` for all other target frameworks.
+- Name: Azure.Provisioning.SiteManager
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.SiteManager_1.0.0-beta.1/sdk/sitemanager/Azure.Provisioning.SiteManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.9.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.9.0/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.HealthBot
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.HealthBot_1.0.0-beta.1/sdk/healthbot/Azure.Provisioning.HealthBot/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.SerialConsole
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.SerialConsole_1.0.0-beta.1/sdk/serialconsole/Azure.Provisioning.SerialConsole/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeActions
+  Version: 1.0.0-beta.4
+  DisplayName: Resource Management - Edge Actions
+  ServiceName: Edge Actions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeActions_1.0.0-beta.4/sdk/edgeactions/Azure.ResourceManager.EdgeActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Hci
+  Version: 1.4.0
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Hci_1.4.0/sdk/azurestackhci/Azure.ResourceManager.Hci/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.7.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.7.0-beta.1/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.64.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.64.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed CA certificate reloads for an already-used Kubernetes token proxy in `WorkloadIdentityCredential`, so subsequent requests use the new CA without throwing or retaining the old trust configuration.
+
+    #### Features Added
+
+    - Promoted AKS identity binding support in `WorkloadIdentityCredential` to general availability. `WorkloadIdentityCredentialOptions.IsAzureProxyEnabled` no longer requires suppressing experimental diagnostic `AZID0002`. Identity binding remains opt-in and isn't supported by `DefaultAzureCredential` or `ManagedIdentityCredential`.
+- Name: Azure.Provisioning
+  Version: 1.7.0-beta.1
+  DisplayName: Provisioning
+  ServiceName: Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.7.0-beta.1/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.CloudHealth
+  Version: 1.0.0
+  DisplayName: Resource Management - Cloud Health
+  ServiceName: Cloud Health
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CloudHealth_1.0.0/sdk/cloudhealth/Azure.ResourceManager.CloudHealth/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.18.0-beta.2
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.18.0-beta.2/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.19.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.19.0/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.OracleDatabase
+  Version: 1.3.0
+  DisplayName: Resource Management - Oracle Database
+  ServiceName: Oracle Database
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.OracleDatabase_1.3.0/sdk/oracle/Azure.ResourceManager.OracleDatabase/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Storage
+  Version: 1.2.0
+  DisplayName: Provisioning - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Storage_1.2.0/sdk/storage/Azure.Provisioning.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Storage
+  Version: 1.2.0-beta.2
+  DisplayName: Provisioning - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Storage_1.2.0-beta.2/sdk/storage/Azure.Provisioning.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.10.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.10.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Regenerated the library for stable Key Vault API version `2026-04-01`.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.12.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.12.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Regenerated the library for stable Key Vault API version `2026-04-01`.
+- Name: Azure.Provisioning
+  Version: 1.7.0-beta.2
+  DisplayName: Provisioning
+  ServiceName: Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning_1.7.0-beta.2/sdk/provisioning/Azure.Provisioning/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Storage
+  Version: 1.9.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.9.0/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.VoiceLive
+  Version: 1.2.1
+  DisplayName: Voice Live
+  ServiceName: Cognitive Services
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.VoiceLive_1.2.1/sdk/voicelive/Azure.AI.VoiceLive/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - WebSocket connections no longer follow redirects, preventing API keys and other handshake headers from being forwarded to redirect destinations.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 6.5.5
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_6.5.5/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where stale checkpoints could prevent scale-in when `BatchCheckpointFrequency` was greater than 1. Pending processed events are now checkpointed after 10 minutes of inactivity so that the scale controller does not report backlog for events that have already been processed. ([#59801](https://github.com/Azure/azure-sdk-for-net/pull/59801))
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.10.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.10.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Invocations
+  Version: 1.0.0-beta.8
+  DisplayName: AI Agent Server - Invocations
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Invocations_1.0.0-beta.8/sdk/agentserver/Azure.AI.AgentServer.Invocations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `VoiceInputDataPart`, ordered `VoiceUserMessageEvent.ContentParts`, and `VoiceResponseOutputDataDoneMessage` for application data in Bridge protocol `1.0`. The existing text-only `Content` projection and explicit silent completion remain available.
+    - Added a standalone `/voice_conversation_engine` WebSocket route for typed Voice
+    handlers registered with `AddVoice<THandler>()`. It reuses the existing Bridge
+    Protocol 1.0 relay alongside `/invocations_ws`, without new registration options
+    or changes to generic Invocations handlers.
+    - Aligned the experimental Voice caller-interruption contract with `user.barge_in`, `VoiceUserBargeInEvent`, and `OnUserBargeInAsync`, preserving playback snapshots and application-owned cancellation/history. Voice Live senders must use the same event contract. Generic raw WebSocket handlers are unchanged.
+- Name: Azure.ResourceManager.PrivateTrafficManager
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.PrivateTrafficManager_1.0.0-beta.1/sdk/privatetrafficmanager/Azure.ResourceManager.PrivateTrafficManager/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Provisioning.Network
+  Version: 1.2.0-beta.1
+  DisplayName: Provisioning - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.Network_1.2.0-beta.1/sdk/network/Azure.Provisioning.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EdgeActions
+  Version: 1.0.0
+  DisplayName: Resource Management - Edge Actions
+  ServiceName: Edge Actions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeActions_1.0.0/sdk/edgeactions/Azure.ResourceManager.EdgeActions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RedHatOpenShiftHcp
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Redhatopenshifthcp
+  ServiceName: Redhatopenshifthcp
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RedHatOpenShift_1.0.0-beta.1/sdk/redhatopenshift/Azure.ResourceManager.RedHatOpenShift/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Network
+  Version: 1.18.0-beta.3
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Network_1.18.0-beta.3/sdk/network/Azure.ResourceManager.Network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.DeviceProvisioningServices
+  Version: 1.4.0
+  DisplayName: Resource Management - Device Provisioning Services
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.DeviceProvisioningServices_1.4.0/sdk/deviceprovisioningservices/Azure.ResourceManager.DeviceProvisioningServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Security.Attestation
+  Version: 2.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.Attestation_2.0.0/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `GetPolicy` throwing instead of returning a null policy when the requested attestation type has no policy configured.
+    - `AttestationClient.GetSigningCertificatesAsync`, which the async operations also use to fetch the keys that validate tokens, no longer makes a blocking network call.
+    - `AttestationToken.ExpirationTime`, `NotBeforeTime`, and `IssuedAtTime` no longer truncate fractional seconds in the token's `exp`, `nbf`, and `iat` claims.
+    - With a nonzero `AttestationTokenValidationOptions.TimeValidationSlack`, token validation compared only the seconds component of the time elapsed since `exp` (or remaining until `nbf`) with the slack, so a token outside the slack by a whole number of minutes could pass. It now compares the total elapsed time.
+    - `AttestationToken.X509CertificateChain` now decodes the base64-encoded certificates in the token's `x5c` header on all target frameworks, and returns an empty array when the header has none. On .NET 9 and earlier, and on .NET Framework, it treated each entry as a file name, so it could not read the certificates in tokens returned by the service.
+    - `AttestationAdministrationClient.SetPolicy`, `GetPolicyManagementCertificates`, and `GetPolicyManagementCertificatesAsync` no longer throw when a `TokenValidated` handler is attached; they now invoke it like the other operations.
+    - A token without a `kid` header is now checked against every signing certificate passed to `ValidateToken` and `ValidateTokenAsync`. Previously only the first was tried, so a token signed by another of them was rejected.
+    - Tokens signed with an `AttestationTokenSigningKey` now carry the standard JWS algorithm `RS256` in their `alg` header, instead of `RSA256`.
+    - Tokens signed with an `AttestationTokenSigningKey` created from a certificate alone now use the certificate's private key. Previously, on .NET 8 and later, signing failed with a `CryptographicException`.
+    - `ValidateToken` and `ValidateTokenAsync` now throw `ArgumentNullException` when `options` is `null` or `attestationSigningCertificates` contains `null`, throw `ArgumentException` when one of the signers has no certificate, and return `false` for a token without an `alg` header, instead of throwing `NullReferenceException` or `ArgumentOutOfRangeException`.
+    - `AttestationToken.ExpirationTime`, `NotBeforeTime`, and `IssuedAtTime` now return `DateTimeOffset.MaxValue` or `DateTimeOffset.MinValue` for claims outside the range of `DateTimeOffset`, instead of throwing `ArgumentOutOfRangeException`, so such tokens are validated against those values.
+
+    #### Breaking Changes
+
+    This release changes how attestation tokens are validated, so code that worked with 1.0.0 might need changes. See the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/attestation/Azure.Security.Attestation/MigrationGuide.md) for how to update it.
+
+    - `AttestationToken.ValidateToken` and `AttestationToken.ValidateTokenAsync` now return `false` for unsecured tokens, that is, tokens whose `alg` header is `none`. Such tokens carry no signature, so no signature verification was performed and validation previously succeeded by default. The `AttestationTokenValidationOptions.TokenValidated` handler is no longer invoked for these tokens and cannot be used to accept them. Tokens returned by the Attestation service are signed and are unaffected, except for the response to an attestation request that sets `DraftPolicyForAttestation`: the service never signs it, so the client still returns it, as before, after checking its time claims and invoking the `TokenValidated` handler. Unsecured tokens sent to the service by `SetPolicy` and `ResetPolicy` are also unaffected, as they are never validated by the client.
+    - Attestation tokens are now validated against their issuer by default. `AttestationTokenValidationOptions.ValidateIssuer` defaults to `true`, and `AttestationClient` and `AttestationAdministrationClient` use their endpoint as the expected issuer when `ExpectedIssuer` is not set. While issuer validation is enabled, a token without an issuer is rejected. Callers of `AttestationToken.ValidateToken` and `AttestationToken.ValidateTokenAsync` must set `ExpectedIssuer` to the base URI of the attestation provider the token must come from, or set `ValidateIssuer` to `false`.
+    - `AttestationToken.ValidateToken` and `AttestationToken.ValidateTokenAsync` now accept a signed token only if one of the signing certificates passed as `attestationSigningCertificates` signed it. Previously, when no signing certificates were passed, the token was checked against the certificates in its own header. They now throw `ArgumentNullException` when `attestationSigningCertificates` is `null` and `ArgumentException` when it is empty; use `AttestationClient.GetSigningCertificates` to retrieve the attestation provider's signing certificates. Certificates and keys in a token's header are no longer used to select a signer in any case.
+    - `AttestationClient` and `AttestationAdministrationClient` now throw `ArgumentException` when the endpoint does not use `https`. An `AttestationClient` created without a credential previously sent its requests, including the request for the certificates that validate tokens, without TLS.
+    - When several handlers are attached to `AttestationTokenValidationOptions.TokenValidated`, the token is now rejected if any of them sets `IsValid` to `false`. Previously only the value set by the last handler was used.
+    - `AttestationTokenSigningKey` now throws `ArgumentException` for keys and certificates that are not RSA, such as ECDSA keys, instead of `NotSupportedException` or `NullReferenceException`. Only RSA signing keys are supported.
+    - `AttestationTokenValidationOptions.TimeValidationSlack` now defaults to 5 seconds instead of 0. The service sets a token's `nbf` claim with its own clock, which can be slightly ahead of the caller's, so with no slack a token returned by the service was intermittently rejected as not yet valid. Set `TimeValidationSlack` to 0 to restore exact time checks.
+
+    #### Features Added
+
+    - Updated the client library to target the `2025-06-01` Azure Attestation service API version.
+    - Added `AttestationClientOptions.ServiceVersion.V2025_06_01`, which is now the default service version. `V2020_10_01` remains available for callers that need to continue targeting the previous service API version.
+    - Added the `AttestationType.AzureGuest`, `AttestationType.SevSnpVm`, and `AttestationType.TdxVm` values. `TdxVm` requires service version `V2025_06_01`.
+    - Added `AttestationClient.AttestTdxVm` and `AttestationClient.AttestSevSnpVm` (and their async counterparts) to attest Intel TDX and AMD SEV-SNP confidential virtual machines. `AttestTdxVm` requires service version `V2025_06_01`; `AttestationClient.CanAttestTdxVm` indicates whether the client supports it.
+    - Added `AttestationRequest.Nonce`, which the service returns in the `nonce` claim of the attestation token.
+    - Added `AttestationResult.AdditionalClaims`, which exposes the token's claims that have no dedicated property, such as the TDX and SEV-SNP claims and claims issued by attestation policy. `AttestationModelFactory.AttestationResult` accepts them as `additionalClaims` for mocking.
+    - Added `AttestationClient.GetOpenIdMetadata` (and its async counterpart), which retrieves the attestation provider's OpenID Connect discovery document as an `AttestationOpenIdMetadata`.
+    - Added `AttestationClient.AttestAzureGuest` (and its async counterpart) to attest Azure confidential and Trusted Launch virtual machines. It returns a `SealedAttestationResult` whose token is encrypted to the virtual machine's TPM, so the client does not validate it.
+    - Added `AttestationAdministrationClient.GetTcbBaselines` (and its async counterpart), which lists the SGX trusted computing base (TCB) baselines an attestation policy can require, as `TcbBaselineResult` and `TcbBaseline`. It requires service version `V2025_06_01`; `AttestationAdministrationClient.CanGetTcbBaselines` indicates whether the client supports it.
+    - Model types now implement `IJsonModel<T>` and `IPersistableModel<T>`, and `AzureSecurityAttestationContext` was added, for use with `System.ClientModel.Primitives.ModelReaderWriter`.
+
