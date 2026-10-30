@@ -654,4 +654,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatetrafficmanager_1.0.0b1/sdk/privatetrafficmanager/azure-mgmt-privatetrafficmanager/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.26.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.26.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed UTC conversion of timezone-aware datetimes in `generate_account_sas`, `generate_file_system_sas`, `generate_directory_sas`, `generate_file_sas`, and `DataLakeServiceClient.get_user_delegation_key` (sync and async). Datetimes without timezone information continue to be treated as UTC.
+    - Fixed an issue where certain headers were not being properly redacted when DEBUG logging was enabled.
 
