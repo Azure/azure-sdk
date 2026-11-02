@@ -835,4 +835,80 @@ entries:
     - Added `AttestationClient.AttestAzureGuest` (and its async counterpart) to attest Azure confidential and Trusted Launch virtual machines. It returns a `SealedAttestationResult` whose token is encrypted to the virtual machine's TPM, so the client does not validate it.
     - Added `AttestationAdministrationClient.GetTcbBaselines` (and its async counterpart), which lists the SGX trusted computing base (TCB) baselines an attestation policy can require, as `TcbBaselineResult` and `TcbBaseline`. It requires service version `V2025_06_01`; `AttestationAdministrationClient.CanGetTcbBaselines` indicates whether the client supports it.
     - Model types now implement `IJsonModel<T>` and `IPersistableModel<T>`, and `AzureSecurityAttestationContext` was added, for use with `System.ClientModel.Primitives.ModelReaderWriter`.
+- Name: Azure.AI.Extensions.OpenAI
+  Version: 3.0.0-beta.6
+  DisplayName: AI Extensions - OpenAI
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Extensions.OpenAI_3.0.0-beta.6/sdk/ai/Azure.AI.Extensions.OpenAI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Exposed the constructors of `GitHubCopilotToolsetPreview`, `GitHubCopilotToolsetDefaultConfig` `GitHubCopilotToolsetConfig`, `MicrosoftCopilotToolsetPreview`, `MicrosoftCopilotToolsetDefaultConfig` and `MicrosoftCopilotToolsetConfig`.
+
+    #### Breaking Changes
+    - `BrowserAutomationPreviewTool` is deprecated and hidden from IntelliSense. Please use `BrowserAutomationTool` instead.
+    - Removed the `type` parameter from response-item methods on `ExtensionsOpenAIModelFactory`. Each factory now uses the discriminator value for its concrete response-item type.
+- Name: Azure.AI.Projects
+  Version: 3.0.0-beta.6
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_3.0.0-beta.6/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added opt-in Voice Agent realtime tracing for connections, sessions, responses, tool milestones, audio usage, cancellation, and errors using the existing Foundry GenAI tracing settings. Added correlated, payload-free realtime diagnostic logs.
+    - Included first-text/audio latency, reported audio formats and sample rates, session audio totals, consistent session lifecycle events, and bounded opt-in transcript/tool message content in Voice Agent telemetry.
+    - Added the `MaxSamples` property to `SimulationSeedDataGenerationJobConfiguration`.
+
+    #### Breaking Changes
+    - `SimulationSeedDataGenerationJobConfiguration` now requires a `maxSamples` constructor argument. Replace parameterless construction with `new SimulationSeedDataGenerationJobConfiguration(maxSamples)`.
+    - Added an optional `maxSamples` parameter to `AzureAIProjectsModelFactory.SimulationSeedDataGenerationJobConfiguration`, changing its binary signature. Recompile code that uses this factory.
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.6.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.6.0/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.Projects.Agents
+  Version: 3.0.0-beta.6
+  DisplayName: AI Projects - Agents
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_3.0.0-beta.6/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added experimental Voice Agent post-call delivery to Event Grid connections and routines.
+    - Added experimental Voice Agent soundscapes for telephony ambience and event cues.
+    - Added Azure Speech streaming transcription and headset/personal noise suppression modes.
+    - Added `ProjectsAgentProtocol.VoiceConversationEngine` for hosted voice conversation engines.
+    - Enriched existing Foundry GenAI agent-creation traces with privacy-safe Voice Agent metadata and bounded instruction content under the existing opt-in setting. Other Voice Agent REST operations retain their existing SDK diagnostics.
+
+    #### Breaking Changes
+    - Added the `postCall` parameter before `store` in `ProjectsAgentsModelFactory.VoiceAgentDefinition`, affecting positional arguments.
+    - Added the `soundscape` parameter before `outputModalities` in `ProjectsAgentsModelFactory.VoiceAgentDefinition`, affecting positional arguments.
+    - `VoiceAgentAvatarVideoCrop.BottomRight` and `VoiceAgentAvatarVideoCrop.TopLeft` types were changed from `IList<object>` to `IList<uint>`.
+    - `VoiceAgentAzureSemanticVadEnTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadEnTurnDetection.IdleTimeout`.
+    - `VoiceAgentAzureSemanticVadMultilingualTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadMultilingualTurnDetection.IdleTimeout`.
+    - `VoiceAgentAzureSemanticVadTurnDetection.IdleTimeoutMs` was renamed to `VoiceAgentAzureSemanticVadTurnDetection.IdleTimeout`.
+    - `VoiceAgentSubagent.InvokeTimeoutSeconds` was renamed to `VoiceAgentSubagent.InvokeTimeout`.
+    - `OtlpTelemetryEndpoint.Endpoint` type was changed from `string` to `System.Uri`.
+    - `VoiceAgentMcpTool.AllowedTools` and `MCPToolboxTool.AllowedTools`, along with their model-factory parameters, now use `OpenAI.Responses.McpToolFilter` instead of `BinaryData`. `MCPToolboxTool.AllowedTools` now requires the `AAIP002` experimental opt-in.
+    - `VoiceResult.Metadata` now uses `IDictionary<string, BinaryData>` instead of `OpenAI.InternalMetadataContainer`. The public `OpenAI.InternalMetadataContainer` type was removed.
+    - `BrowserAutomationPreviewToolboxTool` is deprecated and hidden from IntelliSense. Please use `BrowserAutomationToolboxTool` instead.
+    - `VoiceAgentSoundscapeSound` was converted from enumeration to structure allowing extensibility from the service side.
+    - The `VoiceAgentSoundscapeWorkingTrackConfig` property `DelayMs` was renamed to `Delay`.
+- Name: Azure.Provisioning.StorageActions
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Provisioning.StorageActions_1.0.0-beta.1/sdk/storageactions/Azure.Provisioning.StorageActions/CHANGELOG.md
+  ChangelogContent: ""
 
