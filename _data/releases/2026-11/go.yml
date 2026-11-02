@@ -353,4 +353,22 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v11.1.0-beta.1/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.24.0
+  DisplayName: Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.24.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    * Client tracing spans now redact the request URL in error descriptions using the pipeline's query parameter allow list.
+    * Retry logging now uses the pipeline's query parameter allow list and redacts request URLs in errors.
+
+    #### Features Added
+
+    * Added `tracing.WrapTracer` to decorate a tracer while preserving attribute override ordering.
+    * Added supporting infrastructure for SSE responses.  This includes streaming types, runtime support, and fakes.
+    * Added `arm.ResourceID.ValidateResourceTypeChain` to validate complete resource-type ancestry.
 
