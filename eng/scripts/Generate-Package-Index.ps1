@@ -63,11 +63,11 @@ function Get-Row($pkg, $linkTemplates)
     $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $pkg.VersionPreview $pkg.RepoPath $groupId
     $package += $MDLinkFormat -f $pkgLabel, $pkg.VersionPreview, $pkgLink
 
-    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionGA $pkg.RepoPath
+    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionGA $pkg.RepoPath $groupId
     $source = $MDLinkFormat -f $srcLabel, $pkg.VersionGA, $srcLink
     if (!$pkg.RepoPath.StartsWith("http")) {
       $source += "<br>"
-      $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionPreview $pkg.RepoPath
+      $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionPreview $pkg.RepoPath $groupId
       $source += $MDLinkFormat -f $srcLabel, $pkg.VersionPreview, $srcLink
     }
   }
@@ -75,7 +75,7 @@ function Get-Row($pkg, $linkTemplates)
     $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
     $package = $MDLinkFormat -f $pkgLabel, $version, $pkgLink
 
-    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
+    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath $groupId
     $source = $MDLinkFormat -f $srcLabel, $version, $srcLink
   }
 
@@ -171,4 +171,3 @@ switch($language)
     exit 1
   }
 }
-
