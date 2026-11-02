@@ -345,4 +345,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed SAS signing to convert `StartTime` and `ExpiryTime` values to UTC before encoding them, so non-UTC times keep the intended instant.
+- Name: sdk/resourcemanager/netapp/armnetapp
+  Version: 11.1.0-beta.1
+  DisplayName: Resource Management - Net App
+  ServiceName: Net App
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/netapp/armnetapp/v11.1.0-beta.1/sdk/resourcemanager/netapp/armnetapp/CHANGELOG.md
+  ChangelogContent: ""
 
