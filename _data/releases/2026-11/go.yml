@@ -335,4 +335,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hybridconnectivity/armhybridconnectivity/v1.2.0/sdk/resourcemanager/hybridconnectivity/armhybridconnectivity/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 1.8.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v1.8.3/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed SAS signing to convert `StartTime` and `ExpiryTime` values to UTC before encoding them, so non-UTC times keep the intended instant.
 
