@@ -779,4 +779,12 @@ entries:
     - Fixed a `KeyError` when loading with an endpoint and credential (no connection string). ([#47922](https://github.com/Azure/azure-sdk-for-python/pull/47922))
     - Fixed feature flag processing so that an empty feature flag list clears previously loaded feature flags. ([#49152](https://github.com/Azure/azure-sdk-for-python/pull/49152))
     - Fixed feature flag refresh so that the `on_refresh_success` callback is invoked when the refreshed feature flag list is empty. ([#49216](https://github.com/Azure/azure-sdk-for-python/pull/49216))
+- Name: azure-mgmt-postgresqlflexibleservers
+  Version: 3.0.0
+  DisplayName: Resource Management - PostgreSQL  Flexible Servers
+  ServiceName: PostgreSQL  Flexible Servers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-postgresqlflexibleservers_3.0.0/sdk/postgresqlflexibleservers/azure-mgmt-postgresqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
 
