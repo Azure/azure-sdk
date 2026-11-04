@@ -421,4 +421,12 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixed SAS signing to convert `StartTime` and `ExpiryTime` values to UTC before encoding them, so non-UTC times keep the intended instant.
+- Name: sdk/resourcemanager/redisenterprise/armredisenterprise
+  Version: 4.0.0
+  DisplayName: Resource Management - Redis Enterprise
+  ServiceName: Redis Enterprise
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/redisenterprise/armredisenterprise/v4.0.0/sdk/resourcemanager/redisenterprise/armredisenterprise/CHANGELOG.md
+  ChangelogContent: ""
 
