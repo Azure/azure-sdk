@@ -11,4 +11,15 @@ entries:
 
     - Fixed Blob Batch response parsing to reject malformed multipart responses and invalid, duplicate,
     or incomplete response IDs.
+- Name: azure-data-tables
+  Version: 1.0.0-beta.7
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-data-tables_1.0.0-beta.7/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - [[#6522]](https://github.com/Azure/azure-sdk-for-cpp/pull/6522) Added `TableClientOptions::Audience` to configure the audience used to derive the authentication token scope.
 
