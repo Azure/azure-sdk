@@ -1015,4 +1015,87 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.SecretsStoreExtension_1.0.0-beta.3/sdk/secretsstoreextension/Azure.ResourceManager.SecretsStoreExtension/CHANGELOG.md
   ChangelogContent: ""
+- Name: System.ClientModel
+  Version: 1.17.0
+  DisplayName: System.ClientModel
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/System.ClientModel_1.17.0/sdk/core/System.ClientModel/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed invalid JSON when `JsonPatch` replaces string-like values inside stored JSON objects or arrays.
+
+    #### Features Added
+
+    - Added `ClientPipeline.Send` and `SendAsync` overloads accepting a `CancellationToken` to override cancellation for a send while preserving applied request options.
+- Name: Azure.AI.AgentServer.Core
+  Version: 1.0.0-beta.31
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Core_1.0.0-beta.31/sdk/agentserver/Azure.AI.AgentServer.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Prevented a stale steering nudge from canceling a promoted turn after its pending-input queue has drained. Pending-input publication now follows the same turn as the cancellation signal.
+
+    #### Features Added
+
+    - Added the `microsoft.foundry = "True"` string attribute to all collected spans and log records. The default telemetry processors override conflicting marker values without changing `gen_ai.provider.name`.
+    - Added protocol-scoped task access for composed hosts and per-task activation
+    checks, stamping the owning protocol on new task records so a disabled
+    protocol cannot start or recover its tasks merely because another protocol
+    enabled the shared runtime. Legacy unmarked application tasks require the
+    explicit Core switch for recovery; existing Invocations chains continue under
+    that opt-in. The new public protocol-scoping helpers and per-task activation
+    option are experimental (`AAAS003`).
+- Name: Azure.ResourceManager.ComputeFleet
+  Version: 1.1.0-beta.4
+  DisplayName: Resource Management - Compute Fleet
+  ServiceName: Compute Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ComputeFleet_1.1.0-beta.4/sdk/computefleet/Azure.ResourceManager.ComputeFleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.AI.AgentServer.Activity
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.AgentServer.Activity_1.0.0-beta.1/sdk/agentserver/Azure.AI.AgentServer.Activity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial release of `Azure.AI.AgentServer.Activity` — a .NET library for hosting a Microsoft 365
+    Agents SDK `AgentApplication` as an Azure AI Foundry hosted agent that speaks the **activity
+    protocol** (`POST /activity/messages`).
+    - `ActivityServer.Run(...)` one-liner startup that wires Kestrel, health probes, OpenTelemetry, and
+    the activity endpoint, with overloads for the way your agent is constructed:
+    - `Run<TAgent>()` — host an `AgentApplication` subclass by type.
+    - `Run(app => ...)` — register handlers inline on the built `AgentApplication` (no agent class).
+    - `Run(agentApp)` — host a pre-built `AgentApplication` instance.
+    - `Run(Func<IServiceProvider, AgentApplication>)` — factory registration with access to DI.
+    - `Run(RequestDelegate)` — own the raw request pipeline (the Microsoft 365 Agents SDK is not
+    initialized).
+    - Composition on the shared Core host builder via `AgentHostBuilder.AddActivity<TAgent>()`,
+    `AddActivity(agentApp)`, and `AddActivity(Func<IServiceProvider, AgentApplication>)`.
+    - Self-hosting on your own `WebApplication` via `AddFoundryActivity()` / `MapFoundryActivity()`
+    (aliased as `AddActivityServer()` / `MapActivityServer()`), including a `RequestDelegate` overload
+    of `MapFoundryActivity` for owning the request pipeline in a self-hosted app. This is also the
+    two-line conversion path for an existing Microsoft 365 Agents SDK application.
+    - `ActivityServerOptions` for configuring the built stack: outbound-auth model (`DigitalWorker`),
+    turn-state `Storage`, the outbound `Connections` provider, the `Connections:*`
+    `ConnectionConfiguration` mapping, and a `ConfigureServices` hook.
+    - Foundry outbound-auth is configuration-driven: `ActivityEnvironment` derives the M365
+    `Connections:*` settings from the Foundry-native identity (managed identity for the **simple**
+    agent-instance model, `IdentityProxyManager` for the **digital worker** blueprint + FMI exchange
+    model) and the SDK-native connection provider mints the outbound reply token. No process
+    environment is mutated.
+    - Session resolution (`agent_session_id` query / `x-agent-session-id` header / environment /
+    generated), sanitized session-id response header, `x-platform-error-source` error classification
+    (`user` / `platform` / `upstream`), and distributed tracing via `ActivityProtocolActivitySource`.
 
