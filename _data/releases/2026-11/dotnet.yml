@@ -1098,4 +1098,12 @@ entries:
     - Session resolution (`agent_session_id` query / `x-agent-session-id` header / environment /
     generated), sanitized session-id response header, `x-platform-error-source` error classification
     (`user` / `platform` / `upstream`), and distributed tracing via `ActivityProtocolActivitySource`.
+- Name: Azure.ResourceManager.Monitor.Workspaces
+  Version: 1.1.0-beta.1
+  DisplayName: Resource Management - Monitor Workspaces
+  ServiceName: Monitor Workspaces
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor.Workspaces_1.1.0-beta.1/sdk/monitor/Azure.ResourceManager.Monitor.Workspaces/CHANGELOG.md
+  ChangelogContent: ""
 
