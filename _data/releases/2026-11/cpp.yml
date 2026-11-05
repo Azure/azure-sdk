@@ -22,4 +22,79 @@ entries:
     #### Features Added
 
     - [[#6522]](https://github.com/Azure/azure-sdk-for-cpp/pull/6522) Added `TableClientOptions::Audience` to configure the audience used to derive the authentication token scope.
+- Name: azure-storage-blobs
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.20.0-beta.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed CMake dependency resolution when FlatCC provides only a shared runtime library.
+
+    #### Features Added
+
+    - Added support for persisted session authentication for eligible blob download requests.
+    - Added `DownloadBlobToOptions::LayoutAwareRouting` (`Auto`, `Disabled`, `Enabled`; default `Disabled`) for
+    managed downloads.
+    - Added `Models::DownloadHint` and `Models::DownloadBlobDetails::DownloadHint`.
+- Name: azure-storage-queues
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-queues_12.9.0-beta.1/sdk/storage/azure-storage-queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - No public changes in this release.
+- Name: azure-storage-files-datalake
+  Version: 12.18.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.18.0-beta.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `ListPaths()` on filesystem and directory clients to handle missing `contentLength`, `owner`, `group`, and `permissions` fields safely.
+    - Fixed `ListPaths()` on filesystem and directory clients to accept both numeric FILETIME and RFC1123 creation and expiry times.
+
+    #### Features Added
+
+    - Added support for persisted session authentication for eligible file download requests.
+    - Added `DownloadFileToOptions::LayoutAwareRouting` (`Auto`, `Disabled`, `Enabled`; default `Disabled`) for
+    managed downloads.
+    - Added the `Models::DownloadHint` alias and `Models::DownloadFileDetails::DownloadHint`.
+- Name: azure-storage-files-shares
+  Version: 12.20.0-beta.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.20.0-beta.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up API version to `2027-03-07`.
+    - Added the share creation time to `ShareClient::GetProperties` and
+    `ShareServiceClient::ListShares` responses.
+    - Added support for enabling and configuring Files Change Feed when creating or updating a share.
+    - Added support for addressing files and directories by file ID, retrieving their properties, and
+    listing a file's hard links.
+- Name: azure-storage-common
+  Version: 12.16.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.16.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Bumped up Account SAS version to `2027-03-07`.
 
