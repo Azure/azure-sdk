@@ -178,10 +178,10 @@ function buildSuccessComment({
     const assignedLine = assignments
       .map(
         (entry) =>
-          `${entry.language} → ${entry.reviewers.map((reviewer) => `\`${reviewer}\``).join(", ")}`,
+          `${entry.language} → ${entry.reviewers.map((reviewer) => `@${reviewer}`).join(", ")}`,
       )
       .join(" · ");
-    body += `**Assigned for review:** ${assignedLine}\n\nAssigned architects are notified via GitHub. Apply your \`<language>-api-approved\` label when the review is complete.\n\n`;
+    body += `**Assigned for review:** ${assignedLine}\n\nAssigned architects are explicitly mentioned and receive GitHub assignment notifications. Apply your \`<language>-api-approved\` label when the review is complete.\n\n`;
   }
 
   if (unassigned && unassigned.length > 0) {

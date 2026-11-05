@@ -33,7 +33,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 - `Replace` - This field is used to store the package name of the newer package that replaces the older package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`). If a package is marked as `deprecated`, this field must have a valid value.
 - `ReplaceGuide` - This field is used to store a link to a migration guide for folks to follow if they are trying to move from the older package to the replacement package. If the field is empty then nothing no link is displayed. If a package is marked as `deprecated`, this field must have a valid value.
 - `ServiceId` - The id for that represents the service in other internal data sources.
-- `MSDocService` - This field is the value of docs.ms metadata `ms.service`. If it is empty, then ms.service assigns to service directory. The value is defined [here](https://review.docs.microsoft.com/en-us/help/contribute/metadata-taxonomies?branch=main#msservice).
+- `MSDocService` - This field is the value of the Microsoft Learn `ms.service` metadata. If it is empty, the service directory is used.
 - `Notes` - This is an open field that can be used to add any particular notes for a given package.
 
 ### Spec CSV Fields
@@ -75,6 +75,16 @@ We also parse those templates in our automation so that when updating we ensure 
 ```
 
 The values in these templates of the format `item.<property>` are replaced from the field values in the CSV files.
+
+For Java, the version updater resolves placeholders in full `RepoPath` URLs before
+writing the CSV, even for packages without recent release tags. It uses `VersionGA`
+when present, otherwise `VersionPreview`, and verifies the resolved source URL.
+Unresolved placeholders or invalid source URLs fail the update rather than being
+saved. Concrete URL overrides and service-directory paths are preserved. The CSV
+data check also rejects Java `RepoPath` values containing unresolved placeholders.
+
+`Generate-Package-Index.ps1` also substitutes the Java `GroupId` when generating
+source links for GA and preview versions in `java-all.md` and `java-new.md`.
 
 ## Editing the CSV files
 

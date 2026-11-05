@@ -368,6 +368,30 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
   }
 }
 
+function Resolve-JavaSourcePaths($packages, $linkTemplates)
+{
+  foreach ($pkg in $packages)
+  {
+    if (!$pkg.RepoPath -or !$pkg.RepoPath.StartsWith("http") -or $pkg.RepoPath -notmatch 'item\.[A-Za-z]+') {
+      continue
+    }
+
+    $version = $pkg.VersionGA
+    if (!$version) { $version = $pkg.VersionPreview }
+    $sourceUrl = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath $pkg.GroupId
+
+    if ($sourceUrl -match 'item\.[A-Za-z]+') {
+      throw "Cannot resolve Java RepoPath for '$($pkg.GroupId):$($pkg.Package)': $sourceUrl"
+    }
+    if (!(CheckLink $sourceUrl)) {
+      throw "Cannot update Java RepoPath for '$($pkg.GroupId):$($pkg.Package)' because the source URL is invalid: $sourceUrl"
+    }
+
+    Write-Host "Resolving Java RepoPath for '$($pkg.GroupId):$($pkg.Package)' to '$sourceUrl'"
+    $pkg.RepoPath = $sourceUrl
+  }
+}
+
 function OutputVersions($lang)
 {
   Write-Host "Checking $lang for updates..."
@@ -383,6 +407,10 @@ function OutputVersions($lang)
   {
     if ($otherPackage.Hide) { continue }
     CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
+  }
+
+  if ($lang -eq "java") {
+    Resolve-JavaSourcePaths ($clientPackages + $otherPackages) $langLinkTemplates
   }
 
   Set-PackageListForLanguage $lang ($clientPackages + $otherPackages)
@@ -408,6 +436,11 @@ function CheckAll($langs)
     $allClientPackages = Get-PackageListForLanguage $lang
  
     foreach ($pkg in $allClientPackages){
+      if ($lang -eq "java" -and $pkg.RepoPath -match 'item\.[A-Za-z]+') {
+        Write-Warning "Unresolved Java RepoPath placeholders for package '$($pkg.Package)' in ${csvFile}: $($pkg.RepoPath)"
+        $foundIssues = $true
+      }
+
       if(($pkg.Support -eq "deprecated")) {
         if (!$pkg.EOLDate -or $pkg.EOLDate -eq "NA")
         {

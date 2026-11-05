@@ -92,6 +92,24 @@ This allows crates to work with changes in dependencies like `azure_core` while 
 
 {% include requirement/MUST id="rust-client-dependencies-core-release" %} switch back to using only a workspace dependency after the crate requiring feature updates has been released. `path` + `version` dependencies are only allowed while those features are in development.
 
+### Features {#rust-client-features}
+
+{% include requirement/SHOULD id="rust-client-features-resource-manager-core" %} gate Azure Resource Manager (ARM)-specific APIs in `azure_core` behind a `resource_manager` feature.
+
+{% include requirement/MUST id="rust-client-features-resource-manager-dependency" %} always enable the `azure_core/resource_manager` feature in ARM crates by specifying `resource_manager` in the `azure_core` dependency's `features` list.
+
+{% include requirement/MUST id="rust-client-features-resource-manager-default" %} include only `azure_core/default` in the `default` feature list of ARM crates' `Cargo.toml` files e.g.,
+
+```toml
+[dependencies]
+azure_core = { workspace = true, default-features = false, features = [ "resource_manager" ] }
+
+[features]
+default = [ "azure_core/default" ]
+```
+
+This keeps ARM support enabled even when consumers disable default features, while allowing them to opt out of `azure_core`'s default features.
+
 ### Tests {#rust-client-tests}
 
 We will implement tests [idiomatically with cargo][rust-lang-tests].

@@ -78,16 +78,6 @@ jobs:
       arguments: >
         -specsRoot $(Pipeline.Workspace)/azure-rest-api-specs/
 
-  - bash: |
-      npm install
-    workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
-    displayName: Installing Inventory Dashboard Data Scripts Dependencies
-
-  - bash: |
-      npm run start $(Pipeline.Workspace)/azure-rest-api-specs/specification
-    workingDirectory: $(AzureSDKClonePath)/eng/scripts/inventory-dashboard
-    displayName: Run Inventory Dashboard Data Scripts
-
   - template: /eng/common/pipelines/templates/steps/create-pull-request.yml
     parameters:
       BaseBranchName: $(DefaultBranch)
@@ -152,18 +142,6 @@ jobs:
       arguments: >
         -specsRoot $(Pipeline.Workspace)/azure-rest-api-specs-pr/
         -mergeWithExisting $true
-
-  - task: AzurePowerShell@5
-    displayName: 'Upload specs info to blob storage'
-    inputs:
-      azureSubscription: 'Azure SDK Artifacts'
-      ScriptType: 'InlineScript'
-      azurePowerShellVersion: LatestVersion 
-      pwsh: true
-      Inline: |
-        azcopy copy '$(AzureSDKClonePath)/_data/releases/latest/specs.csv' 'https://azuresdkartifacts.blob.core.windows.net/service-adoption'
-    env: 
-      AZCOPY_AUTO_LOGIN_TYPE: 'PSCRED'
 
   - pwsh: |
       git clone https://github.com/dotnet/docs $(Pipeline.Workspace)/dotnet-docs

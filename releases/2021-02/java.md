@@ -581,7 +581,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Storage Queue 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-queue/CHANGELOG.md#1290-beta1-2021-02-10)
 - Added support for the 2020-06-12 service version.
 
-### Azure Analytics Synapse Accesscontrol 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta2-2021-02-09)
+### Azure Analytics Synapse Accesscontrol 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-accesscontrol_1.0.0-beta.2/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
@@ -596,17 +596,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `isHaveLibraryRequirementsChanged()` and `setHaveLibraryRequirementsChanged()` methods on `BigDataPoolResourceInfo` are removed.
 - `getProjectConnectionManagers()` and `getPackageConnectionManagers()` now return `Map<String, Map<String, SsisExecutionParameter>>` instead of `Map<String, Object>`.
 
-### Azure Analytics Synapse Managedprivateendpoints 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta2-2021-02-09)
+### Azure Analytics Synapse Managedprivateendpoints 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-managedprivateendpoints_1.0.0-beta.2/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
 
-### Azure Analytics Synapse Monitoring 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta2-2021-02-09)
+### Azure Analytics Synapse Monitoring 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-monitoring_1.0.0-beta.2/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
 
-### Azure Analytics Synapse Spark 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta2-2021-02-09)
+### Azure Analytics Synapse Spark 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-spark_1.0.0-beta.2/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
@@ -736,10 +736,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Dependency Updates
 - Updated versions of `opentelemetry-api` and `opentelemetry-sdk` to `0.14.1` version.
 
-### Azure Quantum Jobs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/quantum/azure-quantum-jobs/CHANGELOG.md#100-beta1-2021-02-02)
+### Azure Quantum Jobs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-quantum-jobs_1.0.0-beta.1/sdk/quantum/azure-quantum-jobs/CHANGELOG.md#100-beta1-2021-02-02)
 
 #### New features
-Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/quantum/azure-quantum-jobs/README.md#getting-started) for more details.
+Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/Azure/azure-sdk-for-java/blob/azure-quantum-jobs_1.0.0-beta.1/sdk/quantum/azure-quantum-jobs/README.md#getting-started) for more details.
 
 ### Azure Ai Textanalytics 5.1.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta4-2021-02-10)
 #### New features

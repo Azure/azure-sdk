@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   extractLabeledUrl,
   extractLabeledValue,
+  getBoldSubsection,
   getLanguageSection,
   getSelectedLanguages,
   hasCheckedConfirmation,
@@ -68,6 +69,20 @@ Leave blank if .NET is not selected above.
 
     expect(extractLabeledUrl(section, "APIView")).toBe("https://apiview.dev/Assemblies/Review/123");
     expect(extractLabeledValue(section, "Samples")).toBe("Uploaded in APIView");
+  });
+
+  it("extracts separate language blocks from a shared additional-languages section", () => {
+    const section = `
+**C++**
+- PR: https://github.com/Azure/azure-sdk-for-cpp/pull/1
+
+**Rust**
+- PR: https://github.com/Azure/azure-sdk-for-rust/pull/2
+`;
+
+    expect(getBoldSubsection(section, "C++")).toContain("azure-sdk-for-cpp/pull/1");
+    expect(getBoldSubsection(section, "C++")).not.toContain("azure-sdk-for-rust");
+    expect(getBoldSubsection(section, "Rust")).toContain("azure-sdk-for-rust/pull/2");
   });
 
   it("detects checked confirmation checkboxes", () => {
