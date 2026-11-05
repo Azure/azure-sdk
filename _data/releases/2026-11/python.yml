@@ -857,4 +857,17 @@ entries:
     - `_ToolCallSuccessEvaluator` reports a list of messages that holds no tool calls, such as one that contains only text or only MCP approval messages, as not applicable without calling the chat or Decision judge model. A `tool_calls`, `function_call` or `tool_call_id` field that is None or empty, as in OpenAI's `model_dump()` of a reply without tool calls, does not count as a tool call. Strings, text that contains `[TOOL_CALL]` or `[TOOL_RESULT]`, and messages with any other content are still sent to the judge model.
     - `evaluate()` computes `<evaluator>.binary_aggregate` over the rows whose result is `pass` or `fail`. Other rows, such as not applicable or errored rows, used to count as failures, although the mean score leaves them out. An evaluator without `pass` or `fail` rows, including a custom evaluator whose results have other values, has no `binary_aggregate`, as one without scores has no mean.
     - An evaluator's inputs keep the order in which its `__call__` overloads declare them, instead of the order of a Python `set`, which varies with the process's hash seed. An evaluator that sends these inputs to a Decision model unchanged, as several Microsoft Foundry catalog evaluators do, could list the same fields in a different order in each process, and the Decision model could answer the same input differently. The built-in evaluators in this package already send their Decision inputs in a fixed order.
+- Name: azure-ai-agentserver-core
+  Version: 2.3.1b1
+  DisplayName: AI Agent Server - Core
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-agentserver-core_2.3.1b1/sdk/agentserver/azure-ai-agentserver-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Preserve explicit Agent Card name and version attributes on spans emitted
+    by the `Azure.AI.AgentServer.A2A` instrumentation scope. Other spans retain
+    the existing Foundry deployment identity enrichment.
 
