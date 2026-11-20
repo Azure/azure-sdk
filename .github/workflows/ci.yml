@@ -1,18 +1,69 @@
 name: CI
 
-on: [pull_request, workflow_dispatch]
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 13 * * *'
 
 jobs:
   build:
     name: Verify Site
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
     - name: Checkout
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        fetch-depth: 2
+
+    - name: Identify pull request base
+      id: site_base
+      if: github.event_name == 'pull_request'
+      shell: pwsh
+      env:
+        PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      run: |
+        $head = git rev-parse HEAD
+        if ($LASTEXITCODE -ne 0 -or $head -ne $env:GITHUB_SHA) {
+          throw "Could not verify the pull request merge commit."
+        }
+        $parents = (git show -s --format=%P HEAD) -split ' '
+        if ($LASTEXITCODE -ne 0 -or $parents.Count -ne 2 -or $parents[1] -ne $env:PR_HEAD_SHA) {
+          throw "Could not identify the pull request merge parents."
+        }
+        "sha=$($parents[0])" >> $env:GITHUB_OUTPUT
+
+    - name: Checkout pull request base
+      if: github.event_name == 'pull_request'
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        ref: ${{ steps.site_base.outputs.sha }}
+        path: _link_baseline
+        persist-credentials: false
+
+    - name: Verify pull request base
+      if: github.event_name == 'pull_request'
+      shell: pwsh
+      env:
+        BASE_SHA: ${{ steps.site_base.outputs.sha }}
+      run: |
+        $base = git -C _link_baseline rev-parse HEAD
+        if ($LASTEXITCODE -ne 0 -or !$env:BASE_SHA -or $base -ne $env:BASE_SHA) {
+          throw "The link baseline does not match the pull request merge base."
+        }
 
     - name: Setup pages
       uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+    - name: Build pull request base site
+      if: github.event_name == 'pull_request'
+      uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1.0.13
+      with:
+        source: "./_link_baseline"
+        destination: "./_site_baseline/azure-sdk"
+        build_revision: ${{ steps.site_base.outputs.sha }}
 
     - name: Build site
       uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1.0.13
@@ -29,7 +80,29 @@ jobs:
       run: |
         ./eng/scripts/Update-Release-Versions.ps1 "check"
 
+    - name: Test site link baseline
+      shell: pwsh
+      run: |
+        Import-Module Pester -MinimumVersion 5.7.1
+        Invoke-Pester -Path ./eng/scripts/tests/Site-LinkBaseline.Tests.ps1 -CI
+
+    - name: Generate site link baseline
+      if: github.event_name == 'pull_request'
+      shell: pwsh
+      run: |
+        ./eng/scripts/Get-SiteLinkBaseline.ps1 `
+          -SitePath ./_site_baseline/azure-sdk `
+          -OutputPath (Join-Path $env:RUNNER_TEMP 'azure-sdk-site-link-baseline.txt')
+
     - name: Verify site links
       shell: pwsh
       run: |
-        ./eng/common/scripts/Verify-Links.ps1 -urls ./_site/azure-sdk/index.html -ignoreLinksFile ./eng/ignore-links.txt -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt" -baseUrl "file://$PWD/_site/azure-sdk"
+        if ($env:GITHUB_EVENT_NAME -eq 'pull_request') {
+          $cache = Join-Path $env:RUNNER_TEMP 'azure-sdk-site-link-baseline.txt'
+          Write-Host "::notice::Existing external destinations are checked by scheduled CI. This pull request checks new external destinations and local links."
+        }
+        else {
+          $cache = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
+        }
+        ./eng/common/scripts/Verify-Links.ps1 -urls ./_site/azure-sdk/index.html -ignoreLinksFile ./eng/ignore-links.txt -inputCacheFile $cache -baseUrl "file://$PWD/_site/azure-sdk"
+        exit $LASTEXITCODE
