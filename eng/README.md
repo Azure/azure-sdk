@@ -9,7 +9,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 
 Pull request CI builds the site at the merge commit and its base parent. It checks local links on reachable pages and external destinations that do not appear anywhere in the base site. A new use of an existing destination is not rechecked in the pull request.
 
-Scheduled and manually dispatched CI runs check the reachable generated site without the pull request baseline, using the shared cache of previously validated links. Failures are reported in the CI run.
+Scheduled and manually dispatched CI runs check the reachable generated site without the pull request baseline, using the shared cache of previously validated links. Cached destinations are not rechecked in these runs; the cache is refreshed by a separate [site-wide link check](https://github.com/Azure/azure-sdk-tools/blob/main/eng/pipelines/githubio-linkcheck.yml). Failures are reported in the CI run.
 
 
 ## CSV fields

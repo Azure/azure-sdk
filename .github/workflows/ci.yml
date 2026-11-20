@@ -99,7 +99,7 @@ jobs:
       run: |
         if ($env:GITHUB_EVENT_NAME -eq 'pull_request') {
           $cache = Join-Path $env:RUNNER_TEMP 'azure-sdk-site-link-baseline.txt'
-          Write-Host "::notice::Existing external destinations are checked by scheduled CI. This pull request checks new external destinations and local links."
+          Write-Host "::notice::Pull request CI checks new external destinations and local links. Scheduled CI uses the shared validated-link cache."
         }
         else {
           $cache = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
