@@ -436,6 +436,62 @@ Describe 'Package names (issue 16628)' {
     }
   }
 
+  Context 'Tag-based package queries with missing versions' {
+    It 'skips a <Lang> package with <VersionList> versions and keeps the latest valid package' -ForEach @(
+      @{ Lang = 'cpp'; Valid = 'azure-core'; Invalid = 'azure-storage'; VersionList = 'an empty'; InvalidVersions = @() }
+      @{ Lang = 'cpp'; Valid = 'azure-core'; Invalid = 'azure-storage'; VersionList = 'a null-only'; InvalidVersions = @($null) }
+      @{ Lang = 'go'; Valid = 'sdk/storage/azblob'; Invalid = 'sdk/storage/azempty'; VersionList = 'an empty'; InvalidVersions = @() }
+      @{ Lang = 'go'; Valid = 'sdk/storage/azblob'; Invalid = 'sdk/storage/azempty'; VersionList = 'a null-only'; InvalidVersions = @($null) }
+      @{ Lang = 'rust'; Valid = 'azure_core'; Invalid = 'azure_storage'; VersionList = 'an empty'; InvalidVersions = @() }
+      @{ Lang = 'rust'; Valid = 'azure_core'; Invalid = 'azure_storage'; VersionList = 'a null-only'; InvalidVersions = @($null) }
+    ) {
+      $script:queryLang = $Lang
+      $script:queryTags = @{
+        $Valid = [pscustomobject]@{
+          Package = $Valid
+          Versions = @((ToSemVer '1.1.0'), (ToSemVer '1.2.0'))
+        }
+        $Invalid = [pscustomobject]@{
+          Package = $Invalid
+          Versions = $InvalidVersions
+        }
+      }
+      Mock GetPackageVersions { $script:queryTags } -ParameterFilter { $lang -eq $script:queryLang }
+      Mock Write-Warning {}
+
+      $packages = @(& "Get-$Lang-Packages")
+
+      $packages | Should -HaveCount 1
+      $packages[0].Package | Should -BeExactly $Valid
+      $packages[0].VersionGA | Should -BeExactly '1.2.0'
+      Should -Invoke GetPackageVersions -Times 1 -Exactly -Scope It -ParameterFilter { $lang -eq $script:queryLang }
+      Should -Invoke Write-Warning -Times 1 -Exactly -Scope It
+    }
+
+    It 'preserves the single valid version for <Lang>' -ForEach @(
+      @{ Lang = 'cpp'; Package = 'azure-core' }
+      @{ Lang = 'go'; Package = 'sdk/storage/azblob' }
+      @{ Lang = 'rust'; Package = 'azure_core' }
+    ) {
+      $script:queryLang = $Lang
+      $script:queryTags = @{
+        $Package = [pscustomobject]@{
+          Package = $Package
+          Versions = @((ToSemVer '1.2.0'))
+        }
+      }
+      Mock GetPackageVersions { $script:queryTags } -ParameterFilter { $lang -eq $script:queryLang }
+      Mock Write-Warning {}
+
+      $packages = @(& "Get-$Lang-Packages")
+
+      $packages | Should -HaveCount 1
+      $packages[0].Package | Should -BeExactly $Package
+      $packages[0].VersionGA | Should -BeExactly '1.2.0'
+      Should -Invoke Write-Warning -Times 0 -Exactly -Scope It
+    }
+  }
+
   Context 'JavaScript provisioning catalog updates' {
     BeforeEach {
       $script:jsRegistryPackages = @(
