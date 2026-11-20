@@ -191,6 +191,14 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
       continue
     }
 
+    # Only create a package entry once it has a parseable version so consumers
+    # never see packages whose tags are all non-semver (e.g. snapshot tags).
+    $sv = ToSemVer $version $tag.Date
+    if (!$sv) {
+      Write-Verbose "Failed to parse version number '$version' for package '$package' in language '$lang' with tag '$tagName'."
+      continue
+    }
+
     if (!$packageVersions.ContainsKey($package)) {
       $packageVersions.Add($package, [PSCustomObject]@{
         Package = $package
@@ -198,13 +206,7 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
       });
     }
 
-    $sv = ToSemVer $version $tag.Date
-    if ($sv) {
-      $packageVersions[$package].Versions += $sv
-    }
-    else {
-      Write-Verbose "Failed to parse version number '$version' for package '$package' in language '$lang' with tag '$tagName'."
-    }
+    $packageVersions[$package].Versions += $sv
   }
   return $packageVersions
 }
