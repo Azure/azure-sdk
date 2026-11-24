@@ -6,7 +6,10 @@ entries:
   VersionType: Beta
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-rust/tree/azure_resourcemanager_keyvault@0.1.0/sdk/keyvault/azure_resourcemanager_keyvault/CHANGELOG.md
-  ChangelogContent: ""
+  ChangelogContent: |-
+    #### Features Added
+
+    - Initial Azure Key Vault Resource Manager client library using service API version `2026-05-15`.
 - Name: azure_security_keyvault_keys
   Version: 1.1.0-beta.2
   DisplayName: Key Vault - Keys
