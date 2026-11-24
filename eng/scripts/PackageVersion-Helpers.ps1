@@ -191,15 +191,15 @@ function GetPackageVersions($lang, [DateTimeOffset]$afterDate = [DateTimeOffset]
       continue
     }
 
-    if (!$packageVersions.ContainsKey($package)) {
-      $packageVersions.Add($package, [PSCustomObject]@{
-        Package = $package
-        Versions = @()
-      });
-    }
-
     $sv = ToSemVer $version $tag.Date
     if ($sv) {
+      if (!$packageVersions.ContainsKey($package)) {
+        $packageVersions.Add($package, [PSCustomObject]@{
+          Package = $package
+          Versions = @()
+        });
+      }
+
       $packageVersions[$package].Versions += $sv
     }
     else {
