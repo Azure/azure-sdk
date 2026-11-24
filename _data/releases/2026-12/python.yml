@@ -1,0 +1,221 @@
+entries:
+- Name: azure-identity
+  Version: 1.27.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.27.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed `AzureDeveloperCliCredential` reading the UTC `expiresOn` value from `azd auth token` as local time, which made the token's `expires_on` off by the local UTC offset. This fix applies to both synchronous and asynchronous credentials. ([#49590](https://github.com/Azure/azure-sdk-for-python/pull/49590))
+    - Fixed asynchronous `AzurePipelinesCredential` blocking the event loop during OIDC-token requests and using synchronous transport lifecycle methods. The asynchronous `ClientAssertionCredential` now supports awaitable assertion callbacks while remaining compatible with callbacks that return strings. ([#49831](https://github.com/Azure/azure-sdk-for-python/pull/49831))
+- Name: azure-mgmt-privatedns
+  Version: 2.1.0b1
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatedns_2.1.0b1/sdk/network/azure-mgmt-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 14.2.0b1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_14.2.0b1/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 15.1.0b1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_15.1.0b1/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-appconfiguration
+  Version: 1.10.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.10.1/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved Microsoft Entra ID authentication audience inference for additional App Configuration endpoint formats.
+- Name: azure-search-documents
+  Version: 12.2.0b1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_12.2.0b1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed obsolete retrieval TypedDict annotation overrides that advertised unsupported
+    `queryHintOverrides` fields and prevented resolution of the generated search-index query-hint type.
+    - Serialized asynchronous buffered uploads and waited for active uploads before
+    closing the client.
+    - Closed typed retrieval streams when a response callback raises, including
+    awaiting asynchronous response cleanup.
+    - Corrected graph query samples to pass request identifiers and content negotiation
+    through HTTP headers.
+    - Preserved existing resource `get_*` list wrappers after generated method renames.
+    - Preserved `ScoringFunction.field_name` and `boost` compatibility without adding
+    those fields to random scoring.
+    - Corrected generated File-ingestion poller namespace references through the
+    package's reproducible post-generation workaround.
+    - Preserved all buffered indexing actions after request failures and prevented
+    asynchronous auto-flush from cancelling its own task.
+    - Kept batch wire values synchronized and accepted dictionary batches, including
+    custom error mappings during oversized-batch splitting.
+    - Preserved the first search response's metadata and continuation across page iteration.
+    - Corrected semantic answer and caption enum encoding and threshold separators.
+    - Forwarded conditional-delete options for resource names and extra field-helper properties.
+    - Preserved buffered client audience, API version, transport options, and schema-client ownership.
+    - Restored registered GA model-name aliases, TypedDict and sequence inputs, constructor overloads,
+    and the callable `indexes.types.KnowledgeBaseModel` alias.
+
+    #### Features Added
+
+    - Added `ApiVersion.V2026_11_01_PREVIEW` and made `2026-11-01-preview` the default.
+    Previously advertised API versions remain selectable.
+    - Restored explicit `ApiVersion.V2026_10_01` selection without changing the November default.
+    - Added `indexes.types.KnowledgeBaseInput` and `KnowledgeBaseModelInput` for all
+    three model variants in dictionary-style knowledge-base inputs, while preserving
+    the callable GA `indexes.types.KnowledgeBaseModel` alias and the legacy
+    `indexes.types.KnowledgeBase.models` list type.
+    - Below operations and models are added for graph querying, index configuration, and retrieval:
+    - `SearchClient.graph` (synchronous and asynchronous), including typed provenance,
+    diagnostics, evidence, statistics, and explain results.
+    - `indexes.models.GraphFieldMappings` and `indexes.models.GraphProfile`.
+    - `indexes.models.KnowledgeSourceGraphExtractionParameters`, grounding, and ontology models.
+    - `knowledgebases.models.AgentRuntimeGraphParams`, graph hydration and provenance parameters.
+    - `knowledgebases.models.KnowledgeBaseGraphSearchActivityRecord` and
+    `knowledgebases.models.KnowledgeBaseGraphSearchReference`.
+    - Below models and properties are added for retrieval and query configuration:
+    - `indexes.models.KnowledgeBaseMicrosoftRetriever1Model` and
+    `indexes.models.KnowledgeBaseOpenAICompatibleModel`.
+    - `indexes.models.KnowledgeBaseTool` and knowledge-source tool references.
+    - `indexes.models.OpenAICompatibleVectorizer`.
+    - `indexes.models.SearchIndexKnowledgeSourceFilterHint.auto_configuration` and
+    `SearchIndexKnowledgeSourceFilterHintAutoConfiguration` for facet-grounded hints.
+    - `indexes.models.VectorSearchTopicGraphProfile` and none, diverse, and balanced
+    vector-query topic-graph models in `documents.models`.
+    - `knowledgebases.models.KnowledgeSourceCache` and
+    `knowledgebases.models.KnowledgeSourceOpenAICompatibleVectorizer`.
+    - `models.AgenticSearchOptions`, agentic debug information, and `QueryType.AGENTIC`.
+    - Below operations and models are added for asynchronous File knowledge-source ingestion:
+    - `SearchIndexClient.begin_ingest_knowledge_source_file_multipart` and
+    `SearchIndexClient.begin_ingest_knowledge_source_file_replacement`, including async clients.
+    - File ingestion operation status/listing, capacity, and error models.
+    - Added `indexes.models.RandomScoringFunction` and `RandomScoringParameters`.
+    - Added `indexes.types.ScoringFunctionInput`, `ScoringProfileInput`, and `SearchIndexInput`
+    for random scoring in dictionary-style inputs, while preserving the classic
+    `ScoringFunction` alias and legacy scoring-profile and index field types.
+    - Added `more_like_this` and `agentic_options` to synchronous and asynchronous
+    `SearchClient.search`. Restored preview query, skill, knowledge-source, and indexer
+    surfaces remain present in the generated package.
+
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 12.1.0.
+    > Only code written against a beta version such as 12.1.0b2 may be affected.
+
+    - The service removes stored `query_hints` and request-time `query_hint_overrides`
+    from indexed knowledge sources other than search-index knowledge sources.
+    - The service removes `query_hint_processing` from knowledge-base activity models
+    other than search-index activity models.
+    - `KnowledgeBaseRetrievalClient.retrieve_stream` and its asynchronous equivalent now
+    yield typed payloads directly instead of `KnowledgeBaseRetrievalEvent` envelopes,
+    matching the October GA contract.
+- Name: azure-mgmt-iothub
+  Version: 5.0.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_5.0.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservicefleet
+  Version: 4.2.0b1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservicefleet_4.2.0b1/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-messaging-webpubsubchatservice
+  Version: 1.0.0b2
+  DisplayName: Web PubSub Chat
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubchatservice_1.0.0b2/sdk/webpubsub/azure-messaging-webpubsubchatservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added topic lifecycle operations (create or replace, list, get, update, and soft delete). Creation or replacement accepts `ChatTopicCreateOrReplace`, which requires `title` and accepts optional `state` for replacement; updates accept `ChatTopicUpdate`, whose fields are optional.
+    - Added room, user, and user-room collection operations
+
+    #### Breaking Changes
+
+    - Renamed request-body parameters from `resource` to `role`, `room`, `member`, `user`, `topic`, or `message`, matching the operation's resource. Positional calls are unchanged.
+    - Renamed `ChatConversation.parent_room` to `room_id`. The JSON field remains `parentRoom`.
+    - Removed the `continuation_token_parameter` argument from listing operations. Resume paging with `by_page(continuation_token=...)` on the returned `ItemPaged` or `AsyncItemPaged` instead.
+    - Create or replace operations now accept dedicated `ChatRoleCreateOrReplace`, `ChatRoomCreateOrReplace`, `ChatRoomMemberCreateOrReplace`, and `ChatUserCreateOrReplace` (including `HumanChatUserCreateOrReplace`) request models instead of resource response models.
+    - Message updates accept `ChatMessageUpdate`, whose fields are optional, instead of `ChatMessage`. Resource response model names are unchanged.
+- Name: azure-data-ai
+  Version: 1.1.0b1
+  DisplayName: Data AI
+  ServiceName: Inference
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-ai_1.1.0b1/sdk/dataai/azure-data-ai/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added synchronous and asynchronous `InferenceClient.get_embeddings` for text, search queries, and
+    document images, using plain dictionaries in `inputs` or a complete request dictionary.
+    - Added dense, multi-vector, and combined vector results, with float or base64 encoding.
+    - Added Azure Blob image inputs and inline or linked result delivery.
+    - Added embedding usage, truncation warnings, SAS lifetime warnings, and typed service errors.
+    - Added support for service API version `2026-11-01-preview`, now the client default. Pass
+    `api_version="2026-10-30"` to retain the generally available API version.
+- Name: azure-mgmt-eventhub
+  Version: 12.1.0b1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_12.1.0b1/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 41.10.0b1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_41.10.0b1/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-mongocluster
+  Version: 1.3.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-mongocluster_1.3.0/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 19.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_19.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+
