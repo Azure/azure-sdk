@@ -260,6 +260,16 @@ function Get-python-Packages
   return $packages
 }
 
+function Get-SortedTagVersions($repoTags, $tag, $lang)
+{
+  $versions = @($repoTags[$tag].Versions | Where-Object { $null -ne $_ })
+  if ($versions.Count -eq 0) {
+    Write-Warning "Skipping $lang package '$tag' because none of its recent tags have a valid version."
+    return $null
+  }
+  return ,@([AzureEngSemanticVersion]::SortVersions($versions))
+}
+
 function Get-cpp-Packages
 {
   $packages = @()
@@ -269,7 +279,8 @@ function Get-cpp-Packages
 
   foreach ($tag in $repoTags.Keys)
   {
-    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $versions = Get-SortedTagVersions $repoTags $tag "cpp"
+    if (!$versions) { continue }
     $packages += CreatePackage $tag $versions[0]
   }
 
@@ -285,7 +296,8 @@ function Get-go-Packages
 
   foreach ($tag in $repoTags.Keys)
   {
-    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $versions = Get-SortedTagVersions $repoTags $tag "go"
+    if (!$versions) { continue }
 
     $package = CreatePackage $tag $versions[0]
 
@@ -328,7 +340,8 @@ function Get-rust-Packages
 
   foreach ($tag in $repoTags.Keys)
   {
-    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $versions = Get-SortedTagVersions $repoTags $tag "rust"
+    if (!$versions) { continue }
     $packages += CreatePackage $tag $versions[0]
   }
 
