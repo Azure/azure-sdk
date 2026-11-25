@@ -1,0 +1,498 @@
+entries:
+- Name: Azure.Search.Documents
+  Version: 12.1.0
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_12.1.0/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed ambiguous API key and configuration-based client registration extension calls while retaining the legacy static registration methods.
+    - Restored the 12.0.0 optional arguments on the `VectorQuery`, `KnowledgeSource`, `FacetResult`, and enumerable-based `SearchIndex` model factories.
+    - Restored the 12.0.0 optional arguments on `SearchModelFactory.KnowledgeBaseAgenticReasoningActivityRecord`. The overload accepting activity timestamps and a warning requires all arguments to avoid ambiguity with existing calls.
+    - Fixed explicit `AddSearchClient`, `AddSearchIndexClient`, and `AddSearchIndexerClient` registrations with `TokenCredential`, including `DefaultAzureCredential`. ([#63072](https://github.com/Azure/azure-sdk-for-net/issues/63072))
+    - Resource listing methods now honor `AsPages(pageSizeHint)` on initial and continuation requests while preserving the service-provided cursor.
+    - Fixed indexing configuration round trips, including `RefreshAllAcls`, markdown settings, custom dictionary entries, and the legacy `IndexingParameters.Configuration` adapter on deserialized models.
+    - Fixed semantic and vector search options being lost during deserialization and continuation-token round trips.
+    - Fixed query-answer thresholds using culture-dependent formatting and parsing, and value facets failing to convert compatible numeric types.
+    - Fixed settings-based clients ignoring custom document serializers and the `QueryAnswerResult` model factory rejecting read-only-only dictionaries.
+
+    #### Features Added
+
+    - Added support for the `2026-10-01` service version, which is now the default.
+    - Added `SearchOptions.MoreLikeThis` to search for documents similar to an existing document.
+    - Added `querySourceAuthorization` and `enableElevatedRead` overloads for document search, `GetDocumentOptions.QuerySourceAuthorization` and `EnableElevatedRead` for document retrieval, and `querySourceAuthorization` on knowledge base retrieval.
+    - Added document-level permission configuration through `SearchField.PermissionFilter`, `OrganizationAccessExpiration`, and `SharepointSiteUrl`; `SearchIndex.PermissionFilterOption`; and `SharePointConnectorAppRegistration`. Permission filters can also be configured through `SimpleField` and `SimpleFieldAttribute`.
+    - Added `SearchIndexerDataSourceConnection.IndexerPermissionOptions`, `IndexingParametersConfiguration.RefreshAllAcls`, and `SearchIndexerDataUserAssignedIdentity.FederatedIdentityClientId` for permission ingestion and federated identity configuration.
+    - Added `SearchIndexerClient.Resync` and `ResyncAsync`, with `IndexerResyncBody` and `IndexerResyncOption.Permissions`, to resynchronize indexed permissions.
+    - Added `SearchIndexerStatus.Runtime` and `SearchServiceStatistics.IndexersRuntime`, exposing used and remaining runtime and the associated reporting period.
+    - Added `GetAllIndexers`, `GetAllDataSourceConnections`, `GetAllSkillsets`, and `GetAllSynonymMaps`, with async counterparts, to expose pageable resource listings with property selection, prefix search, and page-size controls without changing the existing list-returning APIs.
+    - Added `GetAllIndexStatsSummary` and `GetAllKnowledgeSourceFiles`, with async counterparts, for pageable index statistics and knowledge source file listings.
+    - Added `search`, `pageSize`, and `searchType` controls to the existing pageable `GetIndexes`, `GetIndexesWithSelectedProperties`, `GetAliases`, `GetKnowledgeBases`, and `GetKnowledgeSources` methods, with async counterparts. `ListingSearchType.Prefix` supports filtering listings by name prefix.
+    - Added file knowledge sources through `FileKnowledgeSource`, `FileKnowledgeSourceParameters`, and `FileKnowledgeSourceParams`, including ingestion and CORS configuration.
+    - Added multipart file upload, update, and deletion through `UploadKnowledgeSourceFileMultipart`, `UpdateKnowledgeSourceFile`, and `DeleteKnowledgeSourceFile`, with async counterparts. `FileUploadMetadata` and `KnowledgeSourceFile` expose file metadata, prefixes, parsing and extraction modes, timestamps, and processing errors. Multipart request constructors and content properties are experimental (`SCME0004`).
+    - Added `KnowledgeSourceFileCapacity` and `KnowledgeSourceStatus.FileCapacity` for maximum file size, maximum file count, and remaining file count.
+    - Added indexed SQL and indexed SharePoint knowledge sources, their retrieval parameter and reference models, SQL content and embedding column mappings, and SharePoint container selection.
+    - Added `KnowledgeSourceIngestionParameters.IngestionPermissionOptions` and `NetworkAccessMode`, and `SearchIndexKnowledgeSourceParameters.BaseFilter`, to configure knowledge source access and filtering.
+    - Added low and medium retrieval reasoning effort, answer-synthesis and extractive-data output modes, retrieval and answer instructions, and CORS configuration on knowledge bases. Retrieval requests now support messages, reasoning effort, output mode, and maximum output document counts.
+    - Added `AlwaysQuerySource`, `FailOnError`, and `MaxOutputDocuments` controls to knowledge source retrieval parameters, and `Language`, `Market`, `Count`, and `Freshness` to web knowledge source configuration.
+    - Added typed knowledge base retrieval activity records for search index, Azure Blob, indexed OneLake, web, file, indexed SharePoint, and indexed SQL sources; model query-planning and answer-synthesis activity records; activity timestamps and warnings; model and deployment details; and citation URLs on supported references.
+    - Added `KnowledgeBaseRetrievalClient.RetrieveStreamAsync` for typed or protocol server-sent event streaming, with retrieval, activity, answer, reference, response-completion, error, and unknown-event models sharing `KnowledgeBaseRetrievalStreamEvent`.
+    - Added `ContentUnderstandingSkill.ModelName`, `ModelDeployment`, and chunking method selection through `ContentUnderstandingSkillChunkingProperties.Method` and `ContentUnderstandingSkillChunkingMethod`, including fixed-size and semantic chunking. Chunking units now include tokens.
+    - Added `Gpt54`, `Gpt55`, `Gpt56Sol`, `Gpt56Terra`, and `Gpt56Luna` to `AzureOpenAIModelName`.
+- Name: Azure.ResourceManager.NetApp
+  Version: 1.20.0-beta.2
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.NetApp_1.20.0-beta.2/sdk/netapp/Azure.ResourceManager.NetApp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.MongoCluster
+  Version: 1.2.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.MongoCluster_1.2.0/sdk/mongocluster/Azure.ResourceManager.MongoCluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Queues
+  Version: 12.28.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.28.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS timestamp handling for non-UTC `DateTimeOffset` values. SAS times are now normalized to UTC before formatting/signing, preventing unintended validity windows in st/se (Start Time, Expiry Time) and related delegation key fields. Affected APIs include:
+    - `QueueClient.GenerateSasUri(...)`
+    - `QueueClient.GenerateUserDelegationSasUri(...)`
+    - `QueueServiceClient.GenerateAccountSasUri(...)`
+    - `QueueSasBuilder`
+    - Fixed SAS builder/client queue-name validation to use ordinal comparisons in `QueueClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+- Name: Azure.Storage.Queues
+  Version: 12.29.0-beta.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.29.0-beta.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS builder/client queue-name validation to use ordinal comparisons in `QueueClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+- Name: Azure.Data.AppConfiguration
+  Version: 1.11.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.11.2/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved Microsoft Entra ID authentication audience inference for additional App Configuration endpoint formats.
+- Name: Azure.ResourceManager.ContainerServiceFleet
+  Version: 1.3.0
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceFleet_1.3.0/sdk/fleet/Azure.ResourceManager.ContainerServiceFleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.KoreAIArtemis
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KoreAIArtemis_1.0.0-beta.1/sdk/koreaiartemis/Azure.ResourceManager.KoreAIArtemis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.68
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.68/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded `Azure.Storage.Blobs` package dependency to 12.31.0-beta.2
+- Name: Azure.ResourceManager.KeyVault
+  Version: 1.6.0-beta.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.KeyVault_1.6.0-beta.1/sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Common
+  Version: 12.29.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.29.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS timestamp handling for non-UTC `DateTimeOffset` values (e.g. `AccountSasBuilder`). Times are now converted to UTC before formatting/signing to prevent unintended validity windows in st/se and related delegation key time fields.
+    - Fixed an issue where conditional `409 *AlreadyExists` responses on structured-message requests were incorrectly classified as non-errors, which could cause `InvalidDataException` to be thrown instead of the expected `RequestFailedException`.
+- Name: Azure.Storage.Common
+  Version: 12.30.0-beta.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.30.0-beta.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where conditional `409 *AlreadyExists` responses on structured-message requests were incorrectly classified as non-errors, which could cause `InvalidDataException` to be thrown instead of the expected `RequestFailedException`.
+- Name: Azure.ResourceManager.ImageBuilder
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ImageBuilder_1.0.0-beta.1/sdk/imagebuilder/Azure.ResourceManager.ImageBuilder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Files.Shares
+  Version: 12.28.1
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.28.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS timestamp handling for non-UTC `DateTimeOffset` values. SAS times are now normalized to UTC before formatting/signing, preventing unintended validity windows in st/se (Start Time, Expiry Time) and related delegation key fields. Affected APIs include:
+    - `ShareClient.GenerateSasUri(...)`
+    - `ShareClient.GenerateUserDelegationSasUri(...)`
+    - `ShareDirectoryClient.GenerateSasUri(...)`
+    - `ShareFileClient.GenerateSasUri(...)`
+    - `ShareFileClient.GenerateUserDelegationSasUri(...)`
+    - `ShareServiceClient.GenerateAccountSasUri(...)`
+    - `ShareSasBuilder`
+    - Fixed SAS builder/client share and path name validation to use ordinal comparisons in `ShareClient`, `ShareDirectoryClient`, and `ShareFileClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+    - Fixed an issue where conditional create/write flows using structured-message upload validation could classify `409 *AlreadyExists` responses as non-errors, potentially resulting in `InvalidDataException` instead of the expected `RequestFailedException`.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.29.0-beta.2
+  DisplayName: Storage - Files Share
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.29.0-beta.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS builder/client share and path name validation to use ordinal comparisons in `ShareClient`, `ShareDirectoryClient`, and `ShareFileClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+    - Fixed an issue where conditional create/write flows using structured-message upload validation could classify `409 *AlreadyExists` responses as non-errors, potentially resulting in `InvalidDataException` instead of the expected `RequestFailedException`.
+- Name: Azure.Storage.Files.Shares.ChangeFeed
+  Version: 12.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares.ChangeFeed_12.0.0-beta.2/sdk/storage/Azure.Storage.Files.Shares.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded `Azure.Storage.Blobs` package dependency to 12.31.0-beta.2
+    - Upgraded `Azure.Storage.Files.Shares` package dependency to 12.29.0-beta.2
+- Name: Azure.AI.Projects.Agents
+  Version: 3.0.0
+  DisplayName: AI Projects - Agents
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects.Agents_3.0.0/sdk/ai/Azure.AI.Projects.Agents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the cancellation of `ToolboxRecord` update.
+
+    #### Breaking Changes
+    - `AzureFunctionDefinitionFunction` was removed, please use the same class from `Azure.AI.Extensions.OpenAI`.
+    - Renamed `GenerateVoiceAgentRequest` to `GenerateVoiceAgentContent` and `UpdateToolboxRequest` to `UpdateToolboxContent`.
+    - Removed the `AgentCard(string, IEnumerable<AgentCardSkill>)` and `VersionSelector(IEnumerable<VersionSelectionRule>)` constructors. Use the parameterless constructors and set `Version`/`Skills` and `VersionSelectionRules` with initializers.
+    - `TelephonyTransferTarget` constructor no longer takes `name`; set the `Name` property instead.
+    - `AgentReference` class was removed, please use class `AgentReference` from `Azure.AI.Extensions.OpenAI` package.
+    - `MCPToolboxTool` was renamed to `McpToolboxTool`.
+    - `PSTNTelephonyTransferDestination` was renamed to `PstnTelephonyTransferDestination`.
+    - The order of `GetAgentVersionsAsync` and `GetAgentVersions` arguments was changed. Now it is `string agentName, bool? includeDrafts, int? limit = default, AgentListOrder? order = default, string after = default, string before = default, CancellationToken cancellationToken = default`.
+    - The `DownloadAgentCode` and `DownloadAgentCodeAsync` methods of `AgentAdministrationClient` are now returning `ClientResult<BinaryData>` and `Task<ClientResult<BinaryData>>` respectively.
+    - The `Download` and `DownloadAsync` methods of `AgentSessionFiles` are now returning  returning `ClientResult<BinaryData>` and `Task<ClientResult<BinaryData>>` respectively.
+    - Renamed the following models and their `ProjectsAgentsModelFactory` methods:
+
+    | Previous | Replacement |
+    | --- | --- |
+    | `AgentOptimizationCandidatePromotionInfo` | `AgentOptimizationCandidatePromotion` |
+    | `HeaderTelemetryEndpointAuth` | `HeaderTelemetryEndpointAuthentication` |
+    | `InlineSkillParam` | `InlineSkill` |
+    | `InlineSkillSourceParam` | `InlineSkillSource` |
+    | `SkillReference` | `AgentSkillReference` |
+    | `SkillReferenceParam` | `SkillReference` |
+    | `TelemetryConfig` | `TelemetryConfiguration` |
+    | `VersionRefIndicator` | `VersionReferenceIndicator` |
+    | `VoiceAgentAudioConfig` | `VoiceAgentAudioConfiguration` |
+    | `VoiceAgentAudioInputConfig` | `VoiceAgentAudioInputConfiguration` |
+    | `VoiceAgentAudioOutputConfig` | `VoiceAgentAudioOutputConfiguration` |
+    | `VoiceAgentAvatarConfig` | `VoiceAgentAvatarConfiguration` |
+    | `VoiceAgentAvatarVideoParams` | `VoiceAgentAvatarVideoParameters` |
+    | `VoiceAgentGreetingConfig` | `VoiceAgentGreetingConfiguration` |
+    | `VoiceAgentInterimResponseConfig` | `VoiceAgentInterimResponseConfiguration` |
+    | `VoiceAgentLlmGeneratedGreetingConfig` | `VoiceAgentLlmGeneratedGreetingConfiguration` |
+    | `VoiceAgentLlmInterimResponseConfig` | `VoiceAgentLlmInterimResponseConfiguration` |
+    | `VoiceAgentPostCallConfig` | `VoiceAgentPostCallConfiguration` |
+    | `VoiceAgentSoundscapeConfig` | `VoiceAgentSoundscapeConfiguration` |
+    | `VoiceAgentSoundscapeSourceConfig` | `VoiceAgentSoundscapeSourceConfiguration` |
+    | `VoiceAgentSoundscapeTrackConfig` | `VoiceAgentSoundscapeTrackConfiguration` |
+    | `VoiceAgentSoundscapeWorkingTrackConfig` | `VoiceAgentSoundscapeWorkingTrackConfiguration` |
+    | `VoiceAgentStaticInterimResponseConfig` | `VoiceAgentStaticInterimResponseConfiguration` |
+    | `VoiceAgentSubagentConfig` | `VoiceAgentSubagentConfiguration` |
+    | `VoiceAgentTemplateGreetingConfig` | `VoiceAgentTemplateGreetingConfiguration` |
+    | `VoiceAgentTurnDetectionConfig` | `VoiceAgentTurnDetectionConfiguration` |
+
+    - `SkillReference` and `ProjectsAgentsModelFactory.SkillReference` now refer to the former `SkillReferenceParam` container skill. Use `AgentSkillReference` and `ProjectsAgentsModelFactory.AgentSkillReference` for the previous agent skill reference.
+    - Renamed the following properties and their corresponding model-factory parameters where present. Type names in the table reflect the renamed models above.
+
+    | Type | Previous | Replacement |
+    | --- | --- | --- |
+    | `A2AToolboxTool`, `A2APreviewToolboxTool` | `BaseUrl` | `BaseUri` |
+    | `TelephonyBinding`, `TelephonyBindingListItem` | `IncomingCallUrl` | `IncomingCallUri` |
+    | `VoiceAgentAudioOutputConfiguration` | `CustomLexiconUrl`, `CustomTextNormalizationUrl` | `CustomLexiconUri`, `CustomTextNormalizationUri` |
+    | `VoiceAgentAvatarVideoBackground` | `ImageUrl` | `ImageUri` |
+    | `VoiceAgentMcpTool` | `ServerUrl` | `ServerUri` |
+    | `TelephonyCallRecord`, `TelephonyCallSummary`, `VoiceAudioItem`, `VoiceGeneratedAudioItem`, `VoiceRecording` | `DurationMs` | `Duration` |
+    | `VoiceAudioItem`, `VoiceGeneratedAudioItem` | `StartOffsetMs` | `StartOffset` |
+    | `AgentOptimizationJob` | `RunDurationMs` | `RunDuration` |
+    | `AgentOptimizationCandidateEvaluation`, `AgentOptimizationJobLatency` | `AvgLatencyMs` | `AvgLatency` |
+    | `SessionConfiguration` | `IdleTimeoutSeconds` | `IdleTimeout` |
+    | `VoiceAgentEndOfUtteranceDetection` | `TimeoutMs` | `Timeout` |
+    | `VoiceAgentInterimResponseConfiguration` | `LatencyThresholdMs` | `LatencyThreshold` |
+    | `FileSearchToolboxTool` | `MaxNumResults` | `MaxResultCount` |
+    | `UserConversationSimulationConfiguration` | `DesiredNumTurns`, `MaxNumTurns` | `DesiredTurnCount`, `MaxTurnCount` |
+    | `ToolboxPolicies` | `RaiConfig` | `ContentFilterConfiguration` |
+
+    - On `VoiceAgentServerVadTurnDetection`, `VoiceAgentAzureSemanticVadTurnDetection`, `VoiceAgentAzureSemanticVadEnTurnDetection`, and `VoiceAgentAzureSemanticVadMultilingualTurnDetection`, renamed `PrefixPaddingMs`, `SilenceDurationMs`, and `SpeechDurationMs` to `PrefixPadding`, `SilenceDuration`, and `SpeechDuration`. On `VoiceAgentServerVadTurnDetection`, `IdleTimeoutMs` was also renamed to `IdleTimeout`, and `IdleTimeout`, `PrefixPadding`, and `SilenceDuration` changed from `long?` to `TimeSpan?`. Convert millisecond values with `TimeSpan.FromMilliseconds`. The corresponding model-factory parameters changed as well.
+    - On those four turn-detection types and `VoiceAgentSemanticVadTurnDetection`, renamed `CreateResponse` and `InterruptResponse` to `CreateResponseEnabled` and `InterruptResponseEnabled`, including the corresponding model-factory parameters.
+    - `CallableToolAllowedCaller`, `VoiceAgentAudioInputConfigTranscriptionDelay`, `VoiceAgentAudioTimestampType`, `VoiceAgentEchoCancellationReferenceSource`, and `VoiceAgentSessionIncludeOption` changed from enums to extensible structs. Replace enum-specific casts and constant `switch` cases with comparisons against their static values.
+    - `AllowedCallers` is now get-only on `CodeInterpreterToolboxTool`, `McpToolboxTool`, and `VoiceAgentMcpTool`; add items to the collection instead of replacing it. The `ShellToolboxTool.AllowedCallers` setter was also removed.
+    - Renamed `AgentAdministrationClient.GetAgentOptimizationJobCandidatesClient` to `GetAgentOptimizationJobCandidates`.
+    - `AgentAdministrationClient.GetSessionLogStream` and `GetSessionLogStreamAsync` are now experimental and require the `AAIP001` diagnostic to be suppressed on supported target frameworks.
+    - Renamed the `internalMaxOutputTokens` named parameter of `ProjectsAgentsModelFactory.VoiceAgentDefinition` to `maxOutputTokens`.
+- Name: Azure.AI.Projects
+  Version: 3.0.0
+  DisplayName: AI Foundry
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Projects_3.0.0/sdk/ai/Azure.AI.Projects/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Added `[Experimental("AAIP001")]` to the following APIs that shipped without the attribute in 2.0.x. Using them now requires suppressing the `AAIP001` diagnostic.
+    - Types in `Azure.AI.Projects`: `ProjectsScheduleTask`, `TreatmentEffectType`.
+    - Types in `Azure.AI.Projects.Evaluation`:
+    `AgentClusterInsightRequest`, `AgentClusterInsightResult`, `AgentTaxonomyInput`, `AttackStrategy`,
+    `AzureOpenAIModelConfiguration`, `ChartCoordinate`, `ClusterInsightResult`, `ClusterTokenUsage`,
+    `CodeBasedEvaluatorDefinition`, `CronTrigger`, `DailyRecurrenceSchedule`, `EvalResult`,
+    `EvalRunResultCompareItem`, `EvalRunResultComparison`, `EvalRunResultSummary`,
+    `EvaluationComparisonInsightRequest`, `EvaluationComparisonInsightResult`, `EvaluationResultSample`,
+    `EvaluationRunClusterInsightRequest`, `EvaluationRunClusterInsightResult`, `EvaluationScheduleTask`,
+    `EvaluationTaxonomies`, `EvaluationTaxonomy`, `EvaluationTaxonomyInput`, `HourlyRecurrenceSchedule`,
+    `InsightCluster`, `InsightModelConfiguration`, `InsightRequest`, `InsightResult`, `InsightSample`,
+    `InsightScheduleTask`, `InsightSummary`, `InsightType`, `InsightsMetadata`, `MonthlyRecurrenceSchedule`,
+    `OneTimeTrigger`, `ProjectsInsight`, `ProjectsSchedule`, `PromptBasedEvaluatorDefinition`,
+    `RecurrenceSchedule`, `RecurrenceTrigger`, `RedTeam`, `RiskCategory`, `ScheduleProvisioningStatus`,
+    `ScheduleRun`, `ScheduleTaskType`, `ScheduleTrigger`, `TargetConfig`, `TaxonomyCategory`,
+    `TaxonomySubCategory`, `WeeklyRecurrenceSchedule`.
+    - Types in `Azure.AI.Projects.Memory`:
+    `ChatSummaryMemoryItem`, `DeleteMemoryStoreResponse`, `MemoryItem`, `MemoryOperation`,
+    `MemoryOperationKind`, `MemorySearchItem`, `MemorySearchOptions`, `MemoryStore`,
+    `MemoryStoreDefaultDefinition`, `MemoryStoreDefaultOptions`, `MemoryStoreDefinition`,
+    `MemoryStoreDeleteScopeResponse`, `MemoryStoreObjectType`, `MemoryStoreOperationUsage`,
+    `MemoryStoreSearchResponse`, `MemoryUpdateResult`, `MemoryUpdateResultDetails`, `UserProfileMemoryItem`.
+    - `AIProjectClient` properties: `Insights`, `MemoryStores`, `RedTeams`, `Schedules`.
+    - `AzureAIProjectsModelFactory` methods:
+    `AgentClusterInsightRequest`, `AgentClusterInsightResult`, `AzureOpenAIModelConfiguration`,
+    `ChartCoordinate`, `ClusterInsightResult`, `ClusterTokenUsage`, `CodeBasedEvaluatorDefinition`,
+    `DeleteMemoryStoreResponse`, `EvalResult`, `EvalRunResultCompareItem`, `EvalRunResultComparison`,
+    `EvalRunResultSummary`, `EvaluationComparisonInsightRequest`, `EvaluationComparisonInsightResult`,
+    `EvaluationRunClusterInsightRequest`, `EvaluationRunClusterInsightResult`, `EvaluationScheduleTask`,
+    `EvaluationTaxonomy`, `HumanEvaluationPreviewRuleAction`, `InsightCluster`, `InsightModelConfiguration`,
+    `InsightRequest`, `InsightResult`, `InsightScheduleTask`, `InsightSummary`, `InsightsMetadata`,
+    `MemoryOperation`, `MemorySearchItem`, `MemoryStore`, `MemoryStoreDefaultOptions`,
+    `MemoryStoreDeleteScopeResponse`, `MemoryStoreSearchResponse`, `MemoryUpdateResultDetails`,
+    `ProjectsInsight`, `ProjectsSchedule`, `ProjectsScheduleTask`, `PromptBasedEvaluatorDefinition`,
+    `RedTeam`, `ScheduleRun`, `TargetConfig`, `TaxonomyCategory`, `TaxonomySubCategory`.
+    - `AIProjectClient.GetAIProjectMemoryStoresClient()` also now requires suppression of `AAIP001`. The current `AzureAIProjectsModelFactory.MemoryStoreOperationUsage` overload is experimental as well; its signature differs from the 2.0.x overload.
+    - Renamed `ModelCredentialRequest` to `ModelCredentialContent`.
+    - The `ModelSamplingParams` class was removed. Please use `ModelSamplingParams` from `Azure.AI.Projects.Agents` package.
+    - The `AzureAIModelTarget` property `SamplingParams` was renamed to `SamplingParameters` and now uses `ModelSamplingParams` from `Azure.AI.Projects.Agents`. The corresponding `AzureAIProjectsModelFactory.AzureAIModelTarget` parameter was renamed from `samplingParams` to `samplingParameters`.
+    - `InputFileContentParam` and `InputTextContentParam` classes were removed.
+    - `ResponseUsageInputTokensDetails` and `ResponseUsageOutputTokensDetails` were removed: `MemoryStoreOperationUsage.InputTokensDetails` and `OutputTokensDetails` now return `OpenAI.Responses.ResponseInputTokenUsageDetails` and `ResponseOutputTokenUsageDetails`.
+    - `Azure.AI.Projects.Memory.MemorySearchResultOptions` was removed: `MemorySearchOptions.ResultOptions` is now `Azure.AI.Extensions.OpenAI.MemorySearchResultOptions`.
+    - `OpenAI.AgentObjectType` was removed.
+    - The `Azure.AI.Projects.Agents` dependency has renamed agent models and members used by project clients. For example, replace `VersionRefIndicator` with `VersionReferenceIndicator` and `VoiceAgentAudioConfig` with `VoiceAgentAudioConfiguration`. See the `Azure.AI.Projects.Agents` changelog for the complete list.
+    - Renamed `Azure.AI.Projects.DatasetReference` to `Azure.AI.Projects.Evaluation.VersionedDatasetReference` and renamed the corresponding model-factory method.
+    - Moved `RubricBasedEvaluatorDefinition` and `TracesEvaluatorGenerationJobSource` from `Azure.AI.Projects` to `Azure.AI.Projects.Evaluation`.
+    - Renamed timestamp properties and corresponding constructor/model-factory parameters from `*On` to `*At` on routine, data-generation, evaluator-generation, and Agent Insights models.
+    - Changed `EvaluationsDimension.Weight` and the corresponding constructor/model-factory parameters from `int` to `int?` to support null weights.
+    - Removed `AgentInsightsV1Preview` from `FoundryFeaturesOptInKeys`.
+    - The `AzureAIModelTarget` property `SamplingParams` was renamed to `samplingParameters`.
+    - Added `[Experimental("AAIP002")]` to `AzureAIProjectsModelFactory.AzureAIAgentTarget(string, string, IEnumerable<ToolDescription>)`, which shipped without the attribute in 2.0.x. Using it now requires suppressing the `AAIP002` diagnostic.
+
+    #### Features Added
+    - Uploading of models now can be cancelled.
+- Name: Azure.ResourceManager.IotHub
+  Version: 1.2.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.IotHub_1.2.0/sdk/iothub/Azure.ResourceManager.IotHub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.EventHubs
+  Version: 1.4.0-beta.2
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EventHubs_1.4.0-beta.2/sdk/eventhub/Azure.ResourceManager.EventHubs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.27.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.27.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded `Azure.Storage.Blobs` package dependency to 12.30.2
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.28.0-beta.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.28.0-beta.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Upgraded `Azure.Storage.Blobs` package dependency to 12.31.0-beta.2
+- Name: Azure.ResourceManager.CognitiveServices
+  Version: 1.7.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CognitiveServices_1.7.0/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Data.AI
+  Version: 1.1.0-beta.1
+  DisplayName: Semantic Reranker
+  ServiceName: Semantic Reranker
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AI_1.1.0-beta.1/sdk/dataai/Azure.Data.AI/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The default service API version is now `2026-11-01-preview`. Select `InferenceClientOptions.ServiceVersion.V2026_10_30` explicitly to continue using the stable semantic reranking API.
+
+    #### Features Added
+
+    - Added multimodal embedding operations for text, queries, and document images, with dense, multi-vector, and combined results.
+    - Added inline and link delivery, output encoding and numeric precision selection, and embedding usage and warnings.
+    - Added flattened `GetEmbeddings` and `GetEmbeddingsAsync` methods; callers pass request settings directly rather than creating a request options object.
+    - Added .NET overloads that accept anonymous objects or dictionaries as embedding inputs and return typed results, without requiring `EmbeddingInput` instances. Omitted input kinds default to text; PascalCase members and SDK content kinds are supported, and unknown or duplicate properties are rejected.
+    - Added generic embedding result and usage models, with specialized multimodal implementations.
+- Name: Azure.Storage.Blobs
+  Version: 12.30.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.30.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed SAS builder/client resource-name validation to use ordinal comparisons in `BlobBaseClient` and `BlobContainerClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+    - Fixed an issue where `BlobClient.Upload(..., overwrite: false)` with upload checksum validation configured as `StorageChecksumAlgorithm.StorageCrc64` could throw `InvalidDataException` when the blob already existed. The operation now surfaces the expected `RequestFailedException` for `409 *AlreadyExists`.
+    - Fixed client-side encryption v1 decryption of ranged downloads so the 16-byte IV is fully read even when the ciphertext stream returns short reads, and a truncated IV now fails instead of silently corrupting plaintext.
+    - Fixed SAS timestamp handling for non-UTC `DateTimeOffset` values. SAS times are now normalized to UTC before formatting/signing, preventing unintended validity windows in st/se (Start Time, Expiry Time) and related delegation key fields. Affected APIs include:
+    - `BlobBaseClient.GenerateSasUri(...)`
+    - `BlobBaseClient.GenerateUserDelegationSasUri(...)`
+    - `BlobContainerClient.GenerateSasUri(...)`
+    - `BlobContainerClient.GenerateUserDelegationSasUri(...)`
+    - `BlobServiceClient.GenerateAccountSasUri(...)`
+    - `BlobSasBuilder`
+- Name: Azure.Storage.Blobs
+  Version: 12.31.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.31.0-beta.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS builder/client resource-name validation to use ordinal comparisons in `BlobBaseClient` and `BlobContainerClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+    - Fixed an issue where `BlobClient.Upload(..., overwrite: false)` with upload checksum validation configured as `StorageChecksumAlgorithm.StorageCrc64` could throw `InvalidDataException` when the blob already existed. The operation now surfaces the expected `RequestFailedException` for `409 *AlreadyExists`.
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.11.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.11.0-beta.1/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerService
+  Version: 1.10.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerService_1.10.0/sdk/containerservice/Azure.ResourceManager.ContainerService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ContainerServiceSafeguards
+  Version: 1.0.0-beta.1
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ContainerServiceSafeguards_1.0.0-beta.1/sdk/containerservicesafeguards/Azure.ResourceManager.ContainerServiceSafeguards/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.28.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.28.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS timestamp handling for non-UTC `DateTimeOffset` values. SAS times are now normalized to UTC before formatting/signing, preventing unintended validity windows in st/se (Start Time, Expiry Time) and related delegation key fields. Affected APIs include:
+    - `DataLakeFileSystemClient.GenerateSasUri(...)`
+    - `DataLakeFileSystemClient.GenerateUserDelegationSasUri(...)`
+    - `DataLakePathClient.GenerateSasUri(...)`
+    - `DataLakePathClient.GenerateUserDelegationSasUri(...)`
+    - `DataLakeServiceClient.GenerateAccountSasUri(...)`
+    - `DataLakeSasBuilder`
+    - Fixed SAS builder/client file system and path name validation to use ordinal comparisons in `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, and `DataLakePathClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.29.0-beta.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.29.0-beta.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed SAS builder/client file system and path name validation to use ordinal comparisons in `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, and `DataLakePathClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+
