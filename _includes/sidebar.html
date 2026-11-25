@@ -29,14 +29,15 @@
           {% endif %}
           <ul>
             {% for folderitem in folder.folderitems %}
+              {% if folderitem.archived %}{% assign folderitem_title = folderitem.title | append: " (Archived)" %}{% else %}{% assign folderitem_title = folderitem.title %}{% endif %}
               {% if folderitem.external_url %}
-                <li><a title="{{folderitem.title}}" href="{{folderitem.external_url}}" target="_blank" rel="noopener">{{folderitem.title}}</a></li>
+                <li><a title="{{folderitem_title}}" href="{{folderitem.external_url}}" target="_blank" rel="noopener">{{folderitem_title}}</a></li>
               {% elsif page.url == folderitem.url %}
-                <li class="active"><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+                <li class="active"><a title="{{folderitem_title}}" href="{{folderitem.url | relative_url }}">{{folderitem_title}}</a></li>
               {% elsif folderitem.type == "empty" %}
-                <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+                <li><a title="{{folderitem_title}}" href="{{folderitem.url | relative_url }}">{{folderitem_title}}</a></li>
               {% else %}
-                <li><a title="{{folderitem.title}}" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
+                <li><a title="{{folderitem_title}}" href="{{folderitem.url | relative_url }}">{{folderitem_title}}</a></li>
               {% endif %}
               {% for subfolders in folderitem.subfolders %}
                 <li class="subfolders">
