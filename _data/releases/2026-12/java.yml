@@ -177,4 +177,18 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-netapp_2.6.0/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: com.azure+azure-data-appconfiguration
+  Version: 1.13.0-beta.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure+azure-data-appconfiguration_1.13.0-beta.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FeatureFlagClient`, `FeatureFlagAsyncClient`, and `FeatureFlagClientBuilder` for the dedicated feature flag resource using API version `2026-05-01-preview`. These resources are separate from key-value-backed `FeatureFlagConfigurationSetting` instances.
+    - Added feature flag resource models for conditions, variants, allocation, and telemetry, plus selectors, conditional operations, paged listing, and revision history.
+    - Feature flag clients list feature flag labels, while configuration clients continue to list key-value labels.
+  GroupId: com.azure
 
