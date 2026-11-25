@@ -1,0 +1,254 @@
+entries:
+- Name: '@typespec/ts-http-runtime'
+  Version: 0.3.11
+  DisplayName: TypeSpec HTTP Runtime
+  ServiceName: TypeSpec
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.11/sdk/core/ts-http-runtime/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Downgrade `http-proxy-agent` and `https-proxy-agent` dependencies to v7. Fix issue [#40759](https://github.com/Azure/azure-sdk-for-js/issues/40759).
+- Name: '@azure/arm-netapp'
+  Version: 26.0.0
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 13.0.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 13.0.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservicefleet'
+  Version: 2.3.0-beta.1
+  DisplayName: Resource Management - Container Service Fleet
+  ServiceName: Container Service Fleet
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.3.0-beta.1/sdk/containerservice/arm-containerservicefleet/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 6.1.0-beta.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/app-configuration'
+  Version: 1.13.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.2/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved Microsoft Entra ID authentication audience inference for additional App Configuration endpoint formats. [#40781](https://github.com/Azure/azure-sdk-for-js/pull/40781)
+    - Removed the direct dependency on `@azure/core-client` while preserving the existing client options. [#40645](https://github.com/Azure/azure-sdk-for-js/pull/40645)
+    - Removed the direct dependency on `@azure/core-http-compat` by defining structurally compatible legacy `_response` types in this package. [#40651](https://github.com/Azure/azure-sdk-for-js/pull/40651)
+- Name: '@azure/arm-mongocluster'
+  Version: 1.3.0
+  DisplayName: Resource Management - Mongo Cluster
+  ServiceName: Mongo Cluster
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.3.0/sdk/mongocluster/arm-mongocluster/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 13.2.0-beta.1
+  DisplayName: Azure AI Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_13.2.0-beta.1/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added input-only types for random scoring, compatible vectorizers and ingestion models, additional knowledge-source kinds, agentic queries, image vector queries, and strict post-filtering while retaining October GA aliases and response contracts. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Added `KnowledgeBaseInput` and `KnowledgeBaseModelInput` for Azure OpenAI, Microsoft Retriever 1, and OpenAI-compatible model inputs to knowledge-base create/create-or-update methods. The legacy `KnowledgeBaseModel` alias, `KnowledgeBase.models` field, response types, and wire behavior remain unchanged. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Carried forward typed protocol SSE retrieval, the root `KnownContentUnderstandingSkillChunkingMethod` export, released body-first protocol operation overloads, legacy listing APIs, and legacy TypeScript protocol-subpath resolution from the `2026-10-01` GA SDK. [#40171](https://github.com/Azure/azure-sdk-for-js/pull/40171)
+    - Added support for `2026-11-01-preview`, generated from Azure/azure-rest-api-specs commit `b41ba04c0219f6622b7f5214fc020f90bad339ae` (PR #47300). This is now the default service version; explicit stable and older preview versions remain selectable.
+    - Added `SearchClient.graph` with typed graph rows, provenance, statistics, diagnostics, explain plans, and structured query errors, plus graph index profiles and knowledge source graph extraction/retrieval configuration.
+    - Added topic-graph `none`, `diverse`, and `balanced` vector queries, topic graph profiles, and per-field/per-knowledge-source configuration.
+    - Added knowledge base tools, tool-scoped retrieval, graph-search activities/references, facet-based filter hint `autoConfiguration`, protocol-level OpenAI-compatible models/vectorizers and Microsoft Retriever 1, and ingestion cache settings.
+    - Added asynchronous File ingestion and replacement pollers, paged ingestion operation diagnostics, and file capacity/graph ingestion statistics. Pollers use `@azure/core-lro`; keep the poller unawaited to observe progress or call `pollUntilDone`.
+    - Added protocol-level agentic queries, query options/diagnostics, `moreLikeThis`, GPT-6 model names, Content Understanding model options, OneLake security fields, ACL refresh settings, and expanded SharePoint content containers.
+
+    #### Bugs Fixed
+
+    - Preserved binary-image vector query content through search and graph requests, guarded MCP and Work IQ sample cleanup, and corrected graph provenance and request-time query hints in the November sample. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Prevented File, Freshness, and Knowledge Base Configuration samples from deleting unowned resources, and separated embedding/chat model names from deployment aliases in the affected examples. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Preserved graph projection columns named `provenance` and original HTTP errors when graph error responses contain plain text or malformed diagnostics. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Fixed text-vector query rewrite serialization for search and graph queries, preserved AML vectorizer authentication during index read/update round trips, and corrected the documented protocol document-count return type. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Preserved additional knowledge-source kinds during convenience get/list conversion and forwarded per-operation headers, timeouts, and response callbacks through fresh and resumed File ingestion polls. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Fixed legacy semantic-field continuation tokens, preserved custom knowledge-store parameters in skillset round trips, and corrected preview sample resource cleanup and embedding-model configuration. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Kept `VectorQueryKind`, `BaseVectorQuery.kind`, and `VectorFilterMode` closed to October GA values while retaining preview known values and protocol models. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Preserved October GA's numeric protocol `getDocumentCount` result and legacy listing result/option exports. Body-first protocol calls remain supported alongside name-first preview calls. [#40171](https://github.com/Azure/azure-sdk-for-js/pull/40171)
+    - Preserved October GA's closed convenience unions for scoring functions, knowledge bases and sources, vectorizers, vector queries, and search query types. Preview alternatives use separate additive input types rather than widening GA contracts. [#40171](https://github.com/Azure/azure-sdk-for-js/pull/40171)
+    - Preserved GA ETag round-tripping, document fields that share metadata names, custom analyzers/vectorizers/skill aliases, dynamic indexer configuration, resource continuation tokens, search continuation parameters, delete options, and semantic query options. [#40171](https://github.com/Azure/azure-sdk-for-js/pull/40171)
+    - Validated SSE response content types, closed terminal/invalid streams, and preserved HTTP errors for malformed JSON error bodies on Node.js and browser transports. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Restored required GA scoring fields and their protocol serialization, including unrecognized scoring-function kinds. [#40171](https://github.com/Azure/azure-sdk-for-js/pull/40171)
+    - Fixed service-statistics deserialization for GA responses without knowledge counters; preview knowledge counters are optional and preserved when returned. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+    - Preserved streaming and pagination customizations during regeneration, including continuation and cancellation for the new ingestion-operation listing.
+
+    #### Breaking Changes
+
+    - Removed the older preview constants `KnownVersions.V20251101Preview`, `V20260501Preview`, and `V20260801Preview` from `@azure/search-documents/models`. Callers using these constants must pass the corresponding API-version strings instead. The April and October GA constants remain available, and explicit older preview API-version strings remain accepted by the clients. [#40458](https://github.com/Azure/azure-sdk-for-js/pull/40458)
+- Name: '@azure/arm-networksecurity'
+  Version: 1.0.0-beta.2
+  DisplayName: unknown
+  ServiceName: unknown
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networksecurity_1.0.0-beta.2/sdk/networksecurity/arm-networksecurity/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 17.1.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-containerservice'
+  Version: 25.9.0-beta.1
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/web-pubsub-chat'
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub Chat
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-chat_1.0.0-beta.2/sdk/web-pubsub/web-pubsub-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service API version `2026-08-01-preview`, including listing rooms, users, and a user's rooms, and creating, retrieving, updating, listing, and soft deleting room topics. [API specification](https://github.com/Azure/azure-rest-api-specs/pull/46545)
+
+    #### Bugs Fixed
+
+    - Preserved request headers and cancellation when following message pagination links or resuming message pages. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Made `ChatMessageUpdate.createdBy` and `content` optional so that `updateMessage` supports partial PATCH requests. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Preserved the optional `state` property in `ChatTopicCreateOrReplace` so topic PUT requests support replacement without requiring state during creation. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+
+    #### Breaking Changes
+
+    - Removed `continuationToken` from list operation options. Resume pagination with `byPage({ continuationToken })` using the token returned on a page. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Renamed `ChatConversation.parentRoom` to `roomId` in the SDK; the service JSON property remains `parentRoom`. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Renamed PUT request models from `ChatRoleInput`, `ChatRoomInput`, `ChatRoomMemberInput`, `ChatTopicInput`, and `HumanChatUserInput` to their corresponding `CreateOrReplace` names. Renamed `ChatMessageInput` to `ChatMessageUpdate` to match `ChatTopicUpdate` and Python lifecycle naming. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Changed `createOrReplaceUser` to accept `HumanChatUserCreateOrReplace`, requiring `kind: "Human"`, `nickname`, and `roleName`. Removed the generic `ChatUserInput` and `ChatUserInputUnion` request types; response models continue to support unknown user kinds. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+    - Changed `ChatUserKind` to an extensible string type to match the response contract. Human creation inputs still require the literal `"Human"`. [#40348](https://github.com/Azure/azure-sdk-for-js/pull/40348)
+- Name: '@azure/arm-privatedns'
+  Version: 4.1.0-beta.1
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub'
+  Version: 7.0.0-beta.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cognitiveservices'
+  Version: 9.1.0-beta.1
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commvaultcontentstore'
+  Version: 2.0.0
+  DisplayName: Resource Management - Commvault ContentStore
+  ServiceName: Commvault ContentStore
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commvaultcontentstore_2.0.0/sdk/commvaultcontentstore/arm-commvaultcontentstore/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 39.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-servicebus'
+  Version: 8.0.0-beta.1
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/keyvault-admin'
+  Version: 4.8.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.8.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `2026-04-01`. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - (From 4.7.3-beta.1) Added `KeyVaultEkmClient` for managing Managed HSM External Key Manager (EKM) connections, exposing `getEkmConnection`, `createEkmConnection`, `updateEkmConnection`, `deleteEkmConnection`, `getEkmCertificate`, and `checkEkmConnection`. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - (From 4.7.3-beta.1) Added the `EkmConnection`, `EkmProxyClientCertificateInfo`, and `EkmProxyInfo` models supporting the EKM client. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+
+    #### Breaking Changes
+
+    - These changes do not impact the API of stable versions such as 4.7.2. Only code written against a beta version such as 4.7.3-beta.1 may be affected. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - Removed support for service API version `2026-01-01-preview`; use `2026-04-01` instead. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+- Name: '@azure/keyvault-keys'
+  Version: 4.11.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.11.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Corrected local RSA signature verification to use the padding and salt length required by the requested algorithm. [#40780](https://github.com/Azure/azure-sdk-for-js/pull/40780)
+
+    #### Features Added
+
+    - Added `CryptographyClient.secureWrapKey` and `CryptographyClient.secureUnwrapKey` to perform secure key operations with a key-bound client. These operations require Managed HSM and cannot run with local-only keys. [#40887](https://github.com/Azure/azure-sdk-for-js/pull/40887)
+    - Added support for service version `2026-04-01`. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - (From 4.11.0-beta.1) Added the `KeyClient.createExternalKey` method and the `ExternalKey` model to create a Managed HSM key backed by a key stored in an external key management system, along with the `externalKey` and read-only `keySize` properties on `KeyProperties`. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - (From 4.11.0-beta.1) Added the `SecureKeyWrapAlgorithm`, `SecureKeyOperationResult`, `SecureWrapKeyOptions`, and `SecureUnwrapKeyOptions` types. Only supported on Managed HSM. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - (From 4.11.0-beta.1) Added the `SecureWrapKey` and `SecureUnwrapKey` values to `KnownKeyOperations`. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+
+    #### Breaking Changes
+
+    - These changes do not impact the API of stable versions such as 4.10.2. Only code written against a beta version such as 4.11.0-beta.1 may be affected. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+    - Moved `secureWrapKey` and `secureUnwrapKey` from `KeyClient` to `CryptographyClient`. Obtain a key-bound client using `KeyClient.getCryptographyClient` and omit the key name argument when calling these operations. [#40887](https://github.com/Azure/azure-sdk-for-js/pull/40887)
+    - Removed support for service API version `2026-01-01-preview`; use `2026-04-01` instead. [#40772](https://github.com/Azure/azure-sdk-for-js/pull/40772)
+
