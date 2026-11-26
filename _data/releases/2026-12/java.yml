@@ -191,4 +191,13 @@ entries:
     - Added feature flag resource models for conditions, variants, allocation, and telemetry, plus selectors, conditional operations, paged listing, and revision history.
     - Feature flag clients list feature flag labels, while configuration clients continue to list key-value labels.
   GroupId: com.azure
+- Name: com.azure.resourcemanager+azure-resourcemanager-netapp
+  Version: 2.7.0-beta.1
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/com.azure.resourcemanager+azure-resourcemanager-netapp_2.7.0-beta.1/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
