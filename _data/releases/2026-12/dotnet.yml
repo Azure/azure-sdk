@@ -495,4 +495,20 @@ entries:
     #### Bugs Fixed
 
     - Fixed SAS builder/client file system and path name validation to use ordinal comparisons in `DataLakeFileSystemClient`, `DataLakeDirectoryClient`, and `DataLakePathClient`, so culture-equivalent but service-distinct Unicode names are rejected when generating SAS URIs.
+- Name: Azure.ResourceManager.RecoveryServices
+  Version: 1.5.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServices_1.5.0/sdk/recoveryservices/Azure.ResourceManager.RecoveryServices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.RecoveryServicesSiteRecovery
+  Version: 1.4.0
+  DisplayName: Resource Management - Recovery Services Site Recovery
+  ServiceName: Recovery Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.RecoveryServicesSiteRecovery_1.4.0/sdk/recoveryservices-siterecovery/Azure.ResourceManager.RecoveryServicesSiteRecovery/CHANGELOG.md
+  ChangelogContent: ""
 
